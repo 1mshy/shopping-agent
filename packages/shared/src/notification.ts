@@ -17,9 +17,10 @@ const listingAlert = { ...event, watchId: Id, listingId: Id, observationId: Id }
 export const NotificationEvent = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal('price_drop'), ...listingAlert }),
   z.strictObject({ kind: z.literal('restock'), ...listingAlert }),
-  z.strictObject({ kind: z.literal('new_listing'), ...event, watchId: Id, listingId: Id }),
+  /** Pushed on a valuation, which rests on a price (S§5.9). */
+  z.strictObject({ kind: z.literal('new_listing'), ...listingAlert }),
   z.strictObject({ kind: z.literal('recommendation'), ...event, feedCardId: Id }),
-  /** Model prose with code-filled placeholders, rendered as plain text (S§2.1, S§5.15). */
+  /** Model prose, rendered as plain text (S§5.15); its placeholder contract is Phase 2's (S§2.1). */
   z.strictObject({ kind: z.literal('agent'), ...event, runId: Id, text }),
   z.strictObject({ kind: z.literal('system'), ...event, text }),
 ]);

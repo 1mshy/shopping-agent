@@ -6,9 +6,9 @@ import { MinorUnitCurrency } from './currency.ts';
  * integer and may be negative (differences, discounts). The currency is required and has a
  * minor-unit exponent, so `unknown` and codes without a minor unit (XAU, XDR, XXX, ...) are not
  * Money: an amount in minor units means nothing without an exponent. Functions live in
- * `@agentic-dasher/core`.
+ * `@agentic-dasher/core`. Strict: an unknown key is refused, not stripped.
  */
-export const Money = z.object({
+export const Money = z.strictObject({
   amountMinor: z.int(),
   currency: MinorUnitCurrency,
 });

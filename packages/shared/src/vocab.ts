@@ -242,6 +242,20 @@ export const RUN_STATUSES = ['running', 'completed', 'cancelled', 'failed'] as c
 export const RunStatus = z.enum(RUN_STATUSES);
 export type RunStatus = z.infer<typeof RunStatus>;
 
+/**
+ * run.type: the run types of the S§5.7 table (fast search, chat, dig-deeper store run, deep job,
+ * recommendation jobs). One run has one type; its model calls carry the endpoint role.
+ */
+export const RUN_TYPES = [
+  'fast_search',
+  'chat',
+  'store_run',
+  'deep_job',
+  'recommendation_job',
+] as const;
+export const RunType = z.enum(RUN_TYPES);
+export type RunType = z.infer<typeof RunType>;
+
 /** job_run.status; health reports skipped runs (S§5.8). */
 export const JOB_RUN_STATUSES = ['running', 'completed', 'failed', 'skipped'] as const;
 export const JobRunStatus = z.enum(JOB_RUN_STATUSES);

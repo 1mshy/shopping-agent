@@ -1,9 +1,23 @@
 // S§4.1 match_verdict and the model judge's output (S§5.4).
 import { z } from 'zod';
-import { AttributeName, distinct, Timestamp, Version } from './common.ts';
+import { AttributeName, distinct, ModelAttributeName, Timestamp, Version } from './common.ts';
 import { DecidedBy, MatchRelation } from './vocab.ts';
 
 const fingerprint = z.string().min(1).max(256);
+
+/** `exact` means the two would share a barcode (S§5.4), so no attribute may differ. */
+function exactHasNoDifference(
+  v: { relation: MatchRelation; differingAttrs: string[] },
+  ctx: z.RefinementCtx,
+): void {
+  if (v.relation === 'exact' && v.differingAttrs.length > 0) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['differingAttrs'],
+      message: 'an exact match has no differing attribute (S§5.4)',
+    });
+  }
+}
 
 /**
  * Cached identity decision, keyed on spec and listing fingerprints, matcher version, prompt version
@@ -22,6 +36,7 @@ export const MatchVerdict = z
     decidedAt: Timestamp,
   })
   .superRefine((v, ctx) => {
+    exactHasNoDifference(v, ctx);
     const byModel = v.decidedBy === 'model';
     for (const path of ['promptVersion', 'modelId'] as const) {
       if (byModel !== (v[path] !== null)) {
@@ -32,17 +47,20 @@ export const MatchVerdict = z
 export type MatchVerdict = z.infer<typeof MatchVerdict>;
 
 /**
- * One judged listing, as the model returns it: `{id, relation, differing_attrs, reason}` (S§5.4).
- * Strict, so no extra field can carry a figure. `differingAttrs` holds attribute names only.
- * `reason` is diagnostic: it stays in the run step payload and is never copied into a verdict or
- * shown as a fact. The id is the batch label code assigned; code checks it against the batch.
+ * One judged listing, as the model returns it: `{id, relation, differingAttrs, reason}` (S§5.4).
+ * Strict, so no extra field can carry a figure. `differingAttrs` holds distinct attribute names
+ * only. `reason` is diagnostic: it stays in the run step payload and is never copied into a
+ * verdict or shown as a fact. The id is the batch label code assigned; code checks it against the
+ * batch.
  */
-export const JudgeVerdict = z.strictObject({
-  id: z.string().regex(/^[A-Za-z0-9_-]{1,16}$/),
-  relation: MatchRelation,
-  differingAttrs: z.array(AttributeName).max(10),
-  reason: z.string().max(300),
-});
+export const JudgeVerdict = z
+  .strictObject({
+    id: z.string().regex(/^[A-Za-z0-9_-]{1,16}$/),
+    relation: MatchRelation,
+    differingAttrs: distinct(ModelAttributeName, 10),
+    reason: z.string().min(1).max(300),
+  })
+  .superRefine(exactHasNoDifference);
 export type JudgeVerdict = z.infer<typeof JudgeVerdict>;
 
 /** A judge call's output: at most 15 listings (S§5.4), each id once. */
