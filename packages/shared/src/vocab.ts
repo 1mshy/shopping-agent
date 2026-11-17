@@ -1,6 +1,6 @@
 // Enumerated vocabularies of the data model, with the spec's exact values and order. One source of
-// truth for the Zod domain schemas and the Drizzle migration. Only fields whose values the spec
-// lists in full are here; a field the spec names without listing values is left out on purpose.
+// truth for the Zod domain schemas and the Drizzle migration. Only values the spec states are here
+// (in S§4, or in the S§5 sentence cited); a field with no such basis is left out on purpose.
 import { z } from 'zod';
 
 // S§4.1 store
@@ -171,3 +171,134 @@ export type LlmEndpointRole = z.infer<typeof LlmEndpointRole>;
 export const COST_SOURCES = ['provider', 'settings', 'none'] as const;
 export const CostSource = z.enum(COST_SOURCES);
 export type CostSource = z.infer<typeof CostSource>;
+
+// Workstream 2b: fields S§4 names without listing values, enumerated from the S§5 prose cited.
+
+/**
+ * How a price was read: the S§5.2 reader ladder (platform JSON → JSON-LD → microdata → OpenGraph)
+ * plus a hand-written adapter (S§5.2, S§5.9). The browser is a rung, not a method: a rendered page
+ * is read with the same methods. Used by store.read_route, price_observation.read_path and the
+ * method of each raw candidate.
+ */
+export const READ_METHODS = [
+  'platform_json',
+  'json_ld',
+  'microdata',
+  'opengraph',
+  'adapter',
+] as const;
+export const ReadMethod = z.enum(READ_METHODS);
+export type ReadMethod = z.infer<typeof ReadMethod>;
+
+/** store.identifiers_offered: GTIN and MPN (identity tier 1, S§5.4), SKU (listing key, S§5.3). */
+export const IDENTIFIER_KINDS = ['gtin', 'mpn', 'sku'] as const;
+export const IdentifierKind = z.enum(IDENTIFIER_KINDS);
+export type IdentifierKind = z.infer<typeof IdentifierKind>;
+
+/** The kinds of a typed `FetchOutcome` (S§5.1). */
+export const FETCH_OUTCOME_KINDS = [
+  'ok',
+  'not_found',
+  'wall',
+  'rate_limited',
+  'payment_required',
+  'login_required',
+  'empty',
+  'server_error',
+  'network_error',
+  'refused_by_policy',
+] as const;
+export const FetchOutcomeKind = z.enum(FETCH_OUTCOME_KINDS);
+export type FetchOutcomeKind = z.infer<typeof FetchOutcomeKind>;
+
+/** host_access.last_outcome: "Only ok, wall and empty may change the playbook" (S§5.1). */
+export const PLAYBOOK_OUTCOME_KINDS = ['ok', 'wall', 'empty'] as const;
+export const PlaybookOutcomeKind = z.enum(PLAYBOOK_OUTCOME_KINDS);
+export type PlaybookOutcomeKind = z.infer<typeof PlaybookOutcomeKind>;
+
+/** price_observation.missing_components: the amount fields a delivered total needs (S§5.5). */
+export const PRICE_COMPONENTS = ['sticker', 'shipping', 'tax', 'duty_estimate'] as const;
+export const PriceComponent = z.enum(PRICE_COMPONENTS);
+export type PriceComponent = z.infer<typeof PriceComponent>;
+
+/** watch_listing.added_by: the user (paste box, "Watch this") or code discovery (S§5.3, S§5.8). */
+export const WATCH_LISTING_ADDED_BY = ['user', 'discovery'] as const;
+export const WatchListingAddedBy = z.enum(WATCH_LISTING_ADDED_BY);
+export type WatchListingAddedBy = z.infer<typeof WatchListingAddedBy>;
+
+/** search_run.status. Saved first (S§2.9), then run; cancellation keeps partial results (S§6). */
+export const SEARCH_RUN_STATUSES = [
+  'queued',
+  'running',
+  'completed',
+  'cancelled',
+  'failed',
+] as const;
+export const SearchRunStatus = z.enum(SEARCH_RUN_STATUSES);
+export type SearchRunStatus = z.infer<typeof SearchRunStatus>;
+
+/** run.status (harness runs). A run that hits a budget completes with its hits recorded (S§5.6). */
+export const RUN_STATUSES = ['running', 'completed', 'cancelled', 'failed'] as const;
+export const RunStatus = z.enum(RUN_STATUSES);
+export type RunStatus = z.infer<typeof RunStatus>;
+
+/** job_run.status; health reports skipped runs (S§5.8). */
+export const JOB_RUN_STATUSES = ['running', 'completed', 'failed', 'skipped'] as const;
+export const JobRunStatus = z.enum(JOB_RUN_STATUSES);
+export type JobRunStatus = z.infer<typeof JobRunStatus>;
+
+/** The four required run budgets: maxTurns, deadline, maxInputTokens, maxSpend (S§2.6, S§5.7). */
+export const BUDGET_KINDS = ['turns', 'deadline', 'input_tokens', 'spend'] as const;
+export const BudgetKind = z.enum(BUDGET_KINDS);
+export type BudgetKind = z.infer<typeof BudgetKind>;
+
+/** delivery.state. Only `accepted` may stamp a cooldown or "notified" (S§2.11). */
+export const DELIVERY_STATES = ['pending', 'accepted', 'failed'] as const;
+export const DeliveryState = z.enum(DELIVERY_STATES);
+export type DeliveryState = z.infer<typeof DeliveryState>;
+
+/** delivery.outcome of the last attempt: accepted, retry (transport, 408/425/429/5xx), failed (auth, payload) (S§5.11). */
+export const DELIVERY_OUTCOMES = ['accepted', 'retry', 'failed'] as const;
+export const DeliveryOutcome = z.enum(DELIVERY_OUTCOMES);
+export type DeliveryOutcome = z.infer<typeof DeliveryOutcome>;
+
+/** channel.type: the channels in the core (S§5.11). Matrix, Signal and Apprise come with their adapters. */
+export const CHANNEL_TYPES = [
+  'in_app',
+  'web_push',
+  'ntfy',
+  'telegram',
+  'discord',
+  'webhook',
+] as const;
+export const ChannelType = z.enum(CHANNEL_TYPES);
+export type ChannelType = z.infer<typeof ChannelType>;
+
+/** Where an effective setting came from: the DB, the environment, or the built-in default (S§5.13). */
+export const SETTING_SOURCES = ['db', 'env', 'default'] as const;
+export const SettingSource = z.enum(SETTING_SOURCES);
+export type SettingSource = z.infer<typeof SettingSource>;
+
+/** SearchIntent: "exact item or needs-based search" (S§5.4). */
+export const INTENT_KINDS = ['exact', 'needs'] as const;
+export const IntentKind = z.enum(INTENT_KINDS);
+export type IntentKind = z.infer<typeof IntentKind>;
+
+/** SearchIntent: "delivery or pickup" (S§5.4). */
+export const FULFILMENTS = ['delivery', 'pickup'] as const;
+export const Fulfilment = z.enum(FULFILMENTS);
+export type Fulfilment = z.infer<typeof Fulfilment>;
+
+// Open-ended by nature, so validated strings rather than lists.
+
+/** host_access.wall_vendor: the bot manager the classifier names (S§5.1, S§5.16). New ones appear. */
+export const WallVendor = z.string().regex(/^[a-z0-9][a-z0-9_-]{0,47}$/);
+export type WallVendor = z.infer<typeof WallVendor>;
+
+/** fx_rate.source: the rate provider, shown in the "≈ in your currency (source, date)" hint (S§2.2). */
+export const FxRateSource = z.string().regex(/^[a-z0-9][a-z0-9_.-]{0,63}$/);
+export type FxRateSource = z.infer<typeof FxRateSource>;
+
+/** price_observation.unit: the unit a unit price is per, as the page states it ("kg", "100 g"). */
+export const PriceUnit = z.string().regex(/^\S(?:.{0,14}\S)?$/);
+export type PriceUnit = z.infer<typeof PriceUnit>;

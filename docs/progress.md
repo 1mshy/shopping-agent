@@ -16,6 +16,32 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-17: Workstream 2b (part A), domain contracts
+
+**Shipped**
+
+- `packages/shared`: Zod schemas for the persisted records `Listing`, `PriceObservation` (all S§4.1 fields), `MatchVerdict`, the judge's output (`JudgeVerdict`, `JudgeBatch`), `PlannerIntent`, `PlannerOutput` and `SearchIntent`, `NotificationEvent` and `Delivery`, `RunRecord`, `RunStep`, `RunBudget` and `RunCost`. Each exports its inferred type under the same name. Tests first: 59 new run-time cases plus compile-time assertions in `test/contracts.types.ts`.
+- 16 new vocabularies in `vocab.ts` and three validated free-text fields (below).
+
+**Vocabulary gaps.** Enumerated where S§5 prose gives the values: read methods (S§5.2 reader ladder plus the S§5.2/S§5.9 adapters), identifiers offered (S§5.4 tier 1, S§5.3 listing key), fetch outcome kinds and the playbook subset (S§5.1 "Only `ok`, `wall` and `empty` may change the playbook"), price components (S§5.5), watch_listing added_by (S§5.12 paste box, S§5.3 re-discovery), search_run, run and job_run statuses (S§2.9 save first, S§6 cancellation, S§5.8 running jobs and skipped runs), budget kinds (S§5.7), delivery state and outcome (S§2.11, S§5.11 retry policy), channel types (S§5.11 core channels), setting sources (S§5.13), SearchIntent kind and fulfilment (S§5.4). Free text, validated: wall vendor, FX source, unit-price unit (open-ended by nature). Left out, no basis in the spec and not needed by Phases 1-3 as a vocabulary: store health fields, listing status (`gone_at` records "gone", S§5.9; no other state is named), watch status, profile_fact kind (Phase 4), job status.
+
+**Decisions**
+
+- Casing: TypeScript keys are the camelCase of the S§4 names (`*_json` drops the suffix); OpenTelemetry GenAI attributes keep their dotted names. Every contract object is strict: unknown keys are refused, so a stray figure cannot ride along.
+- Ids are positive integers (SQLite rowid). Timestamps are ISO strings ending in `Z`.
+- PriceObservation: one `ListingCurrency`; every amount is a non-negative integer in its minor units; with `unknown` every amount must be null (refused otherwise). Shipping carries an amount only when `known` or `estimated`: `conditional` depends on something the engine could not settle and `unknown` has none (S§2.10). `effective` needs the sticker; `landed` needs effective, `known` shipping and an empty missing list. The arithmetic and the tax and duty policy (S§5.5, owner decision 10) belong to the Phase 1 derivation in `packages/core`. A failed read cannot be built: no sticker is allowed only when out of stock, or with currency `unknown` and raw candidates; a sticker needs at least one raw candidate.
+- Model output: the judge and the planner schemas are strict. The judge's `differingAttrs` holds attribute names (letters and underscores only). The planner has no budget, currency, location or GTIN field; text it writes refuses currency symbols and `%`. `SearchIntent` adds those fields, set by code: the budget is `Money` in the intent currency from the user's own input.
+- Run cost and the spend cap: integer nano-units (10⁻⁹ of the major unit) with an explicit `MinorUnitCurrency`. Cents cannot hold a $0.0004 judge call; nanos hold $0.03 as 30,000,000 and per-token prices to three decimals per million exactly; the safe-integer ceiling is about $9 million. `RunCost` is a union on `source`: `none` has no amount field at all.
+- OpenTelemetry: GenAI conventions left `open-telemetry/semantic-conventions` in v1.45.0 (2026-11-02) for `open-telemetry/semantic-conventions-genai` (status development, no tagged release; checked at commit e6658f1, 2026-11-06). Its usage attributes are `gen_ai.usage.{input_tokens, cache_read.input_tokens, cache_write.input_tokens, output_tokens, reasoning.output_tokens}`; v1.45.0's deprecated registry still says `cache_creation`. Null means not reported, never zero.
+- Delivery is a union on `state`; `accepted` requires `acceptedAt` and outcome `accepted`, and only it may stamp a cooldown (S§2.11).
+
+**Spec edits**
+
+- §4.1 store `read_route`, `identifiers_offered`; host_access `last_outcome`, `wall_vendor`; price_observation shipping amounts, unit pair, the needs of `effective` and `landed`, `missing_components`, `read_path`, raw candidate fields, and the failed-read rule; fx_rate `source`.
+- §4.2 watch_listing `added_by`; search_run `status`.
+- §4.4 job_run status; run status, budgets, budget hits and the nano-unit cost; delivery states, outcomes and `accepted_at`; channel types; setting sources.
+- §5.4 SearchIntent kind and fulfilment, and what the planner may not write; the judge's output admits no other field.
+
 ### 2026-11-17: Workstream 2a, Money, Currency and vocabularies
 
 **Shipped**

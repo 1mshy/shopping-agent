@@ -161,21 +161,21 @@ SQLite, one file on one named volume. Integer minor units for money. All timesta
 
 | Table | Purpose | Key fields |
 |---|---|---|
-| `store` | One storefront (host + market prefix). The self-growing directory. | host, market_prefix, platform (shopify, woo, magento, wix, bigcommerce, other, unknown), platform_evidence, country, base_currency, markets_json, ships_to_json, search_route (shopify_ucp, shopify_suggest, woo_store_api, magento_graphql, search_action, opensearch, web_site_search, adapter, none), read_route, identifiers_offered, is_shop (yes, no, unknown), trust_tier (known, unverified, caution, blocked), trust_reasons_json, source (read, pasted, import, deal_feed, country_pack), health fields, fingerprinted_at |
-| `host_access` | Fetch playbook, keyed by host and page kind (product, search, api). Replaces the predecessor's side-file. | host, page_kind, rung, last_outcome, wall_vendor, expires_at, backoff_until, attempts |
+| `store` | One storefront (host + market prefix). The self-growing directory. | host, market_prefix, platform (shopify, woo, magento, wix, bigcommerce, other, unknown), platform_evidence, country, base_currency, markets_json, ships_to_json, search_route (shopify_ucp, shopify_suggest, woo_store_api, magento_graphql, search_action, opensearch, web_site_search, adapter, none), read_route (a reader method of §5.2: platform_json, json_ld, microdata, opengraph, adapter), identifiers_offered (gtin, mpn, sku), is_shop (yes, no, unknown), trust_tier (known, unverified, caution, blocked), trust_reasons_json, source (read, pasted, import, deal_feed, country_pack), health fields, fingerprinted_at |
+| `host_access` | Fetch playbook, keyed by host and page kind (product, search, api). Replaces the predecessor's side-file. | host, page_kind, rung, last_outcome (ok, wall, empty: the outcomes that may change the playbook, §5.1), wall_vendor (the classifier's name for the vendor, free text), expires_at, backoff_until, attempts |
 | `product` | The real-world thing at barcode level. | family_id (groups variants), brand, model, mpn, gtin14 (check-digit validated), title, category, attributes_json |
 | `listing` | One purchasable thing at one place: a retail offer or a marketplace listing. | product_id (nullable until matched), store_id, channel (retail, marketplace), url_canonical, external_id, sku, seller_id, seller_kind (first_party, marketplace_seller, private), condition (new, open_box, refurbished, used_like_new, used_good, used_fair, for_parts, unknown), currency (an ISO 4217 code that has a minor unit, or `unknown`), title, variant_json, trackable, first_seen_at, last_seen_at, gone_at, status, consecutive_errors |
-| `price_observation` | Append-only. A price is a record, not a number. | listing_id, observed_at, currency (required: an ISO 4217 code that has a minor unit, or `unknown`; when it is `unknown`, sticker and every other amount field are null and the figures read stay as text in raw_candidates_json), sticker, reference_claimed, coupon, member_price, shipping + shipping_status, tax + tax_included, duty_estimate, unit_price + unit, effective (code-derived), landed (code-derived), missing_components_json, availability (in, out, unknown), read_path, rung, raw_candidates_json (method, confidence, value) |
+| `price_observation` | Append-only. A price is a record, not a number. | listing_id, observed_at, currency (required: an ISO 4217 code that has a minor unit, or `unknown`; when it is `unknown`, sticker and every other amount field are null and the figures read stay as text in raw_candidates_json), sticker, reference_claimed, coupon, member_price, shipping + shipping_status (an amount only when known or estimated), tax + tax_included, duty_estimate, unit_price + unit (both or neither), effective (code-derived; needs sticker), landed (code-derived; needs effective, known shipping and no missing component), missing_components_json (sticker, shipping, tax, duty_estimate), availability (in, out, unknown), read_path (the reader method, as `store.read_route`), rung, raw_candidates_json (method as read_path, confidence 0-1 set by code, value as text). A row has a sticker, or is out of stock, or has currency `unknown` with raw candidates; a read with none of these is a failed read and writes no row. |
 | `match_verdict` | Cached identity decision. | spec_fp, listing_fp (store, SKU or clean URL, title hash, variant), relation (exact, variant, bundle, accessory_or_part, other_model, other_line, unknown), differing_attrs_json, decided_by (identifier, rules, model, person), matcher_version, prompt_version, model_id; person overrides take precedence |
-| `fx_rate` | Ranking and hint only. | base, quote, rate, source, as_of |
+| `fx_rate` | Ranking and hint only. | base, quote, rate, source (the rate provider's name, free text), as_of |
 
 ### 4.2 User intent
 
 | Table | Purpose | Key fields |
 |---|---|---|
 | `watch` | A standing request. Kept apart from `product` (the predecessor mixed them). | kind (product, query, saved_search), input, spec_json (SearchIntent), market, currency, rules_json (target_price, drop_pct, restock, marketplace filters), reference_price + reference_kind (median_verified, user_confirmed), cooldown_s, status, created_at |
-| `watch_listing` | Listings a watch follows. | watch_id, listing_id, role (tracked, candidate, excluded), added_by |
-| `search_run` | One user search (fast or deep). | intent_json, mode (fast, deep), budget_json, status, coverage_json, result_json, run_id |
+| `watch_listing` | Listings a watch follows. | watch_id, listing_id, role (tracked, candidate, excluded), added_by (user, discovery) |
+| `search_run` | One user search (fast or deep). | intent_json, mode (fast, deep), budget_json, status (queued, running, completed, cancelled, failed), coverage_json, result_json, run_id |
 
 ### 4.3 Personalisation (R§3.7)
 
@@ -193,12 +193,12 @@ SQLite, one file on one named volume. Integer minor units for money. All timesta
 
 | Table | Purpose |
 |---|---|
-| `job`, `job_run` | Scheduler definitions (cron or next_run_at, overlap lock, deadline, network gate) and run history. |
-| `run`, `run_step` | Harness RunRecord. OpenTelemetry GenAI attribute names; usage normalised to {input incl. cached, cache_read, cache_write, output, reasoning}; cost_source (provider, settings, none). Full payloads kept 14 days, then trimmed to usage. |
-| `notification_event`, `delivery` | Outbox: stable event key and kind (price_drop, restock, new_listing, recommendation, agent, system); per-channel state, attempts, next_attempt_at, outcome. |
-| `channel` | Configured delivery channels and push subscriptions. |
+| `job`, `job_run` | Scheduler definitions (cron or next_run_at, overlap lock, deadline, network gate) and run history (status: running, completed, failed, skipped). |
+| `run`, `run_step` | Harness RunRecord. OpenTelemetry GenAI attribute names; usage normalised to {input incl. cached, cache_read, cache_write, output, reasoning}; cost_source (provider, settings, none). Status (running, completed, cancelled, failed), the four budgets of §2.6 and the budgets hit (turns, deadline, input_tokens, spend). Cost and the spend cap are integer nano-units (10⁻⁹ of the major unit) with an explicit currency; with cost_source `none` the cost is null, never zero. Full payloads kept 14 days, then trimmed to usage. |
+| `notification_event`, `delivery` | Outbox: stable event key and kind (price_drop, restock, new_listing, recommendation, agent, system), and the records the event rests on (an alert names its watch, listing and observation); per-channel state (pending, accepted, failed), attempts, next_attempt_at, outcome of the last attempt (accepted, retry, failed), accepted_at. Only `accepted` (the channel confirmed acceptance) may stamp a cooldown or "notified". |
+| `channel` | Configured delivery channels (type: in_app, web_push, ntfy, telegram, discord, webhook; an optional channel of §5.11 adds its type when it is built) and push subscriptions. |
 | `llm_endpoint` | Base URL, auth (encrypted at rest), model id, role (planner, judge, chat, browse), capabilities_json, prices, circuit-breaker state. |
-| `setting` | DB-held settings with environment defaults; the UI shows where each effective value came from. |
+| `setting` | DB-held settings with environment defaults; the UI shows where each effective value came from (db, env, default). |
 | `recipe`, `exploration_task` | Phase 6: declarative learned search and read routes, and the per-host learning queue. |
 
 ---
@@ -265,12 +265,12 @@ The request needs a public agent-profile URL. The project publishes one static p
 
 ### 5.4 Product identity (`packages/core/matching`, R§3.6)
 
-**SearchIntent.** A typed spec: exact item or needs-based search, identity fields (brand, model, MPN, GTIN), must-have attributes, acceptable substitutes, condition, pack quantity, location, currency, delivery or pickup, budget. An exact URL or a clear product name takes a deterministic path with no planning call.
+**SearchIntent.** A typed spec: exact item or needs-based search, identity fields (brand, model, MPN, GTIN), must-have attributes, acceptable substitutes, condition, pack quantity, location, currency, delivery or pickup, budget. Kind is `exact` or `needs`; fulfilment is `delivery`, `pickup` or both. The planner's output has no budget, currency, location or GTIN field: code sets them from the user's input and settings, and a budget is Money in the user's currency. An exact URL or a clear product name takes a deterministic path with no planning call.
 
 **Three tiers:**
 1. **Identifiers:** GTIN equality (check digit validated, normalised to 14 digits), or normalised brand + MPN equality.
 2. **Title rules:** ported from `pricewatch/matching.py` and `reports/2026-10-23-matching.md`: accessory and part rejects, model-token conflicts, variant words, and the owner's rulings as fixed test cases (combo counts both ways, Plus counts the query's way, a size in place of a model is not a clash). These rules output a **relation label**, not a numeric score. Code then checks the label against the must-have attributes.
-3. **Model judge,** for the ambiguous band only: at most 3 calls of at most 15 listings each (local models: 10), cheapest and outlier listings first. The prompt is rule-guided (exact means the two would share a barcode; variants in size, colour, capacity, configuration or pack count are not matches; a missing attribute is not a conflict; a match needs positive evidence). Output is JSON-schema'd to `{id, relation, differing_attrs, reason}` with id and count validated. Invalid output means `unknown`. A small local model may only veto, never accept.
+3. **Model judge,** for the ambiguous band only: at most 3 calls of at most 15 listings each (local models: 10), cheapest and outlier listings first. The prompt is rule-guided (exact means the two would share a barcode; variants in size, colour, capacity, configuration or pack count are not matches; a missing attribute is not a conflict; a match needs positive evidence). Output is JSON-schema'd to `{id, relation, differing_attrs, reason}` with id and count validated; no other field is accepted, differing_attrs holds attribute names only, and reason stays in the run record. Invalid output means `unknown`. A small local model may only veto, never accept.
 
 **Verdict cache** keyed on spec fingerprint, listing fingerprint, matcher version, prompt version and model id. Sweeps and watches make no model calls. When no model is available, rules decide and undecided listings are "unconfirmed". Alerts fire only for listings confirmed by identifier, rules, cached verdict or a person.
 
