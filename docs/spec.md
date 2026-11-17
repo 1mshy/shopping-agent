@@ -2,7 +2,7 @@
 
 Version 0.1 · 2026-11-16 · Status: draft for owner review
 
-Written for a **new repository**. Copy this file to `docs/spec.md` and the companion plan (`2026-11-16-shopping-agent-plan.md`) to `docs/plan.md` there. Every requirement traces to the research record `reports/2026-11-16-shopping-agent-research.md` in hermes-shopping (cited as *R§n*). Predecessor code paths are relative to the hermes-shopping repository.
+Companion plan: `docs/plan.md`. Every requirement traces to the research record `reports/2026-11-16-shopping-agent-research.md` in hermes-shopping (cited as *R§n*). Predecessor code paths are relative to the hermes-shopping repository.
 
 The research record's adversarial check never ran. Claims marked **[verify]** are load-bearing and get confirmed by a Phase 0 spike before code depends on them.
 

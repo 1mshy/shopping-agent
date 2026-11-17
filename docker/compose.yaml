@@ -1,0 +1,19 @@
+# One file, add-ons as profiles (S§5.14). The `browser` and `searxng` profiles arrive in
+# Phases 6 and 2.
+name: shopping-agent
+
+services:
+  core:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: shopping-agent:local
+    init: true
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:8080"
+    volumes:
+      - data:/data
+
+volumes:
+  data:

@@ -1,0 +1,31 @@
+{
+  "name": "shopping-agent",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Self-hosted shopping agent: deal search, price watches, used listings and a learning feed.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "packageManager": "pnpm@12.21.0",
+  "engines": {
+    "node": ">=24.12"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @shopping-agent/server --filter @shopping-agent/web dev",
+    "build": "pnpm --filter @shopping-agent/web build && pnpm --filter @shopping-agent/server build",
+    "start": "node apps/server/dist/index.mjs",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "pnpm -r --parallel typecheck && tsc -p scripts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "image:build": "docker build -f docker/Dockerfile -t shopping-agent:dev .",
+    "image:budgets": "node scripts/check-image-budgets.ts shopping-agent:dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.8",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  }
+}

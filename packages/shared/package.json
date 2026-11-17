@@ -1,0 +1,17 @@
+{
+  "name": "@shopping-agent/shared",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Zod schemas, API and SSE event types, Money and Currency types (S§3.2).",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}

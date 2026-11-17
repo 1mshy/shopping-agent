@@ -1,0 +1,17 @@
+{
+  "name": "@shopping-agent/core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pure domain code: money, matching, deal verdicts, alert rules, valuation. No I/O, no LLM (S§3.2).",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@shopping-agent/shared": "workspace:*"
+  }
+}
