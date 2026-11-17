@@ -17,3 +17,7 @@ data/
 *.db-shm
 
 .DS_Store
+
+# Raw lab and eval run output (reports go to docs/spikes/)
+lab/out/
+evals/out/

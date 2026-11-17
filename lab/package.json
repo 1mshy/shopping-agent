@@ -1,0 +1,14 @@
+{
+  "name": "@agentic-dasher/lab",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Model-free access lab: transport and route probes against fixed host lists (S§3.2, S§5.16). A dev tool, not shipped in the image.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@agentic-dasher/shared": "workspace:*"
+  }
+}

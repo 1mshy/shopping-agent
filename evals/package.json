@@ -1,0 +1,16 @@
+{
+  "name": "@agentic-dasher/evals",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Gold sets, eval runners, recorded wire fixtures and hand-review files (S§3.2, S§5.16). Not shipped in the image.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@agentic-dasher/core": "workspace:*",
+    "@agentic-dasher/shared": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

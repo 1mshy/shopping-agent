@@ -1,6 +1,8 @@
 packages:
   - apps/*
   - packages/*
+  - evals
+  - lab
 
 # pnpm denies dependency install scripts by default. Add an `allowBuilds` entry only for a
 # package that genuinely needs one (better-sqlite3 13 ships N-API prebuilds, so it does not).
