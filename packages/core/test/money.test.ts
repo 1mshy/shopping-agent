@@ -58,19 +58,20 @@ describe('moneyFromDecimal', () => {
   });
 
   it('is exact where binary floating point is not', () => {
-    // Each of these is wrong if computed as Math.round-free float arithmetic (x * 10 ** e).
+    // Each pair shows the float computation (Number(x) * 10 ** e) going wrong, then the exact one.
     expect(1.15 * 100).not.toBe(115);
     expect(ok('1.15', 'USD').amountMinor).toBe(115);
     expect(4.35 * 100).not.toBe(435);
     expect(ok('4.35', 'USD').amountMinor).toBe(435);
-    expect(0.1 + 0.2).not.toBe(0.3);
-    expect(ok('0.3', 'USD').amountMinor).toBe(30);
     expect(1.005 * 1000).not.toBe(1005);
     expect(ok('1.005', 'BHD').amountMinor).toBe(1005);
-    expect(8.675 * 1000).not.toBe(8675);
-    expect(ok('8.675', 'KWD').amountMinor).toBe(8675);
-    expect(1.0001 * 10000).not.toBe(10001);
-    expect(ok('1.0001', 'CLF').amountMinor).toBe(10001);
+    expect(4.015 * 1000).not.toBe(4015);
+    expect(ok('4.015', 'KWD').amountMinor).toBe(4015);
+    expect(1.0009 * 10000).not.toBe(10009);
+    expect(ok('1.0009', 'CLF').amountMinor).toBe(10009);
+    // Number('9007199254740993') is 9007199254740992: a float parse loses it (refused below).
+    expect(Number('9007199254740993')).toBe(2 ** 53);
+    expect(ok('0.3', 'USD').amountMinor).toBe(30);
     expect(ok('0.0001', 'CLF').amountMinor).toBe(1);
     expect(ok('9.9999', 'UYW').amountMinor).toBe(99999);
     expect(ok('1299', 'JPY').amountMinor).toBe(1299);
