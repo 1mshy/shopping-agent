@@ -5,7 +5,7 @@ import { createServer } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { isDeepStrictEqual } from 'node:util';
-import { decodeChunk, type JsonValue, type WireFixture } from './format.ts';
+import { decodeChunk, type JsonValue, NULL_BODY_STATUSES, type WireFixture } from './format.ts';
 import { redactJson, redactText } from './redact.ts';
 
 export class WireReplayMismatchError extends Error {
@@ -46,7 +46,8 @@ function firstDifference(a: unknown, b: unknown, at = '$'): string | null {
 }
 
 /** What differs between a received request and the recorded one; empty when they match. The
- * received path and body are redacted the same way the recording was before comparing. */
+ * received path and body are redacted the same way the recording was before comparing, so two
+ * requests that differ only in a redacted field compare equal. */
 export function describeMismatch(f: WireFixture, r: Received): string[] {
   const rec = f.request;
   const problems: string[] = [];
@@ -75,8 +76,6 @@ export function describeMismatch(f: WireFixture, r: Received): string[] {
   return problems;
 }
 
-const NULL_BODY_STATUS = new Set([101, 103, 204, 205, 304]);
-
 function label(f: WireFixture): string {
   return `${f.meta.serverFamily}/${f.meta.model}/${f.meta.scenario}`;
 }
@@ -84,19 +83,24 @@ function label(f: WireFixture): string {
 const toList = (f: WireFixture | readonly WireFixture[]): readonly WireFixture[] =>
   'formatVersion' in f ? [f] : f;
 
-/** Shared bookkeeping for both replay forms: the next fixture, and every mismatch seen. */
+/** Shared bookkeeping for both replay forms: the next fixture, and every mismatch seen. A call
+ * claims its slot synchronously when it is made, so concurrent calls are matched in call order
+ * whatever order their bodies finish reading in. */
 function sequence(fixtures: WireFixture | readonly WireFixture[]) {
   const queue = toList(fixtures);
   let next = 0;
   const mismatches: string[] = [];
   return {
     mismatches,
-    take(r: Received): WireFixture | WireReplayMismatchError {
-      const f = queue[next];
+    claim(): number {
       next += 1;
+      return next - 1;
+    },
+    check(slot: number, r: Received): WireFixture | WireReplayMismatchError {
+      const f = queue[slot];
       const problems = f
         ? describeMismatch(f, r)
-        : [`unexpected request #${next} (${r.method} ${r.path}); ${queue.length} recorded`];
+        : [`unexpected request #${slot + 1} (${r.method} ${r.path}); ${queue.length} recorded`];
       if (f && problems.length === 0) return f;
       const message = `${f ? label(f) : 'replay'}: ${problems.join('; ')}`;
       mismatches.push(message);
@@ -135,9 +139,10 @@ export function createReplayFetch(
 ): ReplayFetch {
   const seq = sequence(fixtures);
   const replay = async (input: string | URL | Request, init?: RequestInit) => {
+    const slot = seq.claim(); // before the first await
     const req = new Request(input, init);
     const url = new URL(req.url);
-    const f = seq.take({
+    const f = seq.check(slot, {
       method: req.method,
       path: url.pathname + url.search,
       headers: Object.fromEntries(req.headers),
@@ -146,7 +151,7 @@ export function createReplayFetch(
     if (f instanceof WireReplayMismatchError) throw f;
     let i = 0;
     const started = performance.now();
-    const body = NULL_BODY_STATUS.has(f.response.status)
+    const body = NULL_BODY_STATUSES.has(f.response.status)
       ? null
       : new ReadableStream<Uint8Array>(
           {
@@ -183,12 +188,14 @@ export async function startReplayServer(
 ): Promise<ReplayServer> {
   const seq = sequence(fixtures);
   const server = createServer(async (req, res) => {
+    // Claimed when the request's headers arrive, before its body is read.
+    const slot = seq.claim();
     try {
       const parts: Buffer[] = [];
       for await (const part of req) parts.push(part as Buffer);
       const headers: Record<string, string | undefined> = {};
       for (const [k, v] of Object.entries(req.headers)) headers[k] = [v].flat().join(', ');
-      const f = seq.take({
+      const f = seq.check(slot, {
         method: req.method ?? '',
         path: req.url ?? '',
         headers,
@@ -202,7 +209,7 @@ export async function startReplayServer(
       res.writeHead(f.response.status, f.response.headers);
       res.flushHeaders();
       const started = performance.now();
-      if (!NULL_BODY_STATUS.has(f.response.status)) {
+      if (!NULL_BODY_STATUSES.has(f.response.status)) {
         for (const [i, chunk] of f.response.chunks.entries()) {
           if (options.timing === 'recorded') await waitFor(f, i, started, options.timing);
           else if (i > 0) await sleep(options.chunkGapMs ?? 10);

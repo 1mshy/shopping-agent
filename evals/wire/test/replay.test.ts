@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
@@ -208,11 +208,12 @@ describe('useReplayFetch / useReplayServer', () => {
           '--config',
           join(dir, 'vitest.config.mjs'),
           '--reporter=json',
+          `--outputFile=${join(dir, 'report.json')}`,
         ],
         { encoding: 'utf8', env: { PATH: process.env.PATH, TMPDIR: process.env.TMPDIR } },
       );
       expect(run.status).toBe(1);
-      const report = JSON.parse(run.stdout.slice(run.stdout.indexOf('{'))) as {
+      const report = JSON.parse(await readFile(join(dir, 'report.json'), 'utf8')) as {
         testResults: { assertionResults: { title: string; status: string }[] }[];
       };
       const status = Object.fromEntries(

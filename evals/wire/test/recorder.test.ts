@@ -286,7 +286,8 @@ describe('detectServerVersion', () => {
     expect(await detectServerVersion(options({ family: 'vllm' }))).toBe('scripted-0.1');
     expect(await detectServerVersion(options({ family: 'openai' }))).toBeNull();
     expect(server.seen.map((r) => r.url)).toEqual(['/version']);
-    expect(await detectServerVersion(options({ family: 'ollama' }))).toBeNull(); // 401 here
+    // The scripted server answers /api/version with an event stream, which is not JSON.
+    expect(await detectServerVersion(options({ family: 'ollama' }))).toBeNull();
   });
 });
 

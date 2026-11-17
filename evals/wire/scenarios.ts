@@ -244,6 +244,14 @@ export const SCENARIOS: readonly Scenario[] = [
     sources: [DOC.openaiChat, DOC.openrouterParams, DOC.ollamaOpenai, DOC.vllmServing],
   }),
   completion({
+    id: 'tool-choice-none',
+    probeSteps: [],
+    serves: 'Forced finish (S§5.7): tools supplied with tool_choice none; accepted or rejected?',
+    body: (c) => chat(c, PRICE_QUESTION, { tools: [PRICE_TOOL], tool_choice: 'none' }, 128),
+    // Both list `none` among the tool_choice string modes ('none', 'auto', 'required').
+    sources: [DOC.openaiChat, DOC.openrouterParams],
+  }),
+  completion({
     id: 'json-schema-strict',
     probeSteps: [5],
     serves: 'supportsJsonSchema / supportsStrictMode: response_format json_schema, strict true',

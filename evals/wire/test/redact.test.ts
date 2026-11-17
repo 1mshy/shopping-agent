@@ -241,7 +241,8 @@ describe('non-ASCII', () => {
   it.each([
     '/Users/Роман/models/x.gguf',
     '/home/nicolàs/m.gguf',
-    'path C:\\Users\\Zoë\\m and /home/日本/x',
+    // A Windows path as it appears inside JSON text, with its backslashes escaped.
+    'path C:\\\\Users\\\\Zoë\\\\m and /home/日本/x',
     'Bearer tökén12345678 and ?key=日本語&x=1',
     'plain café text',
   ])('string-domain and byte-domain redaction keep the same text: %s', (input) => {
