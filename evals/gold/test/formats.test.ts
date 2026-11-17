@@ -50,13 +50,15 @@ describe('formats', () => {
   });
 
   it('validates the product GTIN check digit and normalises to 14 digits (S§5.4)', () => {
-    // EAN-13 4006381333931: weights 1,3 from the left over the first 12 digits sum to 89,
-    // so the check digit is (10 - 89 % 10) % 10 = 1.
-    expect(normaliseGtin('4006381333931')).toBe('04006381333931');
-    expect(normaliseGtin('036000291452')).toBe('00036000291452'); // UPC-A
-    expect(normaliseGtin('4006381333932')).toBeNull();
+    // Invented numbers with the restricted-circulation prefix 2, so no real trade item.
+    // EAN-13 200123456789?: weights 1,3 from the left over the 12 digits give
+    // 2+0+0+3+2+9+4+15+6+21+8+27 = 97, so the check digit is (10 - 97 % 10) % 10 = 3.
+    expect(normaliseGtin('2001234567893')).toBe('02001234567893');
+    // UPC-A 20000000000?: weights 3,1 from the left give 2*3 = 6, check digit (10 - 6) % 10 = 4.
+    expect(normaliseGtin('200000000004')).toBe('00200000000004');
+    expect(normaliseGtin('2001234567894')).toBeNull();
     expect(normaliseGtin('12345')).toBeNull();
-    const withBadGtin = { ...product, identity: { ...product.identity, gtin: '4006381333932' } };
+    const withBadGtin = { ...product, identity: { ...product.identity, gtin: '2001234567894' } };
     expect(GoldProduct.safeParse(withBadGtin).success).toBe(false);
   });
 
@@ -66,7 +68,7 @@ describe('formats', () => {
       identity: { ...product.identity, brand: ' Synthetic  Brand-1 ', mpn: 'syn 1/mpn' },
     };
     expect(identityKeys(p)).toEqual(['mpn:syntheticbrand1|syn1mpn']);
-    const g = { ...product, identity: { ...product.identity, gtin: '4006381333931' } };
-    expect(identityKeys(g)).toContain('gtin:04006381333931');
+    const g = { ...product, identity: { ...product.identity, gtin: '2001234567893' } };
+    expect(identityKeys(g)).toContain('gtin:02001234567893');
   });
 });

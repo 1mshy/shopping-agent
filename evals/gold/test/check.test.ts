@@ -48,6 +48,7 @@ describe('checkSet', () => {
     expect(req(r, 'countries')).toMatchObject({ status: 'met', count: 3 });
     // 10 of 17 per product: 6 in the first cycle of 10, then 4 of the next 7.
     expect(req(r, 'hard_negatives')).toMatchObject({ status: 'met', count: 600, n: 1020 });
+    expect(req(r, 'hard_negatives').detail).toBe('58.8%; dev 400 of 680; held_out 200 of 340');
     expect(req(r, 'split_dev')).toMatchObject({ status: 'met', count: 40 });
     expect(req(r, 'split_held_out')).toMatchObject({ status: 'met', count: 20 });
     // ceil(10% of 17) = 2 per product, 120 of 1020.

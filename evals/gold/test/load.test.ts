@@ -35,6 +35,18 @@ describe('loadSet', () => {
     expect(violations.join('\n')).toMatch(/labels\/syn-z\.json.*syn-a/);
   });
 
+  it('drops only the bad entry of a file, not the whole file', () => {
+    dir = mkdtempSync(join(tmpdir(), 'gold-syn-'));
+    writeSet(dir, syntheticSet({ products: 1, snapshotsPerProduct: 15 }));
+    const good = syntheticLabel('syn-p000-s00', 'exact', 'syn-a');
+    const bad = { ...syntheticLabel('syn-p000-s01', 'exact', 'syn-a'), relation: 'match' };
+    writeFileSync(join(dir, 'labels', 'syn-a.json'), JSON.stringify([good, bad]));
+    const { set, violations } = loadSet(dir);
+    expect(set.labels).toEqual([good]);
+    expect(violations).toHaveLength(1);
+    expect(violations[0]).toMatch(/^labels\/syn-a\.json \[1\]: relation:/);
+  });
+
   it('reports a missing products file instead of throwing', () => {
     dir = mkdtempSync(join(tmpdir(), 'gold-syn-'));
     expect(loadSet(dir).violations.join('\n')).toMatch(/products\.json/);
