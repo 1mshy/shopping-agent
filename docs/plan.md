@@ -1,6 +1,6 @@
-# Shopping agent: implementation plan
+# Agentic Dasher: implementation plan
 
-Version 0.1 · 2026-11-16 · Companion to `2026-11-16-shopping-agent-spec.md` (cited as *S§n*). Copy both into the new repository as `docs/spec.md` and `docs/plan.md`.
+Version 0.1 · 2026-11-16 · Companion to `docs/spec.md` (cited as *S§n*).
 
 ## How the phases are cut
 

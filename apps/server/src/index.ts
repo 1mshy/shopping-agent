@@ -1,0 +1,52 @@
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { openDatabase } from '@agentic-dasher/db';
+import { serve } from '@hono/node-server';
+import { serveStatic } from '@hono/node-server/serve-static';
+import { Hono } from 'hono';
+import { createApp } from './app.ts';
+import { loadConfig } from './config.ts';
+
+const startedAt = Date.now();
+const config = loadConfig();
+
+mkdirSync(config.dataDir, { recursive: true });
+const db = openDatabase(join(config.dataDir, 'agentic-dasher.db'));
+
+const api = createApp({
+  version: config.version,
+  startedAt,
+  dbOk: () => db.ping(),
+  rssBytes: () => process.memoryUsage.rss(),
+});
+
+const app = new Hono().route('/', api);
+
+// Static SPA (production image). In development Vite serves the UI and proxies /api here.
+const indexHtml = join(config.webRoot, 'index.html');
+if (existsSync(indexHtml)) {
+  const html = readFileSync(indexHtml, 'utf8');
+  app.use('/*', serveStatic({ root: relative(process.cwd(), config.webRoot) }));
+  app.get('*', (c) => (c.req.path.startsWith('/api/') ? c.notFound() : c.html(html)));
+}
+
+const server = serve({ fetch: app.fetch, port: config.port, hostname: config.host }, (info) => {
+  console.info(
+    `agentic-dasher ${config.version} listening on :${info.port} (ready in ${Date.now() - startedAt} ms)`,
+  );
+});
+
+let stopping = false;
+function shutdown(signal: string) {
+  if (stopping) return;
+  stopping = true;
+  console.info(`${signal} received, shutting down`);
+  const force = setTimeout(() => process.exit(1), 10_000);
+  force.unref();
+  server.close(() => {
+    db.close();
+    process.exit(0);
+  });
+}
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGINT', () => shutdown('SIGINT'));

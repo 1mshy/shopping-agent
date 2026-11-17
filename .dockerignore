@@ -1,0 +1,13 @@
+**/node_modules
+**/dist
+**/coverage
+.git
+.github
+.claude
+.serena
+data
+docs
+evals
+lab
+*.md
+!apps/**/README.md

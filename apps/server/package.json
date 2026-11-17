@@ -1,0 +1,28 @@
+{
+  "name": "@agentic-dasher/server",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Hono app, scheduler, jobs, notify, auth, settings, run API (S§3.2).",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/app.ts"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=../../.env src/index.ts",
+    "build": "tsdown",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "//": "This app is bundled by tsdown. `dependencies` lists only what stays external at runtime (native modules); everything else is a devDependency and is bundled into dist/.",
+  "dependencies": {
+    "better-sqlite3": "13.2.0"
+  },
+  "devDependencies": {
+    "@hono/node-server": "2.1.8",
+    "@agentic-dasher/core": "workspace:*",
+    "@agentic-dasher/db": "workspace:*",
+    "@agentic-dasher/shared": "workspace:*",
+    "hono": "4.13.19",
+    "tsdown": "0.23.7"
+  }
+}

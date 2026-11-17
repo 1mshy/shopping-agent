@@ -1,0 +1,21 @@
+{
+  "name": "@agentic-dasher/db",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Drizzle schema, SQL migrations and query helpers over SQLite (S§3.2, S§4).",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.2.0",
+    "drizzle-orm": "1.0.0-rc.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "9.6.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@agentic-dasher/web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Vite + React SPA, service worker, locales (S§3.2, S§5.12).",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "hono": "4.13.19",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@agentic-dasher/server": "workspace:*",
+    "@agentic-dasher/shared": "workspace:*",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "vite": "8.3.8"
+  }
+}

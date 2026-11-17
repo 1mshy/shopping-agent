@@ -1,0 +1,11 @@
+{
+  "$comment": "Release budgets from docs/spec.md S§5.14, enforced in CI. MB = 1,000,000 bytes. Budgets for subsystems that do not exist yet (search RSS, browser add-on) are added with them.",
+  "image": {
+    "pullMB": 110,
+    "unpackedMB": 320
+  },
+  "runtime": {
+    "idleRssMB": 150,
+    "startToHealthyMs": 3000
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "agentic-dasher",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Self-hosted shopping agent: deal search, price watches, used listings and a learning feed.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@12.21.0",
+  "engines": {
+    "node": ">=24.12"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @agentic-dasher/server --filter @agentic-dasher/web dev",
+    "build": "pnpm --filter @agentic-dasher/web build && pnpm --filter @agentic-dasher/server build",
+    "start": "node apps/server/dist/index.mjs",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "pnpm -r --parallel typecheck && tsc -p scripts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "image:build": "docker build -f docker/Dockerfile -t agentic-dasher:dev .",
+    "image:budgets": "node scripts/check-image-budgets.ts agentic-dasher:dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.8",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  }
+}

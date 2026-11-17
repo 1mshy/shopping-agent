@@ -1,3 +1,19 @@
 .claude
 .serena
 .env
+.env.*
+!.env.example
+
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+
+# Local data (SQLite files, backups)
+data/
+*.db
+*.db-wal
+*.db-shm
+
+.DS_Store
