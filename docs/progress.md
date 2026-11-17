@@ -6,15 +6,21 @@ Per phase: what shipped, measured numbers with sample sizes, and deviations from
 
 | # | Decision | Status | Value |
 |---|---|---|---|
-| 1 | Project name and repository | **provisional** | `shopping-agent` (`@shopping-agent/*` packages), repo `1mshy/shopping-agent` |
-| 2 | Licence | **provisional** (spec default) | AGPL-3.0-only |
+| 1 | Project name and repository | **decided 2026-11-17** | Agentic Dasher: `agentic-dasher` (root package, image, compose project), `@agentic-dasher/*` (workspace packages). GitHub repo not renamed yet (`1mshy/shopping-agent`) |
+| 2 | Licence | **decided 2026-11-17** | PolyForm Noncommercial 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`): anyone may use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source |
 | 4 | robots.txt default | open, needed by Phase 1 | spec default `ignore` |
 
-Provisional items were started on the spec's default and need the owner's confirmation before the Phase 0 exit.
+Owner asked for "open source for anyone to use, distribute and modify, but no commercial use". A non-commercial restriction cannot be OSI open source, so the project is described as source-available. PolyForm Noncommercial was chosen over CC BY-NC because it is written for software (patent grant, cure period for violations) and Creative Commons advises against using its licences for software.
 
 ---
 
 ## Phase 0: Foundations, contracts and spikes
+
+### 2026-11-17: Owner decisions 1 and 2
+
+- Renamed to Agentic Dasher: package scope `@agentic-dasher/*`, image `agentic-dasher`, compose project `agentic-dasher`, database file `agentic-dasher.db`. Spec and plan titles updated.
+- Licence changed from the AGPL-3.0 default to PolyForm Noncommercial 1.0.0 (LICENSE, every `package.json`, README, CONTRIBUTING, spec §1.3 and §9).
+- Note for later: contributions arrive under the same non-commercial licence. If the owner ever wants to offer commercial licences, a contributor licence agreement must be in place before outside contributions are accepted.
 
 ### 2026-11-17: Workstream 1, repository scaffold
 
@@ -25,7 +31,7 @@ Provisional items were started on the spec's default and need the owner's confir
 - Server: Hono 4.13 on `@hono/node-server` 2.1, `GET /api/health` (status, version, uptime, DB ping, RSS), static SPA with fallback, graceful SIGTERM shutdown. SQLite opened in WAL mode via better-sqlite3 13 and Drizzle 1.0.0-rc.5.
 - Core image `docker/Dockerfile` (node:26-trixie-slim, non-root, amd64 + arm64), `docker/compose.yaml` (`init: true`, named data volume, healthcheck), root `compose.yaml` so plain `docker compose up` works.
 - CI (`.github/workflows/ci.yml`): lint, typecheck, unit tests, build, multi-arch image build, and the S§5.14 budgets as a failing check (`scripts/check-image-budgets.ts`, limits in `budgets.json`).
-- LICENSE (AGPL-3.0), README, CONTRIBUTING, this log; spec and plan moved to `docs/`.
+- LICENSE, README, CONTRIBUTING, this log; spec and plan moved to `docs/`.
 
 **TypeScript 7 check (plan: confirm Hono and Drizzle inference on day one).** Passed on 7.0.2, so no fallback to 6.x. `apps/server/test/rpc.types.ts` (Hono RPC client response inference) and `packages/db/test/inference.types.ts` (Drizzle select, insert and partial-select inference) are compile-time assertions in `pnpm typecheck`; both were confirmed to fail when an assertion is deliberately broken.
 

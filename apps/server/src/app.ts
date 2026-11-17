@@ -1,6 +1,6 @@
 // The HTTP surface. Kept free of Node-only imports so `apps/web` can import `AppType`
 // for the Hono RPC client; runtime dependencies are passed in.
-import type { HealthResponse } from '@shopping-agent/shared';
+import type { HealthResponse } from '@agentic-dasher/shared';
 import { Hono } from 'hono';
 
 export interface AppDeps {

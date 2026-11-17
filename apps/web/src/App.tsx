@@ -1,4 +1,4 @@
-import type { HealthResponse } from '@shopping-agent/shared';
+import type { HealthResponse } from '@agentic-dasher/shared';
 import { useEffect, useState } from 'react';
 import { api } from './api.ts';
 
@@ -23,7 +23,7 @@ export function App() {
 
   return (
     <main style={{ fontFamily: 'system-ui, sans-serif', padding: '2rem', maxWidth: '40rem' }}>
-      <h1>Shopping agent</h1>
+      <h1>Agentic Dasher</h1>
       <p>Phase 0 scaffold. Nothing to shop with yet.</p>
       <p>
         Server: {state.kind === 'loading' && 'checking…'}

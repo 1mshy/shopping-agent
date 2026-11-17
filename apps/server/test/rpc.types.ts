@@ -1,6 +1,6 @@
 // Day-one check that Hono RPC inference survives TypeScript 7 (plan P0 workstream 1).
 // Checked by `tsc` only (not a Vitest file). If this stops compiling, fall back to TS 6.x.
-import type { HealthResponse } from '@shopping-agent/shared';
+import type { HealthResponse } from '@agentic-dasher/shared';
 import { hc, type InferResponseType } from 'hono/client';
 import type { AppType } from '../src/app.ts';
 

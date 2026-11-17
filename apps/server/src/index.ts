@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
-import { openDatabase } from '@shopping-agent/db';
+import { openDatabase } from '@agentic-dasher/db';
 import { Hono } from 'hono';
 import { createApp } from './app.ts';
 import { loadConfig } from './config.ts';
@@ -11,7 +11,7 @@ const startedAt = Date.now();
 const config = loadConfig();
 
 mkdirSync(config.dataDir, { recursive: true });
-const db = openDatabase(join(config.dataDir, 'shopping-agent.db'));
+const db = openDatabase(join(config.dataDir, 'agentic-dasher.db'));
 
 const api = createApp({
   version: config.version,
@@ -32,7 +32,7 @@ if (existsSync(indexHtml)) {
 
 const server = serve({ fetch: app.fetch, port: config.port, hostname: config.host }, (info) => {
   console.info(
-    `shopping-agent ${config.version} listening on :${info.port} (ready in ${Date.now() - startedAt} ms)`,
+    `agentic-dasher ${config.version} listening on :${info.port} (ready in ${Date.now() - startedAt} ms)`,
   );
 });
 

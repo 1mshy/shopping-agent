@@ -1,4 +1,4 @@
-# Shopping agent: product and technical specification
+# Agentic Dasher: product and technical specification
 
 Version 0.1 · 2026-11-16 · Status: draft for owner review
 
@@ -37,7 +37,7 @@ A self-hosted shopping agent. It searches as many online shops and marketplaces 
 | Stack | TypeScript full stack |
 | Predecessor | Port the proven parts of pricewatch (not vendor it, not a clean rewrite) |
 | LLM | Any OpenAI-compatible endpoint; designed and tested against frontier cloud models first |
-| Audience | Open source for self-hosters; one `docker compose up`; everything configurable in the UI; any country and currency |
+| Audience | Source-available for self-hosters (PolyForm Noncommercial, see §9 #2); one `docker compose up`; everything configurable in the UI; any country and currency |
 | Paid dependencies | None required |
 | Packaging | Slim core container works alone; real browser and SearXNG are optional add-on services |
 | Scope | Search, recommendations, price watches and alerts, used and marketplace listings |
@@ -588,8 +588,8 @@ The project can start on the defaults shown. Each item names the phase that need
 
 | # | Decision | Default in this spec | Needed by |
 |---|---|---|---|
-| 1 | Project name and repository | — | Phase 0 |
-| 2 | Licence: AGPL-3.0 (Immich, Mealie) or Apache-2.0 (friendlier to adapter contributors) | AGPL-3.0 | Phase 0 |
+| 1 | Project name and repository | **Decided 2026-11-17:** Agentic Dasher (`agentic-dasher`, `@agentic-dasher/*`); repository still `1mshy/shopping-agent` | Phase 0 |
+| 2 | Licence | **Decided 2026-11-17:** PolyForm Noncommercial 1.0.0. Free to use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source | Phase 0 |
 | 3 | Where the public UCP agent-profile JSON is hosted (e.g. GitHub Pages of the project) | project GitHub Pages | Phase 2 |
 | 4 | robots.txt public default: keep `ignore` (owner's 2026-10-23 decision), or `respect` for unattended discovery of hosts the user never named | `ignore`, setting exposed | Phase 1 |
 | 5 | Native Anthropic Messages adapter in v1, or OpenRouter/LiteLLM for Claude until later | later (Phase 7) | Phase 2 |

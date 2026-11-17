@@ -26,7 +26,7 @@ RUN pnpm build
 
 ARG TARGETARCH
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm-store \
-    pnpm --filter @shopping-agent/server deploy --prod --store-dir /pnpm-store /out \
+    pnpm --filter @agentic-dasher/server deploy --prod --store-dir /pnpm-store /out \
  && case "$TARGETARCH" in \
       amd64) arch=x64 ;; \
       arm64) arch=arm64 ;; \

@@ -1,9 +1,9 @@
 {
-  "name": "@shopping-agent/core",
+  "name": "@agentic-dasher/core",
   "version": "0.0.0",
   "private": true,
   "description": "Pure domain code: money, matching, deal verdicts, alert rules, valuation. No I/O, no LLM (S§3.2).",
-  "license": "AGPL-3.0-only",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
@@ -12,6 +12,6 @@
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@shopping-agent/shared": "workspace:*"
+    "@agentic-dasher/shared": "workspace:*"
   }
 }

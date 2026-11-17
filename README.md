@@ -1,4 +1,4 @@
-# Shopping agent
+# Agentic Dasher
 
 A self-hosted shopping agent. It searches the shops and marketplaces it can reach for a good deal on a product, keeps watching prices, and learns what you like so it can suggest what to look for. It always ends at a link to the merchant: no carts, no checkout, no logins on your behalf.
 
@@ -43,4 +43,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Licence
 
-[AGPL-3.0](LICENSE).
+Source-available under the [PolyForm Noncommercial License 1.0.0](LICENSE): free to use, modify and share for any non-commercial purpose (personal use, hobby projects, research, charities, schools and other non-commercial organisations). Commercial use is not permitted. Because of that restriction this is not an OSI "open source" licence.

@@ -59,8 +59,8 @@ jobs:
           platforms: linux/amd64
           build-args: APP_VERSION=${{ github.sha }}
           load: true
-          tags: shopping-agent:ci
+          tags: agentic-dasher:ci
           cache-from: type=gha
 
       - name: Check release budgets (S§5.14)
-        run: node scripts/check-image-budgets.ts shopping-agent:ci
+        run: node scripts/check-image-budgets.ts agentic-dasher:ci

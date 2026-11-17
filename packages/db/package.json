@@ -1,9 +1,9 @@
 {
-  "name": "@shopping-agent/db",
+  "name": "@agentic-dasher/db",
   "version": "0.0.0",
   "private": true,
   "description": "Drizzle schema, SQL migrations and query helpers over SQLite (S§3.2, S§4).",
-  "license": "AGPL-3.0-only",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",
   "exports": {
     ".": "./src/index.ts"

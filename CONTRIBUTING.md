@@ -41,4 +41,4 @@ These come from the spec and the plan. A PR that breaks one is not merged, howev
 
 ## Licence
 
-By contributing you agree that your contribution is licensed under the [AGPL-3.0](LICENSE), the project's licence.
+By contributing you agree that your contribution is licensed under the project licence, the [PolyForm Noncommercial License 1.0.0](LICENSE). It is source-available: anyone may use, modify and share the code for non-commercial purposes, and commercial use is not permitted.

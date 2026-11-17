@@ -1,9 +1,9 @@
 {
-  "name": "@shopping-agent/web",
+  "name": "@agentic-dasher/web",
   "version": "0.0.0",
   "private": true,
   "description": "Vite + React SPA, service worker, locales (S§3.2, S§5.12).",
-  "license": "AGPL-3.0-only",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,8 +17,8 @@
     "react-dom": "19.3.1"
   },
   "devDependencies": {
-    "@shopping-agent/server": "workspace:*",
-    "@shopping-agent/shared": "workspace:*",
+    "@agentic-dasher/server": "workspace:*",
+    "@agentic-dasher/shared": "workspace:*",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.3.0",

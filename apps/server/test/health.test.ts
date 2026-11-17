@@ -1,4 +1,4 @@
-import { HealthResponse } from '@shopping-agent/shared';
+import { HealthResponse } from '@agentic-dasher/shared';
 import { describe, expect, it } from 'vitest';
 import { createApp } from '../src/app.ts';
 

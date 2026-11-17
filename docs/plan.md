@@ -1,4 +1,4 @@
-# Shopping agent: implementation plan
+# Agentic Dasher: implementation plan
 
 Version 0.1 · 2026-11-16 · Companion to `docs/spec.md` (cited as *S§n*).
 

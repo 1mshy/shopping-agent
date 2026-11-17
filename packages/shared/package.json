@@ -1,9 +1,9 @@
 {
-  "name": "@shopping-agent/shared",
+  "name": "@agentic-dasher/shared",
   "version": "0.0.0",
   "private": true,
   "description": "Zod schemas, API and SSE event types, Money and Currency types (S§3.2).",
-  "license": "AGPL-3.0-only",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
