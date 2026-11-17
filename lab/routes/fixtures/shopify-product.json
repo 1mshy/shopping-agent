@@ -1,0 +1,8 @@
+{
+  "id": 329678821,
+  "title": "Red Rain Coat",
+  "handle": "red-rain-coat",
+  "price": 12900,
+  "available": true,
+  "variants": [{ "id": 794864229, "title": "Small", "price": 12900, "available": true }]
+}
