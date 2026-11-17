@@ -29,7 +29,7 @@ describe('Pacer', () => {
     for (const [random, gap] of [
       [0, 2500], // 0.85 x 2.5 s is below the floor, so the floor applies
       [1, 3250],
-      [0.5, 2687.5],
+      [0.5, 2688], // 1.075 x 2.5 s, rounded up to whole milliseconds
     ] as const) {
       vi.setSystemTime(0);
       const pacer = new Pacer({ random: () => random });
@@ -69,7 +69,9 @@ describe('Pacer', () => {
   it('defers the next start to a host after a Retry-After', async () => {
     const pacer = new Pacer({ random: () => 0 });
     const r = recorder();
-    await pacer.run('a.example', r.task('a', 10));
+    const first = pacer.run('a.example', r.task('a', 10));
+    await vi.runAllTimersAsync();
+    await first;
     pacer.defer('a.example', 30_000);
     const next = pacer.run('a.example', r.task('a', 10));
     await vi.runAllTimersAsync();
