@@ -143,6 +143,64 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
     ['planner', 'judge', 'chat', 'browse'],
   ],
   ['COST_SOURCES', 'CostSource', 'S§4.4 run.cost_source', ['provider', 'settings', 'none']],
+  // Workstream 2b: vocabularies the S§4 tables name and S§5 prose enumerates.
+  [
+    'READ_METHODS',
+    'ReadMethod',
+    'S§5.2 reader ladder, S§4.1 store.read_route, price_observation.read_path',
+    ['platform_json', 'json_ld', 'microdata', 'opengraph', 'adapter'],
+  ],
+  ['IDENTIFIER_KINDS', 'IdentifierKind', 'S§5.4 tier 1, S§5.3', ['gtin', 'mpn', 'sku']],
+  [
+    'FETCH_OUTCOME_KINDS',
+    'FetchOutcomeKind',
+    'S§5.1 typed outcome',
+    [
+      'ok',
+      'not_found',
+      'wall',
+      'rate_limited',
+      'payment_required',
+      'login_required',
+      'empty',
+      'server_error',
+      'network_error',
+      'refused_by_policy',
+    ],
+  ],
+  ['PLAYBOOK_OUTCOME_KINDS', 'PlaybookOutcomeKind', 'S§5.1', ['ok', 'wall', 'empty']],
+  [
+    'PRICE_COMPONENTS',
+    'PriceComponent',
+    'S§5.5, S§4.1',
+    ['sticker', 'shipping', 'tax', 'duty_estimate'],
+  ],
+  ['WATCH_LISTING_ADDED_BY', 'WatchListingAddedBy', 'S§4.2', ['user', 'discovery']],
+  [
+    'SEARCH_RUN_STATUSES',
+    'SearchRunStatus',
+    'S§4.2 search_run.status',
+    ['queued', 'running', 'completed', 'cancelled', 'failed'],
+  ],
+  ['RUN_STATUSES', 'RunStatus', 'S§4.4 run', ['running', 'completed', 'cancelled', 'failed']],
+  [
+    'JOB_RUN_STATUSES',
+    'JobRunStatus',
+    'S§4.4 job_run',
+    ['running', 'completed', 'failed', 'skipped'],
+  ],
+  ['BUDGET_KINDS', 'BudgetKind', 'S§5.7', ['turns', 'deadline', 'input_tokens', 'spend']],
+  ['DELIVERY_STATES', 'DeliveryState', 'S§4.4 delivery', ['pending', 'accepted', 'failed']],
+  ['DELIVERY_OUTCOMES', 'DeliveryOutcome', 'S§5.11', ['accepted', 'retry', 'failed']],
+  [
+    'CHANNEL_TYPES',
+    'ChannelType',
+    'S§5.11 channels in the core',
+    ['in_app', 'web_push', 'ntfy', 'telegram', 'discord', 'webhook'],
+  ],
+  ['SETTING_SOURCES', 'SettingSource', 'S§4.4 setting, S§5.13', ['db', 'env', 'default']],
+  ['INTENT_KINDS', 'IntentKind', 'S§5.4 SearchIntent', ['exact', 'needs']],
+  ['FULFILMENTS', 'Fulfilment', 'S§5.4 SearchIntent', ['delivery', 'pickup']],
 ];
 
 const exports = shared as unknown as Record<string, unknown>;
@@ -155,5 +213,33 @@ describe('shared vocabularies', () => {
     for (const bad of ['', 'UNKNOWN', `${values[0]} `, null]) {
       expect(schema.safeParse(bad).success).toBe(false);
     }
+  });
+
+  it('keeps the playbook outcomes a subset of the fetch outcomes (S§5.1)', () => {
+    for (const kind of shared.PLAYBOOK_OUTCOME_KINDS) {
+      expect(shared.FETCH_OUTCOME_KINDS).toContain(kind);
+    }
+  });
+});
+
+describe('free-form but validated strings', () => {
+  const cases: [name: string, schema: z.ZodType, good: string[], bad: unknown[]][] = [
+    [
+      'WallVendor',
+      shared.WallVendor,
+      ['cloudflare', 'akamai', 'perimeterx-hmn'],
+      ['', 'Cloud Flare', 'x'.repeat(49), null],
+    ],
+    ['FxRateSource', shared.FxRateSource, ['ecb', 'frankfurter.app'], ['', 'ECB rates', null]],
+    [
+      'PriceUnit',
+      shared.PriceUnit,
+      ['kg', '100 g', 'l', 'each'],
+      ['', ' kg', 'kg ', 'x'.repeat(17), 1],
+    ],
+  ];
+  it.each(cases)('%s', (_name, schema, good, bad) => {
+    for (const value of good) expect(schema.safeParse(value).success).toBe(true);
+    for (const value of bad) expect(schema.safeParse(value).success).toBe(false);
   });
 });
