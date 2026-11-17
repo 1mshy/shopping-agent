@@ -78,6 +78,12 @@ export function robotsCounterfactual(results: DomainResult[]): RobotsRow[] {
   });
 }
 
+const platformsSeen = (signals: string[]) =>
+  signals
+    .filter((s) => s.startsWith('platform:'))
+    .map((s) => s.slice(9))
+    .join('+') || 'none';
+
 export function renderMarkdown(results: DomainResult[]): string {
   const rows = tabulate(results);
   const kinds = ORDER.filter((k) => rows.some((r) => r.counts[k]));
@@ -101,7 +107,7 @@ export function renderMarkdown(results: DomainResult[]): string {
         `| ${r.list} | ${r.route} | ${r.n} | ${cell(r.disallowed, r.n)} | ${cell(r.answered, r.n)} | ${cell(r.answeredUnderRespect, r.n)} |`,
     ),
     '',
-    '### Walls by vendor, network errors by code, policy refusals by reason',
+    '### Detail: walls by vendor, errors by code, refusals by reason, platform seen on 404s',
     '',
     '| list | route | detail | count |',
     '|---|---|---|---|',
@@ -117,7 +123,9 @@ export function renderMarkdown(results: DomainResult[]): string {
             ? `network_error ${o.code}`
             : o.kind === 'refused_by_policy' || o.kind === 'skipped'
               ? `${o.kind} ${o.reason}`
-              : undefined;
+              : o.kind === 'not_platform' || o.kind === 'not_found'
+                ? `${o.kind}, platform seen: ${platformsSeen(x.evidence.signals)}`
+                : undefined;
       if (d)
         detail.set(
           `${r.list} | ${x.route} | ${d}`,

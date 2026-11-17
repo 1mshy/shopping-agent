@@ -75,7 +75,11 @@ describe('probeDomain', () => {
     });
     const r = await probe(port, 'woocommerce');
     expect(r.routes[0]?.outcome).toEqual({ kind: 'wall', vendor: 'cloudflare', mode: 'challenge' });
-    expect(r.routes[0]?.evidence.validation).toBe('not_json');
+    expect(r.routes[0]?.evidence).toMatchObject({
+      validation: 'not_json',
+      title: 'just a moment...',
+      snippet: expect.stringContaining('<title>Just a moment...</title>'),
+    });
   });
 
   it('takes the product handle from suggest.json and reads the product JSON', async () => {

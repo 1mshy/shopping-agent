@@ -61,6 +61,10 @@ export interface Evidence {
   bytes?: number;
   /** Validator verdict: the reason it failed, or a short note on what passed. */
   validation?: string;
+  /** The page <title> of an HTML answer that failed validation. */
+  title?: string;
+  /** First 300 characters of a small (< 16 KiB) answer that failed validation, for review. */
+  snippet?: string;
   /** Classifier and platform signals that fired (e.g. `title:just a moment`, `platform:shopify`). */
   signals: string[];
   hops: number;

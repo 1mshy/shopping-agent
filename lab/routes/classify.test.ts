@@ -110,6 +110,24 @@ describe('classify', () => {
     expect(classify(shop, invalid, 'shopify').outcome.kind).toBe('not_found');
   });
 
+  it('reads platform evidence from asset paths and script types on an HTML 404 page', () => {
+    const m2 = res(
+      404,
+      page('404 Not Found', '<script type="text/x-magento-init">{"*":{}}</script>'),
+    );
+    expect(classify(m2, invalid, 'magento')).toMatchObject({
+      outcome: { kind: 'not_found' },
+      signals: ['platform:magento'],
+    });
+    const wp = res(404, page('Not found', '<link href="/wp-content/themes/x/style.css">'));
+    expect(classify(wp, invalid, 'magento')).toMatchObject({
+      outcome: { kind: 'not_platform' },
+      signals: ['platform:wordpress'],
+    });
+    const json = res(404, '{"x":"/wp-content/themes/"}', { 'content-type': 'application/json' });
+    expect(classify(json, invalid, 'woocommerce').outcome.kind).toBe('not_platform');
+  });
+
   it('maps a GraphQL authorization error to login_required and other errors to invalid_payload', () => {
     const r = res(200, '{}', { 'content-type': 'application/json' });
     expect(

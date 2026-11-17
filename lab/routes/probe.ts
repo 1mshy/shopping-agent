@@ -6,7 +6,7 @@
 //                 (+ home page when suggest.json yields no handle)           = 4
 //   searchaction  robots + home page + OpenSearch description if linked     <= 3
 // Redirect hops and one retry after a network error also count; the cap stops the rest.
-import { classify } from './classify.ts';
+import { classify, type HttpResponse, pageTitle } from './classify.ts';
 import {
   findOpenSearchLink,
   findProductHandle,
@@ -41,8 +41,19 @@ export interface ProbeConfig extends HttpConfig {
   scheme: 'https' | 'http';
 }
 
+// Failures of robots.txt that every later request to the host would repeat: DNS and TLS
+// certificate errors (the pilot spent a second request on each).
+const HOST_LEVEL_ERROR = /^(ENOTFOUND|ENODATA)$|CERT|ERR_TLS_|SSL/;
 const JSON_HEADERS = { accept: 'application/json' };
 const HTML_HEADERS = { accept: 'text/html,application/xhtml+xml' };
+
+function failedBody(res: HttpResponse): { title?: string; snippet?: string } {
+  const title = pageTitle(res.body);
+  return {
+    ...(title ? { title } : {}),
+    ...(res.bytes < 16 * 1024 ? { snippet: res.body.slice(0, 300).replace(/\s+/g, ' ') } : {}),
+  };
+}
 
 function toResult(
   route: RouteKind,
@@ -64,6 +75,7 @@ function toResult(
     contentType: r.res.headers.get('content-type') ?? '',
     bytes: r.res.bytes,
     validation: v.valid ? (v.note ?? `items=${v.items}`) : v.reason,
+    ...(v.valid ? {} : failedBody(r.res)),
     signals: c.signals,
     hops: r.hops,
     ms: r.ms,
@@ -108,14 +120,16 @@ export async function probeDomain(
     headers: Record<string, string> = JSON_HEADERS,
   ): Promise<Fetched> => {
     const url = `${origin}${path}`;
-    // A host that failed DNS or the guard for robots.txt fails it again; spend nothing.
+    // A host that failed the guard, DNS or TLS for robots.txt fails again; spend nothing.
     const f = robots.failure;
     if (
       f &&
       (f.kind === 'refused_by_policy' ||
-        (f.kind === 'network_error' && /^E(NOTFOUND|NODATA)$/.test(f.code)))
+        (f.kind === 'network_error' && HOST_LEVEL_ERROR.test(f.code)))
     ) {
-      return { result: notRequested(route, url, f, 'inherited:robots') };
+      return {
+        result: { ...notRequested(route, url, f, 'inherited:robots'), robots: robots.verdict(url) },
+      };
     }
     const r = await get(url, cfg, budget, headers);
     return toResult(route, url, r, validate, platform, robots.verdict(url));

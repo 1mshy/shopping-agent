@@ -107,33 +107,47 @@ export function detectWall(r: HttpResponse): Wall | undefined {
   return undefined;
 }
 
-/** Which platforms the response shows, from headers and error-body shapes. */
+// Platform evidence (not wall evidence): headers, error-body shapes, and in HTML pages the
+// platform's own asset paths and script types, which a 404 page of the platform carries too.
+// Added after the pilot, where Magento and WordPress 404 pages often had no telling header.
+const HTML_MARKERS: Array<[Exclude<Platform, 'any'>, RegExp]> = [
+  ['shopify', /\/\/cdn\.shopify\.com\/|\bShopify\.shop\s*=/],
+  ['woocommerce', /\/wp-content\/(?:themes|plugins|uploads)\/|\/wp-includes\//],
+  [
+    'magento',
+    /type=["']text\/x-magento-init["']|\/static\/version\d+\/frontend\/|\/skin\/frontend\/|\bMage\.Cookies\b/,
+  ],
+];
+
+/** Which platforms the response shows. `woocommerce` here means WordPress is present. */
 export function platformSignals(r: HttpResponse): Array<Exclude<Platform, 'any'>> {
   const h = r.headers;
   const keys = [...h.keys()];
-  const out: Array<Exclude<Platform, 'any'>> = [];
+  const html = (h.get('content-type') ?? '').includes('html') ? r.body.slice(0, 512 * 1024) : '';
+  const out = new Set<Exclude<Platform, 'any'>>();
   if (
     keys.some(
       (k) => k.startsWith('x-shopify') || k === 'x-shopid' || k === 'x-sorting-hat-shopid',
     ) ||
     /shopify/i.test(h.get('powered-by') ?? '')
   ) {
-    out.push('shopify');
+    out.add('shopify');
   }
   if (
     (h.get('link') ?? '').includes('api.w.org') ||
     h.has('x-wp-total') ||
     /^\s*\{\s*"code"\s*:\s*"rest_/.test(r.body.slice(0, 200))
   ) {
-    out.push('woocommerce'); // WordPress is present; Woo itself is what the route tests
+    out.add('woocommerce');
   }
   if (
     keys.some((k) => k.startsWith('x-magento')) ||
     /X-Magento-Vary|mage-cache-sessid/i.test(h.get('set-cookie') ?? '')
   ) {
-    out.push('magento');
+    out.add('magento');
   }
-  return out;
+  for (const [p, re] of HTML_MARKERS) if (re.test(html)) out.add(p);
+  return [...out];
 }
 
 const SIGNAL_NAME = { shopify: 'shopify', woocommerce: 'wordpress', magento: 'magento' } as const;
