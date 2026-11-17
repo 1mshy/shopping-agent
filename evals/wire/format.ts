@@ -17,6 +17,48 @@ export const SERVER_FAMILIES = [
 export type ServerFamily = (typeof SERVER_FAMILIES)[number];
 export type JsonValue = string | number | boolean | null | JsonValue[] | { [k: string]: JsonValue };
 
+export const REDACTED = '[REDACTED]';
+
+const SENSITIVE_WORDS = new Set([
+  'authorization',
+  'auth',
+  'cookie',
+  'apikey',
+  'secret',
+  'password',
+  'passwd',
+  'session',
+  'credential',
+  'credentials',
+  'signature',
+  'organization',
+  'organisation',
+  'org',
+  'project',
+  'user',
+  'account',
+]);
+const SENSITIVE_JOINED = new Set(['key', 'token', 'accesstoken', 'refreshtoken', 'idtoken']);
+const NOT_SENSITIVE = new Set(['user-agent']);
+
+/** Is a header name, JSON key or query parameter name likely to carry a credential or an
+ * account identifier? Deliberately broad; a false positive only costs fixture detail. */
+export function isSensitiveName(name: string, _kind: 'header' | 'field' = 'field'): boolean {
+  if (NOT_SENSITIVE.has(name.toLowerCase())) return false;
+  const words = name
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+  const joined = words.join('');
+  return (
+    words.some((w) => SENSITIVE_WORDS.has(w)) ||
+    SENSITIVE_JOINED.has(joined) ||
+    words.at(-1) === 'key' ||
+    /(auth|access|api|session)token$/.test(joined)
+  );
+}
+
 const ms = z.number().finite().nonnegative();
 const headerMap = z.record(z.string().regex(/^[a-z0-9-]+$/), z.string());
 

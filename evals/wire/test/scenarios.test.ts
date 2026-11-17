@@ -45,10 +45,17 @@ describe('scenario matrix', () => {
       'error-bad-credentials',
       'error-unknown-model',
       'error-rejected-request',
+      'tool-choice-none',
     ]) {
       expect(scenarioById(id).id).toBe(id);
     }
     expect(() => scenarioById('nope')).toThrow();
+  });
+
+  it('records the forced-finish shape: tools supplied with tool_choice none (S§5.7)', () => {
+    const body = scenarioById('tool-choice-none').body(ctx) as Record<string, unknown>;
+    expect(body.tool_choice).toBe('none');
+    expect(Array.isArray(body.tools) && body.tools.length > 0).toBe(true);
   });
 
   it('marks family-only side doors', () => {

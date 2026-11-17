@@ -71,7 +71,39 @@ describe('fixture validation', () => {
     }),
     'status out of range': (f) => ({ ...f, response: { ...f.response, status: 700 } }),
     'unknown top-level key': (f) => ({ ...f, extra: true }),
+    // Review item 14.
+    'an informational status': (f) => ({ ...f, response: { ...f.response, status: 101 } }),
+    'chunks on a 204': (f) => ({ ...f, response: { ...f.response, status: 204 } }),
+    'chunks on a 304': (f) => ({ ...f, response: { ...f.response, status: 304 } }),
+    'a utf8 chunk with a lone surrogate': (f) => ({
+      ...f,
+      response: { ...f.response, chunks: [{ atMs: 10, utf8: 'a\uD800b' }] },
+    }),
+    'non-canonical base64': (f) => ({
+      ...f,
+      response: { ...f.response, chunks: [{ atMs: 10, base64: 'YR==' }] },
+    }),
+    'an unredacted authorization header': (f) => ({
+      ...f,
+      meta: { ...f.meta, synthetic: false },
+      request: { ...f.request, headers: { authorization: 'Bearer sk-or-v1-0123456789abcdef' } },
+    }),
+    'an unredacted key header': (f) => ({
+      ...f,
+      request: { ...f.request, headers: { 'x-api-key': 'abc' } },
+    }),
+    'an unredacted sensitive response header': (f) => ({
+      ...f,
+      response: { ...f.response, headers: { 'openai-organization': 'org-1' } },
+    }),
   };
+
+  it('accepts a 204 without chunks and redacted sensitive headers', () => {
+    const f = syntheticStream();
+    f.request.headers = { authorization: 'Bearer [REDACTED]', 'x-api-key': '[REDACTED]' };
+    f.response = { ...f.response, status: 204, chunks: [] };
+    expect(WireFixtureSchema.safeParse(f).success).toBe(true);
+  });
 
   for (const [name, mutate] of Object.entries(broken)) {
     it(`rejects ${name}`, () => {

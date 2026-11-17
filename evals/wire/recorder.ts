@@ -118,6 +118,7 @@ export async function recordExchange(scenario: Scenario, o: SessionOptions): Pro
 }
 
 const slug = (s: string) => s.replace(/[^A-Za-z0-9._-]+/g, '_');
+export const fixtureDirName = slug;
 
 /** Writes a fixture unless a secret is still in it (fail closed). Returns the file path. */
 export async function writeFixture(
