@@ -67,6 +67,84 @@ describe('reclassify', () => {
     });
   });
 
+  it('re-reads body markers from the stored snippet and host evidence from robots.txt', () => {
+    const magentoErrorPage = route({
+      route: 'magento_graphql',
+      outcome: { kind: 'not_platform' },
+      evidence: {
+        status: 404,
+        finalUrl: 'https://x.example/graphql?query=x',
+        contentType: 'text/html',
+        bytes: 700,
+        headers: { 'content-type': 'text/html' },
+        markers: [],
+        valid: false,
+        validation: 'not_json',
+        snippet:
+          '<!doctype html> <html> <head> <title>Error 404: Not Found</title> <base href="https&#x3A;&#x2F;&#x2F;x.example&#x2F;errors&#x2F;default&#x2F;" />',
+        signals: [],
+        hops: 0,
+      },
+    });
+    expect(reclassifyRoute(magentoErrorPage).outcome).toEqual({ kind: 'not_found' });
+
+    const bare404 = route({
+      route: 'magento_graphql',
+      outcome: { kind: 'not_platform' },
+      evidence: {
+        status: 404,
+        finalUrl: 'https://x.example/graphql?query=x',
+        headers: { 'content-type': 'text/html' },
+        markers: [],
+        valid: false,
+        validation: 'not_json',
+        signals: [],
+        hops: 0,
+      },
+    });
+    const h = host([bare404]);
+    h.robots = {
+      state: 'unreachable',
+      status: 500,
+      outcome: 'server_error',
+      evidence: {
+        status: 500,
+        finalUrl: 'https://x.example/robots.txt',
+        contentType: 'text/html',
+        headers: { 'content-type': 'text/html' },
+        markers: [],
+        valid: false,
+        validation: 'robots',
+        snippet: '<html><head><base href="https://x.example/errors/default/" /></head>',
+        signals: [],
+        hops: 0,
+      },
+    };
+    expect(reclassifyResult(h).routes[0]?.outcome).toEqual({ kind: 'not_found' });
+  });
+
+  it('turns a walled robots.txt into no verdict, whatever its status', () => {
+    const h = host([route({ robots: 'allowed' })]);
+    h.robots = {
+      state: 'absent',
+      status: 403,
+      outcome: 'forbidden',
+      evidence: {
+        status: 403,
+        finalUrl: 'https://x.example/robots.txt',
+        headers: { 'content-type': 'text/html', 'cf-mitigated': 'challenge' },
+        markers: [],
+        valid: false,
+        validation: 'robots',
+        signals: [],
+        hops: 0,
+      },
+    };
+    const after = reclassifyResult(h);
+    expect(after.robots).toMatchObject({ state: 'unknown', outcome: 'wall' });
+    expect(after.routes[0]?.robots).toBe('unknown');
+  });
+
   it('leaves routes decided without the classifier alone', () => {
     const net = route({
       outcome: { kind: 'network_error', code: 'ENOTFOUND' },

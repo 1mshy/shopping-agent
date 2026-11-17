@@ -103,14 +103,26 @@ export function pageTitle(html: string): string | undefined {
 // Platform evidence in the body: in HTML pages the platform's own asset paths and script types
 // (a 404 page of the platform carries them too; added after the pilot, where Magento and
 // WordPress 404 pages often had no telling header), and the WordPress REST error shape.
+// Magento's error processor (pub/errors) serves its 404, report and maintenance pages with
+// <base href=".../errors/<skin>/"> (`default` unless the shop has its own skin), often
+// HTML-escaped (added after the spike C review).
 const HTML_MARKERS: Array<[Exclude<Platform, 'any'>, RegExp]> = [
   ['shopify', /\/\/cdn\.shopify\.com\/|\bShopify\.shop\s*=/],
   ['woocommerce', /\/wp-content\/(?:themes|plugins|uploads)\/|\/wp-includes\//],
   [
     'magento',
-    /type=["']text\/x-magento-init["']|\/static\/version\d+\/frontend\/|\/skin\/frontend\/|\bMage\.Cookies\b/,
+    /type=["']text\/x-magento-init["']|\/static\/version\d+\/frontend\/|\/skin\/frontend\/|\bMage\.Cookies\b|<base\s+href=["'][^"']*errors(?:\/|&#x2F;)[a-z0-9_-]+(?:\/|&#x2F;)["']/i,
   ],
 ];
+
+/** Body markers (`html:<platform>`, `body:wp_rest_error`) in a body, or in a stored prefix of it. */
+export function bodyMarkers(contentType: string, body: string): string[] {
+  const html = contentType.includes('html') ? body.slice(0, 512 * 1024) : '';
+  const out: string[] = [];
+  for (const [p, re] of HTML_MARKERS) if (re.test(html)) out.push(`html:${p}`);
+  if (/^\s*\{\s*"code"\s*:\s*"rest_/.test(body.slice(0, 200))) out.push('body:wp_rest_error');
+  return out;
+}
 
 /** The stored view of a response: what the classifier reads, and nothing else. */
 export function observe(r: HttpResponse): Observed {
@@ -123,10 +135,7 @@ export function observe(r: HttpResponse): Observed {
   }
   const cookies = r.headers.getSetCookie().map((c) => `${(c.split('=')[0] ?? '').trim()}=`);
   if (cookies.length > 0) headers['set-cookie'] = cookies.join(', ').slice(0, MAX_HEADER);
-  const html = (headers['content-type'] ?? '').includes('html') ? r.body.slice(0, 512 * 1024) : '';
-  const markers: string[] = [];
-  for (const [p, re] of HTML_MARKERS) if (re.test(html)) markers.push(`html:${p}`);
-  if (/^\s*\{\s*"code"\s*:\s*"rest_/.test(r.body.slice(0, 200))) markers.push('body:wp_rest_error');
+  const markers = bodyMarkers(headers['content-type'] ?? '', r.body);
   const title = pageTitle(r.body);
   return {
     status: r.status,
@@ -224,10 +233,20 @@ export const platformSignals = (r: HttpResponse) => platformSignalsObserved(obse
 
 const SIGNAL_NAME = { shopify: 'shopify', woocommerce: 'wordpress', magento: 'magento' } as const;
 
+// A Magento customer login page as the final URL (a store or locale prefix allowed).
+const LOGIN_PATH = /\/customer\/account\/login\/?$/;
+// A GraphQL error of category `internal`, or Magento's "Internal server error" message.
+const GRAPHQL_INTERNAL = /^graphql_error:(?:internal:|[^:]*:Internal server error)/;
+
+/**
+ * `host` lists the platforms seen on other answers from the same host (its robots.txt): a bare
+ * 404 on a host that shows the platform elsewhere is `not_found`, not `not_platform`.
+ */
 export function classifyObserved(
   o: Observed,
   v: Validation,
   platform: Platform,
+  host: Array<Exclude<Platform, 'any'>> = [],
 ): { outcome: Outcome; signals: string[] } {
   const seen = platformSignalsObserved(o);
   const signals = seen.map((p) => `platform:${SIGNAL_NAME[p]}`);
@@ -242,12 +261,15 @@ export function classifyObserved(
   if (o.status === 401) return done({ kind: 'login_required' });
   if (o.status === 402) return done({ kind: 'payment_required' });
   if (o.status === 403) return done({ kind: 'forbidden' });
-  if (new URL(o.finalUrl).pathname === '/password') {
-    return done({ kind: 'login_required' }, ['final_url:/password']);
-  }
+  const path = new URL(o.finalUrl).pathname;
+  if (path === '/password') return done({ kind: 'login_required' }, ['final_url:/password']);
+  if (LOGIN_PATH.test(path)) return done({ kind: 'login_required' }, ['final_url:login']);
   if (o.status === 404 || o.status === 410) {
-    const shows = platform === 'any' || seen.includes(platform);
-    return done({ kind: shows ? 'not_found' : 'not_platform' });
+    if (platform === 'any' || seen.includes(platform)) return done({ kind: 'not_found' });
+    if (host.includes(platform)) {
+      return done({ kind: 'not_found' }, [`host:platform:${SIGNAL_NAME[platform]}`]);
+    }
+    return done({ kind: 'not_platform' });
   }
   if (o.status >= 500) return done({ kind: 'server_error' });
   if (o.status >= 400) return done({ kind: 'client_error' });
@@ -255,8 +277,13 @@ export function classifyObserved(
   if (v.reason.startsWith('graphql_error:graphql-authorization')) {
     return done({ kind: 'login_required' });
   }
+  if (GRAPHQL_INTERNAL.test(v.reason)) return done({ kind: 'server_error' }, ['graphql:internal']);
   return done({ kind: 'invalid_payload' });
 }
 
-export const classify = (r: HttpResponse, v: Validation, platform: Platform) =>
-  classifyObserved(observe(r), v, platform);
+export const classify = (
+  r: HttpResponse,
+  v: Validation,
+  platform: Platform,
+  host: Array<Exclude<Platform, 'any'>> = [],
+) => classifyObserved(observe(r), v, platform, host);

@@ -264,6 +264,32 @@ describe('probeDomain', () => {
     }
   });
 
+  it('a challenge served as robots.txt with a 4xx status gives no robots verdict', async () => {
+    const port = await serve({
+      '/robots.txt': (_q, res) =>
+        res
+          .writeHead(403, { 'content-type': 'text/html', 'cf-mitigated': 'challenge' })
+          .end('<html><title>Just a moment...</title></html>'),
+      '/wp-json/wc/store/v1/products': [200, '[]', JSON_T],
+    });
+    const r = await probe(port, 'woocommerce');
+    expect(r.robots).toMatchObject({ state: 'unknown', status: 403, outcome: 'wall' });
+    expect(r.routes[0]?.robots).toBe('unknown');
+  });
+
+  it('uses Magento evidence on robots.txt to call a bare GraphQL 404 not_found', async () => {
+    const port = await serve({
+      '/robots.txt': (_q, res) =>
+        res.writeHead(200, { 'content-type': 'text/plain', 'x-magento-tags': 'FPC' }).end(''),
+      '/graphql': [404, '<html><title>404 Not Found</title></html>'],
+    });
+    const r = await probe(port, 'magento');
+    expect(r.routes[0]).toMatchObject({
+      outcome: { kind: 'not_found' },
+      evidence: { signals: ['host:platform:magento'] },
+    });
+  });
+
   it('enforces the per-domain request cap, counting robots.txt', async () => {
     const port = await serve({ '/robots.txt': ROBOTS });
     const r = await probe(port, 'shopify', { maxRequests: 1 });

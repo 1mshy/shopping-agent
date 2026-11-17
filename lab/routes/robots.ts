@@ -55,8 +55,9 @@ export async function fetchRobots(
       : { valid: false, reason: 'robots' },
     { signals: [], hops: r.hops, ms: r.ms },
   );
-  if (status < 300 && walled) {
-    // A challenge page served as robots.txt is not a robots.txt.
+  if (walled) {
+    // A challenge page served as robots.txt is not a robots.txt, whatever its status (the spike C
+    // review found Cloudflare and Vercel challenges served with 403 and 429).
     return {
       record: { state: 'unknown', status, outcome, evidence },
       origin: settled,

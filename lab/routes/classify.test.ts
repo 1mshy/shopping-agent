@@ -1,7 +1,14 @@
 // The pages below are hand-written test inputs shaped like the cases they name. They are not
 // evidence about any real shop.
 import { describe, expect, it } from 'vitest';
-import { classify, detectWall, type HttpResponse } from './classify.ts';
+import {
+  classify,
+  classifyObserved,
+  detectWall,
+  type HttpResponse,
+  observe,
+  platformSignals,
+} from './classify.ts';
 import type { Validation } from './outcome.ts';
 
 const res = (
@@ -137,6 +144,65 @@ describe('classify', () => {
     expect(
       classify(r, { valid: false, reason: 'graphql_error:graphql-input' }, 'magento').outcome.kind,
     ).toBe('invalid_payload');
+  });
+
+  // Classes found in the spike C classification review (2026-11-17), each from stored evidence.
+  it("reads Magento's own error-processor page (base href errors/default/) as Magento", () => {
+    const escaped = res(
+      404,
+      '<!doctype html><html><head><title>Error 404: Not Found</title><base href="https&#x3A;&#x2F;&#x2F;shop.example&#x2F;errors&#x2F;default&#x2F;" /></head></html>',
+    );
+    expect(classify(escaped, invalid, 'magento')).toMatchObject({
+      outcome: { kind: 'not_found' },
+      signals: ['platform:magento'],
+    });
+    const plain = res(
+      500,
+      '<html><head><title>There has been an error processing your request</title><base href="http://shop.example/errors/default/" /></head></html>',
+    );
+    expect(platformSignals(plain)).toEqual(['magento']);
+    const ownSkin = res(500, '<html><head><base href="https://shop.example/errors/acme/" />');
+    expect(platformSignals(ownSkin)).toEqual(['magento']);
+    const other = res(404, '<html><head><base href="https://shop.example/docs/errors.html" />');
+    expect(platformSignals(other)).toEqual([]);
+  });
+
+  it('counts platform evidence seen elsewhere on the host (robots.txt) for a 404', () => {
+    const r = res(404, page('404 Not Found'), { server: 'nginx' });
+    expect(classifyObserved(observe(r), invalid, 'magento', ['magento'])).toEqual({
+      outcome: { kind: 'not_found' },
+      signals: ['host:platform:magento'],
+    });
+    expect(classifyObserved(observe(r), invalid, 'magento', ['shopify']).outcome.kind).toBe(
+      'not_platform',
+    );
+  });
+
+  it('a GraphQL internal error in a 2xx answer is server_error, not invalid_payload', () => {
+    const r = res(200, '{}', { 'content-type': 'application/json' });
+    for (const reason of [
+      'graphql_error::Internal server error',
+      'graphql_error:internal:Internal server error',
+    ]) {
+      expect(classify(r, { valid: false, reason }, 'magento').outcome.kind).toBe('server_error');
+    }
+    const schema = 'graphql_error::Cannot query field "price_range" on type "ProductInterface".';
+    expect(classify(r, { valid: false, reason: schema }, 'magento').outcome.kind).toBe(
+      'invalid_payload',
+    );
+  });
+
+  it('a redirect to the Magento customer login page is login_required', () => {
+    const r = res(
+      200,
+      page('Customer Login'),
+      {},
+      'https://shop.example/en/customer/account/login/',
+    );
+    expect(classify(r, invalid, 'magento')).toMatchObject({
+      outcome: { kind: 'login_required' },
+      signals: expect.arrayContaining(['final_url:login']),
+    });
   });
 
   it('an absent discovery target on a fetched page is not_found', () => {

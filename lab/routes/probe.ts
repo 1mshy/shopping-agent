@@ -13,7 +13,7 @@ import {
   validateOpenSearch,
   validateSearchAction,
 } from './discover.ts';
-import { answerEvidence } from './evidence.ts';
+import { answerEvidence, hostPlatforms } from './evidence.ts';
 import { sameSite } from './guard.ts';
 import { Budget, get, type HttpConfig, type HttpResult } from './http.ts';
 import type {
@@ -55,13 +55,14 @@ function toResult(
   validate: (body: string) => Validation,
   platform: Platform,
   robots: RouteResult['robots'],
+  host: Array<Exclude<Platform, 'any'>> = [],
 ): Fetched {
   if (!r.ok) {
     const evidence = { finalUrl: r.finalUrl, signals: [], hops: r.hops, ms: r.ms };
     return { result: { route, url, outcome: r.outcome, evidence, robots, requests: r.requests } };
   }
   const v = validate(r.res.body);
-  const c = classify(r.res, v, platform);
+  const c = classify(r.res, v, platform, host);
   const evidence = answerEvidence(r.res, v, { signals: c.signals, hops: r.hops, ms: r.ms });
   const result = { route, url, outcome: c.outcome, evidence, robots, requests: r.requests };
   return { result, v, body: r.res.body };
@@ -93,6 +94,8 @@ export async function probeDomain(
   const budget = new Budget(cfg.maxRequests);
   const robots = await fetchRobots(`${cfg.scheme}://${domain}`, cfg, budget);
   const origin = robots.origin;
+  // Platforms the robots.txt answer shows, for the host-level 404 rule (classify.ts).
+  const host = hostPlatforms(robots.record.evidence);
   const routes: RouteResult[] = [];
 
   const fetchRoute = async (
@@ -115,7 +118,7 @@ export async function probeDomain(
       };
     }
     const r = await get(url, cfg, budget, headers);
-    return toResult(route, url, r, validate, platform, robots.verdict(url));
+    return toResult(route, url, r, validate, platform, robots.verdict(url), host);
   };
 
   if (list === 'woocommerce') {

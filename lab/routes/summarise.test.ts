@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import type { DomainResult, Outcome, RobotsVerdict, RouteKind } from './outcome.ts';
-import { pct, renderMarkdown, robotsCounterfactual, tabulate } from './summarise.ts';
+import {
+  confirmedPlatform,
+  pct,
+  platformRates,
+  renderMarkdown,
+  robotsCounterfactual,
+  tabulate,
+} from './summarise.ts';
 
 // Synthetic records for the arithmetic only; not results from any run.
 const result = (
@@ -55,8 +62,52 @@ describe('summariser', () => {
         route: 'woo_store_search',
         n: 4,
         disallowed: 2,
+        disallowedByRule: 2,
+        disallowedUnreachable: 0,
+        disallowedAnswered: 1,
+        unknown: 0,
         answered: 2,
         answeredUnderRespect: 1,
+      },
+    ]);
+  });
+
+  it('separates robots refusals by rule from those by an unreachable robots.txt', () => {
+    const down = result('woocommerce', [['woo_store_search', ok, 'disallowed']]);
+    down.robots = { state: 'unreachable', outcome: 'network_error' };
+    const [row] = robotsCounterfactual([...results, down]);
+    expect(row).toMatchObject({
+      disallowed: 3,
+      disallowedByRule: 2,
+      disallowedUnreachable: 1,
+      disallowedAnswered: 2,
+    });
+  });
+
+  it('gives platform-list rates with not_platform excluded and among confirmed hosts', () => {
+    const signal = result('woocommerce', [['woo_store_search', wall, 'allowed']]);
+    signal.robots.evidence = {
+      status: 200,
+      finalUrl: 'https://x.example/robots.txt',
+      headers: { link: '<https://x.example/wp-json/>; rel="https://api.w.org/"' },
+      markers: [],
+      valid: true,
+      items: 1,
+      signals: [],
+      hops: 0,
+    };
+    expect(confirmedPlatform(signal)).toBe(true);
+    expect(confirmedPlatform(results[2] as DomainResult)).toBe(false);
+    expect(platformRates([...results, signal])).toEqual([
+      {
+        list: 'woocommerce',
+        route: 'woo_store_search',
+        n: 5,
+        notPlatform: 1,
+        nExcl: 4,
+        answersExcl: 2,
+        nConfirmed: 3,
+        answersConfirmed: 2,
       },
     ]);
   });
@@ -71,7 +122,11 @@ describe('summariser', () => {
     const md = renderMarkdown(results);
     expect(md).toContain('| woocommerce | woo_store_search | 4 | 2 (50.0%) |');
     expect(md).toContain(
-      '| woocommerce | woo_store_search | 4 | 2 (50.0%) | 2 (50.0%) | 1 (25.0%) |',
+      '| woocommerce | woo_store_search | 4 | 2 (50.0%) | 2 | 0 | 1 | 0 (0.0%) | 2 (50.0%) | 1 (25.0%) |',
     );
+    expect(md).toContain(
+      '| woocommerce | woo_store_search | 4 | 1 (25.0%) | 3 | 2 (66.7%) | 2 | 2 (100.0%) |',
+    );
+    expect(md).toContain('Most requests to one host: 2.');
   });
 });
