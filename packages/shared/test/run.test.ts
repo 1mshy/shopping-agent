@@ -2,7 +2,8 @@ import { describe, it } from 'vitest';
 import { RunRecord, RunStep } from '../src/index.ts';
 import { expectRefused, expectValid } from './check.ts';
 
-// A fast-search judge run: 1 turn / 20 s per call (S§5.7), capped at the fast-mode $0.03 (S§5.6).
+// A fast search: one run whose steps call the planner and the judge (S§5.6, S§5.7), at most two
+// model turns, capped at the fast-mode $0.03.
 // Money for runs is integer nano-units of the major unit: $0.03 = 30,000,000.
 const usage = {
   'gen_ai.usage.input_tokens': 4200,
@@ -14,21 +15,18 @@ const usage = {
 const run = {
   id: 77,
   profileId: 1,
-  role: 'judge',
-  promptVersion: 'judge-2',
-  'gen_ai.provider.name': 'openrouter',
-  'gen_ai.request.model': 'openai/gpt-5-mini',
+  type: 'fast_search',
   status: 'completed',
-  startedAt: '2026-11-17T10:00:00Z',
+  startedAt: '2026-11-17T10:00:00.000Z',
   endedAt: '2026-11-17T10:00:04.512Z',
   budget: {
-    maxTurns: 1,
-    deadlineMs: 20000,
+    maxTurns: 2,
+    deadlineMs: 60000,
     maxInputTokens: 30000,
     maxSpend: { amountNanos: 30_000_000, currency: 'USD' },
   },
   budgetHits: [],
-  turns: 1,
+  turns: 2,
   ...usage,
   cost: { source: 'provider', amountNanos: 412_350, currency: 'USD' },
 };
@@ -43,7 +41,7 @@ describe('RunRecord (S§4.4, S§5.7)', () => {
       'gen_ai.usage.cache_write.input_tokens': null,
       'gen_ai.usage.reasoning.output_tokens': null,
       cost: { source: 'none' },
-      budgetHits: ['spend'],
+      budgetHits: ['turns'],
     });
   });
 
@@ -106,6 +104,35 @@ describe('RunRecord (S§4.4, S§5.7)', () => {
     expectRefused(RunRecord, { ...run, endedAt: null }, 'endedAt');
     expectRefused(RunRecord, { ...run, status: 'running' }, 'endedAt');
     expectRefused(RunRecord, { ...run, status: 'done' }, 'status');
+    expectRefused(RunRecord, { ...run, endedAt: '2026-11-17T09:59:59.999Z' }, 'endedAt');
+  });
+
+  it('has one run type; roles belong to its model calls', () => {
+    for (const type of ['fast_search', 'chat', 'store_run', 'deep_job', 'recommendation_job']) {
+      expectValid(RunRecord, { ...run, type });
+    }
+    expectRefused(RunRecord, { ...run, type: 'judge' }, 'type');
+    expectRefused(RunRecord, { ...run, role: 'judge' }, '');
+    expectRefused(RunRecord, { ...run, 'gen_ai.request.model': 'openai/gpt-5-mini' }, '');
+  });
+
+  it('cannot record a spend hit when the cost is unknown (S§5.7)', () => {
+    expectRefused(
+      RunRecord,
+      { ...run, cost: { source: 'none' }, budgetHits: ['spend'] },
+      'budgetHits',
+    );
+    expectValid(RunRecord, { ...run, budgetHits: ['spend'] });
+  });
+
+  it('never takes more turns than its cap (checked before each call, S§2.6)', () => {
+    expectRefused(RunRecord, { ...run, turns: 3 }, 'turns');
+    // Tokens and spend may overshoot within the last call, so they are not bounded here.
+    expectValid(RunRecord, {
+      ...run,
+      'gen_ai.usage.input_tokens': 31000,
+      budgetHits: ['input_tokens'],
+    });
   });
 });
 
@@ -114,13 +141,16 @@ const stepBase = {
   runId: 77,
   profileId: 1,
   index: 0,
-  startedAt: '2026-11-17T10:00:00Z',
-  endedAt: '2026-11-17T10:00:04Z',
+  startedAt: '2026-11-17T10:00:00.000Z',
+  endedAt: '2026-11-17T10:00:04.000Z',
   payload: null,
 };
 const modelCall = {
   ...stepBase,
   'gen_ai.operation.name': 'chat',
+  role: 'judge',
+  promptVersion: 'judge-2',
+  'gen_ai.provider.name': 'openrouter',
   'gen_ai.request.model': 'openai/gpt-5-mini',
   'gen_ai.response.model': 'openai/gpt-5-mini-2026-08-07',
   'gen_ai.response.id': 'gen-123',
@@ -158,5 +188,21 @@ describe('RunStep', () => {
     const refusal = { ...toolCall.refusal, hint: 'Try 199.99 instead.' };
     expectRefused(RunStep, { ...toolCall, refusal }, 'refusal.hint');
     expectRefused(RunStep, { ...modelCall, cost: { source: 'none', amountNanos: 0 } }, 'cost');
+    for (const hint of ['Try ٣ instead.', 'Try ３ instead.', 'Try 1 more.']) {
+      expectRefused(
+        RunStep,
+        { ...toolCall, refusal: { ...toolCall.refusal, hint } },
+        'refusal.hint',
+      );
+    }
+  });
+
+  it('puts the role, prompt version, provider and model on the model call', () => {
+    expectValid(RunStep, { ...modelCall, role: 'planner', promptVersion: 'plan-1' });
+    expectRefused(RunStep, { ...modelCall, role: 'buyer' }, 'role');
+    const { role: _, ...noRole } = modelCall;
+    expectRefused(RunStep, noRole, 'role');
+    expectRefused(RunStep, { ...modelCall, 'gen_ai.provider.name': '' }, 'gen_ai.provider.name');
+    expectRefused(RunStep, { ...modelCall, endedAt: '2026-11-17T09:00:00.000Z' }, 'endedAt');
   });
 });

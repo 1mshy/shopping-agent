@@ -6,6 +6,7 @@ import type {
   DeliveryState,
   Listing,
   ListingCurrency,
+  LlmEndpointRole,
   MinorUnitCurrency,
   NotificationEvent,
   NotificationKind,
@@ -13,7 +14,9 @@ import type {
   PriceObservation,
   RunBudget,
   RunCost,
+  RunRecord,
   RunStep,
+  RunType,
   SearchIntent,
 } from '../src/index.ts';
 
@@ -40,10 +43,16 @@ export type _Budgets = Expect<
 >;
 export type _BudgetsRequired = Expect<Equal<Required<RunBudget>, RunBudget>>;
 
-// The model's intent has no budget, currency, location or GTIN field (S§2.1).
+// The model's intent has no budget, currency, location or identifier field (S§2.1, S§5.4).
 export type _PlannerKeys = Expect<
-  Equal<Extract<keyof PlannerIntent, 'budget' | 'currency' | 'location' | 'gtin'>, never>
+  Equal<Extract<keyof PlannerIntent, 'budget' | 'currency' | 'location' | 'gtin' | 'mpn'>, never>
 >;
+export type _IntentIdentifiers = Expect<Equal<SearchIntent['mpn'], string | null>>;
+
+// A run has one type; the role and the model belong to its model-call steps.
+export type _RunType = Expect<Equal<RunRecord['type'], RunType>>;
+export type _RunHasNoRole = Expect<Equal<Extract<keyof RunRecord, 'role'>, never>>;
+export type _StepRole = Expect<Equal<Extract<RunStep, { role: unknown }>['role'], LlmEndpointRole>>;
 
 // @ts-expect-error an unknown cost has no amount: it is never zero
 export const zeroUnknown: RunCost = { source: 'none', amountNanos: 0 };
@@ -64,6 +73,6 @@ export const early: Delivery = {
   ...delivery,
   state: 'pending',
   outcome: 'retry',
-  nextAttemptAt: '2026-11-17T10:00:00Z',
-  acceptedAt: '2026-11-17T10:00:00Z',
+  nextAttemptAt: '2026-11-17T10:00:00.000Z',
+  acceptedAt: '2026-11-17T10:00:00.000Z',
 };

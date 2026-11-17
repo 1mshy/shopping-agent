@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import type { z } from 'zod';
 import * as shared from '../src/index.ts';
 
-// Each vocabulary is checked against the values written in docs/spec.md (S§n), in the spec's order.
-// The lists here are copied from the spec text, not from the source, so a drift in either shows.
+// Each vocabulary is pinned to the values and order written here, which match docs/spec.md at the
+// section cited. The test catches a change to the source that is not also made here; it cannot show
+// that the spec is right, and where the spec text was written together with a list (workstream 2b),
+// the two are not independent. Keeping the spec in step is a review duty (CONTRIBUTING rule 4).
 const SPEC: [list: string, schema: string, where: string, values: string[]][] = [
   [
     'STORE_PLATFORMS',
@@ -183,6 +185,12 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
     ['queued', 'running', 'completed', 'cancelled', 'failed'],
   ],
   ['RUN_STATUSES', 'RunStatus', 'S§4.4 run', ['running', 'completed', 'cancelled', 'failed']],
+  [
+    'RUN_TYPES',
+    'RunType',
+    'S§5.7 run types, S§4.4 run.type',
+    ['fast_search', 'chat', 'store_run', 'deep_job', 'recommendation_job'],
+  ],
   [
     'JOB_RUN_STATUSES',
     'JobRunStatus',

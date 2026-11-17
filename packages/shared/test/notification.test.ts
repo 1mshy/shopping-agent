@@ -7,7 +7,7 @@ const drop = {
   id: 501,
   profileId: 1,
   key: 'price_drop:watch-12:obs-9081',
-  createdAt: '2026-11-17T10:00:00Z',
+  createdAt: '2026-11-17T10:00:00.000Z',
   watchId: 12,
   listingId: 33,
   observationId: 9081,
@@ -17,9 +17,11 @@ describe('NotificationEvent', () => {
   it('accepts each kind with the records it rests on', () => {
     expectValid(NotificationEvent, drop);
     expectValid(NotificationEvent, { ...drop, kind: 'restock', key: 'restock:watch-12:obs-9082' });
-    const { observationId: _, ...newListing } = drop;
-    expectValid(NotificationEvent, { ...newListing, kind: 'new_listing' });
-    const base = { id: 502, profileId: 1, key: 'k-502', createdAt: '2026-11-17T10:00:00Z' };
+    // A new listing is pushed on a valuation, which rests on a price (S§5.9).
+    expectValid(NotificationEvent, { ...drop, kind: 'new_listing' });
+    const { observationId: _, ...noObservation } = drop;
+    expectRefused(NotificationEvent, { ...noObservation, kind: 'new_listing' }, 'observationId');
+    const base = { id: 502, profileId: 1, key: 'k-502', createdAt: '2026-11-17T10:00:00.000Z' };
     expectValid(NotificationEvent, { ...base, kind: 'recommendation', feedCardId: 4 });
     expectValid(NotificationEvent, {
       ...base,
@@ -50,17 +52,22 @@ const fresh = {
   state: 'pending',
   attempts: 0,
   outcome: null,
-  nextAttemptAt: '2026-11-17T10:00:00Z',
+  nextAttemptAt: '2026-11-17T10:00:00.000Z',
   acceptedAt: null,
 };
-const retrying = { ...fresh, attempts: 2, outcome: 'retry', nextAttemptAt: '2026-11-17T10:00:20Z' };
+const retrying = {
+  ...fresh,
+  attempts: 2,
+  outcome: 'retry',
+  nextAttemptAt: '2026-11-17T10:00:20.000Z',
+};
 const accepted = {
   ...base,
   state: 'accepted',
   attempts: 1,
   outcome: 'accepted',
   nextAttemptAt: null,
-  acceptedAt: '2026-11-17T10:00:01Z',
+  acceptedAt: '2026-11-17T10:00:01.000Z',
 };
 const failed = {
   ...base,
@@ -81,9 +88,9 @@ describe('Delivery (S§2.11, S§5.11)', () => {
     expectRefused(Delivery, { ...accepted, outcome: 'retry' }, 'outcome');
     expectRefused(Delivery, { ...accepted, attempts: 0 }, 'attempts');
     // Attempted or sent is not accepted: a pending delivery cannot carry an acceptance stamp.
-    expectRefused(Delivery, { ...retrying, acceptedAt: '2026-11-17T10:00:01Z' }, 'acceptedAt');
+    expectRefused(Delivery, { ...retrying, acceptedAt: '2026-11-17T10:00:01.000Z' }, 'acceptedAt');
     expectRefused(Delivery, { ...retrying, outcome: 'accepted' }, 'outcome');
-    expectRefused(Delivery, { ...failed, acceptedAt: '2026-11-17T10:00:01Z' }, 'acceptedAt');
+    expectRefused(Delivery, { ...failed, acceptedAt: '2026-11-17T10:00:01.000Z' }, 'acceptedAt');
     expectRefused(Delivery, { ...accepted, state: 'notified' }, 'state');
   });
 
@@ -91,7 +98,11 @@ describe('Delivery (S§2.11, S§5.11)', () => {
     expectRefused(Delivery, { ...fresh, outcome: 'retry' }, 'outcome');
     expectRefused(Delivery, { ...retrying, outcome: null }, 'outcome');
     expectRefused(Delivery, { ...retrying, nextAttemptAt: null }, 'nextAttemptAt');
-    expectRefused(Delivery, { ...failed, nextAttemptAt: '2026-11-17T10:05:00Z' }, 'nextAttemptAt');
+    expectRefused(
+      Delivery,
+      { ...failed, nextAttemptAt: '2026-11-17T10:05:00.000Z' },
+      'nextAttemptAt',
+    );
     expectRefused(Delivery, { ...failed, attempts: 0 }, 'attempts');
   });
 });

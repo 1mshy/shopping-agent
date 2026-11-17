@@ -14,6 +14,10 @@ describe('Money schema', () => {
     expect(Money.parse({ amountMinor: -50, currency: 'EUR' }).amountMinor).toBe(-50);
   });
 
+  it('refuses unknown keys rather than stripping them', () => {
+    expect(Money.safeParse({ amountMinor: 100, currency: 'USD', amount: 1 }).success).toBe(false);
+  });
+
   it('has no default currency', () => {
     expect(Money.safeParse({ amountMinor: 100 }).success).toBe(false);
     expect(Money.safeParse({ amountMinor: 100, currency: undefined }).success).toBe(false);

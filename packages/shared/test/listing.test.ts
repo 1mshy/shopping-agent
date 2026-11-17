@@ -17,7 +17,7 @@ const listing = {
   title: 'Sony WH-1000XM5 Wireless Noise Cancelling Headphones, Black',
   variant: { colour: 'black' },
   trackable: true,
-  firstSeenAt: '2026-11-17T09:00:00Z',
+  firstSeenAt: '2026-11-17T09:00:00.000Z',
   lastSeenAt: '2026-11-17T09:30:00.250Z',
   goneAt: null,
   consecutiveErrors: 0,
@@ -42,6 +42,44 @@ describe('Listing', () => {
     expectRefused(Listing, { ...listing, lastSeenAt: '2026-11-17 09:00:00' }, 'lastSeenAt');
     expectRefused(Listing, { ...listing, urlCanonical: 'ftp://shop.example.ca/x' }, 'urlCanonical');
     expectRefused(Listing, { ...listing, price: 399.99 }, '');
+    expectRefused(
+      Listing,
+      { ...listing, urlCanonical: 'https://user:pw@shop.example.ca/products/x' },
+      'urlCanonical',
+    );
+    expectRefused(
+      Listing,
+      { ...listing, urlCanonical: 'https://user@shop.example.ca/' },
+      'urlCanonical',
+    );
+  });
+
+  it('takes variant keys as the store writes them, trimmed and bounded', () => {
+    expectValid(Listing, {
+      ...listing,
+      variant: { Size: 'XL', option1: 'Black', 'Pack size': '6' },
+    });
+    expectRefused(Listing, { ...listing, variant: { ' Size': 'XL' } }, 'variant. Size');
+    expectRefused(Listing, { ...listing, variant: { '': 'XL' } }, 'variant.');
+    expectRefused(
+      Listing,
+      { ...listing, variant: { ['k'.repeat(101)]: 'XL' } },
+      `variant.${'k'.repeat(101)}`,
+    );
+  });
+});
+
+describe('Timestamp', () => {
+  it('is UTC with exactly three fractional digits, so text order is time order', () => {
+    expectValid(Listing, { ...listing, firstSeenAt: '2026-11-17T09:00:00.000Z' });
+    const imprecise = [
+      '2026-11-17T09:00:00Z',
+      '2026-11-17T09:00:00.5Z',
+      '2026-11-17T09:00:00.250000Z',
+    ];
+    for (const firstSeenAt of imprecise) {
+      expectRefused(Listing, { ...listing, firstSeenAt }, 'firstSeenAt');
+    }
   });
 });
 
@@ -50,7 +88,7 @@ describe('Listing', () => {
 const observation = {
   id: 10,
   listingId: 1,
-  observedAt: '2026-11-17T09:30:00Z',
+  observedAt: '2026-11-17T09:30:00.000Z',
   currency: 'CAD',
   sticker: 39999,
   referenceClaimed: 49999,
@@ -175,6 +213,54 @@ describe('PriceObservation', () => {
       { ...observation, missingComponents: ['coupon'] },
       'missingComponents.0',
     );
+  });
+
+  it('ties the missing list to the fields it describes', () => {
+    const at = 'missingComponents';
+    // sticker: listed exactly when null.
+    expectRefused(PriceObservation, { ...observation, missingComponents: ['sticker', 'tax'] }, at);
+    const outOfStock = {
+      ...observation,
+      sticker: null,
+      effective: null,
+      availability: 'out',
+      rawCandidates: [],
+    };
+    expectRefused(PriceObservation, outOfStock, at);
+    // shipping: listed when conditional or unknown, not when known, either when estimated.
+    for (const shippingStatus of ['conditional', 'unknown']) {
+      expectRefused(PriceObservation, { ...observation, shippingStatus, shipping: null }, at);
+    }
+    expectRefused(PriceObservation, { ...observation, missingComponents: ['shipping', 'tax'] }, at);
+    const estimated = { ...observation, shippingStatus: 'estimated', shipping: 1500 };
+    expectValid(PriceObservation, { ...estimated, missingComponents: ['shipping', 'tax'] });
+    // tax: listed when inclusion is unknown; not when included or an amount is known; else either.
+    expectRefused(
+      PriceObservation,
+      { ...observation, taxIncluded: null, missingComponents: [] },
+      at,
+    );
+    expectRefused(
+      PriceObservation,
+      { ...landedObservation, landed: null, missingComponents: ['tax'] },
+      at,
+    );
+    expectRefused(PriceObservation, { ...observation, tax: 5200 }, at);
+    expectValid(PriceObservation, { ...observation, missingComponents: [] });
+    expectValid(PriceObservation, { ...observation, tax: 5200, missingComponents: [] });
+    // duty_estimate: not listed when it is set.
+    const dutied = { ...observation, dutyEstimate: 1200 };
+    expectRefused(PriceObservation, { ...dutied, missingComponents: ['tax', 'duty_estimate'] }, at);
+    expectValid(PriceObservation, { ...observation, missingComponents: ['tax', 'duty_estimate'] });
+    // A landed total therefore implies tax inclusion is known.
+    expectRefused(PriceObservation, { ...landedObservation, taxIncluded: null }, at);
+  });
+
+  it('keeps derived figures in order: effective ≤ sticker ≤ …, landed ≥ effective', () => {
+    expectRefused(PriceObservation, { ...observation, effective: 49999 }, 'effective');
+    expectValid(PriceObservation, { ...observation, coupon: 2000, effective: 37999 });
+    expectRefused(PriceObservation, { ...landedObservation, landed: 1 }, 'landed');
+    expectValid(PriceObservation, { ...landedObservation, shipping: 0, landed: 29900 });
   });
 
   it('cannot represent a failed read as a price (S§2.10)', () => {

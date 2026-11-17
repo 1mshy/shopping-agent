@@ -11,7 +11,7 @@ const byModel = {
   matcherVersion: 'rules-3',
   promptVersion: 'judge-2',
   modelId: 'openai/gpt-5-mini',
-  decidedAt: '2026-11-17T09:31:00Z',
+  decidedAt: '2026-11-17T09:31:00.000Z',
 };
 const byRules = {
   ...byModel,
@@ -88,5 +88,38 @@ describe('JudgeBatch (model output, S§5.4)', () => {
     const many = Array.from({ length: 16 }, (_, i) => ({ ...v, id: `l${i}` }));
     expectRefused(JudgeBatch, { verdicts: many }, 'verdicts');
     expectRefused(JudgeBatch, { verdicts: [] }, 'verdicts');
+  });
+
+  it('refuses exact with differing attributes, repeated attributes and an empty reason', () => {
+    const v = judged.verdicts[1];
+    const one = (o: object) => ({ verdicts: [{ ...v, ...o }] });
+    expectRefused(JudgeBatch, one({ relation: 'exact' }), 'verdicts.0.differingAttrs');
+    expectRefused(
+      JudgeBatch,
+      one({ differingAttrs: ['capacity', 'capacity'] }),
+      'verdicts.0.differingAttrs',
+    );
+    expectRefused(JudgeBatch, one({ reason: '' }), 'verdicts.0.reason');
+  });
+
+  it('refuses price-like attribute names as a second line (S§2.1)', () => {
+    for (const name of ['price', 'sale_price', 'budget', 'cost', 'discount', 'deal', 'on_sale']) {
+      expectRefused(
+        JudgeBatch,
+        { verdicts: [{ ...judged.verdicts[1], differingAttrs: [name] }] },
+        'verdicts.0.differingAttrs.0',
+      );
+    }
+  });
+});
+
+describe('MatchVerdict exact', () => {
+  it('means the two would share a barcode: no differing attribute (S§5.4)', () => {
+    expectRefused(MatchVerdict, { ...byModel, relation: 'exact' }, 'differingAttrs');
+    expectRefused(
+      MatchVerdict,
+      { ...byModel, differingAttrs: ['colour', 'colour'] },
+      'differingAttrs',
+    );
   });
 });
