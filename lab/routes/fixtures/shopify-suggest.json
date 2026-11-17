@@ -1,0 +1,16 @@
+{
+  "resources": {
+    "results": {
+      "products": [
+        {
+          "id": 1,
+          "title": "Red Rain Coat",
+          "handle": "red-rain-coat",
+          "url": "/products/red-rain-coat?_pos=1&_psq=a&_ss=e&_v=1.0",
+          "price": "129.00",
+          "available": true
+        }
+      ]
+    }
+  }
+}

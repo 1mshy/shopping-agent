@@ -1,0 +1,17 @@
+{
+  "data": {
+    "products": {
+      "total_count": 45,
+      "items": [
+        {
+          "name": "Test Jacket",
+          "sku": "TJ02",
+          "url_key": "test-jacket",
+          "price_range": {
+            "minimum_price": { "regular_price": { "value": 56.25, "currency": "USD" } }
+          }
+        }
+      ]
+    }
+  }
+}

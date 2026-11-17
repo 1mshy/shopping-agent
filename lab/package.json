@@ -9,6 +9,7 @@
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@agentic-dasher/shared": "workspace:*"
+    "@agentic-dasher/shared": "workspace:*",
+    "robots-parser": "3.0.1"
   }
 }

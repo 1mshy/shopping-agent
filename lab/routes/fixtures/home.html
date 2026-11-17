@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- Hand-written test fixture, not captured from a real shop. -->
+<html lang="en">
+  <head>
+    <title>Test Shop</title>
+    <link rel="search" type="application/opensearchdescription+xml" title="Test Shop" href="/opensearch.xml">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://shop.example/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://shop.example/search?q={search_term_string}" },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+  </head>
+  <body><a href="/products/red-rain-coat">Red Rain Coat</a></body>
+</html>
