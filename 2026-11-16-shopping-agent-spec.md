@@ -1,0 +1,603 @@
+# Shopping agent: product and technical specification
+
+Version 0.1 · 2026-11-16 · Status: draft for owner review
+
+Written for a **new repository**. Copy this file to `docs/spec.md` and the companion plan (`2026-11-16-shopping-agent-plan.md`) to `docs/plan.md` there. Every requirement traces to the research record `reports/2026-11-16-shopping-agent-research.md` in hermes-shopping (cited as *R§n*). Predecessor code paths are relative to the hermes-shopping repository.
+
+The research record's adversarial check never ran. Claims marked **[verify]** are load-bearing and get confirmed by a Phase 0 spike before code depends on them.
+
+---
+
+## 1. What we are building
+
+A self-hosted shopping agent. It searches as many online shops and marketplaces as it can reach to find a good deal on a product, keeps watching prices, and learns the user so it can suggest things to search for. It ends at a link to the merchant: no carts, checkout or logins on the user's behalf.
+
+### 1.1 Goals
+
+1. **Deal search.** Given a product name, a URL, or a vague need, return verified offers from many shops, ranked by code, with an honest coverage record. Fast by default (under a minute, about one US cent of model spend); an opt-in "dig deeper" run goes further.
+2. **Watches and alerts.** Watch a product or a saved query; alert on price drops and restocks reliably, with or without the LLM.
+3. **Used and marketplace listings.** Saved searches on marketplaces, valued against new prices and asking-price distributions, with scam flags.
+4. **Learn the user.** A readable, editable profile built from an interview, in-app behaviour and imported purchases. A finite "For you" feed of recommended searches, watch drops and new deals.
+5. **Self-hostable by anyone.** One `docker compose up`, everything configured in the UI, any country and currency, nothing paid required.
+
+### 1.2 Non-goals
+
+- Assisted checkout, carts, account linking, ACP/AP2/UCP checkout (R§3.1).
+- Used-car research (the predecessor's swarm is not ported).
+- Wishlist or bookmark import as a learning signal.
+- A general-purpose agent, plugin marketplace, model-loaded skills or an internal MCP tool bus (R§3.2).
+- Multi-tenant hosted service. One owner per install; household profiles later.
+- Converting prices to another currency for display.
+
+### 1.3 Owner decisions (fixed requirements, R§1)
+
+| Area | Decision |
+|---|---|
+| Harness | Lightweight, custom, built from the ground up; no third-party agent product underneath |
+| Stack | TypeScript full stack |
+| Predecessor | Port the proven parts of pricewatch (not vendor it, not a clean rewrite) |
+| LLM | Any OpenAI-compatible endpoint; designed and tested against frontier cloud models first |
+| Audience | Open source for self-hosters; one `docker compose up`; everything configurable in the UI; any country and currency |
+| Paid dependencies | None required |
+| Packaging | Slim core container works alone; real browser and SearXNG are optional add-on services |
+| Scope | Search, recommendations, price watches and alerts, used and marketplace listings |
+| Learning signals | In-app behaviour; interview and editable profile; imported purchase history |
+| UI | Feed-first home ("For you"), search one tap away, chat secondary |
+| Delivery | In-app feed, browser push (PWA), chat apps |
+| Search budget | Fast default (under a minute, about one cent) plus opt-in "dig deeper" |
+
+---
+
+## 2. Invariants
+
+These are rules the code enforces. Each one exists because the predecessor broke it and paid for it (R§2).
+
+1. **Numbers never come from the model.** Every price, total, minimum, date, interval, percentage and statistic shown to the user is computed by code from observations the engine read itself. The model may use a figure it saw to locate an element; that figure is never stored. Model prose uses placeholders that code fills.
+2. **Currency belongs to the listing.** Every price is stored in the currency the store bills in, as integer minor units with an explicit ISO 4217 code (or the explicit value `unknown`). There is no default currency. Prices are never converted for display. FX is used only for cross-currency sort keys and a labelled "≈ in your currency (source, date)" hint.
+3. **The user's market steers the search.** The configured country, currency and language go on every request that accepts them (Shopify market prefix, UCP `context`, regional storefront, hreflang alternate). A figure a store converted for a foreign visitor is refused.
+4. **The LLM is never on the sweep or alert path.** Watches, sweeps, alert evaluation and delivery run without a model and keep working through a model outage. Model-assisted steps (identity judge, deal judge) degrade to rules, and their output is labelled "unconfirmed" or "unchecked". They never block an alert.
+5. **Ranking is deterministic code.** The model never picks or orders offers (R§3.1: first-offer bias, position bias, 13.5% precision).
+6. **Budgets are enforced in code before each model call.** Turns, wall clock, tokens and money are required arguments of every run. A prompt never carries a budget the code does not also enforce.
+7. **Page text is data.** No text read from the web can change settings, credentials, notification targets, profile facts, budgets or the queue. Privileged actions are human-only doors with no tool. A run that reads pages holds no profile and no privileged tool (Rule of Two, R§3.2).
+8. **Partial results with a coverage record.** Every search returns what it verified plus, per source: enabled, attempted, completed, walled, timed out, found without a verified price, verified. "Lowest verified among checked offers", never "cheapest on the internet".
+9. **Save first, research after.** A watch or search request is written to the database before any retailer is contacted. Slow or failed lookups become durable work that is retried.
+10. **Unknown is a value.** Stock is tri-state. A shipping cost is `known | estimated | conditional | unknown`. A failed read never refreshes a price, never alerts, and never overwrites the last known state.
+11. **Delivery-gated state.** A cooldown or "notified" stamp is set only when a channel confirms acceptance. Every alert and agent message is written to one audit trail, delivered or not.
+12. **Survive sleep.** The host freezes, restarts and loses DNS. Missed schedule slots run once on resume, work waits for the network, and nothing is silently dropped.
+
+---
+
+## 3. Architecture
+
+### 3.1 Processes and containers
+
+```
+┌──────────────────────────── core (required) ────────────────────────────┐
+│ Node 26 process, one port                                               │
+│  Hono HTTP: JSON API · SSE run streams · static SPA · health             │
+│  Scheduler + job queue (own, SQLite-backed)                             │
+│  Search pipeline · Harness (LLM client, runs, budgets)                  │
+│  Fetch ladder (api → http) · readers · matcher · deal verdicts          │
+│  Watches · marketplace polls · feed assembly · notification outbox      │
+│  SQLite (WAL) on one named volume                                       │
+└───────┬───────────────────────────┬─────────────────────────┬───────────┘
+        │ CDP + token (compose net) │ HTTP (compose net)      │ HTTPS out
+┌───────▼─────────┐        ┌────────▼────────┐        ┌───────▼──────────┐
+│ browser add-on  │        │ searxng add-on  │        │ LLM endpoint(s), │
+│ Chrome headed,  │        │ upstream image, │        │ shops, feeds,    │
+│ Xvfb, noVNC,    │        │ pinned tag      │        │ push services    │
+│ egress via core │        └─────────────────┘        └──────────────────┘
+│ filtering proxy │
+└─────────────────┘
+```
+
+- **Core** works alone: platform JSON and structured-data readers over the impersonating HTTP client, the Shopify Global Catalog as a lead source, deal feeds, keyless marketplace adapters, watches, feed and delivery.
+- **Browser add-on** (compose profile `browser`): real Google Chrome, headed on Xvfb, one persistent profile on a named volume, noVNC for a one-time human login or challenge. The core drives it over CDP. It is started on first use and stopped after about 10 idle minutes (R§4.4).
+- **SearXNG add-on** (compose profile `searxng`): open-web discovery. An external SearXNG URL or a user-supplied free search key are alternatives.
+- The core never gets the Docker socket. The UI shows each add-on's state and gives copyable instructions to enable it.
+
+### 3.2 Modules (pnpm workspace)
+
+```
+apps/
+  server/     Hono app, scheduler, jobs, notify, auth, settings, run API
+  web/        Vite + React SPA, service worker, locales
+packages/
+  shared/     Zod schemas, API and SSE event types, Money and Currency types
+  core/       Pure domain code: money, matching, deal verdicts, alert rules, valuation
+  db/         Drizzle schema, SQL migrations, query helpers
+  fetch/      Transport interface, guard, pacing, playbook, wall classifier, browser client
+  sources/    Readers, platform routes, store directory, search providers, Shopify Catalog,
+              deal feeds, marketplace adapters
+  llm/        Wire adapters, capability probe, structured output, usage and cost
+  agent/      Run loop, budgets, context rules, tool sets, prompts, run records
+addons/
+  browser/    Dockerfile and launcher for the Chrome add-on
+  searxng/    settings.yml
+docker/       Dockerfile, compose.yaml, compose.dev.yaml
+evals/        Gold sets, eval runners, hand-review files
+lab/          Model-free access lab (dev tool, not shipped in the image)
+docs/
+```
+
+Start with `apps/server`, `apps/web`, `packages/shared`, `packages/core` and `packages/db`; split the rest out when the boundary is real (R§4.8). `packages/core` has no I/O and no LLM dependency. It must be runnable and tested in isolation.
+
+### 3.3 Technology choices
+
+| Layer | Choice | Fallback / exit |
+|---|---|---|
+| Runtime | Node.js 26 LTS, `engines >= 24.12` | Bun, revisit mid-2027 |
+| Language and tools | TypeScript strict (7.x; 6.x if inference breaks), pnpm workspaces, Vitest, Biome, tsdown | — |
+| HTTP server | Hono + `@hono/node-server` | Fastify |
+| API types | Zod 4 + Hono RPC client | oRPC / tRPC on Hono |
+| UI | React 19, Vite, TanStack Router + Query | SvelteKit (same server) |
+| Components | shadcn/ui on Base UI, Tailwind 4; uPlot + SVG sparklines | — |
+| PWA | vite-plugin-pwa (`injectManifest`) | hand-written service worker |
+| Database | SQLite via better-sqlite3 (WAL, FTS5 trigram) | `node:sqlite` |
+| ORM and migrations | Drizzle, SQL migrations applied at start-up, pinned | Kysely |
+| Jobs | Own scheduler and queue (~400 lines) + `croner` for next-run times | — |
+| HTTP fingerprint | `impit` behind `HttpTransport`; default chosen by the Phase 0 lab | `impers` (curl-impersonate), `wreq-js` |
+| Browser driver | `patchright-core` `connectOverCDP`, imported in one module | `playwright-core` |
+| LLM client | Own, over `fetch`; `zod`, `eventsource-parser`, `ipaddr.js` | `openai` SDK as transport; AI SDK as last resort |
+| Web Push | `web-push` (pinned, behind one module) | `@block65/webcrypto-web-push` |
+| Mail import | `imapflow`, `postal-mime` | `mailparser` |
+| Embeddings (optional) | transformers.js + multilingual-e5-small, vectors as BLOBs, JS cosine | none |
+| Trust signals | `tldts`, `fastest-levenshtein`, RDAP, Tranco list | — |
+| robots.txt | `robots-parser` | — |
+| i18n | i18next with JSON catalogues | Paraglide |
+| Base image | `node:26-trixie-slim`, non-root, amd64 + arm64 | — |
+
+Rejected, with reasons in R§3.2, R§3.9 and R§4.4: Vercel AI SDK, Mastra, LangGraph.js, OpenAI Agents SDK, pi-ai as a dependency, Crawlee, Stagehand, Camoufox, captcha solvers, Mem0/Zep/Letta, sqlite-vec, Postgres, SSR frameworks, Next.js.
+
+Every new-major dependency (better-sqlite3 13, web-push 4, Drizzle 1.0-rc, TypeScript 7) sits behind one module so it can be swapped out.
+
+---
+
+## 4. Data model
+
+SQLite, one file on one named volume. Integer minor units for money. All timestamps are UTC ISO strings. Every user-owned table carries `profile_id` from the first migration, even though v1 has one profile. Migrations are versioned SQL files, and backup and restore are tested.
+
+### 4.1 Catalogue and observations
+
+| Table | Purpose | Key fields |
+|---|---|---|
+| `store` | One storefront (host + market prefix). The self-growing directory. | host, market_prefix, platform (shopify, woo, magento, wix, bigcommerce, other, unknown), platform_evidence, country, base_currency, markets_json, ships_to_json, search_route (shopify_ucp, shopify_suggest, woo_store_api, magento_graphql, search_action, opensearch, web_site_search, adapter, none), read_route, identifiers_offered, is_shop (yes, no, unknown), trust_tier (known, unverified, caution, blocked), trust_reasons_json, source (read, pasted, import, deal_feed, country_pack), health fields, fingerprinted_at |
+| `host_access` | Fetch playbook, keyed by host and page kind (product, search, api). Replaces the predecessor's side-file. | host, page_kind, rung, last_outcome, wall_vendor, expires_at, backoff_until, attempts |
+| `product` | The real-world thing at barcode level. | family_id (groups variants), brand, model, mpn, gtin14 (check-digit validated), title, category, attributes_json |
+| `listing` | One purchasable thing at one place: a retail offer or a marketplace listing. | product_id (nullable until matched), store_id, channel (retail, marketplace), url_canonical, external_id, sku, seller_id, seller_kind (first_party, marketplace_seller, private), condition (new, open_box, refurbished, used_like_new, used_good, used_fair, for_parts, unknown), currency, title, variant_json, trackable, first_seen_at, last_seen_at, gone_at, status, consecutive_errors |
+| `price_observation` | Append-only. A price is a record, not a number. | listing_id, observed_at, currency (required, may be `unknown`), sticker, reference_claimed, coupon, member_price, shipping + shipping_status, tax + tax_included, duty_estimate, unit_price + unit, effective (code-derived), landed (code-derived), missing_components_json, availability (in, out, unknown), read_path, rung, raw_candidates_json (method, confidence, value) |
+| `match_verdict` | Cached identity decision. | spec_fp, listing_fp (store, SKU or clean URL, title hash, variant), relation (exact, variant, bundle, accessory_or_part, other_model, other_line, unknown), differing_attrs_json, decided_by (identifier, rules, model, person), matcher_version, prompt_version, model_id; person overrides take precedence |
+| `fx_rate` | Ranking and hint only. | base, quote, rate, source, as_of |
+
+### 4.2 User intent
+
+| Table | Purpose | Key fields |
+|---|---|---|
+| `watch` | A standing request. Kept apart from `product` (the predecessor mixed them). | kind (product, query, saved_search), input, spec_json (SearchIntent), market, currency, rules_json (target_price, drop_pct, restock, marketplace filters), reference_price + reference_kind (median_verified, user_confirmed), cooldown_s, status, created_at |
+| `watch_listing` | Listings a watch follows. | watch_id, listing_id, role (tracked, candidate, excluded), added_by |
+| `search_run` | One user search (fast or deep). | intent_json, mode (fast, deep), budget_json, status, coverage_json, result_json, run_id |
+
+### 4.3 Personalisation (R§3.7)
+
+| Table | Purpose |
+|---|---|
+| `profile_fact` | id, kind, key, text, value_json, source (user, interview, import, inferred), confidence, status (active, proposed, rejected, retired), valid_from, valid_to, evidence_json. Rendered by code into one document of at most 6,000 characters, the only description of the user any prompt may contain. |
+| `profile_constraint` | Structured dislikes, budgets, sizes and "never show" rules, enforced in code. |
+| `topic` | Interest with short-term (14-day half-life) and long-term (180-day) weights and Beta counts for exploration. |
+| `owned_item`, `purchase`, `import_batch` | Ownership and history with provenance; imports preview before commit. |
+| `event` | Append-only in-app behaviour (view, click, dismiss, "not interested", "already own", "wrong match", search, watch). |
+| `candidate`, `feed_card` | Generator output and the assembled feed; each card stores its evidence for "because you…". |
+| `deal_feed_item` | Ingested community deals (merchant, price, URL, votes, expiry as read). |
+
+### 4.4 Operations
+
+| Table | Purpose |
+|---|---|
+| `job`, `job_run` | Scheduler definitions (cron or next_run_at, overlap lock, deadline, network gate) and run history. |
+| `run`, `run_step` | Harness RunRecord. OpenTelemetry GenAI attribute names; usage normalised to {input incl. cached, cache_read, cache_write, output, reasoning}; cost_source (provider, settings, none). Full payloads kept 14 days, then trimmed to usage. |
+| `notification_event`, `delivery` | Outbox: stable event key and kind (price_drop, restock, new_listing, recommendation, agent, system); per-channel state, attempts, next_attempt_at, outcome. |
+| `channel` | Configured delivery channels and push subscriptions. |
+| `llm_endpoint` | Base URL, auth (encrypted at rest), model id, role (planner, judge, chat, browse), capabilities_json, prices, circuit-breaker state. |
+| `setting` | DB-held settings with environment defaults; the UI shows where each effective value came from. |
+| `recipe`, `exploration_task` | Phase 6: declarative learned search and read routes, and the per-host learning queue. |
+
+---
+
+## 5. Subsystems
+
+### 5.1 Fetch and access (`packages/fetch`, R§2.1, R§4.4)
+
+**Guard first.** Every URL, from any source, passes `guard()` before any transport: http/https only; DNS resolved and private, loopback, link-local, CGNAT and metadata ranges refused; connection pinned to the validated IP; every redirect re-checked; body size cap; robots setting; per-host limiter; budget. The browser's egress goes through a filtering proxy in the core with the same rules, so pages cannot reach the LAN or the app's own API.
+
+**Ladder.**
+1. `api`: known platform or public endpoints (Shopify `/products/<handle>.js`, WooCommerce Store API, Magento GraphQL, Best Buy CA JSON, marketplace endpoints).
+2. `http`: impersonating client. User-Agent and client hints come from the TLS profile and are never set by hand. Optional same-site Referer.
+3. `browser` (add-on): headed Chrome. Wait up to 20 s for a self-clearing challenge; never click; report a captcha or "Access Denied" at once.
+4. `remote` (optional, one interface): any other CDP endpoint or proxy URL.
+5. `person`: a UI task to open the noVNC view and solve or log in once.
+
+**Typed outcome.** Every fetch returns a `FetchOutcome`: `ok | not_found | wall{vendor, mode} | rate_limited | payment_required | login_required | empty | server_error | network_error{code} | refused_by_policy{reason}`. Only `ok`, `wall` and `empty` may change the playbook. A 404 never moves a rung. Success hints expire after 24 h; negative verdicts back off on a growing schedule.
+
+**Wall classifier.** Decides from status, final URL, title, visible text and document size against saved real pages. It does not match bare substrings. The predecessor's cases are ported as fixtures: an Amazon 404 with a marker in it is not a wall, eBay's wall shows only in the final URL, and a "Just a moment" loading text is not a challenge.
+
+**Pacing.** One request in flight per host and 2.5 s between starts with 0.85-1.3 jitter, shared by every rung and persisted across restarts. Separate pools: about 12 concurrent HTTP hosts and 1-2 browser tabs. HTTP results return first and browser results stream in later.
+
+**Sessions.** One cookie jar per host session for HTTP. One persistent Chrome profile. A walled render clears only that site's cookies (including parent-domain bot-manager cookies) and origin storage.
+
+**robots.txt.** A setting: `ignore | report | respect`, parsed with `robots-parser` and cached for a day. The default is `ignore`, following the owner's standing decision of 2026-10-23. The public default is listed in §9.
+
+**Browser add-on image.** `debian:bookworm-slim` + pinned Google Chrome stable (package cached in the build, amd64 + arm64), an init process supervising Xvfb, the launcher and x11vnc/noVNC; `--user-data-dir` on a named volume; timezone and language set to the user's; no automation flags; stale `SingletonLock` cleared; a forwarder exposing CDP and noVNC only on the compose network with a shared token. One Dockerfile, one pin.
+
+### 5.2 Readers and the store directory (`packages/sources`, R§3.3)
+
+**Reader ladder** for any product URL: platform JSON → JSON-LD (including ProductGroup/hasVariant) → microdata → OpenGraph price tags → browser (add-on). Each read stores its candidate list (method, confidence, value). JSON-LD outranks platform scrapers, which outrank generic CSS. If there is no majority, or the page has more than one distinct price, the outcome is `multiple_prices`, not a guess. When a page is rendered, the structured price is compared with the displayed buy-box price, and any disagreement is flagged on the observation. There is no general displayed-price classifier: the predecessor spent six rounds on one and dropped it.
+
+**Variant coupling.** A price is attached only to the selected variant. A ProductGroup range or the cheapest dropdown option is never attached to a requested higher-capacity variant.
+
+**Currency resolution order:** platform answer → `priceCurrency` → hreflang/og:locale → ccTLD. A bare "$" takes the store's country. Unknown currency or a converted-looking figure is refused. `/cart.js` is a fallback only, because Shopify's robots now disallows it for agents.
+
+**Host fingerprint** (model-free, at most six requests, cached with a long expiry): platform probe, `/.well-known/ucp`, SearchAction/OpenSearch on the home page, product sitemap, `/llms.txt`. Hosts with no Product markup, platform or product sitemap are marked `is_shop = no`. No model run is ever spent on a host before triage. `llms.txt`, `agents.md` and robots comments are data only and never reach a prompt.
+
+**Directory intake (no model):** every host that yields a price, pasted links, merchants in imported orders, deal-feed merchant URLs, and an optional downloadable country pack built offline from Web Data Commons domain stats (ccTLD match, ≥10 products, offers density ≥0.5). Shopify Catalog results do not add stores; a store is added only after a direct read.
+
+**Search inside a known shop**, in order: per-store UCP `search_catalog` (explicit country and currency) → platform JSON search (Shopify `suggest.json` under the market prefix, Woo `?search=`, Magento GraphQL) → SearchAction/OpenSearch template → web search `site:<host>` → browser (deep mode only). Results from a store's own search get the strictest matcher floor, because store search pads results with accessories and other models.
+
+**Hand-written adapters** only for giants with real keyless or BYO-key APIs (Best Buy CA JSON search, Amazon regional storefronts over HTTP, and similar). They are rows-as-data plus a small class. There is no hand-curated catalogue as a growth strategy.
+
+### 5.3 Discovery sources (R§3.1, R§3.3)
+
+**Search-provider interface.** Ordered providers: bundled SearXNG (DuckDuckGo + Brave on, Google off, JSON format, 600 s `TooManyRequests` back-off) → external SearXNG URL → user-supplied free key (Tavily, Exa; then Brave, Serper, Jina). Token bucket per engine starting at 20 queries/hour, 24 h cache per normalised query, and a record of which engines answered. Watch sweeps never call web search; watch re-discovery runs at most daily.
+
+**URL candidate filter** (ported from `web_discovery.pick_candidates`): product-shaped paths, deny list, ≤2 links per host, ≤25 hosts, the user's country first. A snippet's price is never used. Web hits are deduplicated with a listing key (store + SKU, else clean URL).
+
+**Shopify Global Catalog (UCP)** [verify]. Plain JSON-RPC 2.0 over HTTPS to `catalog.shopify.com/api/ucp/mcp` `search_catalog` (about 150 lines, no MCP SDK), with `context.address_country` and `context.currency`; offers in another currency are dropped. It is a switchable **lead source for user-initiated searches only**, and its terms are enforced in code:
+- price/availability held ≤10 minutes and metadata ≤24 hours;
+- no Catalog payload written to the product database;
+- attribution parameters kept on outbound links;
+- never called from watches, sweeps or scheduled recommendation jobs;
+- every hit re-read at the shop before it is shown as verified or stored.
+
+The request needs a public agent-profile URL. The project publishes one static profile JSON at a project-owned HTTPS URL, overridable in settings, with an optional field for the user's own Shopify client credentials.
+
+**Deal feeds** (code-polled, conditional GET, 30 min): Slickdeals, RedFlagDeals, Pepper network (HotUKDeals, mydealz, Dealabs) `/rss/hot`, OzBargain, chosen per country. Parsed without a model: Pepper attributes carry merchant and price; OzBargain carries merchant URL, votes and expiry. A feed item is a **lead** that must be confirmed by a live read before it shows as a price. Reddit RSS is optional, with its own pacing; it returns 429 under bursts and the JSON API is never used.
+
+**Optional keyed adapters** (user brings the key): Best Buy US Products API, eBay Browse (see §5.9), Rakuten Ichiba, Open Food Facts, UPCitemdb (naming a barcode or an import line). They are not in the default path.
+
+### 5.4 Product identity (`packages/core/matching`, R§3.6)
+
+**SearchIntent.** A typed spec: exact item or needs-based search, identity fields (brand, model, MPN, GTIN), must-have attributes, acceptable substitutes, condition, pack quantity, location, currency, delivery or pickup, budget. An exact URL or a clear product name takes a deterministic path with no planning call.
+
+**Three tiers:**
+1. **Identifiers:** GTIN equality (check digit validated, normalised to 14 digits), or normalised brand + MPN equality.
+2. **Title rules:** ported from `pricewatch/matching.py` and `reports/2026-10-23-matching.md`: accessory and part rejects, model-token conflicts, variant words, and the owner's rulings as fixed test cases (combo counts both ways, Plus counts the query's way, a size in place of a model is not a clash). These rules output a **relation label**, not a numeric score. Code then checks the label against the must-have attributes.
+3. **Model judge,** for the ambiguous band only: at most 3 calls of at most 15 listings each (local models: 10), cheapest and outlier listings first. The prompt is rule-guided (exact means the two would share a barcode; variants in size, colour, capacity, configuration or pack count are not matches; a missing attribute is not a conflict; a match needs positive evidence). Output is JSON-schema'd to `{id, relation, differing_attrs, reason}` with id and count validated. Invalid output means `unknown`. A small local model may only veto, never accept.
+
+**Verdict cache** keyed on spec fingerprint, listing fingerprint, matcher version, prompt version and model id. Sweeps and watches make no model calls. When no model is available, rules decide and undecided listings are "unconfirmed". Alerts fire only for listings confirmed by identifier, rules, cached verdict or a person.
+
+**Clarify in code.** After the first retrieval, if candidates split on an open attribute and the groups' median prices differ by about 15% or more, the UI shows one chip question with a non-blocking default. Models almost never ask on their own.
+
+**Exact matches, substitutes and used items** are separate result groups. A cheaper substitute is never shown as an exact match.
+
+### 5.5 Prices, deal verdicts and store trust (R§3.6)
+
+**Effective and landed prices** are derived in code from the observation fields, with a list of missing components. An unknown delivery cost cannot establish the cheapest delivered offer. The UI ranks by item price by default and shows a delivered total only where its components are known. Tax-inclusive defaults come per country, and US and Canadian prices carry a "before tax" label.
+
+**Deal verdict** (code only, per listing and per product, within one currency, condition and market):
+- **Lowest seen**: at or under the lowest recorded price, with ≥35 days of history.
+- **Good price**: within 5% of the lowest recorded, or ≥10% under the 90-day time-weighted median.
+- **Typical** / **High**.
+- **Cheapest of N stores, X% under the median**: used when history is under 14 days or has fewer than three price levels.
+- Always shown: the share of the last 90 days at or below today's price.
+- A store's struck-through or "was" price is stored as a claim and never used as a baseline.
+
+**Outlier rule.** With ≥4 exact listings in one currency, condition and market, a price under 60% of their median (50% with 2-3 listings) is never ranked first. It triggers a stricter identity re-check and a trust check, and it is shown separately with the reason. It needs a second read within 1% before it can alert.
+
+**Store trust,** four tiers with visible reasons: known, unverified, caution, blocked. Signals: RDAP registration date (rdap.org, ≤10 req/10 s, cached forever), Tranco top-1M, an optional CERT Polska list, an optional Google Safe Browsing key, a look-alike domain check, and on-page return policy, address, imprint and prepayment-only signals. A "caution" store never headlines a deal and never alerts without its label. The owner decides whether a dubious store stays.
+
+**Product-quality read** (on demand or in deep mode, cached 30 days): per-store aggregateRating shown unaveraged; one model call over 3-6 fetched expert or community pages returns a verdict line and up to three strengths and weaknesses, each with a source URL and a quoted span. Code drops any point whose quote is not in the fetched text.
+
+### 5.6 The search pipeline (R§3.1, R§3.3, R§3.9)
+
+**Fast mode** is a fixed pipeline, not a tool-calling loop. It has a shared deadline object (40 s for reads) and at most two planning turns enforced in code.
+
+1. **Interpret** (model call 1, structured output, no tools): SearchIntent plus 3-5 query variants. Skipped for exact URLs and clear names.
+2. **Fan out in parallel:** Shopify Global Catalog (user's country, limit 20); two web searches (name; name + country) through the provider interface; directory fan-out to ≤15 shops in the user's country through their search routes; known marketplace adapters if the intent allows used.
+3. **Filter candidates:** product-shaped URLs, ≤2 per host, ≤25 hosts, country first.
+4. **Read** with the HTTP-only reader ladder under the deadline (the browser is never on the fast path).
+5. **Match:** tiers 1-2, then model call 2 (batched judge) on the ambiguous shortlist of ≤10-15.
+6. **Rank and verdict** in code; apply profile constraints; group exact, substitutes and used.
+7. **Summarise:** optional short model wording from the final table, using placeholders. Skipped when the budget is spent.
+
+**Targets** (to be confirmed by measurement in Phase 2): ≤30K total tokens on a mini-class model; p50 30 s, p95 60 s; median model spend ≈$0.01; hard cap $0.03. A run that hits its cap returns its deterministic result.
+
+**Progress stream.** SSE with typed blocks and JSON-patch updates, plus a reconnect route. Block types: plan, store_read (reading, priced, no_price, walled), candidate, verdict, summary, coverage. Unresponsive search engines are surfaced.
+
+**Dig deeper** (opt-in per search, cost and time cap shown before start, never silently extends a fast run): query expansion (breadth halved per level, depth −1), more hosts, browser reads, the model judge on more listings, and model-driven browsing of hard stores (§5.7). Defaults: whole job 10 min and $0.50 money cap, user-adjustable.
+
+### 5.7 LLM client and harness (`packages/llm`, `packages/agent`, R§3.2)
+
+**Wire adapters** behind a `WireAdapter` seam: (1) Chat Completions (baseline); (2) stateless Responses (`store:false`, replayed items), because OpenAI's newest models require it for tool calls with reasoning; (3) optional native Anthropic Messages, later. Until (3) exists, OpenRouter or LiteLLM is the documented route for Claude. Usage is read from three reasoning field names (`reasoning`, `reasoning_content`, thinking blocks); `<think>` blocks are stripped; bare `[]` and truncated batches are detected.
+
+**Capability probe,** run on save and on demand, editable in the UI. It fills one `EndpointCapabilities` record using pi-ai's flag vocabulary (maxTokensField, supportsDeveloperRole, supportsUsageInStreaming, supportsStrictMode, supportsTools, supportsJsonSchema, thinkingFormat, requiresToolResultName, …):
+1. `/models` plus native side doors (`/props`, `/api/show`, OpenRouter model record) for context length;
+2. streamed completion (max-tokens field, usage, reasoning field, tok/s);
+3. tool call (auto);
+4. tool_choice required and parallel;
+5. json_schema strict and json_object, separately;
+6. reasoning-off switch;
+7. cached_tokens on a repeated prefix.
+
+Dig deeper is blocked under 16K context. There is no prompt-injected tool-calling fallback.
+
+**Structured output** degrades by capability flag: strict json_schema → json_object → forced tool → text extractor. All of these use zod validation and one repair retry.
+
+**Roles.** Endpoints are assigned per role (planner, judge, chat, browse), so a cheap small model can judge while a larger one plans. The judge defaults to a small hosted model at minimum reasoning effort.
+
+**Run loop** (~1,000 lines, shaped like pi-agent-core but with caps): `transformContext` (snapshot pruning), `beforeToolCall` (allow-list, refusal counting), `finishTurn`, parallel tools with a per-tool sequential flag, AbortSignal throughout, typed events. Required arguments: maxTurns, deadline, maxInputTokens, maxSpend. A forced finish is a tool-less final call (`tool_choice: none` where accepted), then a deterministic finisher built from run state. A repeat detector trips at 3 identical calls, and the invalid-call cap is 3.
+
+| Run type | Budget | Tools | Sees profile | Sees page text |
+|---|---|---|---|---|
+| Fast search (plan, judge, summary) | 1 turn / 20 s per call | none | constraints only (planner) | judge: listing titles/attrs only |
+| Chat | 8 turns / 90 s | search_products, get_listing, list_watches, create_watch, update_watch, dig_deeper, suggest_profile_note | yes | no |
+| Dig-deeper store run | 15 turns / 180 s / 150K input tokens | page_open, page_snapshot, page_find, page_act, page_read, report_listing, finish | no (product spec only) | yes |
+| Deep job (whole) | 10 min + money cap | — (code orchestrates store runs) | — | — |
+| Recommendation jobs | daily token cap (§5.10) | none | rendered profile | deal titles only |
+
+**Context rules** for page work: at most one page snapshot in the transcript (older ones become stubs); page tools return extracts capped at about 2,000 tokens with a narrowing hint; system prompt and tool list are byte-stable so prefix caches hit; one fresh context per store.
+
+**Browser tools** are built on Playwright's `ariaSnapshot({ mode: 'ai' })` and `getByRef`. `page_read` runs the code extractor on the current page; the model reports where the listing is, and code reads the price. The harness ends the task itself on a wall or captcha title.
+
+**Prompts.** One prompt file per task type, under 800 tokens, chosen by code and versioned (the version goes into the run record and the verdict cache). No model-loaded skills.
+
+**Refusals** returned to the model are structured: `{code, what_the_engine_saw, hint}`. A hint never contains a figure to try.
+
+**Reliability.** A per-endpoint circuit breaker (3 consecutive failures, 300 s) and a scheduled deterministic probe that raises a normal system notification when the model is down.
+
+**Cost.** Taken from the provider when reported (OpenRouter `usage.cost`, LiteLLM header), else from settings prices, else `unknown` (never zero). Money caps reserve before concurrent calls and settle after. Where cost is unknown, token, turn and time caps still hold, and the UI says a money cap cannot be guaranteed.
+
+**Outward MCP server** (optional add-on, off by default, token-protected, about 5 tools). It is not used internally.
+
+### 5.8 Watches, sweeps and alerts (R§2.3)
+
+**Intake.** Save first (Invariant 9). URL normalisation strips tracking parameters and keeps variant parameters. A pasted foreign-store link is re-registered on the user's regional storefront. The baseline and currency are adopted only from the first real read. The default rule is a 5% drop.
+
+**Reference price** is the median of verified exact listings or a user-confirmed price, never the first match. A refurb, open-box or marketplace listing never becomes the baseline when a new first-party one exists. One URL belongs to one product's history.
+
+**Per-listing scheduling.** Each tracked listing has `next_check_at` (default 30 min; floor 5 min), per-host back-off, and incremental writes. This replaces the predecessor's single sweep that waited for the slowest store. After 3+ consecutive errors over a day, re-discovery is queued (at most daily).
+
+**Alert rules.** A drop fires when the price is below the baseline by more than 3 MAD (floor 1%) and by the user's threshold, confirmed by a second read on the same read path. A target price fires when it is reached. A restock fires only on an out→in transition (first sighting is not one), with a watermark rather than a cooldown. Only fresh, in-stock, same-currency, same-read-path observations are compared. The 12 h cooldown is bypassed only by a further drop; after expiry a repeat needs a moved price. The cooldown is stamped only on confirmed delivery. Evaluation is serialised.
+
+**Scheduler** (own, SQLite-backed):
+- every job has an overlap lock, a deadline and a run row;
+- missed slots coalesce into one catch-up on resume, and boot schedules a catch-up;
+- network-dependent jobs wait on a DNS gate (probes at 0/3/5/10/20/30 s), then retry in 60 s without moving the cadence;
+- a second caller of a running job joins it.
+
+`/api/health` (open, counts and times only) reports last and next runs, skipped runs, the build version, the available fetch rungs, add-on state and LLM circuit state. `POST /api/refresh` is idempotent.
+
+### 5.9 Used goods and marketplaces (R§3.5)
+
+**`MarketplaceAdapter` interface:** id, countries, `requires {browser, userKey, session}`, minIntervalSec, dailyRequestCap, supports flags, status, buildSearchUrl, search, optional detail. Returns an Outcome: `ok | blocked | rate_limited | needs_person | not_configured | parse_error`. Only `parse_error` counts against adapter health; three in a row marks the adapter "broken since …" in the UI.
+
+**Wave 1 (core, keyless)** [verify sustained polling]:
+- Kijiji: `__NEXT_DATA__`/Apollo state with card and JSON-LD fallbacks.
+- Craigslist: HTML list joined with JSON-LD. The RSS feed is dead.
+- OfferUp: `POST /api/graphql`.
+- Marktplaats/2dehands: `/lrp/api/search`.
+- Kleinanzeigen: HTML JSON-LD.
+- Gumtree and Subito: HTML.
+- Best Buy Canada `/api/v2/json/search` for open box.
+- Refurb stores (Reebelo, makers) through the generic reader, with a condition field.
+
+**eBay:** the Browse API only, with the user's own free Production keyset; the UI explains the account-deletion exemption. Default poll is 30 minutes, auctions are off by default, and no seller username is stored. eBay HTML is never scraped. **Facebook Marketplace:** deep link only in the core. **Later, in the browser add-on:** Vinted, Mercari, Depop, Wallapop and an opt-in Facebook adapter (≤60 req/h, stop on first login redirect).
+
+**Politeness.** A per-install daily request cap per marketplace (default about 300 per site per day) on top of host pacing.
+
+**Saved-search pipeline:**
+- one job per (search, marketplace), default 15 min local and 30 min eBay;
+- silent first run;
+- diff on external id; "new" means first seen by us;
+- a listing is "gone" after three clean polls;
+- cross-posts are clustered by title overlap, price, place and photo hash;
+- code filters run first, then a model judge in batches of 5 with fixed JSON (match, variant, condition, flags, reason) under a code-enforced daily cap;
+- push only for match = yes and verdict great or good;
+- without a model the same alerts go out labelled "unchecked".
+
+**Valuation** (code only, same currency and condition band, ≥8 de-duplicated comparables):
+- **great**: ≤20th percentile and ≥35% under new;
+- **good**: under the median and ≥20% under new;
+- **high**: over the 75th percentile or within 15% of new;
+- otherwise **unknown**.
+
+The inputs are asking-price distributions, the cheapest verified new price for the same variant, and our own disappearance record. No sold-price scraping. The thresholds are starting values, tuned in Phase 5.
+
+**Scam flags** are named and each is tied to a rule or a quoted phrase: under about half the comparables' median; new seller; wire, gift-card or crypto payment; off-platform contact; stock photos only; the same photo hash or text under other sellers. Flagged listings are shown with their flags, not hidden. Vision is an optional second stage (≤3 images, off by default).
+
+### 5.10 Personalisation and the feed (R§3.7)
+
+**Profile.** Facts with provenance (§4.3), rendered by code into a ≤6,000-character document the user reads and edits. User-typed facts are never overwritten. Explicit corrections beat inferences. A gift or research search does not rewrite enduring interests.
+
+**Interview** (six skippable steps, mostly taps): locale; category chips; brands and budget for the top three categories; owned things; sizes and household if relevant; thumbs on ten real deal cards. Afterwards, at most one inferred-fact confirmation card per week. Rejected proposals are never re-proposed.
+
+**Implicit signals.** Views and clicks are weak evidence. Dismiss, "not interested", "already own", "wrong match" and "less like this" each have their own meaning. Each topic has two weights (14-day and 180-day half-lives).
+
+**Purchase import,** in order:
+1. the Amazon "Request my data" zip, detected by CSV header;
+2. generic CSV, where the model proposes a column mapping and code applies it;
+3. `.eml`/`.mbox` upload;
+4. read-only IMAP on one folder.
+
+The parse ladder is schema.org Order markup → platform templates → model extraction from an allow-listed field set. There is a per-source consent screen and a "what was sent to the model" log, and every import shows a preview before commit. Manual "I own this" / "I bought this" is enough on its own.
+
+**Generators.** Code: watch drops and restocks, "watch this?", replenishment (model picks a lifecycle class from a fixed list; code computes the interval with shrinkage and never shows a card before 90% of it), sale calendar, community deal feeds matched to interests, Shopify `compare_at_price` markdown scan. Model: deal-to-profile judge (FTS5 prefilter to ≤40 candidates/day, batches of 5, ≤8 calls/day), lifecycle class and complements per new owned item (≤10/day), weekly profile reflection (≤5 proposed fact operations), weekly exploration ideas. The model proposes search ideas and explains their link to profile facts. Code filters duplicates, recent purchases, dismissed topics, constraint violations and unsupported claims, and never takes a price from the model.
+
+**Budget.** About 20K input and 2.5K output tokens per day for all recommendation jobs, under a hard cap in code. Code-only cards still ship when the model is down; model-judged deals are held.
+
+**Feed.** Finite: about 10 cards a day, ≤3 per topic, ≤4 per generator, and 2 labelled exploration slots (Thompson sampling over per-topic Beta counts). Assembled each morning with catch-up after sleep, plus an hourly on-demand refresh. Every card shows why it appears, its evidence and freshness, and one next action. Recommendation pushes default to 1 a day and 3 a week, within quiet hours; configured watch alerts are exempt. Running suggested searches automatically is an explicit setting with its own recurring budget, off by default.
+
+**Optional local embeddings** (multilingual-e5-small via transformers.js) become the default only if keyword recall on the regression set is under about 70%.
+
+**Evaluation.** Every impression is logged with rank, generator, score parts and model and prompt version. The app tracks per-generator acceptance, dismiss and push-open rates. A generator under 5% acceptance after 30 impressions has its slots halved automatically. Weekly offline replay runs against the next 14 days of activity. LLM-simulated users are not used as evidence.
+
+### 5.11 Delivery (R§2.3, R§4.8)
+
+The **feed is the durable record**. Every alert, recommendation, agent message and system notice is a `notification_event`. Each channel is a delivery of that event through an **outbox** with stable (event, channel) keys, per-channel retry state, quiet hours and cooldowns.
+
+**Channels in the core:** in-app (always on), Web Push (VAPID; needs HTTPS, so it is never the only channel and the UI says why), ntfy, Telegram, Discord webhook, generic webhook. **Optional:** Matrix, Signal (signal-cli-rest-api), Apprise. "Chat apps" in v1 means Telegram and Discord.
+
+**Retry policy** (ported from `pricewatch/notify`): transport errors and 408/425/429/5xx retry at 2/5/15 s and honour Retry-After; a delay over 30 s defers to the next outbox pass; auth and payload errors fail at once. Each channel returns a per-channel outcome, which gates the cooldown. Every channel has a Test button.
+
+### 5.12 UI (`apps/web`)
+
+**Navigation.** Mobile-first PWA with a bottom tab bar: **For you** (home feed) · **Search** · **Watches** · **Chat** · **Settings**. Search is always one tap away and is also reachable from the feed header.
+
+**Search results board,** fed by the SSE stream:
+- groups for exact, substitutes and used/marketplace;
+- per-row store, trust label, condition, item price with tax label, delivered total where known, deal verdict, freshness and read path;
+- a coverage strip showing checked, walled, no price and unverified;
+- one clarifying chip when needed;
+- the "Dig deeper" button with its cost and time cap shown.
+
+**Listing and product view:** price history chart (uPlot), verdict with its basis, other stores, and watch controls.
+
+**Watches:** paste-box intake (a URL or a name, no model needed), status per listing, alert rules, and per-listing "wrong match" and exclude.
+
+**Feed cards:** "because you…", evidence, one action, and feedback buttons (not interested, already own, wrong match, less like this).
+
+**Profile:** the rendered document, editable facts, proposed facts to accept or reject, import with preview, and "what was sent" logs.
+
+**Settings:** generated from self-describing provider, add-on and channel definitions; environment defaults with the source shown; a Test button everywhere. Diagnostics (runs, costs, fetch rungs, adapter health, job history) live under Settings → Diagnostics.
+
+**First-run wizard:**
+1. owner password;
+2. locale (country, currency, language);
+3. LLM endpoint, ending only when the probe passes or the user picks "no model yet";
+4. optional add-ons and channels;
+5. the interview (skippable).
+
+**Budgets:** the SPA's first load is at most 200 KB of gzipped JavaScript. The UI is i18n-ready from day one: English first, with French as the first translation.
+
+### 5.13 Settings and auth
+
+- Settings live in the DB with environment defaults; the UI shows each value's source. Config is never rendered to files at boot.
+- Secrets (API keys, channel tokens) are encrypted at rest with a key from the volume or the environment, redacted in logs, and never put in prompts.
+- Auth: one owner password (`crypto.argon2`) set in the wizard, with session cookies. Trusted-header auth is optional. Generic OIDC (`openid-client`) comes later.
+- Every API route except `/api/health` and static assets needs a session or an API token. A page in the browser add-on cannot send that token.
+
+### 5.14 Packaging and operations
+
+- **Images:** `core` (amd64 + arm64, non-root, `node:26-trixie-slim`); `browser` add-on; SearXNG upstream at a pinned tag.
+- **Compose:** one file with profiles `browser` and `searxng`; one named data volume and one browser-profile volume; healthchecks; `init: true`; `shm_size: 1gb` for the browser.
+- **Release budgets (CI-enforced):**
+
+  | Metric | Target |
+  |---|---|
+  | Core pull | ≤110 MB |
+  | Core unpacked | ≤320 MB |
+  | Idle RSS | ≤150 MB |
+  | RSS during a 30-50-page search | ≤400 MB |
+  | Start to healthy | <3 s |
+  | Browser add-on, Chrome stopped | ~20 MB |
+  | Browser add-on, page open | 0.7-1.2 GB |
+
+- **Backup and restore:** online SQLite backup (`VACUUM INTO`) on a schedule, plus documented restore. A host-side `sqlite3` must never open the live DB; the docs say so.
+- **Upgrades:** migrations run at start-up. The build version and migration level are in health. An update check is optional and off by default (§9).
+- **Retention:** bounded evidence excerpts, run payloads for 14 days, and price observations kept forever (they are small).
+
+### 5.15 Security
+
+- SSRF guard on every fetch and every browser request (§5.1).
+- Containment by run type, so no run holds all three of: page text, the profile and privileged tools (§5.7).
+- Human-only doors (REST and UI with a session, no tool): settings, credentials, channels, budgets, deletion, queue control, robots mode, store trust overrides.
+- The browser add-on has no logged-in sessions by default. Logins are an explicit per-site user action through noVNC; passwords are never stored.
+- Prices, URLs and store names shown to the user come from engine records. Model prose is rendered as plain text.
+- Third-party text (agents.md, llms.txt, page text, feed items, emails) is data, quoted inside delimiters when passed to a model, and never placed in a system prompt.
+
+### 5.16 Observability and evaluation
+
+- One `run` record per harness run and one `job_run` per scheduled job, with status, usage, cost, budget hits, the tool-call list and refusals. Diagnostics pages read these.
+- **Gold sets** in `evals/`:
+  - the matcher set: ~60 products with 15-25 frozen listing snapshots each (1,000-1,500 relation labels), six categories, ≥40% hard negatives, 40 dev and 20 held-out products, 10% double-labelled, seeded from the predecessor's 20-product list and hand-review files;
+  - the search set: the same products across three countries, run live on demand;
+  - WebMall as an offline regression suite for the agent path.
+- **Eval runner:** Vitest, with layers for the scripted fake LLM, recorded wire fixtures per server family, stored-run replay (all free in CI) and a paid live suite (3 trials, code graders first, budget assertions). Hand-review JSON plus offline rescoring is ported from `scripts/web-discovery-eval.py`.
+- **In-app review queue:** 50 listings per run, stratified by decision tier, with one-tap labels that feed the gold set.
+- **Access lab** (`lab/`, a dev tool): each transport or browser setup is run model-free against a fixed store list, classified by wall vendor, with fingerprints recorded.
+
+---
+
+## 6. Acceptance gates
+
+These are measured on the gold and search sets. The gate values are proposals from the research (R§3.1, R§3.6), confirmed or revised after the Phase 2 prototype.
+
+| Gate | Target |
+|---|---|
+| Critical regressions (currency, wrong variant, stale shown as current, fabricated price) | **zero** on the frozen corpus; blocks release |
+| Identity precision (listings shown as exact), held-out | ≥90% to ship, 95% target (hard goods); report clothing/furniture separately |
+| Price correctness of shown offers | ≥98% |
+| Verified stores per product (median) | ≥6 |
+| Best-offer recall on the reviewed set | ≥70% |
+| Shown price age on search | ≤10 min |
+| Repeat-query agreement | ≥95% |
+| Unchecked or walled sources | always listed |
+| Fast mode | p50 ≤30 s, p95 ≤60 s, median ≤$0.01, hard cap $0.03 |
+| Cancellation | partial evidence returned, no further calls after cancel |
+| Sleep/restart | queued work recovered, no duplicate in-app events, overdue jobs run once |
+| Model outage | watches, sweeps, alerts and code-only feed cards keep working; labels show "unconfirmed" |
+
+Results are always reported with sample sizes. Raw store counts are never reported as success.
+
+---
+
+## 7. Port map from hermes-shopping
+
+| Port (behaviour + tests → TS fixtures) | Source |
+|---|---|
+| Money parsing, currency detection, bare-$ rule, regional URLs, converted-price refusal | `pricewatch/src/pricewatch/money.py`, `preferences.py`, `web_discovery.py` (`regional_url`, `converted`), `stores/learned.py` (`bare_dollar`) |
+| Wall classification cases | `fetch.py` (`Page.looks_blocked`, `CHALLENGE_MARKERS`), `tests/test_fetch.py`, `tests/test_retail_reliability.py`, `tests/test_browser_mode.py` |
+| Pacing, challenge wait, site-only session drop | `fetch.py` (`_HostThrottle`, `_settled`, `_SharedProfile.forget`) |
+| URL guard | `fetch.web_url_problem`, `netguard.py`, `tests/test_fetch_private.py`, `tests/test_netguard.py` |
+| Platform readers, structured-data readers, reader ladder | `stores/shopify.py`, `stores/woocommerce.py`, `stores/structured.py`, `stores/registry.py` |
+| Web discovery candidate filter, listing key | `web_discovery.py` (`pick_candidates`, `product_signal`, `DENY_HOSTS`, `listing_key`) |
+| Title matcher rules and owner rulings | `matching.py`, `reports/2026-10-23-matching.md`, review files in `scripts/eval/` |
+| Alert semantics, restock, baseline hygiene, save-first intake | `service.py` (`_reasons`, `_should_notify`, `_upsert_offer`, `add_watch`), `tests/test_service.py`, `test_restock.py`, `test_watch_intake.py` |
+| Scheduler catch-up and network gate | `scheduler.py`, `tests/test_scheduler.py` |
+| Notification retry policy | `notify/__init__.py`, `tests/test_notify.py` |
+| Recipe replay, health and queue lifecycle (Phase 6) | `recipes.py`, `stores/learned.py`, `web_discovery.py` queue functions |
+| Coverage eval and hand review | `scripts/web-discovery-eval.py`, `scripts/eval/*.json` |
+| Browser lab method | `scripts/browser-lab/`, `reports/2026-10-16-browser-access.md` |
+
+**Left behind:** Hermes image, skills, dashboard, cron wrappers, profiles, tool bridge, s6 hooks; the 32-tool MCP surface; four browser modes; the hand-curated catalogue as a growth strategy; the displayed-price arbiter; the launchd wake agent (its contract moves in-process); Signal/WhatsApp channels as defaults; the used-car swarm; the Sunlu-specific community job.
+
+---
+
+## 8. Glossary
+
+- **Listing:** one purchasable item at one store or marketplace URL, in one condition, from one seller.
+- **Observation:** one read of a listing's price and availability.
+- **Verified:** the engine read the price from the store itself in the user's market, and identity is confirmed (identifier, rules, cached verdict or a person).
+- **Lead:** a candidate from search, the Catalog or a deal feed that has not been read and verified yet.
+- **Coverage record:** per-source accounting of what was attempted, walled, unpriced and verified in one run.
+- **Rung:** a level of the fetch ladder (api, http, browser, remote, person).
+
+---
+
+## 9. Open decisions for the owner
+
+The project can start on the defaults shown. Each item names the phase that needs the answer.
+
+| # | Decision | Default in this spec | Needed by |
+|---|---|---|---|
+| 1 | Project name and repository | — | Phase 0 |
+| 2 | Licence: AGPL-3.0 (Immich, Mealie) or Apache-2.0 (friendlier to adapter contributors) | AGPL-3.0 | Phase 0 |
+| 3 | Where the public UCP agent-profile JSON is hosted (e.g. GitHub Pages of the project) | project GitHub Pages | Phase 2 |
+| 4 | robots.txt public default: keep `ignore` (owner's 2026-10-23 decision), or `respect` for unattended discovery of hosts the user never named | `ignore`, setting exposed | Phase 1 |
+| 5 | Native Anthropic Messages adapter in v1, or OpenRouter/LiteLLM for Claude until later | later (Phase 7) | Phase 2 |
+| 6 | May the capability probe call models.dev / OpenRouter's model list to prefill context sizes and prices? | yes, opt-out | Phase 2 |
+| 7 | eBay: accept the BYO-key flow and the honesty question of the "not persisting eBay data" exemption | BYO key, deletion-webhook option documented | Phase 5 |
+| 8 | Facebook Marketplace beyond a deep link (logged-in adapter in the browser add-on) | deep link only | Phase 6 |
+| 9 | Household members: separate sub-profiles or tagged facts | single profile, `profile_id` everywhere | Phase 4 |
+| 10 | Tax and duty estimates shown in landed price | tax label only; no duty estimate | Phase 2 |
+| 11 | Reading a retailer account through the add-on browser to import orders | no | Phase 4 |
+| 12 | Update check on by default | off | Phase 7 |
+| 13 | Who labels the gold set after launch (owner only, or opt-in user exports) | owner only | Phase 7 |
