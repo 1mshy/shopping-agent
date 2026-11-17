@@ -4,9 +4,10 @@ import { readFileSync } from 'node:fs';
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { afterEach, describe, expect, it } from 'vitest';
-import type { ListKind } from './outcome.ts';
+import type { DomainResult, ListKind } from './outcome.ts';
 import { Pacer } from './pacer.ts';
 import { type ProbeConfig, probeDomain } from './probe.ts';
+import { reclassifyResult } from './reclassify.ts';
 
 const fixture = (name: string) =>
   readFileSync(new URL(`./fixtures/${name}`, import.meta.url), 'utf8');
@@ -110,19 +111,36 @@ describe('probeDomain', () => {
     expect(r.requests).toBe(4);
   });
 
-  it('sends the Magento products query as GET and validates its shape', async () => {
+  it('sends a Magento products search (one fixed term, one item) as GET and validates its shape', async () => {
+    let method = '';
     let query = '';
     const port = await serve({
       '/robots.txt': [404, 'nope'],
       '/graphql': (req, res) => {
+        method = req.method ?? '';
         query = new URL(req.url ?? '', 'http://x').searchParams.get('query') ?? '';
         res.writeHead(200, { 'content-type': JSON_T }).end(fixture('magento-products.json'));
       },
     });
     const r = await probe(port, 'magento');
-    expect(query).toContain('products(');
+    expect(method).toBe('GET');
+    expect(query).toMatch(/^\{products\(search:"[a-z]{3,}",pageSize:1\)\{/);
+    expect(query).not.toContain('filter');
     expect(r.robots.state).toBe('absent');
     expect(r.routes[0]).toMatchObject({ outcome: { kind: 'ok' }, robots: 'allowed' });
+  });
+
+  it('a valid Magento search answer with zero items is empty (the route answers)', async () => {
+    const none = '{"data":{"products":{"total_count":0,"items":[]}}}';
+    const port = await serve({
+      '/robots.txt': [404, 'nope'],
+      '/graphql': [200, none, JSON_T],
+    });
+    const r = await probe(port, 'magento');
+    expect(r.routes[0]).toMatchObject({
+      outcome: { kind: 'empty' },
+      evidence: { validation: 'items=0' },
+    });
   });
 
   it('discovers a JSON-LD SearchAction and an OpenSearch description on the home page', async () => {
@@ -192,6 +210,58 @@ describe('probeDomain', () => {
     const r = await probe(port, 'woocommerce');
     expect(r.robots.state).toBe('unreachable');
     expect(r.routes[0]).toMatchObject({ outcome: { kind: 'empty' }, robots: 'disallowed' });
+  });
+
+  it("stores the classifier's whole input with each answer, and cookie names only", async () => {
+    const big = `<html><head><title>Access  Denied</title></head><body>${'x'.repeat(70_000)}</body></html>`;
+    const port = await serve({
+      '/robots.txt': ROBOTS,
+      '/wp-json/wc/store/v1/products': (_q, res) =>
+        res
+          .writeHead(403, {
+            'content-type': 'text/html',
+            server: 'cloudflare',
+            'cf-ray': 'abc',
+            'set-cookie': ['datadome=secret-value; Path=/', 'sid=other-secret'],
+            'x-unrelated': 'dropped',
+          })
+          .end(big),
+    });
+    const r = await probe(port, 'woocommerce');
+    const e = r.routes[0]?.evidence;
+    expect(r.routes[0]?.outcome).toEqual({ kind: 'wall', vendor: 'datadome', mode: 'block' });
+    expect(e).toMatchObject({
+      status: 403,
+      contentType: 'text/html',
+      bytes: big.length,
+      valid: false,
+      validation: 'not_json',
+      title: 'access denied',
+      headers: { server: 'cloudflare', 'cf-ray': 'abc', 'set-cookie': 'datadome=, sid=' },
+      markers: [],
+    });
+    expect(e?.finalUrl).toMatch(/\/wp-json\/wc\/store\/v1\/products\?search=a&per_page=1$/);
+    expect(e?.snippet).toMatch(/^<html><head><title>Access Denied/);
+    expect(e?.snippet?.length).toBeLessThanOrEqual(300);
+    expect(JSON.stringify(r)).not.toContain('secret');
+    expect(e?.headers).not.toHaveProperty('x-unrelated');
+    expect(r.robots.evidence).toMatchObject({ status: 200, valid: true });
+  });
+
+  it('re-classifying the stored evidence offline reproduces every outcome', async () => {
+    const port = await serve({
+      '/robots.txt': ROBOTS,
+      '/wp-json/wc/store/v1/products': [200, fixture('challenge.html')],
+      '/graphql': [404, '<html><script type="text/x-magento-init">{}</script></html>'],
+      '/search/suggest.json': [200, '<html><title>Home</title></html>'],
+      '/': [200, fixture('home.html')],
+      '/opensearch.xml': [200, fixture('opensearch.xml'), 'application/opensearchdescription+xml'],
+    });
+    const lists: ListKind[] = ['woocommerce', 'magento', 'shopify', 'searchaction'];
+    for (const list of lists) {
+      const stored = JSON.parse(JSON.stringify(await probe(port, list))) as DomainResult;
+      expect(reclassifyResult(stored)).toEqual(stored);
+    }
   });
 
   it('enforces the per-domain request cap, counting robots.txt', async () => {

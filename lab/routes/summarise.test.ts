@@ -7,7 +7,7 @@ const result = (
   list: DomainResult['list'],
   routes: Array<[RouteKind, Outcome, RobotsVerdict]>,
 ): DomainResult => ({
-  v: 1,
+  v: 2,
   list,
   domain: `${list}-${Math.random()}`,
   userAgent: 'ua',

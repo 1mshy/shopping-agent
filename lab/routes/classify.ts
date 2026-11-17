@@ -8,6 +8,10 @@
 //   3. a 403/429/503 HTML document under 64 KiB carrying a bot-manager vendor's header or cookie.
 // Body text is never searched, so "Just a moment" in a loader or "captcha" on a 404 is not a wall.
 // A JSON body is never a wall. A plain Cloudflare 403 (cf-ray only) is `forbidden`.
+//
+// The classifier reads only an `Observed` view of the response (status, final URL, a fixed set
+// of headers, cookie names, size, title and body markers). That view is stored with every result,
+// so a result can be re-classified offline without another request (`reclassify.ts`).
 import type { Outcome, Platform, Validation, WallVendor } from './outcome.ts';
 
 export interface HttpResponse {
@@ -21,6 +25,19 @@ export interface Wall {
   vendor: WallVendor;
   mode: 'challenge' | 'block';
   signals: string[];
+}
+
+/** Everything the classifier reads, small enough to store with each result. */
+export interface Observed {
+  status: number;
+  finalUrl: string;
+  /** The headers the classifier reads (names lowercased); `set-cookie` keeps cookie names only. */
+  headers: Record<string, string>;
+  bytes: number;
+  /** Parsed <title>, whitespace-collapsed and lowercased. */
+  title?: string;
+  /** Platform evidence found in the body (see BODY_MARKERS). */
+  markers: string[];
 }
 
 const TITLES: Array<[RegExp, WallVendor, Wall['mode']]> = [
@@ -48,6 +65,29 @@ const URLS: Array<[RegExp, WallVendor]> = [
 ];
 const SMALL = 64 * 1024;
 
+/** Headers read by `vendorOf`, `detectWall` and `platformSignals` (plus prefixes below). */
+const KEPT_HEADERS = [
+  'content-type',
+  'server',
+  'cf-mitigated',
+  'cf-ray',
+  'x-vercel-mitigated',
+  'x-amzn-waf-action',
+  'x-datadome',
+  'x-dd-b',
+  'x-iinfo',
+  'x-sucuri-id',
+  'akamai-grn',
+  'powered-by',
+  'link',
+  'x-wp-total',
+  'x-shopid',
+  'x-sorting-hat-shopid',
+  'retry-after',
+];
+const KEPT_PREFIXES = ['x-kpsdk', 'x-shopify', 'x-magento'];
+const MAX_HEADER = 1000;
+
 export function pageTitle(html: string): string | undefined {
   const m = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html.slice(0, SMALL));
   if (!m?.[1]) return undefined;
@@ -60,56 +100,9 @@ export function pageTitle(html: string): string | undefined {
     .toLowerCase();
 }
 
-/** Bot-manager vendor from headers and cookie names (attribution, not proof of a wall). */
-function vendorOf(h: Headers): WallVendor | undefined {
-  const cookie = h.get('set-cookie') ?? '';
-  const server = (h.get('server') ?? '').toLowerCase();
-  if (h.has('x-datadome') || h.has('x-dd-b') || /(^|[\s,])datadome=/i.test(cookie))
-    return 'datadome';
-  if (h.has('x-iinfo') || /incap_ses_|visid_incap_/i.test(cookie)) return 'imperva';
-  if (/(^|[\s,])_px\w*=/i.test(cookie)) return 'perimeterx';
-  if ([...h.keys()].some((k) => k.startsWith('x-kpsdk'))) return 'kasada';
-  if (h.has('x-amzn-waf-action')) return 'aws_waf';
-  if (h.has('x-sucuri-id') || server.includes('sucuri')) return 'sucuri';
-  if (server.includes('ddos-guard')) return 'ddos-guard';
-  if (server.includes('akamaighost') || h.has('akamai-grn')) return 'akamai';
-  if (server === 'cloudflare' || h.has('cf-ray')) return 'cloudflare';
-  return undefined;
-}
-
-export function detectWall(r: HttpResponse): Wall | undefined {
-  const h = r.headers;
-  const vendor = vendorOf(h);
-  if (h.get('cf-mitigated') === 'challenge') {
-    return { vendor: 'cloudflare', mode: 'challenge', signals: ['header:cf-mitigated'] };
-  }
-  if (h.get('x-vercel-mitigated') === 'challenge') {
-    return { vendor: 'vercel', mode: 'challenge', signals: ['header:x-vercel-mitigated'] };
-  }
-  const waf = h.get('x-amzn-waf-action');
-  if (waf === 'captcha' || waf === 'challenge') {
-    return { vendor: 'aws_waf', mode: 'challenge', signals: [`header:x-amzn-waf-action=${waf}`] };
-  }
-  if (r.status === 404 || r.status === 410) return undefined;
-  if ((h.get('content-type') ?? '').includes('json')) return undefined;
-  for (const [re, v] of URLS) {
-    if (re.test(r.finalUrl)) return { vendor: v, mode: 'challenge', signals: [`final_url:${v}`] };
-  }
-  const title = pageTitle(r.body);
-  for (const [re, v, mode] of TITLES) {
-    if (title && re.test(title)) {
-      return { vendor: v === 'unknown' ? (vendor ?? v) : v, mode, signals: [`title:${title}`] };
-    }
-  }
-  if ([403, 429, 503].includes(r.status) && r.bytes < SMALL && vendor && vendor !== 'cloudflare') {
-    return { vendor, mode: 'block', signals: [`status:${r.status}`, `vendor:${vendor}`] };
-  }
-  return undefined;
-}
-
-// Platform evidence (not wall evidence): headers, error-body shapes, and in HTML pages the
-// platform's own asset paths and script types, which a 404 page of the platform carries too.
-// Added after the pilot, where Magento and WordPress 404 pages often had no telling header.
+// Platform evidence in the body: in HTML pages the platform's own asset paths and script types
+// (a 404 page of the platform carries them too; added after the pilot, where Magento and
+// WordPress 404 pages often had no telling header), and the WordPress REST error shape.
 const HTML_MARKERS: Array<[Exclude<Platform, 'any'>, RegExp]> = [
   ['shopify', /\/\/cdn\.shopify\.com\/|\bShopify\.shop\s*=/],
   ['woocommerce', /\/wp-content\/(?:themes|plugins|uploads)\/|\/wp-includes\//],
@@ -119,69 +112,151 @@ const HTML_MARKERS: Array<[Exclude<Platform, 'any'>, RegExp]> = [
   ],
 ];
 
+/** The stored view of a response: what the classifier reads, and nothing else. */
+export function observe(r: HttpResponse): Observed {
+  const headers: Record<string, string> = {};
+  for (const [k, v] of r.headers) {
+    if (k === 'set-cookie') continue;
+    if (KEPT_HEADERS.includes(k) || KEPT_PREFIXES.some((p) => k.startsWith(p))) {
+      headers[k] = v.slice(0, MAX_HEADER);
+    }
+  }
+  const cookies = r.headers.getSetCookie().map((c) => `${(c.split('=')[0] ?? '').trim()}=`);
+  if (cookies.length > 0) headers['set-cookie'] = cookies.join(', ').slice(0, MAX_HEADER);
+  const html = (headers['content-type'] ?? '').includes('html') ? r.body.slice(0, 512 * 1024) : '';
+  const markers: string[] = [];
+  for (const [p, re] of HTML_MARKERS) if (re.test(html)) markers.push(`html:${p}`);
+  if (/^\s*\{\s*"code"\s*:\s*"rest_/.test(r.body.slice(0, 200))) markers.push('body:wp_rest_error');
+  const title = pageTitle(r.body);
+  return {
+    status: r.status,
+    finalUrl: r.finalUrl,
+    headers,
+    bytes: r.bytes,
+    ...(title ? { title } : {}),
+    markers,
+  };
+}
+
+const header = (o: Observed, name: string) => o.headers[name];
+
+/** Bot-manager vendor from headers and cookie names (attribution, not proof of a wall). */
+function vendorOf(o: Observed): WallVendor | undefined {
+  const cookie = header(o, 'set-cookie') ?? '';
+  const server = (header(o, 'server') ?? '').toLowerCase();
+  const keys = Object.keys(o.headers);
+  if (header(o, 'x-datadome') !== undefined || header(o, 'x-dd-b') !== undefined) return 'datadome';
+  if (/(^|[\s,])datadome=/i.test(cookie)) return 'datadome';
+  if (header(o, 'x-iinfo') !== undefined || /incap_ses_|visid_incap_/i.test(cookie)) {
+    return 'imperva';
+  }
+  if (/(^|[\s,])_px\w*=/i.test(cookie)) return 'perimeterx';
+  if (keys.some((k) => k.startsWith('x-kpsdk'))) return 'kasada';
+  if (header(o, 'x-amzn-waf-action') !== undefined) return 'aws_waf';
+  if (header(o, 'x-sucuri-id') !== undefined || server.includes('sucuri')) return 'sucuri';
+  if (server.includes('ddos-guard')) return 'ddos-guard';
+  if (server.includes('akamaighost') || header(o, 'akamai-grn') !== undefined) return 'akamai';
+  if (server === 'cloudflare' || header(o, 'cf-ray') !== undefined) return 'cloudflare';
+  return undefined;
+}
+
+export function detectWallObserved(o: Observed): Wall | undefined {
+  const vendor = vendorOf(o);
+  if (header(o, 'cf-mitigated') === 'challenge') {
+    return { vendor: 'cloudflare', mode: 'challenge', signals: ['header:cf-mitigated'] };
+  }
+  if (header(o, 'x-vercel-mitigated') === 'challenge') {
+    return { vendor: 'vercel', mode: 'challenge', signals: ['header:x-vercel-mitigated'] };
+  }
+  const waf = header(o, 'x-amzn-waf-action');
+  if (waf === 'captcha' || waf === 'challenge') {
+    return { vendor: 'aws_waf', mode: 'challenge', signals: [`header:x-amzn-waf-action=${waf}`] };
+  }
+  if (o.status === 404 || o.status === 410) return undefined;
+  if ((header(o, 'content-type') ?? '').includes('json')) return undefined;
+  for (const [re, v] of URLS) {
+    if (re.test(o.finalUrl)) return { vendor: v, mode: 'challenge', signals: [`final_url:${v}`] };
+  }
+  const title = o.title;
+  for (const [re, v, mode] of TITLES) {
+    if (title && re.test(title)) {
+      return { vendor: v === 'unknown' ? (vendor ?? v) : v, mode, signals: [`title:${title}`] };
+    }
+  }
+  if ([403, 429, 503].includes(o.status) && o.bytes < SMALL && vendor && vendor !== 'cloudflare') {
+    return { vendor, mode: 'block', signals: [`status:${o.status}`, `vendor:${vendor}`] };
+  }
+  return undefined;
+}
+
+export const detectWall = (r: HttpResponse) => detectWallObserved(observe(r));
+
 /** Which platforms the response shows. `woocommerce` here means WordPress is present. */
-export function platformSignals(r: HttpResponse): Array<Exclude<Platform, 'any'>> {
-  const h = r.headers;
-  const keys = [...h.keys()];
-  const html = (h.get('content-type') ?? '').includes('html') ? r.body.slice(0, 512 * 1024) : '';
+export function platformSignalsObserved(o: Observed): Array<Exclude<Platform, 'any'>> {
+  const keys = Object.keys(o.headers);
   const out = new Set<Exclude<Platform, 'any'>>();
   if (
     keys.some(
       (k) => k.startsWith('x-shopify') || k === 'x-shopid' || k === 'x-sorting-hat-shopid',
     ) ||
-    /shopify/i.test(h.get('powered-by') ?? '')
+    /shopify/i.test(header(o, 'powered-by') ?? '')
   ) {
     out.add('shopify');
   }
   if (
-    (h.get('link') ?? '').includes('api.w.org') ||
-    h.has('x-wp-total') ||
-    /^\s*\{\s*"code"\s*:\s*"rest_/.test(r.body.slice(0, 200))
+    (header(o, 'link') ?? '').includes('api.w.org') ||
+    header(o, 'x-wp-total') !== undefined ||
+    o.markers.includes('body:wp_rest_error')
   ) {
     out.add('woocommerce');
   }
   if (
     keys.some((k) => k.startsWith('x-magento')) ||
-    /X-Magento-Vary|mage-cache-sessid/i.test(h.get('set-cookie') ?? '')
+    /X-Magento-Vary|mage-cache-sessid/i.test(header(o, 'set-cookie') ?? '')
   ) {
     out.add('magento');
   }
-  for (const [p, re] of HTML_MARKERS) if (re.test(html)) out.add(p);
+  for (const [p] of HTML_MARKERS) if (o.markers.includes(`html:${p}`)) out.add(p);
   return [...out];
 }
 
+export const platformSignals = (r: HttpResponse) => platformSignalsObserved(observe(r));
+
 const SIGNAL_NAME = { shopify: 'shopify', woocommerce: 'wordpress', magento: 'magento' } as const;
 
-export function classify(
-  r: HttpResponse,
+export function classifyObserved(
+  o: Observed,
   v: Validation,
   platform: Platform,
 ): { outcome: Outcome; signals: string[] } {
-  const seen = platformSignals(r);
+  const seen = platformSignalsObserved(o);
   const signals = seen.map((p) => `platform:${SIGNAL_NAME[p]}`);
   const done = (outcome: Outcome, extra: string[] = []) => ({
     outcome,
     signals: [...signals, ...extra],
   });
   if (v.valid) return done({ kind: v.items > 0 ? 'ok' : 'empty' });
-  const wall = detectWall(r);
+  const wall = detectWallObserved(o);
   if (wall) return done({ kind: 'wall', vendor: wall.vendor, mode: wall.mode }, wall.signals);
-  if (r.status === 429) return done({ kind: 'rate_limited' });
-  if (r.status === 401) return done({ kind: 'login_required' });
-  if (r.status === 402) return done({ kind: 'payment_required' });
-  if (r.status === 403) return done({ kind: 'forbidden' });
-  if (new URL(r.finalUrl).pathname === '/password') {
+  if (o.status === 429) return done({ kind: 'rate_limited' });
+  if (o.status === 401) return done({ kind: 'login_required' });
+  if (o.status === 402) return done({ kind: 'payment_required' });
+  if (o.status === 403) return done({ kind: 'forbidden' });
+  if (new URL(o.finalUrl).pathname === '/password') {
     return done({ kind: 'login_required' }, ['final_url:/password']);
   }
-  if (r.status === 404 || r.status === 410) {
+  if (o.status === 404 || o.status === 410) {
     const shows = platform === 'any' || seen.includes(platform);
     return done({ kind: shows ? 'not_found' : 'not_platform' });
   }
-  if (r.status >= 500) return done({ kind: 'server_error' });
-  if (r.status >= 400) return done({ kind: 'client_error' });
+  if (o.status >= 500) return done({ kind: 'server_error' });
+  if (o.status >= 400) return done({ kind: 'client_error' });
   if (v.reason === 'absent') return done({ kind: 'not_found' });
   if (v.reason.startsWith('graphql_error:graphql-authorization')) {
     return done({ kind: 'login_required' });
   }
   return done({ kind: 'invalid_payload' });
 }
+
+export const classify = (r: HttpResponse, v: Validation, platform: Platform) =>
+  classifyObserved(observe(r), v, platform);

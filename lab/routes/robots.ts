@@ -4,6 +4,7 @@
 // A robots.txt we could not read for policy reasons (off-site redirect, cap) is `unknown`.
 import robotsParser from 'robots-parser';
 import { classify, detectWall } from './classify.ts';
+import { answerEvidence } from './evidence.ts';
 import { type Budget, get, type HttpConfig } from './http.ts';
 import type { DomainResult, Outcome, RobotsVerdict } from './outcome.ts';
 
@@ -29,7 +30,11 @@ export async function fetchRobots(
     const kind = r.outcome.kind;
     const unreachable = kind === 'network_error';
     return {
-      record: { state: unreachable ? 'unreachable' : 'unknown', outcome: kind },
+      record: {
+        state: unreachable ? 'unreachable' : 'unknown',
+        outcome: kind,
+        evidence: { finalUrl: r.finalUrl, signals: [kind], hops: r.hops, ms: r.ms },
+      },
       origin,
       requests: r.requests,
       failure: r.outcome,
@@ -43,10 +48,17 @@ export async function fetchRobots(
     status < 300 && !walled
       ? 'ok'
       : classify(r.res, { valid: false, reason: 'robots' }, 'any').outcome.kind;
+  const evidence = answerEvidence(
+    r.res,
+    outcome === 'ok'
+      ? { valid: true, items: 1, note: 'robots' }
+      : { valid: false, reason: 'robots' },
+    { signals: [], hops: r.hops, ms: r.ms },
+  );
   if (status < 300 && walled) {
     // A challenge page served as robots.txt is not a robots.txt.
     return {
-      record: { state: 'unknown', status, outcome },
+      record: { state: 'unknown', status, outcome, evidence },
       origin: settled,
       requests: r.requests,
       verdict: () => 'unknown',
@@ -54,7 +66,7 @@ export async function fetchRobots(
   }
   if (status >= 500) {
     return {
-      record: { state: 'unreachable', status, outcome },
+      record: { state: 'unreachable', status, outcome, evidence },
       origin: settled,
       requests: r.requests,
       verdict: () => 'disallowed',
@@ -62,7 +74,7 @@ export async function fetchRobots(
   }
   if (status >= 400) {
     return {
-      record: { state: 'absent', status, outcome },
+      record: { state: 'absent', status, outcome, evidence },
       origin: settled,
       requests: r.requests,
       verdict: () => 'allowed',
@@ -70,7 +82,7 @@ export async function fetchRobots(
   }
   const robots = robotsParser(finalUrl, body);
   return {
-    record: { state: 'parsed', status, outcome },
+    record: { state: 'parsed', status, outcome, evidence },
     origin: settled,
     requests: r.requests,
     verdict: (url) => {
