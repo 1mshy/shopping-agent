@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   addMoney,
   compareMoney,
+  MAX_DECIMAL_LENGTH,
   MONEY_REFUSAL_CODES,
   type MoneyResult,
   minorUnitExponent,
@@ -20,6 +21,8 @@ function refusal<T>(result: MoneyResult<T>): string {
   if (result.ok) throw new Error(`expected a refusal, got ${JSON.stringify(result.value)}`);
   expect(MONEY_REFUSAL_CODES).toContain(result.refusal.code);
   expect(result.refusal.detail).not.toBe('');
+  // Details are bounded whatever the input, because page-derived text will reach these (S§2.7).
+  expect(result.refusal.detail.length).toBeLessThanOrEqual(100);
   return result.refusal.code;
 }
 
@@ -254,5 +257,151 @@ describe('same-currency comparison and arithmetic', () => {
   it('refuses non-integer amounts', () => {
     expect(refusal(addMoney(usd(0.5), usd(1)))).toBe('not_safe_integer');
     expect(refusal(compareMoney(usd(1), usd(2 ** 53)))).toBe('not_safe_integer');
+  });
+});
+
+describe('round trip from canonical strings', () => {
+  // Seeded linear congruential generator: the same inputs on every run, no dependency.
+  function generator(seed: number) {
+    let state = seed >>> 0;
+    return () => {
+      state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+      return state;
+    };
+  }
+
+  it('reads and writes back generated canonical decimals unchanged', () => {
+    const next = generator(0x5eed);
+    const digits = (n: number) => Array.from({ length: n }, () => String(next() % 10)).join('');
+    let checked = 0;
+    for (const [currency, e] of [
+      ['JPY', 0],
+      ['USD', 2],
+      ['BHD', 3],
+      ['CLF', 4],
+    ] as const) {
+      for (let i = 0; i < 500; i++) {
+        const wholeLength = next() % (17 - e); // up to 16 digits in all
+        const whole = wholeLength === 0 ? '0' : String(1 + (next() % 9)) + digits(wholeLength - 1);
+        const fraction = digits(e);
+        if (BigInt(whole + fraction) > BigInt(Number.MAX_SAFE_INTEGER)) continue;
+        const negative = next() % 2 === 0 && /[1-9]/.test(whole + fraction);
+        const decimal = `${negative ? '-' : ''}${whole}${e === 0 ? '' : `.${fraction}`}`;
+        expect(value(moneyToDecimal(value(moneyFromDecimal(decimal, currency))))).toBe(decimal);
+        checked++;
+      }
+    }
+    expect(checked).toBeGreaterThan(1900);
+  });
+});
+
+describe('hostile run-time input', () => {
+  const usd = (amountMinor: number) => raw(amountMinor, 'USD');
+
+  /** An object whose getters return the next listed value on each read, and count the reads. */
+  function unstable(amounts: unknown[], currencies: unknown[]) {
+    const reads = { amountMinor: 0, currency: 0 };
+    const at = (list: unknown[], n: number) => list[Math.min(n, list.length - 1)];
+    const money = {
+      get amountMinor() {
+        return at(amounts, reads.amountMinor++);
+      },
+      get currency() {
+        return at(currencies, reads.currency++);
+      },
+    };
+    return { money: money as unknown as Money, reads };
+  }
+
+  it('reads each field once and uses only what it checked', () => {
+    const a = unstable([150, 1.5], ['USD']);
+    expect(value(moneyToDecimal(a.money))).toBe('1.50');
+    expect(a.reads).toEqual({ amountMinor: 1, currency: 1 });
+
+    expect(refusal(moneyToDecimal(unstable([1.5, 150], ['USD']).money))).toBe('not_safe_integer');
+    expect(value(compareMoney(unstable([1, Number.NaN], ['USD']).money, usd(2)))).toBe(-1);
+    expect(value(addMoney(unstable([1, 0.5], ['USD']).money, usd(1)))).toEqual({
+      amountMinor: 2,
+      currency: 'USD',
+    });
+    expect(value(subtractMoney(usd(5), unstable([1, 2 ** 60], ['USD']).money)).amountMinor).toBe(4);
+
+    const c = unstable([100], ['USD', 'unknown']);
+    expect(value(moneyToDecimal(c.money))).toBe('1.00');
+    expect(c.reads).toEqual({ amountMinor: 1, currency: 1 });
+    expect(refusal(moneyToDecimal(unstable([100], ['unknown', 'USD']).money))).toBe(
+      'unknown_currency',
+    );
+    expect(value(addMoney(unstable([1], ['USD', 'EUR']).money, usd(1))).currency).toBe('USD');
+  });
+
+  it('refuses objects whose fields throw when read', () => {
+    const throwing = {
+      get amountMinor(): number {
+        throw new Error('boom');
+      },
+      currency: 'USD',
+    } as unknown as Money;
+    const proxy = new Proxy({} as Money, {
+      get() {
+        throw new Error('boom');
+      },
+    });
+    for (const bad of [throwing, proxy]) {
+      expect(refusal(moneyToDecimal(bad))).toBe('not_money');
+      expect(refusal(compareMoney(bad, usd(1)))).toBe('not_money');
+      expect(refusal(addMoney(usd(1), bad))).toBe('not_money');
+      expect(refusal(subtractMoney(bad, bad))).toBe('not_money');
+    }
+  });
+
+  it('refuses non-objects in place of money instead of throwing', () => {
+    for (const bad of [null, undefined, 0, 'USD', true, Symbol('x'), 10n]) {
+      const money = bad as unknown as Money;
+      expect(refusal(moneyToDecimal(money))).toBe('not_money');
+      expect(refusal(compareMoney(money, usd(1)))).toBe('not_money');
+      expect(refusal(addMoney(usd(1), money))).toBe('not_money');
+      expect(refusal(subtractMoney(money, money))).toBe('not_money');
+    }
+  });
+
+  it('refuses values that cannot be turned into strings, and boxed primitives', () => {
+    const bare = Object.create(null) as unknown;
+    const symbol = Symbol('USD') as unknown;
+    for (const currency of [bare, symbol, new String('USD'), ['USD']]) {
+      expect(refusal(minorUnitExponent(currency as Currency))).toBe('not_a_currency');
+      expect(refusal(moneyFromDecimal('1.00', currency as Currency))).toBe('not_a_currency');
+      expect(refusal(moneyToDecimal(raw(100, currency)))).toBe('not_a_currency');
+    }
+    for (const decimal of [bare, symbol, new String('1.00')]) {
+      expect(refusal(moneyFromDecimal(decimal as string, 'USD'))).toBe('malformed_decimal');
+    }
+    for (const amount of [bare, symbol, new Number(100)]) {
+      expect(refusal(moneyToDecimal(raw(amount, 'USD')))).toBe('not_safe_integer');
+      expect(refusal(addMoney(raw(amount, 'USD'), usd(1)))).toBe('not_safe_integer');
+    }
+    expect(refusal(moneyToDecimal(bare as Money))).toBe('not_a_currency');
+  });
+
+  it(`refuses decimals longer than ${MAX_DECIMAL_LENGTH} characters before parsing them`, () => {
+    expect(MAX_DECIMAL_LENGTH).toBe(64);
+    const padded = `1.${'0'.repeat(MAX_DECIMAL_LENGTH - 2)}`;
+    expect(value(moneyFromDecimal(padded, 'USD')).amountMinor).toBe(100);
+    expect(refusal(moneyFromDecimal(`${padded}0`, 'USD'))).toBe('malformed_decimal');
+    // Would be out_of_range if it reached BigInt; refused on length instead, with a short detail.
+    const huge = '9'.repeat(4_000_000);
+    expect(refusal(moneyFromDecimal(huge, 'USD'))).toBe('malformed_decimal');
+  });
+
+  it('keeps echoed input short', () => {
+    const long = `x${'y'.repeat(10_000)}`;
+    const results: MoneyResult<unknown>[] = [
+      moneyFromDecimal(long, 'USD'),
+      moneyFromDecimal('1.2.3', 'USD'),
+      moneyFromDecimal('1', long as Currency),
+      moneyFromDecimal(`1.${'1'.repeat(60)}`, 'USD'),
+      moneyToDecimal(raw(1, long)),
+    ];
+    for (const result of results) refusal(result); // asserts detail length <= 100
   });
 });

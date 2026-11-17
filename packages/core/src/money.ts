@@ -2,31 +2,31 @@
 // No floating point touches an amount: decimals are read as digit strings and checked with BigInt
 // before they become a Number, and every result stays inside the safe-integer range or is refused.
 // Every function takes its currency explicitly; nothing converts between currencies.
+//
+// The parameter types describe correct use, but the inputs come from database rows, JSON bodies
+// and, later, page-derived data (S§2.7). So every public function checks its inputs at run time,
+// reads each field exactly once, and returns a refusal for any input: it never throws.
 import {
   type Currency,
+  hasMinorUnits,
   ISO_MINOR_UNITS,
   type IsoCurrencyCode,
   type MinorUnitCurrency,
+  type MinorUnitExponent,
   type Money,
+  UNKNOWN_CURRENCY,
 } from '@agentic-dasher/shared';
 
 export const MONEY_REFUSAL_CODES = [
-  /** The currency is the explicit value `unknown`: it has no exponent. */
-  'unknown_currency',
-  /** An ISO code whose minor unit is "N.A." (XAU, XDR, XXX, ...). */
-  'no_minor_unit',
-  /** Not an ISO 4217 code or `unknown`. */
-  'not_a_currency',
-  /** Not a canonical machine decimal string. */
-  'malformed_decimal',
-  /** More non-zero fraction digits than the currency has; refused, never rounded. */
-  'excess_precision',
-  /** The amount in minor units would leave the safe-integer range. */
-  'out_of_range',
-  /** An amount that is not a safe integer. */
-  'not_safe_integer',
-  /** Two amounts in different currencies; they are never converted. */
-  'currency_mismatch',
+  'not_money', // Not an object whose amountMinor and currency fields can be read.
+  'unknown_currency', // The currency is the explicit value `unknown`: it has no exponent.
+  'no_minor_unit', // An ISO code whose minor unit is "N.A." (XAU, XDR, XXX, ...).
+  'not_a_currency', // Not an ISO 4217 code or `unknown`.
+  'malformed_decimal', // Not a canonical machine decimal string, or longer than the cap.
+  'excess_precision', // More non-zero fraction digits than the currency has; never rounded.
+  'out_of_range', // The amount in minor units would leave the safe-integer range.
+  'not_safe_integer', // An amount that is not a safe integer.
+  'currency_mismatch', // Two amounts in different currencies; they are never converted.
 ] as const;
 export type MoneyRefusalCode = (typeof MONEY_REFUSAL_CODES)[number];
 
@@ -37,6 +37,14 @@ export type MoneyResult<T> =
 
 /** An amount whose currency has not been checked yet (a database row, a JSON body). */
 export type UncheckedMoney = { readonly amountMinor: number; readonly currency: Currency };
+
+/**
+ * The longest decimal string read. The longest canonical decimal with a value in the safe range is
+ * 18 characters ("-900719925474.0991"); 64 leaves room for zero padding and bounds the BigInt work.
+ */
+export const MAX_DECIMAL_LENGTH = 64;
+/** Input echoed into a refusal's detail is cut to this many characters. */
+const ECHO_LENGTH = 24;
 
 const MAX = BigInt(Number.MAX_SAFE_INTEGER);
 // Optional minus, an integer part without leading zeros, an optional non-empty fraction. ASCII only.
@@ -50,15 +58,35 @@ function refuse(code: MoneyRefusalCode, detail: string): { ok: false; refusal: M
   return { ok: false, refusal: { code, detail } };
 }
 
-function hasMinorUnits(code: IsoCurrencyCode): code is MinorUnitCurrency {
-  return ISO_MINOR_UNITS[code] !== null;
+/** A short description of any value for a refusal detail. Cannot throw; never echoes much. */
+function show(value: unknown): string {
+  switch (typeof value) {
+    case 'string':
+      return value.length > ECHO_LENGTH
+        ? `"${value.slice(0, ECHO_LENGTH)}…" (${value.length} characters)`
+        : `"${value}"`;
+    case 'number':
+    case 'boolean':
+    case 'undefined':
+      return String(value);
+    default:
+      return value === null ? 'null' : `a ${typeof value}`;
+  }
 }
 
-function resolve(currency: Currency): MoneyResult<MinorUnitCurrency> {
-  if (currency === 'unknown') return refuse('unknown_currency', 'unknown currency has no exponent');
-  // Run-time check too: a database row or a JSON body can carry any string.
-  if (typeof currency !== 'string' || !Object.hasOwn(ISO_MINOR_UNITS, currency)) {
-    return refuse('not_a_currency', `not an ISO 4217 code: ${String(currency)}`);
+function isIsoCode(code: string): code is IsoCurrencyCode {
+  return Object.hasOwn(ISO_MINOR_UNITS, code);
+}
+
+function resolve(currency: unknown): MoneyResult<MinorUnitCurrency> {
+  if (typeof currency !== 'string') {
+    return refuse('not_a_currency', `not an ISO 4217 code: ${show(currency)}`);
+  }
+  if (currency === UNKNOWN_CURRENCY) {
+    return refuse('unknown_currency', 'unknown currency has no exponent');
+  }
+  if (!isIsoCode(currency)) {
+    return refuse('not_a_currency', `not an ISO 4217 code: ${show(currency)}`);
   }
   if (!hasMinorUnits(currency)) {
     return refuse('no_minor_unit', `${currency} has no ISO 4217 minor unit`);
@@ -67,46 +95,70 @@ function resolve(currency: Currency): MoneyResult<MinorUnitCurrency> {
 }
 
 /** The ISO 4217 minor-unit exponent of a currency, or a refusal. Never a guess. */
-export function minorUnitExponent(currency: Currency): MoneyResult<number> {
+export function minorUnitExponent(currency: Currency): MoneyResult<MinorUnitExponent> {
   const resolved = resolve(currency);
   return resolved.ok ? ok(ISO_MINOR_UNITS[resolved.value]) : resolved;
 }
 
-/** Checks an amount and its currency, returning them as Money. */
-function check(money: UncheckedMoney): MoneyResult<Money> {
-  const currency = resolve(money.currency);
-  if (!currency.ok) return currency;
-  if (!Number.isSafeInteger(money.amountMinor)) {
-    return refuse('not_safe_integer', `amount is not a safe integer: ${String(money.amountMinor)}`);
+/** Reads each field once into a local, checks the locals, and builds Money from them only. */
+function read(money: unknown): MoneyResult<Money> {
+  if (typeof money !== 'object' || money === null) {
+    return refuse('not_money', `expected an object with amountMinor and currency: ${show(money)}`);
   }
-  return ok({ amountMinor: money.amountMinor, currency: currency.value });
+  let amountMinor: unknown;
+  let currency: unknown;
+  try {
+    const fields = money as Record<string, unknown>;
+    amountMinor = fields.amountMinor;
+    currency = fields.currency;
+  } catch {
+    return refuse('not_money', 'its amountMinor or currency field could not be read');
+  }
+  const resolved = resolve(currency);
+  if (!resolved.ok) return resolved;
+  if (typeof amountMinor !== 'number' || !Number.isSafeInteger(amountMinor)) {
+    return refuse('not_safe_integer', `amount is not a safe integer: ${show(amountMinor)}`);
+  }
+  return ok({ amountMinor, currency: resolved.value });
 }
 
 function fromBigInt(amount: bigint, currency: MinorUnitCurrency): MoneyResult<Money> {
   if (amount > MAX || amount < -MAX) {
-    return refuse('out_of_range', `${amount} ${currency} minor units is beyond the safe range`);
+    return refuse('out_of_range', `the amount in ${currency} minor units is beyond the safe range`);
   }
-  const amountMinor = Number(amount);
-  return ok({ amountMinor: amountMinor === 0 ? 0 : amountMinor, currency });
+  return ok({ amountMinor: Number(amount), currency });
 }
 
 /**
  * Reads a canonical machine decimal ("1299", "1299.00", "0.5", "-12.34") as minor units of the
- * given currency. Fraction digits beyond the exponent are accepted only when they are all zero
- * (no value is lost); otherwise the input is refused, never rounded. Page text such as
- * "1.299,00 €" or "$1,299" is not a canonical decimal and is refused.
+ * given currency.
+ *
+ * Fraction digits beyond the currency's exponent are accepted only when they are all zero, because
+ * no value is lost: "1299.00" JPY is 1299 and "12.990" USD is 1299. A non-zero excess digit
+ * ("1.005" USD, "1299.5" JPY) is refused, never rounded. Strings longer than MAX_DECIMAL_LENGTH
+ * are refused before any parsing. Page text such as "1.299,00 €" or "$1,299" is not a canonical
+ * decimal and is refused.
  */
 export function moneyFromDecimal(decimal: string, currency: Currency): MoneyResult<Money> {
   const resolved = resolve(currency);
   if (!resolved.ok) return resolved;
   const e = ISO_MINOR_UNITS[resolved.value];
-  const match = typeof decimal === 'string' ? CANONICAL_DECIMAL.exec(decimal) : null;
-  if (!match) return refuse('malformed_decimal', `not a canonical decimal: ${String(decimal)}`);
+  if (typeof decimal !== 'string') {
+    return refuse('malformed_decimal', `not a string: ${show(decimal)}`);
+  }
+  if (decimal.length > MAX_DECIMAL_LENGTH) {
+    return refuse(
+      'malformed_decimal',
+      `longer than ${MAX_DECIMAL_LENGTH} characters: ${show(decimal)}`,
+    );
+  }
+  const match = CANONICAL_DECIMAL.exec(decimal);
+  if (!match) return refuse('malformed_decimal', `not a canonical decimal: ${show(decimal)}`);
   const [, sign = '', whole = '', fraction = ''] = match;
   if (/[^0]/.test(fraction.slice(e))) {
     return refuse(
       'excess_precision',
-      `${decimal} has more than ${e} fraction digits for ${currency}`,
+      `${show(decimal)} has more than ${e} fraction digits for ${resolved.value}`,
     );
   }
   const magnitude = BigInt(whole + fraction.slice(0, e).padEnd(e, '0'));
@@ -115,20 +167,21 @@ export function moneyFromDecimal(decimal: string, currency: Currency): MoneyResu
 
 /** Writes minor units as a canonical decimal with exactly the currency's exponent of digits. */
 export function moneyToDecimal(money: UncheckedMoney): MoneyResult<string> {
-  const checked = check(money);
+  const checked = read(money);
   if (!checked.ok) return checked;
-  const e = ISO_MINOR_UNITS[checked.value.currency];
-  const sign = checked.value.amountMinor < 0 ? '-' : '';
-  const digits = String(Math.abs(checked.value.amountMinor));
+  const { amountMinor, currency } = checked.value;
+  const e = ISO_MINOR_UNITS[currency];
+  const sign = amountMinor < 0 ? '-' : '';
+  const digits = String(Math.abs(amountMinor));
   if (e === 0) return ok(sign + digits);
   const padded = digits.padStart(e + 1, '0');
   return ok(`${sign}${padded.slice(0, -e)}.${padded.slice(-e)}`);
 }
 
-function checkPair(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<readonly [Money, Money]> {
-  const left = check(a);
+function readPair(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<readonly [Money, Money]> {
+  const left = read(a);
   if (!left.ok) return left;
-  const right = check(b);
+  const right = read(b);
   if (!right.ok) return right;
   if (left.value.currency !== right.value.currency) {
     return refuse(
@@ -141,7 +194,7 @@ function checkPair(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<readonly [
 
 /** Orders two amounts of the same currency: -1, 0 or 1. Different currencies are refused. */
 export function compareMoney(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<-1 | 0 | 1> {
-  const pair = checkPair(a, b);
+  const pair = readPair(a, b);
   if (!pair.ok) return pair;
   const [x, y] = pair.value;
   return ok(x.amountMinor < y.amountMinor ? -1 : x.amountMinor > y.amountMinor ? 1 : 0);
@@ -149,7 +202,7 @@ export function compareMoney(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<
 
 /** a + b in the same currency, refused if the result leaves the safe-integer range. */
 export function addMoney(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<Money> {
-  const pair = checkPair(a, b);
+  const pair = readPair(a, b);
   if (!pair.ok) return pair;
   const [x, y] = pair.value;
   return fromBigInt(BigInt(x.amountMinor) + BigInt(y.amountMinor), x.currency);
@@ -157,7 +210,7 @@ export function addMoney(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<Mone
 
 /** a - b in the same currency, refused if the result leaves the safe-integer range. */
 export function subtractMoney(a: UncheckedMoney, b: UncheckedMoney): MoneyResult<Money> {
-  const pair = checkPair(a, b);
+  const pair = readPair(a, b);
   if (!pair.ok) return pair;
   const [x, y] = pair.value;
   return fromBigInt(BigInt(x.amountMinor) - BigInt(y.amountMinor), x.currency);

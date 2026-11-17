@@ -27,10 +27,24 @@ export type MinorUnitCurrency = {
   [K in IsoCurrencyCode]: MinorUnits[K] extends number ? K : never;
 }[IsoCurrencyCode];
 
-function hasMinorUnits(code: IsoCurrencyCode): code is MinorUnitCurrency {
+/** The exponents that occur in the table. */
+export type MinorUnitExponent = MinorUnits[MinorUnitCurrency];
+
+/** True when the ISO 4217 list gives the code a minor unit (it is not "N.A."). */
+export function hasMinorUnits(code: IsoCurrencyCode): code is MinorUnitCurrency {
   return ISO_MINOR_UNITS[code] !== null;
 }
 
 export const MINOR_UNIT_CURRENCIES: readonly MinorUnitCurrency[] =
   ISO_CURRENCY_CODES.filter(hasMinorUnits);
 export const MinorUnitCurrency = z.enum(MINOR_UNIT_CURRENCIES);
+
+/**
+ * The currency a listing or a price observation may carry (S§2.2, S§4.1): an ISO code with a
+ * minor unit, or `unknown`. XXX, XTS, the metals, the bond-market units, XDR, XSU and XUA are
+ * refused, so they can be neither a second way to say "unknown" nor a wrong resolution that
+ * validates. Open point: fund codes (ISO_FUND_CODES, e.g. CLF, USN) are still accepted.
+ */
+export const LISTING_CURRENCIES = [...MINOR_UNIT_CURRENCIES, UNKNOWN_CURRENCY] as const;
+export const ListingCurrency = z.enum(LISTING_CURRENCIES);
+export type ListingCurrency = z.infer<typeof ListingCurrency>;

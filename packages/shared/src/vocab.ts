@@ -135,10 +135,7 @@ export const PROFILE_FACT_STATUSES = ['active', 'proposed', 'rejected', 'retired
 export const ProfileFactStatus = z.enum(PROFILE_FACT_STATUSES);
 export type ProfileFactStatus = z.infer<typeof ProfileFactStatus>;
 
-/**
- * In-app behaviour events (S§4.3). The spec writes three of them as phrases ("not interested",
- * "already own", "wrong match"); they are spelled here as snake_case identifiers.
- */
+/** In-app behaviour events (S§4.3; `less_like_this` is the feedback signal of S§5.10, S§5.12). */
 export const EVENT_KINDS = [
   'view',
   'click',
@@ -146,6 +143,7 @@ export const EVENT_KINDS = [
   'not_interested',
   'already_own',
   'wrong_match',
+  'less_like_this',
   'search',
   'watch',
 ] as const;

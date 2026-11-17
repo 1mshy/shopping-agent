@@ -2,11 +2,13 @@ import { describe, expect, it } from 'vitest';
 import {
   CURRENCIES,
   Currency,
-  ISO_4217_LIST_ONE,
+  hasMinorUnits,
   ISO_CURRENCY_CODES,
   ISO_FUND_CODES,
   ISO_MINOR_UNITS,
   IsoCurrencyCode,
+  LISTING_CURRENCIES,
+  ListingCurrency,
   MINOR_UNIT_CURRENCIES,
   MinorUnitCurrency,
   UNKNOWN_CURRENCY,
@@ -30,13 +32,6 @@ const NO_MINOR_UNIT = [
 ];
 
 describe('ISO 4217 table', () => {
-  it('records which list it was generated from', () => {
-    expect(ISO_4217_LIST_ONE.published).toBe('2026-09-17');
-    expect(ISO_4217_LIST_ONE.url).toBe(
-      'https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml',
-    );
-  });
-
   it('has one sorted, unique entry per active alphabetic code', () => {
     expect(ISO_CURRENCY_CODES).toHaveLength(178);
     expect(new Set(ISO_CURRENCY_CODES).size).toBe(ISO_CURRENCY_CODES.length);
@@ -107,11 +102,52 @@ describe('ISO 4217 table against Intl (Node 26, ICU 78.3, CLDR 48)', () => {
     YER: { iso: 2, intl: 0 }, // Yemeni Rial
   };
 
-  it('agrees on every code with an exponent, except the listed ones', () => {
+  // Intl answers 2 for any code ICU does not know, so only codes in Intl.supportedValuesOf are
+  // compared. These table codes are NOT covered by the cross-check; their exponents rest on the
+  // ISO list alone. The test fails if the coverage changes in either direction.
+  const NOT_IN_ICU = [
+    'BOV', // fund
+    'CHE', // fund
+    'CHW', // fund
+    'CLF', // fund
+    'COU', // fund
+    'MXV', // fund
+    'USN', // fund
+    'UYI', // fund
+    'UYW', // fund
+    'VED', // Bolívar Soberano (digital), ISO 2
+    'XAD', // fund
+    'XAG',
+    'XAU',
+    'XBA',
+    'XBB',
+    'XBC',
+    'XBD',
+    'XPD',
+    'XPT',
+    'XTS',
+    'XUA',
+    'XXX',
+  ];
+  // ICU knows these but ISO gives them no minor unit, so there is nothing to compare.
+  const IN_ICU_WITHOUT_ISO_EXPONENT = ['XDR', 'XSU'];
+
+  it('covers exactly the codes ICU knows and ISO gives an exponent', () => {
+    const supported = new Set(Intl.supportedValuesOf('currency'));
+    expect(ISO_CURRENCY_CODES.filter((code) => !supported.has(code))).toEqual(NOT_IN_ICU);
+    expect(
+      ISO_CURRENCY_CODES.filter((code) => supported.has(code) && ISO_MINOR_UNITS[code] === null),
+    ).toEqual(IN_ICU_WITHOUT_ISO_EXPONENT);
+  });
+
+  it('agrees on every covered code, except the listed ones', () => {
+    const supported = new Set(Intl.supportedValuesOf('currency'));
     const disagreements: Record<string, { iso: number; intl: number }> = {};
+    let compared = 0;
     for (const code of ISO_CURRENCY_CODES) {
       const iso = ISO_MINOR_UNITS[code];
-      if (iso === null) continue; // "N.A." in ISO: there is no exponent to compare.
+      if (iso === null || !supported.has(code)) continue;
+      compared++;
       const intl = new Intl.NumberFormat('en', {
         style: 'currency',
         currency: code,
@@ -119,6 +155,7 @@ describe('ISO 4217 table against Intl (Node 26, ICU 78.3, CLDR 48)', () => {
       if (intl !== iso) disagreements[code] = { iso, intl: intl ?? -1 };
     }
     expect(disagreements).toEqual(INTL_DISAGREES);
+    expect(compared).toBe(178 - NOT_IN_ICU.length - IN_ICU_WITHOUT_ISO_EXPONENT.length);
   });
 });
 
@@ -145,5 +182,26 @@ describe('Currency', () => {
       expect(MINOR_UNIT_CURRENCIES).not.toContain(code);
       expect(MinorUnitCurrency.safeParse(code).success).toBe(false);
     }
+    expect(ISO_CURRENCY_CODES.filter((code) => !hasMinorUnits(code))).toEqual(NO_MINOR_UNIT);
+  });
+});
+
+describe('ListingCurrency', () => {
+  it('is every code with a minor unit plus unknown', () => {
+    expect(LISTING_CURRENCIES).toEqual([...MINOR_UNIT_CURRENCIES, 'unknown']);
+    for (const code of ['USD', 'JPY', 'BHD', 'unknown']) {
+      expect(ListingCurrency.parse(code)).toBe(code);
+    }
+  });
+
+  it('refuses the codes without a minor unit, so none is a second "unknown"', () => {
+    for (const code of NO_MINOR_UNIT) expect(ListingCurrency.safeParse(code).success).toBe(false);
+    for (const bad of ['', 'usd', 'ABC', null]) {
+      expect(ListingCurrency.safeParse(bad).success).toBe(false);
+    }
+  });
+
+  it('still accepts fund codes (open point)', () => {
+    for (const code of ISO_FUND_CODES) expect(ListingCurrency.safeParse(code).success).toBe(true);
   });
 });

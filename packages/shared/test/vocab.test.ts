@@ -118,7 +118,17 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
     'EVENT_KINDS',
     'EventKind',
     'S§4.3 event',
-    ['view', 'click', 'dismiss', 'not_interested', 'already_own', 'wrong_match', 'search', 'watch'],
+    [
+      'view',
+      'click',
+      'dismiss',
+      'not_interested',
+      'already_own',
+      'wrong_match',
+      'less_like_this',
+      'search',
+      'watch',
+    ],
   ],
   [
     'NOTIFICATION_KINDS',
