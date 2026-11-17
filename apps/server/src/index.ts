@@ -1,8 +1,8 @@
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { openDatabase } from '@agentic-dasher/db';
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
-import { openDatabase } from '@agentic-dasher/db';
 import { Hono } from 'hono';
 import { createApp } from './app.ts';
 import { loadConfig } from './config.ts';
