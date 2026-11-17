@@ -4,6 +4,8 @@ import { type BetterSQLite3Database, drizzle } from 'drizzle-orm/better-sqlite3'
 
 export interface Database {
   readonly orm: BetterSQLite3Database;
+  /** Runs one or more parameterless SQL statements (migrations, transaction control). */
+  exec(sqlText: string): void;
   /** Cheap liveness probe used by `/api/health`. */
   ping(): boolean;
   close(): void;
@@ -25,6 +27,9 @@ export function openDatabase(file: string): Database {
 
   return {
     orm: drizzle({ client: sqlite }),
+    exec(sqlText) {
+      sqlite.exec(sqlText);
+    },
     ping() {
       try {
         return (ping.get() as { ok: number } | undefined)?.ok === 1;

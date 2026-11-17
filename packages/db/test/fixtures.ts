@@ -10,6 +10,21 @@ export function migratedDb(): Database {
   return db;
 }
 
+/**
+ * Runs a statement that must fail and returns why: Drizzle wraps the driver's error ("Failed
+ * query: …") and keeps SQLite's message in `cause`, so both are returned.
+ */
+export function refusal(act: () => unknown): string {
+  try {
+    act();
+  } catch (error) {
+    const messages: string[] = [];
+    for (let e: unknown = error; e instanceof Error; e = e.cause) messages.push(e.message);
+    return messages.join(' <- ');
+  }
+  throw new Error('expected the statement to be refused, and it was accepted');
+}
+
 export interface ColumnInfo {
   name: string;
   type: string;

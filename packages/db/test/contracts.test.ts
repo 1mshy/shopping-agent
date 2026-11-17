@@ -13,7 +13,7 @@ import {
 import { eq, sql } from 'drizzle-orm';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { type Database, schema } from '../src/index.ts';
-import { migratedDb, rows, searchIntent, seed, T0, T1 } from './fixtures.ts';
+import { migratedDb, refusal, rows, searchIntent, seed, T0, T1 } from './fixtures.ts';
 
 type RunRow = typeof schema.run.$inferSelect;
 type StepRow = typeof schema.runStep.$inferSelect;
@@ -435,7 +435,10 @@ describe('rules SQL enforces', () => {
       .values({ ...rows.run, id: 78, ...r })
       .run();
   const step =
-    (s: Partial<typeof schema.runStep.$inferInsert>, base = rows.chatStep) =>
+    (
+      s: Partial<typeof schema.runStep.$inferInsert>,
+      base: typeof schema.runStep.$inferInsert = rows.chatStep,
+    ) =>
     () =>
       db.orm
         .insert(schema.runStep)
@@ -716,27 +719,29 @@ describe('rules SQL enforces', () => {
   ];
 
   it.each(refusals)('refuses %s', (_, act, message) => {
-    expect(act).toThrow(message);
+    expect(refusal(act)).toMatch(message);
   });
 
   it('refuses a duplicate verdict cache key, model and person verdicts side by side', () => {
     verdict({})();
-    expect(verdict({ id: 2 })).toThrow(
+    expect(refusal(verdict({ id: 2 }))).toMatch(
       /UNIQUE constraint failed: index 'match_verdict_cache_key_idx'/,
     );
-    verdict({ id: 3, decidedBy: 'rules', promptVersion: null, modelId: null })();
-    expect(verdict({ id: 4, decidedBy: 'rules', promptVersion: null, modelId: null })).toThrow(
-      /UNIQUE/,
-    );
-    verdict({ id: 5, decidedBy: 'person', promptVersion: null, modelId: null })();
+    const rules = { decidedBy: 'rules', promptVersion: null, modelId: null } as const;
+    verdict({ id: 3, ...rules })();
+    expect(refusal(verdict({ id: 4, ...rules }))).toMatch(/UNIQUE/);
+    verdict({ id: 5, ...rules, decidedBy: 'person' })();
+    expect(db.orm.select().from(schema.matchVerdict).all()).toHaveLength(3);
   });
 
   it('keeps price observations append-only and forever (S§4.1, S§5.14)', () => {
     const where = eq(schema.priceObservation.id, 1);
-    expect(() =>
-      db.orm.update(schema.priceObservation).set({ sticker: 1 }).where(where).run(),
-    ).toThrow(/append-only/);
-    expect(() => db.orm.delete(schema.priceObservation).where(where).run()).toThrow(/kept forever/);
+    expect(
+      refusal(() => db.orm.update(schema.priceObservation).set({ sticker: 1 }).where(where).run()),
+    ).toMatch(/append-only/);
+    expect(refusal(() => db.orm.delete(schema.priceObservation).where(where).run())).toMatch(
+      /kept forever/,
+    );
   });
 
   it('keeps events append-only but lets the user delete them (S§4.3, S§5.15)', () => {
@@ -745,9 +750,9 @@ describe('rules SQL enforces', () => {
       .values({ id: 1, profileId: 1, kind: 'dismiss', createdAt: T1 })
       .run();
     const where = eq(schema.event.id, 1);
-    expect(() => db.orm.update(schema.event).set({ kind: 'click' }).where(where).run()).toThrow(
-      /append-only/,
-    );
+    expect(
+      refusal(() => db.orm.update(schema.event).set({ kind: 'click' }).where(where).run()),
+    ).toMatch(/append-only/);
     db.orm.delete(schema.event).where(where).run();
     expect(db.orm.select().from(schema.event).all()).toEqual([]);
   });
@@ -778,18 +783,15 @@ describe('ON DELETE', () => {
 
   it('restricts everything else: history, the records an alert rests on, a profile with data', () => {
     db.orm.insert(schema.notificationEvent).values(rows.priceDrop).run();
-    expect(() => db.orm.delete(schema.store).where(eq(schema.store.id, 1)).run()).toThrow(
-      /FOREIGN KEY/,
-    );
-    expect(() => db.orm.delete(schema.listing).where(eq(schema.listing.id, 1)).run()).toThrow(
-      /FOREIGN KEY/,
-    );
-    expect(() => db.orm.delete(schema.watch).where(eq(schema.watch.id, 1)).run()).toThrow(
-      /FOREIGN KEY/,
-    );
-    expect(() => db.orm.delete(schema.profile).where(eq(schema.profile.id, 1)).run()).toThrow(
-      /FOREIGN KEY/,
-    );
+    const o = db.orm;
+    for (const act of [
+      () => o.delete(schema.store).where(eq(schema.store.id, 1)).run(),
+      () => o.delete(schema.listing).where(eq(schema.listing.id, 1)).run(),
+      () => o.delete(schema.watch).where(eq(schema.watch.id, 1)).run(),
+      () => o.delete(schema.profile).where(eq(schema.profile.id, 1)).run(),
+    ]) {
+      expect(refusal(act)).toMatch(/FOREIGN KEY constraint failed/);
+    }
   });
 });
 
@@ -812,7 +814,7 @@ describe('timestamps (S§4)', () => {
         instants.map((t, i) => ({
           id: i + 1,
           profileId: 1,
-          kind: 'view',
+          kind: 'view' as const,
           createdAt: new Date(t).toISOString(),
         })),
       )

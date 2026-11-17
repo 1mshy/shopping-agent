@@ -185,15 +185,15 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 | `profile_constraint` | Structured dislikes, budgets, sizes and "never show" rules, enforced in code. |
 | `topic` | Interest with short-term (14-day half-life) and long-term (180-day) weights and Beta counts for exploration. |
 | `owned_item`, `purchase`, `import_batch` | Ownership and history with provenance; imports preview before commit. |
-| `event` | Append-only in-app behaviour, by kind: view, click, dismiss, not_interested, already_own, wrong_match, less_like_this, search, watch (the feedback kinds are the buttons of §5.10 and §5.12). |
+| `event` | Append-only in-app behaviour (never updated; the user may delete it), by kind: view, click, dismiss, not_interested, already_own, wrong_match, less_like_this, search, watch (the feedback kinds are the buttons of §5.10 and §5.12). |
 | `candidate`, `feed_card` | Generator output and the assembled feed; each card stores its evidence for "because you…". |
-| `deal_feed_item` | Ingested community deals (merchant, price, URL, votes, expiry as read). |
+| `deal_feed_item` | Ingested community deals (merchant, price, URL, votes, expiry as read). The price stays text as the feed wrote it: a lead is never an amount until a live read confirms one (§5.3). |
 
 ### 4.4 Operations
 
 | Table | Purpose |
 |---|---|
-| `job`, `job_run` | Scheduler definitions (cron or next_run_at, overlap lock, deadline, network gate) and run history (status: running, completed, failed, skipped). |
+| `job`, `job_run` | Scheduler definitions (a unique name, cron or next_run_at, overlap lock, deadline, network gate) and run history (status: running, completed, failed, skipped). |
 | `run`, `run_step` | Harness RunRecord. OpenTelemetry GenAI attribute names; usage normalised to {input incl. cached, cache_read, cache_write, output, reasoning}; cost_source (provider, settings, none). A run has one type from the §5.7 table (fast_search, chat, store_run, deep_job, recommendation_job); each model-call step carries its endpoint role, prompt version, provider and model, and the run holds usage and cost totals. Status (running, completed, cancelled, failed), the four budgets of §2.6, the turns taken (never above the cap) and the budgets hit (turns, deadline, input_tokens, spend; no spend hit where cost is unknown). Cost and the spend cap are integer nano-units (10⁻⁹ of the major unit) with an explicit currency; a provider-reported cost is read from its decimal text exactly, and a digit beyond the ninth decimal rounds it up, so a cap is never under-counted. With cost_source `none` the cost is null, never zero. Full payloads kept 14 days, then trimmed to usage. |
 | `notification_event`, `delivery` | Outbox: stable event key and kind (price_drop, restock, new_listing, recommendation, agent, system), and the records the event rests on (an alert names its watch, listing and observation); per-channel state (pending, accepted, failed), attempts, next_attempt_at, outcome of the last attempt (accepted, retry, failed), accepted_at. Only `accepted` (the channel confirmed acceptance) may stamp a cooldown or "notified". |
 | `channel` | Configured delivery channels (type: in_app, web_push, ntfy, telegram, discord, webhook; an optional channel of §5.11 adds its type when it is built) and push subscriptions. |

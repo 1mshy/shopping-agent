@@ -12,7 +12,7 @@ import {
   migrationLevel,
   openDatabase,
 } from '../src/index.ts';
-import { tableNames } from './fixtures.ts';
+import { refusal, tableNames } from './fixtures.ts';
 
 const latest = MIGRATIONS.at(-1)?.version ?? 0;
 
@@ -141,7 +141,9 @@ describe('migrate', () => {
     expect(db.orm.get<{ foreign_keys: number }>(sql`pragma foreign_keys`)).toEqual({
       foreign_keys: 1,
     });
-    expect(() => db.orm.run(sql`insert into b (a_id) values (42)`)).toThrow(/FOREIGN KEY/);
+    expect(refusal(() => db.orm.run(sql`insert into b (a_id) values (42)`))).toMatch(
+      /FOREIGN KEY constraint failed/,
+    );
   });
 
   it('is safe at every start-up of a file database', () => {

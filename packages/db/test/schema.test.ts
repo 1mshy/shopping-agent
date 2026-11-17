@@ -222,7 +222,11 @@ describe('schema drift', () => {
         primaryKey: c.primary,
       }));
       expect(fromDrizzle).toEqual(fromSql);
-      for (const c of config.columns) expect(c.hasDefault, `${config.name}.${c.name}`).toBe(false);
+      // Drizzle marks the rowid as defaulted (SQLite assigns it); no other column has a default.
+      for (const c of config.columns) {
+        const rowid = c.primary && c.getSQLType() === 'integer';
+        expect(c.hasDefault, `${config.name}.${c.name}`).toBe(rowid);
+      }
     });
 
     it(`${config.name}: same foreign keys and ON DELETE actions`, () => {
