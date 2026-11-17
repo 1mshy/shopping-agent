@@ -6,6 +6,7 @@ The model-free access lab (S§5.16): each transport or route probe is run agains
 |---|---|
 | `transport/` | HTTP client comparison against the lab store list (plan P0 spike A) |
 | `routes/` | Platform route reachability on sampled domains (plan P0 spike C) |
+| `catalog/` | Shopify Global Catalog: what the sources say, a draft agent profile and a probe client (plan P0 spike B) |
 
 Rules:
 
