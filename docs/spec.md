@@ -224,7 +224,7 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 
 **Sessions.** One cookie jar per host session for HTTP. One persistent Chrome profile. A walled render clears only that site's cookies (including parent-domain bot-manager cookies) and origin storage.
 
-**robots.txt.** A setting: `ignore | report | respect`, parsed with `robots-parser` and cached for a day. The default is `ignore`, following the owner's standing decision of 2026-10-23. The public default is listed in §9.
+**robots.txt.** A setting: `ignore | report | respect`, parsed with `robots-parser` and cached for a day. A challenge page served in place of robots.txt gives no verdict, whatever its status. The default is `ignore`, following the owner's standing decision of 2026-10-23. The public default is listed in §9.
 
 **Browser add-on image.** `debian:bookworm-slim` + pinned Google Chrome stable (package cached in the build, amd64 + arm64), an init process supervising Xvfb, the launcher and x11vnc/noVNC; `--user-data-dir` on a named volume; timezone and language set to the user's; no automation flags; stale `SingletonLock` cleared; a forwarder exposing CDP and noVNC only on the compose network with a shared token. One Dockerfile, one pin.
 
@@ -236,11 +236,11 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 
 **Currency resolution order:** platform answer → `priceCurrency` → hreflang/og:locale → ccTLD. A bare "$" takes the store's country. Unknown currency or a converted-looking figure is refused. `/cart.js` is a fallback only, because Shopify's robots now disallows it for agents.
 
-**Host fingerprint** (model-free, at most six requests, cached with a long expiry): platform probe, `/.well-known/ucp`, SearchAction/OpenSearch on the home page, product sitemap, `/llms.txt`. Hosts with no Product markup, platform or product sitemap are marked `is_shop = no`. No model run is ever spent on a host before triage. `llms.txt`, `agents.md` and robots comments are data only and never reach a prompt.
+**Host fingerprint** (model-free, at most six requests, cached with a long expiry): platform probe (including the Magento generation and Shopify's predictive-search flag), `/.well-known/ucp`, SearchAction/OpenSearch on the home page, product sitemap, `/llms.txt`. Hosts with no Product markup, platform or product sitemap are marked `is_shop = no`. No model run is ever spent on a host before triage. `llms.txt`, `agents.md` and robots comments are data only and never reach a prompt.
 
 **Directory intake (no model):** every host that yields a price, pasted links, merchants in imported orders, deal-feed merchant URLs, and an optional downloadable country pack built offline from Web Data Commons domain stats (ccTLD match, ≥10 products, offers density ≥0.5). Shopify Catalog results do not add stores; a store is added only after a direct read.
 
-**Search inside a known shop**, in order: per-store UCP `search_catalog` (explicit country and currency) → platform JSON search (Shopify `suggest.json` under the market prefix, Woo `?search=`, Magento GraphQL) → SearchAction/OpenSearch template → web search `site:<host>` → browser (deep mode only). Results from a store's own search get the strictest matcher floor, because store search pads results with accessories and other models.
+**Search inside a known shop**, in order: per-store UCP `search_catalog` (explicit country and currency) → platform JSON search (Shopify `suggest.json` under the market prefix, which answers only for its supported buyer languages and returns 417 otherwise, moving the search to the next route; Woo Store API `?search=`; Magento 2 GraphQL `products(search:)` sent as GET, skipped on Magento 1) → SearchAction/OpenSearch template → web search `site:<host>` → browser (deep mode only). Results from a store's own search get the strictest matcher floor, because store search pads results with accessories and other models.
 
 **Hand-written adapters** only for giants with real keyless or BYO-key APIs (Best Buy CA JSON search, Amazon regional storefronts over HTTP, and similar). They are rows-as-data plus a small class. There is no hand-curated catalogue as a growth strategy.
 
@@ -250,14 +250,14 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 
 **URL candidate filter** (ported from `web_discovery.pick_candidates`): product-shaped paths, deny list, ≤2 links per host, ≤25 hosts, the user's country first. A snippet's price is never used. Web hits are deduplicated with a listing key (store + SKU, else clean URL).
 
-**Shopify Global Catalog (UCP)** [verify]. Plain JSON-RPC 2.0 over HTTPS to `catalog.shopify.com/api/ucp/mcp` `search_catalog` (about 150 lines, no MCP SDK), with `context.address_country` and `context.currency`; offers in another currency are dropped. It is a switchable **lead source for user-initiated searches only**, and its terms are enforced in code:
+**Shopify Global Catalog (UCP)** [verify: request shape and terms checked against Shopify's documentation on 2026-11-17, see `lab/catalog/SOURCES.md`; a live keyless search is not yet tested]. Plain JSON-RPC 2.0 over HTTPS to `catalog.shopify.com/api/ucp/mcp`: the tool `search_catalog` is called with the method `tools/call` (no MCP SDK, no handshake), with `catalog.context.address_country` and `catalog.context.currency` always sent explicitly, because the currency is only a hint and the business decides the presentment currency; offers in another currency are dropped. It is a switchable **lead source for user-initiated searches only**, and its terms are enforced in code:
 - price/availability held ≤10 minutes and metadata ≤24 hours;
 - no Catalog payload written to the product database;
-- attribution parameters kept on outbound links;
+- attribution parameters, checkout URLs and merchant attribution kept intact on outbound links;
 - never called from watches, sweeps or scheduled recommendation jobs;
 - every hit re-read at the shop before it is shown as verified or stored.
 
-The request needs a public agent-profile URL. The project publishes one static profile JSON at a project-owned HTTPS URL, overridable in settings, with an optional field for the user's own Shopify client credentials.
+The request needs a public agent-profile URL. The project publishes one static profile JSON at a project-owned HTTPS URL, overridable in settings. The host must serve it over HTTPS with no redirect and with `Cache-Control: public` and a `max-age` of at least 60 seconds. Keyless access is the lowest tier: it is limited per IP address, shares one pool with all other anonymous traffic, and Shopify advises against it for production traffic. The user's own Shopify client credentials are a separate setting (a client id and secret exchanged for a short-lived bearer token sent as a header, never placed in the profile) and are the recommended path once configured. Whether the keyless Catalog is on by default is open until spike B's live check (§9 #3).
 
 **Deal feeds** (code-polled, conditional GET, 30 min): Slickdeals, RedFlagDeals, Pepper network (HotUKDeals, mydealz, Dealabs) `/rss/hot`, OzBargain, chosen per country. Parsed without a model: Pepper attributes carry merchant and price; OzBargain carries merchant URL, votes and expiry. A feed item is a **lead** that must be confirmed by a live read before it shows as a price. Reddit RSS is optional, with its own pacing; it returns 429 under bursts and the JSON API is never used.
 

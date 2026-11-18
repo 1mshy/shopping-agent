@@ -16,6 +16,27 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-18: Spike decisions recorded (B part 1, C)
+
+**Spike C (platform route reachability): decision.** Report: `docs/spikes/c-platform-routes.md`. On its samples (200 hosts per list from Common Crawl, one run, one IP address, a plain client), the route answered on 184 of 200 Shopify hosts for `suggest.json`, 190 of 200 for `/products/<handle>.js`, 157 of 200 for the Woo Store API search, 72 of 200 for Magento GraphQL search, a SearchAction template on 63 of 200 home pages and an OpenSearch description on 1 of 200. Walls on 6 of 800 hosts; no rate limiting. The orchestrator recounted these from the raw result files (800 hosts, 1,840 requests, at most 5 per host).
+
+- Platform JSON stays the first keyless in-store search route after UCP, in the order Shopify, WooCommerce, Magento. All three are built in Phase 1 workstream 3.
+- Shopify `suggest.json` returns 417 for buyer languages it does not support (10 of 200); a 417 moves the search to the next route and the fingerprint records the predictive-search flag.
+- Magento GraphQL search is treated as a Magento 2 route and skipped on Magento 1. The Magento sample is nearly the whole pool it was drawn from and is weak evidence on its own.
+- SearchAction and OpenSearch are read from the home page already fetched and get no work of their own.
+- The `api` rung can start on a plain client for these routes. This says nothing about product pages; spike A still decides the default `HttpTransport`.
+- Not settled by this spike: the Shopify market prefix (not probed), UCP `search_catalog` per store, search relevance.
+- Spec edits: S§5.2 (in-store search order wording, host fingerprint), S§5.1 (a challenge served as robots.txt gives no verdict).
+- For owner decision #4: a `respect` setting would have refused 83 of 1,200 probes (47 by a rule, 36 because robots.txt was unreachable); 32 of those had answered. The sample comes from a crawler that obeys robots.txt, so this is a lower bound. No recommendation is derived from it here.
+- Raw results are kept, uncommitted, in `lab/out/routes/` on the owner's machine.
+
+**Spike B (Shopify Global Catalog), part 1: sources.** `lab/catalog/SOURCES.md` checks each S§5.3 claim against Shopify's and UCP's documentation as read on 2026-11-17. One request was sent to the endpoint (a profile-less `tools/list`, HTTP 200); no search was made and nothing was published.
+
+- Confirmed: the endpoint; price and availability may be cached up to 10 minutes and metadata up to 24 hours (no 15-minute figure exists); no standing product database; attribution kept intact; a public agent profile is required and may be a static file.
+- Corrected in the spec: `search_catalog` is a tool called with `tools/call`; the context sits under `catalog.context`; the profile host must not redirect and must send `Cache-Control: public` with `max-age` of at least 60.
+- New, and not yet decided: Shopify says "Don't use unauthenticated requests for production traffic"; anonymous calls are limited per IP address and share one pool. Shopify's API terms forbid using the API "to monitor the availability, performance, or functionality" of it "or for any similar benchmarking purposes", which the plan's latency measurement comes close to. Using the API implies accepting those terms.
+- Open, with the owner: accept the terms or not; where the profile is hosted; whether part 2 is a small functional check instead of the planned 60-query measurement; whether the keyless Catalog is on by default. Until then S§5.3 keeps its [verify] mark for the live behaviour.
+
 ### 2026-11-17: Workstream 2b (part B), domain contracts
 
 **Shipped**
