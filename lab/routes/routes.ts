@@ -78,16 +78,26 @@ export const validateProductJs = jsonValidator((v) => {
   return ok ? 1 : 'variant_price_shape';
 });
 
-// Magento Open Source / Adobe Commerce GraphQL, `products` query at /graphql. Queries may be sent
-// as GET with the query in `query` (mutations need POST), and Content-Type: application/json is
-// listed as required for all requests.
-// https://developer.adobe.com/commerce/webapi/graphql/usage/headers
-// https://developer.adobe.com/commerce/webapi/graphql/schema/products/queries/products/
-// "Each query must contain a search or filter attribute". The probe filters on price >= 0 rather
-// than searching because Magento's default minimum search term length is 3 characters, so no
-// short term is catalogue-neutral. Response: data.products{total_count, items[]}.
-export const MAGENTO_QUERY =
-  '{products(filter:{price:{from:"0"}},pageSize:1){total_count items{name sku url_key price_range{minimum_price{regular_price{value currency}}}}}}';
+// Magento Open Source / Adobe Commerce GraphQL, `products` query at /graphql, probed as the
+// product *search* the product will use (S§5.2 "Search inside a known shop").
+// Query shape, from Adobe's `products` query page (read 2026-11-17):
+//   products(search: String, filter: ProductAttributeFilterInput, pageSize: Int,
+//            currentPage: Int, sort: ProductAttributeSortInput): Products
+//   "The `search` attribute causes the application perform a full text search on the specified
+//   keywords." Example: { products(search: "Yoga pants", pageSize: 2) { total_count items { name
+//   sku price_range { minimum_price { regular_price { value currency } } } } } }
+//   https://developer.adobe.com/commerce/webapi/graphql/schema/products/queries/products/
+// Sent as GET with the query in `query`: "Only queries submitted with an HTTP GET operation can be
+// cached" (example: /graphql?query={ products(filter: ...) { items { name } } }).
+//   https://developer.adobe.com/commerce/webapi/graphql/usage/caching/
+// Content-Type: application/json is listed as required for all requests.
+//   https://developer.adobe.com/commerce/webapi/graphql/usage/headers
+// The term is fixed: "set". Three characters, because Magento's default minimal query length
+// (Stores > Configuration > Catalog > Catalog Search) is 3; a generic word used as a product word
+// in several shop languages (en, de, nl, fr). It is not catalogue-neutral, so a valid answer with
+// zero items is `empty`: the route answers. Response: data.products{total_count, items[]}.
+export const MAGENTO_SEARCH_TERM = 'set';
+export const MAGENTO_QUERY = `{products(search:"${MAGENTO_SEARCH_TERM}",pageSize:1){total_count items{name sku url_key price_range{minimum_price{regular_price{value currency}}}}}}`;
 export const MAGENTO_PATH = `/graphql?query=${encodeURIComponent(MAGENTO_QUERY)}`;
 export const validateMagento = jsonValidator((v) => {
   if (!isObj(v)) return 'not_object';

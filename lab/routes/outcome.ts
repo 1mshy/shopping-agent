@@ -53,17 +53,28 @@ export type Validation =
   | { valid: true; items: number; note?: string }
   | { valid: false; reason: string };
 
-/** What the outcome was decided on. */
+/**
+ * What the outcome was decided on. For an answered request it holds the classifier's whole input
+ * (`Observed` in classify.ts plus the validator verdict), so `reclassify.ts` can re-run the
+ * classifier offline.
+ */
 export interface Evidence {
   status?: number;
   finalUrl?: string;
   contentType?: string;
   bytes?: number;
+  /** The headers the classifier reads (lowercased names); `set-cookie` holds cookie names only. */
+  headers?: Record<string, string>;
+  /** Platform evidence found in the body (`html:<platform>`, `body:wp_rest_error`). */
+  markers?: string[];
+  /** Validator verdict as data: valid or not, and the item count when valid. */
+  valid?: boolean;
+  items?: number;
   /** Validator verdict: the reason it failed, or a short note on what passed. */
   validation?: string;
-  /** The page <title> of an HTML answer that failed validation. */
+  /** The page <title> (parsed, lowercased), when the answer has one. */
   title?: string;
-  /** First 300 characters of a small (< 16 KiB) answer that failed validation, for review. */
+  /** First 300 characters (whitespace collapsed) of an answer that failed validation. */
   snippet?: string;
   /** Classifier and platform signals that fired (e.g. `title:just a moment`, `platform:shopify`). */
   signals: string[];
@@ -83,10 +94,13 @@ export interface RouteResult {
   /** HTTP requests this route used, including redirect hops, a retry and handle discovery. */
   requests: number;
   handleSource?: 'suggest' | 'home';
+  /** Shopify product route: the home-page fetch used to find a handle, when there was one. */
+  discovery?: Evidence;
 }
 
 export interface DomainResult {
-  v: 1;
+  /** 2: evidence carries the classifier's input (headers, markers, validity). */
+  v: 2;
   list: ListKind;
   domain: string;
   userAgent: string;
@@ -98,6 +112,8 @@ export interface DomainResult {
     state: 'parsed' | 'absent' | 'unreachable' | 'unknown';
     status?: number;
     outcome: OutcomeKind;
+    /** The robots.txt answer as the classifier saw it (absent when no answer came back). */
+    evidence?: Evidence;
   };
   routes: RouteResult[];
 }
