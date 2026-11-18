@@ -1,0 +1,2 @@
+# Migrations are checksummed by content; keep their line endings stable on every platform.
+*.sql text eol=lf
