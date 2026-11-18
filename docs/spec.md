@@ -136,7 +136,7 @@ Start with `apps/server`, `apps/web`, `packages/shared`, `packages/core` and `pa
 | Database | SQLite via better-sqlite3 (WAL, FTS5 trigram) | `node:sqlite` |
 | ORM and migrations | Drizzle, SQL migrations applied at start-up, pinned | Kysely |
 | Jobs | Own scheduler and queue (~400 lines) + `croner` for next-run times | — |
-| HTTP fingerprint | `impit` behind `HttpTransport`; default chosen by the Phase 0 lab | `impers` (curl-impersonate), `wreq-js` |
+| HTTP fingerprint | `impit` (`chrome151` profile) behind `HttpTransport`; chosen by the Phase 0 lab (spike A, 2026-11-18) | `wreq-js`, swapped in behind the seam, not tried per request. `impers` (curl-impersonate) only if the owner allows its install script and its native library is vendored and checksummed |
 | Browser driver | `patchright-core` `connectOverCDP`, imported in one module | `playwright-core` |
 | LLM client | Own, over `fetch`; `zod`, `eventsource-parser`, `ipaddr.js` | `openai` SDK as transport; AI SDK as last resort |
 | Web Push | `web-push` (pinned, behind one module) | `@block65/webcrypto-web-push` |
@@ -211,7 +211,7 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 
 **Ladder.**
 1. `api`: known platform or public endpoints (Shopify `/products/<handle>.js`, WooCommerce Store API, Magento GraphQL, Best Buy CA JSON, marketplace endpoints).
-2. `http`: impersonating client. User-Agent and client hints come from the TLS profile and are never set by hand. Optional same-site Referer.
+2. `http`: impersonating client. User-Agent and client hints come from the TLS profile and are never set by hand. Optional same-site Referer. The client's JA4 and HTTP/2 fingerprint are compared in the lab with a real capture of the Chrome version its profile claims at every client upgrade, and a mismatch is recorded (spike A found one for `impit` `chrome151`).
 3. `browser` (add-on): headed Chrome. Wait up to 20 s for a self-clearing challenge; never click; report a captcha or "Access Denied" at once.
 4. `remote` (optional, one interface): any other CDP endpoint or proxy URL.
 5. `person`: a UI task to open the noVNC view and solve or log in once.
@@ -486,7 +486,7 @@ The **feed is the durable record**. Every alert, recommendation, agent message a
 
 ### 5.14 Packaging and operations
 
-- **Images:** `core` (amd64 + arm64, non-root, `node:26-trixie-slim`); `browser` add-on; SearXNG upstream at a pinned tag.
+- **Images:** `core` (amd64 + arm64, non-root, `node:26-trixie-slim`); `browser` add-on; SearXNG upstream at a pinned tag. The HTTP client's native addon ships as one package per platform, so the multi-arch build installs the target platform's package.
 - **Compose:** one file with profiles `browser` and `searxng`; one named data volume and one browser-profile volume; healthchecks; `init: true`; `shm_size: 1gb` for the browser.
 - **Release budgets (CI-enforced):**
 

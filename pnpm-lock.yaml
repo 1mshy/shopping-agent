@@ -261,9 +261,15 @@ importers:
       '@agentic-dasher/shared':
         specifier: workspace:*
         version: link:../packages/shared
+      impit:
+        specifier: 0.14.9
+        version: 0.14.9
       robots-parser:
         specifier: 3.0.1
         version: 3.0.1
+      wreq-js:
+        specifier: 3.2.0
+        version: 3.2.0
 
   packages/core:
     dependencies:
@@ -786,6 +792,64 @@ packages:
   '@vitest/spy@5.1.0':
     resolution: {integrity: sha512-2DPO5OMHWKrBngC+fCmTQqemNF0gidRhp3lxbBmRhW+M1XJrfgPpqNqWVevXtn2f2ufD5ZaR1B6B641aAlcX5A==}
 
+  '@wreq-js/binding-android-arm64@3.2.0':
+    resolution: {integrity: sha512-PRsy18Z+0fftLeDvFTQwpgdepihRk6oVzdQWt92hEdarI7DexhgDJvvZfDsylMp7GDfsys9sFks8nIAi4n7eKQ==}
+    engines: {node: '>=20.0.0'}
+    cpu: [arm64]
+    os: [android]
+
+  '@wreq-js/binding-darwin-arm64@3.2.0':
+    resolution: {integrity: sha512-TGbgqj7YKp6m2p79hyLtTBatKgU8SKEVL5e903KGSeSDKkLbgk8knFoZ2MakhJnlqKZhvLPCNLT7A3AStwIoHQ==}
+    engines: {node: '>=20.0.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@wreq-js/binding-darwin-x64@3.2.0':
+    resolution: {integrity: sha512-89JkGsik49nUcQR7HfO6M+Na3whkhAQBghVFWn+vGmz32RzTX+HVy6q7wThjN+XGT+xvn9ZQpzTie3B292S50g==}
+    engines: {node: '>=20.0.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@wreq-js/binding-linux-arm64-gnu@3.2.0':
+    resolution: {integrity: sha512-WXqMK7AtOxMJAdwDpnAdDq0NZqf6wuRucKCQWQSLdSTUyTEuGo2anRkUsZwqvHbLrkWCTXNfl1hAfA+wIk/4kw==}
+    engines: {node: '>=20.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@wreq-js/binding-linux-arm64-musl@3.2.0':
+    resolution: {integrity: sha512-YSMWs3BNBCNhWvIAUHWyp2K/L17qxfaRTl+t97ykOIOIKZSduNYZn/Yn3hTNtpbdfrTmNMG9pltEcbixFKS4xQ==}
+    engines: {node: '>=20.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@wreq-js/binding-linux-x64-gnu@3.2.0':
+    resolution: {integrity: sha512-6N7C1uc1qieM23rdKR5k07hfS50hVFExVHzLhHiWbmk9NyqBj0xyj2Mh5ThIrvz/or/6Pe79P8D7UWbl4aJTkw==}
+    engines: {node: '>=20.0.0'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@wreq-js/binding-linux-x64-musl@3.2.0':
+    resolution: {integrity: sha512-0h0xJsmhVlmh+vHs9dYMIp5lpkKGNZrSedkl2Mh9XmR5slBahTcHT7oEEclhV+aNcY3V2Afmmqfil5huL+yDpA==}
+    engines: {node: '>=20.0.0'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@wreq-js/binding-win32-arm64-msvc@3.2.0':
+    resolution: {integrity: sha512-6bfaVFfbI61s5YLgQL+43uURk/VuOu7TPlUwY1l0Q9yJdWzD+Jpdokgl5cEiY2a0FEAw8Q4LqPI+XZT3YAMnQA==}
+    engines: {node: '>=20.0.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@wreq-js/binding-win32-x64-msvc@3.2.0':
+    resolution: {integrity: sha512-w4aktLElPgBXkWC/v9Ti9np6jBjYOzIyqmzgT41V/zuDq/V+V7s/13f9OzcX5hObH2WOpajo0KeljTJ2aRExNQ==}
+    engines: {node: '>=20.0.0'}
+    cpu: [x64]
+    os: [win32]
+
   '@yuku-toolchain/darwin-arm64@0.28.1':
     resolution: {integrity: sha512-xMtZUwiGvJH90ogLjRrnG5+YEhinKti8qMPF18bd5z0ahSoaHWyBoe16evT7cSUxid0JEaZvh6H3daDPwDw4+g==}
     cpu: [arm64]
@@ -1044,6 +1108,62 @@ packages:
 
   hookable@6.1.2:
     resolution: {integrity: sha512-+abwxtiEA52GCVIsQqut3S/uKTbUwYIp4Pe/vv+6py5XiXBCqMZHg6pA6Y5qhgLSEys0/cYuPbO0z1QFj5ZCmg==}
+
+  impit-darwin-arm64@0.14.9:
+    resolution: {integrity: sha512-jUFN+S3X9OzQgcVMHjrhCAizJtNwP1MbYUe2+Y48HFpwVlc4mW+9jBu0xMR68vQJg7l0cpeVC4pJTAtsw3laPQ==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  impit-darwin-x64@0.14.9:
+    resolution: {integrity: sha512-Qxj0jQl0DZWU0nkR+IDLf0kltJqvcvtCaqKiL6ZhKouGdbFHKZHjzBwL+jAQSjiIF8x7O3DKKNf3VyLraN78bQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  impit-linux-arm64-gnu@0.14.9:
+    resolution: {integrity: sha512-rcjpzOuweA+3FJsHAawM/driBtCyuxgyGIbO5zJ1KH62Qqnk9Z+B5UrBBJqsLdgpTrZ6ueZ2SuBsWB8iMXw84w==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  impit-linux-arm64-musl@0.14.9:
+    resolution: {integrity: sha512-EdQDSuyM28USb6WDH16k/UMQbBQI/MkEB5QcJ6YKaC7SemwMIZZBNpAE+fnEV6uPEcZl5ZmAL4cC1sb0Dy+Rcg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  impit-linux-x64-gnu@0.14.9:
+    resolution: {integrity: sha512-G8yPPToii/Clbl9cJ8EtSZ/iXBV9O9SDbT+Cn9L1etLle8T+47vq45iZ++M8t8AXnzmP0S+Vmojd3y8Co+IrEQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  impit-linux-x64-musl@0.14.9:
+    resolution: {integrity: sha512-Uk3OF+Up2WFk1E2xupkXNVyYrK1E/XwDD1RNX40kQuOTOiFKVb0yT+R5okNmRzQEYvY6q4vO3Xyoy92Tc71sAg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  impit-win32-arm64-msvc@0.14.9:
+    resolution: {integrity: sha512-revggTn2zIGPv61XIM9Qc7NHDtU8R2I7E0YsbjUhb8J4kACTezpN+326BxoOud7in9WgKQheB2tBw3d4w6KYhg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  impit-win32-x64-msvc@0.14.9:
+    resolution: {integrity: sha512-Ob1My2vzT64i1/1GlIp7cIXQ74ia8x3z56IYPmq6B2ltnBmSqjFh9lcOliSi7SWvhXlpaB5uKz6DphKj27nQ4Q==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  impit@0.14.9:
+    resolution: {integrity: sha512-vXnHi+8Tih1amM0GS3gu+tJS/H9U179OgKxSJEybK+pYB8T3pJGHstp1OWtFcM5qc/vGzClH4npVs1NkIsF98w==}
+    engines: {node: '>= 20'}
 
   import-without-cache@0.4.1:
     resolution: {integrity: sha512-vXoV9PjKHEednCUu01e98TkImxy67e3BJXbTIOmIq4Hyzw3IAwYRcuPkfeTzJzwyyts4kjuA73x+pWJLc4f86A==}
@@ -1367,6 +1487,10 @@ packages:
     engines: {node: '>=20.11'}
     hasBin: true
 
+  wreq-js@3.2.0:
+    resolution: {integrity: sha512-dawhEbhvd5hxivKZSvv/mAQGO3mwZYESyctOvIIZ/H3DvQJzUM2UoFQsij0fg7hIClQ/GEQgg+2259UcFwhpMQ==}
+    engines: {node: '>=20.0.0'}
+
   yuku@0.28.1:
     resolution: {integrity: sha512-l899L8rSywcq9OLHf8JNQKpgyrBUL7UNJ7JqefoSVy0oYaFpdf3HoF72EVQFNWYr9HqMw0nGw1r1DefNujOnLQ==}
     engines: {node: '>=16.4.0'}
@@ -1680,6 +1804,33 @@ snapshots:
 
   '@vitest/spy@5.1.0': {}
 
+  '@wreq-js/binding-android-arm64@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-darwin-arm64@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-darwin-x64@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-linux-arm64-gnu@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-linux-arm64-musl@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-linux-x64-gnu@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-linux-x64-musl@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-win32-arm64-msvc@3.2.0':
+    optional: true
+
+  '@wreq-js/binding-win32-x64-msvc@3.2.0':
+    optional: true
+
   '@yuku-toolchain/darwin-arm64@0.28.1':
     optional: true
 
@@ -1746,6 +1897,41 @@ snapshots:
   hono@4.13.19: {}
 
   hookable@6.1.2: {}
+
+  impit-darwin-arm64@0.14.9:
+    optional: true
+
+  impit-darwin-x64@0.14.9:
+    optional: true
+
+  impit-linux-arm64-gnu@0.14.9:
+    optional: true
+
+  impit-linux-arm64-musl@0.14.9:
+    optional: true
+
+  impit-linux-x64-gnu@0.14.9:
+    optional: true
+
+  impit-linux-x64-musl@0.14.9:
+    optional: true
+
+  impit-win32-arm64-msvc@0.14.9:
+    optional: true
+
+  impit-win32-x64-msvc@0.14.9:
+    optional: true
+
+  impit@0.14.9:
+    optionalDependencies:
+      impit-darwin-arm64: 0.14.9
+      impit-darwin-x64: 0.14.9
+      impit-linux-arm64-gnu: 0.14.9
+      impit-linux-arm64-musl: 0.14.9
+      impit-linux-x64-gnu: 0.14.9
+      impit-linux-x64-musl: 0.14.9
+      impit-win32-arm64-msvc: 0.14.9
+      impit-win32-x64-msvc: 0.14.9
 
   import-without-cache@0.4.1: {}
 
@@ -1999,6 +2185,18 @@ snapshots:
       - msw
 
   why-is-node-running@3.2.1: {}
+
+  wreq-js@3.2.0:
+    optionalDependencies:
+      '@wreq-js/binding-android-arm64': 3.2.0
+      '@wreq-js/binding-darwin-arm64': 3.2.0
+      '@wreq-js/binding-darwin-x64': 3.2.0
+      '@wreq-js/binding-linux-arm64-gnu': 3.2.0
+      '@wreq-js/binding-linux-arm64-musl': 3.2.0
+      '@wreq-js/binding-linux-x64-gnu': 3.2.0
+      '@wreq-js/binding-linux-x64-musl': 3.2.0
+      '@wreq-js/binding-win32-arm64-msvc': 3.2.0
+      '@wreq-js/binding-win32-x64-msvc': 3.2.0
 
   yuku@0.28.1:
     optionalDependencies:

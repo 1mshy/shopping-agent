@@ -16,6 +16,28 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-18: Spike A: HTTP transport lab
+
+Report: `docs/spikes/a-http-transport.md`; harness `lab/transport/`. One GET of one product URL per host from each client, 59 hosts (34 of the predecessor's 42 lab stores, 25 playbook hosts with a priced product URL on record), 180 requests, at most 5 to a host; "readable" = a price in JSON-LD, microdata, OpenGraph price tags or Shopify's product meta. After the offline re-classification (1 of 177 rows changed):
+
+| client | n | readable | served (readable + page without price markup) | wall |
+|---|--:|---|---|---|
+| Node `fetch` (baseline, honest UA) | 59 | 26 (44.1%) | 37 (62.7%) | 19 (32.2%) |
+| `impit` 0.14.9, `chrome151` | 59 | 31 (52.5%) | 48 (81.4%) | 10 (16.9%) |
+| `wreq-js` 3.2.0, `chrome_149` (its newest) | 59 | 29 (49.2%) | 45 (76.3%) | 13 (22.0%) |
+| `impers` 0.1.3 | not run: its `koffi` dependency has an install script and pnpm 12 fails the install without an `allowBuilds` entry; it also downloads libcurl-impersonate at first use without a checksum | | | |
+
+- impit read every host any client read; impit and wreq-js differ on 5 hosts (4 to 1 for impit), which one run does not separate.
+- On the 26 hosts where the predecessor's curl_cffi had read a price (records 26-60 days old), impit was served on 24 and readable on 19; the 5 unreadable pages were all ones the predecessor read with a site-specific reader. The risk "Node TLS client reads far fewer stores than curl_cffi" is not borne out on these hosts.
+- Fingerprints (local capture, equal to tls.peet.ws, one request per client): impit's `chrome151` does not match the predecessor's real Chromium 151 capture (JA4 `t13d1516…806a8c22fdea` against `t13d1518…4980c97edce0`; an extra HTTP/2 SETTINGS 5:16384); wreq-js's `chrome_149` could not be verified (no Chrome 149 capture), its HTTP/2 string equals the Chrome 151-156 captures.
+- Proposed: keep impit as the default `HttpTransport` (S§3.3), wreq-js as the swap-in behind the seam (not a per-request second try), impers not adopted under the install policy. Spec edits listed in the report; `docs/spec.md` unchanged.
+- Caveats: one run, one day, one IP address; 59 hosts the predecessor's owner chose, Canadian-heavy, hard cases on purpose; URLs 26-60 days old; readable means structured data only; the predecessor had no HTTP cell, so curl_cffi is compared through its playbook and priced reads; impit and wreq-js also differ in the OS their headers claim.
+- Image unchanged (lab excluded): pull 88.0 MB of 110. Registry tarballs suggest about 5 MB of pull for impit's addon and 4 MB for wreq-js's per architecture.
+- Raw results (uncommitted) in `lab/out/transport/` on the owner's machine.
+
+
+**Decision (orchestrator, for the owner to confirm at the phase report).** `impit` with its `chrome151` profile is the default `HttpTransport`, as S§3.3 already had it; `wreq-js` is the swap-in behind the seam; `impers` is not adopted, because it cannot be installed without an install-script exception and downloads its native library at first use without a checksum. The headline counts were recounted by the orchestrator from the raw result files (59 hosts; readable 26, 31 and 29; walls 19, 10 and 13; 60, 59 and 61 requests). Spec edits: S§3.3 (the HTTP fingerprint row), S§5.1 (the fingerprint check at each client upgrade), S§5.14 (the per-platform addon). The plan's "31 of 42" is the predecessor's best browser cells, not `curl_cffi`: the predecessor's lab had no HTTP cell. Raw results are kept, uncommitted, in `lab/out/transport/`.
+
 ### 2026-11-18: Workstream 4, gold-set and review tooling (labels still to come)
 
 **Shipped.** `evals/gold/` (PR #8): formats for products, listing snapshots, relation labels and the split manifest; validators with a progress and a strict mode; a seeded, stratified 40/20 split that never moves an assigned product and guards against the same product on both sides; held-out rotation by retiring; a blind second-label worklist and an agreement report (raw agreement, Cohen's kappa over the seven relations and over exact versus not exact, the confusion matrix). `evals/review/`: the predecessor's hand-review format described field by field, this project's version of it, a converter, and offline rescoring. Neither holds gold data: there are no gold products, snapshots or labels yet.

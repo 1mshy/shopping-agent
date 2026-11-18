@@ -1,0 +1,53 @@
+{
+  "note": "Real-browser captures from the predecessor's browser lab, copied from ~/Documents/GitHub/hermes-shopping/scripts/browser-lab/fingerprints/<cell>.json (pages.tls, captured through https://tls.peet.ws/api/all on 2026-10-16; branch browser-agent, commit 51db126 plus uncommitted files). The browser versions are from that lab's cells.json and its report. JA3 hashes differ between captures of one browser because Chrome permutes its extensions per connection; JA4 and the peetprint sort them.",
+  "captures": [
+    {
+      "cell": "H2",
+      "file": "fingerprints/H2.json",
+      "capturedAt": "2026-10-16T17:57:42Z",
+      "browser": "Chromium 151.0.7922.34 (full build, not Google-branded), linux/arm64, headed on Xvfb, driven by agent-browser 0.26.0 over CDP, no UA override",
+      "major": 151,
+      "ja4": "t13d1518h2_8daaf6152771_4980c97edce0",
+      "ja3Hash": "a03979eb66de9a29cb6b13618ada104e",
+      "peetprintHash": "b38161fb51f6120452f14f9464917597",
+      "akamai": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+    },
+    {
+      "cell": "H1",
+      "file": "fingerprints/H1.json",
+      "capturedAt": "2026-10-16T18:35:46Z",
+      "browser": "Chromium 151.0.7922.34, linux/arm64, new headless, agent-browser over CDP with a UA and client-hint override",
+      "major": 151,
+      "ja4": "t13d1518h2_8daaf6152771_4980c97edce0",
+      "ja3Hash": "2ea6f1b8bcb62e69158a1b427a8af92e",
+      "peetprintHash": "b38161fb51f6120452f14f9464917597",
+      "akamai": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+    },
+    {
+      "cell": "E2",
+      "file": "fingerprints/E2.json",
+      "capturedAt": "2026-10-16T18:05:11Z",
+      "browser": "Patchright 1.63.0's own Chromium build (UA Chrome/153), linux/arm64, headed",
+      "major": 153,
+      "ja4": "t13d1517h2_8daaf6152771_cb7bf5808d99",
+      "ja3Hash": "59454e19d03a00093ec05790050a4593",
+      "peetprintHash": "fc97c1cdfb1409c9a9326c1b726d1dee",
+      "akamai": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+    },
+    {
+      "cell": "H6",
+      "file": "fingerprints/H6.json",
+      "capturedAt": "2026-10-16T18:08:58Z",
+      "browser": "Google Chrome 155.0.8059.84, linux/arm64, headed on Xvfb, agent-browser",
+      "major": 155,
+      "ja4": "t13d1517h2_8daaf6152771_cb7bf5808d99",
+      "ja3Hash": "05242ca09ae6e8be6df7442def9e392d",
+      "peetprintHash": "fc97c1cdfb1409c9a9326c1b726d1dee",
+      "akamai": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    }
+  ]
+}

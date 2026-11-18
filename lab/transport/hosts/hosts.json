@@ -1,0 +1,1431 @@
+{
+  "version": 1,
+  "built": "2026-11-18",
+  "predecessor": {
+    "path": "~/Documents/GitHub/hermes-shopping",
+    "branch": "browser-agent",
+    "commit": "51db126",
+    "note": "plus uncommitted files; the owner has not confirmed this copy"
+  },
+  "counts": {
+    "labStores": 42,
+    "labWithUrl": 34,
+    "playbookHosts": 125,
+    "playbookOutsideLab": 99,
+    "playbookWithUrl": 25
+  },
+  "hosts": [
+    {
+      "key": "bestbuyca",
+      "host": "www.bestbuy.ca",
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-bluetooth-darkfield-high-precision-sensor-mouse-black/19467786",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (8 of 11 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": {
+          "rung": "unknown",
+          "method": null,
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 9
+        }
+      }
+    },
+    {
+      "key": "homedepotca",
+      "host": "www.homedepot.ca",
+      "url": "https://www.homedepot.ca/product/dewalt-20v-max-atomic-lithium-ion-compact-1-2-inch-hammer-drill-kit-with-1-2-0ah-battery-charger-and-bag/1001770010",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (3 of 3 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-01"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:microdata",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 3
+        }
+      }
+    },
+    {
+      "key": "staplesca",
+      "host": "www.staples.ca",
+      "url": "https://www.staples.ca/products/3135031-en-logitech-mx-master-3s-bluetooth-edition-performance-wireless-mouse-black",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (9 of 9 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": {
+          "rung": "unknown",
+          "method": "shopify-suggest",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 8
+        }
+      }
+    },
+    {
+      "key": "rona",
+      "host": "www.rona.ca",
+      "url": "https://www.rona.ca/en/product/dewalt-20-v-max-brushless-compact-drill-driver-kit-with-battery-charger-dcd793d1-00277649",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (7 of 7 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:recipe-xpath",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 7
+        }
+      }
+    },
+    {
+      "key": "homehardware",
+      "host": "www.homehardware.ca",
+      "url": "https://www.homehardware.ca/en/20v-max-12-cordless-hammer-drill-kit-with-battery-charger/p/1239025",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (12 of 12 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-30"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "londondrugs",
+      "host": "www.londondrugs.com",
+      "url": "https://www.londondrugs.com/products/logitech-mk540-advanced-wireless-keyboard-and-mouse-set-carbon-920-008671/p/L0015914",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (10 of 10 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-17"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 9
+        }
+      }
+    },
+    {
+      "key": "bhphoto",
+      "host": "www.bhphotovideo.com",
+      "url": "https://www.bhphotovideo.com/c/replacement_for/1703320-REG/logitech_910_006556_mx_master_3s_black.html",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (10 of 10 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-17"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 10
+        }
+      }
+    },
+    {
+      "key": "visions",
+      "host": "www.visions.ca",
+      "url": "https://www.visions.ca/sony-top-end-headphones-in-black-openbox",
+      "source": "lab",
+      "group": "a",
+      "urlFrom": "browser lab product page with a price read (11 of 11 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-18"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:meta",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 10
+        }
+      }
+    },
+    {
+      "key": "microcenter",
+      "host": "www.microcenter.com",
+      "url": "https://www.microcenter.com/product/671929/raspberry-pi-5-case-black-gray",
+      "source": "lab",
+      "group": "b",
+      "urlFrom": "browser lab product page with a price read (7 of 7 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-17"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 7
+        }
+      }
+    },
+    {
+      "key": "adorama",
+      "host": "www.adorama.com",
+      "url": "https://www.adorama.com/logitech-mx-master-3s-bluetooth-wireless-mouse/p/lo910007500",
+      "source": "lab",
+      "group": "b",
+      "urlFrom": "browser lab product page with a price read (4 of 5 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "blocked",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 3
+        }
+      }
+    },
+    {
+      "key": "ebayca",
+      "host": "www.ebay.ca",
+      "url": "https://www.ebay.ca/itm/125631391229",
+      "source": "lab",
+      "group": "b",
+      "urlFrom": "no priced product page in the browser lab; 2026-10-23-matching-eval.json: price read by the engine (http:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-18"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "siboor",
+      "host": "www.siboor.com",
+      "url": "https://www.siboor.com/product/voron-2-4-v2-4-3d-printer-daylight-disco-on-a-stick-pcb-kits-5v-lamp-bar-270-158mm-for-voron-0-1-0-2-2-4-trident-350-300-250mm/",
+      "source": "lab",
+      "group": "b",
+      "urlFrom": "browser lab product page with a price read (8 of 8 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 6
+        }
+      }
+    },
+    {
+      "key": "canadiantire",
+      "host": "www.canadiantire.ca",
+      "url": "https://www.canadiantire.ca/en/pdp/dewalt-dcd793d1-20v-max-compact-brushless-cordless-1-2-in-drill-driver-0548723p.html",
+      "source": "lab",
+      "group": "c",
+      "urlFrom": "browser lab product page with a price read (11 of 11 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-12"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 10
+        }
+      }
+    },
+    {
+      "key": "clearpick",
+      "host": "clearpick.ca",
+      "url": "https://clearpick.ca/products/instant-pot-duo-plus-9-in-1",
+      "source": "lab",
+      "group": "c",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "hirschpromo",
+      "host": "hirschpromo.com",
+      "url": "https://hirschpromo.com/canada/anker-737-power-bank-powercore-24k",
+      "source": "lab",
+      "group": "c",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "cdwca",
+      "host": "www.cdw.ca",
+      "url": "https://www.cdw.ca/product/wd-black-sn770m-wdbdnh0020bbk-wrsn-ssd-2-tb-pcie-4.0-x4-nvme/8475121",
+      "source": "lab",
+      "group": "c",
+      "urlFrom": "browser lab product page with a price read (11 of 11 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-xpath",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 10
+        }
+      }
+    },
+    {
+      "key": "ankeronline",
+      "host": "www.anker-online.com",
+      "url": "https://www.anker-online.com/products/anker-737-power-bank-24k",
+      "source": "lab",
+      "group": "c",
+      "urlFrom": "browser lab product page with a price read (6 of 6 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 6
+        }
+      }
+    },
+    {
+      "key": "anker",
+      "host": "www.anker.com",
+      "url": "https://www.anker.com/ca/products/a1695-anker-power-bank-25000mah-165w?variant=8323451584662",
+      "source": "lab",
+      "group": "c",
+      "urlFrom": "browser lab product page with a price read (12 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "canac",
+      "host": "www.canac.ca",
+      "url": "https://www.canac.ca/canac/en/2/p/18-v-1-2-in-cordless-drill-driver/66003260",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (10 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-24"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "bmr",
+      "host": "www.bmr.ca",
+      "url": "https://www.bmr.ca/en/dewalt-brushless-cordless-drill-driver-atomic-20v-max-1-2-001-9647.html",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (9 of 9 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-18"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 9
+        }
+      }
+    },
+    {
+      "key": "patrickmorin",
+      "host": "patrickmorin.com",
+      "url": "https://patrickmorin.com/en/makita-lxt-series-cordless-hammer-drill-18-v-0-5-in-tool-only-1198074",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (12 of 12 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "bureauengros",
+      "host": "www.bureauengros.com",
+      "url": "https://www.bureauengros.com/products/3135031-fr-logitech-souris-sans-fil-hautes-performances-mx-master-3s-edition-bluetooth-noire",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (9 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "simons",
+      "host": "www.simons.ca",
+      "url": "https://www.simons.ca/en/women-clothing/sweaters/crew-necks/boxy-fit-felted-pure-wool-sweater--12462-232625?colourId=31",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (11 of 12 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "canadacomputers",
+      "host": "www.canadacomputers.com",
+      "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/233286/samsung-990-pro-2tb-m-2-nvme-pcie-4-0-solid-state-drive-mz-v9p2t0b-am.html",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "costcoca",
+      "host": "www.costco.ca",
+      "url": "https://www.costco.ca/p/-/all-clad-6-in-1-programmable-slow-cooker-with-removable-cast-iron-pot-47-l-5-qt/4000411606?langId=-24",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (9 of 11 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-25"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 10
+        }
+      }
+    },
+    {
+      "key": "walmartca",
+      "host": "www.walmart.ca",
+      "url": "https://www.walmart.ca/en/ip/Sony-WH-1000XM5-Wireless-headphones-with-top-noise-canceling-clear-calls-Auto-NC-Optimizer-and-Alexa-voice-control/2P9FP9H47OOW",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (3 of 4 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:next-data",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 2
+        }
+      }
+    },
+    {
+      "key": "sail",
+      "host": "www.sail.ca",
+      "url": "https://www.sail.ca/en-ca/products/the-north-face-wawona-6-tent-6-person-1493003?variant=56879252373664",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (11 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "sportchek",
+      "host": "www.sportchek.ca",
+      "url": "https://www.sportchek.ca/en/pdp/nike-women-s-vomero-18-running-shoes-82819424f.334632338.html",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (2 of 9 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-17"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 9
+        }
+      }
+    },
+    {
+      "key": "leevalley",
+      "host": "www.leevalley.com",
+      "url": "https://www.leevalley.com/en-ca/shop/tools/hand-tools/planes/block/47881-veritas-low-angle-block-plane",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "tanguay",
+      "host": "www.tanguay.ca",
+      "url": "https://www.tanguay.ca/en/prod2/02/appliances/FRIG/refrigerators-freezers/FRGO/refrigerators/AF0/french-door-refrigerators/0768858/",
+      "source": "lab",
+      "group": "d",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "princessauto",
+      "host": "www.princessauto.com",
+      "url": "https://www.princessauto.com/en/product/20v-brushless-drill-driver/PA0009486416/9486416",
+      "source": "lab",
+      "group": "e",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:recipe-xpath",
+          "report": "2026-10-16-browser-access.json",
+          "date": "2026-10-16",
+          "sameUrl": true
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "memoryexpress",
+      "host": "www.memoryexpress.com",
+      "url": "https://www.memoryexpress.com/Products/MX00123889",
+      "source": "lab",
+      "group": "e",
+      "urlFrom": "browser lab product page with a price read (10 of 10 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:selector",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 9
+        }
+      }
+    },
+    {
+      "key": "neweggca",
+      "host": "www.newegg.ca",
+      "url": "https://www.newegg.ca/SAMSUNG-2TB-990-PRO-NVMe-2-0/p/N82E16820147861",
+      "source": "lab",
+      "group": "e",
+      "urlFrom": "browser lab product page with a price read (10 of 12 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:selector",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "amazonca",
+      "host": "www.amazon.ca",
+      "url": "https://www.amazon.ca/Logitech-Master-Bluetooth-Wireless-Receiver/dp/B0FB21526X",
+      "source": "lab",
+      "group": "e",
+      "urlFrom": "browser lab product page with a price read (13 of 13 priced rows, first 2026-10-16)",
+      "predecessor": {
+        "playbook": null,
+        "read": {
+          "rung": "http",
+          "method": "http:amazon-dom",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": false
+        },
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 11
+        }
+      }
+    },
+    {
+      "key": "3djake.com",
+      "host": "www.3djake.com",
+      "url": "https://www.3djake.com/3djake/ecopla",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (http:selector)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:selector",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "abra-electronics.com",
+      "host": "abra-electronics.com",
+      "url": "https://abra-electronics.com/robotics-embedded-electronics/raspberry-pi-en-3/boards/pi5-8gb-raspberry-pi-5-8gb.html",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "ca.store.bambulab.com",
+      "host": "ca.store.bambulab.com",
+      "url": "https://ca.store.bambulab.com/products/a1-mini",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (browser:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "canadacomputersbusiness.com",
+      "host": "www.canadacomputersbusiness.com",
+      "url": "https://www.canadacomputersbusiness.com/en/resin-3d-printer/269282/elegoo-saturn-4-ultra-16k-50101038200.html",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "canakit.com",
+      "host": "www.canakit.com",
+      "url": "https://www.canakit.com/raspberry-pi-5-8gb.html",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:meta)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:meta",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "canucktools.ca",
+      "host": "canucktools.ca",
+      "url": "https://canucktools.ca/dewalt-dcd793d1-20v-max-brushless-cordless-1-2-in-drill-driver-kit/",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "crea3d.com",
+      "host": "www.crea3d.com",
+      "url": "https://www.crea3d.com/it/polymaker/1255-2322-polymaker-polyterra-pla-1kg.html",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-18"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "creality3dofficial.com",
+      "host": "www.creality3dofficial.com",
+      "url": "https://www.creality3dofficial.com/products/creality-k1c-3d-printer-on-sale",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "electronics.sony.com",
+      "host": "electronics.sony.com",
+      "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-l",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "federatedtool.com",
+      "host": "federatedtool.com",
+      "url": "https://federatedtool.com/dewalt-dcd793d1-20v-max-brushless-cordless-1-2-in-drill-driver-kit/",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "hobbywholesale.com",
+      "host": "hobbywholesale.com",
+      "url": "https://hobbywholesale.com/hobbies/3d-printers-filament/filament/pla/silk-like/pla-silk-red-copper-1-75mm-1kg-filament-sunlu-hwsplasrcopper.html",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-phase5-evaluation.json: price read by the engine (browser:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-23-phase5-evaluation.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "kb-3d.com",
+      "host": "kb-3d.com",
+      "url": "https://kb-3d.com/store/stepper-motors-servos/11264-ldo-stepper-motor-nema-14-36sth20-1004ahig7t-1642876241077.html",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (http:microdata)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:microdata",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "keurig.ca",
+      "host": "www.keurig.ca",
+      "url": "https://www.keurig.ca/Brewers/Keurig%C2%AE%C2%A0K-Mini%C2%AE%C2%A0Go-Single-Serve-Coffee-Maker/p/keurig-k-mini-go-coffee-maker",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-phase5-evaluation.json: price read by the engine (browser:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:recipe-json-ld",
+          "report": "2026-10-23-phase5-evaluation.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "logitech.com",
+      "host": "www.logitech.com",
+      "url": "https://www.logitech.com/en-ca/shop/p/mx-master-3s-mac-bluetooth-mouse.910-006570",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (browser:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "matterhackers.com",
+      "host": "www.matterhackers.com",
+      "url": "https://www.matterhackers.com/store/l/bambu-lab-ams-2-pro-automatic-material-system/sk/MFGXYJYC",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (browser:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "newegg.com",
+      "host": "www.newegg.com",
+      "url": "https://www.newegg.com/Creality-K2-Pro-Combo/p/N82E16828285069",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (http:selector)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:selector",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "pishop.ca",
+      "host": "www.pishop.ca",
+      "url": "https://www.pishop.ca/product/raspberry-pi-5-8gb/",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-11-17"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "prusa3d.com",
+      "host": "www.prusa3d.com",
+      "url": "https://www.prusa3d.com/product/original-prusa-xl-assembled-single-toolhead-3d-printer/",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (http:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "sameday.costco.ca",
+      "host": "sameday.costco.ca",
+      "url": "https://sameday.costco.ca/store/costco-canada/products/88338598-keurig-k-mini-single-serve-k-cup-pod-coffee-maker-1-each",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-14-web-discovery.json: price read by the engine (http:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-15"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-14-web-discovery.json",
+          "date": "2026-10-14",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "sony.ca",
+      "host": "www.sony.ca",
+      "url": "https://www.sony.ca/en/audio/headphones/all-headphones/p/wh1000xm5-b",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (browser:recipe-json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:recipe-json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "spool3d.ca",
+      "host": "spool3d.ca",
+      "url": "https://spool3d.ca/bambu-lab-x-belt-a1-mini/",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (browser:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-11-16"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "store.creality.com",
+      "host": "store.creality.com",
+      "url": "https://store.creality.com/products/k1c-3d-printer",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-23-matching-eval.json: price read by the engine (http:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:json-ld",
+          "report": "2026-10-23-matching-eval.json",
+          "date": "2026-10-23",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "target.com",
+      "host": "www.target.com",
+      "url": "https://www.target.com/p/-/A-85978609",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (browser:selector)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:selector",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "th3dstudio.com",
+      "host": "www.th3dstudio.com",
+      "url": "https://www.th3dstudio.com/product/th3d-zsense8-high-accuracy-solid-state-abl-probe-works-with-marlin-klipper/",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-09-19-retailer-catalog-predeploy.json: price read by the engine (browser:json-ld)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-19"
+        },
+        "read": {
+          "rung": "browser",
+          "method": "browser:json-ld",
+          "report": "2026-09-19-retailer-catalog-predeploy.json",
+          "date": "2026-09-19",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    },
+    {
+      "key": "walmart.com",
+      "host": "www.walmart.com",
+      "url": "https://www.walmart.com/ip/Instant-Pot-DUO60-V4-6-Quart-Duo-Electric-Pressure-Cooker-Slow-Cooker/45918917",
+      "source": "playbook",
+      "group": "playbook",
+      "urlFrom": "2026-10-14-web-discovery.json: price read by the engine (http:next-data)",
+      "predecessor": {
+        "playbook": {
+          "strategy": "browser",
+          "date": "2026-10-23"
+        },
+        "read": {
+          "rung": "http",
+          "method": "http:next-data",
+          "report": "2026-10-14-web-discovery.json",
+          "date": "2026-10-14",
+          "sameUrl": true
+        },
+        "lab": null
+      }
+    }
+  ],
+  "excluded": [
+    {
+      "key": "digikeyca",
+      "host": "www.digikey.ca",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "mouserca",
+      "host": "www.mouser.ca",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 12,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "raspberrypi",
+      "host": "www.raspberrypi.com",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "techcitycanada",
+      "host": "techcitycanada.ca",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "graingerca",
+      "host": "www.grainger.ca",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-15"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "sandisk",
+      "host": "www.sandisk.com",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": {
+          "strategy": "http",
+          "date": "2026-10-23"
+        },
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "futuretechs",
+      "host": "futuretechs.ca",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    },
+    {
+      "key": "braultmartineau",
+      "host": "www.braultetmartineau.com",
+      "source": "lab",
+      "reason": "the browser lab read no price on a product page of this store",
+      "predecessor": {
+        "playbook": null,
+        "read": null,
+        "lab": {
+          "cellsTried": 11,
+          "cellsWithPrice": 0
+        }
+      }
+    }
+  ]
+}

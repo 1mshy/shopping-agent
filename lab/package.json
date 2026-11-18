@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@agentic-dasher/shared": "workspace:*",
-    "robots-parser": "3.0.1"
+    "impit": "0.14.9",
+    "robots-parser": "3.0.1",
+    "wreq-js": "3.2.0"
   }
 }
