@@ -303,6 +303,91 @@ export const FULFILMENTS = ['delivery', 'pickup'] as const;
 export const Fulfilment = z.enum(FULFILMENTS);
 export type Fulfilment = z.infer<typeof Fulfilment>;
 
+// Workstream 2b part B: transport and stream contracts.
+
+/**
+ * FetchOutcome `wall` mode, from the browser rung (S§5.1): "Wait up to 20 s for a self-clearing
+ * challenge; never click; report a captcha or 'Access Denied' at once." A challenge that does not
+ * clear is `challenge`.
+ */
+export const WALL_MODES = ['challenge', 'captcha', 'access_denied'] as const;
+export const WallMode = z.enum(WALL_MODES);
+export type WallMode = z.infer<typeof WallMode>;
+
+/**
+ * FetchOutcome `refused_by_policy` reason, one per refusing clause of the guard (S§5.1): http/https
+ * only; private, loopback, link-local, CGNAT and metadata ranges (one reason, also after a
+ * redirect); body size cap; robots setting; per-host limiter; budget.
+ */
+export const POLICY_REFUSAL_REASONS = [
+  'scheme',
+  'private_address',
+  'body_size',
+  'robots',
+  'host_limit',
+  'budget',
+] as const;
+export const PolicyRefusalReason = z.enum(POLICY_REFUSAL_REASONS);
+export type PolicyRefusalReason = z.infer<typeof PolicyRefusalReason>;
+
+/** The kinds of a `MarketplaceAdapter` Outcome (S§5.9). */
+export const MARKETPLACE_OUTCOME_KINDS = [
+  'ok',
+  'blocked',
+  'rate_limited',
+  'needs_person',
+  'not_configured',
+  'parse_error',
+] as const;
+export const MarketplaceOutcomeKind = z.enum(MARKETPLACE_OUTCOME_KINDS);
+export type MarketplaceOutcomeKind = z.infer<typeof MarketplaceOutcomeKind>;
+
+/** What a marketplace adapter `requires {browser, userKey, session}` (S§5.9). */
+export const ADAPTER_REQUIREMENTS = ['browser', 'user_key', 'session'] as const;
+export const AdapterRequirement = z.enum(ADAPTER_REQUIREMENTS);
+export type AdapterRequirement = z.infer<typeof AdapterRequirement>;
+
+/**
+ * Coverage sources: what a search fans out to (S§5.6 step 2): the Shopify Global Catalog, web
+ * search engines through the provider interface, directory stores, and marketplace adapters.
+ */
+export const COVERAGE_SOURCE_KINDS = ['catalog', 'web_search', 'store', 'marketplace'] as const;
+export const CoverageSourceKind = z.enum(COVERAGE_SOURCE_KINDS);
+export type CoverageSourceKind = z.infer<typeof CoverageSourceKind>;
+
+/** Progress-stream block types (S§5.6). */
+export const STREAM_BLOCK_TYPES = [
+  'plan',
+  'store_read',
+  'candidate',
+  'verdict',
+  'summary',
+  'coverage',
+] as const;
+export const StreamBlockType = z.enum(STREAM_BLOCK_TYPES);
+export type StreamBlockType = z.infer<typeof StreamBlockType>;
+
+/** `store_read` block states (S§5.6). */
+export const STORE_READ_STATES = ['reading', 'priced', 'no_price', 'walled'] as const;
+export const StoreReadState = z.enum(STORE_READ_STATES);
+export type StoreReadState = z.infer<typeof StoreReadState>;
+
+/** Deal verdicts (S§5.5): lowest seen, good price, typical, high, cheapest of N stores. */
+export const DEAL_VERDICTS = [
+  'lowest_seen',
+  'good_price',
+  'typical',
+  'high',
+  'cheapest_of_n',
+] as const;
+export const DealVerdictLabel = z.enum(DEAL_VERDICTS);
+export type DealVerdictLabel = z.infer<typeof DealVerdictLabel>;
+
+/** Result groups: "Exact matches, substitutes and used items are separate result groups" (S§5.4). */
+export const RESULT_GROUPS = ['exact', 'substitute', 'used'] as const;
+export const ResultGroup = z.enum(RESULT_GROUPS);
+export type ResultGroup = z.infer<typeof ResultGroup>;
+
 // Open-ended by nature, so validated strings rather than lists.
 
 /** host_access.wall_vendor: the bot manager the classifier names (S§5.1, S§5.16). New ones appear. */
@@ -316,3 +401,13 @@ export type FxRateSource = z.infer<typeof FxRateSource>;
 /** price_observation.unit: the unit a unit price is per, as the page states it ("kg", "100 g"). */
 export const PriceUnit = z.string().regex(/^\S(?:.{0,14}\S)?$/);
 export type PriceUnit = z.infer<typeof PriceUnit>;
+
+/** A search engine or marketplace adapter id ("duckduckgo", "kijiji") (S§5.3, S§5.9). */
+export const SourceId = z.string().regex(/^[a-z0-9][a-z0-9_-]{0,47}$/);
+export type SourceId = z.infer<typeof SourceId>;
+
+/** A lower-case host name, as a store is keyed (S§4.1 store.host). */
+export const Host = z
+  .string()
+  .regex(/^(?=.{1,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/);
+export type Host = z.infer<typeof Host>;

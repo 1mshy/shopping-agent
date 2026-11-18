@@ -209,6 +209,41 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
   ['SETTING_SOURCES', 'SettingSource', 'S§4.4 setting, S§5.13', ['db', 'env', 'default']],
   ['INTENT_KINDS', 'IntentKind', 'S§5.4 SearchIntent', ['exact', 'needs']],
   ['FULFILMENTS', 'Fulfilment', 'S§5.4 SearchIntent', ['delivery', 'pickup']],
+  // Workstream 2b part B: transport and stream contracts.
+  ['WALL_MODES', 'WallMode', 'S§5.1 browser rung', ['challenge', 'captcha', 'access_denied']],
+  [
+    'POLICY_REFUSAL_REASONS',
+    'PolicyRefusalReason',
+    'S§5.1 guard',
+    ['scheme', 'private_address', 'body_size', 'robots', 'host_limit', 'budget'],
+  ],
+  [
+    'MARKETPLACE_OUTCOME_KINDS',
+    'MarketplaceOutcomeKind',
+    'S§5.9',
+    ['ok', 'blocked', 'rate_limited', 'needs_person', 'not_configured', 'parse_error'],
+  ],
+  ['ADAPTER_REQUIREMENTS', 'AdapterRequirement', 'S§5.9', ['browser', 'user_key', 'session']],
+  [
+    'COVERAGE_SOURCE_KINDS',
+    'CoverageSourceKind',
+    'S§5.6 step 2',
+    ['catalog', 'web_search', 'store', 'marketplace'],
+  ],
+  [
+    'STREAM_BLOCK_TYPES',
+    'StreamBlockType',
+    'S§5.6 progress stream',
+    ['plan', 'store_read', 'candidate', 'verdict', 'summary', 'coverage'],
+  ],
+  ['STORE_READ_STATES', 'StoreReadState', 'S§5.6', ['reading', 'priced', 'no_price', 'walled']],
+  [
+    'DEAL_VERDICTS',
+    'DealVerdictLabel',
+    'S§5.5',
+    ['lowest_seen', 'good_price', 'typical', 'high', 'cheapest_of_n'],
+  ],
+  ['RESULT_GROUPS', 'ResultGroup', 'S§5.4, S§5.12', ['exact', 'substitute', 'used']],
 ];
 
 const exports = shared as unknown as Record<string, unknown>;

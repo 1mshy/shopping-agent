@@ -16,6 +16,35 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-17: Workstream 2b (part B), domain contracts
+
+**Shipped**
+
+- `packages/shared`: `FetchOutcome` with `PlaybookOutcome` and the guard `changesPlaybook` (S§5.1); `MarketplaceOutcome` with `countsAgainstHealth` (S§5.9); `CoverageSource` and `CoverageRecord` (S§2.8); `StreamBlock`, `PatchOp`, `StreamEvent`, `applyBlockPatch` and `foldStream` (S§5.6). Tests first: 31 new run-time cases plus `test/transport.types.ts`.
+- Nine vocabularies in `vocab.ts` (wall modes, policy refusal reasons, marketplace outcome kinds, adapter requirements, coverage source kinds, block types, store-read states, deal verdicts, result groups) and two validated ids (`SourceId`, `Host`). Nothing from part A was renamed or reshaped.
+
+**Decisions**
+
+- `FetchOutcome` is a union on `kind`. Every variant names its `rung`, because the playbook is kept per host, page kind and rung (S§4.1 host_access). `wall.mode` is enumerated from the browser-rung sentence of S§5.1 ("wait up to 20 s for a self-clearing challenge…; report a captcha or 'Access Denied' at once"): `challenge`, `captcha`, `access_denied`; the vendor may be null. `refused_by_policy.reason` has one value per refusing clause of the guard sentence; the five address ranges share `private_address`, and a failed redirect re-check reports the clause it failed. `rate_limited` carries `retryAfterMs` (null when no Retry-After was given), what a caller needs to honour the limit. Bodies are not part of the contract. Only `ok`, `wall` and `empty` narrow to `PlaybookOutcome`.
+- `MarketplaceOutcome` is a union on `kind`; `not_configured` names the unmet requirements of `requires {browser, userKey, session}`; only `parse_error` passes `countsAgainstHealth`.
+- Coverage source: what S§5.6 step 2 fans out to, each identified: the Catalog (one), a web-search engine (`engine`, so an unresponsive engine is its own entry: attempted, not completed, timed out), a store (`host`, with `storeId` null for a host not yet in the directory, since S§5.2 adds a store only after a read), a marketplace adapter (`adapterId`). Fields follow S§2.8 as booleans plus two counts. The schema refuses: attempted while disabled; completed, walled, timed out or any count without an attempt; completed and timed out together; a source listed twice. Totals are derived, never stored. Booleans rather than one state value, because S§2.8 lists them as separate facts (a store can be walled on one URL and still complete) and they patch naturally in the stream.
+- Stream envelope: `block`, `patch`, `end`, each with `seq` (1, 2, 3…), which is the SSE id; the reconnect route replays after `Last-Event-ID`. `end` carries the final status and the coverage record, so a cancelled run (S§6) ends with its partial evidence; `foldStream` shows it. Patches allow `add` and `replace` only: blocks only settle or grow, so a replay is a left fold, and `applyBlockPatch` re-validates the block after each patch, so a patch cannot leave a float price or a price without its observation. A patch never touches `/type`.
+- Prices in blocks are `Money` next to the observation id they were copied from (`store_read` when priced, a candidate's shown observation, summary money segments; a money segment's id is null only for a figure code computed over several observations). Percentages are integer basis points. A delivered total is in the item price's currency and not below it. A `verdict` with group `exact` must have relation `exact` (S§5.4 "A cheaper substitute is never shown as an exact match").
+- Summary: a list of segments. The model writes `text` only (with the part A second-line refusals); `money`, `count` and `store` segments are filled by code from engine records (S§2.1, S§5.15). The UI joins them; nothing is pre-joined.
+
+**Spec edits**
+
+- §4.2 search_run `coverage_json`: what a source is and the fields per source.
+- §5.1 typed outcome: rung on every outcome, wall modes and unknown vendor, Retry-After on `rate_limited`, the policy refusal reasons.
+- §5.6 progress stream: the envelope, sequence and reconnect, the patch subset, `end` with status and coverage, Money with observation ids, basis points, the verdict payload, summary segments.
+- §5.9 Outcome payloads for `rate_limited` and `not_configured`.
+
+**Open items**
+
+- Summary value kinds are `money`, `count` and `store` only; Phase 2's placeholder contract may need a date or a percentage segment.
+- The outlier rule's "shown separately with the reason" (S§5.5) and the "unconfirmed"/"unchecked" labels (S§2.4) have no field in the verdict block yet; they are derivable from `decidedBy` and `relation` for now.
+- Cross-block consistency (a candidate's observation matches its store_read; coverage counts match the candidates) is not checked by the schemas.
+
 ### 2026-11-17: Spike C: platform route reachability
 
 One full run of `lab/routes/` (17:57:51Z to 18:03:44Z): 800 hosts, 1,840 requests, at most 5 to one host, no interruption. "Answers" are payloads of the documented shape (`ok + empty`). After the offline re-classification from stored evidence described in the report (12 records changed, all Magento or robots.txt).

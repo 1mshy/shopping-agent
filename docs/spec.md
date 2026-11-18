@@ -175,7 +175,7 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 |---|---|---|
 | `watch` | A standing request. Kept apart from `product` (the predecessor mixed them). | kind (product, query, saved_search), input, spec_json (SearchIntent), market, currency, rules_json (target_price, drop_pct, restock, marketplace filters), reference_price + reference_kind (median_verified, user_confirmed), cooldown_s, status, created_at |
 | `watch_listing` | Listings a watch follows. | watch_id, listing_id, role (tracked, candidate, excluded), added_by (user, discovery) |
-| `search_run` | One user search (fast or deep). | intent_json, mode (fast, deep), budget_json, status (queued, running, completed, cancelled, failed), coverage_json, result_json, run_id |
+| `search_run` | One user search (fast or deep). | intent_json, mode (fast, deep), budget_json, status (queued, running, completed, cancelled, failed), coverage_json (the coverage record: one entry per source, where a source is the Catalog, one web-search engine, one store by host, or one marketplace adapter; each with the §2.8 flags and two counts, found without a verified price and verified), result_json, run_id |
 
 ### 4.3 Personalisation (R§3.7)
 
@@ -216,7 +216,7 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 4. `remote` (optional, one interface): any other CDP endpoint or proxy URL.
 5. `person`: a UI task to open the noVNC view and solve or log in once.
 
-**Typed outcome.** Every fetch returns a `FetchOutcome`: `ok | not_found | wall{vendor, mode} | rate_limited | payment_required | login_required | empty | server_error | network_error{code} | refused_by_policy{reason}`. Only `ok`, `wall` and `empty` may change the playbook. A 404 never moves a rung. Success hints expire after 24 h; negative verdicts back off on a growing schedule.
+**Typed outcome.** Every fetch returns a `FetchOutcome`: `ok | not_found | wall{vendor, mode} | rate_limited | payment_required | login_required | empty | server_error | network_error{code} | refused_by_policy{reason}`, each naming the rung that produced it. A wall's mode is `challenge` (did not clear), `captcha` or `access_denied`, and its vendor may be unknown; `rate_limited` carries the Retry-After delay when one was given; a policy refusal's reason is one guard clause (`scheme`, `private_address`, `body_size`, `robots`, `host_limit`, `budget`). Only `ok`, `wall` and `empty` may change the playbook. A 404 never moves a rung. Success hints expire after 24 h; negative verdicts back off on a growing schedule.
 
 **Wall classifier.** Decides from status, final URL, title, visible text and document size against saved real pages. It does not match bare substrings. The predecessor's cases are ported as fixtures: an Amazon 404 with a marker in it is not a wall, eBay's wall shows only in the final URL, and a "Just a moment" loading text is not a challenge.
 
@@ -310,7 +310,7 @@ The request needs a public agent-profile URL. The project publishes one static p
 
 **Targets** (to be confirmed by measurement in Phase 2): ≤30K total tokens on a mini-class model; p50 30 s, p95 60 s; median model spend ≈$0.01; hard cap $0.03. A run that hits its cap returns its deterministic result.
 
-**Progress stream.** SSE with typed blocks and JSON-patch updates, plus a reconnect route. Block types: plan, store_read (reading, priced, no_price, walled), candidate, verdict, summary, coverage. Unresponsive search engines are surfaced.
+**Progress stream.** SSE with typed blocks and JSON-patch updates, plus a reconnect route. Block types: plan, store_read (reading, priced, no_price, walled), candidate, verdict, summary, coverage. Unresponsive search engines are surfaced. Events are `block`, `patch` and `end`, numbered by a sequence that starts at 1, rises by 1 and is the SSE id; the reconnect route replays every event after the client's last id. Patches use only `add` and `replace` and never change a block's type; a patched block must still validate. `end` is last and carries the final status (completed, cancelled or failed) and the coverage record, so a cancelled run ends with its partial evidence. A price in a block is integer minor units with its currency next to the observation id it came from; percentages are integer basis points; the verdict block carries the §5.5 label (cheapest of N with N and X) and the share of 90 days. The summary is a list of segments: model text, and values code fills (money, count, store), which the UI joins.
 
 **Dig deeper** (opt-in per search, cost and time cap shown before start, never silently extends a fast run): query expansion (breadth halved per level, depth −1), more hosts, browser reads, the model judge on more listings, and model-driven browsing of hard stores (§5.7). Defaults: whole job 10 min and $0.50 money cap, user-adjustable.
 
@@ -377,7 +377,7 @@ Dig deeper is blocked under 16K context. There is no prompt-injected tool-callin
 
 ### 5.9 Used goods and marketplaces (R§3.5)
 
-**`MarketplaceAdapter` interface:** id, countries, `requires {browser, userKey, session}`, minIntervalSec, dailyRequestCap, supports flags, status, buildSearchUrl, search, optional detail. Returns an Outcome: `ok | blocked | rate_limited | needs_person | not_configured | parse_error`. Only `parse_error` counts against adapter health; three in a row marks the adapter "broken since …" in the UI.
+**`MarketplaceAdapter` interface:** id, countries, `requires {browser, userKey, session}`, minIntervalSec, dailyRequestCap, supports flags, status, buildSearchUrl, search, optional detail. Returns an Outcome: `ok | blocked | rate_limited | needs_person | not_configured | parse_error` (`rate_limited` carries the Retry-After delay when given; `not_configured` names the unmet requirements). Only `parse_error` counts against adapter health; three in a row marks the adapter "broken since …" in the UI.
 
 **Wave 1 (core, keyless)** [verify sustained polling]:
 - Kijiji: `__NEXT_DATA__`/Apollo state with card and JSON-LD fallbacks.
