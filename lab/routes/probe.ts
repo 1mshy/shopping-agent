@@ -1,18 +1,19 @@
 // Probes one host for the routes of one list, with the fewest requests: robots.txt first (it
 // counts against the cap and settles the origin), then each route once.
 //   woocommerce   robots + Store API search                                  = 2
-//   magento       robots + GraphQL products (GET)                            = 2
+//   magento       robots + GraphQL products search (GET)                     = 2
 //   shopify       robots + suggest.json + products/<handle>.js               = 3
 //                 (+ home page when suggest.json yields no handle)           = 4
 //   searchaction  robots + home page + OpenSearch description if linked     <= 3
 // Redirect hops and one retry after a network error also count; the cap stops the rest.
-import { classify, type HttpResponse, pageTitle } from './classify.ts';
+import { classify } from './classify.ts';
 import {
   findOpenSearchLink,
   findProductHandle,
   validateOpenSearch,
   validateSearchAction,
 } from './discover.ts';
+import { answerEvidence, hostPlatforms } from './evidence.ts';
 import { sameSite } from './guard.ts';
 import { Budget, get, type HttpConfig, type HttpResult } from './http.ts';
 import type {
@@ -47,14 +48,6 @@ const HOST_LEVEL_ERROR = /^(ENOTFOUND|ENODATA)$|CERT|ERR_TLS_|SSL/;
 const JSON_HEADERS = { accept: 'application/json' };
 const HTML_HEADERS = { accept: 'text/html,application/xhtml+xml' };
 
-function failedBody(res: HttpResponse): { title?: string; snippet?: string } {
-  const title = pageTitle(res.body);
-  return {
-    ...(title ? { title } : {}),
-    ...(res.bytes < 16 * 1024 ? { snippet: res.body.slice(0, 300).replace(/\s+/g, ' ') } : {}),
-  };
-}
-
 function toResult(
   route: RouteKind,
   url: string,
@@ -62,24 +55,15 @@ function toResult(
   validate: (body: string) => Validation,
   platform: Platform,
   robots: RouteResult['robots'],
+  host: Array<Exclude<Platform, 'any'>> = [],
 ): Fetched {
   if (!r.ok) {
     const evidence = { finalUrl: r.finalUrl, signals: [], hops: r.hops, ms: r.ms };
     return { result: { route, url, outcome: r.outcome, evidence, robots, requests: r.requests } };
   }
   const v = validate(r.res.body);
-  const c = classify(r.res, v, platform);
-  const evidence = {
-    status: r.res.status,
-    finalUrl: r.res.finalUrl,
-    contentType: r.res.headers.get('content-type') ?? '',
-    bytes: r.res.bytes,
-    validation: v.valid ? (v.note ?? `items=${v.items}`) : v.reason,
-    ...(v.valid ? {} : failedBody(r.res)),
-    signals: c.signals,
-    hops: r.hops,
-    ms: r.ms,
-  };
+  const c = classify(r.res, v, platform, host);
+  const evidence = answerEvidence(r.res, v, { signals: c.signals, hops: r.hops, ms: r.ms });
   const result = { route, url, outcome: c.outcome, evidence, robots, requests: r.requests };
   return { result, v, body: r.res.body };
 }
@@ -110,6 +94,8 @@ export async function probeDomain(
   const budget = new Budget(cfg.maxRequests);
   const robots = await fetchRobots(`${cfg.scheme}://${domain}`, cfg, budget);
   const origin = robots.origin;
+  // Platforms the robots.txt answer shows, for the host-level 404 rule (classify.ts).
+  const host = hostPlatforms(robots.record.evidence);
   const routes: RouteResult[] = [];
 
   const fetchRoute = async (
@@ -132,7 +118,7 @@ export async function probeDomain(
       };
     }
     const r = await get(url, cfg, budget, headers);
-    return toResult(route, url, r, validate, platform, robots.verdict(url));
+    return toResult(route, url, r, validate, platform, robots.verdict(url), host);
   };
 
   if (list === 'woocommerce') {
@@ -151,6 +137,7 @@ export async function probeDomain(
     let handle = suggest.v && 'handle' in suggest.v ? (suggest.v.handle as string) : undefined;
     let handleSource: RouteResult['handleSource'] = handle ? 'suggest' : undefined;
     let extra = 0;
+    let discovery: RouteResult['discovery'];
     if (
       !handle &&
       budget.used < budget.max &&
@@ -160,7 +147,17 @@ export async function probeDomain(
       extra = home.requests;
       if (home.ok && home.res.status < 300) handle = findProductHandle(home.res.body);
       if (handle) handleSource = 'home';
+      discovery = home.ok
+        ? answerEvidence(
+            home.res,
+            handle
+              ? { valid: true, items: 1, note: handle }
+              : { valid: false, reason: 'no_handle' },
+            { signals: [], hops: home.hops, ms: home.ms },
+          )
+        : { finalUrl: home.finalUrl, signals: [home.outcome.kind], hops: home.hops, ms: home.ms };
     }
+    const found = discovery ? { discovery } : {};
     if (handle) {
       const p = await fetchRoute(
         'shopify_product_js',
@@ -168,7 +165,7 @@ export async function probeDomain(
         validateProductJs,
         'shopify',
       );
-      routes.push({ ...p.result, requests: p.result.requests + extra, handleSource });
+      routes.push({ ...p.result, requests: p.result.requests + extra, handleSource, ...found });
     } else if (suggest.result.evidence.signals.includes('inherited:robots')) {
       const url = `${origin}/products/?.js`;
       routes.push(
@@ -184,6 +181,7 @@ export async function probeDomain(
           reason,
         ),
         requests: extra,
+        ...found,
       });
     }
   } else {
@@ -201,10 +199,13 @@ export async function probeDomain(
     if (!fetched) {
       routes.push(notRequested('opensearch', `${origin}/`, home.result.outcome, 'inherited:home'));
     } else if (!link) {
+      // Decided by discovery, not by the classifier: keep the page's facts, but no `valid`, so
+      // reclassify.ts leaves it alone.
+      const { valid: _valid, items: _items, snippet: _snippet, ...facts } = page;
       routes.push({
         ...notRequested('opensearch', `${origin}/`, { kind: 'not_found' }, 'no_link'),
         robots: robots.verdict(`${origin}/`),
-        evidence: { ...page, validation: 'absent', signals: ['no_link'] },
+        evidence: { ...facts, validation: 'absent', signals: ['no_link'] },
       });
     } else if (!sameSite(new URL(origin).hostname, new URL(link).hostname)) {
       const outcome: Outcome = { kind: 'refused_by_policy', reason: 'off_site_descriptor' };
@@ -218,7 +219,7 @@ export async function probeDomain(
   }
 
   return {
-    v: 1,
+    v: 2,
     list,
     domain,
     userAgent: cfg.userAgent,

@@ -16,6 +16,27 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-17: Spike C: platform route reachability
+
+One full run of `lab/routes/` (17:57:51Z to 18:03:44Z): 800 hosts, 1,840 requests, at most 5 to one host, no interruption. "Answers" are payloads of the documented shape (`ok + empty`). After the offline re-classification from stored evidence described in the report (12 records changed, all Magento or robots.txt).
+
+| List | Route | n | Answers | Answers, confirmed platform hosts | Wrong platform | Walls |
+|---|---|--:|---|---|---|---|
+| shopify | `suggest.json` | 200 | 184 (92.0%) | 184 of 196 (93.9%) | 0 (0.0%) | 0 |
+| shopify | `/products/<handle>.js` | 200 | 190 (95.0%) | 190 of 196 (96.9%) | 0 (0.0%) | 0 |
+| woocommerce | Store API search | 200 | 157 (78.5%) | 157 of 185 (84.9%) | 7 (3.5%) | 0 |
+| magento | GraphQL `products(search:)` | 200 | 72 (36.0%) | 72 of 144 (50.0%) | 16 (8.0%) | 5 (2.5%) |
+| searchaction | SearchAction on the home page | 200 | 63 (31.5%) | n/a | n/a | 1 (0.5%) |
+| searchaction | OpenSearch description | 200 | 1 (0.5%) | n/a | n/a | 1 (0.5%), inherited |
+
+- Sample: four lists of 200 hosts from Common Crawl CC-MAIN-2026-43 (clustered draw, TLD-skewed, from a robots-obeying crawler; the Magento list is 200 of a 217-host pool and includes Magento 1).
+- Client: plain Node `fetch`, honest bot User-Agent, one run on one day from one IP address, no Shopify market prefix.
+- Also measured: Shopify `suggest.json` returns the documented 417 "Unsupported buyer locale" on 10 of 200 hosts; a robots.txt `respect` setting would have refused 83 of 1,200 route probes (47 by a rule, 36 by an unreachable robots.txt), 32 of which had answered.
+- Proposed decision (owner to confirm): keep platform JSON first after UCP in S§5.2 in-store search, in the order Shopify, WooCommerce, Magento; handle Shopify's 417; treat Magento GraphQL as Magento 2 only; keep SearchAction/OpenSearch as a by-product of the home-page fetch. Proposed spec edits are listed in the report; `docs/spec.md` is not changed.
+- Lab changes: the Magento probe is a product search; result lines keep the classifier's whole input; `reclassify.ts` re-runs the classifier offline; five classifier rules added from the review.
+
+Report: [`docs/spikes/c-platform-routes.md`](spikes/c-platform-routes.md).
+
 ### 2026-11-17: Workstream 2b (part A), domain contracts
 
 **Shipped**
