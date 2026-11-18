@@ -8,7 +8,8 @@ Last updated: 2026-11-18.
 
 ## Authority settings in force
 
-- Merging: the orchestrator may squash-merge a PR once CI is green and its own review passes.
+- Merging (changed by the owner on 2026-11-18): no pushes for now, because each push stops for the owner's permission. Work is committed locally and may go straight to `main`. Units still get their own branch and the same review and checks before the orchestrator merges them into local `main`. CI runs only on GitHub, so nothing committed after this point has had CI until pushing resumes; the orchestrator runs lint, typecheck, test, build and, where the image can be affected, the local image build and budget check instead.
+- Not yet on GitHub: local `main` from the commit "Spikes B and C: spec edits, decisions and ledger" onward. PR #14 (that commit) and PR #12 (P0-2c) are open there and were left as they are.
 - Concurrency: at most 4 implementation subagents.
 - Phase checkpoints: stop and report to the owner at each phase exit.
 - Spend: no paid services or keys unless the owner provides them in the session.
