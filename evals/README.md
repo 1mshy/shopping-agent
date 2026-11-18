@@ -6,6 +6,8 @@ Gold sets, eval runners, recorded wire fixtures and hand-review files (S§5.16).
 |---|---|
 | `gold/` | Gold-set formats, the dev/held-out split, agreement tooling, hand-review files |
 | `wire/` | Recorded LLM request/SSE fixtures per server family, the recorder and the replay helper |
+| `corpus/` | The fixture corpus: golden cases ported from the predecessor before their implementation exists, and the harness that counts them |
+| `review/` | The hand-review file format, the converter from the predecessor's review files, and offline rescoring |
 
 Rules:
 

@@ -1,0 +1,23 @@
+{
+  "about": "Figures the predecessor's write-ups published that its script does not compute (they are derived from its figures in the report text). Transcribed by hand from the predecessor at commit 51db126; each value names its source line. Percentages are as printed (rounded); the test checks them as the rounding of an exact fraction.",
+  "files": {
+    "2026-10-23-phase5-review": {
+      "checkedShareOfRawPercent": { "before": 54, "after": 66, "with_learned": 62 },
+      "checkedShareOfRawPercentSource": "reports/2026-10-23-matching.md lines 135-137, column \"Phase 5\": \"119 / 64 (54%)\", \"163 / 108 (66%)\", \"201 / 124 (62%)\"",
+      "checkedProductsImprovedByWeb": 17,
+      "checkedProductsImprovedByWebSource": "reports/2026-10-23-phase5-evaluation.md line 132: \"Products with a hand-checked store added | — | 17 of 20 | 13 of 20\" (the 13 is the script's checked_products_improved_by_learned)",
+      "productsWithNoneChecked": { "before": 1, "after": 0, "with_learned": 0 },
+      "productsWithNoneCheckedSource": "reports/2026-10-23-phase5-evaluation.md line 133: \"Products with no hand-checked store | 1 (SUNLU PLA+) | 0 | 0\"",
+      "checkedByCategory": {
+        "3d-printing": { "before": 27, "after": 40, "with_learned": 46 },
+        "tech": { "before": 24, "after": 41, "with_learned": 47 },
+        "household": { "before": 13, "after": 27, "with_learned": 31 }
+      },
+      "checkedByCategorySource": "reports/2026-10-23-phase5-evaluation.md lines 135-136: \"3D printing 27 → 40 → 46, tech 24 → 41 → 47, household 13 → 27 → 31\""
+    },
+    "2026-10-23-matching-review": {
+      "checkedShareOfRawPercent": { "before": 83, "after": 89, "with_learned": 88 },
+      "checkedShareOfRawPercentSource": "reports/2026-10-23-matching.md lines 135-137, column \"This run\": \"84 / 70 (83%)\", \"124 / 110 (89%)\", \"140 / 123 (88%)\"; also line 19"
+    }
+  }
+}

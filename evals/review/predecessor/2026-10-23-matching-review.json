@@ -1,0 +1,5179 @@
+{
+  "formatVersion": 1,
+  "id": "2026-10-23-matching-review",
+  "run": {
+    "startedAt": "2026-10-23T20:38:37.354Z",
+    "finishedAt": "2026-10-23T21:01:59.885Z",
+    "preferredCurrency": "CAD",
+    "preferredRegion": "CA",
+    "productList": "scripts/eval/web-discovery-products.json"
+  },
+  "review": {
+    "reviewerId": "pred-unattributed",
+    "reviewedAt": null,
+    "rule": "Hand review of reports/2026-10-23-matching-eval.json (2026-10-23, the rerun after the matcher's accessory and variant rules), same rule as scripts/eval/2026-10-23-phase5-review.json: a store counts for a product when at least one row the engine read there is that product itself. Starts from the Phase 5 review; stores the old review rejected on rows this run no longer shows, and whose rows now are the product, are no longer rejected: a1-mini/aliexpress (now the A1 mini itself), k1c/amazon (the K1C beside a mainboard kit), sunlu-pla-plus/amazon (SUNLU PLA+ 2.0 in the catalog too), sonicare-4100/bestbuyca (the 4100 HX6810/50 in the catalog too). Stores this run saw for the first time were checked fresh: p1s-combo/ebay, keurig-k-mini/ebay, sonicare-4100/walmart and brita-10-cup/walmart are the product; k1c/rona.ca is not.",
+    "unlistedStores": "accepted"
+  },
+  "products": [
+    {
+      "id": "p1s-combo",
+      "category": "3d-printing",
+      "query": "Bambu Lab P1S Combo",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/bambu-lab-p1s-3d-printer-and-p1s-ams-combo?variant=47503120302292",
+          "title": "Bambu Lab P1S 3D Printer and P1S AMS Combo",
+          "price": {
+            "decimal": "596.0",
+            "currency": "CAD",
+            "amountMinor": 59600,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "3dprintingcanada",
+          "url": "https://3dprintingcanada.com/products/bambu-lab-p1s-combo-3d-bundle",
+          "title": "Bambu Lab P1S Combo",
+          "price": {
+            "decimal": "719.0",
+            "currency": "CAD",
+            "amountMinor": 71900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "digitmakers",
+          "url": "https://digitmakers.ca/products/bambu-lab-p1s-combo-3d-printer",
+          "title": "Bambu Lab P1S Combo 3D Printer",
+          "price": {
+            "decimal": "719.0",
+            "currency": "CAD",
+            "amountMinor": 71900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p1s-combo-enclosed-fdm-3d-printer-multi-colour-printing-built-in-camera-auto-bed-leveling-500mm-s-300c-256-x-256-x-256mm-build-volume/19854442",
+          "title": "Bambu Lab P1S Combo Enclosed FDM 3D Printer – Multi-Colour Printing, Built-In Camera, Auto Bed Leveling, 500mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+          "price": {
+            "decimal": "719.99",
+            "currency": "CAD",
+            "amountMinor": 71999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/280601/bambu-lab-p1s-combo-3d-printer-bilingual-packaging-pf001-usa001-ca.html",
+          "title": "Bambu Lab P1S Combo 3D Printer, Bilingual packaging",
+          "price": {
+            "decimal": "719.99",
+            "currency": "CAD",
+            "amountMinor": 71999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "fabreeko",
+          "url": "https://fabreeko.com/products/bambu-lab-p1s-combo-3d-printer",
+          "title": "Bambu Lab P1S AMS Combo 3D Printer",
+          "price": {
+            "decimal": "780.48",
+            "currency": "CAD",
+            "amountMinor": 78048,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p1s-combo-enclosed-fdm-3d-printer-with-8-x-1kg-pla-filament-best-buy-exclusive-starter-pack-multi-colour-built-in-camera-auto-bed-leveling-500mm-s-300c/20184398",
+          "title": "Bambu Lab P1S Combo Enclosed FDM 3D Printer with 8 x 1kg PLA Filament - Best Buy Exclusive Starter Pack - Multi-Colour - Built-In Camera - Auto Bed Leveling - 500mm/s - 300°C",
+          "price": {
+            "decimal": "999.0",
+            "currency": "CAD",
+            "amountMinor": 99900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0DMQ9SKP9",
+          "title": "Bambu Lab P1S + AMS (Combo) 3D Printer - P1SC, Bivolt",
+          "price": {
+            "decimal": "999.99",
+            "currency": "CAD",
+            "amountMinor": 99999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/227532699243",
+          "title": "Bambu Lab P1S Combo, P1S 3D Printer and AMS, Multi-Color 3D Printing M...Opens in a new window or tab",
+          "price": {
+            "decimal": "1063.36",
+            "currency": "CAD",
+            "amountMinor": 106336,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/307156269242",
+          "title": "Bambu Lab P1S Combo 3D Printer with AMS - Multi-Color PrintingOpens in a new window or tab",
+          "price": {
+            "decimal": "1346.35",
+            "currency": "CAD",
+            "amountMinor": 134635,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/257341593194",
+          "title": "Bambu Lab P1S 3D Printer with AMS 2 Pro Combo / Combo with Hub NEWOpens in a new window or tab",
+          "price": {
+            "decimal": "1400.99",
+            "currency": "CAD",
+            "amountMinor": 140099,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013380299798.html",
+          "title": "2026NEW Bambu Lab P1S Combo FDM 3D Printer Auto Bed Leveling Large Build Volume Multi-Color High Speed Enclosed 3D Printing Mach",
+          "price": {
+            "decimal": "2341.68",
+            "currency": "CAD",
+            "amountMinor": 234168,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012628346044.html",
+          "title": "2026 NEW Bambu Lab P1S Combo 3D Printer-500mm/s High-Speed CoreXY 256x256x256mm Build Volume WiFi/USB/Ethernet Industrial & Home",
+          "price": {
+            "decimal": "2845.99",
+            "currency": "CAD",
+            "amountMinor": 284599,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013392794765.html",
+          "title": "2026NEW Original Bamboo Lab P1S Combo 3D Printer FDM Ready 500mm/s Fast Shipping Auto-Calibration",
+          "price": {
+            "decimal": "1923.99",
+            "currency": "CAD",
+            "amountMinor": 192399,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p1s-combo-enclosed-fdm-3d-printer-multi-colour-printing-built-in-camera-auto-bed-leveling-500mm-s-300c-256-x-256-x-256mm-build-volume/19854442",
+          "title": "Bambu Lab P1S Combo Enclosed FDM 3D Printer – Multi-Colour Printing, Built-In Camera, Auto Bed Leveling, 500mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+          "price": {
+            "decimal": "719.99",
+            "currency": "CAD",
+            "amountMinor": 71999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/280601/bambu-lab-p1s-combo-3d-printer-bilingual-packaging-pf001-usa001-ca.html",
+          "title": "Bambu Lab P1S Combo 3D Printer, Bilingual packaging",
+          "price": {
+            "decimal": "719.99",
+            "currency": "CAD",
+            "amountMinor": 71999,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Bambu-Lab-P1S-Combo-Printer/dp/B0DMQ9SKP9",
+          "title": "Bambu Lab P1S + AMS (Combo) 3D Printer - P1SC, Bivolt",
+          "price": {
+            "decimal": "999.99",
+            "currency": "CAD",
+            "amountMinor": 99999,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "3dprintingcanada",
+          "url": "https://3dprintingcanada.com/products/bambu-lab-p1s-combo-3d-bundle",
+          "title": "Bambu Lab P1S Combo",
+          "price": {
+            "decimal": "719.0",
+            "currency": "CAD",
+            "amountMinor": 71900,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "web",
+          "store": "digitmakers",
+          "url": "https://www.digitmakers.ca/products/bambu-lab-p1s-combo-3d-printer",
+          "title": "Bambu Lab P1S Combo 3D Printer",
+          "price": {
+            "decimal": "719.0",
+            "currency": "CAD",
+            "amountMinor": 71900,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "learned",
+          "store": "caz3d.com",
+          "url": "https://caz3d.com/products/bambu-lab-p1s-combo-ams-pro-2",
+          "title": "Bambu Lab P1S Combo - AMS 2 Pro",
+          "price": {
+            "decimal": "799.0",
+            "currency": "CAD",
+            "amountMinor": 79900,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "bestbuy.com",
+          "url": "https://www.bestbuy.com/product/bambu-lab-p1s-combo-3d-printer-black/CZTZV9Z2C4",
+          "reason": "unreadable"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "bambulab",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "P1S without the AMS, stickers"
+        },
+        {
+          "store": "e3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend"
+        },
+        {
+          "store": "nex3d.com",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "P1S without the AMS, a pulley"
+        },
+        {
+          "store": "shop3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "build plate"
+        },
+        {
+          "store": "slice",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend"
+        },
+        {
+          "store": "voxelfactory",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "PTFE tubes"
+        }
+      ]
+    },
+    {
+      "id": "a1-mini",
+      "category": "3d-printing",
+      "query": "Bambu Lab A1 mini",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/288419/bambu-lab-a1-mini-3d-printer-bilingual-packaging-pf002-m-ca.html",
+          "title": "Bambu Lab A1 Mini 3D Printer, Bilingual packaging(Open Box)",
+          "price": {
+            "decimal": "242.99",
+            "currency": "CAD",
+            "amountMinor": 24299,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-a1-mini-fdm-3d-printer-camera-auto-bed-leveling-500mm-s-48-db-300c-180-x-180-x-180-mm-build-volume/19854446",
+          "title": "Bambu Lab A1 mini FDM 3D Printer - Camera, Auto Bed Leveling, 500mm/s, 48 dB, 300°C – 180 x 180 x 180 mm Build Volume",
+          "price": {
+            "decimal": "269.99",
+            "currency": "CAD",
+            "amountMinor": 26999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/280604/bambu-lab-a1-mini-3d-printer-bilingual-packaging-pf002-m-ca.html",
+          "title": "Bambu Lab A1 Mini 3D Printer, Bilingual packaging",
+          "price": {
+            "decimal": "269.99",
+            "currency": "CAD",
+            "amountMinor": 26999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/268384/bambu-lab-a1-mini-3d-printer-pf002-m-us.html",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "269.99",
+            "currency": "CAD",
+            "amountMinor": 26999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "fabreeko",
+          "url": "https://fabreeko.com/products/bambu-lab-a1-3d-printer?variant=48277569011967",
+          "title": "Bambu Lab A1 mini  3D Printer",
+          "price": {
+            "decimal": "284.31",
+            "currency": "CAD",
+            "amountMinor": 28431,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0GQMJ8QQT",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "371.5",
+            "currency": "CAD",
+            "amountMinor": 37150,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013380365522.html",
+          "title": "2026NEW Bambu Lab A1 Mini 3D Printer High Speed FDM Printer With Auto Calibration Multi Color Printing For Beginners & Makers",
+          "price": {
+            "decimal": "748.68",
+            "currency": "CAD",
+            "amountMinor": 74868,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013393028145.html",
+          "title": "2026NEW Bambu Lab A1 Mini Desktop FDM 3D Printer Fully Auto Leveling High Speed Multi-color Home 3D Printing Machine",
+          "price": {
+            "decimal": "748.68",
+            "currency": "CAD",
+            "amountMinor": 74868,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "bambulab",
+          "url": "https://ca.store.bambulab.com/products/a1-mini",
+          "title": "Bambu Lab A1 mini 3D Printer",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "browser:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Bambu-Lab-A1-Mini-Printer/dp/B0GQMJ8QQT",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "371.5",
+            "currency": "CAD",
+            "amountMinor": 37150,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/268384/bambu-lab-a1-mini-3d-printer-pf002-m-us.html",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "269.99",
+            "currency": "CAD",
+            "amountMinor": 26999,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-a1-mini-fdm-3d-printer-camera-auto-bed-leveling-500mm-s-48-db-300c-180-x-180-x-180-mm-build-volume/19854446",
+          "title": "Bambu Lab A1 mini FDM 3D Printer - Camera, Auto Bed Leveling, 500mm/s, 48 dB, 300°C – 180 x 180 x 180 mm Build Volume",
+          "price": {
+            "decimal": "269.99",
+            "currency": "CAD",
+            "amountMinor": 26999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "spool3d",
+          "url": "https://spool3d.ca/bambu-lab-a1-mini-3d-printer/",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "browser:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "spool3d",
+          "url": "https://spool3d.ca/bambu-lab-x-belt-a1-mini/",
+          "title": "Bambu Lab X Belt - A1 mini",
+          "price": {
+            "decimal": "7.0",
+            "currency": "CAD",
+            "amountMinor": 700,
+            "refusal": null
+          },
+          "readMethod": "browser:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "spool3d",
+          "url": "https://spool3d.ca/bambu-lab-heatbed-nozzle-wiper-a1-mini/",
+          "title": "Bambu Lab Heatbed Nozzle Wiper - A1 mini",
+          "price": {
+            "decimal": "8.0",
+            "currency": "CAD",
+            "amountMinor": 800,
+            "refusal": null
+          },
+          "readMethod": "browser:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "bambulab",
+          "url": "https://ca.store.bambulab.com/products/a1-mini",
+          "title": "Bambu Lab A1 mini 3D Printer",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "browser:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "spool3d",
+          "url": "https://spool3d.ca/bambu-lab-a1-mini-3d-printer/",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "browser:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "caz3d.com",
+          "url": "https://caz3d.com/products/bambu-lab-a1-mini-3d-printer",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "nex3d.com",
+          "url": "https://www.nex3d.com/products/bambu-lab-a1-mini-3d-printer",
+          "title": "Bambu Lab A1 Mini 3D Printer",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        }
+      ],
+      "unreadable": [],
+      "verdicts": [
+        {
+          "store": "3dprintingcanada",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend, the A1 Combo (not mini), a plate"
+        },
+        {
+          "store": "digitmakers",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "antenna, plate"
+        },
+        {
+          "store": "e3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotends"
+        },
+        {
+          "store": "filastruder",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotends"
+        },
+        {
+          "store": "microswiss",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend, silicone socks"
+        },
+        {
+          "store": "voxelfactory",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "build plate"
+        },
+        {
+          "store": "west3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "only the A1 mini Combo (with AMS lite), a toolhead board"
+        }
+      ]
+    },
+    {
+      "id": "k1c",
+      "category": "3d-printing",
+      "query": "Creality K1C",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0D7PM6YTY",
+          "title": "Creality K1C Original Replacement Silent Mainboard Kit, CR4CU220812S12 32 T2209 X2000E Motherboard for 3D Printer (Not for 2025 K1C)",
+          "price": {
+            "decimal": "149.99",
+            "currency": "CAD",
+            "amountMinor": 14999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/268638/creality-k1c-speedy-fdm-3d-printer-220x220x250mm-print-size-k1c.html",
+          "title": "Creality K1C Speedy FDM 3D Printer, 220x220x250mm Print Size(Open Box)",
+          "price": {
+            "decimal": "449.99",
+            "currency": "CAD",
+            "amountMinor": 44999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/252031/creality-k1c-speedy-fdm-3d-printer-220x220x250mm-print-size-k1c.html",
+          "title": "Creality K1C Speedy FDM 3D Printer, 220x220x250mm Print Size",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0FXWKVQNT",
+          "title": "Creality K1C 3D Printer Support Carbon Fiber Filament Auto Leveling",
+          "price": {
+            "decimal": "699.0",
+            "currency": "CAD",
+            "amountMinor": 69900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005008379796349.html",
+          "title": "Creality K1C 3D Printer With AI Camera 600mm/s High Speed Printing Auto Leveling Carbon Fiber Filled All-Metal Extruder Printer",
+          "price": {
+            "decimal": "995.68",
+            "currency": "CAD",
+            "amountMinor": 99568,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/creality-k1c-enclosed-fdm-3d-printer-ai-camera-auto-bed-leveling-600mm-s-45db-300c-220-x-220-x-250mm-build-volume/19591649",
+          "title": "Creality K1C Enclosed FDM 3D Printer - AI Camera, Auto Bed Leveling, 600mm/s, 45dB, 300°C – 220 x 220 x 250mm Build Volume",
+          "price": {
+            "decimal": "1030.0",
+            "currency": "CAD",
+            "amountMinor": 103000,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005008120412596.html",
+          "title": "CREALITY K1C 3D Printer 600mm/S Speed with AI Camera Printing Stable Frame Auto Leveling Dual Fan Direct Cooling Drive Extruder",
+          "price": {
+            "decimal": "1088.99",
+            "currency": "CAD",
+            "amountMinor": 108899,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "homedepot.ca",
+          "url": "https://www.homedepot.ca/product/creality-k1c-3d-printer/1001858322",
+          "title": "Creality K1C 3D printer",
+          "price": {
+            "decimal": "719.0",
+            "currency": "CAD",
+            "amountMinor": 71900,
+            "refusal": null
+          },
+          "readMethod": "http:microdata"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/fdm-3d-printer/252031/creality-k1c-speedy-fdm-3d-printer-220x220x250mm-print-size-k1c.html",
+          "title": "Creality K1C Speedy FDM 3D Printer, 220x220x250mm Print Size",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/creality-k1c-enclosed-fdm-3d-printer-ai-camera-auto-bed-leveling-600mm-s-45db-300c-220-x-220-x-250mm-build-volume/19591649",
+          "title": "Creality K1C Enclosed FDM 3D Printer - AI Camera, Auto Bed Leveling, 600mm/s, 45dB, 300°C – 220 x 220 x 250mm Build Volume",
+          "price": {
+            "decimal": "1030.0",
+            "currency": "CAD",
+            "amountMinor": 103000,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3086106-en-creality-k1c-3d-printer",
+          "title": "Creality K1C 3D Printer",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "web",
+          "store": "creality3dofficial.com",
+          "url": "https://www.creality3dofficial.com/products/creality-k1c-3d-printer-on-sale",
+          "title": "Creality K1C Carbon Fiber 3D Printer （2025 Version）",
+          "price": {
+            "decimal": "369.0",
+            "currency": "USD",
+            "amountMinor": 36900,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "creality",
+          "url": "https://store.creality.com/products/k1c-3d-printer",
+          "title": "K1C 3D Printer",
+          "price": {
+            "decimal": "499.0",
+            "currency": "USD",
+            "amountMinor": 49900,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3086106-en-creality-k1c-3d-printer",
+          "title": "Creality K1C 3D Printer",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3086106-fr-creality-imprimante-3d-k1c",
+          "title": "Creality - Imprimante 3D K1C",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "creality3dofficial.com",
+          "url": "https://www.creality3dofficial.com/products/creality-k1c-3d-printer-on-sale",
+          "title": "Creality K1C Carbon Fiber 3D Printer （2025 Version）",
+          "price": {
+            "decimal": "369.0",
+            "currency": "USD",
+            "amountMinor": 36900,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00129588",
+          "title": "Creality K1C Enclosed CoreXY 3D Printer",
+          "price": {
+            "decimal": "789.99",
+            "currency": "CAD",
+            "amountMinor": 78999,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        },
+        {
+          "source": "learned",
+          "store": "creality3dofficial.com",
+          "url": "https://www.creality3dofficial.com/products/creality-space-pi-filament-dryer",
+          "title": "Creality Space Pi Filament Dryer",
+          "price": {
+            "decimal": "59.0",
+            "currency": "USD",
+            "amountMinor": 5900,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "rona.ca",
+          "url": "https://www.rona.ca/en/product/creality-ender-5-max-3d-printer-1001020571-332095758",
+          "title": "Creality Ender-5 Max 3D Printer",
+          "price": {
+            "decimal": "749.0",
+            "currency": "CAD",
+            "amountMinor": 74900,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-xpath"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "rona.ca",
+          "url": "https://www.rona.ca/en/product/creality-k1c-3d-printer-black-1001060030-332094901",
+          "reason": "no-price"
+        },
+        {
+          "host": "creality.com",
+          "url": "https://www.creality.com/products/k1c-carbon-3d-printer",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "3dprintingcanada",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "build plates, nozzle kit"
+        },
+        {
+          "store": "creality",
+          "verdict": "rejected",
+          "setups": ["before"],
+          "reason": "catalog: accessories hub (the web read the K1C itself)"
+        },
+        {
+          "store": "e3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "nozzles"
+        },
+        {
+          "store": "fabreeko",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "extruder gears"
+        },
+        {
+          "store": "filastruder",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "extruder accessories"
+        },
+        {
+          "store": "microswiss",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend, cables"
+        },
+        {
+          "store": "spool3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "print beds, touch screen"
+        },
+        {
+          "store": "voxelfactory",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "a workshop"
+        },
+        {
+          "store": "west3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "extruder"
+        },
+        {
+          "store": "rona.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Ender-5 Max (another printer)"
+        }
+      ]
+    },
+    {
+      "id": "saturn-4-ultra",
+      "category": "3d-printing",
+      "query": "Elegoo Saturn 4 Ultra",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/elegoo-saturn-4-ultra-pfa-film-5pcs",
+          "title": "Elegoo Saturn 2 / 3 / 4 and 4 Ultra PFA Film (5 Pack) - Protect Your 3D Prints",
+          "price": {
+            "decimal": "45.0",
+            "currency": "CAD",
+            "amountMinor": 4500,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "filamentsca",
+          "url": "https://filaments.ca/products/saturn-4-ultra-16k-resin-3d-printer",
+          "title": "Elegoo Saturn 4 Ultra 16K Resin 3D Printer",
+          "price": {
+            "decimal": "449.0",
+            "currency": "CAD",
+            "amountMinor": 44900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/resin-3d-printer/257553/elegoo-saturn-4-ultra-12k-resin-3d-printer-50101036200.html",
+          "title": "Elegoo Saturn 4 Ultra 12K Resin 3D Printer",
+          "price": {
+            "decimal": "509.0",
+            "currency": "CAD",
+            "amountMinor": 50900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/resin-3d-printer/269282/elegoo-saturn-4-ultra-16k-50101038200.html",
+          "title": "ELEGOO Saturn 4 Ultra 16K",
+          "price": {
+            "decimal": "549.0",
+            "currency": "CAD",
+            "amountMinor": 54900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/elegoo-saturn-4-ultra-12k-high-speed-high-precision-3d-printer",
+          "title": "Elegoo Saturn 4 Ultra 12K: High-Speed, High-Precision SLA Resin 3D Printer",
+          "price": {
+            "decimal": "568.0",
+            "currency": "CAD",
+            "amountMinor": 56800,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/elegoo-saturn-4-ultra-16k-high-speed-ultra-high-precision-sla-resin-3d-printer",
+          "title": "Elegoo Saturn 4 Ultra 16K: High-Speed, Ultra High-Precision SLA Resin 3D Printer",
+          "price": {
+            "decimal": "715.0",
+            "currency": "CAD",
+            "amountMinor": 71500,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012431959645.html",
+          "title": "2026 NEW ELEGOO Saturn 4 Ultra 12K Resin 3D Printer, With Smart Automatic Leveling, 10-Inch 12K LCD, 150mm/h Faster Printing Spe",
+          "price": {
+            "decimal": "1092.38",
+            "currency": "CAD",
+            "amountMinor": 109238,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005009134844355.html",
+          "title": "Hot Sale ELEGOO Saturn 4 Ultra Resin 16K LCD 3D Printer Auto-Leveling For Dental",
+          "price": {
+            "decimal": "1717.68",
+            "currency": "CAD",
+            "amountMinor": 171768,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013289125039.html",
+          "title": "ELEGOO Saturn 4 Ultra 16K Resin 3D Printer High Precision Jewelry Casting",
+          "price": {
+            "decimal": "1829.38",
+            "currency": "CAD",
+            "amountMinor": 182938,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "elegoo",
+          "url": "https://ca.elegoo.com/products/saturn-4-ultra-12k-10inch-monochrome-lcd-resin-3d-printer",
+          "title": "Saturn 4 Ultra",
+          "price": {
+            "decimal": "549.0",
+            "currency": "CAD",
+            "amountMinor": 54900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "elegoo",
+          "url": "https://ca.elegoo.com/products/saturn-4-ultra-16k-10inch-monochrome-lcd-resin-3d-printer",
+          "title": "Saturn 4 Ultra 16K",
+          "price": {
+            "decimal": "669.0",
+            "currency": "CAD",
+            "amountMinor": 66900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0D12Q82KC",
+          "title": "Saturn 4 Ultra Resin 3D Printer, 10-Inch 12K Mono LCD, 150mm/h High Speed Printing, Smart Automatic Leveling, Intelligent Detection, WiFi-Transfer, Large Printing Size 218.88x122.88x220 mm³",
+          "price": {
+            "decimal": "643.99",
+            "currency": "CAD",
+            "amountMinor": 64399,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "elegoo",
+          "url": "https://ca.elegoo.com/products/saturn-4-ultra-with-mercury-plus-v2-0-bundle",
+          "title": "Saturn 4 Ultra with Mercury Plus V2.0 Bundle",
+          "price": {
+            "decimal": "655.0",
+            "currency": "CAD",
+            "amountMinor": 65500,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0DPKLVM1J",
+          "title": "Saturn 4 Ultra 16K Resin 3D Printer, Smart Tank Heating, 150mm/h",
+          "price": {
+            "decimal": "699.99",
+            "currency": "CAD",
+            "amountMinor": 69999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0DT8PV51T",
+          "title": "Saturn 4 Ultra 16K Resin 3D Printer",
+          "price": {
+            "decimal": "709.99",
+            "currency": "CAD",
+            "amountMinor": 70999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/ELEGOO-Saturn-Printer-WiFi-Transfer-211-68x118-37x220/dp/B0DT8PV51T",
+          "title": "ELEGOO Saturn 4 Ultra 16K Resin 3D Printer",
+          "price": {
+            "decimal": "709.99",
+            "currency": "CAD",
+            "amountMinor": 70999,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/resin-3d-printer/257553/elegoo-saturn-4-ultra-12k-resin-3d-printer-50101036200.html",
+          "title": "Elegoo Saturn 4 Ultra 12K Resin 3D Printer",
+          "price": {
+            "decimal": "509.0",
+            "currency": "CAD",
+            "amountMinor": 50900,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "filamentsca",
+          "url": "https://filaments.ca/products/saturn-4-ultra-16k-resin-3d-printer",
+          "title": "Elegoo Saturn 4 Ultra 16K Resin 3D Printer",
+          "price": {
+            "decimal": "449.0",
+            "currency": "CAD",
+            "amountMinor": 44900,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputersbusiness.com",
+          "url": "https://www.canadacomputersbusiness.com/en/resin-3d-printer/269282/elegoo-saturn-4-ultra-16k-50101038200.html",
+          "title": "ELEGOO Saturn 4 Ultra 16K",
+          "price": {
+            "decimal": "549.0",
+            "currency": "CAD",
+            "amountMinor": 54900,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "elegoo",
+          "url": "https://ca.elegoo.com/products/saturn-4-ultra-16k-10inch-monochrome-lcd-resin-3d-printer?variant=49652126875926",
+          "title": "Saturn 4 Ultra 16K",
+          "price": {
+            "decimal": "669.0",
+            "currency": "CAD",
+            "amountMinor": 66900,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "web",
+          "store": "elegoo",
+          "url": "https://global.elegoo.com/products/saturn-4-ultra-16k-10inch-monochrome-lcd-resin-3d-printer",
+          "title": "Saturn 4 Ultra 16K",
+          "price": {
+            "decimal": "499.0",
+            "currency": "USD",
+            "amountMinor": 49900,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "us.elegoo.com",
+          "url": "https://us.elegoo.com/pages/elegoo-saturn-4-ultra",
+          "reason": "unreadable"
+        },
+        {
+          "host": "au.elegoo.com",
+          "url": "https://au.elegoo.com/pages/elegoo-saturn-4-ultra",
+          "reason": "unreadable"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "3dprintingcanada",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "LCD screens"
+        },
+        {
+          "store": "bestbuyca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "PFA film"
+        },
+        {
+          "store": "spool3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "resin tank, LCD, build plate"
+        }
+      ]
+    },
+    {
+      "id": "kobra-3-combo",
+      "category": "3d-printing",
+      "query": "Anycubic Kobra 3 Combo",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012417702957.html",
+          "title": "2026 NEW Anycubic Kobra 3 Combo High-Speed Multi-Color 3D Printer With Automatic Filament System",
+          "price": {
+            "decimal": "956.38",
+            "currency": "CAD",
+            "amountMinor": 95638,
+            "refusal": null
+          },
+          "readMethod": null
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "top10verdict.ca",
+          "url": "https://top10verdict.ca/product/anycubic-kobra-3-combo/",
+          "reason": "no-price"
+        },
+        {
+          "host": "ebay.ca",
+          "url": "https://www.ebay.ca/b/ANYCUBIC-3D-Printers/183063/bn_7114676258",
+          "reason": "no-price"
+        },
+        {
+          "host": "anycubic.com",
+          "url": "https://www.anycubic.com/en/kobra-3-combo",
+          "reason": "unreadable"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "amazon",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Kobra S1 Combo (another model)"
+        },
+        {
+          "store": "anycubic",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Kobra 3 Max, Kobra 4 Combo (other models)"
+        },
+        {
+          "store": "anycubic.au",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Kobra 3 Max V2 Combo, a Max bundle, Kobra 4 Combo"
+        },
+        {
+          "store": "ebay",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Kobra 3 Max Combo, a toolhead kit"
+        },
+        {
+          "store": "microswiss",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend for the Kobra S1"
+        },
+        {
+          "store": "spool3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "hotend assemblies"
+        },
+        {
+          "store": "us.anycubic3d.com",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Kobra 4 Combo"
+        }
+      ]
+    },
+    {
+      "id": "polyterra-pla",
+      "category": "3d-printing",
+      "query": "Polymaker PolyTerra PLA 1kg",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-green/16391293",
+          "title": "Polymaker - PolyTerra PLA 1KG (Green)",
+          "price": {
+            "decimal": "27.99",
+            "currency": "CAD",
+            "amountMinor": 2799,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-white/16391292",
+          "title": "Polymaker - PolyTerra PLA 1KG (White)",
+          "price": {
+            "decimal": "27.99",
+            "currency": "CAD",
+            "amountMinor": 2799,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-grey/16391290",
+          "title": "Polymaker - PolyTerra PLA 1KG (Grey)",
+          "price": {
+            "decimal": "27.99",
+            "currency": "CAD",
+            "amountMinor": 2799,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/960074175877",
+          "title": "Polymaker Style# PolyTerra PLA 1.75mm 1kg Charcoal Black 3D Printer Filament NewOpens in a new window or tab",
+          "price": {
+            "decimal": "32.21",
+            "currency": "CAD",
+            "amountMinor": 3221,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/147646073491",
+          "title": "Polymaker PolyTerra Matte PLA Filament 1.75mm 1kg Sakura PinkOpens in a new window or tab",
+          "price": {
+            "decimal": "45.56",
+            "currency": "CAD",
+            "amountMinor": 4556,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005010681746871.html",
+          "title": "PolyTerra PLA Panchroma Matte 1.75mm 1kg Polymaker Filament Matte Finish High-Speed Easy Printing Compatible 3D Printers",
+          "price": {
+            "decimal": "62.32",
+            "currency": "CAD",
+            "amountMinor": 6232,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005005182495596.html",
+          "title": "Polymaker PolyTerra PLA (Panchroma Matte) Filament 1.75mm 1kg, Matte Finish for High-Speed and Easy Printing (Old/New Packaging)",
+          "price": {
+            "decimal": "64.09",
+            "currency": "CAD",
+            "amountMinor": 6409,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012722753260.html",
+          "title": "Polymaker PolyTerra PLA Bioplastic Based 3D Printed Filament, Matte PLA Filament, 1.75/2",
+          "price": {
+            "decimal": "31.18",
+            "currency": "CAD",
+            "amountMinor": 3118,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "voxelfactory",
+          "url": "https://voxelfactory.com/products/polymaker-polylite-pla-1-75mm-1kg",
+          "title": "Polymaker PolyLite PLA 1.75mm 1kg",
+          "price": {
+            "decimal": "19.99",
+            "currency": "CAD",
+            "amountMinor": 1999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "digitmakers",
+          "url": "https://digitmakers.ca/products/polyterra-pla-black-1-75mm-1kg",
+          "title": "PolyTerra™ PLA+ Black - 1.75mm 1kg",
+          "price": {
+            "decimal": "27.99",
+            "currency": "CAD",
+            "amountMinor": 2799,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "voxelfactory",
+          "url": "https://voxelfactory.com/products/polymaker-polylite-pla-2-85mm-1kg",
+          "title": "Polymaker PolyLite PLA 2.85mm 1kg",
+          "price": {
+            "decimal": "28.99",
+            "currency": "CAD",
+            "amountMinor": 2899,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/polymaker-polylite-pla-3d-printer-filament-1kg-1-75mm",
+          "title": "Polymaker PolyLite PLA 3D Printer Filament 1KG 1.75mm",
+          "price": {
+            "decimal": "33.0",
+            "currency": "CAD",
+            "amountMinor": 3300,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "elegoo",
+          "url": "https://ca.elegoo.com/products/pla-filament-1-75mm-colored-1kg",
+          "title": "PLA",
+          "price": {
+            "decimal": "19.99",
+            "currency": "CAD",
+            "amountMinor": 1999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "anycubic",
+          "url": "https://ca.anycubic.com/products/pla-plus-filament",
+          "title": "PLA+ Filament",
+          "price": {
+            "decimal": "26.99",
+            "currency": "CAD",
+            "amountMinor": 2699,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/168294498440",
+          "title": "PolyTerra Dual Matte PLA 1.75mm 1kg FilamentOpens in a new window or tab",
+          "price": {
+            "decimal": "37.48",
+            "currency": "CAD",
+            "amountMinor": 3748,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/polymaker-panchroma-dual-matte-pla-3d-printer-filament-1kg-1-75mm",
+          "title": "Polymaker Panchroma Dual Matte PLA 3D Printer Filament 1KG 1.75mm",
+          "price": {
+            "decimal": "38.0",
+            "currency": "CAD",
+            "amountMinor": 3800,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "west3d",
+          "url": "https://west3d.com/products/polymaker-polyterra-dual-gradient-pla-3d-printer-filament-1kg-1-75mm",
+          "title": "Polymaker Panchroma Gradient PLA 3D Printer Filament 1KG 1.75mm",
+          "price": {
+            "decimal": "44.0",
+            "currency": "CAD",
+            "amountMinor": 4400,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0HKC3BT5D",
+          "title": "1KG PolyTerra Panchroma Matte High-Speed PLA 3D Printer Filament 1.75mm(Lavender)",
+          "price": {
+            "decimal": "349.52",
+            "currency": "CAD",
+            "amountMinor": 34952,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-grey/16391290",
+          "title": "Polymaker - PolyTerra PLA 1KG (Grey)",
+          "price": {
+            "decimal": "27.99",
+            "currency": "CAD",
+            "amountMinor": 2799,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Polymaker-PolyTerra-Bioplastic-Printing-Filament/dp/B08QN5FQX7",
+          "title": "Polymaker Matte PLA Filament 1.75mm, 1kg, Fossil Grey",
+          "price": {
+            "decimal": "23.99",
+            "currency": "CAD",
+            "amountMinor": 2399,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "filamentsca",
+          "url": "https://filaments.ca/products/polyterra-pla-charcoal-black-1-75mm",
+          "title": "PolyTerra™ PLA - Charcoal Black - 1.75mm - 1KG",
+          "price": {
+            "decimal": "19.99",
+            "currency": "CAD",
+            "amountMinor": 1999,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "web",
+          "store": "crea3d.com",
+          "url": "https://www.crea3d.com/en/polymaker/1255-polymaker-polyterra-pla-1kg.html",
+          "title": "Polymaker PolyTerra™ PLA | 1Kg",
+          "price": {
+            "decimal": "12.39",
+            "currency": "EUR",
+            "amountMinor": 1239,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "pwncnc.com",
+          "url": "https://pwncnc.com/products/polymaker-polyterra-pla-filament-1kg",
+          "title": "Polymaker Polychroma Terra PLA Matte Filament – 1.75mm, 1kg",
+          "price": {
+            "decimal": "19.99",
+            "currency": "USD",
+            "amountMinor": 1999,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "learned",
+          "store": "crea3d.com",
+          "url": "https://www.crea3d.com/it/polymaker/1255-2322-polymaker-polyterra-pla-1kg.html",
+          "title": "Polymaker PolyTerra™ PLA | 1Kg",
+          "price": {
+            "decimal": "12.39",
+            "currency": "EUR",
+            "amountMinor": 1239,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "caz3d.com",
+          "url": "https://caz3d.com/products/polymaker-polyterra-pla-1-75mm-1kg-pastel-peach",
+          "title": "Polymaker PolyTerra PLA - 1.75mm, 1kg",
+          "price": {
+            "decimal": "20.79",
+            "currency": "CAD",
+            "amountMinor": 2079,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "pwncnc.com",
+          "url": "https://pwncnc.com/products/polymaker-polylite-pla-filament-1kg",
+          "title": "Polymaker PolyLite PLA Filament – 1.75mm, 1kg",
+          "price": {
+            "decimal": "19.99",
+            "currency": "USD",
+            "amountMinor": 1999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "anycubic.au",
+          "url": "https://www.anycubic.au/products/pla-plus-filament",
+          "title": "PLA+ Filament",
+          "price": {
+            "decimal": "25.34",
+            "currency": "AUD",
+            "amountMinor": 2534,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "inksmith.ca",
+          "url": "https://www.inksmith.ca/pages/polyterra%E2%84%A2%EF%B8%8F-pla-filament-by-polymaker%E2%84%A2%EF%B8%8F",
+          "reason": "no-price"
+        },
+        {
+          "host": "3dprima.com",
+          "url": "https://www.3dprima.com/filament-resin/filaments/pla/others/polymaker-polyterra-pla_28601_10172",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "anycubic",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Anycubic PLA+ (another brand)"
+        },
+        {
+          "store": "anycubic.au",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Anycubic PLA+ (another brand)"
+        },
+        {
+          "store": "elegoo",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Elegoo PLA (another brand)"
+        },
+        {
+          "store": "polymaker",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "PLA Pro (another Polymaker line)"
+        },
+        {
+          "store": "west3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "PolyLite, Panchroma Dual Matte and Gradient (other lines)"
+        }
+      ]
+    },
+    {
+      "id": "sunlu-pla-plus",
+      "category": "3d-printing",
+      "query": "SUNLU PLA+ 1.75mm 1kg",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/237131715002",
+          "title": "SUNLU PLA+2.0 3D Printer Filament Refill 1.75mm, 4KG, 1KG/Roll, Black*4 | Hig...Opens in a new window or tab",
+          "price": {
+            "decimal": "98.06",
+            "currency": "CAD",
+            "amountMinor": 9806,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/365603814548",
+          "title": "SUNLU 10KG PLA PLA+2.0 ASA SILK PETG ABS 3D Printer Filament 1.75mm 1KG/SpoolOpens in a new window or tab",
+          "price": {
+            "decimal": "151.6",
+            "currency": "CAD",
+            "amountMinor": 15160,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "digitmakers",
+          "url": "https://digitmakers.ca/products/esun-pla-filament-1-75-mm-1-kg-27-colours",
+          "title": "eSUN PLA+ Filament 1.75mm 1kg - 40 Colors Available",
+          "price": {
+            "decimal": "17.99",
+            "currency": "CAD",
+            "amountMinor": 1799,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0FFGCHWVG",
+          "title": "PLA+ 2.0 3D Printer Filament, 1.75mm, 1KG Black",
+          "price": {
+            "decimal": "18.04",
+            "currency": "CAD",
+            "amountMinor": 1804,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0CLLY9CBN",
+          "title": "Rapid PLA Plus 3D Printer Filament 1.75mm Black 1KG",
+          "price": {
+            "decimal": "21.49",
+            "currency": "CAD",
+            "amountMinor": 2149,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0B4G187LD",
+          "title": "PLA Plus (PLA+) 3D Printer Filament 1.75mm Orange, 3D Printing PLA+ Filament High Toughness, 1kg Spool (2.2lbs), Dimensional Accuracy +/- 0.02 mm, Fit Most FDM 3D Printers",
+          "price": {
+            "decimal": "21.98",
+            "currency": "CAD",
+            "amountMinor": 2198,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "sunlu",
+          "url": "https://store.sunlu.com/products/over-6kg-of-sunlu-silk-pla-3d-printer-filament-1-75mm-1kg-2-2lbs",
+          "title": "SUNLU SILK PLA Plus (SILK PLA+) 3D Printer Filament 1KG",
+          "price": {
+            "decimal": "20.0",
+            "currency": "CAD",
+            "amountMinor": 2000,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "anycubic",
+          "url": "https://ca.anycubic.com/products/pla-plus-filament",
+          "title": "PLA+ Filament",
+          "price": {
+            "decimal": "26.99",
+            "currency": "CAD",
+            "amountMinor": 2699,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/SUNLU-PLA-Filament-1-75mm-Printing/dp/B0FFGCHWVG",
+          "title": "SUNLU PLA+ 2.0 3D Printer Filament, 1.75mm, 1KG Black",
+          "price": {
+            "decimal": "18.04",
+            "currency": "CAD",
+            "amountMinor": 1804,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/filaments/253225/sunlu-1-75mm-1kg-spool-silk-pla-filament-light-gold-silk-pla-light-gold.html",
+          "title": "Sunlu 1.75mm, 1kg/spool, Silk PLA+ filament (Light Gold)",
+          "price": {
+            "decimal": "18.99",
+            "currency": "CAD",
+            "amountMinor": 1899,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "kji3d.com",
+          "url": "https://kji3d.com/products/sunlu-pla-1",
+          "title": "SUNLU PLA+ 3D Printer Filament 1.75 mm 1 KG SPOOL (Refills available at refills section)",
+          "price": {
+            "decimal": "23.99",
+            "currency": "CAD",
+            "amountMinor": 2399,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "learned",
+          "store": "kji3d.com",
+          "url": "https://kji3d.com/products/sunlu-pla-1-75-mm-1-kg-refill-1",
+          "title": "SUNLU PLA+ REFILL 1.75 mm 1 KG",
+          "price": {
+            "decimal": "20.99",
+            "currency": "CAD",
+            "amountMinor": 2099,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "kji3d.com",
+          "url": "https://kji3d.com/products/sunlu-pla-1",
+          "title": "SUNLU PLA+ 3D Printer Filament 1.75 mm 1 KG SPOOL (Refills available at refills section)",
+          "price": {
+            "decimal": "23.99",
+            "currency": "CAD",
+            "amountMinor": 2399,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "kji3d.com",
+          "url": "https://kji3d.com/products/sunlu-silk-pla-rainbow",
+          "title": "SUNLU Silk PLA+ Rainbow 1.75 mm 1 Kg",
+          "price": {
+            "decimal": "28.99",
+            "currency": "CAD",
+            "amountMinor": 2899,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "anycubic.au",
+          "url": "https://www.anycubic.au/products/pla-plus-filament",
+          "title": "PLA+ Filament",
+          "price": {
+            "decimal": "25.34",
+            "currency": "AUD",
+            "amountMinor": 2534,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "aliexpress.com",
+          "url": "https://www.aliexpress.com/item/1005003140829697.html",
+          "reason": "unreadable"
+        },
+        {
+          "host": "sunlu.com",
+          "url": "https://www.sunlu.com/products/pla-plus-filament",
+          "reason": "unreadable"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "3dprintingcanada",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "SUNLU PLA, not PLA+"
+        },
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "SUNLU PLA and PLA Wood, not PLA+"
+        },
+        {
+          "store": "anycubic",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Anycubic PLA+ (another brand)"
+        },
+        {
+          "store": "anycubic.au",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Anycubic PLA+ (another brand)"
+        },
+        {
+          "store": "canadacomputers",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "SUNLU matte, high-speed and Silk PLA+, not PLA+"
+        },
+        {
+          "store": "caz3d.com",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "filament splicer, eSUN filament"
+        },
+        {
+          "store": "creality3dofficial.com",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Creality Ender PLA"
+        },
+        {
+          "store": "digitmakers",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "eSUN filament"
+        },
+        {
+          "store": "e3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "E3D PLA"
+        },
+        {
+          "store": "ebay",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "4 kg and 10 kg packs, SUNLU PETG"
+        },
+        {
+          "store": "elegoo",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Elegoo PLA"
+        },
+        {
+          "store": "filamentsca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "EconoFil PLA"
+        },
+        {
+          "store": "hobbywholesale.com",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "SUNLU Silk PLA+ (another line)"
+        },
+        {
+          "store": "printedsolid",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Jessie PLA"
+        },
+        {
+          "store": "pwncnc.com",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "SUNLU PLA and matte PLA, not PLA+"
+        },
+        {
+          "store": "shoppurilite.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "eSUN PLA+, a 4 kg Elegoo pack"
+        },
+        {
+          "store": "sunlu",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "SUNLU PLA and Silk PLA+, not PLA+"
+        },
+        {
+          "store": "voxelfactory",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Polymaker filament"
+        },
+        {
+          "store": "west3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Polymaker PolyLite"
+        }
+      ]
+    },
+    {
+      "id": "mx-master-3s",
+      "category": "tech",
+      "query": "Logitech MX Master 3S",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/ergonomic-mice/286697/logitech-mx-master-3s-be-right-handed-ergonomic-mice-black-910-007500.html",
+          "title": "LOGITECH MX Master 3S BE Right-handed Ergonomic Mice - Black(Open Box)",
+          "price": {
+            "decimal": "89.99",
+            "currency": "CAD",
+            "amountMinor": 8999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-bluetooth-darkfield-high-precision-sensor-mouse-black/19467786",
+          "title": "Logitech MX Master 3S Bluetooth Darkfield High Precision Sensor Mouse - Black",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/ergonomic-mice/280059/logitech-mx-master-3s-be-right-handed-ergonomic-mice-black-910-007500.html",
+          "title": "LOGITECH MX Master 3S BE Right-handed Ergonomic Mice - Black",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/227567581047",
+          "title": "Logitech MX Master 3S for Business Wireless Rechargeable Mouse 910-006581Opens in a new window or tab",
+          "price": {
+            "decimal": "105.06",
+            "currency": "CAD",
+            "amountMinor": 10506,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/168573205647",
+          "title": "Logitech MX Master 3S Mouse Bluetooth EditionOpens in a new window or tab",
+          "price": {
+            "decimal": "112.07",
+            "currency": "CAD",
+            "amountMinor": 11207,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005010429086407.html",
+          "title": "Logitech MX MASTER 3S 2.4GHz Wireless Mouse DPI 8000 Laser Wireless Bluetooth Gaming Office Mice For Laptop PC Windows 7/8",
+          "price": {
+            "decimal": "123.99",
+            "currency": "CAD",
+            "amountMinor": 12399,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005011853163582.html",
+          "title": "Logitech MX Master 3S Wireless Bluetooth Mouse Ultra-Quiet Electromagnetic Scroll Wheel 8000DPI Flow Cross-Device Ergonomic",
+          "price": {
+            "decimal": "125.8",
+            "currency": "CAD",
+            "amountMinor": 12580,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005006782975346.html",
+          "title": "Logitech MX Master 3S Dual-mode Wireless Bluetooth Mouse Rechargeable Ergonomic for Office Design Video Editing Mac Laptop",
+          "price": {
+            "decimal": "135.62",
+            "currency": "CAD",
+            "amountMinor": 13562,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/147050768308",
+          "title": "Logitech MX Master 3S Wireless Mouse Bluetooth editionOpens in a new window or tab",
+          "price": {
+            "decimal": "158.0",
+            "currency": "CAD",
+            "amountMinor": 15800,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-wireless-darkfield-mouse-black/16157519",
+          "title": "Logitech MX Master 3S Wireless Darkfield Mouse - Black",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-business-wireless-mouse-graphite/17914609",
+          "title": "Logitech MX Master 3S Business Wireless Mouse - Graphite",
+          "price": {
+            "decimal": "161.99",
+            "currency": "CAD",
+            "amountMinor": 16199,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0CXG4WG1L",
+          "title": "MX Master 3S, Black (Renewed)",
+          "price": {
+            "decimal": "114.99",
+            "currency": "CAD",
+            "amountMinor": 11499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0FB21526X",
+          "title": "MX Master 3S Bluetooth Edition Wireless Mouse No USB - Graphite",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B09W4K7PJJ",
+          "title": "MX Master 3S for Business Wireless Mouse Quiet Clicks - Graphite",
+          "price": {
+            "decimal": "146.99",
+            "currency": "CAD",
+            "amountMinor": 14699,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Logitech-Master-Bluetooth-Wireless-Receiver/dp/B0FB21526X",
+          "title": "Logitech MX Master 3S Bluetooth Edition Wireless Mouse No USB - Graphite",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-wireless-darkfield-mouse-black/16157519",
+          "title": "Logitech MX Master 3S Wireless Darkfield Mouse - Black",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/logitech-910-006556-mx-master-3s-usb-type-c-dual/p/N82E16826197551",
+          "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, USB-C, Bluetooth, Windows, Linux, Chrome - Black",
+          "price": {
+            "decimal": "301.19",
+            "currency": "CAD",
+            "amountMinor": 30119,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "web",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3135031-en-logitech-mx-master-3s-bluetooth-edition-performance-wireless-mouse-black",
+          "title": "Logitech MX Master 3S Bluetooth Edition Performance Wireless Mouse - Black",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/home-office-mice/221855/logitech-mx-master-right-handed-ergonomic-mice-black-910-006556-910-006556.html",
+          "title": "LOGITECH MX Master Right-handed Ergonomic Mice - black (910-006556)",
+          "price": {
+            "decimal": "89.99",
+            "currency": "CAD",
+            "amountMinor": 8999,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "logitech.com",
+          "url": "https://www.logitech.com/en-ca/shop/p/mx-master-3s",
+          "title": "MX Master 3S Bluetooth Edition",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3135031-en-logitech-mx-master-3s-bluetooth-edition-performance-wireless-mouse-black",
+          "title": "Logitech MX Master 3S Bluetooth Edition Performance Wireless Mouse - Black",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/logitech-910-006558-mx-master-3s-usb-type-c-dual/p/N82E16826197552",
+          "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, USB-C, Bluetooth, Windows, Linux, Chrome - Pale Grey",
+          "price": {
+            "decimal": "140.86",
+            "currency": "CAD",
+            "amountMinor": 14086,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/logitech-910-006558-mx-master-3s-usb-type-c-dual/p/N82E16826197552?Item=9SIBTD7KJM3045",
+          "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, USB-C, Bluetooth, Windows, Linux, Chrome - Pale Grey",
+          "price": {
+            "decimal": "140.86",
+            "currency": "CAD",
+            "amountMinor": 14086,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "cdw.ca",
+          "url": "https://www.cdw.ca/product/logitech-mx-master-3s-mouse/9009654",
+          "title": "Logitech MX MASTER 3S Mouse",
+          "price": {
+            "decimal": "145.99",
+            "currency": "CAD",
+            "amountMinor": 14599,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-xpath"
+        },
+        {
+          "source": "learned",
+          "store": "cdw.ca",
+          "url": "https://www.cdw.ca/product/logitech-mx-master-3s-for-business/7199505",
+          "title": "Logitech MX Master 3S for Business",
+          "price": {
+            "decimal": "146.99",
+            "currency": "CAD",
+            "amountMinor": 14699,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-xpath"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3074599-en-logitech-mx-master-3s-mouse-for-business-graphite",
+          "title": "Logitech MX Master 3S Mouse for Business - Graphite",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3074599-fr-logitech-mx-master-3s-souris-pour-entreprise-graphite",
+          "title": "Logitech - MX Master 3S Souris pour entreprise - Graphite",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/logitech-910-006556-mx-master-3s-usb-type-c-dual/p/N82E16826197551",
+          "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, USB-C, Bluetooth, Windows, Linux, Chrome - Black",
+          "price": {
+            "decimal": "301.19",
+            "currency": "CAD",
+            "amountMinor": 30119,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "cdw.ca",
+          "url": "https://www.cdw.ca/product/logitech-mx-master-4-mouse/8531461",
+          "title": "Logitech MX Master 4 Mouse",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-xpath"
+        },
+        {
+          "source": "learned",
+          "store": "logitech.com",
+          "url": "https://www.logitech.com/en-ca/shop/p/mx-master-3s-mac-bluetooth-mouse.910-006570?sp=1&searchclick=Logitech",
+          "title": "MX Master 3S For Mac",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "logitech.com",
+          "url": "https://www.logitech.com/en-ca/shop/p/mx-master-3s.910-007500?sp=2&searchclick=Logitech",
+          "title": "MX Master 3S Bluetooth Edition",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00121480",
+          "title": "MX Master 3S Performance Wireless Optical Mouse, Black",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        },
+        {
+          "source": "learned",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00135144",
+          "title": "MX Master 3S Bluetooth Wireless Mouse, Black",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "hub.sync.logitech.com",
+          "url": "https://hub.sync.logitech.com/mx-master-3s",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": []
+    },
+    {
+      "id": "990-pro-2tb",
+      "category": "tech",
+      "query": "Samsung 990 Pro 2TB",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013408228523.html",
+          "title": "SAMSUNG 990 PRO M.2 2280 NVMe SSD PCIe Gen4 High Speed Solid State Drive 2TB 4TB Internal Storage for Laptop Desktop Computer",
+          "price": {
+            "decimal": "179.99",
+            "currency": "CAD",
+            "amountMinor": 17999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013212362163.html",
+          "title": "SAMSUNG SSD 990 PRO Internal Solid State Disk HDD Hard Drive 1TB 2TB PCIe4.0 M.2 2280 NVMe TLC SSD Laptop Desktop Disco Duro",
+          "price": {
+            "decimal": "180.38",
+            "currency": "CAD",
+            "amountMinor": 18038,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012520954177.html",
+          "title": "100% Samsung 990 PRO 1TB 2TB 4TB PCIe 4.0 SSD, M.2 2280 NVMe Internal Drive, Up to 7450MB/s Sequential Read, Fast Storage",
+          "price": {
+            "decimal": "403.86",
+            "currency": "CAD",
+            "amountMinor": 40386,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/198714244732",
+          "title": "Samsung 990 PRO 2TB NVMe PCIe 4.0 M.2 SSD MZ-V9P2T0B/AM – New Factory SealedOpens in a new window or tab",
+          "price": {
+            "decimal": "497.36",
+            "currency": "CAD",
+            "amountMinor": 49736,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/318362957286",
+          "title": "Samsung 990 PRO 2TB PCIe 4.0 NVMe M.2 2280 SSD - MZ-V9P2T0BWOpens in a new window or tab",
+          "price": {
+            "decimal": "540.93",
+            "currency": "CAD",
+            "amountMinor": 54093,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/800061211081",
+          "title": "Samsung 990 PRO 2TB M.2 NVMe Internal SSD - Black (MZ-V9P4T0B/AM)Opens in a new window or tab",
+          "price": {
+            "decimal": "605.95",
+            "currency": "CAD",
+            "amountMinor": 60595,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BXX1JJH8",
+          "title": "Samsung Samsung 990 PRO 2TB, 3-bit MLC V-NAND, M.2 (2280), NVMe 2.0, R/W(Max) 7,450MB/s/6,900MB/s, 1,400K/1,550K IOPS, 1200TBW, 5 Years Warranty",
+          "price": {
+            "decimal": "649.99",
+            "currency": "CAD",
+            "amountMinor": 64999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-nvme-pcie-4-0-m-2-2280-internal-ssd-mz-v9p2t0b-am-english-brand-new/19505643",
+          "title": "Samsung 990 PRO 2TB NVMe PCIe 4.0 M.2 2280 Internal SSD (MZ-V9P2T0B/AM) – English - Brand New",
+          "price": {
+            "decimal": "779.95",
+            "currency": "CAD",
+            "amountMinor": 77995,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/234741/samsung-990-pro-2tb-m-2-nvme-pcie-4-0-solid-state-drive-mz-v9p2t0b-am.html",
+          "title": "Samsung 990 Pro 2TB M.2 NVMe PCIe 4.0 Solid State Drive(Open Box)",
+          "price": {
+            "decimal": "787.49",
+            "currency": "CAD",
+            "amountMinor": 78749,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-pcie-gen4-nvme-m-2-internal-ssd-mz-v9p2t0b-am/19880172",
+          "title": "Samsung 990 PRO 2TB PCIe Gen4 NVMe M.2 Internal SSD (MZ-V9P2T0B/AM)",
+          "price": {
+            "decimal": "799.99",
+            "currency": "CAD",
+            "amountMinor": 79999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-nvme-pci-e-internal-solid-state-drive-mz-v9p2t0b-am-english/16624805",
+          "title": "Samsung 990 Pro 2TB NVMe PCI-e Internal Solid State Drive (MZ-V9P2T0B/AM) - English",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/233286/samsung-990-pro-2tb-m-2-nvme-pcie-4-0-solid-state-drive-mz-v9p2t0b-am.html",
+          "title": "Samsung 990 Pro 2TB M.2 NVMe PCIe 4.0 Solid State Drive",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/241546/samsung-990-pro-2tb-with-heatsink-m-2-nvme-pcie-4-0-ssd-mz-v9p2t0cw.html",
+          "title": "Samsung 990 Pro 2TB with Heatsink M.2 NVMe PCIe 4.0 SSD",
+          "price": {
+            "decimal": "914.99",
+            "currency": "CAD",
+            "amountMinor": 91499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BWNRPN59",
+          "title": "990 Pro",
+          "price": {
+            "decimal": "798.0",
+            "currency": "CAD",
+            "amountMinor": 79800,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BHJJ9Y77",
+          "title": "990 PRO SSD 2TB PCIe Gen4 NVMe M.2 Internal Solid State Hard Drive, Upto 7,450MB/s, Fast Speed for Gaming Heat Control, Direct Storage and Memory Expansion, MZ-V9P2T0B/AM [Canada Version]",
+          "price": {
+            "decimal": "699.99",
+            "currency": "CAD",
+            "amountMinor": 69999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-nvme-pci-e-internal-solid-state-drive-mz-v9p2t0b-am-english/16624805",
+          "title": "Samsung 990 Pro 2TB NVMe PCI-e Internal Solid State Drive (MZ-V9P2T0B/AM) - English",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Internal-Expansion-Graphics-MZ-V9P2T0B-AM/dp/B0BHJJ9Y77",
+          "title": "SAMSUNG 990 PRO SSD 2TB PCIe Gen4 NVMe M.2 Internal Solid State Hard Drive, Upto 7,450MB/s, Fast Speed for Gaming Heat Control, Direct Storage and Memory Expansion, MZ-V9P2T0B/AM [Canada Version]",
+          "price": {
+            "decimal": "699.99",
+            "currency": "CAD",
+            "amountMinor": 69999,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/233286/samsung-990-pro-2tb-m-2-nvme-pcie-4-0-solid-state-drive-mz-v9p2t0b-am.html",
+          "title": "Samsung 990 Pro 2TB M.2 NVMe PCIe 4.0 Solid State Drive",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/samsung-2tb-990-pro-nvme-2-0/p/N82E16820147861",
+          "title": "SAMSUNG 990 PRO 2TB SSD, PCIe Gen4 M.2 2280, Seq. Read Speeds Up-to 7,450MB/s for High End Computing, Gaming, and Heavy Duty Workstations (MZ-V9P2T0B/AM) Non-Heatsink",
+          "price": {
+            "decimal": "874.97",
+            "currency": "CAD",
+            "amountMinor": 87497,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "web",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3056597-en-samsung-990-pro-2-tb-pcie-40-nvme-m2-internal-solid-state-drive",
+          "title": "Samsung 990 PRO 2 TB PCIe 4.0 NVMe M.2 Internal Solid State Drive",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": "shopify-json"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/samsung-2tb-990-pro-w-heatsink-normal-package-nvme-2-0/p/N82E16820147863",
+          "title": "SAMSUNG SSD 990 PRO with Heatsink 2TB, PCIe 4.0, Sew. Read Speeds Up-to 7,450MB/s, Compatible with PlayStation®5 (MZ-V9P2T0CW)",
+          "price": {
+            "decimal": "544.97",
+            "currency": "CAD",
+            "amountMinor": 54497,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/samsung-2tb-990-pro-nvme-2-0/p/N82E16820147861",
+          "title": "SAMSUNG 990 PRO 2TB SSD, PCIe Gen4 M.2 2280, Seq. Read Speeds Up-to 7,450MB/s for High End Computing, Gaming, and Heavy Duty Workstations (MZ-V9P2T0B/AM) Non-Heatsink",
+          "price": {
+            "decimal": "874.97",
+            "currency": "CAD",
+            "amountMinor": 87497,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/samsung-2tb-990-pro-nvme-2-0/p/N82E16820147861?Item=N82E16820147861",
+          "title": "SAMSUNG 990 PRO 2TB SSD, PCIe Gen4 M.2 2280, Seq. Read Speeds Up-to 7,450MB/s for High End Computing, Gaming, and Heavy Duty Workstations (MZ-V9P2T0B/AM) Non-Heatsink",
+          "price": {
+            "decimal": "874.97",
+            "currency": "CAD",
+            "amountMinor": 87497,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3056597-en-samsung-990-pro-2-tb-pcie-40-nvme-m2-internal-solid-state-drive",
+          "title": "Samsung 990 PRO 2 TB PCIe 4.0 NVMe M.2 Internal Solid State Drive",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "cdw.ca",
+          "url": "https://www.cdw.ca/product/samsung-990-pro-mz-v9p2t0b-am-ssd-2-tb-pcie-4.0-x4-nvme/7343689",
+          "title": "Samsung 990 PRO MZ-V9P2T0B/AM - SSD - 2 TB - PCIe 4.0 x4 (NVMe)",
+          "price": {
+            "decimal": "978.99",
+            "currency": "CAD",
+            "amountMinor": 97899,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-xpath"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3056597-fr-samsung-990-pro-disque-ssd-interne-nvme-m2-pcie-40-de-2-to",
+          "title": "Samsung - 990 PRO Disque SSD interne NVMe M.2 PCIe 4.0 de 2 To",
+          "price": {
+            "decimal": "874.99",
+            "currency": "CAD",
+            "amountMinor": 87499,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00125832",
+          "title": "990 PRO PCIe 4.0 NVMe M.2 SSD, 2TB w/ HeatSink",
+          "price": {
+            "decimal": "544.99",
+            "currency": "CAD",
+            "amountMinor": 54499,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        },
+        {
+          "source": "learned",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00123890",
+          "title": "990 PRO PCIe 4.0 NVMe SSD, 2TB",
+          "price": {
+            "decimal": "874.98",
+            "currency": "CAD",
+            "amountMinor": 87498,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "samsung.com",
+          "url": "https://www.samsung.com/ca/memory-storage/nvme-ssd/990-pro-2tb-nvme-pcie-gen-4-mz-v9p2t0b-am/",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "multi-capacity listings; 180 CAD is not the 2 TB price"
+        }
+      ]
+    },
+    {
+      "id": "sn850x-2tb",
+      "category": "tech",
+      "query": "WD Black SN850X 2TB",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013221081372.html",
+          "title": "Western Digital WD_BLACK SN850X NVMe M.2 2280 SSD PCIe4.0 Internal Gaming Solid State Drive 1TB 2TB 4TB Up to 7300MB/s",
+          "price": {
+            "decimal": "340.68",
+            "currency": "CAD",
+            "amountMinor": 34068,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013294265213.html",
+          "title": "WD_BLACK 1TB 2TB 4TB  SN850X NVMe Internal Gaming SSD Solid State Drive- Gen4 PCIe, M.2 2280, Up to 7,300 MB/s",
+          "price": {
+            "decimal": "361.68",
+            "currency": "CAD",
+            "amountMinor": 36168,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005009897659843.html",
+          "title": "WD_BLACK 1TB 2TB SN850X NVMe Internal Gaming SSD Solid State Drive with Heatsink - Works with Playstation 5, Gen4 PCIe, M.2 2280",
+          "price": {
+            "decimal": "460.99",
+            "currency": "CAD",
+            "amountMinor": 46099,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/western-digital-wdblack-sn850x-2tb-ssd-m-2-2280-pcie-7300mb-s-black-internal-hard-drive-wds200t2x0e/16617395",
+          "title": "Western Digital WD_BLACK SN850X 2TB SSD M.2 2280 PCIe 7300MB/s Black Internal Hard Drive (WDS200T2X0E)",
+          "price": {
+            "decimal": "529.99",
+            "currency": "CAD",
+            "amountMinor": 52999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/287259251598",
+          "title": "WD BLACK SN850X 2TB NVMe PCIe Gen4 M.2 2280 Internal Gaming SSD WDS200T2X0E NewOpens in a new window or tab",
+          "price": {
+            "decimal": "530.98",
+            "currency": "CAD",
+            "amountMinor": 53098,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/282003/wd-black-sn850x-2tb-pcie-gen4-nvme-m-2-ssd-wdbb9g0020bnc.html",
+          "title": "WD Black SN850X 2TB PCIe Gen4 NVMe M.2 SSD",
+          "price": {
+            "decimal": "549.99",
+            "currency": "CAD",
+            "amountMinor": 54999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/397568893169",
+          "title": "WD_BLACK SN850P (SN850X) Heatsink 1TB 2TB 4TB PC NVMe Internal SSD Official PS5Opens in a new window or tab",
+          "price": {
+            "decimal": "599.99",
+            "currency": "CAD",
+            "amountMinor": 59999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/226019/wd-black-sn850x-2tb-pcie-gen4-nvme-m-2-ssd-wds200t2x0e.html",
+          "title": "WD Black SN850X 2TB PCIe Gen4 NVMe M.2 SSD",
+          "price": {
+            "decimal": "599.99",
+            "currency": "CAD",
+            "amountMinor": 59999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/226023/wd-black-sn850x-2tb-pcie-gen4-nvme-m-2-ssd-wds200t2xhe.html",
+          "title": "WD Black SN850X 2TB PCIe Gen4 NVMe M.2 SSD",
+          "price": {
+            "decimal": "649.99",
+            "currency": "CAD",
+            "amountMinor": 64999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/920040937061",
+          "title": "WD_BLACK SN850X 2TB NVMe M.2 2280 PCIe Gen4 SSD 7300MB/s WDS200T2X0EOpens in a new window or tab",
+          "price": {
+            "decimal": "789.99",
+            "currency": "CAD",
+            "amountMinor": 78999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/brand-new-wd-black-sn850x-2tb-nvme-pcie-gen4-internal-ssd-with-up-to-7300mb-s-read-speed/19855780",
+          "title": "Brand New WD BLACK SN850X 2TB NVMe PCIe Gen4 Internal SSD with up to 7300MB/s read speed",
+          "price": {
+            "decimal": "799.99",
+            "currency": "CAD",
+            "amountMinor": 79999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BBLM7DPZ",
+          "title": "WD Black M.2 SSD Built-in Heatsink, 2TB PS5 Operation Verified, NVMe PCIe Gen4 x4, WDS200T2XHE-EC SN850X",
+          "price": {
+            "decimal": "965.63",
+            "currency": "CAD",
+            "amountMinor": 96563,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BBLJHDCZ",
+          "title": "WD Black M.2 SSD Internal Heatsink 1TB PS5 Operation Verified NVMe PCIe Gen4 x4 WDS100T2XHE-EC SN850X",
+          "price": {
+            "decimal": "439.99",
+            "currency": "CAD",
+            "amountMinor": 43999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0B7CQ2CHH",
+          "title": "WD Black 4TB SN850X NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 7,300 MB/s - WDS400T2X0E",
+          "price": {
+            "decimal": "1093.18",
+            "currency": "CAD",
+            "amountMinor": 109318,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/wd-sn850x-2tb-internal-ssd-pcie-gen-4-x4-nvme-with-heatsink-for-ps5-desktops/16373377",
+          "title": "WD SN850X 2TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops",
+          "price": {
+            "decimal": "764.99",
+            "currency": "CAD",
+            "amountMinor": 76499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/western-digital-2tb-black-sn850x-nvme/p/N82E16820250247",
+          "title": "WD_BLACK 2TB SN850X NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 7,300 MB/s - WDS200T2X0E",
+          "price": {
+            "decimal": "575.0",
+            "currency": "CAD",
+            "amountMinor": 57500,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/western-digital-wdblack-sn850x-2tb-ssd-m-2-2280-pcie-7300mb-s-black-internal-hard-drive-wds200t2x0e/16617395",
+          "title": "Western Digital WD_BLACK SN850X 2TB SSD M.2 2280 PCIe 7300MB/s Black Internal Hard Drive (WDS200T2X0E)",
+          "price": {
+            "decimal": "529.99",
+            "currency": "CAD",
+            "amountMinor": 52999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/226019/wd-black-sn850x-2tb-pcie-gen4-nvme-m-2-ssd-wds200t2x0e.html",
+          "title": "WD Black SN850X 2TB PCIe Gen4 NVMe M.2 SSD",
+          "price": {
+            "decimal": "599.99",
+            "currency": "CAD",
+            "amountMinor": 59999,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/western-digital-2tb-black-sn850x-nvme/p/N82E16820250247",
+          "title": "WD_BLACK 2TB SN850X NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 7,300 MB/s - WDS200T2X0E",
+          "price": {
+            "decimal": "575.0",
+            "currency": "CAD",
+            "amountMinor": 57500,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/western-digital-2tb-black-sn850x-nvme/p/N82E16820250247?Item=9SIB277KVF4484",
+          "title": "WD_BLACK 2TB SN850X NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 7,300 MB/s - WDS200T2X0E",
+          "price": {
+            "decimal": "575.0",
+            "currency": "CAD",
+            "amountMinor": 57500,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "newegg",
+          "url": "https://www.newegg.ca/western-digital-2tb-black-sn850x-nvme/p/N82E16820250246",
+          "title": "WD_BLACK 2TB SN850X NVMe Internal Gaming SSD Solid State Drive with Heatsink - Works with Playstation 5, Gen4 PCIe, M.2 2280, Up to 7,300 MB/s - WDS200T2XHE",
+          "price": {
+            "decimal": "629.99",
+            "currency": "CAD",
+            "amountMinor": 62999,
+            "refusal": null
+          },
+          "readMethod": "http:selector"
+        },
+        {
+          "source": "learned",
+          "store": "cdw.ca",
+          "url": "https://www.cdw.ca/product/sandisk-black-sn850x-sds200t2x0e-ssd-2-tb-pcie-4.0-x4-nvme/8206577",
+          "title": "SanDisk_BLACK SN850X SDS200T2X0E - SSD - 2 TB - PCIe 4.0 x4 (NVMe",
+          "price": {
+            "decimal": "1396.99",
+            "currency": "CAD",
+            "amountMinor": 139699,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-xpath"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "techcitycanada.ca",
+          "url": "https://techcitycanada.ca/product/wd-black-sn850x-2tb-ssd",
+          "reason": "blocked"
+        },
+        {
+          "host": "amazon.ca",
+          "url": "https://www.amazon.ca/WD_BLACK-SN850X-Internal-Gaming-Solid/dp/B0B7CMZ3QH",
+          "reason": "no-price"
+        },
+        {
+          "host": "sandisk.com",
+          "url": "https://www.sandisk.com/products/ssd/internal-ssd/wd-black-sn850x-nvme-ssd?sku=WDS200T2X0E-00BCA0",
+          "reason": "no-price"
+        },
+        {
+          "host": "pcbuilderscanada.com",
+          "url": "https://www.pcbuilderscanada.com/products/ssd-wd-black-sn850x-2tb",
+          "reason": "no-price"
+        },
+        {
+          "host": "bestbuy.com",
+          "url": "https://www.bestbuy.com/product/western-digital-sn850x-2tb-nvme-ssdwd-black/JXJ62CRPJG",
+          "reason": "unreadable"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "multi-capacity listings; 340 CAD is not the 2 TB price"
+        }
+      ]
+    },
+    {
+      "id": "wh-1000xm5",
+      "category": "tech",
+      "query": "Sony WH-1000XM5",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/820267858959",
+          "title": "New ListingNew Sealed Sony WH-1000XM5 Wireless Noise Canceling Headphones - BlackOpens in a new window or tab",
+          "price": {
+            "decimal": "252.11",
+            "currency": "CAD",
+            "amountMinor": 25211,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/236616344912",
+          "title": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones Black 🔥Free Shipping🔥Opens in a new window or tab",
+          "price": {
+            "decimal": "280.2",
+            "currency": "CAD",
+            "amountMinor": 28020,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0D2FVZW6N",
+          "title": "Sony WH-1000XM5/B Wireless Noise Cancelling Headphones - Black",
+          "price": {
+            "decimal": "329.99",
+            "currency": "CAD",
+            "amountMinor": 32999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013360397180.html",
+          "title": "WH-1000XM5 Sony Headsets Wireless Noise Reduction Bluetooth Earphones AI Intelligent Noise Reduction Multi Point Connection Onli",
+          "price": {
+            "decimal": "386.68",
+            "currency": "CAD",
+            "amountMinor": 38668,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-noise-canceling-wireless-over-ear-headphones-black/18217759",
+          "title": "Sony WH-1000XM5 Noise-Canceling Wireless Over-Ear Headphones (Black)",
+          "price": {
+            "decimal": "399.0",
+            "currency": "CAD",
+            "amountMinor": 39900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012669130208.html",
+          "title": "Sony WH-1000XM5 Premium Wireless Over-Ear Headphones Auto NC Optimizer Industry Leading Noise Canceling Long Battery Hi-Res Blue",
+          "price": {
+            "decimal": "421.38",
+            "currency": "CAD",
+            "amountMinor": 42138,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005011823104569.html",
+          "title": "Sony WH-1000XM5 Premium Noise Canceling Headphones Auto NC Optimizer Long Battery Life Over-ear Wireless Bluetooth Headphones",
+          "price": {
+            "decimal": "455.03",
+            "currency": "CAD",
+            "amountMinor": 45503,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/16162187",
+          "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/over-ear-headphones/222384/sony-wh-1000xm5-wireless-noise-cancelling-headphones-platinum-silver-wh1000xm5-s.html",
+          "title": "SONY WH-1000XM5 Wireless Noise Cancelling Headphones, Platinum Silver",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/over-ear-headphones/263462/sony-wh-1000xm5-wireless-noise-cancelling-headphones-pink-wh1000xm5-p.html",
+          "title": "SONY WH-1000XM5 Wireless Noise Cancelling Headphones, Pink",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/over-ear-headphones/221732/sony-wh-1000xm5-wireless-noise-cancelling-headphones-black-wh1000xm5-b.html",
+          "title": "SONY WH-1000XM5 Wireless Noise Cancelling Headphones, Black",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-sony-wh-1000xm5-sony-wh-1000xm6-wireless-noise-canceling-headphones/19480940",
+          "title": "Refurbished (Excellent) - Sony WH-1000XM5 Sony WH-1000XM6 Wireless Noise-Canceling Headphones",
+          "price": {
+            "decimal": "524.99",
+            "currency": "CAD",
+            "amountMinor": 52499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0HCTDNR48",
+          "title": "WH-1000XM5 Noise Canceling Headphones - Silver + 13-Month Axiom Care",
+          "price": {
+            "decimal": "777.93",
+            "currency": "CAD",
+            "amountMinor": 77793,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B09XS7JWHH",
+          "title": "WH-1000XM5 Premium Noise Cancelling Wireless Headphones, Black",
+          "price": {
+            "decimal": "498.0",
+            "currency": "CAD",
+            "amountMinor": 49800,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "costco.ca",
+          "url": "https://www.costco.ca/p/-/sony-wh-1000xm5-wireless-noise-cancelling-headphones/4000027281",
+          "title": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+          "price": {
+            "decimal": "498.0",
+            "currency": "CAD",
+            "amountMinor": 49800,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "walmart",
+          "url": "https://www.walmart.ca/en/ip/Sony-WH-1000XM5-Wireless-Industry-Leading-Noise-Cancelling-Headphones/6000206790323",
+          "title": "Sony WH-1000XM5 Wireless Industry Leading Noise Cancelling Headphones",
+          "price": {
+            "decimal": "498.95",
+            "currency": "CAD",
+            "amountMinor": 49895,
+            "refusal": null
+          },
+          "readMethod": "http:next-data"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/16162187",
+          "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Sony-WH-1000XM5-Cancelling-Headphones-Hands-Free/dp/B09XS7JWHH",
+          "title": "Sony WH-1000XM5 Premium Noise Cancelling Wireless Headphones, Black",
+          "price": {
+            "decimal": "498.0",
+            "currency": "CAD",
+            "amountMinor": 49800,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadacomputers",
+          "url": "https://www.canadacomputers.com/en/over-ear-headphones/221732/sony-wh-1000xm5-wireless-noise-cancelling-headphones-black-wh1000xm5-b.html",
+          "title": "SONY WH-1000XM5 Wireless Noise Cancelling Headphones, Black",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "web",
+          "store": "sony.ca",
+          "url": "https://www.sony.ca/audio/headphones/all-headphones/p/wh1000xm5-l",
+          "title": "WH1000XM5/L",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "electronics.sony.com",
+          "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-l",
+          "title": "WH1000XM5/L",
+          "price": {
+            "decimal": "228.0",
+            "currency": "USD",
+            "amountMinor": 22800,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3033227-fr-sony-wh1000xm5-casque-sans-fil-a-reduction-de-bruit-noir",
+          "title": "Sony - WH1000XM5 Casque sans fil à réduction de bruit - Noir",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3129229-en-sony-wh1000xm5-wireless-noise-cancelling-headphones-pink",
+          "title": "Sony WH1000XM5 Wireless Noise-Cancelling Headphones - Pink",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "staples.ca",
+          "url": "https://www.staples.ca/products/3129228-en-sony-wh1000xm5-wireless-noise-cancelling-headphones-blue",
+          "title": "Sony WH1000XM5 Wireless Noise-Cancelling Headphones - Blue",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "shopify-suggest"
+        },
+        {
+          "source": "learned",
+          "store": "sony.ca",
+          "url": "https://www.sony.ca/en/audio/headphones/all-headphones/p/wh1000xm5-b",
+          "title": "WH1000XM5/B",
+          "price": {
+            "decimal": "499.99",
+            "currency": "CAD",
+            "amountMinor": 49999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        }
+      ],
+      "unreadable": [],
+      "verdicts": []
+    },
+    {
+      "id": "airpods-pro-2",
+      "category": "tech",
+      "query": "Apple AirPods Pro 2",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/318490888685",
+          "title": "Apple AirPods Pro 2nd Generation with MagSafe Wireless Charging Case (USB‑C) Opens in a new window or tab",
+          "price": {
+            "decimal": "80.0",
+            "currency": "CAD",
+            "amountMinor": 8000,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/307146160962",
+          "title": "Apple AirPods Pro 2nd Generation with MagSafe Wireless Charging Case (USB‑C)...Opens in a new window or tab",
+          "price": {
+            "decimal": "150.0",
+            "currency": "CAD",
+            "amountMinor": 15000,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/407051619984",
+          "title": "Apple AirPods Pro 2nd Generation with MagSafe Wireless Charging Case - WhiteOpens in a new window or tab",
+          "price": {
+            "decimal": "209.99",
+            "currency": "CAD",
+            "amountMinor": 20999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/open-box-apple-airpods-pro-2nd-generation-noise-cancelling-true-wireless-earbuds-with-usb-c-magsafe-charging-case/17543757",
+          "title": "Open Box - Apple AirPods Pro (2nd generation) Noise Cancelling True Wireless Earbuds with USB-C MagSafe Charging Case",
+          "price": {
+            "decimal": "211.0",
+            "currency": "CAD",
+            "amountMinor": 21100,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/apple-airpods-pro-2nd-generation-in-ear-noise-cancelling-truly-wireless-headphones-white/17063744",
+          "title": "Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+          "price": {
+            "decimal": "349.99",
+            "currency": "CAD",
+            "amountMinor": 34999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/apple-airpods-pro-2nd-generation-brand-new/16644217",
+          "title": "Apple AirPods Pro 2nd Generation - Brand New",
+          "price": {
+            "decimal": "429.99",
+            "currency": "CAD",
+            "amountMinor": 42999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0DT2H17F6",
+          "title": "Powerbeats Pro 2 Wireless Bluetooth Earbuds - Noise Cancelling, Heart Rate Monitor, IPX4, Up to 45H Battery & Charging Case, Works with Apple & Android - Quick Sand",
+          "price": {
+            "decimal": "349.99",
+            "currency": "CAD",
+            "amountMinor": 34999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "walmart",
+          "url": "https://www.walmart.ca/en/ip/Apple-AirPods-Pro-2-Wireless-Earbuds-Active-Noise-Cancellation-Hearing-Aid-Feature/3RZ5BTN0KR6U",
+          "title": "Apple AirPods Pro 2, Wireless Earbuds, Active Noise Cancellation, Hearing Aid Feature",
+          "price": {
+            "decimal": "299.0",
+            "currency": "CAD",
+            "amountMinor": 29900,
+            "refusal": null
+          },
+          "readMethod": "http:next-data"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "amazon.ca",
+          "url": "https://www.amazon.ca/Apple-Cancellation-Transparency-Personalized-High-Fidelity/dp/B0CHWRXH8B",
+          "reason": "no-price"
+        },
+        {
+          "host": "staples.ca",
+          "url": "https://www.staples.ca/products/3038413-en-apple-airpods-pro-2nd-gen-with-usb-c-magsafe-case",
+          "reason": "unreadable"
+        },
+        {
+          "host": "ebay.ca",
+          "url": "https://www.ebay.ca/b/Apple-AirPods-Pro-2nd-generation/80077/bn_7118653171",
+          "reason": "no-price"
+        },
+        {
+          "host": "bestbuy.com",
+          "url": "https://www.bestbuy.com/product/apple-airpods-pro-2-wireless-active-noise-cancelling-earbuds-with-hearing-aid-feature-white/JJGCQ88C8X",
+          "reason": "unreadable"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "amazon",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "AirPods Pro 3, Powerbeats Pro 2"
+        },
+        {
+          "store": "canadiantire.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "AirPods Pro 3"
+        },
+        {
+          "store": "cdw.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "AirPods Pro 3, AirPods Max 2"
+        },
+        {
+          "store": "shoppurilite.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "charging stations"
+        },
+        {
+          "store": "staples.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "AirPods Pro 3, AirPods Max 2"
+        }
+      ]
+    },
+    {
+      "id": "raspberry-pi-5",
+      "category": "tech",
+      "query": "Raspberry Pi 5 8GB",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005007187998687.html",
+          "title": "Official Original Raspberry Pi 5 Cortex-A76 Linux 2GB 4GB 8GB Arm Board Python programlama PCIe Gigabit Ethernet USB3.0",
+          "price": {
+            "decimal": "111.53",
+            "currency": "CAD",
+            "amountMinor": 11153,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005013141187182.html",
+          "title": "Raspberry Pi 5B 4G/8GB Generate Linux Development Card Kit Computer AI Programming Motherboard Raspberry Pi 5 4G/8GB",
+          "price": {
+            "decimal": "154.99",
+            "currency": "CAD",
+            "amountMinor": 15499,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/raspberry-pi-5-8gb-2-4-ghz-quad-core-arm-processor-dual-band-wi-fi-bluetooth-5-0-m-2-ssd-support/19294408",
+          "title": "Raspberry Pi 5 8GB - 2.4 GHz Quad-Core ARM Processor, Dual-Band Wi-Fi, Bluetooth 5.0, M.2 SSD Support",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/235423511450",
+          "title": "CanaKit Raspberry Pi 5 8GB Starter Kit - AluminumOpens in a new window or tab",
+          "price": {
+            "decimal": "275.0",
+            "currency": "CAD",
+            "amountMinor": 27500,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/860051947388",
+          "title": "New Raspberry Pi 5 BCM2712 8GB RAM Single-Board Computer GreenOpens in a new window or tab",
+          "price": {
+            "decimal": "279.99",
+            "currency": "CAD",
+            "amountMinor": 27999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0CVR1LP7G",
+          "title": "Raspberry Pi 5 Basic Kit (8GB RAM | NO SD Card)",
+          "price": {
+            "decimal": "289.99",
+            "currency": "CAD",
+            "amountMinor": 28999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0CRSNCJ6Y",
+          "title": "Raspberry Pi 5 Starter Kit PRO - Turbine Black (128GB Edition) (8GB RAM)",
+          "price": {
+            "decimal": "349.99",
+            "currency": "CAD",
+            "amountMinor": 34999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0CVQZQWNR",
+          "title": "Raspberry Pi 5 Basic Kit (8GB RAM | 32GB SD Card)",
+          "price": {
+            "decimal": "353.61",
+            "currency": "CAD",
+            "amountMinor": 35361,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/227118703155",
+          "title": "Raspberry Pi 5 8GB (2.4GHz Quad-Core ARM Cortex-A76) Single Board [Brand New]Opens in a new window or tab",
+          "price": {
+            "decimal": "377.66",
+            "currency": "CAD",
+            "amountMinor": 37766,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "pishop.ca",
+          "url": "https://www.pishop.ca/product/raspberry-pi-5-8gb/",
+          "title": "Raspberry Pi 5/8GB",
+          "price": {
+            "decimal": "249.5",
+            "currency": "CAD",
+            "amountMinor": 24950,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/raspberry-pi-5-8gb-2-4-ghz-quad-core-arm-processor-dual-band-wi-fi-bluetooth-5-0-m-2-ssd-support/19294408",
+          "title": "Raspberry Pi 5 8GB - 2.4 GHz Quad-Core ARM Processor, Dual-Band Wi-Fi, Bluetooth 5.0, M.2 SSD Support",
+          "price": {
+            "decimal": "269.0",
+            "currency": "CAD",
+            "amountMinor": 26900,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Raspberry-Pi-8GB-2023-Processor/dp/B0CK2FCG1K",
+          "title": "Raspberry Pi 5 8GB 2023 - Newest 2.4 GHz 64-bit Quad Core ARM Processor, Dual-Band 802.11ac Wi-Fi, Bluetooth 5.0",
+          "price": {
+            "decimal": "285.24",
+            "currency": "CAD",
+            "amountMinor": 28524,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00128180",
+          "title": "Raspberry Pi Pi 5 Single Board Computer w/ 8GB RAM",
+          "price": {
+            "decimal": "199.99",
+            "currency": "CAD",
+            "amountMinor": 19999,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        },
+        {
+          "source": "web",
+          "store": "canakit.com",
+          "url": "https://www.canakit.com/raspberry-pi-5-8gb.html",
+          "title": "Raspberry Pi 5 8GB",
+          "price": {
+            "decimal": "175.0",
+            "currency": "USD",
+            "amountMinor": 17500,
+            "refusal": null
+          },
+          "readMethod": "http:meta"
+        },
+        {
+          "source": "learned",
+          "store": "memoryexpress",
+          "url": "https://www.memoryexpress.com/Products/MX00128180",
+          "title": "Raspberry Pi Pi 5 Single Board Computer w/ 8GB RAM",
+          "price": {
+            "decimal": "199.99",
+            "currency": "CAD",
+            "amountMinor": 19999,
+            "refusal": null
+          },
+          "readMethod": "browser:selector"
+        },
+        {
+          "source": "learned",
+          "store": "pishop.ca",
+          "url": "https://www.pishop.ca/product/raspberry-pi-5-8gb/?searchid=0",
+          "title": "Raspberry Pi 5/8GB",
+          "price": {
+            "decimal": "249.5",
+            "currency": "CAD",
+            "amountMinor": 24950,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "abra-electronics.com",
+          "url": "https://abra-electronics.com/robotics-embedded-electronics/raspberry-pi-en-3/boards/pi5-8gb-raspberry-pi-5-8gb.html",
+          "title": "PI5-8GB, Raspberry Pi 5 - 8GB",
+          "price": {
+            "decimal": "299.73",
+            "currency": "CAD",
+            "amountMinor": 29973,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "pishop.ca",
+          "url": "https://www.pishop.ca/product/raspberry-pi-5-starter-kit-8gb/?searchid=0",
+          "title": "Raspberry Pi 5 Starter Kit - 8GB",
+          "price": {
+            "decimal": "321.75",
+            "currency": "CAD",
+            "amountMinor": 32175,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "pishop.ca",
+          "url": "https://www.pishop.ca/product/raspberry-pi-5-desktop-kit-8gb/?searchid=0",
+          "title": "Raspberry Pi 5 Desktop Kit - 8GB",
+          "price": {
+            "decimal": "321.85",
+            "currency": "CAD",
+            "amountMinor": 32185,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "abra-electronics.com",
+          "url": "https://abra-electronics.com/robotics-embedded-electronics/raspberry-pi-en-3/educational-kits-en-2/raspberry-pi-5-basic-starter-kit-8gb.html",
+          "title": "Raspberry Pi 5 Basic Starter Kit - 8GB",
+          "price": {
+            "decimal": "359.75",
+            "currency": "CAD",
+            "amountMinor": 35975,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "abra-electronics.com",
+          "url": "https://abra-electronics.com/robotics-embedded-electronics/raspberry-pi-en-3/educational-kits-en-2/raspberry-pi-5-basic-starter-kit-8gb-en.html",
+          "title": "Raspberry Pi 5 Basic Starter Kit - 4GB",
+          "price": {
+            "decimal": "259.75",
+            "currency": "CAD",
+            "amountMinor": 25975,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "raspberrypi.com",
+          "url": "https://www.raspberrypi.com/products/raspberry-pi-5/",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "4 GB / 8 GB listings; 139 CAD is not the 8 GB price"
+        },
+        {
+          "store": "amazon",
+          "verdict": "rejected",
+          "setups": ["before"],
+          "reason": "catalog: kits only (the web read the bare Pi 5 8GB)"
+        },
+        {
+          "store": "filastruder",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Raspberry Pi 4"
+        },
+        {
+          "store": "shoppurilite.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "Raspberry Pi 4 kits, a 16 GB Pi 5 kit"
+        },
+        {
+          "store": "spool3d",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "case, camera cable"
+        }
+      ]
+    },
+    {
+      "id": "anker-737",
+      "category": "tech",
+      "query": "Anker 737 Power Bank PowerCore 24K",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/800535292318",
+          "title": "Anker 737 Power Bank PowerCore 24K 24000mAh 140W A1289 NEW IN BOXOpens in a new window or tab",
+          "price": {
+            "decimal": "128.89",
+            "currency": "CAD",
+            "amountMinor": 12889,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/327271313537",
+          "title": "Anker 737 Power Bank PowerCore 24K 24000mAh 140W Smart Display Black/SilverOpens in a new window or tab",
+          "price": {
+            "decimal": "150.2",
+            "currency": "CAD",
+            "amountMinor": 15020,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/125631391229",
+          "title": "Anker 737 Power Bank(PowerCore 24K), 24,000mAh 3-Port Portable Charger with 140WOpens in a new window or tab",
+          "price": {
+            "decimal": "196.13",
+            "currency": "CAD",
+            "amountMinor": 19613,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005008621373161.html",
+          "title": "Anker 737 Power Bank 140W 24000mAh PowerCore 3 Ports Portable Charger Digital Display for Laptop Cellphone Tablet A1289",
+          "price": {
+            "decimal": "181.99",
+            "currency": "CAD",
+            "amountMinor": 18199,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012111171076.html",
+          "title": "140W 24000mAh Original Anker 737 Power Bank PowerCore 3 Port Portable Quick Charge Digital Display",
+          "price": {
+            "decimal": "266.38",
+            "currency": "CAD",
+            "amountMinor": 26638,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012194408287.html",
+          "title": "Anker Power Bank 737 140W 24000mAh PowerCore 3 Port Portable Quick Charge Digital Display for",
+          "price": {
+            "decimal": "410.38",
+            "currency": "CAD",
+            "amountMinor": 41038,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/125631391229",
+          "title": "Anker 737 Power Bank(PowerCore 24K), 24,000mAh 3-Port Portable Charger with 140W",
+          "price": {
+            "decimal": "196.13",
+            "currency": "CAD",
+            "amountMinor": 19613,
+            "refusal": null
+          },
+          "readMethod": "http:json-ld"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "anker.com",
+          "url": "https://www.anker.com/products/a1289",
+          "reason": "unreadable"
+        },
+        {
+          "host": "anker-online.com",
+          "url": "https://www.anker-online.com/products/anker-737-power-bank-24k",
+          "reason": "unreadable"
+        },
+        {
+          "host": "service.anker.com",
+          "url": "https://service.anker.com/product-description/a085g000004xGWmAAM/anker-737-power-bank-powercore-24k",
+          "reason": "no-price"
+        },
+        {
+          "host": "hirschpromo.com",
+          "url": "https://hirschpromo.com/canada/anker-737-power-bank-powercore-24k",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "shoppurilite.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "PowerCore 10K (another power bank)"
+        }
+      ]
+    },
+    {
+      "id": "dcd793d1",
+      "category": "household",
+      "query": "DEWALT DCD793D1",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/257795697772",
+          "title": "New DeWalt DCD793D1 20V MAX Brushless Cordless 1/2\" Drill/Driver *Broken Box*Opens in a new window or tab",
+          "price": {
+            "decimal": "119.09",
+            "currency": "CAD",
+            "amountMinor": 11909,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/287630777682",
+          "title": "DeWalt DCD793D1 20V MAX* Brushless Cordless 1/2\" Drill/Driver (tool only)Opens in a new window or tab",
+          "price": {
+            "decimal": "126.09",
+            "currency": "CAD",
+            "amountMinor": 12609,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/198705295632",
+          "title": "DEWALT DCD793D1 20V MAX XR Brushless Compact Drill Driver Kit W/ Carry Case NEWOpens in a new window or tab",
+          "price": {
+            "decimal": "194.74",
+            "currency": "CAD",
+            "amountMinor": 19474,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/open-box-dewalt-dcd793d1-20v-max-brushless-1-2-compact-drill-driver-kit-with-2ah-battery-charger-black-yellow/20192833",
+          "title": "Open Box - DEWALT DCD793D1 20V MAX Brushless 1/2\" Compact Drill Driver Kit with 2Ah Battery & Charger - Black/Yellow",
+          "price": {
+            "decimal": "199.99",
+            "currency": "CAD",
+            "amountMinor": 19999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BY1BB9TG",
+          "title": "20V MAX Brushless 1/2 in. Cordless Compact Drill Driver Kit, Ratcheting Chuck, LED (DCD793D1)",
+          "price": {
+            "decimal": "218.98",
+            "currency": "CAD",
+            "amountMinor": 21898,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "costcutindustrial.ca",
+          "url": "https://costcutindustrial.ca/product/brushless-cordless-drill-driver-kit/",
+          "title": "DEWALT DCD793D1 Brushless Cordless Drill/Driver Kit, 6.38 in L x 2.49 in W x 7.88 in H, 20 V, 1/2 in, Lithium-Ion, 0-1650",
+          "price": {
+            "decimal": "176.8",
+            "currency": "CAD",
+            "amountMinor": 17680,
+            "refusal": null
+          },
+          "readMethod": "woo-store-api"
+        },
+        {
+          "source": "web",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/dewalt-dcd793d1-20v-max-compact-brushless-cordless-1-2-in-drill-driver-0548723p.html",
+          "title": "DEWALT DCD793D1 20V MAX Compact Brushless Cordless 1/2-in Drill/Driver",
+          "price": {
+            "decimal": "219.99",
+            "currency": "CAD",
+            "amountMinor": 21999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "canucktools.ca",
+          "url": "https://canucktools.ca/dewalt-dcd793d1-20v-max-brushless-cordless-1-2-in-drill-driver-kit/",
+          "title": "DEWALT DCD793D1 - 20V Max Brushless Cordless 1/2 In. Drill/Driver Kit",
+          "price": {
+            "decimal": "219.0",
+            "currency": "CAD",
+            "amountMinor": 21900,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/DEWALT-Brushless-Cordless-Ratcheting-DCD793D1/dp/B0BY1BB9TG",
+          "title": "DEWALT 20V MAX Brushless 1/2 in. Cordless Compact Drill Driver Kit, Ratcheting Chuck, LED (DCD793D1)",
+          "price": {
+            "decimal": "218.98",
+            "currency": "CAD",
+            "amountMinor": 21898,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "learned",
+          "store": "canucktools.ca",
+          "url": "https://canucktools.ca/dewalt-dcd793d1-20v-max-brushless-cordless-1-2-in-drill-driver-kit/",
+          "title": "DEWALT DCD793D1 - 20V Max Brushless Cordless 1/2 In. Drill/Driver Kit",
+          "price": {
+            "decimal": "219.0",
+            "currency": "CAD",
+            "amountMinor": 21900,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "federatedtool.com",
+          "url": "https://federatedtool.com/dewalt-dcd793d1-20v-max-brushless-cordless-1-2-in-drill-driver-kit/",
+          "title": "DEWALT DCD793D1 - 20V Max Brushless Cordless 1/2 In. Drill/Driver Kit",
+          "price": {
+            "decimal": "219.0",
+            "currency": "CAD",
+            "amountMinor": 21900,
+            "refusal": null
+          },
+          "readMethod": "http:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/dewalt-dcd793d1-20v-max-compact-brushless-cordless-1-2-in-drill-driver-0548723p.html",
+          "title": "DEWALT DCD793D1 20V MAX Compact Brushless Cordless 1/2-in Drill/Driver",
+          "price": {
+            "decimal": "219.99",
+            "currency": "CAD",
+            "amountMinor": 21999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "dewalt.ca",
+          "url": "https://www.dewalt.ca/en-ca/product/dcd793d1/20v-max-12-brushless-cordless-drilldriver-kit",
+          "reason": "no-price"
+        },
+        {
+          "host": "dewalt.com",
+          "url": "https://www.dewalt.com/en-us/product/dcd793d1/20v-max-brushless-12-drilldriver-kit",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": []
+    },
+    {
+      "id": "ninja-af101",
+      "category": "household",
+      "query": "Ninja AF101 Air Fryer",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B07FDJMC9Q",
+          "title": "Air Fryer, 1550-Watt Programmable Base for Air Frying, Roasting, Reheating & Dehydrating with 4-Quart Ceramic Coated Basket (AF101), Black/Gray",
+          "price": {
+            "decimal": "274.71",
+            "currency": "CAD",
+            "amountMinor": 27471,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/ninja-air-fryer-3-79l-black-open-box/15928516",
+          "title": "Ninja Air Fryer - 3.79L - Black - Open Box",
+          "price": {
+            "decimal": "199.99",
+            "currency": "CAD",
+            "amountMinor": 19999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/1550-Watt-Programmable-Reheating-Dehydrating-AF101/dp/B07FDJMC9Q",
+          "title": "Ninja Air Fryer, 1550-Watt Programmable Base for Air Frying, Roasting, Reheating & Dehydrating with 4-Quart Ceramic Coated Basket (AF101), Black/Gray",
+          "price": {
+            "decimal": "274.71",
+            "currency": "CAD",
+            "amountMinor": 27471,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "homedepot.ca",
+          "url": "https://www.homedepot.ca/product/ninja-3-8l-air-fryer-in-black/1001747402",
+          "title": "Ninja 3.8L Air Fryer in Black",
+          "price": {
+            "decimal": "149.99",
+            "currency": "CAD",
+            "amountMinor": 14999,
+            "refusal": null
+          },
+          "readMethod": "http:microdata"
+        },
+        {
+          "source": "web",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/ninja-non-stick-air-fryer-with-cool-touch-handle-4-qt-0439582p.html",
+          "title": "Ninja® Non-Stick Air Fryer with Cool-Touch Handle, 4-qt",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/ninja-single-basket-non-stick-air-fryer-5-functions-4-qt-0430348p.html",
+          "title": "Ninja Single Basket Non-Stick Air Fryer, 5 Functions, 4-qt",
+          "price": {
+            "decimal": "99.99",
+            "currency": "CAD",
+            "amountMinor": 9999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/ninja-dualzone-2-basket-air-fryer-8-qt-0439929p.html",
+          "title": "Ninja DualZone 2-Basket Air Fryer, 8-Qt",
+          "price": {
+            "decimal": "189.99",
+            "currency": "CAD",
+            "amountMinor": 18999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        }
+      ],
+      "unreadable": [],
+      "verdicts": [
+        {
+          "store": "staples.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "5.5 qt Air Fryer XL (AF150, another model)"
+        }
+      ]
+    },
+    {
+      "id": "instant-pot-duo",
+      "category": "household",
+      "query": "Instant Pot Duo 7-in-1 6 Quart",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/327332590908",
+          "title": "Instant Pot Duo Nova 6 quart 7-in-1 Programmable Pressure Cooker - NEW in BoxOpens in a new window or tab",
+          "price": {
+            "decimal": "140.06",
+            "currency": "CAD",
+            "amountMinor": 14006,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/800682130070",
+          "title": "Instant Pot Duo 60 V5 7-in-1 6 Quart 1000W Pressure Cooker NEW IN BOXOpens in a new window or tab",
+          "price": {
+            "decimal": "140.09",
+            "currency": "CAD",
+            "amountMinor": 14009,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B07BW78JSD",
+          "title": "Duo 7-in-1 Multi-Use Programmable Pressure Cooker, Slow Cooker, 6 Quart | 1000W and Indian Instant Pot Cookbook",
+          "price": {
+            "decimal": "178.73",
+            "currency": "CAD",
+            "amountMinor": 17873,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-7-in-1-electric-pressure-cooker-6-quart-stainless-steel-includes-app-with-800-recipes/17717326",
+          "title": "Instant Pot Duo 7-in-1 Electric Pressure Cooker - 6 Quart Stainless Steel, Includes App with 800+ Recipes",
+          "price": {
+            "decimal": "179.99",
+            "currency": "CAD",
+            "amountMinor": 17999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012369869216.html",
+          "title": "5L 6L Silver crest  Instant Cooker Pot Duo 7-in-1 Stainless Steel Electric Pressure Cooker Silver crest Rice Cooker",
+          "price": {
+            "decimal": "75.99",
+            "currency": "CAD",
+            "amountMinor": 7599,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/407189036769",
+          "title": "Instant Pot Duo Nova 60 6-Quart 7-in-1 Electric Pressure Cooker - mint conditionOpens in a new window or tab",
+          "price": {
+            "decimal": "91.07",
+            "currency": "CAD",
+            "amountMinor": 9107,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B08F31F4M3",
+          "title": "Pot Duo 7-in-1 Electric Pressure Cooker with Instant Pot Ceramic Coated Non-Stick Inner Cooking Pot",
+          "price": {
+            "decimal": "136.43",
+            "currency": "CAD",
+            "amountMinor": 13643,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-v5-7-in-1-pressure-cooker-6qt/16374908",
+          "title": "Instant Pot Duo V5 7-in-1 Pressure Cooker - 6QT",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-v5-7-in-1-pressure-cooker-8qt/16374909",
+          "title": "Instant Pot Duo V5 7-in-1 Pressure Cooker - 8QT",
+          "price": {
+            "decimal": "179.99",
+            "currency": "CAD",
+            "amountMinor": 17999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B00FLYWNYQ",
+          "title": "Duo 7-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Saute, Yogurt Maker, Warmer & Sterilizer, Includes App With Over 800 Recipes, Stainless Steel, 6 Quart",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Instant-Electric-Pressure-Sterilizer-Stainless/dp/B00FLYWNYQ",
+          "title": "Instant Pot Duo 7-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Saute, Yogurt Maker, Warmer & Sterilizer, Includes App With Over 800 Recipes, Stainless Steel, 6 Quart",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-v5-7-in-1-pressure-cooker-6qt/16374908",
+          "title": "Instant Pot Duo V5 7-in-1 Pressure Cooker - 6QT",
+          "price": {
+            "decimal": "159.99",
+            "currency": "CAD",
+            "amountMinor": 15999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/instant-pot-duo-7-in-1-pressure-cooker-slow-cooker-stainless-steel-6qt-0432672p.html",
+          "title": "Instant Pot® Duo 7-in-1 Pressure Cooker/Slow Cooker, Stainless Steel, 6qt",
+          "price": {
+            "decimal": "129.99",
+            "currency": "CAD",
+            "amountMinor": 12999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "clearpick.ca",
+          "url": "https://clearpick.ca/products/instant-pot-duo-6qt",
+          "reason": "no-price"
+        },
+        {
+          "host": "homedepot.ca",
+          "url": "https://www.homedepot.ca/product/instant-brands-instant-pot-duo-nova-6-quart-7-in-1-programmable-pressure-cooker/1001565675",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "a look-alike (\"Silver crest Instant Cooker Pot Duo\")"
+        }
+      ]
+    },
+    {
+      "id": "sonicare-4100",
+      "category": "household",
+      "query": "Philips Sonicare ProtectiveClean 4100",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/305883995727",
+          "title": "Philips Sonicare Sonic ProtectiveClean 6100 Toothbrush Handle HX686P 4100 HX682POpens in a new window or tab",
+          "price": {
+            "decimal": "36.41",
+            "currency": "CAD",
+            "amountMinor": 3641,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/377038352086",
+          "title": "Philips Sonicare ProtectiveClean 4100 7x Sonic Electric Toothbrush Handle HX369XOpens in a new window or tab",
+          "price": {
+            "decimal": "37.81",
+            "currency": "CAD",
+            "amountMinor": 3781,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-protectiveclean-4100-rechargeable-electric-toothbrush-black-hx6810-50/15887791",
+          "title": "Philips Sonicare ProtectiveClean 4100 Rechargeable Electric Toothbrush - Black - HX6810/50",
+          "price": {
+            "decimal": "39.95",
+            "currency": "CAD",
+            "amountMinor": 3995,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/165035208670",
+          "title": "Philips Sonicare ProtectiveClean 4100 Rechargeable Electric ToothbrushOpens in a new window or tab",
+          "price": {
+            "decimal": "126.08",
+            "currency": "CAD",
+            "amountMinor": 12608,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "walmart",
+          "url": "https://www.walmart.ca/en/ip/Philips-Sonicare-ProtectiveClean-4100-Plaque-Control-Rechargeable-Electric-Toothbrush-Black-HX6810/6000197702056",
+          "title": "Philips Sonicare ProtectiveClean 4100 Plaque Control Rechargeable Electric Toothbrush, Black, HX6810",
+          "price": {
+            "decimal": "49.95",
+            "currency": "CAD",
+            "amountMinor": 4995,
+            "refusal": null
+          },
+          "readMethod": "http:next-data"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Philips-Sonicare-Toothbrush-Rechargeable-HX3681/dp/B09LD8T445",
+          "title": "Philips Sonicare 4100 Rechargeable Electric Toothbrush, 1 Brush Head, White",
+          "price": {
+            "decimal": "76.77",
+            "currency": "CAD",
+            "amountMinor": 7677,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/philips-sonicare-protective-clean-4100-rechargeable-electric-toothbrush-for-plaque-control-white-mint-0439141p.html",
+          "title": "Philips Sonicare Protective Clean 4100 Rechargeable Electric Toothbrush For Plaque Control, White/Mint",
+          "price": {
+            "decimal": "84.99",
+            "currency": "CAD",
+            "amountMinor": 8499,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-electric-toothbrush-hx3681-23-white/16589761",
+          "title": "Philips Sonicare 4100 Electric Toothbrush (HX3681/23) - White",
+          "price": {
+            "decimal": "84.99",
+            "currency": "CAD",
+            "amountMinor": 8499,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "philips.ca",
+          "url": "https://www.philips.ca/c-p/HX6817_01/sonicare-protectiveclean-4100-sonic-electric-toothbrush",
+          "reason": "no-price"
+        },
+        {
+          "host": "acc.philips.ca",
+          "url": "https://acc.philips.ca/c-p/HX6817_01/sonicare-protectiveclean-4100-sonic-electric-toothbrush",
+          "reason": "no-price"
+        },
+        {
+          "host": "usa.philips.com",
+          "url": "https://www.usa.philips.com/c-p/HX6817_01/sonicare-protectiveclean-4100-sonic-electric-toothbrush",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "travel cases"
+        }
+      ]
+    },
+    {
+      "id": "keurig-k-mini",
+      "category": "household",
+      "query": "Keurig K-Mini",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/177179722242",
+          "title": "Keurig \"K-Mini\" Matte Black Single Serve Coffee NewOpens in a new window or tab",
+          "price": {
+            "decimal": "59.92",
+            "currency": "CAD",
+            "amountMinor": 5992,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/298315222119",
+          "title": "Keurig K-Mini Single Serve K-Cup Pod Coffee Maker - Gray BRAND NEW IN BOXOpens in a new window or tab",
+          "price": {
+            "decimal": "81.19",
+            "currency": "CAD",
+            "amountMinor": 8119,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-single-serve-k-cup-pod-coffee-maker-black/18923603",
+          "title": "Keurig K-Mini Single Serve K-Cup Pod Coffee Maker- Black",
+          "price": {
+            "decimal": "99.97",
+            "currency": "CAD",
+            "amountMinor": 9997,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "ebay",
+          "url": "https://www.ebay.ca/itm/358307564788",
+          "title": "Keurig K-Mini Plus Single Serve Coffee Maker Brewer Evening Teal 12oz Brand NewOpens in a new window or tab",
+          "price": {
+            "decimal": "105.06",
+            "currency": "CAD",
+            "amountMinor": 10506,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-k-cup-single-serve-coffee-maker-with-carafe-capability/13009213",
+          "title": "Keurig K-Mini K-Cup Single Serve Coffee Maker with Carafe Capability",
+          "price": {
+            "decimal": "109.99",
+            "currency": "CAD",
+            "amountMinor": 10999,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "walmart",
+          "url": "https://www.walmart.ca/en/ip/Keurig-K-Mini-Single-Serve-K-Cup-Pod-Coffee-Maker/6000207195188",
+          "title": "Keurig K-Mini Single Serve K-Cup Pod Coffee Maker",
+          "price": {
+            "decimal": "94.99",
+            "currency": "CAD",
+            "amountMinor": 9499,
+            "refusal": null
+          },
+          "readMethod": "http:next-data"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Keurig-K-Mini-Coffee-Maker-Matte/dp/B07G14HTBZ",
+          "title": "Keurig K-Mini Single Serve K-Cup Pod Coffee Maker, Made from at Least 20% Recycled Plastic, Matte Black",
+          "price": {
+            "decimal": "87.47",
+            "currency": "CAD",
+            "amountMinor": 8747,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/keurig-k-mini-single-serve-coffee-maker-warm-stone-4991982p.html",
+          "title": "Keurig® K-Mini® Single Serve Coffee Maker, Warm Stone",
+          "price": {
+            "decimal": "114.99",
+            "currency": "CAD",
+            "amountMinor": 11499,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-k-cup-single-serve-coffee-maker-with-carafe-capability/13009213",
+          "title": "Keurig K-Mini K-Cup Single Serve Coffee Maker with Carafe Capability",
+          "price": {
+            "decimal": "109.99",
+            "currency": "CAD",
+            "amountMinor": 10999,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "learned",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/keurig-k-mini-single-serve-coffee-maker-warm-stone-4991982p.html",
+          "title": "Keurig® K-Mini® Single Serve Coffee Maker, Warm Stone",
+          "price": {
+            "decimal": "114.99",
+            "currency": "CAD",
+            "amountMinor": 11499,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "rona.ca",
+          "url": "https://www.rona.ca/en/product/keurig-k-mini-black-ku50-37359-330853015",
+          "reason": "no-price"
+        },
+        {
+          "host": "keurig.com",
+          "url": "https://www.keurig.com/Home-Coffee-Makers/K-Mini%C2%AE-Single-Serve-Coffee-Maker/p/K-Mini-Coffee-Maker",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "keurig.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "K-Mini Go (another model)"
+        },
+        {
+          "store": "staples.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "K-Mini Mate Plus (another model)"
+        }
+      ]
+    },
+    {
+      "id": "brita-10-cup",
+      "category": "household",
+      "query": "Brita Large 10 Cup Water Filter Pitcher",
+      "listings": [
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0CTT1L3D7",
+          "title": "Large 10 Cup Water Filter Pitcher + BRITA Water Filter Pitcher Advanced Replacement Filters (1 Count)",
+          "price": {
+            "decimal": "44.61",
+            "currency": "CAD",
+            "amountMinor": 4461,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0GYGH3PFF",
+          "title": "Large 10 Cup Water Filter Pitcher with 1 Brita Elite Filter, Made Without BPA, Tahoe, Black",
+          "price": {
+            "decimal": "45.47",
+            "currency": "CAD",
+            "amountMinor": 4547,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/dp/B0BJL5RDNC",
+          "title": "Brita Large 10 Cup Water Filter Pitcher with Smart Light Filter Reminder and 2 Standard Filters, Made Without BPA, White (Packaging May Vary)",
+          "price": {
+            "decimal": "50.28",
+            "currency": "CAD",
+            "amountMinor": 5028,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/brita-large-10-cup-water-filter-pitcher-with-smart-light-filter-reminder-and-2-standard-filtes-white/19422050",
+          "title": "Brita Large 10 Cup Water Filter Pitcher with Smart Light Filter Reminder and 2 Standard Filtes, White",
+          "price": {
+            "decimal": "52.31",
+            "currency": "CAD",
+            "amountMinor": 5231,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "catalog",
+          "store": "aliexpress",
+          "url": "https://www.aliexpress.com/item/1005012524178777.html",
+          "title": "3.5L BRITA Marella Ocean Series Filter Water Jug Large Capacity Household Tap Water Filter Pitcher Multilingual Manual",
+          "price": {
+            "decimal": "68.42",
+            "currency": "CAD",
+            "amountMinor": 6842,
+            "refusal": null
+          },
+          "readMethod": null
+        },
+        {
+          "source": "web",
+          "store": "walmart",
+          "url": "https://www.walmart.ca/en/ip/Brita-Large-10-Cup-Water-Filter-Pitcher-with-1-Standard-Filter-Made-Without-BPA-Huron/3X4OVSQ4KW8W?athcpid=3X4OVSQ4KW8W&athpgid=ContentPage&athcgid=null&athznid=ItemCarousel_e4c82ac3-fb47-40c2-bdc7-b89b37f2f591_items&athieid=v0&athstid=CS020&athguid=JrdsN0CmVVuTNV3j8im4415qetoi9Jarzl1H&athancid=null&athena=true&athbdg=L1400",
+          "title": "Brita Large 10 Cup Water Filter Pitcher with 1 Standard Filter, Made Without BPA, Huron, Red",
+          "price": {
+            "decimal": "34.97",
+            "currency": "CAD",
+            "amountMinor": 3497,
+            "refusal": null
+          },
+          "readMethod": "http:next-data"
+        },
+        {
+          "source": "web",
+          "store": "amazon",
+          "url": "https://www.amazon.ca/Brita-Everyday-Water-Pitcher-Filter/dp/B01FXN3E74",
+          "title": "Brita Large 10 Cup Water Filter Pitcher with 1 Standard Filter, Made Without BPA, White (Design May Vary)",
+          "price": {
+            "decimal": "68.63",
+            "currency": "CAD",
+            "amountMinor": 6863,
+            "refusal": null
+          },
+          "readMethod": "http:amazon-dom"
+        },
+        {
+          "source": "web",
+          "store": "bestbuyca",
+          "url": "https://www.bestbuy.ca/en-ca/product/brita-large-10-cup-water-filter-pitcher-with-smart-light-filter-reminder-and-2-standard-filtes-white/19422050",
+          "title": "Brita Large 10 Cup Water Filter Pitcher with Smart Light Filter Reminder and 2 Standard Filtes, White",
+          "price": {
+            "decimal": "52.31",
+            "currency": "CAD",
+            "amountMinor": 5231,
+            "refusal": null
+          },
+          "readMethod": "bestbuyca-api"
+        },
+        {
+          "source": "web",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/brita-grand-water-filter-pitcher-with-standard-replacement-filter-bpa-free-10-cup-white-0421266p.html",
+          "title": "Brita® Grand Water Filter Pitcher with Standard Replacement Filter, BPA Free, 10 Cup, White",
+          "price": {
+            "decimal": "37.99",
+            "currency": "CAD",
+            "amountMinor": 3799,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/brita-advanced-water-pitcher-replacement-filter-bpa-free-single-1421828p.html",
+          "title": "Brita® Advanced Water Pitcher Replacement Filter, BPA Free, Single",
+          "price": {
+            "decimal": "9.99",
+            "currency": "CAD",
+            "amountMinor": 999,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        },
+        {
+          "source": "learned",
+          "store": "canadiantire.ca",
+          "url": "https://www.canadiantire.ca/en/pdp/brita-huron-bright-water-pitcher-bpa-free-standard-filter-included-10-cup-white-1431001p.html",
+          "title": "Brita Huron Bright Water Pitcher, BPA free, Standard Filter included, 10-Cup, White",
+          "price": {
+            "decimal": "35.99",
+            "currency": "CAD",
+            "amountMinor": 3599,
+            "refusal": null
+          },
+          "readMethod": "browser:recipe-json-ld"
+        }
+      ],
+      "unreadable": [
+        {
+          "host": "homedepot.ca",
+          "url": "https://www.homedepot.ca/product/brita-large-10-cup-water-filter-pitcher-with-1-standard-filter-made-without-bpa-huron-white/1001684510",
+          "reason": "no-price"
+        },
+        {
+          "host": "rona.ca",
+          "url": "https://www.rona.ca/en/product/brita-10-cup-water-pitcher-with-filter-642556-18015036",
+          "reason": "no-price"
+        }
+      ],
+      "verdicts": [
+        {
+          "store": "aliexpress",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "a 3.5 L Marella jug, a look-alike"
+        },
+        {
+          "store": "shoppurilite.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "6-cup pitcher"
+        },
+        {
+          "store": "staples.ca",
+          "verdict": "rejected",
+          "setups": "all",
+          "reason": "6-cup Space Saver pitcher"
+        }
+      ]
+    }
+  ],
+  "conversion": {
+    "converter": "review-convert/1",
+    "repository": "~/Documents/GitHub/hermes-shopping",
+    "branch": "browser-agent",
+    "commit": "51db126",
+    "reviewFile": "scripts/eval/2026-10-23-matching-review.json",
+    "reviewFileSha256": "5761f190b5ff4be81c9dd336b1e44085c1306a269111d5f2581027a18695b354",
+    "runFile": "reports/2026-10-23-matching-eval.json",
+    "runFileSha256": "6502973c60fab3a96b1c78c2b7b3b3320d1f9a9219bc72cb057e638e1d06b861",
+    "lossy": [
+      "run.base_url not carried: the engine URL of the run",
+      "run.summary not carried: recomputed by rescoring from the listings and verdicts",
+      "run.explorer not carried: store-explorer cost telemetry, not a review figure",
+      "run.learned_stores not carried: engine state at run time",
+      "run.exploration_queue not carried: engine state at run time",
+      "run.review not carried: the path of the review file the run was last rescored with (kept in conversion.reviewFile)",
+      "product field compare_s not carried: request timing (float seconds), not a review figure",
+      "product field discover_s not carried: request timing (float seconds), not a review figure",
+      "product field web_engines_not_answering not carried: discovery telemetry",
+      "product field web_queued not carried: discovery telemetry",
+      "product field web_searched not carried: discovery telemetry",
+      "product field web_stores_checked not carried: discovery telemetry",
+      "product field web_timed_out not carried: discovery telemetry",
+      "product field web_unmatched not carried: discovery telemetry",
+      "web_unreadable fields error, manufacturer not carried (host, url and reason are)",
+      "derived product fields (before/after/with_learned counts and store lists, added_by_*, *_already_had, rejected, checked_*) not carried: checked to follow from the rows, recomputed by rescoring",
+      "review.reviewerId: the predecessor records no reviewer; \"pred-unattributed\" stands for \"not recorded\"",
+      "review.reviewedAt: the predecessor records no review time; null",
+      "run.started_at: \"2026-10-23T20:38:37.354619+00:00\" truncated to milliseconds as 2026-10-23T20:38:37.354Z",
+      "run.finished_at: \"2026-10-23T21:01:59.885899+00:00\" truncated to milliseconds as 2026-10-23T21:01:59.885Z"
+    ]
+  }
+}

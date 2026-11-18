@@ -16,6 +16,18 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-18: Workstream 4, gold-set and review tooling (labels still to come)
+
+**Shipped.** `evals/gold/` (PR #8): formats for products, listing snapshots, relation labels and the split manifest; validators with a progress and a strict mode; a seeded, stratified 40/20 split that never moves an assigned product and guards against the same product on both sides; held-out rotation by retiring; a blind second-label worklist and an agreement report (raw agreement, Cohen's kappa over the seven relations and over exact versus not exact, the confusion matrix). `evals/review/`: the predecessor's hand-review format described field by field, this project's version of it, a converter, and offline rescoring. Neither holds gold data: there are no gold products, snapshots or labels yet.
+
+**Rescoring parity (measured).** Rescoring the two converted predecessor review files gives exactly the figures the predecessor's own `--rescore` gives, compared as fractions: 28 of its 30 summary figures per file and every product row (the other two are request timings, not ported). Checked stores before / after web discovery / with learned stores: 64 / 108 / 124 of 119 / 163 / 201 (n = 20 products, phase 5 review) and 70 / 110 / 123 of 84 / 124 / 140 (n = 20 products, matching review). The orchestrator re-ran the rescoring and compared its output with the summaries in the predecessor's published report files: the 18 integer figures per file match by name, and the medians match in value. The predecessor's script was run offline, with the network denied.
+
+**These are the predecessor's metrics, not the S§6 gates.** Its "checked" figure counts stores, not listings; its denominator is every store with a verified row, not listings shown as exact; an unreviewed store counts as accepted; colour variants and open-box rows count as hits; and its 20 products are not a held-out set. From this data, identity precision, price correctness and best-offer recall cannot be computed. A median of checked stores per product is reported under its own name (3, 5.5 and 6.5 for the three setups in both files, n = 20) and is not the "verified stores per product ≥6" gate.
+
+**The predecessor's reviews cannot seed gold labels as they stand.** Verdicts are per store, not per listing; neither verdict fixes a relation; and no reviewer is recorded (the commit that added the first review file calls it "not independently verified"). The 20-product list is carried in the converted files.
+
+**Gate.** "Gold set v1 is labelled with its 40/20 split, 10% double-labelled, agreement reported": **pending-owner**. Needed from the owner: the six category ids, the EU country, labeller handles and a second labeller, the hard-negative definition (proposed: `variant`, `bundle`, `accessory_or_part`, `other_model`), whether 40/20/~60 are minimums, who made the predecessor's reviews, and then the labels.
+
 ### 2026-11-18: Workstream 3, fixture corpus
 
 **Shipped.** `evals/corpus/`: a harness and 26 areas ported from the predecessor before any implementation exists (plan P0 workstream 3, CONTRIBUTING rule 2). Each area has a typed contract for the function Phase 1 will write, its cases, and a test.
