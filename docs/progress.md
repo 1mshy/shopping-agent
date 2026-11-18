@@ -16,6 +16,70 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-18: Workstream 3, fixture corpus
+
+**Shipped.** `evals/corpus/`: a harness and 26 areas ported from the predecessor before any implementation exists (plan P0 workstream 3, CONTRIBUTING rule 2). Each area has a typed contract for the function Phase 1 will write, its cases, and a test.
+
+**Gate: "the fixture corpus exists and fails for the right reason".** 568 cases, 568 pending, 0 implemented, with `pnpm test` exit 0. A pending case is counted only when its subject throws `NotImplementedError`; any other error fails the test, and so does a subject that answers while its area is still marked pending. Each porting unit confirmed this by making one case throw a `TypeError` and seeing `pnpm test` exit 1. Output of `node evals/corpus/count.ts`:
+
+| Area | Cases | Status |
+|---|--:|---|
+| alert-delivery-gating | 7 | pending |
+| alert-price-rules | 31 | pending |
+| alert-restock | 15 | pending |
+| challenge-wait | 22 | pending |
+| converted-price-refusal | 6 | pending |
+| currency-resolution | 37 | pending |
+| known-failure-converted-currency | 5 | pending |
+| known-failure-coupon-missed | 14 | pending |
+| known-failure-financing-price | 8 | pending |
+| known-failure-wrong-variant | 7 | pending |
+| match-identifiers | 16 | pending |
+| match-owner-rulings | 48 | pending |
+| match-title-rules | 87 | pending |
+| notify-retry | 33 | pending |
+| price-text-parsing | 35 | pending |
+| reference-price | 13 | pending |
+| regional-url | 13 | pending |
+| scheduler-catch-up | 10 | pending |
+| scheduler-network-gate | 11 | pending |
+| shopify-market-prefix | 14 | pending |
+| stale-read | 10 | pending |
+| url-guard-address | 52 | pending |
+| url-guard-transport | 11 | pending |
+| wall-classification | 31 | pending |
+| walled-session-drop | 9 | pending |
+| watch-intake | 23 | pending |
+| **Total** | **568** | 568 pending, 0 implemented |
+
+**Source.** The predecessor was read at `~/Documents/GitHub/hermes-shopping`, branch `browser-agent`, commit `51db126` plus its uncommitted files. **The owner has not confirmed that this is the reference copy**; the port started on 2026-11-18 on the orchestrator's judgement, because the copy holds every path S§7 cites. Expected values come from the predecessor's test assertions, from reading its functions, or from running its pure functions offline; each case says which. Its pytest suite was not run.
+
+**How it was checked.** Lint, typecheck, test and build exit 0 on local `main` after each merge (no CI: nothing has been pushed since 2026-11-18). The orchestrator compared samples with the predecessor: money cases against `test_money.py`; every URL-guard expectation read one by one; every matcher query and 153 of 158 listing titles found verbatim in the predecessor's tests, review files or reports; retry delays and statuses against `notify/__init__.py`. No independent reviewer was run on the corpus.
+
+**Where the cases follow the spec against the predecessor** (each is marked `divergence` in its case):
+
+- Money: no default currency (the predecessor fell back to USD, or read `.com` as USD); a digit beyond the currency's exponent is refused, not trimmed; a range, a "from" price, a per-unit price or an instalment is not a price; a converted figure is refused at currency resolution instead of being flagged; the sticker is kept and the coupon stored as an amount off.
+- Walls and guard: no bare-substring matching (a 410 with a marker, a product titled "Just a moment", a URL with "captcha" in its path are not walls); the HTTP rung pins to the checked address; every redirect hop is checked before it is followed; a session is not dropped on a 5xx or 429; a URL with user-info is refused (the orchestrator's change; the predecessor passed it).
+- Matcher: a "for Business" or Bluetooth-only edition is a `variant`; a product sold with a filter pack is a `bundle`; an air fryer named only by its size is `unknown`, not a match.
+- Alerts and scheduling: a drop needs a second read on the same read path; unknown stock is not compared; nothing is stamped when no channel accepted; every non-failed read writes an observation; a watch with no rule gets the 5% default instead of a refusal; the reference is the median, not the cheapest; a retry that fires mid-run joins the run; every 5xx retries.
+
+**What the predecessor did not have.** No GTIN or brand + MPN matching (tier 1 of S§5.4 is new work, with no ported case). No saved wall pages (wall cases rest on its synthetic test bodies and its lab classifier). No test of pacing.
+
+**Not ported here, and where it belongs.** Readers (Shopify, Woo, structured data, the variant-coupling failures: AliExpress multi-capacity prices, the cheapest-variant default, ProductGroup ranges), the web-discovery candidate filter and listing key, FX sort keys and the hint, the playbook, per-listing scheduling and re-discovery after errors, channel adapters, recipes. Each arrives with fixtures first in the unit that implements it. Left behind per S§7: the displayed-price arbiter, the wake agent, the user-set sweep cron.
+
+**For the owner before Phase 1.** The porting units raised 44 questions; the ones that change what Phase 1 builds:
+
+1. *Alert rule (S§5.8).* Over which reads is the MAD taken, raw or scaled, and is the 1% floor 1% of the baseline? Must the confirming read itself meet the rule, and may a failed read come between the two? Does "same read path" include the rung? Is the compared price the sticker or the effective price? Is the user's threshold inclusive (ported) or strict?
+2. *Cooldown and delivery (S§5.11).* Is the cooldown per watch (any channel accepted; ported) or per channel? Does acceptance by the always-on in-app channel stamp it? If it does, a failed push no longer keeps the watch armed.
+3. *Reference price.* User-confirmed price or median when both exist; even-count median rounding; recomputed or fixed once set; does `unknown` condition count as new?
+4. *Scheduler.* Are "probes at 0/3/5/10/20/30 s" delays between probes (ported: 0, 3, 8, 18, 38, 68 s) or offsets from the start? What does reaching a job's deadline do?
+5. *Currency.* Is a Shopify Markets presentment price a converted figure (the cases accept a platform-declared currency)? Where does an explicit mark on the figure rank against the ccTLD and the locale? Should "1.299 €" read as 1,299 euros (refused for now)? Half-up rounding of percentage coupons is assumed.
+6. *Walls and guard.* Is a bare 403 a wall, and a 401 `login_required`? Should in-house walls name their vendor (`ebay`, `amazon`)? Which address ranges beyond S§5.1's five are refused, and under which reason? `POLICY_REFUSAL_REASONS` has no value for a URL that is unacceptable as written (user-info, no host); `scheme` is used. Where is the threshold for `empty`?
+7. *Matcher.* 35 cases expect a set of relations because the evidence does not fix one: they need the owner's label. Does "Plus counts the query's way" cover model names (Instant Pot Duo Plus) or only material grades? Is a model number in the listing's URL path identity evidence? Matte and silk: a finish (accepted by the review rule) or another line (rejected in the SUNLU review)?
+8. *Contract alignment.* The gold-set product identity (`evals/gold`) and the matcher corpus's asked side (`SearchIntent`) differ in shape (nullable versus optional fields, `mustHave` as an array versus a record); one shape should be chosen before labelling starts.
+
+The vocabularies the areas define for themselves (alert silence reasons, restock silence reasons, intake refusals, retry actions, price-text refusal codes) are proposals for `packages/shared`, to be settled by the Phase 1 units that implement them.
+
 ### 2026-11-18: Workstream 2c, database schema and first migration
 
 **Shipped**
