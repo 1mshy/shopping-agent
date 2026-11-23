@@ -28,6 +28,21 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 - **LLMs:** hosted Claude Haiku 5.5 only for now. Spike D drops the second hosted model and the local one; the wire recordings cover Haiku 5.5 only, and OpenAI, vLLM, Ollama and llama.cpp wait. Still needed: the route (proposed OpenRouter, as S§9 #5 keeps Claude there until a native adapter) and a spending ceiling.
 - **Decision #4:** robots.txt public default is `ignore`, setting exposed.
 - **Later the same day:** spike decisions A (`impit` default, `wreq-js` swap-in, `impers` not adopted) and C (platform JSON first: Shopify, WooCommerce, Magento; Magento GraphQL as Magento 2 only) confirmed. Haiku 5.5 is reached on the native Anthropic API with the key and URL in the gitignored `.env`, not through OpenRouter, so spike D and the recordings need an Anthropic Messages path (this brings part of S§9 #5 forward for the lab tools only; the product's adapter decision is still open). LLM spend is capped at $100 for the month and is meant to stay far below.
+- **Gold set (P0-4c):** agents label every snapshot with Claude Opus 5.5 (never the model being judged) and attach their evidence; the owner reviews a random 10% (this is the double-label pass, with agreement reported) plus every snapshot where agent passes disagree. Six categories from the predecessor's products: `3d-printing`, `computing`, `audio`, `kitchen-appliances`, `power-tools`, `personal-care`. Countries CA, US and DE (Germany is the EU country). The hard-negative definition (`variant`, `bundle`, `accessory_or_part`, `other_model`) is adopted. The 35 matcher cases that expect a set are labelled the same way.
+
+**Owner rulings on the Phase 1 questions (2026-11-23)**, to be applied to the corpus cases before Phase 1 implements them:
+
+- Alert price is the effective price after an automatic discount, shown beside the sticker; a coupon that needs clipping or a code does not trigger an alert on its own.
+- A user's threshold is inclusive ("$50 or less" fires at $50.00).
+- The confirming read must itself meet the rule; a smaller drop on the second read sends nothing and the watch keeps watching.
+- Delivery: acceptance by the in-app channel alone does not stamp the cooldown; push keeps being retried until a push channel accepts, and the cooldown starts then.
+- Reference price: the user's confirmed price wins over the observed median until the user changes it; otherwise the median of recent observations, recomputed as reads arrive.
+- `unknown` condition is shown with a flag, left out of the reference price, and never triggers a new-item alert.
+- Matcher: a name suffix that changes the line (Duo vs Duo Plus) or the material (PLA+ vs Silk PLA+) makes a different product (`other_model` or `variant`), never `exact`.
+- "1.299 €" on a shop whose locale uses the dot as a thousands separator reads as 1,299 euros; with an unclear locale the price is refused.
+- A Shopify Markets presentment price is the shop's own price for that market, not a converted figure; conversions made by the agent or a site's "approx." figures are still refused.
+
+**Settled by the orchestrator** (engineering details; the owner may overrule): the confirming read uses the same read path including the rung; the cooldown is per watch; an even-count median is the mean of the two middle values rounded half-up to the minor unit; probe timings are delays between probes as ported (offsets 0, 3, 8, 18, 38, 68 s), and a job that reaches its deadline ends as timed out keeping its partial results; currency evidence ranks an explicit mark on the figure, then a platform declaration, then the page locale, then the ccTLD; percentage coupons round half-up; a bare 403 with no wall marker is a block, not a named wall, and a 401 is `login_required`; in-house walls name their vendor; every IANA special-purpose address range is refused; a URL unacceptable as written (user-info, no host) gets its own refusal reason instead of `scheme`; a model number in a URL path is supporting evidence, never identity on its own; the gold-set product identity adopts the `packages/shared` `SearchIntent` shape.
 
 ### 2026-11-18: Spike A: HTTP transport lab
 
