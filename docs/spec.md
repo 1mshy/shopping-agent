@@ -331,7 +331,7 @@ Dig deeper is blocked under 16K context. There is no prompt-injected tool-callin
 
 **Structured output** degrades by capability flag: strict json_schema → json_object → forced tool → text extractor. All of these use zod validation and one repair retry.
 
-**Roles.** Endpoints are assigned per role (planner, judge, chat, browse), so a cheap small model can judge while a larger one plans. The judge defaults to a small hosted model at minimum reasoning effort.
+**Roles.** Endpoints are assigned per role (planner, judge, chat, browse), so a cheap small model can judge while a larger one plans. The judge defaults to a small hosted model at a measured reasoning effort: on spike D's set, Claude Haiku 5.5 at `medium` kept precision of `exact` (0.951 against 0.940) and raised recall (0.770 against 0.569) over `low`, at about 1.5× the cost (`docs/spikes/d-model-judge.md`).
 
 **Run loop** (~1,000 lines, shaped like pi-agent-core but with caps): `transformContext` (snapshot pruning), `beforeToolCall` (allow-list, refusal counting), `finishTurn`, parallel tools with a per-tool sequential flag, AbortSignal throughout, typed events. Required arguments: maxTurns, deadline, maxInputTokens, maxSpend. A forced finish is a tool-less final call (`tool_choice: none` where accepted), then a deterministic finisher built from run state. A repeat detector trips at 3 identical calls, and the invalid-call cap is 3.
 

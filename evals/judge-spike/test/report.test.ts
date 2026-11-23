@@ -12,6 +12,7 @@ import {
   exactMetrics,
   invalidBatches,
   latency,
+  outputLine,
   renderReport,
   repairedBatches,
   tokensAndCost,
@@ -195,6 +196,17 @@ describe('the veto-only reading', () => {
 });
 
 describe('batches, trials, tokens, latency', () => {
+  it('sums output and reasoning tokens over the calls that report them, and the known spend', () => {
+    const withThinking = call('b1', 5, {
+      usage: { ...usage(1000, 300), 'gen_ai.usage.reasoning.output_tokens': 100 },
+      cost: { source: 'settings', amountNanos: 250_000, currency: 'USD' },
+    });
+    // Output: 300 + 200 + 210 = 710, largest 300. Reasoning: 100 of the one reporting call's 300.
+    // Known spend: 250,000 + 300 nanos; one call (b2) without a cost.
+    expect(outputLine([withThinking, ...calls], 'USD')).toBe(
+      'All 3 calls: output tokens reported by 3, sum 710, largest 300; reasoning tokens reported by 1: 100/300 = 0.333 of their output; known spend 0.000250 USD over 2 calls; without a cost: 1.',
+    );
+  });
   it('invalid-batch rate is over distinct batches', () => {
     expect(invalidBatches([...t1, ...s1])).toEqual(ratio(1, 2));
   });

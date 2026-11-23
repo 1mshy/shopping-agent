@@ -4,7 +4,13 @@ import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { secretsIn } from '../../wire/leak-check.ts';
 import { runCli } from '../lib/runner.ts';
-import { completion, type Script, scriptedFetch, verdicts } from './scripted-judge.ts';
+import {
+  anthropicMessage,
+  completion,
+  type Script,
+  scriptedFetch,
+  verdicts,
+} from './scripted-judge.ts';
 
 const KEY_VAR = 'JUDGE_SPIKE_UNIT_TOKEN';
 // Made up. Its characters share no 8-character run with any path or label the tests write (the
@@ -270,5 +276,133 @@ describe('records', () => {
       const text = await readFile(join(out, f), 'utf8').catch(() => '');
       expect(secretsIn(text, [KEY])).toBe(false);
     }
+  });
+});
+
+describe('the native Anthropic Messages path (--api anthropic)', () => {
+  const ANTHROPIC = {
+    '--api': 'anthropic',
+    '--model': 'claude-haiku-5-5',
+    '--reasoning-effort': 'low',
+    // $0.10 / $0.50 per million input / output tokens.
+    '--price-input-nanos-per-mtok': '100000000',
+    '--price-output-nanos-per-mtok': '500000000',
+  } as const;
+  const validMessage: Script = (ids) => ({ body: anthropicMessage(verdicts(ids)) });
+
+  it('refuses what the Messages API or Haiku 5.5 does not take, before any call', async () => {
+    const refused: Record<string, string | true | null>[] = [
+      { '--temperature': '0' },
+      { '--structured': 'json_object' },
+      { '--max-tokens-field': 'max_tokens' },
+      { '--provider-cost-currency': 'USD' },
+      { '--reasoning-effort': 'minimal' },
+      { '--api-key-env': null },
+      { '--local': true, '--batch-sizes': '5' },
+      { '--api': 'openai' },
+    ];
+    for (const over of refused) {
+      printed = [];
+      const r = await run({ ...ANTHROPIC, ...over }, validMessage);
+      expect(r.code, JSON.stringify(over)).toBe(2);
+      expect(r.calls).toHaveLength(0);
+    }
+  });
+
+  it('judges through the SDK with structured output, the effort given and no sampling', async () => {
+    const r = await run({ ...ANTHROPIC, '--max-calls': '2' }, validMessage);
+    expect(r.calls).toHaveLength(2);
+    const seen = r.calls[0];
+    expect(new URL(seen?.url ?? '').pathname).toBe('/v1/messages');
+    expect(seen?.authorization).toBe(`Bearer ${KEY}`);
+    expect(seen?.body).toMatchObject({
+      model: 'claude-haiku-5-5',
+      max_tokens: 2048,
+      thinking: { type: 'adaptive' },
+      output_config: { effort: 'low', format: { type: 'json_schema' } },
+    });
+    expect(typeof seen?.body.system).toBe('string');
+    expect(seen?.body.messages.map((m) => m.role)).toEqual(['user']);
+    expect(seen?.body).not.toHaveProperty('temperature');
+    const items = await jsonl('items.jsonl');
+    expect(items.length).toBeGreaterThan(0);
+    expect(items.every((i) => i.batchValid === true)).toBe(true);
+    const meta = JSON.parse(await readFile(join(await runDir(), 'run.json'), 'utf8'));
+    expect(meta.api).toBe('anthropic');
+  });
+
+  it('records usage normalised, cost from the prices, and no credential', async () => {
+    await run({ ...ANTHROPIC, '--max-calls': '1' }, validMessage);
+    const [call] = await jsonl('calls.jsonl');
+    expect(call?.usage).toEqual({
+      'gen_ai.usage.input_tokens': 800,
+      'gen_ai.usage.cache_read.input_tokens': 100,
+      'gen_ai.usage.cache_write.input_tokens': 0,
+      'gen_ai.usage.output_tokens': 120,
+      'gen_ai.usage.reasoning.output_tokens': 40,
+    });
+    // 800 x 100,000,000 / 1e6 + 120 x 500,000,000 / 1e6 = 80,000 + 60,000.
+    expect(call?.cost).toEqual({ source: 'settings', amountNanos: 140_000, currency: 'USD' });
+    expect(call?.request).toMatchObject({
+      path: '/v1/messages',
+      headers: { authorization: '[REDACTED]' },
+    });
+    expect(secretsIn(JSON.stringify(call), [KEY])).toBe(false);
+  });
+
+  it('repairs a refused reply once, with no trailing assistant turn', async () => {
+    const r = await run({ ...ANTHROPIC, '--max-calls': '2' }, (ids, n) => ({
+      body:
+        n === 1
+          ? anthropicMessage(null, {
+              stopReason: 'refusal',
+              stopDetails: { type: 'refusal', category: null, explanation: null },
+            })
+          : anthropicMessage(verdicts(ids)),
+    }));
+    expect(r.calls).toHaveLength(2);
+    expect(r.calls[1]?.body.messages.map((m) => m.role)).toEqual(['user', 'user']);
+    const calls = await jsonl('calls.jsonl');
+    expect(calls.map((c) => [c.attempt, c.valid, c.invalidReason, c.invalidDetail])).toEqual([
+      [0, false, 'refusal', 'refusal:none'],
+      [1, true, null, null],
+    ]);
+  });
+
+  it('sends the reply back as an assistant turn on a truncation repair', async () => {
+    const r = await run({ ...ANTHROPIC, '--max-calls': '2' }, (ids, n) => ({
+      body:
+        n === 1
+          ? anthropicMessage('{"verdicts":[', { stopReason: 'max_tokens' })
+          : anthropicMessage(verdicts(ids)),
+    }));
+    expect(r.calls[1]?.body.messages.map((m) => m.role)).toEqual(['user', 'assistant', 'user']);
+    expect(r.calls[1]?.body.messages[1]?.content).toBe('{"verdicts":[');
+  });
+
+  it('keeps every budget: the spend reserve stops it before the call', async () => {
+    const r = await run({ ...ANTHROPIC, '--max-spend-nanos': '1' }, validMessage);
+    expect(r.code).toBe(3);
+    expect(r.calls).toHaveLength(0);
+    expect((await summary()).stoppedBy).toBe('spend');
+  });
+
+  it('does not retry an HTTP error, and stops after three in a row', async () => {
+    const r = await run(ANTHROPIC, () => ({
+      status: 500,
+      body: { type: 'error', error: { type: 'api_error', message: 'down' } },
+    }));
+    expect(r.calls).toHaveLength(3);
+    expect(r.code).toBe(3);
+    expect((await summary()).stoppedBy).toBe('consecutive_failures');
+    const [call] = await jsonl('calls.jsonl');
+    expect(call?.invalidReason).toBe('http_status');
+    expect(call?.cost).toEqual({ source: 'none' });
+  });
+
+  it('fails closed when a reply echoes the key', async () => {
+    const r = await run(ANTHROPIC, () => ({ body: anthropicMessage(`echo ${KEY}`) }));
+    expect(r.code).toBe(1);
+    expect(printed.some((l) => secretsIn(l, [KEY]))).toBe(false);
   });
 });

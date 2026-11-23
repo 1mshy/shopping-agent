@@ -10,7 +10,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { secretsIn } from '../../wire/leak-check.ts';
 import { DATASET } from '../dataset.ts';
 import { composeBatches } from '../lib/batches.ts';
-import { completion, startScriptedJudge, verdicts } from './scripted-judge.ts';
+import { anthropicMessage, completion, startScriptedJudge, verdicts } from './scripted-judge.ts';
 
 const RUN_TS = new URL('../run.ts', import.meta.url).pathname;
 const REPORT_TS = new URL('../report.ts', import.meta.url).pathname;
@@ -105,5 +105,51 @@ describe('the CLI end to end against a scripted server', () => {
     const refused = await node([REPORT_TS, runDir, '--draft', draft]);
     expect(refused.code).toBe(2);
     expect(await readdir(out)).not.toContain('draft.md');
+  });
+});
+
+describe('the CLI end to end on the native Messages path (--api anthropic)', () => {
+  let aOut = '';
+  let aServer: Awaited<ReturnType<typeof startScriptedJudge>>;
+  beforeAll(async () => {
+    aOut = await mkdtemp(join(tmpdir(), 'judge-spike-e2e-messages-'));
+    aServer = await startScriptedJudge((ids, n) => ({
+      body: anthropicMessage(n === 1 ? 'I think they are all fine.' : verdicts(ids)),
+    }));
+  });
+  afterAll(async () => {
+    await aServer.close();
+    await rm(aOut, { recursive: true, force: true });
+  });
+
+  it('runs through the SDK over HTTP, repairs once, and keeps the key out of every file', async () => {
+    const run = await node(
+      [
+        RUN_TS,
+        ...['--api', 'anthropic', '--base-url', `${aServer.origin}/v1`],
+        ...['--model', 'claude-haiku-5-5', '--label', 'e2e-messages', '--reasoning-effort', 'low'],
+        ...['--api-key-env', KEY_VAR, '--batch-sizes', '15', '--trials', '1', '--seed', '7'],
+        ...['--max-calls', '1000', '--max-input-tokens', '50000000', '--deadline-ms', '120000'],
+        ...['--max-spend-nanos', '1000000000', '--currency', 'USD'],
+        ...['--price-input-nanos-per-mtok', '100000000'],
+        ...['--price-output-nanos-per-mtok', '500000000'],
+        ...['--out', aOut, '--owner-approved', '--synthetic'],
+      ],
+      { [KEY_VAR]: KEY },
+    );
+    expect(run.code, run.stderr).toBe(0);
+    expect(secretsIn(`${run.stdout}${run.stderr}`, [KEY])).toBe(false);
+    expect(aServer.calls.every((c) => c.authorization === `Bearer ${KEY}`)).toBe(true);
+    expect(aServer.calls.every((c) => c.url === '/v1/messages')).toBe(true);
+    const planned = composeBatches(DATASET, { batchSizes: [15], trials: 1, seed: 7 }).length;
+    expect(aServer.calls).toHaveLength(planned + 1);
+    for (const f of await allFiles(aOut)) {
+      expect(secretsIn(await readFile(f, 'utf8'), [KEY]), f).toBe(false);
+    }
+    const [dir] = await readdir(aOut);
+    const report = await node([REPORT_TS, join(aOut, dir as string)]);
+    expect(report.code, report.stderr).toBe(0);
+    expect(report.stdout).toMatch(/API `anthropic`/);
+    expect(report.stdout).toMatch(/SYNTHETIC/);
   });
 });

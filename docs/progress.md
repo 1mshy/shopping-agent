@@ -17,6 +17,26 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-23: Spike D part 2: Claude Haiku 5.5 as the model judge
+
+Report: `docs/spikes/d-model-judge.md`; harness `evals/judge-spike/` (branch `phase0/spike-d-part2`, for the orchestrator to review).
+
+- **Shipped.** A native Anthropic Messages call path for the judge runner (`--api anthropic`, `lib/anthropic.ts`) through the official `@anthropic-ai/sdk` 1.12.0, not the OpenAI-compatibility endpoint: rules in `system`, structured output by `output_config.format`, adaptive thinking with `output_config.effort`, no sampling parameters, no prefill, `stop_reason` read before content, SDK retries off, usage normalised (Anthropic's `input_tokens` plus cache reads and writes). The four budgets, the repair retry, validation, records and the leak check are shared with the Chat Completions path. Tests against scripted servers only (unit, runner and end to end). The report generator now names the API and sums output and reasoning tokens and known spend.
+- **Runs.** Smoke first: 3 calls at `low` ($0.000279 a call) and 3 at `medium` ($0.000444), projecting about $0.63 for both full runs, under the $5 cap. Then the default plan (batch sizes 1, 5, 10, 15; 3 trials; 873 batches, 1,896 judgements) twice on `claude-haiku-5-5`, at effort `low` (878 calls) and `medium` (876 calls), both completed with no budget stop, 0 refusals, 0 truncations, 0 HTTP errors. **Actual spend: $0.521310** (smoke $0.002169, `low` $0.208681, `medium` $0.310461), at $0.10 / $0.50 per million input / output tokens; 5 free token-counting calls.
+- **Results** (n = 1,896 judgements per run: 12 readings of 158 items, 53 of them exact; on the matcher corpus, hard-weighted, no held-out split):
+
+| Effort | Precision of exact | Recall of exact | Abstention | Invalid batches after the repair | Cost / batch (size 1 to 15) | Median latency (size 1 / 15) |
+|---|--:|--:|--:|--:|--:|--:|
+| `low` | 362/385 = 0.940 | 362/636 = 0.569 | 182/1896 = 0.096 | 1/873 | $0.000176 to $0.000342 | 1.0 s / 1.9 s |
+| `medium` | 490/515 = 0.951 | 490/636 = 0.770 | 181/1896 = 0.095 | 0/873 | $0.000258 to $0.000512 | 1.8 s / 3.3 s |
+
+- At `medium`: other line 0/60, other model 0/204, wrong capacity 0/12 (one item), accessory or part 5/420, set items 20/420; every false accept is one of 4 items (two Combo rulings, a touch screen for the printer, an MPN-only listing). Precision is flat across batch sizes (0.943-0.961); recall is 0.849 at one listing a call and 0.730-0.767 in batches; agreement across trials (same relation) 0.911 at size 1, 0.791-0.842 in batches. Only 3 batches of 15 listings exist, so full batches are not established.
+- 9 of 1,754 first attempts broke the schema rule "`differingAttrs` empty for `exact`" (6 of them `condition` on open-box listings); the repair fixed 8. Of the 6 exact items never accepted at `medium`, 2 rest on the URL the judge does not see and 4 are owner or predecessor rulings the prompt does not carry (heatsink, For Mac, two PLA+ rulings).
+- Haiku 5.5's tokenizer: the fixed part of `judge.v1` counts about 682 tokens (under 800; the part-1 estimate was 537), and the schema sent as `output_config.format` adds about 419 tokens of input.
+- **Proposed decision.** Haiku 5.5 is a usable tier-3 judge on this set, at effort `medium` (its default, sent explicitly): against `low` it found 128 more exact judgements at the same precision for about 1.5 times the cost. Keep batches of up to 15. A `judge.v2` should say that condition is not identity (owner's call). Spec edits proposed in S§5.7 (the judge's effort, the Messages usage fields, counting the prompt with the endpoint's tokenizer), not made.
+- **Deviation.** The brief asked for one full run; two were made, one per effort level, to decide the effort setting, after the smoke check showed both fit far under the cap.
+- **Caveats.** One model only (owner's decision; no veto-only reading); labels are the predecessor's reviewed pairs as the corpus ported them, some of which are rulings the prompt does not carry; not the S§6 gate; no lift over rules (tier 2 is Phase 1). Raw results (uncommitted) in `evals/out/judge-spike/`.
+
 ### 2026-11-23: Gold set v1 (P0-4c), agent-labelled, waiting for the owner's review
 
 **Merged by the orchestrator** after reading both review sheets and sampling labels. Owner workload trimmed: of the 97 disagreements, only the 25 where one pass said `exact`, `variant` or `bundle` need a ruling (marked ⚑); in the other 72 both passes call the listing a non-match, and the tie-break stands. v1 is taken as enough for Phase 1; the 403-walled large retailers and single-store products are revisited when the browser rung exists (Phase 2).

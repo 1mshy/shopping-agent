@@ -16,6 +16,15 @@ import { secretProblem } from '../../wire/recorder.ts';
 import { compositionMarkdown, DATASET, datasetFingerprint, type JudgeItem } from '../dataset.ts';
 import { loadPrompt, type RepairProblem, renderRepair, renderUser } from '../prompt/load.ts';
 import {
+  ANTHROPIC_EFFORTS,
+  ANTHROPIC_RUNGS,
+  type AnthropicEffort,
+  buildMessagesParams,
+  messageReplyParts,
+  normaliseMessagesUsage,
+  postMessages,
+} from './anthropic.ts';
+import {
   type Batch,
   composeBatches,
   DEFAULT_MAX_OUTPUT_TOKENS,
@@ -36,12 +45,16 @@ import {
   parseVerdicts,
   postChat,
   providerCostText,
+  type ReplyParts,
   type RequestOptions,
   RUNGS,
   type Rung,
   replyParts,
+  type Usage,
 } from './chat.ts';
 import {
+  APIS,
+  type Api,
   type CallRecord,
   FORMAT_VERSION,
   type ItemRecord,
@@ -64,7 +77,9 @@ Spike D: the rule-guided batched judge (S§5.4) on the matcher corpus. Makes mod
 with --owner-approved, and only within the four budgets, which are required.
 
   --plan                     print the dataset composition and the plan estimate; no call
-  --base-url URL             OpenAI-compatible base URL (…/v1); no user-info, no query
+  --api API                  chat (default): OpenAI-compatible Chat Completions over fetch;
+                             anthropic: the native Anthropic Messages API via @anthropic-ai/sdk
+  --base-url URL             the API's base URL (…/v1); no user-info, no query
   --model ID                 model id as the endpoint names it
   --label NAME               endpoint label for the results (letters, digits, . _ -)
   --api-key-env NAME         name of the environment variable holding the key (never the key);
@@ -73,10 +88,12 @@ with --owner-approved, and only within the four budgets, which are required.
   --batch-sizes LIST         default 1,5,10,15 (local: 1,5,10)
   --trials N                 default 3
   --seed N                   batch composition seed, default 1
-  --structured RUNG          json_schema (default) | json_object | text
-  --temperature T            sent only when given (0-2)
-  --reasoning-effort E       sent as reasoning_effort only when given: ${REASONING_EFFORTS.join(' | ')}
-  --max-tokens-field F       max_completion_tokens (default) | max_tokens
+  --structured RUNG          json_schema (default) | json_object (chat only) | text
+  --temperature T            chat only; sent only when given (0-2)
+  --reasoning-effort E       sent only when given. chat: reasoning_effort, one of
+                             ${REASONING_EFFORTS.join(' | ')}; anthropic: output_config.effort,
+                             one of ${ANTHROPIC_EFFORTS.join(' | ')}
+  --max-tokens-field F       chat only: max_completion_tokens (default) | max_tokens
   --max-output-tokens N      default 2048
   --timeout-ms N             per call, default 120000 (and never past the deadline)
   --price-input-nanos-per-mtok N   settings price, nano-units of --currency per million tokens
@@ -95,6 +112,7 @@ with --owner-approved, and only within the four budgets, which are required.
 `;
 
 export interface RunOptions {
+  readonly api: Api;
   readonly baseUrl: string;
   readonly model: string;
   readonly label: string;
@@ -137,6 +155,7 @@ const PARSE_ERRORS: Readonly<Record<string, string>> = {
 };
 
 const STRING_OPTIONS = [
+  'api',
   'base-url',
   'model',
   'label',
@@ -247,6 +266,8 @@ export function parseCli(
   const seed = str('seed') === undefined ? 1 : integer(str('seed'), '--seed', 0, 4294967295);
   if (flag('plan')) return { mode: 'plan', plan: { batchSizes: sizes, trials, seed } };
 
+  const api = (str('api') ?? 'chat') as Api;
+  if (!APIS.includes(api)) throw new InputError(`--api must be one of: ${APIS.join(', ')}`);
   const url = baseUrl(required(str('base-url'), '--base-url'));
   const model = required(str('model'), '--model');
   if (!/^[\x21-\x7e]{1,200}$/.test(model)) {
@@ -276,6 +297,30 @@ export function parseCli(
   const rung = (str('structured') ?? 'json_schema') as Rung;
   if (!RUNGS.includes(rung))
     throw new InputError(`--structured must be one of: ${RUNGS.join(', ')}`);
+  if (api === 'anthropic') {
+    if (!ANTHROPIC_RUNGS.includes(rung)) {
+      throw new InputError(
+        `--structured: the Messages API has no json_object mode; use one of: ${ANTHROPIC_RUNGS.join(', ')}`,
+      );
+    }
+    if (key === null) throw new InputError('--api anthropic needs --api-key-env');
+    if (local) throw new InputError('--api anthropic is a hosted API; --local does not apply');
+    if (str('temperature') !== undefined) {
+      throw new InputError(
+        '--temperature is not sent on --api anthropic (Haiku 5.5 and API version 2026-10-21 reject sampling parameters)',
+      );
+    }
+    if (str('max-tokens-field') !== undefined) {
+      throw new InputError(
+        '--max-tokens-field applies to --api chat only (Messages uses max_tokens)',
+      );
+    }
+    if (str('provider-cost-currency') !== undefined) {
+      throw new InputError(
+        '--provider-cost-currency applies to --api chat only (Messages reports no cost)',
+      );
+    }
+  }
   let temperature: number | null = null;
   const t = str('temperature');
   if (t !== undefined) {
@@ -285,8 +330,9 @@ export function parseCli(
     temperature = Number(t);
   }
   const effort = str('reasoning-effort') ?? null;
-  if (effort !== null && !(REASONING_EFFORTS as readonly string[]).includes(effort)) {
-    throw new InputError(`--reasoning-effort must be one of: ${REASONING_EFFORTS.join(', ')}`);
+  const efforts: readonly string[] = api === 'anthropic' ? ANTHROPIC_EFFORTS : REASONING_EFFORTS;
+  if (effort !== null && !efforts.includes(effort)) {
+    throw new InputError(`--reasoning-effort must be one of: ${efforts.join(', ')}`);
   }
   const field = str('max-tokens-field') ?? 'max_completion_tokens';
   if (field !== 'max_completion_tokens' && field !== 'max_tokens') {
@@ -352,6 +398,7 @@ export function parseCli(
   return {
     mode: 'run',
     options: {
+      api,
       baseUrl: url,
       model,
       label,
@@ -424,7 +471,7 @@ export async function runSpike(o: RunOptions, deps: RunDeps = {}): Promise<numbe
   const startedAt = new Date(startMs).toISOString();
   const runId = `${o.label}-${startedAt.replace(/[:.]/g, '-')}`;
   const dir = join(o.out, runId);
-  const endpoint = `${o.baseUrl}/chat/completions`;
+  const endpoint = `${o.baseUrl}/${o.api === 'anthropic' ? 'messages' : 'chat/completions'}`;
   const endpointPath = new URL(endpoint).pathname;
 
   const checked = (text: string) => {
@@ -464,6 +511,112 @@ export async function runSpike(o: RunOptions, deps: RunDeps = {}): Promise<numbe
   let judgements = 0;
   let stoppedBy: StopReason | null = null;
 
+  interface Sent {
+    readonly startedAt: string;
+    readonly latencyMs: number;
+    readonly path: string;
+    readonly headers: Readonly<Record<string, string>>;
+    readonly body: unknown;
+    readonly response: CallRecord['response'];
+    readonly transportError: string | null;
+    /** A failure before any reply could be read (no repair retry), else null. */
+    readonly failure: InvalidReason | null;
+    readonly parts: ReplyParts | null;
+    readonly usage: Usage;
+    readonly providerCostText: string | null;
+  }
+
+  /** One Chat Completions call over fetch. */
+  async function sendChat(messages: ChatMessage[], timeoutMs: number): Promise<Sent> {
+    const body = buildRequestBody(reqOpts, messages);
+    const t0 = now();
+    const posted = await postChat(fetchFn, endpoint, o.key, body, timeoutMs);
+    const latencyMs = now() - t0;
+    const headers = {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      ...(o.key === null ? {} : { authorization: 'Bearer [REDACTED]' }),
+    };
+    const common = {
+      startedAt: new Date(t0).toISOString(),
+      latencyMs,
+      path: endpointPath,
+      headers,
+      body,
+    };
+    if (!posted.ok) {
+      return {
+        ...common,
+        response: null,
+        transportError: posted.errorName,
+        failure: posted.error,
+        parts: null,
+        usage: normaliseUsage(undefined),
+        providerCostText: null,
+      };
+    }
+    const parts = replyParts(posted.reply.text);
+    const failure: InvalidReason | null =
+      posted.reply.status < 200 || posted.reply.status > 299
+        ? 'http_status'
+        : parts === null
+          ? 'bad_response'
+          : null;
+    return {
+      ...common,
+      response: posted.reply,
+      transportError: null,
+      failure,
+      parts,
+      usage: normaliseUsage(parts?.usage),
+      providerCostText: providerCostText(posted.reply.text, posted.reply.headers),
+    };
+  }
+
+  /** One Messages call through the Anthropic SDK. */
+  async function sendMessages(messages: ChatMessage[], timeoutMs: number): Promise<Sent> {
+    const body = buildMessagesParams(
+      {
+        model: o.model,
+        rung: o.rung,
+        maxOutputTokens: o.maxOutputTokens,
+        effort: o.reasoningEffort as AnthropicEffort | null,
+      },
+      messages,
+    );
+    const t0 = now();
+    const posted = await postMessages(fetchFn, o.baseUrl, o.key as string, body, timeoutMs);
+    const latencyMs = now() - t0;
+    const common = {
+      startedAt: new Date(t0).toISOString(),
+      latencyMs,
+      path: posted.sent?.path ?? endpointPath,
+      headers: posted.sent?.headers ?? {},
+      body,
+      providerCostText: null,
+    };
+    if (posted.ok) {
+      return {
+        ...common,
+        response: posted.reply,
+        transportError: null,
+        failure: null,
+        parts: messageReplyParts(posted.message),
+        usage: normaliseMessagesUsage(posted.message.usage),
+      };
+    }
+    return {
+      ...common,
+      response: posted.reply,
+      transportError: posted.reply === null ? posted.errorName : null,
+      failure: posted.error,
+      parts: null,
+      usage: normaliseMessagesUsage(undefined),
+    };
+  }
+
+  const send = o.api === 'anthropic' ? sendMessages : sendChat;
+
   async function attempt(
     batch: Batch,
     messages: ChatMessage[],
@@ -475,41 +628,26 @@ export async function runSpike(o: RunOptions, deps: RunDeps = {}): Promise<numbe
     if (!admission.ok) {
       return { stop: admission.hit, valid: false, reason: null, verdicts: null, content: null };
     }
-    const body = buildRequestBody(reqOpts, messages);
-    const t0 = now();
-    const startedAtCall = new Date(t0).toISOString();
-    const posted = await postChat(
-      fetchFn,
-      endpoint,
-      o.key,
-      body,
-      Math.min(o.timeoutMs, ledger.remainingMs()),
-    );
-    const latencyMs = now() - t0;
-    let reason: InvalidReason | null = null;
+    const sent = await send(messages, Math.min(o.timeoutMs, ledger.remainingMs()));
+    const latencyMs = sent.latencyMs;
+    const startedAtCall = sent.startedAt;
+    let reason: InvalidReason | null = sent.failure;
     let detail: string | null = null;
     let verdicts: CallRecord['verdicts'] = null;
     let content: string | null = null;
-    let usageRaw: unknown;
-    let costText: string | null = null;
-    if (!posted.ok) reason = posted.error;
-    else {
-      costText = providerCostText(posted.reply.text, posted.reply.headers);
-      const parts = replyParts(posted.reply.text);
-      usageRaw = parts?.usage;
-      if (posted.reply.status < 200 || posted.reply.status > 299) reason = 'http_status';
-      else if (parts === null) reason = 'bad_response';
+    const costText = sent.providerCostText;
+    if (reason === null && sent.parts !== null) {
+      content = sent.parts.content;
+      const r = parseVerdicts(sent.parts, o.rung, ids);
+      if (r.ok) verdicts = r.verdicts;
       else {
-        content = parts.content;
-        const r = parseVerdicts(parts, o.rung, ids);
-        if (r.ok) verdicts = r.verdicts;
-        else {
-          reason = r.reason;
-          detail = r.detail;
-        }
+        reason = r.reason;
+        detail = r.detail;
+        // The Messages path's refusal text is its own fixed words and the category, never model text.
+        if (r.reason === 'refusal' && o.api === 'anthropic') detail = sent.parts.refusal;
       }
     }
-    const usage = normaliseUsage(usageRaw);
+    const usage = sent.usage;
     const cost = costOf({
       providerText: costText,
       providerCurrency: o.providerCostCurrency,
@@ -536,18 +674,9 @@ export async function runSpike(o: RunOptions, deps: RunDeps = {}): Promise<numbe
       latencyMs,
       estimatedInputTokens,
       reserveNanos: admission.reserveNanos,
-      request: {
-        method: 'POST',
-        path: endpointPath,
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-          ...(o.key === null ? {} : { authorization: 'Bearer [REDACTED]' }),
-        },
-        body,
-      },
-      response: posted.ok ? posted.reply : null,
-      transportError: posted.ok ? null : posted.errorName,
+      request: { method: 'POST', path: sent.path, headers: sent.headers, body: sent.body },
+      response: sent.response,
+      transportError: sent.transportError,
       valid: reason === null,
       invalidReason: reason,
       invalidDetail: detail,
@@ -578,6 +707,7 @@ export async function runSpike(o: RunOptions, deps: RunDeps = {}): Promise<numbe
       formatVersion: FORMAT_VERSION,
       runId,
       synthetic: o.synthetic,
+      api: o.api,
       label: o.label,
       model: o.model,
       baseUrl: o.baseUrl,

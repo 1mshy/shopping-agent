@@ -320,6 +320,41 @@ function costCell(tc: TokensAndCost, per: 'batch' | 'listing', currency: string)
   return `unknown (${tc.cost.unknownCalls} of ${tc.calls} calls without a cost; known part ${money(tc.cost.knownNanos, currency)})`;
 }
 
+/**
+ * All calls of a run: output tokens, the reasoning part where reported, the largest output against
+ * the cap, and the known spend. Reasoning is summed only over calls that report it.
+ */
+export function outputLine(calls: readonly CallRecord[], currency: string): string {
+  const outs = calls.map((c) => c.usage['gen_ai.usage.output_tokens']);
+  const reportedOut = outs.filter((x): x is number => x !== null);
+  const withReasoning = calls.filter(
+    (c) =>
+      c.usage['gen_ai.usage.reasoning.output_tokens'] !== null &&
+      c.usage['gen_ai.usage.output_tokens'] !== null,
+  );
+  const reasoning = withReasoning.reduce(
+    (a, c) => a + (c.usage['gen_ai.usage.reasoning.output_tokens'] ?? 0),
+    0,
+  );
+  const outOfThose = withReasoning.reduce(
+    (a, c) => a + (c.usage['gen_ai.usage.output_tokens'] ?? 0),
+    0,
+  );
+  const known = calls.filter((c) => c.cost.source !== 'none');
+  const spend = known.reduce((a, c) => a + (c.cost.source === 'none' ? 0 : c.cost.amountNanos), 0);
+  return [
+    `All ${calls.length} calls: output tokens reported by ${reportedOut.length}`,
+    reportedOut.length === 0
+      ? ''
+      : `, sum ${reportedOut.reduce((a, x) => a + x, 0)}, largest ${Math.max(...reportedOut)}`,
+    withReasoning.length === 0
+      ? '; reasoning tokens not reported'
+      : `; reasoning tokens reported by ${withReasoning.length}: ${formatRatio(ratio(reasoning, outOfThose))} of their output`,
+    `; known spend ${money(spend, currency)} over ${known.length} calls`,
+    known.length === calls.length ? '.' : `; without a cost: ${calls.length - known.length}.`,
+  ].join('');
+}
+
 export const STANDING_TEXT = [
   '**What this does not show.** The lift over rules cannot be measured in Phase 0: tier 2 (the',
   'title rules) is not implemented yet, so what the judge would have to beat is not available.',
@@ -363,7 +398,7 @@ function renderRun(run: LoadedRun, byKey: ReadonlyMap<string, JudgeItem>): strin
     );
   }
   out.push(
-    `- Prompt \`${meta.promptVersion}\`; structured output \`${meta.rung}\`; ${meta.local ? 'local model' : 'hosted model'}; temperature ${meta.temperature ?? 'not sent'}; reasoning effort ${meta.reasoningEffort ?? 'not sent'}; seed ${meta.seed}; ${meta.trials} trials; batch sizes ${meta.batchSizes.join(', ')}.`,
+    `- Prompt \`${meta.promptVersion}\`; API \`${meta.api ?? 'chat'}\`; structured output \`${meta.rung}\`; ${meta.local ? 'local model' : 'hosted model'}; temperature ${meta.temperature ?? 'not sent'}; reasoning effort ${meta.reasoningEffort ?? 'not sent'}; seed ${meta.seed}; ${meta.trials} trials; batch sizes ${meta.batchSizes.join(', ')}.`,
     `- Budgets: ${meta.budgets.maxCalls} calls, ${meta.budgets.maxInputTokens} input tokens, ${meta.budgets.deadlineMs} ms, ${money(meta.budgets.maxSpendNanos, meta.currency)}; spend cap ${meta.prices === null ? 'not guaranteed (no prices)' : 'reserved from prices before each call'}.`,
     summary === null
       ? '- The run has no summary: it did not finish writing (crashed or still running).'
@@ -522,6 +557,7 @@ function renderRun(run: LoadedRun, byKey: ReadonlyMap<string, JudgeItem>): strin
       : `Prompt size check: one-listing calls reported ${Math.min(...reported)} to ${Math.max(...reported)} input tokens (n ${reported.length}); the code estimated ${Math.min(...ones.map((c) => c.estimatedInputTokens))} to ${Math.max(...ones.map((c) => c.estimatedInputTokens))}. The fixed part must stay under 800 (S§5.7).`,
     '',
   );
+  out.push(outputLine(run.calls, meta.currency), '');
 
   out.push('### Latency per call (ms)', '');
   out.push(

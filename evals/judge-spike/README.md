@@ -2,7 +2,7 @@
 
 Plan P0 workstream 5, spike D: "Run the rule-guided batched judge prompt (S§5.4) against the predecessor's hand-reviewed title pairs on two hosted mini-class models and one local model. Measure precision per error class (other line, wrong capacity), batch-size degradation, and tokens and cost per batch."
 
-**Status: part 1 only. No model has been called and no result exists.** This directory holds the dataset, the prompt, the runner and the report generator, tested against scripted replies. The measurement runs when the owner supplies endpoints and approves the spend. Until then there is nothing to quote, and `docs/spikes/d-model-judge.md` is not written.
+**Status: part 2 done (2026-11-23).** The owner narrowed the spike to one hosted model, Claude Haiku 5.5 on the native Anthropic API; part 2 added that call path (`--api anthropic`, below) and ran the default plan twice, at effort `low` and `medium`, for $0.52 in all. Results, limits and the decision: `docs/spikes/d-model-judge.md`. The sections below were written for part 1 and still describe the harness; "What the owner must supply" and the open questions are answered or carried in that report.
 
 | Path | What |
 |---|---|
@@ -10,6 +10,7 @@ Plan P0 workstream 5, spike D: "Run the rule-guided batched judge prompt (S§5.4
 | `prompt/judge.v1.md`, `prompt/load.ts` | The judge prompt (versioned, pinned by sha256) and its loader and renderer |
 | `run.ts`, `lib/runner.ts` | The runner CLI: batches, the call, budgets, result files |
 | `lib/chat.ts` | The Chat Completions request, reply parsing and validation, usage and cost |
+| `lib/anthropic.ts` | The native Anthropic Messages request through `@anthropic-ai/sdk` (`--api anthropic`), its reply and usage |
 | `lib/budget.ts` | The four budgets, checked before every call |
 | `lib/batches.ts` | Deterministic batch composition and the plan estimate |
 | `lib/score.ts` | The scoring rules |
@@ -161,6 +162,25 @@ A minimal, non-streaming Chat Completions request over raw `fetch` (`lib/chat.ts
 
 The forced-tool rung of S§5.7 is not built (a spike runner; see open questions). There is no automatic fall-back between rungs: a run uses the rung it was given, so its figures belong to that rung.
 
+### The native Anthropic Messages path (`--api anthropic`)
+
+Added in part 2 for Claude Haiku 5.5, which the owner reaches on the native Anthropic API (2026-11-23). `lib/anthropic.ts` sends one non-streaming `messages.create` through the official SDK (`@anthropic-ai/sdk` 1.12.0, API version `2026-10-21`), not through Anthropic's OpenAI-compatibility endpoint. Everything around the call is shared with the chat path: the batches, the prompt, the four budgets checked before every call, the one repair retry, validation with `JudgeBatch` and against the batch, the records and the leak check.
+
+| | Chat Completions (`--api chat`, default) | Messages (`--api anthropic`) |
+|---|---|---|
+| Endpoint | `<base-url>/chat/completions` over `fetch` | `<base-url>/messages` through the SDK; `--base-url https://api.anthropic.com/v1` (the SDK is given the host and appends `/v1/messages`) |
+| Rules | system message | top-level `system` |
+| Structured output | `response_format` (`json_schema`, `json_object`) | `output_config.format: {type: "json_schema", schema}` on the `json_schema` rung; no `json_object` mode exists (refused); `text` sends none |
+| Reasoning | `reasoning_effort` when given | `thinking: {type: "adaptive"}` always (Haiku 5.5's default, sent so the record says so) and `output_config.effort` from `--reasoning-effort` (`low` … `max`; Haiku 5.5's default is `medium`). `budget_tokens` is never sent |
+| Sampling | `temperature` when given | refused: Haiku 5.5 rejects non-default sampling, and API version `2026-10-21` rejects `temperature`, `top_p` and `top_k` on every model |
+| Output cap | `max_completion_tokens` or `max_tokens` | `max_tokens` (`--max-tokens-field` is refused) |
+| Repair retry | reply as assistant turn, then the repair | the same; the reply's text only (no thinking blocks), and the conversation always ends on the user's repair turn (Haiku 5.5 has no assistant prefill) |
+| Reading the reply | `finish_reason`, `refusal` | `stop_reason` first: `refusal` (with `stop_details.category`, kept as `invalidDetail` `refusal:<category>`) and `max_tokens` / `model_context_window_exceeded` (truncated) are refused before any content is read; then the text blocks, thinking blocks skipped |
+| Usage | `prompt_tokens`, `completion_tokens`, details | input = `input_tokens` + `cache_read_input_tokens` + `cache_creation_input_tokens` (Anthropic's `input_tokens` is the uncached part only); output = `output_tokens` (thinking included); reasoning = `output_tokens_details.thinking_tokens` |
+| Cost | provider figure, else settings prices | settings prices only (the API reports no cost; `--provider-cost-currency` is refused) |
+| Retries | none | none: the client is built with `maxRetries: 0`, so an HTTP error or a timeout is one call, as on the chat path |
+| Credentials | `Authorization: Bearer` from `--api-key-env` | the key from `--api-key-env` passed to the client in code, so no `ANTHROPIC_*` variable is read; the SDK sends it as `Authorization: Bearer`. The record keeps the headers the SDK actually sent, with `authorization` and `x-api-key` written `[REDACTED]`. SDK logging and telemetry are off |
+
 **Validation and the one repair retry.** A reply is refused when it is a refusal, truncated (`finish_reason: "length"`), empty, not JSON, not a valid `JudgeBatch` (strict keys, a known relation, distinct attribute names with no price word, empty `differingAttrs` for `exact`, 1-15 verdicts, each id once), or when its count or ids do not match the batch. A refused reply gets **one** repair retry in the same conversation (the reply as the assistant message, then a fixed repair message naming the problem in fixed words; no model text is echoed). The retry is checked against every budget like any call. If it is refused too, or the budget does not allow it, the batch is invalid and all its items are `unknown`. An HTTP error, a timeout or a transport error is not retried; three in a row stop the run (`consecutive_failures`).
 
 ## Budgets (S§2.6), checked in code before every call, the repair included
@@ -190,13 +210,24 @@ The key is read from the environment variable named by `--api-key-env` (validate
 
 ## Running it
 
-Nothing below has been run against a model. First look at the plan (no key, no call):
+Part 2's runs (2026-11-23), with `CLAUDE_API_KEY` and `CLAUDE_API_URL` (`https://api.anthropic.com/v1`) loaded from the gitignored `.env`, once with `--reasoning-effort low` and once with `medium`:
+
+```sh
+node evals/judge-spike/run.ts --api anthropic \
+  --base-url "$CLAUDE_API_URL" --model claude-haiku-5-5 --label haiku55-medium \
+  --api-key-env CLAUDE_API_KEY --reasoning-effort medium --max-output-tokens 4096 \
+  --price-input-nanos-per-mtok 100000000 --price-output-nanos-per-mtok 500000000 --currency USD \
+  --max-calls 1746 --max-input-tokens 2500000 --deadline-ms 7200000 \
+  --max-spend-nanos 2400000000 --owner-approved
+```
+
+First look at the plan (no key, no call):
 
 ```sh
 node evals/judge-spike/run.ts --plan
 ```
 
-The real run, once per endpoint, with your values in place of the `<…>`:
+An OpenAI-compatible endpoint, with your values in place of the `<…>`:
 
 ```sh
 export JUDGE_KEY_A=...        # in your shell, never on the command line
@@ -275,7 +306,9 @@ Money is not estimated here: it is these token counts at the owner's prices, and
 - `budget.test.ts`: each cap in the ledger; the spend reserve; unknown cost without prices.
 - `chat.test.ts`: the request on each rung; id and count validation; truncation, refusal and empty replies; think blocks; extraction only on the text rung; usage normalisation; provider cost from decimal text, rounding up; cost source, never zero when unknown.
 - `runner.test.ts`: refusals (no approval, no prices without the flag, each missing budget, a key-like or unset variable name, `--api-key`, user-info in the URL, batch 15 for a local model) with no call and no echoed value; each cap stopping the run before the call; the repair retry in the conversation and against the budget; invalid batches; HTTP failures; records without credentials; fail-closed on a key in a reply.
-- `e2e.test.ts`: `node evals/judge-spike/run.ts` as a child process with a scrubbed environment (`PATH` and a made-up key in a made-up variable) against a scripted server on 127.0.0.1, then `node evals/judge-spike/report.ts` on its output: the key reaches the server, appears in no file and no output, the report labels the run synthetic, and a draft from it is refused.
+- `e2e.test.ts`: `node evals/judge-spike/run.ts` as a child process with a scrubbed environment (`PATH` and a made-up key in a made-up variable) against a scripted server on 127.0.0.1, then `node evals/judge-spike/report.ts` on its output: the key reaches the server, appears in no file and no output, the report labels the run synthetic, and a draft from it is refused. The same once more with `--api anthropic` against a scripted Messages server: every call goes to `/v1/messages` through the SDK with the key as a bearer token, the repair happens once, no file holds the key.
+- `anthropic.test.ts`: the Messages request (rules in `system`, structured output, adaptive thinking, effort only when given, no sampling, no `budget_tokens`, the repair conversation ending on a user turn), the SDK base URL, one call per request with no retry on an HTTP error, a transport error by class name only, `stop_reason` read before content (refusal, truncation, thinking only), usage normalisation with null for "not reported".
+- `runner.test.ts`, Messages path: refusals before any call (`--temperature`, `json_object`, `--max-tokens-field`, `--provider-cost-currency`, an effort the API lacks, no key, `--local`, an unknown `--api`); a run through the SDK; usage, cost from prices and records without the key; the repair after a refusal and after a truncation; the spend reserve; three HTTP failures in a row; fail-closed on a key in a reply.
 
 ## Open questions for the owner
 

@@ -10,11 +10,18 @@ import type { HttpExchange, InvalidReason, Rung, Usage } from './chat.ts';
 
 export const FORMAT_VERSION = 1;
 
+/** The call path: OpenAI-compatible Chat Completions over fetch, or the native Anthropic Messages
+ * API through the official SDK (lib/anthropic.ts). */
+export const APIS = ['chat', 'anthropic'] as const;
+export type Api = (typeof APIS)[number];
+
 export interface RunMeta {
   readonly formatVersion: 1;
   readonly runId: string;
   /** True for runs against a scripted server. A synthetic run is never quoted as a result. */
   readonly synthetic: boolean;
+  /** The call path; absent in runs written before the Messages path existed, which were `chat`. */
+  readonly api?: Api;
   /** The endpoint label given with --label. */
   readonly label: string;
   readonly model: string;
@@ -57,7 +64,8 @@ export interface CallRecord {
   readonly estimatedInputTokens: number;
   /** The worst-case spend reserved before the call; null without prices. */
   readonly reserveNanos: number | null;
-  /** The request minus credentials: the authorization header is shown as `Bearer [REDACTED]`. */
+  /** The request minus credentials: the authorization header is shown as `Bearer [REDACTED]`
+   * (chat), or every credential header as sent is shown as `[REDACTED]` (anthropic). */
   readonly request: {
     readonly method: 'POST';
     readonly path: string;

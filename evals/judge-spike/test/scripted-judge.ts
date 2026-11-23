@@ -51,6 +51,41 @@ export function completion(
   };
 }
 
+/** An Anthropic Messages response carrying `text`, with usage unless told otherwise. */
+export function anthropicMessage(
+  text: string | null,
+  more: {
+    usage?: unknown;
+    stopReason?: string;
+    stopDetails?: unknown;
+    thinking?: boolean;
+  } = {},
+): unknown {
+  return {
+    id: 'msg_scripted',
+    type: 'message',
+    role: 'assistant',
+    model: 'scripted-judge',
+    content: [
+      ...(more.thinking === false ? [] : [{ type: 'thinking', thinking: '', signature: 'sig' }]),
+      ...(text === null ? [] : [{ type: 'text', text, citations: null }]),
+    ],
+    stop_reason: more.stopReason ?? 'end_turn',
+    stop_sequence: null,
+    stop_details: more.stopDetails ?? null,
+    usage:
+      more.usage === undefined
+        ? {
+            input_tokens: 700,
+            cache_read_input_tokens: 100,
+            cache_creation_input_tokens: 0,
+            output_tokens: 120,
+            output_tokens_details: { thinking_tokens: 40 },
+          }
+        : more.usage,
+  };
+}
+
 /** A valid verdict list: odd positions `exact`, even positions `other_model`. */
 export function verdicts(ids: readonly string[]): string {
   return JSON.stringify({
