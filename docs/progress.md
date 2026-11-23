@@ -27,6 +27,7 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
   - The keyless Catalog stays on by default (S§5.3) for a single-user install, with the optional Dev Dashboard token setting. Shopify says not to use unauthenticated requests for production traffic; one person's searches from their own machine are taken as outside that, and the owner may overrule.
 - **LLMs:** hosted Claude Haiku 5.5 only for now. Spike D drops the second hosted model and the local one; the wire recordings cover Haiku 5.5 only, and OpenAI, vLLM, Ollama and llama.cpp wait. Still needed: the route (proposed OpenRouter, as S§9 #5 keeps Claude there until a native adapter) and a spending ceiling.
 - **Decision #4:** robots.txt public default is `ignore`, setting exposed.
+- **Later the same day:** spike decisions A (`impit` default, `wreq-js` swap-in, `impers` not adopted) and C (platform JSON first: Shopify, WooCommerce, Magento; Magento GraphQL as Magento 2 only) confirmed. Haiku 5.5 is reached on the native Anthropic API with the key and URL in the gitignored `.env`, not through OpenRouter, so spike D and the recordings need an Anthropic Messages path (this brings part of S§9 #5 forward for the lab tools only; the product's adapter decision is still open). LLM spend is capped at $100 for the month and is meant to stay far below.
 
 ### 2026-11-18: Spike A: HTTP transport lab
 
