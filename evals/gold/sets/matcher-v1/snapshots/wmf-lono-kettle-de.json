@@ -1,0 +1,442 @@
+[
+  {
+    "id": "wmf-lono-kettle-de-s01",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-wasserkocher-1-6-l-3200000008.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:01.178Z"
+    },
+    "listing": {
+      "title": "WMF Lono Wasserkocher, 1,6 l",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "84.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s02",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lumero-wasserkocher-7211004722.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF Lumero Wasserkocher",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "119.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s03",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/lono-grill-standfuss-3200002770.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:02.921Z"
+    },
+    "listing": {
+      "title": "Lono Grill Standfuß",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s04",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-waffeleisen-edition-3200000067.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:03.941Z"
+    },
+    "listing": {
+      "title": "WMF Lono Waffeleisen Edition",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s05",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-silk-wasserkocher-1-6l-3201114653.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:01.178Z"
+    },
+    "listing": {
+      "title": "WMF Lono Silk Wasserkocher 1,6L",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s06",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lumero-multi-wasserkocher-7211003821.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF Lumero Multi-Wasserkocher",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "139.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s07",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-toaster-3200000014.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:02.921Z"
+    },
+    "listing": {
+      "title": "WMF Lono Toaster",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s08",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-silk-espresso-siebtraegermaschine-3201114642.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:03.941Z"
+    },
+    "listing": {
+      "title": "WMF Lono Silk Espresso Siebträgermaschine",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "219",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s09",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-glas-wasserkocher-1-7-l-3200000010.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:01.178Z"
+    },
+    "listing": {
+      "title": "WMF Lono Glas-Wasserkocher 1.7 l",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s10",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-kuechenminis-glas-wasserkocher-3200000444.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF KÜCHENminis Glas-Wasserkocher",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "64.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s11",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-creperie-3200000451.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:02.921Z"
+    },
+    "listing": {
+      "title": "WMF Lono Crêperie",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s12",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-aroma-kaffeemaschine-glas-7211003404.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:03.941Z"
+    },
+    "listing": {
+      "title": "WMF Lono Aroma Kaffeemaschine Glas",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s13",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-tee-und-wasserkocher-2-in-1-1-7-l-3200000011.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:01.178Z"
+    },
+    "listing": {
+      "title": "WMF Lono Tee- und Wasserkocher 2-in-1, 1,7 l",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "139.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s14",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-master-doppelwandiger-wasserkocher-3200002353.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF Master Doppelwandiger Wasserkocher",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "229",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s15",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-tischgrill-quadro-3200000065.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:02.921Z"
+    },
+    "listing": {
+      "title": "WMF Lono Tischgrill Quadro",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s16",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-aroma-kaffeemaschine-thermo-7211003405.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:03.941Z"
+    },
+    "listing": {
+      "title": "WMF Lono Aroma Kaffeemaschine Thermo",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s17",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-silk-fruehstuecks-duo-3201114651-3201114653.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:01.178Z"
+    },
+    "listing": {
+      "title": "WMF Lono Silk Frühstücks-Duo",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "158.38",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s18",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-kuechenminis-wasserkocher-0-8-l-3200000009.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF KÜCHENminis Wasserkocher, 0,8 l",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "64.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s19",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-espresso-siebtraegermachine-3200002574.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:02.921Z"
+    },
+    "listing": {
+      "title": "WMF Lono Espresso Siebträgermachine",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "119.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s20",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-bueno-wasserkocher-1-7-l-7211001056.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF Bueno Wasserkocher 1,7 l",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s21",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-lono-silk-toaster-3201114651.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:02.921Z"
+    },
+    "listing": {
+      "title": "WMF Lono Silk Toaster",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "wmf-lono-kettle-de-s22",
+    "productId": "wmf-lono-kettle-de",
+    "capture": {
+      "url": "https://www.wmf.com/wmf-stelio-wasserkocher-1-2-l-7211000798.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:00:56.644Z"
+    },
+    "listing": {
+      "title": "WMF Stelio Wasserkocher 1,2 l",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.wmf.com"
+    },
+    "context": {
+      "priceText": "42.99",
+      "currency": "EUR"
+    }
+  }
+]

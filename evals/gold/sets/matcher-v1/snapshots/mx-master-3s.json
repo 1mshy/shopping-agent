@@ -1,0 +1,481 @@
+[
+  {
+    "id": "mx-master-3s-s01",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-bluetooth-darkfield-high-precision-sensor-mouse-black/19467786",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.493Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Bluetooth Darkfield High Precision Sensor Mouse - Black",
+      "brand": "LOGITECH",
+      "mpn": "910-007500",
+      "gtin": "097855201812",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s02",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-mx-master-3s-performance-wireless-mouse",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Performance Wireless Mouse",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s03",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-wireless-darkfield-mouse-black/16157519",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:14.637Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Wireless Darkfield Mouse - Black",
+      "brand": "LOGITECH",
+      "mpn": "910-006556",
+      "gtin": "097855174819",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s04",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-mx-anywhere-3s-black",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech MX Anywhere 3S (Black)",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s05",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-bluetooth-optical-mouse-for-mac-pale-grey/16472929",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:16.223Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Bluetooth Optical Mouse for Mac - Pale Grey",
+      "brand": "LOGITECH",
+      "mpn": "910-006570",
+      "gtin": "097855174802",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s06",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-mx-keys-s-black",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys S Advanced Wireless Illuminated Keyboard - Black",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s07",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-wireless-darkfield-mouse-pale-grey/16157518",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:17.363Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Wireless Darkfield Mouse - Pale Grey",
+      "brand": "LOGITECH",
+      "mpn": "910-006558",
+      "gtin": "097855174796",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s08",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-wireless-desktop-keyboard-and-mouse",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech Wireless Desktop - Keyboard and Mouse",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s09",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-wireless-performance-mouse-with-ultra-fast-scrolling-ergo-8k-dpi-track-on-glass-quiet-clicks/18168187",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:18.872Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S - Wireless Performance Mouse with Ultra-fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks",
+      "brand": "LOGITECH",
+      "mpn": "B09HM94VDS",
+      "gtin": "097855174789",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "158.75",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s10",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-pro-stream-full-1080p-webcam",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech Pro Stream Full 1080p Webcam",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s11",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-logitech-mx-master-3s-business-wireless-mouse-graphite/19962326",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:20.321Z"
+    },
+    "listing": {
+      "title": "Open Box - Logitech MX Master 3S Business Wireless Mouse - Graphite",
+      "brand": "LOGITECH",
+      "mpn": "910-006581",
+      "gtin": "999004640384",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "151.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s12",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-pop-icon-combo-rose-920-013105",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech POP Icon Combo Rose",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s13",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-business-wireless-mouse-graphite/17914609",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:21.609Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Business Wireless Mouse - Graphite",
+      "brand": "LOGITECH",
+      "mpn": "910-006581",
+      "gtin": "097855176394",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "161.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s14",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-bluetooth-stereo-audio-adapter-980-000910",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech Bluetooth Stereo Audio Adapter",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s15",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-logitech-mx-master-3s-bluetooth-edition-wireless-mouse-graphite-910-007499/19971054",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:23.076Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) Logitech MX Master 3S Bluetooth Edition Wireless Mouse - Graphite (910-007499)",
+      "brand": "LOGITECH",
+      "mpn": "910-007499",
+      "gtin": "0793567315853",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "149.38",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s16",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/asus-rog-strix-flare-rgb-wired-mechanical-gaming-keyboard-with-brown-cherry-mx-switches",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "ASUS ROG Strix Flare RGB Wired Mechanical Gaming Keyboard with Brown Cherry MX Switches",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s17",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-anywhere-3s-wireless-compact-darkfield-mouse-for-mac-pale-grey-only-at-best-buy/17925538",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:24.365Z"
+    },
+    "listing": {
+      "title": "Logitech MX Anywhere 3S Wireless Compact Darkfield Mouse for Mac - Pale Grey - Only at Best Buy",
+      "brand": "LOGITECH",
+      "mpn": "910-006944",
+      "gtin": "097855184108",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s18",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.visions.ca/logitech-zone-vibe-100-headset-graphite",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:13.131Z"
+    },
+    "listing": {
+      "title": "Logitech Zone Vibe 100 Headset – Graphite",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s19",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-wireless-mouse-black-open-box/16578166",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:26.002Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S Wireless Mouse - Black-Open box",
+      "brand": "LOGITECH",
+      "mpn": "910-006556",
+      "gtin": "999003558529",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "157.75",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s20",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/mx-keys-s-bluetooth-combo-mx-keys-s-keyboard-mx-master-3s-mouse-mx-palm-rest/17103479",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:27.094Z"
+    },
+    "listing": {
+      "title": "MX Keys S Bluetooth Combo - MX Keys S Keyboard, MX Master 3S Mouse, MX Palm Rest",
+      "brand": "LOGITECH",
+      "mpn": "920-012274",
+      "gtin": "097855189936",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "249.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s21",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-keys-s-bluetooth-combo-with-mx-keys-s-keyboard-mx-master-3s-mouse-and-mx-palm-rest/19880173",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:28.668Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys S Bluetooth Combo with MX Keys S Keyboard, MX Master 3S Mouse, and MX Palm Rest",
+      "brand": "LOGITECH",
+      "mpn": "7240531",
+      "gtin": "5053243176204",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "284.05",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "mx-master-3s-s22",
+    "productId": "mx-master-3s",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/logitech-mx-master-4-bluetooth-optical-mouse-w-advanced-performance-haptic-feedback-pale-grey/19430807",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:29.945Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 4 Bluetooth Optical Mouse w/ Advanced Performance Haptic Feedback - Pale Grey",
+      "brand": "LOGITECH",
+      "mpn": "910-007559",
+      "gtin": "097855207579",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  }
+]

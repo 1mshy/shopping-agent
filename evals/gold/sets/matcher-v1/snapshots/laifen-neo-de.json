@@ -1,0 +1,541 @@
+[
+  {
+    "id": "laifen-neo-de-s01",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/laifen-neo-hochgeschwindigkeits-haartrockner?variant=43385539854359",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:10.919Z"
+    },
+    "listing": {
+      "title": "Laifen Neo Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "104.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s02",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/laifen-neo-hochgeschwindigkeits-haartrockner?variant=43385539887127",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:10.919Z"
+    },
+    "listing": {
+      "title": "Laifen Neo Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Lila"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "104.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s03",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/autocurl-lockenstab?variant=45376605126679",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:13.542Z"
+    },
+    "listing": {
+      "title": "Laifen AutoCurl Lockenstab",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Farbe": "Rosa"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "84.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s04",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/autocurl-lockenstab?variant=45376605159447",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:13.542Z"
+    },
+    "listing": {
+      "title": "Laifen AutoCurl Lockenstab",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "84.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s05",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/p3-elektrorasierer?variant=45309325738007",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:14.796Z"
+    },
+    "listing": {
+      "title": "Laifen P3 Elektrorasierer",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Version": "Standard Version",
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "122.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s06",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/p3-elektrorasierer?variant=45309330784279",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:14.796Z"
+    },
+    "listing": {
+      "title": "Laifen P3 Elektrorasierer",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Version": "Standard Version",
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "122.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s07",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/zahnbuerste-reiseetui",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:16.179Z"
+    },
+    "listing": {
+      "title": "Reiseetui für Laifen Wave-Zahnbürste",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s08",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/laifen-neo-special-hochgeschwindigkeits-haartrockner?variant=44762467237911",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:17.468Z"
+    },
+    "listing": {
+      "title": "Laifen Neo Special Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Оnyx Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "135.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s09",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/laifen-neo-special-hochgeschwindigkeits-haartrockner?variant=44762467205143",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:17.468Z"
+    },
+    "listing": {
+      "title": "Laifen Neo Special Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Champagne Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "135.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s10",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/wave-zahnb-rstenk-pfe?variant=41817631457303",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:18.829Z"
+    },
+    "listing": {
+      "title": "Laifen Wave-Zahnbürstenköpfe",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Type": "Gum Care",
+        "Style": "Cushioned",
+        "Quantity": "3 Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s11",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/wave-zahnb-rstenk-pfe?variant=41817631653911",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:18.829Z"
+    },
+    "listing": {
+      "title": "Laifen Wave-Zahnbürstenköpfe",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Type": "Super-Clean",
+        "Style": "Cushioned",
+        "Quantity": "3 Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s12",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/neo-haartrockner-und-samt-aufbewahrungstasche-set?variant=45240155701271",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:20.265Z"
+    },
+    "listing": {
+      "title": "[Bundle] Laifen Neo + Samtbeutel",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Laifen Neo Hochgeschwindigkeits-Haartrockner (Color)": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "176.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s13",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/neo-haartrockner-und-samt-aufbewahrungstasche-set?variant=45240155635735",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:20.265Z"
+    },
+    "listing": {
+      "title": "[Bundle] Laifen Neo + Samtbeutel",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Laifen Neo Hochgeschwindigkeits-Haartrockner (Color)": "Lila"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "176.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s14",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/wave-pro-ersatzbuersten-6er-pack?variant=46028195463191",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:21.626Z"
+    },
+    "listing": {
+      "title": "Laifen Pro Serie Bürstenköpfe",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Effekt": "Plaque Removal",
+        "Menge": "3er-Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s15",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/wave-pro-ersatzbuersten-6er-pack?variant=45237662941207",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:21.626Z"
+    },
+    "listing": {
+      "title": "Laifen Pro Serie Bürstenköpfe",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Effekt": "Plaque Removal",
+        "Menge": "6er-Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s16",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/mini-haartrockner?variant=44060692316183",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:22.937Z"
+    },
+    "listing": {
+      "title": "Laifen Mini · Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Glacier Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s17",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/mini-haartrockner?variant=45159371440151",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:22.937Z"
+    },
+    "listing": {
+      "title": "Laifen Mini · Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Sandy Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s18",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/reisetasche?variant=45432667373591",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:24.163Z"
+    },
+    "listing": {
+      "title": "Laifen Reisetasche",
+      "brand": "Laifen",
+      "variantAttributes": {
+        "Version": "Reisetasche"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s19",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/reisetasche?variant=45240095309847",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:24.163Z"
+    },
+    "listing": {
+      "title": "Laifen Reisetasche",
+      "brand": "Laifen",
+      "variantAttributes": {
+        "Version": "Samtbeutel"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "23.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s20",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/air-haartrockner?variant=45366446686231",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:25.410Z"
+    },
+    "listing": {
+      "title": "Laifen Air Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Farbe": "Glatt Lila",
+        "Version": "1 Aufbewahrungsbeutel + 1 Glättungsdüse"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "54.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s21",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/air-haartrockner?variant=45149157359639",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:25.410Z"
+    },
+    "listing": {
+      "title": "Laifen Air Hochgeschwindigkeits-Haartrockner",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Farbe": "Glatt Lila",
+        "Version": "1 Diffusordüse + 1 Glättungsdüse"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "54.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s22",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/laifen-p3-pro-3-blade-electric-shaver-head?variant=43522451013655",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:26.695Z"
+    },
+    "listing": {
+      "title": "Laifen P3 Pro Ersatzkopf",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Space Grau Aluminiumlegierung"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "laifen-neo-de-s23",
+    "productId": "laifen-neo-de",
+    "capture": {
+      "url": "https://de.laifentech.com/products/laifen-p3-pro-3-blade-electric-shaver-head?variant=43522451046423",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:26.695Z"
+    },
+    "listing": {
+      "title": "Laifen P3 Pro Ersatzkopf",
+      "brand": "Laifen-DE",
+      "variantAttributes": {
+        "Color": "Original Aluminiumlegierung"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.laifentech.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "EUR"
+    }
+  }
+]

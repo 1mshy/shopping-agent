@@ -1,0 +1,493 @@
+[
+  {
+    "id": "hd-600-us-s01",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-hd-600-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:32.552Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 600 Headphones",
+      "brand": "Sennheiser",
+      "gtin": "615104340459",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "294.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s02",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-hd-800s-dynamic-open-back-stereo-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:34.162Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 800S Dynamic Open-Back Stereo Headphones",
+      "brand": "Sennheiser",
+      "gtin": "615104273009",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "1499.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s03",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-hd-560s",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:36.080Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 560S",
+      "brand": "Sennheiser",
+      "gtin": "00615104356146",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "179.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s04",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/strauss-wagner-earpads-for-sennheiser-hd-600-series-choose-material?variant=49963742789865",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:36.873Z"
+    },
+    "listing": {
+      "title": "Strauss & Wagner Earpads for Sennheiser HD 600 series - Choose Material",
+      "brand": "Strauss & Wagner",
+      "gtin": "609788733058",
+      "variantAttributes": {
+        "Material": "Flannel"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s05",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/etched-headphone-cable-for-sennheiser-hd-600-series?variant=42137728090183",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:37.464Z"
+    },
+    "listing": {
+      "title": "Etched Headphone Cable for Sennheiser HD 600 Series",
+      "brand": "Listenmore",
+      "variantAttributes": {
+        "Color": "Green",
+        "Length": "1.25m",
+        "Amplifier Connection Option": "3.5mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s06",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/strauss-wagner-earpads-for-sennheiser-hd-800s-lambskin",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:38.180Z"
+    },
+    "listing": {
+      "title": "Strauss & Wagner Earpads for Sennheiser HD 800s - Lambskin",
+      "brand": "Strauss & Wagner",
+      "gtin": "609788733041",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s07",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/dekoni-audio-choice-leather-replacement-ear-pads-for-sennheiser-hd600-series-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:39.625Z"
+    },
+    "listing": {
+      "title": "Dekoni Audio EPZ-HD600-CHL Replacement Ear Pads for Sennheiser HD600 Series Headphones Choice Leather",
+      "brand": "Dekoni Audio",
+      "gtin": "810069320458",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s08",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-hd-800-s-dynamic-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:39.718Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 800S Headphones",
+      "brand": "Sennheiser",
+      "gtin": "00615104273009",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "1499.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s09",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/strauss-wagner-earpads-for-sennheiser-hd-800s-velvet",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:40.981Z"
+    },
+    "listing": {
+      "title": "Strauss & Wagner Earpads for Sennheiser HD 800s - Velvet",
+      "brand": "Strauss & Wagner",
+      "gtin": "609788733225",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s10",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-ie-600-high-fidelity-earphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:42.432Z"
+    },
+    "listing": {
+      "title": "Sennheiser IE 600 High Fidelity Earphones",
+      "brand": "Sennheiser",
+      "gtin": "810091270387",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "599.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s11",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/capra-comfort-strap-for-sennheiser-hd-600-series-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:42.542Z"
+    },
+    "listing": {
+      "title": "Capra Comfort Strap for Sennheiser HD 600 Series Headphones",
+      "brand": "Capra Audio",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s12",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-earpads-for-hd800-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:43.707Z"
+    },
+    "listing": {
+      "title": "Sennheiser Earpads for HD800 and HD800 S Headphones",
+      "brand": "Sennheiser",
+      "gtin": "615104177604",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "75.23",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s13",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-hd-600-over-ear-open-back-headphones-open-box",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:45.027Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 600 Over-Ear Open-Back Headphones (Open Box)",
+      "brand": "Sennheiser",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "424.96",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s14",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-momentum-5-wireless-headphones?variant=42821703073863",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:45.118Z"
+    },
+    "listing": {
+      "title": "Sennheiser Momentum 5 Wireless Headphones",
+      "brand": "Sennheiser",
+      "gtin": "810091274132",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "339.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s15",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-hd-560s-open-back-reference-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:46.464Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 560S Open-Back Reference Headphones",
+      "brand": "Sennheiser",
+      "gtin": "615104356146",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "179.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s16",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/strauss-wagner-earpads-for-sennheiser-hd-4-50-btnc-and-hd-4-50-cooling-gel",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:47.763Z"
+    },
+    "listing": {
+      "title": "Strauss & Wagner Earpads for Sennheiser HD 4.50 BTNC and HD 4.50 - Cooling Gel",
+      "brand": "Strauss & Wagner",
+      "gtin": "609788733430",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "17.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s17",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-hd660s2-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:47.875Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 660S2 Headphones",
+      "brand": "Sennheiser",
+      "gtin": "810091270370",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "429.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s18",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-hd600-over-ear-open-back-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:49.099Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 600 Over-Ear Open-Back Headphones",
+      "brand": "Sennheiser",
+      "gtin": "615104340459",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "294.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s19",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-hd-650-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:49.374Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 650 Headphones",
+      "brand": "Sennheiser",
+      "gtin": "615104340497",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "349.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s20",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-hd-660s2-audiophile-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:50.418Z"
+    },
+    "listing": {
+      "title": "Sennheiser HD 660S2 Audiophile Headphones",
+      "brand": "Sennheiser",
+      "gtin": "810091270370",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "429.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s21",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.headphones.com/products/sennheiser-ie600-in-ear-monitor-headphones",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:50.812Z"
+    },
+    "listing": {
+      "title": "Sennheiser IE 600 In-Ear Headphones",
+      "brand": "Sennheiser",
+      "gtin": "810091270387",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.headphones.com"
+    },
+    "context": {
+      "priceText": "599.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "hd-600-us-s22",
+    "productId": "hd-600-us",
+    "capture": {
+      "url": "https://www.audio46.com/products/sennheiser-momentum-5-wireless-headphones?variant=51920924147945",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:51.883Z"
+    },
+    "listing": {
+      "title": "Sennheiser MOMENTUM 5 Wireless Adaptive Noise-Cancelling Headphones",
+      "brand": "Sennheiser",
+      "gtin": "810091274163",
+      "variantAttributes": {
+        "Color": "Bronze"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.audio46.com"
+    },
+    "context": {
+      "priceText": "339.95",
+      "currency": "USD"
+    }
+  }
+]

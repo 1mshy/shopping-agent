@@ -1,0 +1,480 @@
+[
+  {
+    "id": "remington-f5-us-s01",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/f5-power-series-shaver-with-intercept-shaving-technology",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:04.268Z"
+    },
+    "listing": {
+      "title": "F5 Power Series Shaver",
+      "brand": "Remington",
+      "mpn": "F5-5800BCDN",
+      "gtin": "074590518665",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "55.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s02",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/foil-shaver-attachment-for-the-wpg4020-and-wpg4030",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:06.977Z"
+    },
+    "listing": {
+      "title": "Foil Shaver Attachment for WPG4020 & WPG4030",
+      "brand": "Remington",
+      "mpn": "RP00253",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "6.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s03",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/shaver-replacement-head-for-xf5000a",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:08.295Z"
+    },
+    "listing": {
+      "title": "Shaver Replacement Head",
+      "brand": "Remington",
+      "mpn": "SPF-XF50A",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "38.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s04",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/f4-style-series-foil-shaver",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:09.682Z"
+    },
+    "listing": {
+      "title": "F4 Style Series Foil Shaver",
+      "brand": "Remington",
+      "mpn": "F4010",
+      "gtin": "074590557947",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "44.97",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s05",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-spare-shaver-foil-pf7580",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:11.085Z"
+    },
+    "listing": {
+      "title": "Replacement Foil Shaver Head for Pf7580",
+      "brand": "Remington",
+      "mpn": "SPF-7580",
+      "gtin": "074590555905",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s06",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-spare-pf7300",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:12.336Z"
+    },
+    "listing": {
+      "title": "Replacement Shaver Head for PF7300",
+      "brand": "Remington",
+      "mpn": "SPF-PF73",
+      "gtin": "074590540178",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s07",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-foil-shaver-head-f4010-f5010",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:13.691Z"
+    },
+    "listing": {
+      "title": "Replacement Foil Shaver Head for F4010/F5010",
+      "brand": "Remington",
+      "mpn": "SPF-PFOG",
+      "gtin": "074590558029",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "27.81",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s08",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/smooth-silky-on-the-go-shaver-wsf4810usa",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:15.126Z"
+    },
+    "listing": {
+      "title": "Smooth & Silky® On the Go Shaver",
+      "brand": "Remington",
+      "mpn": "WSF4810USA",
+      "gtin": "074590509120",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "14.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s09",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-spare-combi-pack-pf7400-pf7500",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:16.527Z"
+    },
+    "listing": {
+      "title": "Replacement Shaver Head Combi Pack for PF7400/PF7500",
+      "brand": "Remington",
+      "mpn": "SPF-PF",
+      "gtin": "074590540185",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "17.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s10",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/dual-foil-travel-shaver",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:17.904Z"
+    },
+    "listing": {
+      "title": "Dual Foil Travel Shaver",
+      "brand": "Remington",
+      "mpn": "TF70CDN",
+      "gtin": "074590538809",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "17.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s11",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/smooth-silky-electric-shaver-and-bikini-trimmer",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:19.384Z"
+    },
+    "listing": {
+      "title": "Smooth & Silky Electric Shaver and Bikini Trimmer-lavendar",
+      "brand": "Remington",
+      "mpn": "WDF5030DCDN",
+      "gtin": "074590542448",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "46.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s12",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-spare-rotary-shaver",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:20.652Z"
+    },
+    "listing": {
+      "title": "Spare Rotary Shaver Head",
+      "brand": "Remington",
+      "mpn": "SPRCDN",
+      "gtin": "074590508949",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "38.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s13",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/foil-and-cutters-for-remington%C2%AE-shavers-wdf5030",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:22.086Z"
+    },
+    "listing": {
+      "title": "Foil and Cutters for Remington® Shavers",
+      "brand": "Remington",
+      "mpn": "SPW530NA",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "32.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s14",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/remington-smooth-silky-electric-foil-shaver",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:23.439Z"
+    },
+    "listing": {
+      "title": "Remington Smooth & Silky Electric Shaver for Women, 3-Blade Wet & Dry Razor",
+      "brand": "Remington",
+      "mpn": "WDF4816NA",
+      "gtin": "074590558753",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s15",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/electric-shaver-head-replacement-wdf4815us-wdf4821us",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:24.655Z"
+    },
+    "listing": {
+      "title": "Electric Shaver Head Replacement",
+      "brand": "Remington",
+      "mpn": "SPW-WDF48",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "32.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s16",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/f3010-f3-style-series-shaver",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:25.944Z"
+    },
+    "listing": {
+      "title": "F3010 F3 Style Series Shaver",
+      "brand": "Remington",
+      "mpn": "F3010",
+      "gtin": "074590557930",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "32.97",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s17",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/foil-head-part-for-f7000",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:27.219Z"
+    },
+    "listing": {
+      "title": "Replacement Foil Head Part for F7000",
+      "brand": "Remington",
+      "mpn": "SPF-25A",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "17.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s18",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-spare-trimmer-dual-foil",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:28.538Z"
+    },
+    "listing": {
+      "title": "Dual Foil Spare Trimmer",
+      "brand": "Remington",
+      "mpn": "SPF300-AT1",
+      "gtin": "074590519150",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s19",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/smooth-silky-body-bikini-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:29.789Z"
+    },
+    "listing": {
+      "title": "Remington Smooth & Silky Body & Bikini Kit, Beige",
+      "brand": "Remington",
+      "mpn": "WPG310NA",
+      "gtin": "074590559033",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "22.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s20",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/rem-spare-pf7200",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:31.143Z"
+    },
+    "listing": {
+      "title": "Replacement Shaver Head for PF7200",
+      "brand": "Remington",
+      "mpn": "SPF-PF72",
+      "gtin": "074590540161",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "remington-f5-us-s21",
+    "productId": "remington-f5-us",
+    "capture": {
+      "url": "https://www.remingtonproducts.com/products/remington-balder-head-face-shaver-microscreen-thin-foils",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:01:32.499Z"
+    },
+    "listing": {
+      "title": "Remington Balder Head & Face Shaver for Men, Rotary Wet & Dry Razor",
+      "brand": "Remington",
+      "mpn": "XF8000US",
+      "gtin": "074590559675",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.remingtonproducts.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "USD"
+    }
+  }
+]

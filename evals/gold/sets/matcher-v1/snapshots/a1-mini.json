@@ -1,0 +1,505 @@
+[
+  {
+    "id": "a1-mini-s01",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-a1-mini-fdm-3d-printer-camera-auto-bed-leveling-500mm-s-48-db-300c-180-x-180-x-180-mm-build-volume/19854446",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:30.188Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 mini FDM 3D Printer - Camera, Auto Bed Leveling, 500mm/s, 48 dB, 300°C – 180 x 180 x 180 mm Build Volume",
+      "brand": "BAMBU LAB",
+      "mpn": "A1 mini",
+      "gtin": "6937285506146",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "249.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s02",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://west3d.com/products/bambu-lab-a1-mini-3d-printer-and-a1-ams-combo-copy?variant=47450729906388",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:30.454Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 Mini 3D Printer or A1 Mini AMS-Lite Combo",
+      "brand": "Bambu Lab",
+      "variantAttributes": {
+        "Version": "A1 Mini 3D Printer (without AMS-Lite)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "305.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s03",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://caz3d.com/products/bambu-lab-a1-mini-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:31.874Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 Mini 3D Printer",
+      "brand": "Bambu Lab",
+      "gtin": "6937285506146",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "249.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s04",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/bambu-smooth-pei-plate-for-a1-mini",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:33.300Z"
+    },
+    "listing": {
+      "title": "Bambu Smooth PEI Plate for A1 Mini",
+      "brand": "Bambu Lab",
+      "gtin": "6975337034926",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "31.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s05",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://digitmakers.ca/products/biqu-panda-buildplate-cryogrip-pro-for-bambu-x1-p1-a1-a1-mini-printers-double-sided-7-layer-composite-with-high-magnetic-spring-steel-low-energy-printing?variant=45661161226470",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:34.850Z"
+    },
+    "listing": {
+      "title": "BIQU Panda BuildPlate CryoGrip Pro for Bambu X1/P1/A1/A1 mini/H2D/H2S/H2C Printers",
+      "brand": "BIQU",
+      "gtin": "1060000788",
+      "variantAttributes": {
+        "Type": "Frostbite (Coarse Texture) 257mm*257mm - Bambu X1/P1/A1"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "37.50",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s06",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://digitmakers.ca/products/biqu-panda-buildplate-cryogrip-pro-for-bambu-x1-p1-a1-a1-mini-printers-double-sided-7-layer-composite-with-high-magnetic-spring-steel-low-energy-printing?variant=45661161259238",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:34.850Z"
+    },
+    "listing": {
+      "title": "BIQU Panda BuildPlate CryoGrip Pro for Bambu X1/P1/A1/A1 mini/H2D/H2S/H2C Printers",
+      "brand": "BIQU",
+      "gtin": "1060000734",
+      "variantAttributes": {
+        "Type": "Glacier (Fine Texture) 257mm*257mm - Bambu X1/P1/A1"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "37.50",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s07",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-a1-combo-fdm-3d-printer-multi-colour-printing-built-in-camera-auto-bed-leveling-500mm-s-300c-256-x-256-x-256mm-build-volume/19854443",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:36.540Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 Combo FDM 3D Printer - Multi-Colour Printing, Built-in Camera, Auto Bed Leveling, 500mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+      "brand": "BAMBU LAB",
+      "mpn": "A1 Combo",
+      "gtin": "6937285506160",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "489.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s08",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://west3d.com/products/bmcu-diy-multi-filament-system-for-bambu-a1-a1-mini",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:36.658Z"
+    },
+    "listing": {
+      "title": "BMCU 370C DM DIY Multi-Filament System for Bambu A1 / A1 Mini",
+      "brand": "TriangleLab",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "154.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s09",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://caz3d.com/products/bambu-lab-a1-mini-combo-ams-lite-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:36.768Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 Mini Combo (AMS-Lite) 3D Printer",
+      "brand": "Bambu Lab",
+      "gtin": "6937285506139",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "399.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s10",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/bambu-lab-a1-combo",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:36.870Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 Combo",
+      "brand": "Bambu Lab",
+      "gtin": "6977252425452",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "489.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s11",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://digitmakers.ca/products/wifi-antenna-p1-series-and-a1-mini",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:37.621Z"
+    },
+    "listing": {
+      "title": "Bambu Lab WiFi Antenna - P1 Series and A1 mini",
+      "brand": "Bambu Lab",
+      "gtin": "6975337033233",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "6.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s12",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/3d-printer-hotend-kit-replacement-heating-block-with-thermistor-diy-3d-printing-a1-a1-mini-1-piece/19881178",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:38.222Z"
+    },
+    "listing": {
+      "title": "3D Printer Hotend Kit – Replacement Heating Block with Thermistor – DIY 3D Printing – A1/A1 Mini – 1 Piece",
+      "brand": "SYMLIS",
+      "mpn": "RYING0514-XM48",
+      "gtin": "6459566527959",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "27.93",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s13",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://west3d.com/products/replacement-extruder-unit-for-bambu-lab-a1-and-a1-mini",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:38.337Z"
+    },
+    "listing": {
+      "title": "Replacement Extruder Unit for Bambu Lab A1 and A1 Mini",
+      "brand": "Bambu Lab",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "49.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s14",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://caz3d.com/products/a1-mini-mainboard-saa016-n",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:38.469Z"
+    },
+    "listing": {
+      "title": "A1 Mini Mainboard - SAA016-N",
+      "brand": "Bambu Lab",
+      "gtin": "6975337036159",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s15",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/e3d-diamondback-hotend-for-bambu-lab-a1-a1-mini?variant=44076660424773",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:38.565Z"
+    },
+    "listing": {
+      "title": "E3D DiamondBack HotEnd for Bambu Lab A1 & A1 Mini",
+      "brand": "E3D",
+      "gtin": "5063384004915",
+      "variantAttributes": {
+        "Printer/Size": "A1 Series - 0.4mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "185.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s16",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/e3d-diamondback-hotend-for-bambu-lab-a1-a1-mini?variant=44076660457541",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:38.565Z"
+    },
+    "listing": {
+      "title": "E3D DiamondBack HotEnd for Bambu Lab A1 & A1 Mini",
+      "brand": "E3D",
+      "gtin": "5063384004922",
+      "variantAttributes": {
+        "Printer/Size": "A1 Series - 0.6mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "185.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s17",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://digitmakers.ca/products/bambu-lab-ptfe-tubes",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.060Z"
+    },
+    "listing": {
+      "title": "Bambu Lab PTFE Tubes - X1C,P1P,P1S,A1,A1 mini,X2D",
+      "brand": "Bambu Lab",
+      "gtin": "6975337035114",
+      "variantAttributes": {
+        "Type": "4000mm*1 Gray (Cut-to-length)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "12.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s18",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p2s-ams-combo-enclosed-fdm-3d-printer-multi-colour-printing-camera-auto-bed-leveling-600mm-s-300c-256-x-256-x-256mm-build-volume/19854444",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.285Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P2S AMS Combo Enclosed FDM 3D Printer - Multi-Colour Printing, Camera, Auto Bed Leveling, 600mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+      "brand": "BAMBU LAB",
+      "mpn": "P2S AMS Combo",
+      "gtin": "6937285513335",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "889.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s19",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://west3d.com/products/e3d-high-flow-obxidian-hot-end-for-bambu-lab-a1-and-a1-mini?variant=47023347335380",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.541Z"
+    },
+    "listing": {
+      "title": "E3D High Flow Obxidian Hot End for Bambu Lab A1, A1 Mini and A2L",
+      "brand": "E3D",
+      "variantAttributes": {
+        "Nozzle Diameter": ".4mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "95.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s20",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://west3d.com/products/e3d-high-flow-obxidian-hot-end-for-bambu-lab-a1-and-a1-mini?variant=47023347368148",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.541Z"
+    },
+    "listing": {
+      "title": "E3D High Flow Obxidian Hot End for Bambu Lab A1, A1 Mini and A2L",
+      "brand": "E3D",
+      "variantAttributes": {
+        "Nozzle Diameter": ".6mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "95.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s21",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://caz3d.com/products/e3d-high-flow-obxidian%E2%84%A2-hotend-for-bambu-lab-a1-a1-mini?variant=50835605225789",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.830Z"
+    },
+    "listing": {
+      "title": "E3D High Flow ObXidian™ HotEnd for Bambu Lab A1 & A1 Mini",
+      "brand": "E3D",
+      "gtin": "05225789",
+      "variantAttributes": {
+        "Nozzle Diameter": "0.40mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "102.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "a1-mini-s22",
+    "productId": "a1-mini",
+    "capture": {
+      "url": "https://caz3d.com/products/e3d-high-flow-obxidian%E2%84%A2-hotend-for-bambu-lab-a1-a1-mini?variant=50835605258557",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.830Z"
+    },
+    "listing": {
+      "title": "E3D High Flow ObXidian™ HotEnd for Bambu Lab A1 & A1 Mini",
+      "brand": "E3D",
+      "gtin": "05258557",
+      "variantAttributes": {
+        "Nozzle Diameter": "0.60mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "102.99",
+      "currency": "CAD"
+    }
+  }
+]

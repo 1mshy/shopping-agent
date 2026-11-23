@@ -1,0 +1,508 @@
+[
+  {
+    "id": "990-pro-2tb-s01",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-nvme-pci-e-internal-solid-state-drive-mz-v9p2t0b-am-english/16624805",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:32.307Z"
+    },
+    "listing": {
+      "title": "Samsung 990 Pro 2TB NVMe PCI-e Internal Solid State Drive (MZ-V9P2T0B/AM) - English",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0B/AM",
+      "gtin": "887276657011",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "874.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s02",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-1tb-with-heatsink-pcie-4-0-nvme-m-2-ssd-r-w-7450-6900-mb-s-for-high-end-computing-ultra-fast-gaming-compatible-w-playstation-5/17985572",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:33.910Z"
+    },
+    "listing": {
+      "title": "Samsung 990 PRO 1TB with Heatsink PCIe 4.0 NVMe M.2 SSD R/W 7450/6900 MB/s, for High End Computing, Ultra Fast Gaming, Compatible w/Playstation 5",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P1T0CW-L",
+      "gtin": "0887276656984",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "488",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s03",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-nvme-pcie-4-0-m-2-2280-internal-ssd-mz-v9p2t0b-am-english-brand-new/19505643",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:35.206Z"
+    },
+    "listing": {
+      "title": "Samsung 990 PRO 2TB NVMe PCIe 4.0 M.2 2280 Internal SSD (MZ-V9P2T0B/AM) – English - Brand New",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0B/AM",
+      "gtin": "747015393979",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "779.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s04",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-samsung-990-pro-ssd-1tb-pcie-gen4-nvme-m-2-internal-ssd-upto-7-450mb-s-direct-storage-memory-expansion-mz-v9p1t0b-am/19924845",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:36.586Z"
+    },
+    "listing": {
+      "title": "Open Box - SAMSUNG 990 PRO SSD 1TB PCIe Gen4 NVMe M.2 Internal SSD , Upto 7,450MB/s , Direct Storage&Memory Expansion,MZ-V9P1T0B/AM",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P1T0B/AM",
+      "gtin": "797519087621",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "369.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s05",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-2tb-pcie-gen4-nvme-m-2-internal-ssd-mz-v9p2t0b-am/19880172",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:38.055Z"
+    },
+    "listing": {
+      "title": "Samsung 990 PRO 2TB PCIe Gen4 NVMe M.2 Internal SSD (MZ-V9P2T0B/AM)",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0B/AM",
+      "gtin": "5053243176198",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "716.89",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s06",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-w-heatsink-ssd-4tb-pcie-4-0-m-2-internal-solid-state-hard-drive-fastest-speed-for-gaming-heat-control-storage-and-memory-expansion-compatible-w-ps5/17985585",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:39.281Z"
+    },
+    "listing": {
+      "title": "SAMSUNG 990 PRO w/Heatsink SSD 4TB PCIe 4.0 M.2 Internal Solid State Hard Drive, Fastest Speed for Gaming, Heat Control, Storage and Memory Expansion, Compatible w/ PS5",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P4T0CW-L",
+      "gtin": "0887276750309",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s07",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-samsung-990-pro-2tb-3-bit-mlc-v-nand-m-2-2280-nvme-2-0-r-w-max-7-450mb-s-6-900mb-s-mz-v9p2t0bw-new-ob/19623025",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:40.718Z"
+    },
+    "listing": {
+      "title": "Samsung Samsung 990 PRO 2TB, 3-bit MLC V-NAND, M.2 (2280), NVMe 2.0, R/W(Max) 7,450MB/s/6,900MB/s - MZ-V9P2T0BW - New OB",
+      "brand": "SAMSUNG",
+      "mpn": "SAM-MZ-V9P2T0BW-L",
+      "gtin": "887276638348",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "717.02",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s08",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-w-heatsink-ssd-4tb-pciegen4-nvme-m-2internal-solidstate-harddrive-mz-v9p4t0cw/19867842",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:41.959Z"
+    },
+    "listing": {
+      "title": "SAMSUNG 990 PRO w/Heatsink SSD 4TB PCIeGen4 NVMe M.2Internal SolidState HardDrive , MZ-V9P4T0CW",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P4T0CW",
+      "gtin": "797541699670",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1484.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s09",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-9100-pro-2tb-nvme-pci-e-internal-solid-state-drive-mz-vap2t0b-am-black/19195895",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:43.272Z"
+    },
+    "listing": {
+      "title": "Samsung 9100 Pro 2TB NVMe PCI-e Internal Solid State Drive (MZ-VAP2T0B/AM) - Black",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-VAP2T0B/AM",
+      "gtin": "887276904900",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "924.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s10",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-ssd-4tb-pcie-gen4-nvme-m-2/20067769",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:44.627Z"
+    },
+    "listing": {
+      "title": "SAMSUNG 990 PRO SSD 4TB PCIE GEN4 NVME M.2",
+      "brand": "SAMSUNG",
+      "mpn": "990PROSSD4TBPCIEGEN4",
+      "gtin": "720288557170",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1389.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s11",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990pro-2tb-nvme-pci-e-internal-solid-state-drive-with-heatsink-optimized-for-ps5/16624804",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:45.703Z"
+    },
+    "listing": {
+      "title": "Samsung 990PRO 2TB NVMe PCI-e Internal Solid State Drive with Heatsink - Optimized for PS5",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0CW",
+      "gtin": "887276656991",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "914.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s12",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-9100-pro-1tb-nvme-pci-e-internal-solid-state-drive-mz-vap1t0b-am-black/19195893",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:47.150Z"
+    },
+    "listing": {
+      "title": "Samsung 9100 Pro 1TB NVMe PCI-e Internal Solid State Drive (MZ-VAP1T0B/AM) - Black",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-VAP1T0B/AM",
+      "gtin": "887276904917",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "464.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s13",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-1tb-nvme-pci-e-internal-solid-state-drive-mz-v9p1t0b-am-english/16624802",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:48.534Z"
+    },
+    "listing": {
+      "title": "Samsung 990 Pro 1TB NVMe PCI-e Internal Solid State Drive (MZ-V9P1T0B/AM) - English",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P1T0B/AM",
+      "gtin": "887276657004",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "439.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s14",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-1tb-pcie-gen4-nvme-m-2-internal-ssd-up-to-7-450mb-s-high-speed-storage-for-gaming-professional-use/19768421",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:49.771Z"
+    },
+    "listing": {
+      "title": "Samsung 990 PRO 1TB PCIe Gen4 NVMe M.2 Internal SSD – Up to 7,450MB/s High-Speed Storage for Gaming & Professional Use",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P1T0B/AM",
+      "gtin": "5053243173906",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "426.55",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s15",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-samsung-990-pro-w-heatsink-ssd-2tb-pcie-gen4-nvme-m-2-internal-solid-state-hard-drive/19181694",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:51.050Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) SAMSUNG 990 PRO w/Heatsink SSD 2TB PCIe Gen4 NVMe M.2 Internal Solid State Hard Drive",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0CW",
+      "gtin": "999004340819",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "909.87",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s16",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-ssd-1tb-pcie-gen4-nvme-m-2-internal-solid-state-drive-up-to-7-250-6-450-mb-s-read-write-for-gaming-and-pc-upgrades-mz-v9v1t0b-am/20243722",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:52.203Z"
+    },
+    "listing": {
+      "title": "Samsung 990 SSD 1TB PCIe Gen4 NVMe M.2 Internal Solid State Drive, Up to 7,250/6,450 MB/s Read/Write, for Gaming and PC Upgrades, MZ-V9V1T0B/AM",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9V1T0B/AM",
+      "gtin": "784961139213",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "279.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s17",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-2tb-nvme-pci-e-internal-solid-state-drive-mz-v9v2t0b-am/19911369",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:53.455Z"
+    },
+    "listing": {
+      "title": "Samsung 990 2TB NVMe PCI-e Internal Solid State Drive (MZ-V9V2T0B/AM)",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9V2T0B/AM",
+      "gtin": "198957280801",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "694.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s18",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990pro-1tb-nvme-pci-e-internal-solid-state-drive-with-heatsink-optimized-for-ps5/16624803",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:54.825Z"
+    },
+    "listing": {
+      "title": "Samsung 990PRO 1TB NVMe PCI-e Internal Solid State Drive with Heatsink - Optimized for PS5",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P1T0CW",
+      "gtin": "887276656984",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "464.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s19",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-heatsink-nvme-m-2-ssd-with-heat-sink-2-tb-pcie-4-0-7-450-mb-s-read-6-900-mb-s-write-internal-ssd-with-rgb-for-pc-console-gaming-and-video-editing-mz-v9p2t0cw/17985562",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:56.376Z"
+    },
+    "listing": {
+      "title": "Samsung 990 PRO Heatsink NVMe M.2 SSD with Heat Sink, 2 TB, PCIe 4.0, 7,450 MB/s Read, 6,900 MB/s Write, Internal SSD with RGB for PC/Console Gaming and Video Editing, MZ-V9P2T0CW",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0CW-L",
+      "gtin": "8806094594652",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "914.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s20",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-1tb-nvme-pci-e-internal-solid-state-drive-mz-v9p1t0b-am/19505043",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:57.710Z"
+    },
+    "listing": {
+      "title": "Samsung 990 Pro 1TB NVMe PCI-e Internal Solid State Drive (MZ-V9P1T0B/AM)",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P1T0B/AM",
+      "gtin": "734046196396",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "389.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s21",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brand-new-2tb-990-pro-pcie-4-0-nvme-m-2-ssd/20248607",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:58.951Z"
+    },
+    "listing": {
+      "title": "Brand New, 2TB 990 PRO PCIe 4.0 NVMe M.2 SSD",
+      "brand": "SAMSUNG",
+      "mpn": "MZ-V9P2T0B",
+      "gtin": "615764332870",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "999.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "990-pro-2tb-s22",
+    "productId": "990-pro-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-990-pro-4tb-nvme-pci-e-internal-solid-state-drive-mz-v9p4t0bam/17373959",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:00.244Z"
+    },
+    "listing": {
+      "title": "Samsung 990 Pro 4TB NVMe PCI-e Internal Solid State Drive (MZ-V9P4T0BAM)",
+      "brand": "SAMSUNG",
+      "mpn": "Samsung MZ-V9P4T0BAM",
+      "gtin": "887276795195",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1499.99",
+      "currency": "CAD"
+    }
+  }
+]

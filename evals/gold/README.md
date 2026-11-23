@@ -2,7 +2,9 @@
 
 Tooling for the matcher gold set (S§5.16): file formats, validators, the dev/held-out split, and double-labelling with an agreement report. The gold set measures the identity-precision gate (S§6).
 
-**This directory has no gold data.** The products, snapshots and labels come from the owner, later. The only sets here are the **synthetic** test inputs built in `test/`. Every example below is marked as an example and uses invented values.
+**Gold data:** set v1 is `sets/matcher-v1/` (61 products, 1,307 snapshots, agent primary labels; see its README). It was captured with `capture/` and labelled with `agent-label.ts` (Claude Opus 5.5, two passes with different prompt orderings plus a tie-break, owner decision 2026-11-23). The tests use only the **synthetic** inputs built in `test/`. Every example below is marked as an example and uses invented values.
+
+A set directory may also hold `agent-passes.json` (each agent pass with its evidence), `README.md` and the owner's review sheets (`REVIEW*.md`); the loader reads only the files listed below.
 
 ## Layout of a set
 
@@ -146,9 +148,9 @@ Each is a named constant in `lib/requirements.ts` with its citation, and is repo
 
 A requirement is `met`, `short` (adding products, snapshots or labels can still meet it) or `violated` (adding cannot fix it: more than 25 snapshots on a product, a seventh category, a fourth country). Integrity problems are always violations: schema errors (per entry, naming the file), duplicate ids, a snapshot or label naming something unknown, a snapshot captured in another country than its product, two labels of one pass on one snapshot, a second label by the primary labeller or off the worklist, a split that lists an unknown product or puts one real-world product on both sides, a stale worklist copy.
 
-### Hard negative (proposed definition, the owner must confirm)
+### Hard negative (adopted by the owner, 2026-11-23)
 
-The spec does not define it. Proposed: **a snapshot whose gold relation is `variant`, `bundle`, `accessory_or_part` or `other_model`**: not exact, but the same brand and product line. These are what store search pads its results with, and the cases S§5.4's title rules and judge prompt exist to separate (variant words, accessory and part rejects, model-token conflicts; "variants in size, colour, capacity, configuration or pack count are not matches"). `other_line` is the easy negative and `unknown` is no decision; both count in the denominator.
+The spec does not define it. Adopted: **a snapshot whose gold relation is `variant`, `bundle`, `accessory_or_part` or `other_model`**: not exact, but the same brand and product line. These are what store search pads its results with, and the cases S§5.4's title rules and judge prompt exist to separate (variant words, accessory and part rejects, model-token conflicts; "variants in size, colour, capacity, configuration or pack count are not matches"). `other_line` is the easy negative and `unknown` is no decision; both count in the denominator.
 
 The defensible alternative: every snapshot whose gold relation is neither `exact` nor `unknown`, on the grounds that every snapshot was returned by a search for the product, and that spike D names "other line" as an error class of its own. It makes the 40% bar easier to clear. It is one line to change (`HARD_NEGATIVE_RELATIONS`).
 
@@ -183,6 +185,9 @@ node evals/gold/split.ts assign <dir> --seed <s>  # first run; later runs reuse 
 node evals/gold/split.ts rotate <dir> --count 10 --reason "<why>"
 node evals/gold/double-label.ts pick <dir> --seed <s>
 node evals/gold/double-label.ts agreement <dir>
+node evals/gold/agent-label.ts <dir> --env <path/.env> --out evals/out/<run> [--cap-usd 15] [--concurrency 3]
 ```
+
+`agent-label.ts` reads `CLAUDE_API_KEY` and `CLAUDE_API_URL` from the given `.env` (never printed), keeps each raw response under `--out` (gitignored, and a re-run resumes from it), and stops before a call whose projected spend (at $4 / $20 per million input / output tokens, from the usage the API reports) would pass the cap.
 
 Exit codes: 0 success, 1 failed check or refusal, 2 usage error. Tests (`test/*.test.ts`) run with `pnpm test`.

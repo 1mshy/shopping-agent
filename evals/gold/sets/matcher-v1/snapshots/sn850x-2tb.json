@@ -1,0 +1,508 @@
+[
+  {
+    "id": "sn850x-2tb-s01",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/western-digital-wdblack-sn850x-2tb-ssd-m-2-2280-pcie-7300mb-s-black-internal-hard-drive-wds200t2x0e/16617395",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:03.116Z"
+    },
+    "listing": {
+      "title": "Western Digital WD_BLACK SN850X 2TB SSD M.2 2280 PCIe 7300MB/s Black Internal Hard Drive (WDS200T2X0E)",
+      "brand": "WD_BLACK",
+      "mpn": "WDS200T2X0E",
+      "gtin": "0718037891408",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "719.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s02",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn850x-nvme-ssd-8tb-with-heatsink/19813824",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:04.525Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN850X NVMe SSD - 8TB, With Heatsink",
+      "brand": "SANDSIK",
+      "mpn": "WDS800T2XHE-00CDD0",
+      "gtin": "718037904924",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "2599.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s03",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-wdblack-2tb-pci-express-nvme-x4-internal-solid-state-drive-wds200t2x0e/17145034",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:05.736Z"
+    },
+    "listing": {
+      "title": "WD WD_BLACK 2TB PCI Express NVMe x4 Internal Solid State Drive - (WDS200T2X0E)",
+      "brand": "WD",
+      "mpn": "WDS200T2X0E",
+      "gtin": "718037891408",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "599.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s04",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brand-new-wdblack-sn850x-nvme-ssd-4tb-without-heatsink/20248668",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:07.226Z"
+    },
+    "listing": {
+      "title": "Brand New, WD_BLACK SN850X NVMe™ SSD - 4TB, Without Heatsink",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDS400T2X0E-00BCA0",
+      "gtin": "615764460214",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "2099.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s05",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-wdblack-2tb-pci-express-nvme-x4-internal-solid-state-drive-wds200t2xhe/16582341",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:08.493Z"
+    },
+    "listing": {
+      "title": "WD WD_BLACK 2TB PCI Express NVMe x4 Internal Solid State Drive - (WDS200T2XHE)",
+      "brand": "WD",
+      "mpn": "WDS200T2XHE",
+      "gtin": "718037891309",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "739.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s06",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-black-sn850x-8tb-nvme-ssd-m-2-2280-up-to-7-300-mb-s-read-speeds-up-to-6-300-mb-s-write-speeds-gaming-expansion-high-performance-internal-solid-state-drive-wds800t2x0e/19813821",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:09.869Z"
+    },
+    "listing": {
+      "title": "WD Black SN850X 8TB NVMe SSD - M.2 2280, Up to 7,300 MB/s Read speeds, Up to 6,300 MB/s Write speeds, Gaming Expansion, High Performance Internal Solid State Drive - WDS800T2X0E",
+      "brand": "SANDSIK",
+      "mpn": "WDS800T2X0E-00CDD0",
+      "gtin": "718037903118",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "2899.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s07",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brand-new-wd-black-sn850x-2tb-nvme-pcie-gen4-internal-ssd-with-up-to-7300mb-s-read-speed/19855780",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:11.235Z"
+    },
+    "listing": {
+      "title": "Brand New WD BLACK SN850X 2TB NVMe PCIe Gen4 Internal SSD with up to 7300MB/s read speed",
+      "brand": "WD BLACK",
+      "mpn": "WDBB9G0020BNC-WRSN",
+      "gtin": "662421437317",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "799.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s08",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-sn850x-1tb-internal-ssd-pcie-gen-4-x4-nvme-with-heatsink-for-ps5-desktops/16373380",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:12.298Z"
+    },
+    "listing": {
+      "title": "WD SN850X 1TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDBB9H0010BNC-WRSN",
+      "gtin": "619659193065",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "404.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s09",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-sn850x-2tb-internal-ssd-pcie-gen-4-x4-nvme-with-heatsink-for-ps5-desktops/16373377",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:13.561Z"
+    },
+    "listing": {
+      "title": "WD SN850X 2TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDBB9H0020BNC-WRSN",
+      "gtin": "619659193072",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "904.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s10",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-black-4tb-sn850x-nvme-internal-gaming-ssd-solid-state-drive-gen4-pcie-m-2-2280-up-to-7-300-mb-s-wds400t2x0e/17166748",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:15.045Z"
+    },
+    "listing": {
+      "title": "WD Black 4TB SN850X NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 7,300 MB/s - WDS400T2X0E",
+      "brand": "SANDSIK",
+      "mpn": "WDS400T2X0E-00BCA0",
+      "gtin": "718037891378",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "968.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s11",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-wdblack-1tb-pci-express-nvme-x4-internal-solid-state-drive-wds100t2x0e/17243073",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:16.343Z"
+    },
+    "listing": {
+      "title": "WD WD_BLACK 1TB PCI Express NVMe x4 Internal Solid State Drive - (WDS100T2X0E)",
+      "brand": "WD",
+      "mpn": "WDS100T2X0E",
+      "gtin": "718037891392",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "360",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s12",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/western-digitalblack-sn850x-1tb-nvme-ssd-m-2-2280-up-to-7-300-mb-s-wds100t2x0e/19868401",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:17.497Z"
+    },
+    "listing": {
+      "title": "Western Digital_Black SN850X 1TB NVMe SSD - M.2 2280, Up to 7,300 MB/s , WDS100T2X0E",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDS100T2X0E",
+      "gtin": "797541699694",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "379.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s13",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn7100-500gb-nvme-internal-gaming-ssd-solid-state-drive-gen4-pcie-m-2-2280-up-to-6-800-mb-s-wds500g4x0e/19629930",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:18.903Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN7100 500GB NVMe Internal Gaming SSD Solid State Drive - Gen4 PCIe, M.2 2280, Up to 6,800 MB/s - WDS500G4X0E",
+      "brand": "WD_BLACK",
+      "mpn": "B0DN7JK8T4",
+      "gtin": "718037893662",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "295",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s14",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn850p-4tb-nvme-pci-e-internal-solid-state-drive-with-heatsink-officially-licensed-for-ps5/17108596",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:20.043Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN850P 4TB NVMe PCI-e Internal Solid State Drive with Heatsink - Officially Licensed for PS5",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDBBYV0040BNC-WRSN",
+      "gtin": "619659198114",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1949.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s15",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn850x-2tb-nvme-ssd-with-heatsink-pcie-gen4-gaming-drive/19683559",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:21.676Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN850X 2TB NVMe SSD with Heatsink – PCIe Gen4 Gaming Drive",
+      "brand": "SANDISK",
+      "mpn": "N/a",
+      "gtin": "0718037891309",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "699",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s16",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn850p-1tb-nvme-pci-e-internal-solid-state-drive-with-heatsink-officially-licensed-for-ps5/17108594",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:22.860Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN850P 1TB NVMe PCI-e Internal Solid State Drive with Heatsink - Officially Licensed for PS5",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDBBYV0010BNC-WRSN",
+      "gtin": "619659198053",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "522.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s17",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/western-digitalblack-sn850x-2tb-nvme-ssd-m-2-2280-up-to-7-300-mb-s-wds200t2x0e/19868400",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:24.436Z"
+    },
+    "listing": {
+      "title": "Western Digital_Black SN850X 2TB NVMe SSD - M.2 2280, Up to 7,300 MB/s , WDS200T2X0E",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDS200T2X0E",
+      "gtin": "797541699700",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "719.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s18",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn850p-8tb-nvme-pci-e-internal-solid-state-drive-with-heatsink-officially-licensed-for-ps5/18193747",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:25.500Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN850P 8TB NVMe PCI-e Internal Solid State Drive with Heatsink - Officially Licensed for PS5",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDBBYV0080BNC-WRSN",
+      "gtin": "619659208349",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "2774.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s19",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wd-wdblack-1tb-pci-express-nvme-x4-internal-solid-state-drive-wds100t2xhe/16551091",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:27.019Z"
+    },
+    "listing": {
+      "title": "WD WD_BLACK 1TB PCI Express NVMe x4 Internal Solid State Drive - (WDS100T2XHE)",
+      "brand": "WD",
+      "mpn": "WDS100T2XHE",
+      "gtin": "718037891385",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "463",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s20",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-2tb-sn850p-nvme-m-2-ssd-officially-licensed-storage-expansion-for-ps5-consoles-up-to-7300mb-s-with-heatsink-wdbbyv0020bnc-wrsn/19409696",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:28.274Z"
+    },
+    "listing": {
+      "title": "WD_BLACK 2TB SN850P NVMe M.2 SSD Officially Licensed Storage Expansion for PS5 Consoles, up to 7300MB/s, with heatsink - WDBBYV0020BNC-WRSN",
+      "brand": "WD_BLACK",
+      "mpn": "WDBBYV0020BNC-WRSN",
+      "gtin": "0619659198084",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s21",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/wdblack-sn850x-8tb-nvme-pci-e-internal-solid-state-drive-wdbb9g0080bnc-wrsn/18193748",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:29.305Z"
+    },
+    "listing": {
+      "title": "WD_BLACK SN850X 8TB NVMe PCI-e Internal Solid State Drive (WDBB9G0080BNC-WRSN)",
+      "brand": "WESTERN DIGITAL",
+      "mpn": "WDBB9G0080BNC-WRSN",
+      "gtin": "619659208417",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1799.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sn850x-2tb-s22",
+    "productId": "sn850x-2tb",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-wdblack-sn770-1tb-m-2-2280-pcie-gen4-x4-nvme-internal-gaming-ssd-wds100t3x0e-black/20295176",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:31.015Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - WD_BLACK SN770 1TB M.2 2280 PCIe Gen4 x4 NVMe Internal Gaming SSD - WDS100T3X0E - Black",
+      "brand": "WD_BLACK",
+      "mpn": "WDS100T3X0E",
+      "gtin": "607609375784",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "399.99",
+      "currency": "CAD"
+    }
+  }
+]

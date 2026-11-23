@@ -1,0 +1,522 @@
+[
+  {
+    "id": "anker-prime-power-bank-de-s01",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a110b-anker-prime-powerbank-20000mah-200w",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:30.790Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (20K, 220W)",
+      "brand": "beta-anker-de",
+      "mpn": "A110BH11",
+      "gtin": "194644239350",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s02",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a1336011-1-a1902311-1-aff",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:33.241Z"
+    },
+    "listing": {
+      "title": "Anker Prime 20000mAh Powerbank (200W) mit 100W Ladebasis",
+      "brand": "Anker",
+      "mpn": "BUNDLE-A1336011-1-A1902311-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "155.88",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s03",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/mystery-box-powerbank",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:34.692Z"
+    },
+    "listing": {
+      "title": "Mystery Box - Powerbank",
+      "brand": "beta-anker-de",
+      "mpn": "MYSTERYBOX-A121D-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "38.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s04",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a110ah11-1-a1902311-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:36.173Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (26K, 300W) + Anker 100W Ladestation für Anker Prime Powerbank",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110AH11-1-A1902311-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "259.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s05",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a110bh11-1-a88e2011-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:37.386Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (20K, 220W)+Anker Prime USB-C auf USB-C Kabel (240W, Upcycled-Flechtdesign)",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110BH11-1-A88E2011-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "174.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s06",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1638-anker-nano-powerbank-mit-kabel-10000mah-45w?variant=45920292339875",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:38.940Z"
+    },
+    "listing": {
+      "title": "Anker Nano Powerbank (10K, 45W, Integriertes einziehbares USB-C Kabel)",
+      "brand": "Anker",
+      "mpn": "A1638011",
+      "gtin": "194644213848",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s07",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1638-anker-nano-powerbank-mit-kabel-10000mah-45w?variant=45920292307107",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:38.940Z"
+    },
+    "listing": {
+      "title": "Anker Nano Powerbank (10K, 45W, Integriertes einziehbares USB-C Kabel)",
+      "brand": "Anker",
+      "mpn": "A1638021",
+      "gtin": "194644213947",
+      "variantAttributes": {
+        "Color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s08",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a110a-anker-prime-powerbank-26250mah-300w",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:40.149Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (26K, 300W)",
+      "brand": "beta-anker-de",
+      "mpn": "A110AH11",
+      "gtin": "194644239299",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s09",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a110bh11-1-a1902311-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:41.586Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (20K, 220W) + Anker 100W Ladestation für Anker Prime Powerbank",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110BH11-1-A1902311-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "209.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s10",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1268",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:42.921Z"
+    },
+    "listing": {
+      "title": "Anker <b>325</b> Powerbank (PowerCore 20K)",
+      "brand": "Anker",
+      "mpn": "A1268013",
+      "gtin": "848061059861",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s11",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1336-20000mah-power-bank?variant=43773777510563",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:44.207Z"
+    },
+    "listing": {
+      "title": "Anker Prime 20000mAh Powerbank (200W)",
+      "brand": "beta-anker-de",
+      "mpn": "A1336011",
+      "gtin": "194644130893",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s12",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1336-20000mah-power-bank?variant=43773777543331",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:44.207Z"
+    },
+    "listing": {
+      "title": "Anker Prime 20000mAh Powerbank (200W)",
+      "brand": "beta-anker-de",
+      "mpn": "A13360B1",
+      "gtin": "194644147648",
+      "variantAttributes": {
+        "Color": "Champagner"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s13",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1383?variant=45961749921955",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:45.676Z"
+    },
+    "listing": {
+      "title": "Anker Powerbank (20K, 87W, Integriertes USB-C Kabel)",
+      "brand": "Anker",
+      "mpn": "A1383011",
+      "gtin": "194644043711",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s14",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1383?variant=45961749954723",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:45.676Z"
+    },
+    "listing": {
+      "title": "Anker Powerbank (20K, 87W, Integriertes USB-C Kabel)",
+      "brand": "Anker",
+      "mpn": "A1383021",
+      "gtin": "194644043728",
+      "variantAttributes": {
+        "Color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s15",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a110bh11-1-a1903g11-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:46.979Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (20K, 220W) + Anker Prime Ladebasis (150W, 3 Ports)",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110BH11-1-A1903G11-1",
+      "gtin": "194644239350",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "249.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s16",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1289",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:48.329Z"
+    },
+    "listing": {
+      "title": "Anker 737 Powerbank (PowerCore 24K)",
+      "brand": "beta-anker-de",
+      "mpn": "A1289011",
+      "gtin": "194644098728",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s17",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/anker-prime-powerbank-20k-220w-anker-prime-ladebasis-150w-3-ports-oso",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:49.596Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (20K, 220W) + Anker Prime Ladebasis (150W, 3 Ports)",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110BH11-1-A1903G11-1",
+      "gtin": "194644239350",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s18",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1695-anker-powerbank-25000mah-165w?variant=45508105502883",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:50.862Z"
+    },
+    "listing": {
+      "title": "Anker Powerbank (25K, 165W, Integriertes + einziehbares Kabel)",
+      "brand": "Anker",
+      "mpn": "A1695H11",
+      "gtin": "194644209476",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s19",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/a1695-anker-powerbank-25000mah-165w?variant=45508105535651",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:50.862Z"
+    },
+    "listing": {
+      "title": "Anker Powerbank (25K, 165W, Integriertes + einziehbares Kabel)",
+      "brand": "Anker",
+      "mpn": "A1695H41",
+      "gtin": "194644225841",
+      "variantAttributes": {
+        "Color": "Silber"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s20",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/b1336-20000mah-power-bank-kit",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:52.271Z"
+    },
+    "listing": {
+      "title": "Anker Prime 20000mAh Powerbank (200W) mit 100W Ladebasis",
+      "brand": "Anker",
+      "mpn": "BUNDLE-A1336011-1-A1902311-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "155.88",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s21",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a110ah11-1-a1903g11-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:53.705Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (26K, 300W) + Anker Prime Charging Base (150W, 3 Ports)",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110AH11-1-A1903G11-1",
+      "gtin": "194644239299",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "299.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "anker-prime-power-bank-de-s22",
+    "productId": "anker-prime-power-bank-de",
+    "capture": {
+      "url": "https://de.anker.com/products/bundle-a110bh11-1-a1902311-1-a88e2011-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:55.167Z"
+    },
+    "listing": {
+      "title": "Anker Prime Powerbank (20K, 220W)+Anker Prime USB-C auf USB-C Kabel (240W, Upcycled-Flechtdesign)+Anker 100W Ladestation für Anker Prime Powerbank",
+      "brand": "beta-anker-de",
+      "mpn": "BUNDLE-A110BH11-1-A1902311-1-A88E2011-1",
+      "gtin": "194644239350",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.anker.com"
+    },
+    "context": {
+      "priceText": "229.97",
+      "currency": "EUR"
+    }
+  }
+]

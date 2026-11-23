@@ -1,0 +1,498 @@
+[
+  {
+    "id": "sonicare-4100-s01",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-electric-toothbrush-hx3689-24-prismatic-lush-lilac/18923212",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:25.377Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Electric Toothbrush (HX3689/24) - Prismatic Lush Lilac",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX3689/24",
+      "gtin": "075020108111",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s02",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-4100-rechargeable-electric-toothbrush-advanced-plaque-removal",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:25.575Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Rechargeable Electric Toothbrush | Advanced Plaque Removal",
+      "brand": "Philips Sonicare",
+      "gtin": "075020116611",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "143.75",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s03",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/newopenbox-philips-sonicare-6300-protectiveclean-rechargeable-electric-toothbrush-travel-case-white-hx6463-50/19646962",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:27.280Z"
+    },
+    "listing": {
+      "title": "Newopenbox Philips Sonicare 6300 ProtectiveClean Rechargeable Electric Toothbrush & Travel Case, White HX6463/50",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX6463/50",
+      "gtin": "074108401526",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "59.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s04",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-6500-series-electric-toothbrush-hx7413-07-9-modes-pressure-sensor-navy-blue",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:28.166Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 6500 Series Electric Toothbrush HX7413/07 – 9 Modes, Pressure Sensor, Navy Blue",
+      "brand": "Philips Sonicare",
+      "gtin": "075020114556",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "304.48",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s05",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-electric-toothbrush-hx3681-24-black/16589760",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:28.529Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Electric Toothbrush (HX3681/24) - Black",
+      "brand": "PHILIPS",
+      "mpn": "HX3681/24",
+      "gtin": "075020100764",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s06",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-4100-rechargeable-electric-toothbrush-advanced-plaque-removal-pressure-sensor-2-intensity-levels-travel-case-bd5004az",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:29.535Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Rechargeable Electric Toothbrush – Advanced Plaque Removal, Pressure Sensor, 2 Intensity Levels, Travel Case | BD5004AZ",
+      "brand": "Philips Sonicare",
+      "gtin": "075020116635",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "143.75",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s07",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-optimal-clean-rechargeable-electric-toothbrush-2-pack/17460356",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:30.109Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare Optimal Clean Rechargeable Electric Toothbrush, 2-pack",
+      "brand": "PHILIPS",
+      "mpn": "2023",
+      "gtin": "075020104557",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "120",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s08",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-genuine-e-series-replacement-heads-hx7022-66-2-pack-white",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:30.774Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare Genuine E-Series Replacement Heads HX7022/66 — 2 Pack (White)",
+      "brand": "Philips Sonicare",
+      "gtin": "075020026996",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "92.71",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s09",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-electric-toothbrush-hx3681-23-white/16589761",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:31.218Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Electric Toothbrush (HX3681/23) - White",
+      "brand": "PHILIPS",
+      "mpn": "HX3681/23",
+      "gtin": "075020100757",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s10",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-4100-rechargeable-electric-toothbrush-advanced-plaque-removal-pressure-sensor-travel-case-bd5003az",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:32.209Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Rechargeable Electric Toothbrush – Advanced Plaque Removal, Pressure Sensor, Travel Case | BD5003AZ",
+      "brand": "Philips Sonicare",
+      "gtin": "075020116628",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "143.75",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s11",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-6500-series-rechargeable-toothbrush-hx7411-08-black/19650471",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:32.637Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 6500 Series Rechargeable Toothbrush (HX7411/08) - Black",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX7411/08",
+      "gtin": "075020114518",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s12",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-electric-toothbrush-hx3689-22-prismatic-navy/18923218",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:34.032Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Electric Toothbrush (HX3689/22) - Prismatic Navy",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX3689/22",
+      "gtin": "075020108135",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s13",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-water-flosser-cordless-rechargeable-3-intensity-settings-360-nozzle-mint",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:34.169Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare Water Flosser Cordless – Rechargeable, 3 Intensity Settings, 360° Nozzle (Mint)",
+      "brand": "Philips",
+      "gtin": "8720689012225",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "173.09",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s14",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-philips-sonicare-diamondclean-smart-9400-black-hx9944-12/19634857",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:35.322Z"
+    },
+    "listing": {
+      "title": "Open Box Philips Sonicare DiamondClean Smart 9400 Black HX9944/12",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX9944/12",
+      "gtin": "810541003596",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s15",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-rechargeable-electric-power-toothbrush-pink-hx3681-21/19647149",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:36.758Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Rechargeable Electric Power Toothbrush, Pink HX3681/21",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX3681/21",
+      "gtin": "075020101907",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s16",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-5900-series-electric-toothbrush-hx7131-02-6-brushing-settings-pressure-sensor-21-day-battery",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:36.869Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 5900 Series Electric Toothbrush HX7131/02 — 6 Brushing Settings, Pressure Sensor, 21-Day Battery",
+      "brand": "Philips Sonicare",
+      "gtin": "075020108364",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "217.63",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s17",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-confident-clean-with-uv-sanitizing-travel-case-edition-hx3696-62/19476829",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:38.036Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare Confident Clean with UV Sanitizing Travel Case Edition, HX3696/62",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX3696/62",
+      "gtin": "075020111159",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "110",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s18",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-4100-power-toothbrush-white-hx3681-23/17864279",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:39.463Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 4100 Power Toothbrush. White HX3681/23",
+      "brand": "PHILIPS",
+      "mpn": "HX368",
+      "gtin": "792671013082",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s19",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/philips-sonicare-water-flosser-cordless-rechargeable-power-dental-water-flosser-with-3-intensity-settings-360-nozzle-250ml-tank",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:39.576Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare Water Flosser Cordless – Rechargeable Power Dental Water Flosser with 3 Intensity Settings, 360° Nozzle, 250ml Tank",
+      "brand": "Philips",
+      "gtin": "8720689011051",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "195.84",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s20",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-sonicare-5100-electric-toothbrush-hx6850-60-black/18931313",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:40.609Z"
+    },
+    "listing": {
+      "title": "Philips Sonicare 5100 Electric Toothbrush (HX6850/60) - Black",
+      "brand": "PHILIPS SONICARE",
+      "mpn": "HX6850/60",
+      "gtin": "075020072320",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "119.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s21",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/toothbrush-travel-case-compatible-with-oral-b-pro-1000-2000-3000-3500-1500-for-philips-sonicare-protectiveclean-4100-5100-electric-toothbrush-with-mesh-pocket-for-accessories/17202739",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:42.049Z"
+    },
+    "listing": {
+      "title": "Toothbrush Travel Case Compatible with Oral-B Pro 1000, 2000, 3000, 3500, 1500/ for Philips Sonicare ProtectiveClean 4100 5100 Electric Toothbrush with Mesh Pocket for Accessories",
+      "brand": "HLD",
+      "mpn": "D7-230801-107-PK",
+      "gtin": "739406925807",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "52.96",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "sonicare-4100-s22",
+    "productId": "sonicare-4100",
+    "capture": {
+      "url": "https://perlastore.ca/products/jiuzhoudeal-replacement-sonicare-heads-10-pack-for-philips-sonicare-4100-5100-6100",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:42.175Z"
+    },
+    "listing": {
+      "title": "Jiuzhoudeal Replacement Sonicare Heads – 10-Pack for Philips Sonicare 4100/5100/6100",
+      "brand": "Jiuzhoudeal",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "58.92",
+      "currency": "CAD"
+    }
+  }
+]

@@ -1,0 +1,487 @@
+[
+  {
+    "id": "ninja-creami-ca-s01",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-creami-0-47l-ice-cream-sorbet-milkshake-maker/15509569",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:22.320Z"
+    },
+    "listing": {
+      "title": "Ninja CREAMi 0.47L Ice Cream, Sorbet & Milkshake Maker",
+      "brand": "NINJA",
+      "mpn": "NC301C",
+      "gtin": "622356571265",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s02",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-swirl-by-creami-soft-serve-ice-cream-machine-nc701c",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "Ninja Swirl by CREAMi Soft Serve & Ice Cream Machine",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "299.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s03",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/4-pack-for-ninja-creami-swirl-pints-and-lids-compatible-with-ninja-nc700-series-nc701-nc701c-creami-containers-for-swirl-ice-cream-soft-serve-makers-bpa-free-dishwasher-safe/19846824",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:23.835Z"
+    },
+    "listing": {
+      "title": "4 Pack for Ninja Creami Swirl Pints and Lids Compatible with Ninja NC700 Series, NC701, NC701C, Creami Containers for Swirl Ice Cream & Soft Serve Makers, BPA-Free, Dishwasher Safe",
+      "brand": "SYMLIS",
+      "mpn": "NC701",
+      "gtin": "024427188363",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "65.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s04",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-creami-swirl-0-47l-ice-cream-maker/18965964",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:25.091Z"
+    },
+    "listing": {
+      "title": "Ninja CREAMi Swirl 0.47L Ice Cream Maker",
+      "brand": "NINJA",
+      "mpn": "NC701C",
+      "gtin": "622356641012",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "299.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s05",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-prochef-wireless-thermometer-7601882",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "NINJA PROCHEF WIRELESS THERMOMETER",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s06",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/silicone-mat-for-ninja-creami-nc701-non-slip-drip-proof-mat-set-of-2-with-raised-patterns-accessories-for-ninja-swirl-creami-pint-containers/19587338",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:26.662Z"
+    },
+    "listing": {
+      "title": "Silicone Mat for Ninja Creami NC701 - Non-Slip, Drip-Proof Mat Set of 2 with Raised Patterns, Accessories for Ninja Swirl & Creami Pint Containers",
+      "brand": "MYACUC",
+      "mpn": "730553069130",
+      "gtin": "730553069130",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "33.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s07",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker-with-4-pints-and-lids-cn551cco/19506826",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:27.949Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Ninja CREAMi XL Deluxe 11-in-1 Ice Cream and Frozen Treat Maker with 4 Pints and Lids,CN551CCO",
+      "brand": "NINJA",
+      "mpn": "CN551CCO",
+      "gtin": "797465861498",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s08",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-pro-xl-6-in-1-air-fryer-6-5qt-af181c",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "Ninja Pro XL 6 in 1 Air Fryer 6.5qt.",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s09",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/containers-replacement-for-ninja-creami-pints-and-lids-4-pack-16oz-cups-compatible-with-nc301-nc300-nc299amz-series/19441146",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:29.384Z"
+    },
+    "listing": {
+      "title": "Containers Replacement for Ninja Creami Pints and Lids - 4 Pack, 16oz Cups Compatible with NC301 NC300 NC299AMZ Series",
+      "brand": "BISBISOUS",
+      "mpn": "NC300",
+      "gtin": "024427183139",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "35.88",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s10",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-creami-xl-11-in-1-ice-cream-maker-and-mix-in-tool-with-3-xl-tubs-green/20206889",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:30.883Z"
+    },
+    "listing": {
+      "title": "Ninja , Creami XL 11-in-1 Ice Cream Maker and Mix-in Tool with 3 XL Tubs , Green",
+      "brand": "NINJA",
+      "mpn": "CN601CCO",
+      "gtin": "622356756310",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "299.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s11",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-cordless-portable-blenderninja-blast-max-cordless-portable-blender-deep-navy",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "Ninja Cordless Portable Blender Ninja Blast Max 22oz Cordless Portable Blender Deep Navy",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s12",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-thirsti-60l-co2-canister/17854138",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:31.963Z"
+    },
+    "listing": {
+      "title": "Ninja Thirsti 60L CO2 Canister",
+      "brand": "NINJA",
+      "mpn": "WCX18CO2C",
+      "gtin": "622356638463",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s13",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-slushi-professional-drink-maker-7-servings-fs301c/20180646",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:33.394Z"
+    },
+    "listing": {
+      "title": "Ninja SLUSHi Professional Drink Maker, 7+ Servings, FS301C",
+      "brand": "NINJA",
+      "mpn": "FS301C",
+      "gtin": "622356671804",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s14",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-blast-portable-blender-black-18-oz",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "Ninja Blast Portable Blender Black, 18 oz",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s15",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-slushi-88-oz-2-75-qt-professional-frozen-drink-maker-arctic-blue-grey/18235894",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:34.756Z"
+    },
+    "listing": {
+      "title": "Ninja SLUSHi 88 oz.(2.75 QT) Professional Frozen Drink Maker - Arctic Blue/Grey",
+      "brand": "NINJA",
+      "mpn": "FS301C",
+      "gtin": "622356634168",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "279.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s16",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-creami-swirl-ice-cream-and-soft-serve-maker-nc701c/19411306",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:36.089Z"
+    },
+    "listing": {
+      "title": "Ninja CREAMi Swirl Ice Cream and Soft Serve Maker NC701C",
+      "brand": "NINJA",
+      "mpn": "NC701C",
+      "gtin": "0717225833411",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "409",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s17",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-air-fryer-xl-5-5-quart-blacksilver",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer XL 5.5 Quart Black/Silver",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s18",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-ninja-single-serve-pods-grounds-specialty-coffee-maker-3-cup-stainless-steel-black/20151832",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:37.476Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) Ninja Single-Serve Pods & Grounds Specialty Coffee Maker - 3-Cup - Stainless Steel/Black",
+      "brand": "NINJA",
+      "mpn": "PB051C",
+      "gtin": "999004594564",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s19",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-creami-deluxe-11-in-1-ice-cream-maker-silver/17900147",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:38.760Z"
+    },
+    "listing": {
+      "title": "Ninja CREAMi Deluxe 11-in-1 Ice Cream Maker - Silver",
+      "brand": "NINJA",
+      "mpn": "NC501C",
+      "gtin": "622356593595",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s20",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-flip-toaster-8-in-1-oven-air-fryer-sp151c",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:20.808Z"
+    },
+    "listing": {
+      "title": "Ninja Flip Toaster 8 in 1 Oven & Air Fryer",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s21",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-ninja-nutri-ninja-duo-auto-iq-1300w-stand-blender-with-nutri-ninja-cups/15960772",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:40.273Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Ninja Nutri Ninja Duo Auto-iQ 1300W Stand Blender with Nutri Ninja Cups",
+      "brand": "NINJA",
+      "mpn": "BL641C",
+      "gtin": "999003556594",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.98",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-creami-ca-s22",
+    "productId": "ninja-creami-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-creami-deluxe-nc501c-11-in-1-ice-cream-and-frozen-treat-maker-with-2-xl-24-oz-containers-silver/19931916",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:41.490Z"
+    },
+    "listing": {
+      "title": "Ninja CREAMi Deluxe NC501C 11-in-1 Ice Cream and Frozen Treat Maker with 2 XL 24 oz Containers – Silver",
+      "brand": "NINJA",
+      "mpn": "NC501C",
+      "gtin": "640712066811",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "329.99",
+      "currency": "CAD"
+    }
+  }
+]

@@ -1,0 +1,505 @@
+[
+  {
+    "id": "breville-barista-express-ca-s01",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-breville-barista-express-pump-espresso-machine-stainless-steel-brebes870xl/10256821",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:45.740Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Semi-Automatic Espresso Machine Bean-to-Cup - Stainless Steel",
+      "brand": "BREVILLE",
+      "mpn": "BES870BSS1BCA1",
+      "gtin": "021614055514",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "699.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s02",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.visions.ca/cuisinart-center-barista-4-in-1-coffeemaker",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:43.898Z"
+    },
+    "listing": {
+      "title": "Cuisinart Center Barista 4-in-1 Coffeemaker",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "278",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s03",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-plus-semi-automatic-espresso-machine-with-automatic-milk-system-silver/13188267",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:46.944Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Plus Semi-Automatic Espresso Machine with Automatic Milk System - Silver",
+      "brand": "BREVILLE",
+      "mpn": "BES500BSS",
+      "gtin": "021614800152",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s04",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-semi-automatic-espresso-machine-bean-to-cup-with-steam-wand-black-truffle-only-at-best-buy/19881381",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:48.288Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Semi-Automatic Espresso Machine Bean-to-Cup with Steam Wand - Black Truffle - Only at Best Buy",
+      "brand": "BREVILLE",
+      "mpn": "BES870BTR1BNA1",
+      "gtin": "021614815804",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "699.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s05",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-semi-automatic-espresso-machine-with-steam-wand-brushed-stainless-steel/14970005",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:49.789Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Semi-Automatic Espresso Machine with Steam Wand - Brushed Stainless Steel",
+      "brand": "BREVILLE",
+      "mpn": "BES450BSS1BCA1",
+      "gtin": "021614803214",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "299.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s06",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-impress-semi-automatic-espresso-machine-brushed-stainless-steel/16374006",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:51.086Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Impress Semi-Automatic Espresso Machine - Brushed Stainless Steel",
+      "brand": "BREVILLE",
+      "mpn": "BES876BSS1BNA1",
+      "gtin": "021614807564",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "879.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s07",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-plus-semi-automatic-espresso-machine-with-automatic-milk-system/17761535",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:52.305Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Plus Semi-Automatic Espresso Machine with Automatic Milk System",
+      "brand": "BREVILLE",
+      "mpn": "BES500OLT1BNA1",
+      "gtin": "021614807243",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s08",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-impress-semi-automatic-espresso-machine-bean-to-cup-black-stainless-steel/17983751",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:53.645Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Impress Semi-Automatic Espresso Machine Bean-to-Cup - Black Stainless Steel",
+      "brand": "BREVILLE",
+      "mpn": "BES876BST1BNA1",
+      "gtin": "021614808684",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "879.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s09",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-breville-cafe-roma-pump-espresso-machine-esp8xl/10106549",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:55.050Z"
+    },
+    "listing": {
+      "title": "Breville Café Roma Semi-Automatic Espresso Machine with Steam Wand",
+      "brand": "BREVILLE",
+      "mpn": "ESP8XL",
+      "gtin": "021614034274",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s10",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-impress-semi-automatic-espresso-machine-bean-to-cup-black-truffle/17301633",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:56.411Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Impress Semi-Automatic Espresso Machine Bean-to-Cup - Black Truffle",
+      "brand": "BREVILLE",
+      "mpn": "BES876BTR1BNA1",
+      "gtin": "021614807571",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "879.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s11",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-knock-box-10-bea501bss0zna1/17919704",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:57.603Z"
+    },
+    "listing": {
+      "title": "Breville Knock Box 10 (BEA501BSS0ZNA1)",
+      "brand": "BREVILLE",
+      "mpn": "BEA501BSS0ZNA1",
+      "gtin": "021614813053",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s12",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-impress-semi-automatic-espresso-machine-bean-to-cup-sea-salt/17301634",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:59.128Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Impress Semi-Automatic Espresso Machine Bean-to-Cup - Sea Salt",
+      "brand": "BREVILLE",
+      "mpn": "BES876SST1BNA1",
+      "gtin": "021614807588",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "879.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s13",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-plus-semi-automatic-espresso-machine-with-automatic-milk-system-sea-salt/14192464",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:00.372Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Plus Semi-Automatic Espresso Machine with Automatic Milk System - Sea Salt",
+      "brand": "BREVILLE",
+      "mpn": "BES500SST1BCA1",
+      "gtin": "021614800947",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s14",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-breville-barista-express-impress-semi-automatic-espresso-machine-bean-to-cup/19491004",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:01.682Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Breville Barista Express Impress Semi-Automatic Espresso Machine Bean-to-Cup",
+      "brand": "BREVILLE",
+      "mpn": "RM-BES876BSS1BNA1",
+      "gtin": "021614809735",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "499.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s15",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-plus-semi-automatic-espresso-machine-black-stainless-steel/15490831",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:03.180Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Plus Semi-Automatic Espresso Machine - Black Stainless Steel",
+      "brand": "BREVILLE",
+      "mpn": "BES500BST1BCA1",
+      "gtin": "021614803641",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s16",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-semi-automatic-espresso-machine-bean-to-cup-with-steam-wand/15616263",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:04.471Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Semi-Automatic Espresso Machine Bean-to-Cup with Steam Wand",
+      "brand": "BREVILLE",
+      "mpn": "B00CH9QWOU",
+      "gtin": "999003196431",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "2099.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s17",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-plus-semi-automatic-espresso-machine-with-automatic-milk-system-black-truffle/14192462",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:05.728Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Plus Semi-Automatic Espresso Machine with Automatic Milk System - Black Truffle",
+      "brand": "BREVILLE",
+      "mpn": "BES500BTR1BCA1",
+      "gtin": "021614800336",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s18",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-breville-barista-express-semi-automatic-espresso-machine/16558776",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:07.237Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Breville Barista Express Semi-Automatic Espresso Machine",
+      "brand": "BREVILLE",
+      "mpn": "RM-BES870XL",
+      "gtin": "021614065032",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "499.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s19",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-bambino-plus-semi-automatic-espresso-machine-with-automatic-milk-system-blue/14867236",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:08.781Z"
+    },
+    "listing": {
+      "title": "Breville Bambino Plus Semi-Automatic Espresso Machine with Automatic Milk System - Blue",
+      "brand": "BREVILLE",
+      "mpn": "BES500DBL1BCA1",
+      "gtin": "021614802811",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s20",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-espresso-machine-brushed-stainless-steel-bes870xl/17457812",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:10.103Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Espresso Machine, Brushed Stainless Steel, BES870XL",
+      "brand": "BREVILLE",
+      "mpn": "BES870XL",
+      "gtin": "0021614055514",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "849",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s21",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-express-espresso-machine-brushed-stainless-steel-manual-microfoam-bes870xl/20188619",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:11.573Z"
+    },
+    "listing": {
+      "title": "Breville Barista Express Espresso Machine, Brushed Stainless Steel, Manual Microfoam BES870XL",
+      "brand": "BREVILLE",
+      "mpn": "BES870XL",
+      "gtin": "5053243179762",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "1044.05",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "breville-barista-express-ca-s22",
+    "productId": "breville-barista-express-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/breville-barista-pro-semi-automatic-espresso-machine-bean-to-cup-brushed-stainless-steel/13558678",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:07:12.723Z"
+    },
+    "listing": {
+      "title": "Breville Barista Pro Semi-Automatic Espresso Machine Bean-to-Cup - Brushed Stainless Steel",
+      "brand": "BREVILLE",
+      "mpn": "BES878BSS",
+      "gtin": "021614800619",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "949.99",
+      "currency": "CAD"
+    }
+  }
+]

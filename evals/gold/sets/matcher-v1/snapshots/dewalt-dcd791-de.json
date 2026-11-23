@@ -1,0 +1,464 @@
+[
+  {
+    "id": "dewalt-dcd791-de-s01",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dck2077p2t-qw-comboset-18v-50ah-li-ion-dcd791-schraubendreher-dcf894-schlagschrauber.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCK2077P2T-QW Comboset 18V 5.0AH Li-Ion - DCD791 Schraubendreher + DCF894 Schlagschrauber",
+      "gtin": "5035048699461",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "511.69",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s02",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/lenox-1768436set-9-teiliges-bi-metall-lochsagen-set-dewalt-dcd996p2-xrp-akku-bohrhammer-18v-50ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "1768436SET 9-teiliges Bi-Metall-Lochsägen-Set Dewalt DCD996P2 XRP Akku-Bohrhammer 18V 5.0Ah Li-Ion",
+      "gtin": "5054905254841",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "633.77",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s03",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd771c2-qw-akku-bohrschrauber-18v-13-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD771C2-QW Akku-Bohrschrauber 18V 1.3 Ah Li-Ion",
+      "gtin": "5035048444542",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "202.42",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s04",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dck298p2t-qw-akku-bohrmaschine-dcd791-dcs335-stichsage-18-v-50-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCK298P2T-QW Akku-Bohrmaschine DCD791 + DCS335-Stichsäge 18 V 5,0 Ah Li-Ion",
+      "gtin": "5035048733776",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "609.4",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s05",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dck200mp2t-mclaren-comboset-dcd85-dcf85-18-volt-50-ah-li-ion-dcd.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "DCK200MP2T Mclaren Comboset DCD85 + DCF85 18 Volt 5,0 Ah Li-Ion DCD",
+      "gtin": "5054905326760",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "641.53",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s06",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd777m2t-qw-akku-bohrschrauber-18v-li-ion-mit-2-akkus-40-ah-in-tstak.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD777M2T-QW Akku-Bohrschrauber 18V Li-Ion mit 2 Akkus 4,0 Ah in TSTAK",
+      "gtin": "5035048695685",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "233.56",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s07",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dck268p2t-qw-dck268p2t-kombo-dcd791-bohrschrauber-dcf887-schlagschrauber-18-volt-50-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCK268P2T-QW DCK268P2T Kombo DCD791 Bohrschrauber + DCF887 Schlagschrauber 18 Volt 5.0 AH Li-ion",
+      "gtin": "5035048643563",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "455.94",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s08",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-zubehor-dewalt-dfm3130200-verzinkte-spannhlse-6x80mm-100-stck.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "DFM3130200 Dewalt Verzinkte Spannhülse 6x80mm 100 Stück",
+      "gtin": "0075352966502",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "10.12",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s09",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd701d2-qw-akku-bohrschrauber-12v-2ah.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD701D2-QW Akku-Bohrschrauber 12V / 2Ah",
+      "gtin": "5035048709832",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "181.24",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s10",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dck2095d2t-qw-dealset-18-volt-20-ah-li-ion-dcle34031-growbe-laser-dcd791-akkubohrer.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCK2095D2T-QW Dealset 18 Volt 2.0 AH Li-ion - DCLE34031 growbe Laser + DCD791 Akkubohrer",
+      "gtin": "5054905311834",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "656.8",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s11",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-zubehor-ddf5610520-dewalt-akku-ladegerat-fr-c3c4c5w3-trak-it.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "DDF5610520 Dewalt Akku-Ladegerät für C3/C4/C5/W3 Trak-It",
+      "gtin": "0075352959528",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "41.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s12",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd701n-xj-akku-bohrschrauber-12v-basisversion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD701N-XJ Akku-Bohrschrauber 12V Basisversion",
+      "gtin": "5035048713075",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "103.7",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s13",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dck282p2t-qw-dcd791-akku-bohrmaschine-dcn680-nagler-18ga-15-54-mm-18-v-50-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCK282P2T-QW DCD791 Akku-Bohrmaschine + DCN680 Nägler 18GA 15-54 mm 18 V 5,0 Ah Li-Ion",
+      "gtin": "5035048733783",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "791.47",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s14",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/lignatool-lta1076-arretierplatte-fur-dewalt-dw625e-frasmaschine.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "LTA1076 Arretierplatte für Dewalt DW625E Fräsmaschine",
+      "gtin": "7436944250202",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "113.05",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s15",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd791nt-xj-akku-bohrschrauber-18vohne-akku-oder-ladegerat-im-tstak.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD791NT-XJ Akku-Bohrschrauber 18V,ohne Akku oder Ladegerät im TSTAK",
+      "gtin": "5035048616369",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "141.07",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s16",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd791p3k-qw-dcd791p3k-akku-bohrschrauber-burstenlos-18-volt-50-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCD791P3K-QW DCD791P3K Akku-Bohrschrauber (bürstenlos) 18 Volt 5.0 Ah Li-Ion",
+      "gtin": "5035048637425",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "534.43",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s17",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/lignatool-lta1088-spannzangenadapter-m20x1-dewalt.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "LTA1088 Spannzangenadapter M20x1 DeWalt",
+      "gtin": "7433644281215",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "89.25",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s18",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd710d2f-qw-akku-bohrschrauber-108-volt-20-ah-li-ion-dcl508-akku-lampe.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD710D2F-QW Akku-Bohrschrauber 10.8 Volt 2.0 Ah Li-Ion + DCL508 Akku Lampe",
+      "gtin": "5035048514931",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "159.58",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s19",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd791d2-qw-dcd791d2-akku-bohrschrauber-18-volt-20-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCD791D2-QW DCD791D2 Akku-Bohrschrauber 18 Volt 2.0 Ah Li-Ion",
+      "gtin": "5035048616239",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "198.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s20",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/wood-repair-wre-50061-dewalt-adapter.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:31.192Z"
+    },
+    "listing": {
+      "title": "WRE-50061 DeWalt-Adapter",
+      "gtin": "5055391406837",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "58.31",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s21",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd708p2t-qw-akku-bohrschrauber-18v-50ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:32.535Z"
+    },
+    "listing": {
+      "title": "DCD708P2T-QW Akku-Bohrschrauber 18V 5.0Ah Li-Ion",
+      "gtin": "5035048734322",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "285.89",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dewalt-dcd791-de-s22",
+    "productId": "dewalt-dcd791-de",
+    "capture": {
+      "url": "https://www.toolnation.de/dewalt-dcd791p2-qw-dcd791p2-akku-bohrschrauber-burstenlos-18-volt-50-ah-li-ion.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:29.711Z"
+    },
+    "listing": {
+      "title": "DCD791P2-QW DCD791P2 Akku-Bohrschrauber (bürstenlos) 18 Volt 5.0 Ah Li-Ion",
+      "gtin": "5035048616567",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "266.26",
+      "currency": "EUR"
+    }
+  }
+]

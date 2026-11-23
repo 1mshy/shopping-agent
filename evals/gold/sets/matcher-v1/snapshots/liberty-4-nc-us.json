@@ -1,0 +1,568 @@
+[
+  {
+    "id": "liberty-4-nc-us-s01",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-nc-a3947z11?variant=42843160608958",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:15.126Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC | True-Wireless Noise Cancelling Earbuds",
+      "brand": "soundcoreusa",
+      "mpn": "A3947Z11",
+      "gtin": "194644126124",
+      "variantAttributes": {
+        "Color": "Velvet Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s02",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-nc-a3947z11?variant=44244866138302",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:15.126Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC | True-Wireless Noise Cancelling Earbuds",
+      "brand": "soundcoreusa",
+      "mpn": "A3947Z21",
+      "gtin": "194644132309",
+      "variantAttributes": {
+        "Color": "Clear White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s03",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-charging-case-white?variant=45033853649086",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:17.826Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Charging Case - White",
+      "brand": "Soundcore",
+      "mpn": "A3953011-96",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s04",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-charging-case-white?variant=45033853616318",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:17.826Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Charging Case - White",
+      "brand": "Soundcore",
+      "mpn": "A3953021-96",
+      "variantAttributes": {
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s05",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3957-liberty-5-tws-earbuds?variant=45054910955710",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:19.255Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 5 | Noise-Cancelling Earbuds with Dolby Audio",
+      "brand": "soundcoreusa",
+      "mpn": "A3957Z11",
+      "gtin": "194644230821",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s06",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3957-liberty-5-tws-earbuds?variant=45054910988478",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:19.255Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 5 | Noise-Cancelling Earbuds with Dolby Audio",
+      "brand": "soundcoreusa",
+      "mpn": "A3957Z21",
+      "gtin": "194644230807",
+      "variantAttributes": {
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s07",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3947z11-f0?variant=44387026567358",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:20.549Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC (Refurbished)",
+      "brand": "soundcoreusa",
+      "mpn": "A3947Z11-F0",
+      "gtin": "194644150860",
+      "variantAttributes": {
+        "Color": "Velvet Black"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s08",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3947z11-f0?variant=46379148705982",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:20.549Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC (Refurbished)",
+      "brand": "soundcoreusa",
+      "mpn": "A3947Z21-F0",
+      "gtin": "194644150846",
+      "variantAttributes": {
+        "Color": "Clear White"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s09",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/soundcore-care-a3954",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:21.866Z"
+    },
+    "listing": {
+      "title": "soundcore Care Liberty 4 Pro",
+      "brand": "Soundcore",
+      "mpn": "A3954H11-85",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "9.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s10",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/d1204-liberty-5-pro-max-ai-recording-earbuds?variant=47169011515582",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:23.154Z"
+    },
+    "listing": {
+      "title": "Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case",
+      "brand": "Soundcore",
+      "mpn": "D1204Z11",
+      "gtin": "194644331047",
+      "variantAttributes": {
+        "Color": "Midnight Black",
+        "Choice": "Liberty 5 Pro Max"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "229.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s11",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/d1204-liberty-5-pro-max-ai-recording-earbuds?variant=47169011482814",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:23.154Z"
+    },
+    "listing": {
+      "title": "Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case",
+      "brand": "Soundcore",
+      "mpn": "D1204ZB1",
+      "gtin": "194644331061",
+      "variantAttributes": {
+        "Color": "Titanium Gold",
+        "Choice": "Liberty 5 Pro Max"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "229.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s12",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3947z11-96?variant=45033882091710",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:24.520Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC Charging Case - Black",
+      "brand": "soundcoreus",
+      "mpn": "A3947Z11-96",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "9999999.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s13",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3947z11-96?variant=45033882124478",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:24.520Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC Charging Case - Black",
+      "brand": "soundcoreus",
+      "mpn": "A3947Z21-96",
+      "variantAttributes": {
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "35.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s14",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-pro-left-and-right-replacement-earbuds?variant=44599488708798",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:25.850Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro Left and Right Replacement Earbuds",
+      "brand": "soundcoreus",
+      "mpn": "A3954H11-91",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "90.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s15",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-pro-left-and-right-replacement-earbuds?variant=44599488774334",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:25.850Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro Left and Right Replacement Earbuds",
+      "brand": "soundcoreus",
+      "mpn": "A3954H31-91",
+      "variantAttributes": {
+        "Color": "Light Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "90.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s16",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/d1206-liberty-buds-2-ai-powered-in-ear-earbuds-for-calls?variant=49041079664830",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:27.266Z"
+    },
+    "listing": {
+      "title": "Anker soundcore Liberty Buds 2 | Certified Comfortable Wireless Earbuds for Calls",
+      "brand": "Soundcore",
+      "mpn": "D1206Z11",
+      "gtin": "194644365561",
+      "variantAttributes": {
+        "Color": "Glossy Black",
+        "Choice": "Liberty Buds 2"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s17",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/d1206-liberty-buds-2-ai-powered-in-ear-earbuds-for-calls?variant=49041079599294",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:27.266Z"
+    },
+    "listing": {
+      "title": "Anker soundcore Liberty Buds 2 | Certified Comfortable Wireless Earbuds for Calls",
+      "brand": "Soundcore",
+      "mpn": "D1206ZQ1",
+      "gtin": "194644348724",
+      "variantAttributes": {
+        "Color": "Mother of Pearl Version",
+        "Choice": "Liberty Buds 2"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s18",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-nc-left-and-right-replacement-earbuds?variant=44896032227518",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:28.503Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC Left and Right Replacement Earbuds",
+      "brand": "soundcoreus",
+      "mpn": "A3947Z11-91",
+      "variantAttributes": {
+        "color": "Velvet Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s19",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/liberty-4-nc-left-and-right-replacement-earbuds?variant=44896032260286",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:28.503Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC Left and Right Replacement Earbuds",
+      "brand": "soundcoreus",
+      "mpn": "A3947Z21-91",
+      "variantAttributes": {
+        "color": "Clear White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s20",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/soundcore-liberty-5-refurbished?variant=46379173511358",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:29.950Z"
+    },
+    "listing": {
+      "title": "Liberty 5 (Refurbished)",
+      "brand": "soundcoreusa",
+      "mpn": "A3957Z11-F0",
+      "gtin": "194644269845",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s21",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/soundcore-liberty-5-refurbished?variant=46379173576894",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:29.950Z"
+    },
+    "listing": {
+      "title": "Liberty 5 (Refurbished)",
+      "brand": "soundcoreusa",
+      "mpn": "A3957Z31-F0",
+      "gtin": "194644262198",
+      "variantAttributes": {
+        "Color": "Navy Blue"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s22",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3947z11-94?variant=45033858039998",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:31.213Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC Eartips Kit - Black",
+      "brand": "soundcoreus",
+      "mpn": "A3947Z11-94",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "11.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "liberty-4-nc-us-s23",
+    "productId": "liberty-4-nc-us",
+    "capture": {
+      "url": "https://us.soundcore.com/products/a3947z11-94?variant=45033858072766",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:31.213Z"
+    },
+    "listing": {
+      "title": "Liberty 4 NC Eartips Kit - Black",
+      "brand": "soundcoreus",
+      "mpn": "A3947Z21-94",
+      "variantAttributes": {
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.soundcore.com"
+    },
+    "context": {
+      "priceText": "11.99",
+      "currency": "USD"
+    }
+  }
+]

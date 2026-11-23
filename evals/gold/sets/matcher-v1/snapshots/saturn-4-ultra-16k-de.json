@@ -1,0 +1,400 @@
+[
+  {
+    "id": "saturn-4-ultra-16k-de-s01",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-10inch-monochrome-lcd-resin-3d-printer",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:52.827Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K",
+      "brand": "ELEGOO",
+      "gtin": "6932704932582",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "469.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s02",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-12k-10inch-monochrome-lcd-resin-3d-printer",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:55.705Z"
+    },
+    "listing": {
+      "title": "Saturn 4",
+      "brand": "ELEGOO",
+      "gtin": "6932704932568",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "319.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s03",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://www.3djake.de/elegoo/petg-glitter-orange",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:55.998Z"
+    },
+    "listing": {
+      "title": "Elegoo PETG Glitter Orange, 1,75 mm / 1000 g",
+      "brand": "Elegoo",
+      "gtin": "6932704937334",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.3djake.de"
+    },
+    "context": {
+      "priceText": "11.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s04",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-with-mercury-plus-v3-0-bundle",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:57.586Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K mit Mercury Plus V3.0 Bundle",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "593.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s05",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/metal-resin-tank-for-saturn-4-saturn-4-ultra",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:58.464Z"
+    },
+    "listing": {
+      "title": "Metall-Harz-Tank für Saturn 4 & Saturn 4 Ultra",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "50.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s06",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-complete-bundle-mercury-plus-v3-0-resin?variant=44420416995467",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:59.924Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K Komplettpaket - Mercury Plus V3.0 & Harz",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "8K Standard Harz (Color)": "#Space Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "644.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s07",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-complete-bundle-mercury-plus-v3-0-resin?variant=44420417028235",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:59.924Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K Komplettpaket - Mercury Plus V3.0 & Harz",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "8K Standard Harz (Color)": "#Vanilla"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "644.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s08",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-complete-bundle-mercury-plus-v3-resin?variant=44420619567243",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:01.161Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Komplettpaket – Mercury Plus V3.0 & Harz",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Standard-Harz V2.0 (Color)": "#Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "482.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s09",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-complete-bundle-mercury-plus-v3-resin?variant=44420619600011",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:01.161Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Komplettpaket – Mercury Plus V3.0 & Harz",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Standard-Harz V2.0 (Color)": "#Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "482.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s10",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-with-mercury-xs-bundle",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:02.544Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K mit Mercury XS Bundle",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "598.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s11",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-m1-ultra",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:03.882Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K + M1 Ultra",
+      "brand": "ELEGOO DE",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "2060.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s12",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-complete-bundle-mercury-xs-resin?variant=44420450418827",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:05.298Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K Komplettpaket - Mercury XS & Harz",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "ABS-ähnliches Harz V3.0 Pro (Color)": "#Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "635.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s13",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-complete-bundle-mercury-xs-resin?variant=44420450451595",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:05.298Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K Komplettpaket - Mercury XS & Harz",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "ABS-ähnliches Harz V3.0 Pro (Color)": "#Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "635.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s14",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/lcd-screen-for-saturn-4-ultra-16k",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:06.566Z"
+    },
+    "listing": {
+      "title": "LCD-Bildschirm für Saturn 4 Ultra 16K",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s15",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-pfa-release-liner-for-saturn-2-3d-printer",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:07.932Z"
+    },
+    "listing": {
+      "title": "PFA-Folie für Saturn 2/8K/3/4/4 Ultra/4 Ultra 16K (5 Stück)",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "27.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s16",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-m1-ultra-2-kg-resin?variant=50921817899147",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:09.289Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K + M1 Ultra + 2 kg Resin",
+      "brand": "ELEGOO DE",
+      "variantAttributes": {
+        "8K wasserabwaschbares Harz V2.0 (Color)": "#Spacegrau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "2109.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s17",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-16k-m1-ultra-2-kg-resin?variant=50921817931915",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:09.289Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K + M1 Ultra + 2 kg Resin",
+      "brand": "ELEGOO DE",
+      "variantAttributes": {
+        "8K wasserabwaschbares Harz V2.0 (Color)": "#Vanille"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "2109.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-16k-de-s18",
+    "productId": "saturn-4-ultra-16k-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/saturn-4-ultra-12k-10inch-monochrome-lcd-resin-3d-printer",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:10.713Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra",
+      "brand": "ELEGOO",
+      "gtin": "6932704932575",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "399.00",
+      "currency": "EUR"
+    }
+  }
+]

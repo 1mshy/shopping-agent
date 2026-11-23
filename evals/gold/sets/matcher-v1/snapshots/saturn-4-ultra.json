@@ -1,0 +1,363 @@
+[
+  {
+    "id": "saturn-4-ultra-s01",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-ultra-12k-10inch-monochrome-lcd-resin-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:57.389Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "549.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s02",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://west3d.com/products/elegoo-saturn-4-ultra-12k-high-speed-high-precision-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:58.888Z"
+    },
+    "listing": {
+      "title": "Elegoo Saturn 4 Ultra 12K: High-Speed, High-Precision SLA Resin 3D Printer",
+      "brand": "ELEGOO",
+      "gtin": "23550420",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "582.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s03",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/elegoo-lcd-screen-for-saturn-4-saturn-4-ultra",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:58.990Z"
+    },
+    "listing": {
+      "title": "ELEGOO LCD Screen for Saturn 4 & Saturn 4 Ultra",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "184.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s04",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/elegoo-saturn-pfa-film-replacement-5pcs-for-saturn-2-8k-3-4-4-ultra/17902225",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:59.337Z"
+    },
+    "listing": {
+      "title": "ELEGOO Saturn PFA Film Replacement (5pcs) for Saturn 2/ 8K/ 3/ 4/ 4 Ultra",
+      "brand": "ELEGOO",
+      "mpn": "14.0007.194",
+      "gtin": "191095001741",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "14.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s05",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-12k-10inch-monochrome-lcd-resin-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:00.136Z"
+    },
+    "listing": {
+      "title": "Saturn 4",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "419.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s06",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-ultra-16k-10inch-monochrome-lcd-resin-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:01.418Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "669.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s07",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://west3d.com/products/elegoo-saturn-4-ultra-16k-high-speed-ultra-high-precision-sla-resin-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:01.560Z"
+    },
+    "listing": {
+      "title": "Elegoo Saturn 4 Ultra 16K: High-Speed, Ultra High-Precision SLA Resin 3D Printer",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "734.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s08",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/elegoo-lcd-screen-for-saturn-4-ultra-16k",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:01.663Z"
+    },
+    "listing": {
+      "title": "ELEGOO LCD Screen for Saturn 4 Ultra 16K",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "175.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s09",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/metal-resin-tank-for-saturn-4-saturn-4-ultra",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:02.781Z"
+    },
+    "listing": {
+      "title": "Metal Resin Tank for Saturn 4 & Saturn 4 Ultra",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "62.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s10",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://west3d.com/products/elegoo-saturn-4-ultra-pfa-film-5pcs",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:02.889Z"
+    },
+    "listing": {
+      "title": "Elegoo Saturn 2 / 3 / 4 and 4 Ultra PFA Film (5 Pack) - Protect Your 3D Prints",
+      "brand": "ELEGOO",
+      "gtin": "97379284",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "46.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s11",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/lcd-screen-for-saturn-4-saturn-4-ultra",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:04.263Z"
+    },
+    "listing": {
+      "title": "LCD Screen for Saturn 4 & Saturn 4 Ultra",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "155.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s12",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-ultra-with-mercury-plus-v3-0-bundle",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:05.506Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra with Mercury Plus V3.0 Bundle",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "699.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s13",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/build-plate-for-saturn-4-4-ultra-4-ultra-16k",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:06.914Z"
+    },
+    "listing": {
+      "title": "Build Plate for Saturn 4/4 Ultra/4 Ultra 16K",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "67.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s14",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-ultra-combo-with-mercury-xs",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:08.332Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra with Mercury XS Bundle",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "728.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s15",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-ultra-16k-with-mercury-plus-v3-0-bundle",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:09.743Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K with Mercury Plus V3.0 Bundle",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "799.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s16",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/saturn-4-ultra-16k-complete-bundle-mercury-plus-v3-0-resin",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:11.015Z"
+    },
+    "listing": {
+      "title": "Saturn 4 Ultra 16K Complete Bundle - Mercury Plus V3.0 & Resin",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "859.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "saturn-4-ultra-s17",
+    "productId": "saturn-4-ultra",
+    "capture": {
+      "url": "https://ca.elegoo.com/products/metal-resin-tank-for-saturn-4-ultra-16k",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:49:12.288Z"
+    },
+    "listing": {
+      "title": "Metal Resin Tank for Saturn 4 Ultra 16K",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.elegoo.com"
+    },
+    "context": {
+      "priceText": "71.99",
+      "currency": "CAD"
+    }
+  }
+]

@@ -1,0 +1,507 @@
+[
+  {
+    "id": "instant-pot-duo-plus-6qt-s01",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:13.707Z"
+    },
+    "listing": {
+      "title": "Instant Pot® DUO® Plus 6QT Multi-Use Pressure Cooker, V3",
+      "brand": "Instant Pot",
+      "mpn": "112-0156-01",
+      "gtin": "853084004477",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "0.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s02",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-crisp-air-fryer-6qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:16.595Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Crisp™ + Air Fryer 6QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "112-0120-01",
+      "gtin": "810028581821",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "394.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s03",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-pro-6qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:18.036Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Pro™ 6QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "112-0123-01",
+      "gtin": "810028582194",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "248.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s04",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-8qt-sealing-ring",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:19.465Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 8QT Sealing Ring",
+      "brand": "Instant Pot",
+      "mpn": "211-0006-01",
+      "gtin": "853084004323",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "17.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s05",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-plus-8qt-multi-use-pressure-cooker-whisper-quiet",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:20.782Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Plus 8QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "113-0058-01",
+      "gtin": "810028585188",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "234.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s06",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-mini-3qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:22.108Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Mini 3QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "110-0043-01",
+      "gtin": "810028585195",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "132.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s07",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-pro-8qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:23.332Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Pro™ 8QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "113-0044-01",
+      "gtin": "810028582217",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "292.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s08",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-5-6-qt-clear-sealing-ring-2-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:24.600Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 4, 5 & 6 QT Clear Sealing Ring, 2-Pack",
+      "brand": "Instant Pot",
+      "mpn": "211-0007-01",
+      "gtin": "853084004460",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s09",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-whisper-quiet",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:25.872Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Plus 6QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "112-0169-01",
+      "gtin": "810028585171",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "205.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s10",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-pro-crisp-air-fryer-8qt-multi-use-pressure-cooker-and-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:27.099Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Pro™ Crisp & Air Fryer 8QT Multi-Use Pressure Cooker and Air Fryer",
+      "brand": "Instant Pot",
+      "mpn": "113-0043-01",
+      "gtin": "810028582187",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "336.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s11",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-5-6-qt-sealing-ring",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:28.409Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 4, 5 & 6 QT Sealing Ring",
+      "brand": "Instant Pot",
+      "mpn": "211-0001-01",
+      "gtin": "853084004026",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "15.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s12",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-plus-3qt-mini-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:29.733Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Plus Mini 3QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "110-0039-01",
+      "gtin": "859716007199",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "161.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s13",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-3qt-sealing-ring",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:31.081Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 3QT Sealing Ring",
+      "brand": "Instant Pot",
+      "mpn": "211-0010-01",
+      "gtin": "853084004842",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "14.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s14",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-6qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:32.432Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ 6QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "112-0170-01",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "161.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s15",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-5-6-qt-color-sealing-ring-2-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:33.833Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 4, 5 & 6 QT Color Sealing Ring, 2-Pack",
+      "brand": "Instant Pot",
+      "mpn": "211-0005-01",
+      "gtin": "853084004316",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s16",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-8qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:35.182Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ 8QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "113-0059-01",
+      "gtin": "810028585218",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "190.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s17",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-8qt-color-sealing-ring-2-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:36.401Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 8QT Color Sealing Ring, 2-Pack",
+      "brand": "Instant Pot",
+      "mpn": "211-0009-01",
+      "gtin": "853084004620",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "30.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s18",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-crisp-air-fryer-8qt-multi-use-pressure-cooker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:37.829Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Crisp™ + Air Fryer 8QT Multi-Use Pressure Cooker",
+      "brand": "Instant Pot",
+      "mpn": "140-0021-01",
+      "gtin": "857561008842",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "321.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s19",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-8qt-clear-sealing-ring-2-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:39.178Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 8QT Clear Sealing Ring, 2-Pack",
+      "brand": "Instant Pot",
+      "mpn": "211-0008-01",
+      "gtin": "853084004613",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "30.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s20",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-duo-crisp-6-5-qt-ultimate-lid-smart-multi-cooker-and-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:40.604Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Duo™ Crisp™ 6.5QT with Ultimate Lid Smart Multi-Cooker and Air Fryer",
+      "brand": "Instant Pot",
+      "mpn": "140-0060-01",
+      "gtin": "810102260888",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "365.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s21",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-pot-3qt-color-sealing-ring-2-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:41.891Z"
+    },
+    "listing": {
+      "title": "Instant Pot® 3QT Color Sealing Ring, 2-Pack",
+      "brand": "Instant Pot",
+      "mpn": "211-0012-01",
+      "gtin": "853084004866",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "17.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "instant-pot-duo-plus-6qt-s22",
+    "productId": "instant-pot-duo-plus-6qt",
+    "capture": {
+      "url": "https://www.instantpot.com/products/instant-dual-pod-plus-coffee-maker",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:43.353Z"
+    },
+    "listing": {
+      "title": "Instant Pot® Dual Pod Plus Coffee Maker",
+      "brand": "Instant Pot",
+      "mpn": "140-6013-01",
+      "gtin": "810028586031",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.instantpot.com"
+    },
+    "context": {
+      "priceText": "292.00",
+      "currency": "unknown"
+    }
+  }
+]

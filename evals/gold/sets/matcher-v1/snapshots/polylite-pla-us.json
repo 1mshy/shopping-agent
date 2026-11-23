@@ -1,0 +1,584 @@
+[
+  {
+    "id": "polylite-pla-us-s01",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-pla?variant=43818025812025",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:29.234Z"
+    },
+    "listing": {
+      "title": "PolyLite™ PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936709664",
+      "variantAttributes": {
+        "Color": "Black",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s02",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-pla?variant=43818025877561",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:29.234Z"
+    },
+    "listing": {
+      "title": "PolyLite™ PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936709671",
+      "variantAttributes": {
+        "Color": "White",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "22.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s03",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-abs?variant=39574342762553",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:31.972Z"
+    },
+    "listing": {
+      "title": "PolyLite™ ABS",
+      "brand": "Polymaker",
+      "gtin": "6938936710158",
+      "variantAttributes": {
+        "Color": "Black",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s04",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-abs?variant=39574342729785",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:31.972Z"
+    },
+    "listing": {
+      "title": "PolyLite™ ABS",
+      "brand": "Polymaker",
+      "gtin": "6938936710165",
+      "variantAttributes": {
+        "Color": "White",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s05",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polymaker-pla-pro?variant=41550910652473",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:33.315Z"
+    },
+    "listing": {
+      "title": "Polymaker™ PLA Pro",
+      "brand": "Polymaker",
+      "gtin": "6938936714019",
+      "variantAttributes": {
+        "Color": "Black",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s06",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polymaker-pla-pro?variant=41550910685241",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:33.315Z"
+    },
+    "listing": {
+      "title": "Polymaker™ PLA Pro",
+      "brand": "Polymaker",
+      "gtin": "6938936714002",
+      "variantAttributes": {
+        "Color": "White",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s07",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-pla-pro?variant=39574346334265",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:34.601Z"
+    },
+    "listing": {
+      "title": "PolyLite™ PLA Pro",
+      "brand": "Polymaker",
+      "gtin": "6938936709619",
+      "variantAttributes": {
+        "Color": "Black",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "22.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s08",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-pla-pro?variant=39574346367033",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:34.601Z"
+    },
+    "listing": {
+      "title": "PolyLite™ PLA Pro",
+      "brand": "Polymaker",
+      "gtin": "6938936709626",
+      "variantAttributes": {
+        "Color": "White",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "22.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s09",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-pc?variant=39574343516217",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:35.966Z"
+    },
+    "listing": {
+      "title": "PolyLite™ PC",
+      "brand": "Polymaker",
+      "gtin": "6938936710424",
+      "variantAttributes": {
+        "Color": "Transparent",
+        "Diameter": "1.75mm",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s10",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-pc?variant=39574343548985",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:35.966Z"
+    },
+    "listing": {
+      "title": "PolyLite™ PC",
+      "brand": "Polymaker",
+      "gtin": "6938936712688",
+      "variantAttributes": {
+        "Color": "Transparent",
+        "Diameter": "1.75mm",
+        "Net Weight": "3kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s11",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polymaker-ht-pla-pro?variant=45811969327161",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:37.465Z"
+    },
+    "listing": {
+      "title": "Polymaker™ HT-PLA Pro",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "Black",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s12",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polymaker-ht-pla-pro?variant=45811969359929",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:37.465Z"
+    },
+    "listing": {
+      "title": "Polymaker™ HT-PLA Pro",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "White",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s13",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-metallic-pla-pro?variant=41829654724665",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:38.815Z"
+    },
+    "listing": {
+      "title": "PolyLite™ Metallic PLA Pro",
+      "brand": "Polymaker",
+      "gtin": "6938936714033",
+      "variantAttributes": {
+        "Color": "Metallic Black",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s14",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-metallic-pla-pro?variant=41019989819449",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:38.815Z"
+    },
+    "listing": {
+      "title": "PolyLite™ Metallic PLA Pro",
+      "brand": "Polymaker",
+      "gtin": "6938936707516",
+      "variantAttributes": {
+        "Color": "Gold",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "32.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s15",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-neon-abs?variant=41404997206073",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:40.084Z"
+    },
+    "listing": {
+      "title": "PolyLite™ Neon ABS",
+      "brand": "Polymaker",
+      "gtin": "6938936713562",
+      "variantAttributes": {
+        "Color": "Neon Green",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s16",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-neon-abs?variant=41404997238841",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:40.084Z"
+    },
+    "listing": {
+      "title": "PolyLite™ Neon ABS",
+      "brand": "Polymaker",
+      "gtin": "6938936713555",
+      "variantAttributes": {
+        "Color": "Neon Yellow",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "31.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s17",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polymaker-pla-pro-black-4-pack-bundle",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:41.362Z"
+    },
+    "listing": {
+      "title": "Polymaker™ PLA Pro Black 4 Pack Bundle",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Type": "Filament with spool",
+        "Weight": "4kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "78.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s18",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-lw-pla?variant=39574342893625",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:42.765Z"
+    },
+    "listing": {
+      "title": "PolyLite™ LW-PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936710271",
+      "variantAttributes": {
+        "Color": "Black",
+        "Net Weight": "0.8kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s19",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-lw-pla?variant=39574342860857",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:42.765Z"
+    },
+    "listing": {
+      "title": "PolyLite™ LW-PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936710288",
+      "variantAttributes": {
+        "Color": "White",
+        "Net Weight": "0.8kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s20",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-galaxy-abs?variant=41590523592761",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:44.005Z"
+    },
+    "listing": {
+      "title": "PolyLite™ Galaxy ABS",
+      "brand": "Polymaker",
+      "gtin": "6938936713746",
+      "variantAttributes": {
+        "Color": "Galaxy Black",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s21",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/polylite-galaxy-abs?variant=41212532129849",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:44.005Z"
+    },
+    "listing": {
+      "title": "PolyLite™ Galaxy ABS",
+      "brand": "Polymaker",
+      "gtin": "6938936707950",
+      "variantAttributes": {
+        "Color": "Galaxy Dark Grey",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "24.09",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s22",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/panchroma-pla?variant=44863271731257",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:45.544Z"
+    },
+    "listing": {
+      "title": "Panchroma™ Basic PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936716839",
+      "variantAttributes": {
+        "Color": "Black",
+        "Type": "Spool",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "polylite-pla-us-s23",
+    "productId": "polylite-pla-us",
+    "capture": {
+      "url": "https://us.polymaker.com/products/panchroma-pla?variant=44863271895097",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:45.544Z"
+    },
+    "listing": {
+      "title": "Panchroma™ Basic PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936716785",
+      "variantAttributes": {
+        "Color": "White",
+        "Type": "Spool",
+        "Net Weight": "1kg"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.polymaker.com"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "USD"
+    }
+  }
+]

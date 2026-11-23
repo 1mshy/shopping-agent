@@ -1,0 +1,508 @@
+[
+  {
+    "id": "keurig-k-mini-s01",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-single-serve-k-cup-pod-coffee-maker-black/18923603",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:51.971Z"
+    },
+    "listing": {
+      "title": "Keurig K-Mini Single Serve K-Cup Pod Coffee Maker- Black",
+      "brand": "KEURIG K",
+      "mpn": "611247373590",
+      "gtin": "3791864142322",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s02",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-k-cup-single-serve-coffee-maker-with-carafe-capability/13009213",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:53.203Z"
+    },
+    "listing": {
+      "title": "Keurig K-Mini K-Cup Single Serve Coffee Maker with Carafe Capability",
+      "brand": "KEURIG",
+      "mpn": "5000356477",
+      "gtin": "611247373590",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s03",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-mate-plus-single-serve-k-cup-pod-coffee-maker-matte-black/20136122",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:54.585Z"
+    },
+    "listing": {
+      "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Matte Black",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460798606677",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.67",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s04",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-mate-plus-single-serve-k-cup-pod-coffee-maker-wild-orchid/20136743",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:56.023Z"
+    },
+    "listing": {
+      "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Wild Orchid",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460629307964",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "95.52",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s05",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-mate-plus-single-serve-k-cup-pod-coffee-maker-warm-stone/20135801",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:57.605Z"
+    },
+    "listing": {
+      "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Warm Stone",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460629289482",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.67",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s06",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-mate-plus-single-serve-k-cup-pod-coffee-maker-warm-stone/20136578",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:58.744Z"
+    },
+    "listing": {
+      "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Warm Stone",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460798606226",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "95.52",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s07",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-plus-k-cup-12oz-single-serve-coffee-maker-misty-green/20099415",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:00.276Z"
+    },
+    "listing": {
+      "title": "Keurig K-Mini Plus K-Cup 12oz Single Serve Coffee Maker - Misty Green",
+      "brand": "KEURIG",
+      "mpn": "5000200239",
+      "gtin": "5053243178062",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "185.25",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s08",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-mate-plus-single-serve-k-cup-pod-coffee-maker-wild-orchid/20136587",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:01.673Z"
+    },
+    "listing": {
+      "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Wild Orchid",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460798712941",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.67",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s09",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-slim-single-serve-k-cup-pod-coffee-maker-white/20136405",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:03.001Z"
+    },
+    "listing": {
+      "title": "Keurig K-Slim Single Serve K-Cup Pod Coffee Maker-White",
+      "brand": "KEURIG",
+      "mpn": "K-Slim White",
+      "gtin": "460798929523",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "242.11",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s10",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-mini-mate-plus-single-serve-k-cup-pod-coffee-maker-matte-black/20136107",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:04.202Z"
+    },
+    "listing": {
+      "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Matte Black",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460798919937",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "95.52",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s11",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-slim-single-serve-k-cup-pod-coffee-maker-white/20135758",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:05.624Z"
+    },
+    "listing": {
+      "title": "Keurig K-Slim Single Serve K-Cup Pod Coffee Maker-White",
+      "brand": "KEURIG",
+      "mpn": "K-Slim White",
+      "gtin": "460629282179",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "232.02",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s12",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-keurig-k-mini-plus-single-serve-k-cup-pod-coffee-maker-with-6-to-12oz-brew-size-studio-gray/20129242",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:06.992Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Keurig K-Mini Plus Single Serve K-Cup Pod Coffee Maker, with 6 to 12oz Brew Size , Studio Gray",
+      "brand": "KEURIG",
+      "mpn": "5000202016",
+      "gtin": "797519184696",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s13",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-express-essentials-single-serve-k-cup-coffee-maker/20136345",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:08.230Z"
+    },
+    "listing": {
+      "title": "Keurig K-Express Essentials Single Serve K-Cup Coffee Maker",
+      "brand": "KEURIG",
+      "mpn": "VIPRB-K",
+      "gtin": "460629410688",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "102.35",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s14",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-slim-single-serve-k-cup-pod-coffee-maker-black/20135981",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:09.725Z"
+    },
+    "listing": {
+      "title": "Keurig K-Slim Single Serve K-Cup Pod Coffee Maker-Black",
+      "brand": "KEURIG",
+      "mpn": "K-Slim",
+      "gtin": "460629405028",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "232.02",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s15",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-express-essentials-single-serve-k-cup-coffee-maker/20135826",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:11.103Z"
+    },
+    "listing": {
+      "title": "Keurig K-Express Essentials Single Serve K-Cup Coffee Maker",
+      "brand": "KEURIG",
+      "mpn": "VIPRB-K",
+      "gtin": "460629410701",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "106.8",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s16",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-elite-single-serve-k-cup-pod-coffee-maker-strong-brew-iced-setting-75-oz-reservoir-quiet-brew-technology-brushed-silver/20245182",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:12.254Z"
+    },
+    "listing": {
+      "title": "Keurig K-Elite Single Serve K-Cup Pod Coffee Maker - Strong Brew, Iced Setting, 75 oz Reservoir, Quiet Brew Technology, Brushed Silver",
+      "brand": "KEURIG",
+      "mpn": "K-ELITE",
+      "gtin": "787681769227",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "346.15",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s17",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-slim-single-serve-k-cup-pod-coffee-maker-black/20135921",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:13.604Z"
+    },
+    "listing": {
+      "title": "Keurig K-Slim Single Serve K-Cup Pod Coffee Maker-Black",
+      "brand": "KEURIG",
+      "mpn": "K-Slim",
+      "gtin": "460629297999",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "216.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s18",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-duo-essentials-hot-iced-single-serve-k-cup-pod-12-cup-carafe-coffee-maker-gen-2/19868487",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:15.027Z"
+    },
+    "listing": {
+      "title": "Keurig K-Duo Essentials Hot & Iced Single-Serve K-Cup Pod & 12-Cup Carafe Coffee Maker (Gen 2)",
+      "brand": "KEURIG",
+      "mpn": "Gen 2",
+      "gtin": "062151517707",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s19",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-slim-k-cup-single-serve-coffee-maker-black/14634963",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:16.240Z"
+    },
+    "listing": {
+      "title": "Keurig K-Slim K-Cup Single Serve Coffee Maker - Black",
+      "brand": "KEURIG",
+      "mpn": "K-SLIM",
+      "gtin": "062151515161",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s20",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-slim-k-cup-single-serve-coffee-maker-black/17074494",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:17.642Z"
+    },
+    "listing": {
+      "title": "Keurig K-Slim K-Cup Single Serve Coffee Maker - Black",
+      "brand": "KEURIG",
+      "mpn": "K Slim Single Serve",
+      "gtin": "0062151515161",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "216.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s21",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-crema-single-serve-k-cup-pod-coffee-maker/20135827",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:19.082Z"
+    },
+    "listing": {
+      "title": "Keurig K-Crema Single Serve K-Cup Pod Coffee Maker",
+      "brand": "KEURIG",
+      "mpn": "N/A",
+      "gtin": "460798712927",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "242.11",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "keurig-k-mini-s22",
+    "productId": "keurig-k-mini",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/keurig-k-express-k-cup-single-serve-coffee-maker-mint/18477133",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:20.245Z"
+    },
+    "listing": {
+      "title": "Keurig K-Express K-Cup Single Serve Coffee Maker - Mint",
+      "brand": "KEURIG",
+      "mpn": "B0D5PMB9MZ",
+      "gtin": "611247403570",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  }
+]

@@ -1,0 +1,472 @@
+[
+  {
+    "id": "milwaukee-2953-20-s01",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-m200n-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:33.536Z"
+    },
+    "listing": {
+      "title": "Milwaukee Tools M12 Men's Heated Hoodie – Brown M200N-20",
+      "mpn": "CFG-M200N-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "154.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s02",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-2953-22",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:26.262Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/4&quot; Hex Impact Driver Kit 2953-22",
+      "mpn": "2953-22",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "289",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s03",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-3650-21ct",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:27.680Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 Compact Brushless 1/4&quot; Hex Impact Driver Kit 3650-21CT",
+      "mpn": "3650-21CT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s04",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-3453-22-m12-fuel-1-4-hex-impact-driver-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:30.573Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 FUEL 1/4-in. Hex Impact Driver Kit (3453-22)",
+      "brand": "Milwaukee",
+      "gtin": "045242616565",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "138.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s05",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-m18-fueltm-1-2-high-torque-impact-wrench-w-friction-ring",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:31.805Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/2-in. High Torque Impact Wrench with Friction Ring (2967-20)",
+      "brand": "Milwaukee",
+      "gtin": "045242601554",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "299.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s06",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-m100g-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:33.536Z"
+    },
+    "listing": {
+      "title": "Milwaukee Tools M12 Men's Heated TOUGHSHELL Jacket – Gray M100G-20",
+      "mpn": "CFG-M100G-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "174.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s07",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-2953-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:26.262Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/4&quot; Hex Impact Driver 2953-20 (Bare Tool)",
+      "mpn": "2953-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "179",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s08",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-3453-21",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:27.680Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 FUEL Impact Driver with 1 Battery Kit 3453-21",
+      "mpn": "3453-21",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "149",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s09",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-m12-fuel-surge-1-4-hex-hydraulic-impact-driver-and-installation-5-in-1-drill-driver-bare-tools",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:33.163Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 FUEL SURGE 1/4-in. Hex Hydraulic Impact Driver and Installation 5-in-1 Drill / Driver, Tool Only",
+      "brand": "Milwaukee",
+      "gtin": "706384209106",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "328.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s10",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-2967-22-m18-fuel-1-2-high-torque-impact-wrench-w-friction-ring-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:34.456Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/2-in. High Torque Impact wrench with Friction Ring 5.0Ah Kit (2967-22)",
+      "brand": "Milwaukee",
+      "gtin": "045242601561",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "499.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s11",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-cfg-m100b-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:33.536Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 Heated Toughshell Jacket Black, Bare M100B",
+      "mpn": "CFG-M100B-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "174.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s12",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-kit-2953-22-2836-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:26.262Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/4&quot; Hex Impact Driver Kit w/ M18 FUEL Oscillating Multi-Tool",
+      "mpn": "KIT-2953-22-2836-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "568",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s13",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-3453-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:27.680Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 FUEL 1/4&quot; Hex Impact Driver 3453-20 (Bare Tool)",
+      "mpn": "3453-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "149",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s14",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-m12-fuel-1-4-in-hex-impact-driver-with-battery-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:35.922Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 FUEL 1/4-in. Hex Impact Driver with Battery Pack",
+      "brand": "Milwaukee",
+      "gtin": "706384206068",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "248.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s15",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-2967-21b-m18-fuel-1-2-high-torque-impact-wrench-w-friction-ring-5-0ah-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:37.240Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/2-in. High Torque Impact Wrench with Friction Ring 5.0Ah Kit (2967-21B)",
+      "brand": "Milwaukee",
+      "gtin": "045242746002",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "309.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s16",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-cfg-m300b-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:33.536Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 Heated Axis Vest Black, Bare M300B",
+      "mpn": "CFG-M300B-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "174.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s17",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-2957-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:26.262Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/4&quot; Hex Impact Driver w/ ONE-KEY (Bare Tool) 2957-20",
+      "mpn": "2957-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "249",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s18",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-3450-22",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:27.680Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 Subcompact Brushless 1/4&quot; Hex Impact Driver Kit 3450-22",
+      "mpn": "3450-22",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "149",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s19",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-2551-20-m12-fuel-surge-1-4-hex-hydraulic-impact-driver-tool-only",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:38.418Z"
+    },
+    "listing": {
+      "title": "Milwaukee M12 FUEL SURGE 1/4-in. Hex Hydraulic Impact Driver, Tool Only (2551-20)",
+      "brand": "Milwaukee",
+      "gtin": "045242536672",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "149.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s20",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.toolnut.com/products/milwaukee-2953-20-m18-fuel-1-4-hex-impact-driver",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:39.790Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL 1/4-in. Hex Impact Driver, Tool Only (2953-20)",
+      "brand": "Milwaukee",
+      "gtin": "045242637867",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnut.com"
+    },
+    "context": {
+      "priceText": "179.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s21",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-cfg-262b",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:33.536Z"
+    },
+    "listing": {
+      "title": "Milwaukee FREEFLEX Insulated Bib Overalls Black Regular 262B",
+      "mpn": "CFG-262B",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "milwaukee-2953-20-s22",
+    "productId": "milwaukee-2953-20",
+    "capture": {
+      "url": "https://www.ohiopowertool.com/milwaukee-tools-2761-20",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:26.262Z"
+    },
+    "listing": {
+      "title": "Milwaukee M18 FUEL SURGE 1/4&quot; Hex Hydraulic Driver (Bare Tool) 2761-20",
+      "mpn": "2761-20",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.ohiopowertool.com"
+    },
+    "context": {
+      "priceText": "199",
+      "currency": "USD"
+    }
+  }
+]

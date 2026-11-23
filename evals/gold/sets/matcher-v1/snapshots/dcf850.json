@@ -1,0 +1,492 @@
+[
+  {
+    "id": "dcf850-s01",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-dcf850b-atomic-20v-max-1-4-3-speed-brushless-impact-driver-tool-only/19773123",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:55.374Z"
+    },
+    "listing": {
+      "title": "DeWalt DCF850B Atomic 20V MAX 1/4\" 3-Speed Brushless Impact Driver - Tool Only",
+      "brand": "DEWALT",
+      "mpn": "DCF850B",
+      "gtin": "885911758253",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s02",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/atomic-brushless-cordless-3-speed-impact-driver-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:02:21.087Z"
+    },
+    "listing": {
+      "title": "DEWALT DCF850P1 ATOMIC Brushless Cordless 3-Speed Impact Driver Kit, 1/4 in Drive, 11.7 in L x 3 in W x 9.45 in H, 20 V, Lithium-Ion, 1825 in-lb",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "307.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s03",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-dewalt-dck240c2-20v-max-drill-impact-driver-combo-kit-with-2-batteries-charger-bag-yellow-black/20192848",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:42.598Z"
+    },
+    "listing": {
+      "title": "Open Box - DEWALT DCK240C2 20V MAX Drill & Impact Driver Combo Kit with 2 Batteries, Charger & Bag - Yellow/Black",
+      "brand": "DEWALT",
+      "mpn": "DCK240C2",
+      "gtin": "766619336618",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "204.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s04",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/brushless-cordless-impact-driver-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:09.932Z"
+    },
+    "listing": {
+      "title": "DEWALT DCF840D1 Brushless Cordless Impact Driver Kit, 1/4 in Drive, 11.8 in L x 3.4 in W x 9 in H, 20 V, Lithium-Ion, 1700 in-lb",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "176.80",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s05",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-20v-max-3-8in-compact-impact-wrench-baredewalt-dcf923b/19596481",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:44.051Z"
+    },
+    "listing": {
+      "title": "Dewalt 20V MAX 3/8IN Compact Impact Wrench Baredewalt DCF923B",
+      "brand": "DEWALT",
+      "mpn": "DCF923B",
+      "gtin": "0885911700115",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "230",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s06",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/dewalt-dcf850b-atomic-brushless-cordless-3-speed-impact-driver-tool-only-1-4-1825-in-lbs-max-torque-20-v-lithium-ion-each/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:02:21.087Z"
+    },
+    "listing": {
+      "title": "DEWALT DCF850B Atomic Brushless Cordless 3-Speed Impact Driver (Tool Only), 1/4\", 1825 in-lbs Max. Torque, 20 V, Lithium-Ion.",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "182.05",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s07",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-dwamraft-2-in-1-right-angle-drill-adapter-impact-ready-attachment-with-modular-handle/20200840",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:13.135Z"
+    },
+    "listing": {
+      "title": "DEWALT DWAMRAFT 2-in-1 Right Angle Drill Adapter Impact Ready Attachment with Modular Handle",
+      "brand": "DEWALT",
+      "mpn": "0Y-QGME-B6A4",
+      "gtin": "885911700917",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s08",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/1-3-ah-drill-driver-impact-driver-combo-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:09.932Z"
+    },
+    "listing": {
+      "title": "DEWALT DCK240C2 1.3 Ah Drill Driver/Impact Driver Combo Kit, 20 V, Lithium-Ion",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "259.41",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s09",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-20v-max-xr-1-4-inch-cordless-quiet-hydraulic-impact-driver-bare-tool-only-dcf870b/19395185",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:56.669Z"
+    },
+    "listing": {
+      "title": "DEWALT 20V MAX XR 1/4 Inch Cordless Quiet Hydraulic Impact Driver, Bare Tool Only (DCF870B)",
+      "brand": "DEWALT",
+      "mpn": "DCF870B",
+      "gtin": "885911893015",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "249",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s10",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/new-dewalt-dck283d2-20-volt-max-brushless-compact-drill-3-speed-impact-driver-combo-kit-2-tool/14434750",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:49.908Z"
+    },
+    "listing": {
+      "title": "NEW - DEWALT DCK283D2 20-Volt MAX Brushless Compact Drill + 3-speed Impact Driver Combo Kit (2-Tool)",
+      "brand": "DEWALT",
+      "mpn": "DCK283D2",
+      "gtin": "885911425360",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "379.96",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s11",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/xr-3-speed-brushless-cordless-impact-driver-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:09.932Z"
+    },
+    "listing": {
+      "title": "DEWALT DCF845P1 XR 3-Speed Brushless Cordless Impact Driver Kit, 1/4 in, 5.1 in L, Yellow, 20 V, Lithium-Ion, 1825 in-lb, Tool, Battery & Charger",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "307.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s12",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-precision-point-16ga-finish-nailer-kit-dwfp71917/20129520",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:02:22.862Z"
+    },
+    "listing": {
+      "title": "DEWALT Precision Point 16GA Finish Nailer Kit - DWFP71917",
+      "brand": "DEWALT",
+      "mpn": "DWFP71917",
+      "gtin": "885911395762",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "284.05",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s13",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-atomic-compact-tape-measure-26ft-8m-dwht38126s-13ft-reach/20347470",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:02:24.352Z"
+    },
+    "listing": {
+      "title": "DEWALT ATOMIC Compact Tape Measure 26ft 8m DWHT38126S 13ft Reach",
+      "brand": "DEWALT",
+      "mpn": "DWHT38126S",
+      "gtin": "885911812832",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "29",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s14",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/max-brushless-cordless-hammer-drill-driver-impact-driver-2-tool-combo-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:09.932Z"
+    },
+    "listing": {
+      "title": "DEWALT DCK276D2 MAX Brushless Cordless Hammer Drill/Driver & Impact Driver 2-Tool Combo Kit, 20 V, Lithium-Ion",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "311.76",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s15",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-dewalt-dcf885c1-20v-max-1-4-cordless-impact-driver-kit-with-1-5ah-battery-charger-yellow/20194891",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:53.920Z"
+    },
+    "listing": {
+      "title": "Open Box - DEWALT DCF885C1 20V MAX 1/4\" Cordless Impact Driver Kit with 1.5Ah Battery & Charger - Yellow",
+      "brand": "DEWALT",
+      "mpn": "DCF885C1",
+      "gtin": "766619335987",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "204.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s16",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-hammer-drill-1-2-inch-7-8-amp-dw511/18892094",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:02:25.258Z"
+    },
+    "listing": {
+      "title": "DEWALT Hammer Drill, 1/2-Inch, 7.8-Amp (DW511)",
+      "brand": "DEWALT",
+      "mpn": "DW511",
+      "gtin": "634881048037",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "134",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s17",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/atomic-compact-seriesmax-brushless-cordless-compact-impact-driver-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:09.932Z"
+    },
+    "listing": {
+      "title": "DEWALT DCF809D1 ATOMIC COMPACT SERIESMAX* Brushless Cordless Compact Impact Driver Kit, 1/4 in Drive, 20 V, Lithium-Ion, 1700 in-lb",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "176.80",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s18",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-20v-max-brushless-cordless-compact-3-8in-impact-wrench-dcf913b-tool-only/17944764",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:03.896Z"
+    },
+    "listing": {
+      "title": "DEWALT 20V MAX Brushless Cordless Compact 3/8In Impact Wrench (DCF913B) (Tool Only)",
+      "brand": "DEWALT",
+      "mpn": "B09HW8XD6T",
+      "gtin": "885911769525",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s19",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-20v-60v-max-flexvolt-15-0-ah-battery/20348863",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:48.557Z"
+    },
+    "listing": {
+      "title": "DEWALT 20V/60V MAX FLEXVOLT 15.0 AH Battery",
+      "brand": "DEWALT",
+      "mpn": "DCB615",
+      "gtin": "800176697307",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s20",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://costcutindustrial.ca/product/max-brushless-cordless-drywall-screw-gun-impact-driver-kit/",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:09.932Z"
+    },
+    "listing": {
+      "title": "DEWALT DCK268P2 MAX Brushless Cordless Drywall Screw Gun & Impact Driver Kit, 20 V, Lithium-Ion",
+      "brand": "DEWALT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "costcutindustrial.ca"
+    },
+    "context": {
+      "priceText": "584.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s21",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-20v-max-cordless-impact-driver-1-2-in-impact-wrench-combo-kit-dck242d2/20194962",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:00.843Z"
+    },
+    "listing": {
+      "title": "DEWALT 20V MAX Cordless Impact Driver & 1/2-in Impact Wrench Combo Kit (DCK242D2)",
+      "brand": "DEWALT",
+      "mpn": "DCK242D2",
+      "gtin": "693070943355",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "529.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "dcf850-s22",
+    "productId": "dcf850",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/dewalt-3-8-inch-drive-air-ratchet-dwmt70776/19178929",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:02:26.787Z"
+    },
+    "listing": {
+      "title": "DEWALT 3/8-Inch Drive Air Ratchet (DWMT70776)",
+      "brand": "DEWALT",
+      "mpn": "DWMT70776",
+      "gtin": "634881050481",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "74.99",
+      "currency": "CAD"
+    }
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "id": "dreame-pocket-neo-2-de-s01",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/pocket-neo-2-haartrockner-grau",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:54.547Z"
+    },
+    "listing": {
+      "title": "Dreame Pocket Neo 2 Haartrockner Grau",
+      "brand": "Dreame Germany",
+      "gtin": "6979181929032",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "89.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s02",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-life-2-in-1-tote-tasche-mit-schulterriemen?variant=42925253263569",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:42.196Z"
+    },
+    "listing": {
+      "title": "Dreame Life 2-in-1 Tote-Tasche mit Schulterriemen",
+      "brand": "Dreame Germany",
+      "variantAttributes": {
+        "Farbe": "Grau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s03",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-life-2-in-1-tote-tasche-mit-schulterriemen?variant=42925252870353",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:42.196Z"
+    },
+    "listing": {
+      "title": "Dreame Life 2-in-1 Tote-Tasche mit Schulterriemen",
+      "brand": "Dreame Germany",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s04",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-hair-glory-combo-haartrockner",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:37.783Z"
+    },
+    "listing": {
+      "title": "Dreame Hair Glory Combo Haartrockner",
+      "brand": "Dreame Germany",
+      "gtin": "6973734685529",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "69.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s05",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/pocket-neo-2-haartrockner-gold",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:57.369Z"
+    },
+    "listing": {
+      "title": "Dreame Pocket Neo 2 Haartrockner Gold",
+      "brand": "Dreame Germany",
+      "gtin": "6979181929049",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "89.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s06",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/zubehorset-fur-dreame-d20airplus",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:44.829Z"
+    },
+    "listing": {
+      "title": "Zubehörset für Dreame D20AirPlus",
+      "brand": "Dreame Germany",
+      "gtin": "6979181920794",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s07",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/hair-miracle",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:43.608Z"
+    },
+    "listing": {
+      "title": "Dreame Hair Miracle Haartrockner",
+      "brand": "Dreame Germany",
+      "gtin": "6976233673882",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "249.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s08",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/pocket-neo-haartrockner?variant=42036262502609",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:46.269Z"
+    },
+    "listing": {
+      "title": "Dreame Pocket Neo Haartrockner 2026 NEU",
+      "brand": "Dreame Germany",
+      "gtin": "6977328062307",
+      "variantAttributes": {
+        "Farbe": "Grau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "129.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s09",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/pocket-neo-haartrockner?variant=42070653796561",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:46.269Z"
+    },
+    "listing": {
+      "title": "Dreame Pocket Neo Haartrockner 2026 NEU",
+      "brand": "Dreame Germany",
+      "gtin": "6977328061942",
+      "variantAttributes": {
+        "Farbe": "Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "89.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s10",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-x50-ultra-complete-saugroboter",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:47.653Z"
+    },
+    "listing": {
+      "title": "Dreame X50 Ultra Complete Saugroboter",
+      "brand": "Dreame Germany",
+      "gtin": "6977328065452",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "569.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s11",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-hair-glory-combo-haartrockner-lila",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:51.761Z"
+    },
+    "listing": {
+      "title": "Dreame Hair Glory Combo Haartrockner Lila",
+      "brand": "Dreame Germany",
+      "gtin": "6979181921593",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "69.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s12",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/pocket-garantieverlangerung-2-jahre",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:05.513Z"
+    },
+    "listing": {
+      "title": "Pocket Neo Garantieverlängerung - 2 Jahre",
+      "brand": "Dreame Germany",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "49.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s13",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-x50-master-saugroboter",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:50.272Z"
+    },
+    "listing": {
+      "title": "Dreame X50 Master Saugroboter",
+      "brand": "Dreame Germany",
+      "gtin": "6977328064912",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "699.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s14",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-miracle-pro-haartrockner",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:53.140Z"
+    },
+    "listing": {
+      "title": "Dreame Miracle Pro Hochgeschwindigkeits-Haartrockner",
+      "brand": "Dreame Germany",
+      "gtin": "6978515250668",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "279.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s15",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-pocket-pro-2-haartrockner",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:48.967Z"
+    },
+    "listing": {
+      "title": "Dreame Pocket Pro 2 Haartrockner",
+      "brand": "Dreame Germany",
+      "gtin": "6979181929070",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "129.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s16",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-mini-haartrockner",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:55.974Z"
+    },
+    "listing": {
+      "title": "Dreame Mini-Hochgeschwindigkeits-Haartrockner",
+      "brand": "Dreame Germany",
+      "gtin": "6977328069740",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "39.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s17",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/pocket-garantieverlangerung-1-jahr",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:06.782Z"
+    },
+    "listing": {
+      "title": "Pocket Neo Garantieverlängerung - 1 Jahr",
+      "brand": "Dreame Germany",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "29.00",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "dreame-pocket-neo-2-de-s18",
+    "productId": "dreame-pocket-neo-2-de",
+    "capture": {
+      "url": "https://de.dreametech.com/products/dreame-mini-blau-haartrockner",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:58.744Z"
+    },
+    "listing": {
+      "title": "Dreame Mini-Hochgeschwindigkeits-Haartrockner Blau",
+      "brand": "Dreame Germany",
+      "gtin": "6978515251252",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.dreametech.com"
+    },
+    "context": {
+      "priceText": "39.00",
+      "currency": "EUR"
+    }
+  }
+]

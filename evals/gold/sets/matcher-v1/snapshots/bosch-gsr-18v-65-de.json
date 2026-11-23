@@ -1,0 +1,464 @@
+[
+  {
+    "id": "bosch-gsr-18v-65-de-s01",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019n3200-gsr-18v-65-akku-bohrmaschine-ohne-akkus-und-ladegerat-im-karton.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "06019N3200 GSR 18V-65 Akku-Bohrmaschine ohne Akkus und Ladegerät im Karton",
+      "gtin": "4053423321555",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "131.13",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s02",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-comboset-gsr-18v-45-akku-bohrmaschine-gbh-18v-22-akku-hammer-18v-40ah-li-ion-0615a50038.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "0615A50038 Comboset - GSR 18V-45 Akku-Bohrmaschine + GBH 18V-22 Akku-Hammer 18V 4.0Ah Li-Ion",
+      "gtin": "4053423251050",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "426.19",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s03",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blau-gsr-18v-60-c-akku-bohrschrauber-18-volt-ohne-akku-oder-ladegerat-06019g1102.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:28.435Z"
+    },
+    "listing": {
+      "title": "06019G1102 GSR 18V-60 C Akku-Bohrschrauber 18 Volt ohne Akku oder Ladegerät",
+      "gtin": "3165140867214",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "204.63",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s04",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019n3201-gsr-18v-65-profi-akkubohrmaschine-18v-exkl-akkus-und-ladegerat-in-l-boxx.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "06019N3201 GSR 18V-65 Profi-Akkubohrmaschine 18V exkl. Akkus und Ladegerät in L-Boxx",
+      "gtin": "4053423321562",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "150.34",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s05",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blau-tool-kit-gsr-18v-55-akku-bohrschrauber-gdr-18v-200-schlagschrauber-18v-4-0ah-in-l-boxx-06019j2100.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "06019J2100 Tool Kit GSR 18V-55 Akku-Bohrschrauber + GDR 18V-200 Schlagschrauber 18V 4.0AH in L-Boxx",
+      "gtin": "3165140985123",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "418.83",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s06",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blau-gsr-12v-30-akku-bohrschrauber-burstenlos-12v-2-0ah-li-ion-06019g9004.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:28.435Z"
+    },
+    "listing": {
+      "title": "06019G9004 GSR 12V-30 Akku-Bohrschrauber, bürstenlos 12V 2.0Ah Li-Ion",
+      "gtin": "3165140992732",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "167.5",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s07",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019n3203-gsr-18v-65-akkubohrmaschine-2x-5-0-ah-und-ladegerat-gal-18v-40-in-l-boxx.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "06019N3203 GSR 18V-65 Akkubohrmaschine 2x 5,0 Ah und Ladegerät GAL 18V-40 in L-BOXX",
+      "gtin": "4053423321579",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "271.31",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s08",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-0615a5007n-accutoolkit-combipack-18v-gsr-gws-2x-gba-18v-4-0-ah-und-ladegerat-gal-18v-40-gsr-18v-45-gws-18v-8.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "0615A5007N Accutoolkit Combipack 18V GSR + GWS 2x GBA 18V 4.0 Ah und Ladegerät GAL 18V-40, GSR 18V-45, GWS 18V-8",
+      "gtin": "4053423352979",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "351.57",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s09",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blau-06019g0105-gsr-18v-85-c-akku-bohrschrauber-18v-4-0ah-mw-c-wireless-charging.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:28.435Z"
+    },
+    "listing": {
+      "title": "06019G0105 GSR 18V-85 C Akku-Bohrschrauber 18V 4,0Ah MW-C - Wireless Charging",
+      "gtin": "3165140905947",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "466.43",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s10",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019n3206-gsr-18v-65-akkubohrmaschine-2x-procore18v-4-0-ah-und-ladegerat-gal-18v-40-in-l-boxx.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "06019N3206 GSR 18V-65 Akkubohrmaschine 2x ProCORE18V 4.0 Ah und Ladegerät GAL 18V-40 in L-BOXX",
+      "gtin": "4053423321586",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "310.88",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s11",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-3-werkzeugsatz-gsr-18v-55-akku-bohrmaschine-gws-18v-7-schleifmaschine-gbh-18v-22-bohrhammer-18v-40ah-li-ion-0615a50035.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "0615A50035 3 Werkzeugsatz - GSR 18V-55 Akku-Bohrmaschine + GWS 18V-7 Schleifmaschine + GBH 18V-22 Bohrhammer 18V 4.0Ah Li-Ion",
+      "gtin": "4053423251043",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "636.89",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s12",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019n3000-gsr-18v-65-akku-bohrschrauber-set-2x-2-0-ah-und-ladegerat-gal-18v-20-im-l-koffer.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "06019N3000 GSR 18V-65 Akku-Bohrschrauber-Set 2x 2,0 Ah und Ladegerät GAL 18V-20 im L-Koffer",
+      "gtin": "4053423321524",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "248.7",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s13",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019h4102-gsr-18v-28-akku-bohrmaschine-18v-20-ah-li-ion-in-l-boxx.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "06019H4102 GSR 18V-28 Akku-Bohrmaschine 18V 2.0 AH Li-ion in L-Boxx",
+      "gtin": "3165140940696",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "256.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s14",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-0615a5007k-gsr-18v-65-akkubohrmaschine-2x-gba-18v-5-0ah-akku-und-ladegerat-gal-18v-40-handwerkzeugset-in-l-boxx.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "0615A5007K GSR 18V-65 Akkubohrmaschine 2x GBA 18V 5.0Ah Akku und Ladegerät GAL 18V-40 + Handwerkzeugset in L-Boxx",
+      "gtin": "4053423352689",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "392.27",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s15",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-3-werkzeugsatz-gsr-18v-55-akku-bohrmaschine-gdx-18v-200-drehschrauber-gbh-18v-22-bohrhammer-18v-40ah-li-ion-in-tasche-0615a5003b.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "0615A5003B 3 Werkzeugsatz - GSR 18V-55 Akku-Bohrmaschine + GDX 18V-200 Drehschrauber + GBH 18V-22 Bohrhammer 18V 4.0Ah Li-Ion in Tasche",
+      "gtin": "4053423251074",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "612.72",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s16",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-06019n3207-gsr-18v-65-akku-bohrschrauber-set-2x-4-0-ah-und-ladegerat-gal-18v-40-im-l-koffer-pick-amp-click.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "06019N3207 GSR 18V-65 Akku-Bohrschrauber-Set 2x 4,0 Ah und Ladegerät GAL 18V-40 im L-Koffer Pick&Click",
+      "gtin": "4053423321593",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "358.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s17",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-accessoires-1600a00r8x-1-1-einlage-gsr-gsb-18v-110.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "1600A00R8X 1/1 Einlage GSR/GSB 18V-110",
+      "gtin": "3165140889698",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "10.25",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s18",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-0615a5009g-werkzeugsatz-3-maschinen-gsr-18v-65-gbh-18v-22-gws-18v-818v-2x-18v-5-0ah-und-ladegerat-in-l-boxx.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "0615A5009G Werkzeugsatz 3 Maschinen GSR 18V-65 + GBH 18V-22 + GWS 18V-818V 2x 18V 5.0Ah und Ladegerät in L-BOXX",
+      "gtin": "4053423622379",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "518.85",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s19",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blau-gsr-18v-21-akku-bohrmaschine-18v-20-ah-li-ion-in-l-boxx-0615990k6h-3.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "0615990K6H GSR 18V-21 Akku-Bohrmaschine 18V 2.0 AH Li-ion in L-Boxx 3.",
+      "gtin": "3165140958110",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "237.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s20",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-0615a500aj-akku-werkzeugsatz-3-toolkit-18v-gsr-18v-65-gbh-18v-26-gws-18v-11-1x-5-0ah-akku-und-1x-exba-18v-5-5ah-akku-und-ladegerat-gal-12v-18v-80-in-werkzeugtasche.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "0615A500AJ Akku-Werkzeugsatz 3-Toolkit 18V GSR 18V-65, GBH 18V-26, GWS 18V-11 1x 5,0Ah Akku und 1x EXBA 18V 5,5Ah Akku und Ladegerät GAL 12V/18V-80 in Werkzeugtasche",
+      "gtin": "4053423690255",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "605.94",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s21",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-accessoires-1600a02r2t-1-1-einlage-gsr-18v-90-fc.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:26.958Z"
+    },
+    "listing": {
+      "title": "1600A02R2T 1/1 Einlage GSR 18V-90 FC",
+      "gtin": "4053423248432",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "13.66",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "bosch-gsr-18v-65-de-s22",
+    "productId": "bosch-gsr-18v-65-de",
+    "capture": {
+      "url": "https://www.toolnation.de/bosch-blauw-0615a500bv-akku-werkzeugsatz-5-toolkit-18v-gsr-18v-65-gdx-18v-285-gks-18v-57-2-gop-18v-34-gst-18v-125-s-2x-gba-5-0ah-akkus-und-ladegerat-gal-12v-18v-80-in-werkzeugtasche.html",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:25.522Z"
+    },
+    "listing": {
+      "title": "0615A500BV Akku-Werkzeugsatz 5-Toolkit 18V GSR 18V-65, GDX 18V-285, GKS 18V-57-2, GOP 18V-34, GST 18V-125 S 2x GBA 5.0Ah Akkus und Ladegerät GAL 12V-18V-80 in Werkzeugtasche",
+      "gtin": "4053423837582",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.toolnation.de"
+    },
+    "context": {
+      "priceText": "825.25",
+      "currency": "EUR"
+    }
+  }
+]

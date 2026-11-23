@@ -1,0 +1,569 @@
+[
+  {
+    "id": "space-one-de-s01",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3062-noise-cancelling-headphones?variant=43676520972461",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:09.331Z"
+    },
+    "listing": {
+      "title": "Space One Pro | Faltbare Over-Ear Kopfhörer",
+      "brand": "soundcorede",
+      "mpn": "A3062G11",
+      "gtin": "194644042479",
+      "variantAttributes": {
+        "Color": "Tiefschwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s02",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3062-noise-cancelling-headphones?variant=43676521005229",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:09.331Z"
+    },
+    "listing": {
+      "title": "Space One Pro | Faltbare Over-Ear Kopfhörer",
+      "brand": "soundcorede",
+      "mpn": "A3062G21",
+      "gtin": "194644042448",
+      "variantAttributes": {
+        "Color": "Cremeweiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s03",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/space-q45-a3040011?variant=41735519666349",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:10.561Z"
+    },
+    "listing": {
+      "title": "Space Q45 | Langlebige Noise-Cancelling-Kopfhörer",
+      "brand": "soundcorede",
+      "mpn": "A3040G11",
+      "gtin": "194644105235",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s04",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/space-q45-a3040011?variant=43622354419885",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:10.561Z"
+    },
+    "listing": {
+      "title": "Space Q45 | Langlebige Noise-Cancelling-Kopfhörer",
+      "brand": "soundcorede",
+      "mpn": "A3040G21",
+      "gtin": "194644114435",
+      "variantAttributes": {
+        "Color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s05",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3028011?variant=37682744885421",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:11.879Z"
+    },
+    "listing": {
+      "title": "soundcore Q30 | Bluetooth-Kopfhörer mit Noise Cancelling (Generalüberholt)",
+      "brand": "soundcorede",
+      "mpn": "A3028313-F0",
+      "gtin": "194644062132",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s06",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3028011?variant=55300885447031",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:11.879Z"
+    },
+    "listing": {
+      "title": "soundcore Q30 | Bluetooth-Kopfhörer mit Noise Cancelling (Generalüberholt)",
+      "brand": "soundcorede",
+      "mpn": "A3028323-F0",
+      "gtin": "194644265892",
+      "variantAttributes": {
+        "Color": "Samtbeige"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s07",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/space-one-a3035011?variant=42343765606573",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:13.261Z"
+    },
+    "listing": {
+      "title": "Space One | Verbesserte Geräuschunterdrückung",
+      "brand": "soundcorede",
+      "mpn": "A3035G11",
+      "gtin": "194644127015",
+      "variantAttributes": {
+        "Color": "Nachtschwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s08",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/space-one-a3035011?variant=43622392889517",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:13.261Z"
+    },
+    "listing": {
+      "title": "Space One | Verbesserte Geräuschunterdrückung",
+      "brand": "soundcorede",
+      "mpn": "A3035G31",
+      "gtin": "194644139636",
+      "variantAttributes": {
+        "Color": "Himmelblau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s09",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3040-f0?variant=56051771605367",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:14.738Z"
+    },
+    "listing": {
+      "title": "Space Q45 (Generalüberholt)",
+      "brand": "soundcorede",
+      "mpn": "A3040011-F0",
+      "gtin": "657768116483",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s10",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3040-f0?variant=56051771638135",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:14.738Z"
+    },
+    "listing": {
+      "title": "Space Q45 (Generalüberholt)",
+      "brand": "soundcorede",
+      "mpn": "A3040G31-F0",
+      "gtin": "194644131319",
+      "variantAttributes": {
+        "Color": "Marineblau"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s11",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3331-c40i-clip-earbuds?variant=54910777000311",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:16.215Z"
+    },
+    "listing": {
+      "title": "soundcore C40i | Flexible Clip-On Kopfhörer mit hohem Tragekomfort",
+      "brand": "soundcorede",
+      "mpn": "A3331GZ1",
+      "gtin": "194644210786",
+      "variantAttributes": {
+        "color": "Graphitgrau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s12",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3331-c40i-clip-earbuds?variant=54910777033079",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:16.215Z"
+    },
+    "listing": {
+      "title": "soundcore C40i | Flexible Clip-On Kopfhörer mit hohem Tragekomfort",
+      "brand": "soundcorede",
+      "mpn": "A3331GB1",
+      "gtin": "194644210793",
+      "variantAttributes": {
+        "color": "Wüstenbronze"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s13",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3035g21-f0",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:17.537Z"
+    },
+    "listing": {
+      "title": "Space One (Generalüberholt)",
+      "brand": "soundcorede",
+      "mpn": "A3035G21-F0",
+      "gtin": "194644171292",
+      "variantAttributes": {
+        "Color": "Cafe Latte"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s14",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/space-q45-ear-cushions-black",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:18.897Z"
+    },
+    "listing": {
+      "title": "Space Q45 Ohrpolster - Schwarz",
+      "brand": "Soundcore",
+      "mpn": "A3040011-98",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s15",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3878-v40i-open-earbuds?variant=55300420501879",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:20.409Z"
+    },
+    "listing": {
+      "title": "soundcore V40i｜ Kabellose Earbuds mit klarem Case",
+      "brand": "Soundcore",
+      "mpn": "A3878G11",
+      "gtin": "194644228897",
+      "variantAttributes": {
+        "Color": "Nachtschwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s16",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3878-v40i-open-earbuds?variant=55300420469111",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:20.409Z"
+    },
+    "listing": {
+      "title": "soundcore V40i｜ Kabellose Earbuds mit klarem Case",
+      "brand": "Soundcore",
+      "mpn": "A3878G21",
+      "gtin": "194644228880",
+      "variantAttributes": {
+        "Color": "Mondweiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s17",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3035g11-f0",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:21.622Z"
+    },
+    "listing": {
+      "title": "Space One (Generalüberholt)",
+      "brand": "soundcorede",
+      "mpn": "A3035G11-F0",
+      "gtin": "194644171339",
+      "variantAttributes": {
+        "Color": "Nachtschwarz"
+      },
+      "condition": "refurbished",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s18",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-space-one-pro-ohrpolster?variant=54782428774775",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:22.862Z"
+    },
+    "listing": {
+      "title": "soundcore Space One Pro Ohrpolster",
+      "brand": "soundcorede",
+      "mpn": "A3062Z11-98",
+      "variantAttributes": {
+        "color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "27.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s19",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-space-one-pro-ohrpolster?variant=54782428807543",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:22.862Z"
+    },
+    "listing": {
+      "title": "soundcore Space One Pro Ohrpolster",
+      "brand": "soundcorede",
+      "mpn": "A3062Z21-98",
+      "variantAttributes": {
+        "color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "27.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s20",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3062z11-97-travel-case",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:24.160Z"
+    },
+    "listing": {
+      "title": "Reise-Etui für Space One Pro",
+      "brand": "soundcorede",
+      "mpn": "A3062Z11-97",
+      "gtin": "194644037307",
+      "variantAttributes": {
+        "Color": "Grau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s21",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3936011-94",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:25.552Z"
+    },
+    "listing": {
+      "title": "Soundcore Space A40 Ohrstöpsel-Kit - Schwarz",
+      "brand": "Soundcore",
+      "mpn": "A3936011-94",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "9.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s22",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/t00z2011-headphones-case?variant=43696144810157",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:26.807Z"
+    },
+    "listing": {
+      "title": "soundcore Kopfhörer-Case",
+      "brand": "soundcorede",
+      "mpn": "T00Z2011",
+      "gtin": "194644197155",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "space-one-de-s23",
+    "productId": "space-one-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/t00z2011-headphones-case?variant=56472864948599",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:26.807Z"
+    },
+    "listing": {
+      "title": "soundcore Kopfhörer-Case",
+      "brand": "soundcorede",
+      "mpn": "T00Z2021",
+      "gtin": "194644197148",
+      "variantAttributes": {
+        "Color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "EUR"
+    }
+  }
+]

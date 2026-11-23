@@ -1,0 +1,446 @@
+[
+  {
+    "id": "ugreen-nexode-65w-us-s01",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-65w-retractable-cable-gan-charger-3port",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:51.060Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode 65W Charger with Retractable USB-C Cable",
+      "brand": "UGREEN US",
+      "mpn": "55897",
+      "gtin": "6941876258970",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "38.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s02",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-air-slim-usb-c-charger-45w-foldable-plug",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:53.675Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air Slim USB-C Charger (45W, Foldable Plug)",
+      "brand": "UGREEN US",
+      "mpn": "85252",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s03",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-uno-charger-65w-pink-blue",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:55.129Z"
+    },
+    "listing": {
+      "title": "UGREEN Uno Charger 65W (Cyan)",
+      "brand": "UGREEN",
+      "mpn": "35856",
+      "gtin": "6941876238569",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s04",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-nexode-pro-65w-ultra-slim-gan-fast-charger",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:56.373Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro 65W 3-Port Ultra-Slim Charger",
+      "brand": "UGREEN",
+      "mpn": "15817",
+      "gtin": "6941876218172",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "55.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s05",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-air-slim-charger-100w-3-port-foldable-plug",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:57.677Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air Slim Charger (100W, 3-Port, Foldable Plug)",
+      "brand": "UGREEN US",
+      "mpn": "75554",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "74.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s06",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-honkai-star-rail-usb-c-charger-65w-gan-foldable-plug?variant=42976818724926",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:58.984Z"
+    },
+    "listing": {
+      "title": "UGREEN x Honkai: Star Rail 65W Charger",
+      "brand": "UGREEN US",
+      "mpn": "95169HSR",
+      "variantAttributes": {
+        "Choose Your Edition": "UGREEN x Honkai: Star Rail Edition"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "27.54",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s07",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-honkai-star-rail-usb-c-charger-65w-gan-foldable-plug?variant=42976818757694",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:58.984Z"
+    },
+    "listing": {
+      "title": "UGREEN x Honkai: Star Rail 65W Charger",
+      "brand": "UGREEN US",
+      "mpn": "75813",
+      "variantAttributes": {
+        "Choose Your Edition": "Standard Edition"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "22.79",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s08",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-65w-nexode-gan-usb-c-3-port-charger-with-us-uk-eu-plug-for-travel?variant=40362577657918",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:00.329Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode 65W 3-Port Travel Charger with US/UK/EU Plug",
+      "brand": "UGREEN",
+      "mpn": "90409",
+      "gtin": "6957303894093",
+      "variantAttributes": {
+        "Style": "65W Travel GaN Charger"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s09",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-65w-nexode-gan-usb-c-3-port-charger-with-us-uk-eu-plug-for-travel?variant=40362577690686",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:00.329Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode 65W 3-Port Travel Charger with US/UK/EU Plug",
+      "brand": "UGREEN",
+      "mpn": "90409+70427P",
+      "gtin": "6938622716020",
+      "variantAttributes": {
+        "Style": "65W Travel GaN Charger+3.3FT 100W USB C Cable 2 Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "44.98",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s10",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-air-usb-c-charger-45w-gan-foldable-plug",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:01.757Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air USB-C Charger (45W, GaN, Foldable Plug)",
+      "brand": "UGREEN US",
+      "mpn": "95536",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "15.19",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s11",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/145w-power-bank-65w-charger-bundle",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:03.014Z"
+    },
+    "listing": {
+      "title": "UGREEN 145W Power Bank + 65W GaN Charger Bundle",
+      "brand": "UGREEN US",
+      "mpn": "90597A+75813",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "78.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s12",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-air-usb-c-charger-65w-gan-foldable-plug?variant=42771521044542",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:04.296Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air USB-C Charger (65W, GaN, Foldable Plug)",
+      "brand": "UGREEN US",
+      "mpn": "35478",
+      "variantAttributes": {
+        "Color": "Orange"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s13",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-air-usb-c-charger-65w-gan-foldable-plug?variant=42771520946238",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:04.296Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air USB-C Charger (65W, GaN, Foldable Plug)",
+      "brand": "UGREEN US",
+      "mpn": "75813",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s14",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/25000mah-power-bank-65w-charger-bundle",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:05.764Z"
+    },
+    "listing": {
+      "title": "UGREEN 25000mAh Power Bank & Nexode Air 65W Charger",
+      "brand": "UGREEN US",
+      "mpn": "35525+75813",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "97.64",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s15",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-160w-65w-charger-bundle",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:07.194Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro 160W + Nexode Air 65W Charger Bundle",
+      "brand": "UGREEN US",
+      "mpn": "65636+75813",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "77.39",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s16",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-air-slim-charger-65w-3-port-foldable-plug",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:08.476Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air Slim Charger (65W, 3-Port, Foldable Plug)",
+      "brand": "UGREEN US",
+      "mpn": "95861",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s17",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/nexode-pro-65w-3-port-ultra-slim-charger-100w-usb-c-cable2-pack",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:09.821Z"
+    },
+    "listing": {
+      "title": "Nexode Pro 65W Ultra Slim iPhone Charger with 6.6FT 100W USB C Cable 2 Pack",
+      "brand": "UGREEN",
+      "mpn": "15817+10232",
+      "gtin": "6938622716457",
+      "variantAttributes": {
+        "Nexode Pro 65W Ultra-Slim Charger": "+ 6.6FT 100W USB-C Cable 2 Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "49.86",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s18",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-nexode-power-bank-25000mah-200w-with-smart-digital-display",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:11.097Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Power Bank 25000mAh 200W with Smart Digital Display",
+      "brand": "UGREEN",
+      "mpn": "35525",
+      "gtin": "6941876235254",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-us-s19",
+    "productId": "ugreen-nexode-65w-us",
+    "capture": {
+      "url": "https://us.ugreen.com/products/ugreen-retractable-cable-power-bank-20000mah",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:58:12.356Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Power Bank 20000mAh 165W with Retractable USB-C Cable",
+      "brand": "UGREEN US",
+      "mpn": "55987",
+      "gtin": "6941876259878",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.ugreen.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "USD"
+    }
+  }
+]

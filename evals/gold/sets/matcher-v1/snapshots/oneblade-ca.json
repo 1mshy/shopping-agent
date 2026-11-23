@@ -1,0 +1,504 @@
+[
+  {
+    "id": "oneblade-ca-s01",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-pro-face-body-hybrid-electric-trimmer-and-shaver-black/20099784",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:22.209Z"
+    },
+    "listing": {
+      "title": "Philips , OneBlade 360 Pro Face + Body Hybrid Electric Trimmer and Shaver , Black",
+      "brand": "PHILIPS",
+      "mpn": "QP6542/65",
+      "gtin": "075020118363",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s02",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://perlastore.ca/products/purchase-2-quick-set-3-replacement-blades-for-oneblade-stainless-steel",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:22.313Z"
+    },
+    "listing": {
+      "title": "Purchase 2 Quick Set 3 Replacement Blades for OneBlade – Stainless Steel",
+      "brand": "PURCHASE 2 QUICK",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "82.72",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s03",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-norelco-qp230-80-oneblade-replacement-blades-3-count/15176708",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:23.634Z"
+    },
+    "listing": {
+      "title": "Philips Norelco QP230/80 OneBlade Replacement Blades, 3 Count",
+      "brand": "PHILIPS NORELCO",
+      "mpn": "QP230/80",
+      "gtin": "075020074522",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s04",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-face-body-trimmer-qp2834-23/19206197",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:24.841Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Face/Body Trimmer (QP2834/23)",
+      "brand": "ONEBLADE",
+      "mpn": "QP2834/23",
+      "gtin": "075020112477",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "54.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s05",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://perlastore.ca/products/qjin-usb-charger-for-philips-norelco-oneblade-qp2724-5v-usb-wall-adapter-2400-3600-3900-mg5000-mg7000",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:24.947Z"
+    },
+    "listing": {
+      "title": "Qjin USB Charger for Philips Norelco & OneBlade QP2724 – 5V USB Wall Adapter (2400/3600/3900, MG5000 MG7000)",
+      "brand": "Qjin",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "38.50",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s06",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-flex-replacement-blade-qp430-50-3-pack/17491553",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:26.144Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Flex | Replacement Blade (QP430/50) - 3 Pack",
+      "brand": "PHILIPS",
+      "mpn": "QP430/50",
+      "gtin": "602835422189",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "46",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s07",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-holiday-bundle-face-trimmer-qp2724bp-with-bonus-360-blade/17243513",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:27.432Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Holiday Bundle Face Trimmer (QP2724BP) with Bonus 360 Blade",
+      "brand": "PHILIPS",
+      "mpn": "QP2724BP",
+      "gtin": "075020109163",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s08",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/15v-ac-power-adapter-charger-for-philips-hq8505-9000-7000-series-mg5750-mg7790-electric-shaver-beard-trimmer-one-blade-qp6520-qp2630-qp6510-charging-cable-cord-replacement/19689489",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:28.732Z"
+    },
+    "listing": {
+      "title": "15V AC Power Adapter Charger for Philips HQ8505 9000 7000 Series MG5750 MG7790 Electric Shaver Beard Trimmer, One Blade QP6520 QP2630 QP6510 Charging Cable Cord Replacement",
+      "brand": "DOLAER",
+      "mpn": "dolaerTFP98LW86L",
+      "gtin": "1215633701746",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "9.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s09",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-pro-360-face-body-trimmer-qp6552-15/19206196",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:29.853Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade Pro 360 Face/Body Trimmer (QP6552/15)",
+      "brand": "ONEBLADE",
+      "mpn": "QP6552/15",
+      "gtin": "075020109651",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s10",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-flex-replacement-blade-qp430-50-3-pack/17261563",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:31.392Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Flex Replacement Blade (QP430/50) - 3 Pack",
+      "brand": "PHILIPS",
+      "mpn": "QP430/50",
+      "gtin": "075020106711",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s11",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-flex-holiday-bundle-face-trimmer-qp2834-new/17491554",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:32.835Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Flex | Holiday Bundle - Face Trimmer (QP2834) - New",
+      "brand": "PHILIPS",
+      "mpn": "QP2834",
+      "gtin": "602835422172",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s12",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-intimate-trimmer-qp1924-20/19206198",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:34.032Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade Intimate Trimmer (QP1924/20)",
+      "brand": "ONEBLADE",
+      "mpn": "QP1924/20",
+      "gtin": "075020106384",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s13",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-flex-replacement-blade-qp410-50/17261566",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:35.404Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Flex Replacement Blade (QP410/50)",
+      "brand": "PHILIPS",
+      "mpn": "QP410/50",
+      "gtin": "075020106698",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s14",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-holiday-limited-edition-wet-dry-grooming-kit-sigma-black/19953321",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:36.889Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade Holiday Limited Edition Wet & Dry Grooming Kit - Sigma Black",
+      "brand": "PHILIPS",
+      "mpn": "QP2725/65",
+      "gtin": "075020120014",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "74.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s15",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-intimate-replacement-blade-qp219-50/19206195",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:38.502Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade Intimate Replacement Blade (QP219/50)",
+      "brand": "ONEBLADE",
+      "mpn": "QP219/50",
+      "gtin": "075020105707",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s16",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-first-shave-handle-qp1324-20/17261565",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:39.345Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade First Shave Handle (QP1324/20)",
+      "brand": "PHILIPS",
+      "mpn": "QP1324/20",
+      "gtin": "075020107688",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s17",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-first-shave-teen-hybrid-electric-shaving-system-qp1324-20/18150111",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:40.854Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade First Shave, Teen Hybrid Electric Shaving System, QP1324/20",
+      "brand": "PHILIPS",
+      "mpn": "QP1324/20",
+      "gtin": "072503299977",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s18",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-wet-dry-face-trimmer-shaver-qp2724-22/17261556",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:42.115Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Wet & Dry Face Trimmer/Shaver (QP2724/22)",
+      "brand": "Philips",
+      "mpn": "QP2724/22",
+      "gtin": "075020106971",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s19",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/new-open-box-philips-oneblade-shaver-face-body-qp2834-60/19618644",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:43.722Z"
+    },
+    "listing": {
+      "title": "NEW OPEN BOX Philips OneBlade Shaver Face + Body QP2834/60",
+      "brand": "PHILIPS",
+      "mpn": "QP2834/60",
+      "gtin": "810108192893",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "35",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s20",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-oneblade-360-face-trimmer-wet-dry-trim-edge-shave/19707280",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:44.698Z"
+    },
+    "listing": {
+      "title": "Philips OneBlade 360 Face Trimmer, Wet & Dry, Trim, Edge & Shave",
+      "brand": "PHILIPS",
+      "mpn": "QP6542/15",
+      "gtin": "075020109637",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s21",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/philips-norelco-oneblade-face-body-hybrid-electric-trimmer-and-shaver-qp2630-70/15134430",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:46.303Z"
+    },
+    "listing": {
+      "title": "Philips Norelco OneBlade Face + Body hybrid electric trimmer and shaver, QP2630/70",
+      "brand": "ACCEINFO",
+      "mpn": "25040",
+      "gtin": "004171354641",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "38.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oneblade-ca-s22",
+    "productId": "oneblade-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oneblade-first-shave-replacement-blade-qp225-50-2-pack/17261561",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:47.765Z"
+    },
+    "listing": {
+      "title": "OneBlade First Shave Replacement Blade (QP225/50) - 2 Pack",
+      "brand": "PHILIPS",
+      "mpn": "QP225/50",
+      "gtin": "075020107916",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "CAD"
+    }
+  }
+]

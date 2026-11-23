@@ -1,0 +1,487 @@
+[
+  {
+    "id": "wf-1000xm5-s01",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wf1000xm5-in-ear-noise-cancelling-true-wireless-earbuds-black/17170910",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:52.985Z"
+    },
+    "listing": {
+      "title": "Sony WF1000XM5 In-Ear Noise Cancelling True Wireless Earbuds - Black",
+      "brand": "SONY",
+      "mpn": "WF1000XM5/B",
+      "gtin": "027242925601",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "429.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s02",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-active-subwoofer-sacs9m2",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony Active Subwoofer",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "248",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s03",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/foam-new-truegrip-premium-memory-foam-ear-tips-for-all-sony-true-earbuds-large-black-3-pairs/20218901",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:54.649Z"
+    },
+    "listing": {
+      "title": "Foam New TrueGrip Premium Memory Foam Ear Tips for All Sony True Earbuds, Large, Black 3-Pairs -",
+      "brand": "GENERIC",
+      "mpn": "SDVVSD1567",
+      "gtin": "371475635777",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "32.67",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s04",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-sony-wf-1000xm5-the-best-truly-wireless-bluetooth-noise-cancelling-earbuds-headphones-with-alexa-built-in-black/18387297",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:55.544Z"
+    },
+    "listing": {
+      "title": "Open Box - Sony WF-1000XM5 The Best Truly Wireless Bluetooth Noise Cancelling Earbuds Headphones with Alexa Built in, Black.",
+      "brand": "SONY",
+      "mpn": "WF1000XM5/B",
+      "gtin": "702367695324",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "303.96",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s05",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-in-ear-headphones-mdrex15apb",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony in Ear Headphones",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s06",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/replacement-ear-pads-compatible-with-sony-wh-1000xm3-beige/19863469",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:57.334Z"
+    },
+    "listing": {
+      "title": "Replacement Ear Pads Compatible with Sony WH-1000XM3 - Beige",
+      "brand": "SYMLIS",
+      "mpn": "EP014",
+      "gtin": "7454416920866",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "23.05",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s07",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wf-1000xm5-the-best-truly-wireless-bluetooth-noise-cancelling-earbuds-headphones-with-alexa-built-in-platinum-silver/19497131",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:58.687Z"
+    },
+    "listing": {
+      "title": "Sony WF-1000XM5 The Best Truly Wireless Bluetooth Noise Cancelling Earbuds Headphones with Alexa Built in, Platinum silver",
+      "brand": "GENERIC",
+      "mpn": "N/A",
+      "gtin": "0027242930391",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "359",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s08",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-in-ear-head-phones-mdrex15apw",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony In-Ear Headphones",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s09",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/memory-foam-ear-tips-for-sony-wf-1000xm4-wf-c500-earbuds-tips-sony-linkbuds-s-wf-1000xm4-replacement-tips-fit-charging/19606037",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:59.891Z"
+    },
+    "listing": {
+      "title": "Memory Foam Ear Tips for Sony WF-1000XM4/WF-C500 Earbuds Tips Sony LinkBuds S WF-1000XM4 Replacement Tips Fit Charging",
+      "brand": "GENERIC",
+      "mpn": "96029-PKOD",
+      "gtin": "345496765133",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "17.9",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s10",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-sony-wf-1000xm5-truly-wireless-bluetooth-noise-cancelling-earbuds-with-alexa-black/19319511",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:01.316Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Sony WF-1000XM5 Truly Wireless Bluetooth Noise Cancelling Earbuds with Alexa - Black",
+      "brand": "SONY",
+      "mpn": "WF1000XM5/B",
+      "gtin": "726358898013",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "194.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s11",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch530-headphones-mint-whch530-g",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH530 Headphones Mint",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s12",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/foam-new-truegrip-premium-memory-foam-ear-tips-for-all-sony-true-earbuds-medium-black-3-pairs/20218494",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:02.467Z"
+    },
+    "listing": {
+      "title": "Foam New TrueGrip Premium Memory Foam Ear Tips for All Sony True Earbuds, Medium, Black 3-Pairs -",
+      "brand": "GENERIC",
+      "mpn": "SDVVSD881",
+      "gtin": "371475628915",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "34.48",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s13",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-sony-wf1000xm5-in-ear-noise-cancelling-true-wireless-earbuds-black/19831791",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:03.887Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Sony WF1000XM5 In-Ear Noise Cancelling True Wireless Earbuds - Black",
+      "brand": "SONY",
+      "mpn": "WF1000XM5/B",
+      "gtin": "999004555770",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "299",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s14",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch530-headphones-blue-whch530-l",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH530 Headphones Blue",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s15",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/foam-eartips-compatible-with-sony-wf-1000xm4-in-ear-earbuds-s-m-l-3-pairs-soft-memory-foam-ear-tips-compatible/19605063",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:05.409Z"
+    },
+    "listing": {
+      "title": "Foam Eartips Compatible with Sony WF-1000XM4 in-Ear Earbuds, S/M/L 3 Pairs Soft Memory Foam Ear Tips, Compatible",
+      "brand": "GENERIC",
+      "mpn": "SZ47276-AKX",
+      "gtin": "345496762750",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s16",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-sony-wf-1000xm5-wireless-noise-cancelling-earbuds-bluetooth-multipoint-ipx4-black/20185836",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:07.217Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Sony WF-1000XM5 Wireless Noise Cancelling Earbuds, Bluetooth, Multipoint, IPX4 - Black",
+      "brand": "SONY",
+      "mpn": "WF1000XM5/B",
+      "gtin": "766619335697",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "279.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s17",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch730n-headphones-white-whch730n-w",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH730N Headphones White",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "138",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s18",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ear-tips-for-sony-wf-1000xm4-memory-foam-tips-replacement-for-sony-wf-c500-linkbuds-s-earbuds-tips-for-sony-case-cover/19604953",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:08.289Z"
+    },
+    "listing": {
+      "title": "Ear Tips for Sony WF-1000XM4 Memory Foam Tips Replacement for Sony WF-C500 LinkBuds S Earbuds Tips for Sony Case Cover",
+      "brand": "GENERIC",
+      "mpn": "2UEVQ04D77",
+      "gtin": "345496765621",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "17.9",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s19",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-sony-wf1000xm5-in-ear-noise-cancelling-true-wireless-earbuds-black/19189605",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:09.627Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Sony WF1000XM5 In-Ear Noise Cancelling True Wireless Earbuds - Black",
+      "brand": "SONY",
+      "mpn": "WF1000XM5/B",
+      "gtin": "999003263874",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "299",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s20",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch530-headphones-pink-whch530-p",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:51.364Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH530 Headphones Pink",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s21",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/foam-new-truegrip-premium-memory-foam-ear-tips-for-all-sony-true-earbuds-orted-s-m-l-black/20218119",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:11.252Z"
+    },
+    "listing": {
+      "title": "Foam New TrueGrip Premium Memory Foam Ear Tips for All Sony True Earbuds, orted S, M, L, Black",
+      "brand": "GENERIC",
+      "mpn": "SDVVSD3003",
+      "gtin": "301627510133",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "32.59",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wf-1000xm5-s22",
+    "productId": "wf-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-sony-wf-1000xm5-in-ear-true-wireless-noise-cancelling-earbuds-bluetooth-5-3-24h-battery-ipx4-water-resistant-black/20105415",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:04:12.296Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Sony WF-1000XM5, In-Ear True Wireless Noise Cancelling Earbuds, Bluetooth 5.3, 24h Battery, IPX4 Water Resistant, Black",
+      "brand": "SONY",
+      "mpn": "WF-1000XM5",
+      "gtin": "797519184436",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "267.32",
+      "currency": "CAD"
+    }
+  }
+]

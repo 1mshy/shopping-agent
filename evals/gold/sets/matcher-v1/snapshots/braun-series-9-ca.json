@@ -1,0 +1,507 @@
+[
+  {
+    "id": "braun-series-9-ca-s01",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/newopenbox-braun-series-9-sport-electric-shaver-with-clean-charge-station/20248654",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:51.572Z"
+    },
+    "listing": {
+      "title": "newopenbox Braun Series 9 Sport+ Electric Shaver with Clean & Charge Station",
+      "brand": "BRAUN",
+      "mpn": "Series 9 Sport",
+      "gtin": "048702004186",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "139.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s02",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://perlastore.ca/products/schallcare-replacement-toothbrush-heads-for-braun-oral-b-7000-pro-series-16-pack-white",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:51.663Z"
+    },
+    "listing": {
+      "title": "Schallcare Replacement Toothbrush Heads for Braun Oral-B 7000/Pro Series — 16 Pack (White)",
+      "brand": "Schallcare",
+      "gtin": "778299509886",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "56.84",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s03",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-7-electric-shaver-replacement-head-silver/17742058",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:53.081Z"
+    },
+    "listing": {
+      "title": "Braun Series 7 Electric Shaver Replacement Head - Silver",
+      "brand": "BRAUN",
+      "mpn": "74s",
+      "gtin": "069055140246",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "54.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s04",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-9-pro-wet-dry-cordless-foil-shaver-9667cc/19683850",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:54.402Z"
+    },
+    "listing": {
+      "title": "Braun Series 9 PRO+ Wet/Dry Cordless Foil Shaver (9667cc)",
+      "brand": "BRAUN",
+      "mpn": "9667CC",
+      "gtin": "047400707122",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "449.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s05",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-silk-epil-7-epilator-wet-and-dry-wide-head-includes-shaver-head-and-trimmer-comb/19185323",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:55.891Z"
+    },
+    "listing": {
+      "title": "Braun Silk-épil 7 Epilator, Wet and Dry, Wide Head, Includes Shaver Head and Trimmer Comb",
+      "brand": "BRAUN",
+      "mpn": "SE7-041",
+      "gtin": "734046614982",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "87.47",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s06",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-9-pro-wet-dry-cordless-foil-shaver-with-powercase-9677cc/19683849",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:57.136Z"
+    },
+    "listing": {
+      "title": "Braun Series 9 PRO+ Wet/Dry Cordless Foil Shaver with PowerCase (9677cc)",
+      "brand": "BRAUN",
+      "mpn": "9677CC",
+      "gtin": "047400707139",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "499.98",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s07",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-6-electric-shaver-replacement-head-64b/20294626",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:58.487Z"
+    },
+    "listing": {
+      "title": "Braun Series 6 Electric Shaver Replacement Head (64B)",
+      "brand": "BRAUN",
+      "mpn": "64B",
+      "gtin": "069055140307",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "30",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s08",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/replacement-head-shaving-head-for-braun-series-9-9-pro-men-s-razor-9040s-9080cc-9093s-9095cc-elec/20264592",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:05:59.907Z"
+    },
+    "listing": {
+      "title": "Replacement Head Shaving Head for Braun Series 9/9 Pro Men'S Razor 9040s, 9080cc, 9093s, 9095cc Elec",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217727633",
+      "gtin": "6901217727633",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "53.74",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s09",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-5-electric-shaver-replacement-head-black/17742057",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:01.158Z"
+    },
+    "listing": {
+      "title": "Braun Series 5 Electric Shaver Replacement Head - Black",
+      "brand": "BRAUN",
+      "mpn": "54b",
+      "gtin": "069055140239",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s10",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-96m-series-9-pro-electric-shaver-replacement-foil-and-cutter-matte-silver/19999411",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:02.555Z"
+    },
+    "listing": {
+      "title": "Braun 96M Series 9 Pro Electric Shaver Replacement Foil and Cutter, Matte Silver",
+      "brand": "BRAUN",
+      "mpn": "96M",
+      "gtin": "000201200377",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s11",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-3-32b-replacement-foil-and-cutter-head-for-series-3-and-cruzer-shavers-black/20284861",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:03.943Z"
+    },
+    "listing": {
+      "title": "Braun Series 3 32B Replacement Foil and Cutter Head for Series 3+ and cruZer Shavers, Black",
+      "brand": "BRAUN",
+      "mpn": "32B",
+      "gtin": "614537293677",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "52.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s12",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/73s-replacement-shaver-head-for-braun-electric-razor-series-7-s7-7020s-7025s-7085cc-7027cs-7071c/20264224",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:05.080Z"
+    },
+    "listing": {
+      "title": "73S Replacement Shaver Head for Braun Electric Razor Series 7 S7 7020S, 7025S, 7085Cc, 7027Cs, 7071C",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217725769",
+      "gtin": "6901217725769",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "45.46",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s13",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/for-braun-series-5-braun-shaver-52b-replacement-electric-shaver-replacement-head-5020-5020s-5030-50/20264390",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:06.560Z"
+    },
+    "listing": {
+      "title": "For Braun Series 5 Braun Shaver 52B Replacement Electric Shaver Replacement Head 5020,5020S, 5030,50",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217723680",
+      "gtin": "6901217723680",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "30.7",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s14",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/replacement-electric-shaver-head-for-braun-73s-series-7-70-n1300s-70-s4200cs-70-b7200cc-70-n4300cs-7/20264646",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:07.734Z"
+    },
+    "listing": {
+      "title": "Replacement Electric Shaver Head for Braun 73S Series 7 70-N1300S 70-S4200Cs 70-B7200Cc 70-N4300Cs 7",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217726667",
+      "gtin": "6901217726667",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "32.86",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s15",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/1pcs-shaver-blade-razor-replacement-shaver-foil-head-part-cutter-accessories-for-braun-razor-32b-32s/20264644",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:08.954Z"
+    },
+    "listing": {
+      "title": "1Pcs Shaver Blade Razor Replacement Shaver Foil Head Part Cutter Accessories for Braun Razor 32B 32S",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217724076",
+      "gtin": "6901217724076",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "26.56",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s16",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/70b-replacement-shavers-head-for-braun-series-7-720-740-750-760-790-799-7865-electric-shaver-blade-h/20264641",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:10.415Z"
+    },
+    "listing": {
+      "title": "70B Replacement Shavers Head for Braun Series 7 720/740/750/760/790/799/7865 Electric Shaver Blade H",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217724335",
+      "gtin": "6901217724335",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "37",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s17",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/51s-replacement-shaver-head-for-braun-series-5-51s-razor-silver/20264619",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:11.743Z"
+    },
+    "listing": {
+      "title": "51S - Replacement Shaver Head for Braun Series 5 51S Razor, Silver",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217724571",
+      "gtin": "6901217724571",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.16",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s18",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/series-8-83m-electric-shaver-head-replacement-for-braun-s8-electric-razor-model-8370cc-8340s/20264541",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:13.227Z"
+    },
+    "listing": {
+      "title": "Series 8 83M Electric Shaver Head Replacement for Braun S8 Electric Razor Model 8370Cc,8340S,",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217725233",
+      "gtin": "6901217725233",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "49.6",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s19",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/replacement-electric-shaver-head-for-braun-21s-3-series-300s-301s-310s-320s-330s-340s-360s-380s-3000/20264624",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:14.493Z"
+    },
+    "listing": {
+      "title": "Replacement Electric Shaver Head for Braun 21S 3 Series 300S 301S 310S 320S 330S 340S 360S 380S 3000",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217726704",
+      "gtin": "6901217726704",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "30.7",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s20",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-6-wet-dry-shaver-6172cc/17667166",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:15.663Z"
+    },
+    "listing": {
+      "title": "Braun Series 6 Wet/Dry Shaver (6172cc)",
+      "brand": "BRAUN",
+      "mpn": "6172cc",
+      "gtin": "069055139363",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "134.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s21",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/shaver-blade-razor-replacement-shaver-foil-head-part-cutter-accessories-for-braun-razor-32b-32s-21b/20264609",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:17.077Z"
+    },
+    "listing": {
+      "title": "Shaver Blade Razor Replacement Shaver Foil Head Part Cutter Accessories for Braun Razor 32B 32S 21B",
+      "brand": "SLOWMOOSE",
+      "mpn": "6901217724137",
+      "gtin": "6901217724137",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "26.56",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "braun-series-9-ca-s22",
+    "productId": "braun-series-9-ca",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/braun-series-5-wet-dry-shaver-5118s/17667167",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:06:18.733Z"
+    },
+    "listing": {
+      "title": "Braun Series 5 Wet/Dry Shaver (5118s)",
+      "brand": "BRAUN",
+      "mpn": "5118s",
+      "gtin": "069055139264",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "CAD"
+    }
+  }
+]

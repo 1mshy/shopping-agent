@@ -1,0 +1,520 @@
+[
+  {
+    "id": "anker-737-s01",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-anker-737-power-bank-24000mah-3-port-laptop-charger-with-140w-output-smart-digital-display-3-port-140w-fast-charging-black/19192244",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:30.446Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) Anker 737 Power Bank, 24000mAh 3-Port Laptop Charger with 140W Output: Smart Digital Display, 3-Port 140W Fast Charging, Black",
+      "brand": "ANKER",
+      "mpn": "A1289011-F0",
+      "gtin": "194644098728",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "234",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s02",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a1695-anker-power-bank-25k-165w-built-in-cables-with-240w-usb-c-cable",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:31.357Z"
+    },
+    "listing": {
+      "title": "Anker Power Bank (25K, 165W, Built-In Cables) with 240W USB-C Cable",
+      "brand": "Anker",
+      "mpn": "COMBO-A1695H11-1-A82E2011-1",
+      "gtin": "194644209476",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "200.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s03",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a2145",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:33.972Z"
+    },
+    "listing": {
+      "title": "Anker <b>736</b> Charger (Nano II 100W)",
+      "brand": "Anker",
+      "mpn": "A2145113",
+      "gtin": "194644095949",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "64.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s04",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/b110b-anker-prime-20k-220w-power-bank-with-charging-base",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:35.421Z"
+    },
+    "listing": {
+      "title": "Anker Prime Power Bank (20K, 220W) with Charging Base",
+      "brand": "beta-anker-us",
+      "mpn": "B110BH11",
+      "gtin": "194644239374",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "299.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s05",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/anker-prime-20-100mah-3-port-220w-portable-power-bank-macbook-iphone-16-15/19784107",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:35.880Z"
+    },
+    "listing": {
+      "title": "Anker Prime 20,100mAh 3-Port 220W Portable Power Bank – MacBook, iPhone 16/15",
+      "brand": "ANKER",
+      "mpn": "A110B",
+      "gtin": "194644239350",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "279.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s06",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a1695-anker-power-bank-25000mah-165w?variant=52140402835824",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:36.896Z"
+    },
+    "listing": {
+      "title": "Anker Power Bank (25K, 165W, Built-In and Retractable Cables)",
+      "brand": "Anker",
+      "mpn": "A1695H11",
+      "gtin": "194644209476",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s07",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a1695-anker-power-bank-25000mah-165w?variant=52140402868592",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:36.896Z"
+    },
+    "listing": {
+      "title": "Anker Power Bank (25K, 165W, Built-In and Retractable Cables)",
+      "brand": "Anker",
+      "mpn": "A1695H41",
+      "gtin": "194644225841",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s08",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a2687-a88e2-anker-prime-charger-160w-3-ports-with-usb-c-cable",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:38.116Z"
+    },
+    "listing": {
+      "title": "Workspace Power Set | Anker Prime Charger (160W, 3 Ports) with USB-C Cable",
+      "brand": "Anker",
+      "mpn": "COMBO-A2687141-1-A88E2011-1",
+      "gtin": "194644241728",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "223.98",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s09",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a1903-anker-prime-150w-charging-base",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:39.384Z"
+    },
+    "listing": {
+      "title": "Anker Prime Charging Base (150W, 3 Ports)",
+      "brand": "beta-anker-us",
+      "mpn": "A1903H11",
+      "gtin": "194644239404",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s10",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/anker-621-maggo-5000mah-magnetic-power-bank/20329316",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:39.671Z"
+    },
+    "listing": {
+      "title": "Anker 621 MagGo 5000mAh Magnetic Power Bank",
+      "brand": "ANKER",
+      "mpn": "B099W63VYV",
+      "gtin": "194343432854",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s11",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a110a-anker-prime-26k-300w-power-bank",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:40.824Z"
+    },
+    "listing": {
+      "title": "Anker Prime Power Bank (26K, 300W)",
+      "brand": "Anker",
+      "mpn": "A110AH11",
+      "gtin": "194644239299",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "279.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s12",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a2687-a88e2-anker-prime-160w-3-port-charger-2-port-usbc-cable",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:42.018Z"
+    },
+    "listing": {
+      "title": "Workspace Power Set | Anker Prime Charger (160W, 3 Ports) with 2-Pack USB-C Cables",
+      "brand": "Anker",
+      "mpn": "BUNDLE-A2687141-1-A88E2011-2",
+      "gtin": "194644241728",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "265.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s13",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a110a-d1203-anker-soundcore-productivity-kit-mobile?variant=53837479379312",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:43.383Z"
+    },
+    "listing": {
+      "title": "Anker soundcore Productivity Kit (Mobile)",
+      "brand": "Anker",
+      "mpn": "BUNDLE-A110AH11-1-D1203Z11-1",
+      "gtin": "194644239299",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "509.98",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s14",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a110a-d1203-anker-soundcore-productivity-kit-mobile?variant=53837479346544",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:43.383Z"
+    },
+    "listing": {
+      "title": "Anker soundcore Productivity Kit (Mobile)",
+      "brand": "Anker",
+      "mpn": "BUNDLE-A110AH11-1-D1203Z31-1",
+      "gtin": "194644239299",
+      "variantAttributes": {
+        "Color": "Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "509.98",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s15",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/anker-622-foldable-magnetic-wireless-power-bank-5000mah/20329383",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:43.746Z"
+    },
+    "listing": {
+      "title": "Anker 622 Foldable Magnetic Wireless Power Bank, 5000mAh",
+      "brand": "ANKER",
+      "mpn": "B0B469LWF4",
+      "gtin": "810131835200",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s16",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a110a-a2687-a88e2-anker-prime-26k-powerbank-160w-3-port-charger",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:44.824Z"
+    },
+    "listing": {
+      "title": "Travel Power Kit | Anker Prime 26K Power Bank and 160W 3-Port Charger",
+      "brand": "Anker",
+      "mpn": "BUNDLE-A110AH11-1-A2687141-1-A88E2011-1",
+      "gtin": "194644239299",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "503.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s17",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a2687-anker-prime-charger-160w-3-ports-gan",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:46.060Z"
+    },
+    "listing": {
+      "title": "Anker Prime Charger (160W, 3 Ports, Smart Display)",
+      "brand": "beta-anker-us",
+      "mpn": "A2687141",
+      "gtin": "194644241728",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "181.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s18",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/anker-622-foldable-magnetic-wireless-power-bank-5000mah/20329349",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:46.369Z"
+    },
+    "listing": {
+      "title": "Anker 622 Foldable Magnetic Wireless Power Bank, 5000mAh",
+      "brand": "ANKER",
+      "mpn": "B0B466YTT3",
+      "gtin": "810131835040",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s19",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/b110a-anker-prime-26k-300w-power-bank-with-charging-base",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:47.549Z"
+    },
+    "listing": {
+      "title": "Anker Prime Power Bank (26K, 300W) with Charging Base",
+      "brand": "beta-anker-us",
+      "mpn": "B110AH11",
+      "gtin": "194644239336",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "379.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s20",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a121b-100w-3-ports-gan-charger?variant=52842114711920",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:48.849Z"
+    },
+    "listing": {
+      "title": "Anker Charger (100W, 3 Ports, Smart Display)",
+      "brand": "Anker",
+      "mpn": "B121BJZ1-5",
+      "gtin": "194644242411",
+      "variantAttributes": {
+        "Color": "Space Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s21",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://ca.anker.com/products/a121b-100w-3-ports-gan-charger?variant=52842114679152",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:48.849Z"
+    },
+    "listing": {
+      "title": "Anker Charger (100W, 3 Ports, Smart Display)",
+      "brand": "Anker",
+      "mpn": "B121B141",
+      "gtin": "194644242404",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "ca.anker.com"
+    },
+    "context": {
+      "priceText": "97.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "anker-737-s22",
+    "productId": "anker-737",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/anker-power-bank-power-core-10k-compact-travel-ready-10-000mah-battery-pack-with-power-iq-charging-technology-5v-3a-high-speed-charging/19754522",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:49.385Z"
+    },
+    "listing": {
+      "title": "Anker Power Bank(Power Core 10K),Compact Travel-Ready 10,000mAh Battery Pack with Power IQ Charging Technology,5V/3A High-Speed Charging",
+      "brand": "ANKER",
+      "mpn": "A1229",
+      "gtin": "0194644019822",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "65",
+      "currency": "CAD"
+    }
+  }
+]

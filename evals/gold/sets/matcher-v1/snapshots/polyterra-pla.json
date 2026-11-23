@@ -1,0 +1,520 @@
+[
+  {
+    "id": "polyterra-pla-s01",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://digitmakers.ca/products/polyterra-pla-various-colors-1-75mm-1000g?variant=39502426243234",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:48.061Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ PLA - Various Colors (1.75mm 1000g)",
+      "brand": "Polymaker",
+      "gtin": "6938936708209",
+      "variantAttributes": {
+        "Color": "Charcoal Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "23.39",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s02",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://digitmakers.ca/products/polyterra-pla-various-colors-1-75mm-1000g?variant=39502420869282",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:48.061Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ PLA - Various Colors (1.75mm 1000g)",
+      "brand": "Polymaker",
+      "gtin": "6938936708445",
+      "variantAttributes": {
+        "Color": "Arctic Teal"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "23.39",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s03",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://west3d.com/products/polymaker-polyterra-pla-3d-printer-filament-1kg-1-75mm?variant=43815925186772",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:48.307Z"
+    },
+    "listing": {
+      "title": "Panchroma\" Matte (Formerly PolyTerra) PLA 3D Printer Filament 1KG 1.75mm",
+      "brand": "Polymaker",
+      "gtin": "25186772",
+      "variantAttributes": {
+        "Color": "Charcoal Black (HEX Code - ⌗1C1C1C)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "33.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s04",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://west3d.com/products/polymaker-polyterra-pla-3d-printer-filament-1kg-1-75mm?variant=43815925154004",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:48.307Z"
+    },
+    "listing": {
+      "title": "Panchroma\" Matte (Formerly PolyTerra) PLA 3D Printer Filament 1KG 1.75mm",
+      "brand": "Polymaker",
+      "gtin": "25154004",
+      "variantAttributes": {
+        "Color": "Cotton White (HEX Code - ⌗E6DDDB)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "33.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s05",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://voxelfactory.com/products/panchroma-galaxy-pla?variant=67588507566316",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:48.533Z"
+    },
+    "listing": {
+      "title": "Panchroma Galaxy PLA",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "Galaxy Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "voxelfactory.com"
+    },
+    "context": {
+      "priceText": "40.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s06",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://voxelfactory.com/products/panchroma-galaxy-pla?variant=67588507599084",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:48.533Z"
+    },
+    "listing": {
+      "title": "Panchroma Galaxy PLA",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "Galaxy Dark Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "voxelfactory.com"
+    },
+    "context": {
+      "priceText": "40.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s07",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://filaments.ca/products/polyterra-pla-fossil-grey-1-75mm",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:49.944Z"
+    },
+    "listing": {
+      "title": "Panchroma™ Matte PLA (Formerly PolyTerra™ PLA) - Fossil Grey - 1.75mm - 1KG",
+      "brand": "PolyMaker",
+      "gtin": "6938936708247",
+      "variantAttributes": {
+        "Color": "Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "filaments.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s08",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-green/16391293",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:51.781Z"
+    },
+    "listing": {
+      "title": "Polymaker - PolyTerra PLA 1KG (Green)",
+      "brand": "POLYMAKER",
+      "mpn": "70846",
+      "gtin": "6938936708469",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s09",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://digitmakers.ca/products/polyterra-dual-pla-various-colors-1-75mm-1000g?variant=43858862899430",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:51.878Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ Dual PLA - Various Colors (1.75mm 1000g)",
+      "brand": "Polymaker",
+      "gtin": "6938936713333",
+      "variantAttributes": {
+        "Color": "Shadow Black (White-Black)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s10",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://digitmakers.ca/products/polyterra-dual-pla-various-colors-1-75mm-1000g?variant=43858863063270",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:51.878Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ Dual PLA - Various Colors (1.75mm 1000g)",
+      "brand": "Polymaker",
+      "gtin": "6938936713388",
+      "variantAttributes": {
+        "Color": "Camouflage (Dark Green-Brown)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "26.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s11",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://west3d.com/products/polymaker-polyterra-dual-gradient-pla-3d-printer-filament-1kg-1-75mm?variant=44143710208212",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:52.011Z"
+    },
+    "listing": {
+      "title": "Polymaker Panchroma Gradient PLA 3D Printer Filament 1KG 1.75mm",
+      "brand": "Polymaker",
+      "gtin": "10208212",
+      "variantAttributes": {
+        "Color": "Dual-Gradient Wood"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "45.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s12",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://west3d.com/products/polymaker-polyterra-dual-gradient-pla-3d-printer-filament-1kg-1-75mm?variant=45826057306324",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:52.011Z"
+    },
+    "listing": {
+      "title": "Polymaker Panchroma Gradient PLA 3D Printer Filament 1KG 1.75mm",
+      "brand": "Polymaker",
+      "gtin": "57306324",
+      "variantAttributes": {
+        "Color": "Fall"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "45.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s13",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://voxelfactory.com/products/polymaker-panchroma-matte-pla?variant=47693328154860",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:52.142Z"
+    },
+    "listing": {
+      "title": "Polymaker Panchroma Matte PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936714927",
+      "variantAttributes": {
+        "Color": "Charcoal Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "voxelfactory.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s14",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://voxelfactory.com/products/polymaker-panchroma-matte-pla?variant=47693328056556",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:52.142Z"
+    },
+    "listing": {
+      "title": "Polymaker Panchroma Matte PLA",
+      "brand": "Polymaker",
+      "gtin": "6938936714835",
+      "variantAttributes": {
+        "Color": "Arctic Teal"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "voxelfactory.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s15",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://filaments.ca/products/polyterra-pla-sunrise-orange-1-75mm",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:52.744Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ PLA - Sunrise Orange - 1.75mm - 1KG",
+      "brand": "PolyMaker",
+      "gtin": "6938936708483",
+      "variantAttributes": {
+        "Color": "Orange"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "filaments.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s16",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-white/16391292",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:53.087Z"
+    },
+    "listing": {
+      "title": "Polymaker - PolyTerra PLA 1KG (White)",
+      "brand": "POLYMAKER",
+      "mpn": "70822",
+      "gtin": "6938936708223",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s17",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://digitmakers.ca/products/polyterra-pla-black-1-75mm-1kg",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:53.348Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ PLA+ Black - 1.75mm 1kg",
+      "brand": "Polymaker",
+      "gtin": "6938936709459",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "27.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s18",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://west3d.com/products/panchroma%E2%84%A2-marble-matte-formerly-polyterra-pla-3d-printer-filament-1kg-1-75mm",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:53.485Z"
+    },
+    "listing": {
+      "title": "Panchroma\" Marble Matte (Formerly PolyTerra) PLA 3D Printer Filament 1KG 1.75mm",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "Marble White (HEX Code - ⌗CFCCD6)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "33.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s19",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://voxelfactory.com/products/panchroma-silk-pla?variant=67588884824300",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:53.595Z"
+    },
+    "listing": {
+      "title": "Polymaker Panchroma Silk PLA",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "voxelfactory.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s20",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://voxelfactory.com/products/panchroma-silk-pla?variant=67588884857068",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:53.595Z"
+    },
+    "listing": {
+      "title": "Polymaker Panchroma Silk PLA",
+      "brand": "Polymaker",
+      "variantAttributes": {
+        "Color": "Bronze"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "voxelfactory.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s21",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://filaments.ca/products/polyterra-pla-charcoal-black-1-75mm",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:53.971Z"
+    },
+    "listing": {
+      "title": "PolyTerra™ PLA - Charcoal Black - 1.75mm - 1KG",
+      "brand": "PolyMaker",
+      "gtin": "6938936708209",
+      "variantAttributes": {
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "filaments.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "polyterra-pla-s22",
+    "productId": "polyterra-pla",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/polymaker-polyterra-pla-1kg-grey/16391290",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:54.634Z"
+    },
+    "listing": {
+      "title": "Polymaker - PolyTerra PLA 1KG (Grey)",
+      "brand": "POLYMAKER",
+      "mpn": "70824",
+      "gtin": "6938936708247",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "CAD"
+    }
+  }
+]

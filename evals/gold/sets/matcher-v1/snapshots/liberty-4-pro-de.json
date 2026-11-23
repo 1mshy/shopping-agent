@@ -1,0 +1,554 @@
+[
+  {
+    "id": "liberty-4-pro-de-s01",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-liberty-4-nc-eartips-set?variant=55026043027831",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:46.969Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC Eartips Set",
+      "brand": "soundcorede",
+      "mpn": "A3947Z11-94",
+      "variantAttributes": {
+        "color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "12.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s02",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-liberty-4-nc-eartips-set?variant=55026043060599",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:46.969Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC Eartips Set",
+      "brand": "soundcorede",
+      "mpn": "A3947Z21-94",
+      "variantAttributes": {
+        "color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "12.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s03",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/d1200-liberty-buds-wireless-semi-in-ear?variant=56633913901431",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:49.397Z"
+    },
+    "listing": {
+      "title": "Liberty Buds | Kabellose Semi-in-Ear Earbuds mit ANC",
+      "brand": "Soundcore",
+      "mpn": "D1200G11",
+      "gtin": "194644242756",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s04",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/d1200-liberty-buds-wireless-semi-in-ear?variant=56633913934199",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:49.397Z"
+    },
+    "listing": {
+      "title": "Liberty Buds | Kabellose Semi-in-Ear Earbuds mit ANC",
+      "brand": "Soundcore",
+      "mpn": "D1200G21",
+      "gtin": "194644242763",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s05",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3957-liberty-5-tws-earbuds?variant=55161025757559",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:50.762Z"
+    },
+    "listing": {
+      "title": "Liberty 5｜Dolby 3D-Audio True-Wireless Earbuds",
+      "brand": "Soundcore",
+      "mpn": "A3957G11",
+      "gtin": "194644230821",
+      "variantAttributes": {
+        "color": "Tinten-Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s06",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3957-liberty-5-tws-earbuds?variant=55161025790327",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:50.762Z"
+    },
+    "listing": {
+      "title": "Liberty 5｜Dolby 3D-Audio True-Wireless Earbuds",
+      "brand": "Soundcore",
+      "mpn": "A3957G21",
+      "gtin": "194644230807",
+      "variantAttributes": {
+        "color": "Wolken-Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s07",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-liberty-4-nc-ladecase?variant=55026291442039",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:52.151Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC Ladecase",
+      "brand": "Soundcore",
+      "mpn": "A3947Z11-96",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s08",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-liberty-4-nc-ladecase?variant=55026291474807",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:52.151Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC Ladecase",
+      "brand": "Soundcore",
+      "mpn": "A3947Z21-96",
+      "variantAttributes": {
+        "Color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "30.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s09",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3957g11-1-a1268013-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:53.470Z"
+    },
+    "listing": {
+      "title": "Liberty 5｜Dolby 3D-Audio + Anker 325 Powerbank (PowerCore 20K)",
+      "brand": "Soundcore",
+      "mpn": "BUNDLE-A3957G11-1-A1268013-1",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "136.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s10",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3952011-96",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:54.832Z"
+    },
+    "listing": {
+      "title": "Liberty 3 Pro Ladecase - Schwarz",
+      "brand": "soundcorede",
+      "mpn": "A3952011-96",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "36.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s11",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-liberty-4-nc-linker-und-rechter-ohrhorer?variant=55012996383095",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:56.094Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC linke und rechte Ersatz-Earbuds",
+      "brand": "soundcorede",
+      "mpn": "A3947Z11-91",
+      "variantAttributes": {
+        "color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "47.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s12",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/soundcore-liberty-4-nc-linker-und-rechter-ohrhorer?variant=55012996415863",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:56.094Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 4 NC linke und rechte Ersatz-Earbuds",
+      "brand": "soundcorede",
+      "mpn": "A3947Z21-91",
+      "variantAttributes": {
+        "color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "47.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s13",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/d1203z11-96?variant=57106585354615",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:57.310Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 5 Pro -- Ladecase",
+      "brand": "Soundcore",
+      "mpn": "D1203Z11-96",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s14",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/d1203z11-96?variant=57106585387383",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:57.310Z"
+    },
+    "listing": {
+      "title": "soundcore Liberty 5 Pro -- Ladecase",
+      "brand": "Soundcore",
+      "mpn": "D1203Z21-96",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s15",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3954-liberty-4-pro-tws-earbuds?variant=54798708081015",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:58.599Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro | True Wireless Earbuds mit Noise Cancelling",
+      "brand": "Soundcore",
+      "mpn": "A3954GF1",
+      "gtin": "194644297237",
+      "variantAttributes": {
+        "color": "Schwarz Hochglanz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s16",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/a3954-liberty-4-pro-tws-earbuds?variant=54798708048247",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:58.599Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro | True Wireless Earbuds mit Noise Cancelling",
+      "brand": "Soundcore",
+      "mpn": "A3954GG1",
+      "gtin": "194644207434",
+      "variantAttributes": {
+        "color": "Hellblau Hochglanz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s17",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/bundle-a3954g11-2",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:59.974Z"
+    },
+    "listing": {
+      "title": "2* Liberty 4 Pro | True Wireless Earbuds mit Noise Cancelling",
+      "brand": "Soundcore",
+      "mpn": "BUNDLE-A3954G11-2",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "259.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s18",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/liberty-4-pro-ohrstopsel-set?variant=54950599524727",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:01.200Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro Ohrstöpsel-Set",
+      "brand": "soundcorede",
+      "mpn": "A3954H11-94",
+      "variantAttributes": {
+        "color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s19",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/liberty-4-pro-ohrstopsel-set?variant=54950599557495",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:01.200Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro Ohrstöpsel-Set",
+      "brand": "soundcorede",
+      "mpn": "A3954H21-94",
+      "variantAttributes": {
+        "color": "Weiss"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s20",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/liberty-4-pro-ladecase?variant=43807399903405",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:02.519Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro Ladecase",
+      "brand": "soundcorede",
+      "mpn": "A3954H11-96",
+      "variantAttributes": {
+        "color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "43.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s21",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/liberty-4-pro-ladecase?variant=43807399936173",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:02.519Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro Ladecase",
+      "brand": "soundcorede",
+      "mpn": "A3954H21-96",
+      "variantAttributes": {
+        "color": "Weiss"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "43.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s22",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/liberty-4-pro-linker-und-rechter-ersatz-earbud?variant=43801654100141",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:03.911Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro linker und rechter Ersatz-Earbud",
+      "brand": "soundcorede",
+      "mpn": "A3954H11-91",
+      "variantAttributes": {
+        "color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "84.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "liberty-4-pro-de-s23",
+    "productId": "liberty-4-pro-de",
+    "capture": {
+      "url": "https://de.soundcore.com/products/liberty-4-pro-linker-und-rechter-ersatz-earbud?variant=43801654132909",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:59:03.911Z"
+    },
+    "listing": {
+      "title": "Liberty 4 Pro linker und rechter Ersatz-Earbud",
+      "brand": "soundcorede",
+      "mpn": "A3954H21-91",
+      "variantAttributes": {
+        "color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.soundcore.com"
+    },
+    "context": {
+      "priceText": "84.99",
+      "currency": "EUR"
+    }
+  }
+]

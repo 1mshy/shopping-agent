@@ -1,0 +1,499 @@
+[
+  {
+    "id": "oral-b-io5-s01",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-5-rechargeable-electric-toothbrush-black/17373409",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:45.802Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 5 Rechargeable Electric Toothbrush - Black",
+      "brand": "Oral-B",
+      "mpn": "iO G5.1B6.2K",
+      "gtin": "069055133026",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "189.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s02",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-io-ultimate-clean-replacement-heads-4-pack-black-deep-plaque-removal",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:45.907Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Ultimate Clean Replacement Heads – 4-Pack, Black | Deep Plaque Removal",
+      "brand": "Oral-B",
+      "gtin": "4210201328865",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "100.51",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s03",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-ultimate-deep-clean-brush-heads-7-pack/19657075",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:47.374Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Ultimate Deep Clean Brush Heads, 7-pack",
+      "brand": "ORAL-B",
+      "mpn": "80829847",
+      "gtin": "5111095432708",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "119.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s04",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-6-rechargeable-electric-toothbrush-interactive-display-5-modes-travel-case-grey/20284868",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:48.808Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 6 Rechargeable Electric Toothbrush, Interactive Display, 5 Modes, Travel Case, Grey",
+      "brand": "ORAL-B",
+      "mpn": "iO6",
+      "gtin": "614537293660",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "305.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s05",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-io-ultimate-clean-toothbrush-heads-white-4-count",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:48.931Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Ultimate Clean Toothbrush Heads White – 4 Count",
+      "brand": "Perla Store | The Ultimate A to Z Marketplace for Every Need in Canada",
+      "gtin": "5060907829598",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "101.36",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s06",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/8-pack-replacement-brush-heads-compatible-with-oral-b-io-series-2-10/19862795",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:50.128Z"
+    },
+    "listing": {
+      "title": "8-Pack Replacement Brush Heads Compatible with Oral-B iO Series 2–10",
+      "brand": "PURSONIC",
+      "mpn": "810144935317",
+      "gtin": "810144935317",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "54.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s07",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-2-rechargeable-electric-toothbrush-twinpack-black-white/18193759",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:51.135Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 2 Rechargeable Electric Toothbrush Twinpack - Black/White",
+      "brand": "ORAL-B",
+      "mpn": "iO S2d.2ZZ9 PTBR M",
+      "gtin": "069055142226",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s08",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-io-gum-sensitive-replacement-heads-6-count-ultra-soft-bristles-for-gentle-cleaning",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:51.254Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Gum & Sensitive Replacement Heads – 6 Count | Ultra-Soft Bristles for Gentle Cleaning",
+      "brand": "Oral-B",
+      "gtin": "069055144107",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "98.12",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s09",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/4-pack-replacement-brush-heads-compatible-with-oral-b-io-series-2-10/19842939",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:52.763Z"
+    },
+    "listing": {
+      "title": "4-Pack Replacement Brush Heads Compatible with Oral-B iO Series 2–10",
+      "brand": "PURSONIC",
+      "mpn": "IORB4",
+      "gtin": "755003504290",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s10",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-power-io-series-9-electric-toothbrush-black-onyx-rechargeable-with-4-brush-heads-and-charging-travel-case/17717728",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:54.054Z"
+    },
+    "listing": {
+      "title": "Oral-B Power iO Series 9 Electric Toothbrush - Black Onyx, Rechargeable with 4 Brush Heads and Charging Travel Case",
+      "brand": "ORAL B",
+      "mpn": "iO M9.4B2.2A",
+      "gtin": "674252208677",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "559.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s11",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-io-ultimate-clean-replacement-heads-2-pack-twisted-angled-bristles-black",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:54.167Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Ultimate Clean Replacement Heads – 2 Pack Twisted & Angled Bristles (Black)",
+      "brand": "Oral-B",
+      "gtin": "4210201319733",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "73.92",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s12",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-flossaction-electric-toothbrush-replacement-brush-head-refills-10-pack/17984689",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:55.407Z"
+    },
+    "listing": {
+      "title": "Oral B FlossAction Electric Toothbrush Replacement Brush Head Refills, 10-pack",
+      "brand": "ORAL-B",
+      "mpn": "2024",
+      "gtin": "089727814947",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s13",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-2-limited-electric-toothbrush-peach/19826480",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:56.686Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 2 Limited Electric Toothbrush, Peach",
+      "brand": "ORAL-B",
+      "mpn": "P_16076",
+      "gtin": "069055145005",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s14",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-io-gentle-care-replacement-heads-soft-bristles-4-count-compatible-with-io",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:56.901Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Gentle Care Replacement Heads – Soft Bristles, 4 Count, Compatible with iO",
+      "brand": "Oral-B",
+      "gtin": "4210201343554",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "122.02",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s15",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/6-pack-toothbrush-head-covers-compatible-with-oral-b-io-brush-heads-fits-oral-b-io-series-io5-9-dust-proof-protection/19786056",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:57.946Z"
+    },
+    "listing": {
+      "title": "6-pack Toothbrush head covers compatible with Oral-B iO brush heads, fits Oral-B iO Series iO5-9, dust-proof protection",
+      "brand": "GOODLUCK TECH",
+      "mpn": "d328bad001",
+      "gtin": "6901106786451",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "26.39",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s16",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-oral-b-io-series-7-smart-electric-toothbrush-black-onyx/19362674",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:59.421Z"
+    },
+    "listing": {
+      "title": "Open Box - Oral-B iO Series 7 Smart Electric Toothbrush - Black Onyx",
+      "brand": "ORAL-B",
+      "mpn": "iOM7.2B2.2B",
+      "gtin": "999004525896",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "195",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s17",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/hsytek-6-pack-dustproof-toothbrush-cap-for-oral-b-io-series-round-heads-travel-friendly",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:53:59.530Z"
+    },
+    "listing": {
+      "title": "HSYTEK 6-Pack Dustproof Toothbrush Cap for Oral-B iO Series & Round Heads | Travel-Friendly",
+      "brand": "HSYTEK",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "37.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s18",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-2-limited-electric-toothbrush-night-black/19777210",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:54:00.951Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 2 Limited Electric Toothbrush, Night Black",
+      "brand": "ORAL-B",
+      "mpn": "N/A",
+      "gtin": "069055143704",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s19",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-cross-action-replacement-heads-3-count",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:54:01.060Z"
+    },
+    "listing": {
+      "title": "Oral-B Cross Action Replacement Heads – 3 Count",
+      "brand": "Oral-B",
+      "gtin": "069055125205",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "98.01",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s20",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-10-rechargeable-electric-toothbrush-black/17373408",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:54:02.006Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 10 Rechargeable Electric Toothbrush - Black",
+      "brand": "Oral-B",
+      "mpn": "iO M10.4B4.2A",
+      "gtin": "069055135075",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "499.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s21",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://perlastore.ca/products/oral-b-flossaction-replacement-heads-5-pack",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:54:02.268Z"
+    },
+    "listing": {
+      "title": "Oral-B FlossAction Replacement Heads – 5 Pack",
+      "brand": "Oral-B",
+      "gtin": "069055126523",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "perlastore.ca"
+    },
+    "context": {
+      "priceText": "81.30",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "oral-b-io5-s22",
+    "productId": "oral-b-io5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/oral-b-io-series-6-smart-electric-toothbrush-grey-opal/15858787",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:54:03.183Z"
+    },
+    "listing": {
+      "title": "Oral-B iO Series 6 Smart Electric Toothbrush - Grey Opal",
+      "brand": "Oral-B",
+      "mpn": "iOM6.1A6.1K",
+      "gtin": "069055131053",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  }
+]

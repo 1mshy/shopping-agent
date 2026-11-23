@@ -1,0 +1,395 @@
+[
+  {
+    "id": "centauri-carbon-2-us-s01",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/0-4mm-high-speed-all-in-onehotends-kit-for-centauri-2-series",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:48.236Z"
+    },
+    "listing": {
+      "title": "0.4 mm High-Speed Hotend Kit for Centauri 2 Series/Centauri Carbon 2 Series (2pcs)",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "32.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s02",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/pre-owned-centauri-carbon?variant=44479733039207",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:51.067Z"
+    },
+    "listing": {
+      "title": "【Pre-owned】Centauri Carbon",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Condition Level": "Open-box"
+      },
+      "condition": "open_box",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "289.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s03",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/centauri-2",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:52.498Z"
+    },
+    "listing": {
+      "title": "Centauri 2",
+      "brand": "ELEGOO",
+      "gtin": "6932704932964",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "279.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s04",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/0-4-mm-all-in-one-hotends-kit-for-centauri-2-series-2-pcs",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:53.715Z"
+    },
+    "listing": {
+      "title": "0.4 mm Hotend Kit for Centauri 2 Series/Centauri Carbon 2 Series (2pcs)",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s05",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/elegoo-emoji-centauri-carbon-2-combo",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:55.179Z"
+    },
+    "listing": {
+      "title": "ELEGOO × emoji® Centauri Carbon 2 Combo",
+      "brand": "ELEGOO",
+      "gtin": "6932704932940",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "449.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s06",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/centauri-2-combo",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:56.522Z"
+    },
+    "listing": {
+      "title": "Centauri 2 Combo",
+      "brand": "ELEGOO",
+      "gtin": "6932704932957",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "329.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s07",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/0-4mm-0-6mm-0-8mm-all-in-one-high-speed-hotends-kit-for-centauri-2-series",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:57.960Z"
+    },
+    "listing": {
+      "title": "Multi-Size High-Speed Hotend Kit for Centauri 2 Series/Centauri Carbon 2 Series (3pcs)",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "42.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s08",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/canvas-for-centauri-carbon",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:59.355Z"
+    },
+    "listing": {
+      "title": "CANVAS for Centauri Carbon",
+      "brand": "ELEGOO",
+      "gtin": "6932704932988",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "65.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s09",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/0-4mm-0-6mm-0-8mm-all-in-one-hotends-kit-for-centauri-2-series",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:00.751Z"
+    },
+    "listing": {
+      "title": "Multi-Size Hotend Kit for Centauri 2 Series/Centauri Carbon 2 Series (3pcs)",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s10",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/canvas-for-centauri-carbon-2-centauri-2-series?variant=44479761023079",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:02.070Z"
+    },
+    "listing": {
+      "title": "CANVAS for Centauri Carbon 2/Centauri 2 Series",
+      "brand": "ELEGOO",
+      "gtin": "6932704932995",
+      "variantAttributes": {
+        "Type": "With cover"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "150.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s11",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/multi-size-high-speed-hotends-kit-for-centauri-series",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:03.453Z"
+    },
+    "listing": {
+      "title": "Multi-Size High-Speed Hotend Kit for Centauri Series",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "36.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s12",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/pre-owned-centauri-carbon-2-combo?variant=44479756075111",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:04.884Z"
+    },
+    "listing": {
+      "title": "【Pre-owned】Centauri Carbon 2 Combo",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Condition Level": "Open-box"
+      },
+      "condition": "open_box",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "365.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s13",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/all-in-one-hotends-kit-for-centauri-carbon-series",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:06.240Z"
+    },
+    "listing": {
+      "title": "Multi-Size Hotend Kit for Centauri Series",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s14",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/accessory-kit-for-centauri-carbon",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:07.733Z"
+    },
+    "listing": {
+      "title": "Accessory Kit for Centauri Carbon",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s15",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/hotend-silicone-sock-for-centauri-carbon-2-3-pcs",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:09.055Z"
+    },
+    "listing": {
+      "title": "Hotend Silicone Sock for Centauri 2 Series/Centauri Carbon 2 Series (3 Pcs)",
+      "brand": "ELEGOO",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "9.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s16",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/assembled-extruder-hotend-kit-for-centauri-carbon?variant=44479729598567",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:10.413Z"
+    },
+    "listing": {
+      "title": "Assembled Extruder Hotend Kit for Centauri Carbon",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Nozzle Diameter": "0.2mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s17",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/centauri-carbon-2",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:11.764Z"
+    },
+    "listing": {
+      "title": "Centauri Carbon 2",
+      "brand": "ELEGOO",
+      "gtin": "6932704932933",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "349.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "centauri-carbon-2-us-s18",
+    "productId": "centauri-carbon-2-us",
+    "capture": {
+      "url": "https://us.elegoo.com/products/centauri-carbon-2-combo",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:12.993Z"
+    },
+    "listing": {
+      "title": "Centauri Carbon 2 Combo",
+      "brand": "ELEGOO",
+      "gtin": "6932704932926",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.elegoo.com"
+    },
+    "context": {
+      "priceText": "399.00",
+      "currency": "USD"
+    }
+  }
+]

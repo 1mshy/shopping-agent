@@ -1,0 +1,465 @@
+[
+  {
+    "id": "kobra-x-combo-us-s01",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-x-combo-3d-printer?variant=46658335441058",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:17.883Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra X Combo",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737145",
+      "variantAttributes": {
+        "Include Machine": "Kobra X Combo (7 Colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "529.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s02",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-x-combo-3d-printer?variant=46658335375522",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:17.883Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra X Combo",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737145",
+      "variantAttributes": {
+        "Include Machine": "Kobra X Combo (7 Colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "EU Plug"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "608.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s03",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-3-max-v2-combo-3d-printer?variant=47591943602338",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:20.997Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 3 Max V2 Combo",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737251",
+      "variantAttributes": {
+        "Include Machine": "Kobra 3 Max V2 Combo (4 colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "619.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s04",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-3-max-v2-combo-3d-printer?variant=47592030568610",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:20.997Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 3 Max V2 Combo",
+      "brand": "ANYCUBIC",
+      "variantAttributes": {
+        "Include Machine": "Kobra 3 Max V2 Combo (4 colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "EU Plug"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "700.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s05",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-4-3d-printer?variant=47295347818658",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:22.198Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 4",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737190",
+      "variantAttributes": {
+        "Include Machine": "Kobra 4",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "279.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s06",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-4-3d-printer?variant=47295347753122",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:22.198Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 4",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737190",
+      "variantAttributes": {
+        "Include Machine": "Kobra 4",
+        "Include Filament": "None",
+        "Region & Plug Type": "EU Plug"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "320.90",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s07",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-x?variant=46419620167842",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:23.440Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra X",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737060",
+      "variantAttributes": {
+        "Include Machine": "Kobra X (4 Colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "299.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s08",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-x?variant=46419620266146",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:23.440Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra X",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737060",
+      "variantAttributes": {
+        "Include Machine": "Kobra X (4 Colors)",
+        "Include Filament": "PLA+*4",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "345.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s09",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-s1-ace-2-pro-combo-3d-printer?variant=47197910794402",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:24.658Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra S1 ACE 2 Pro Combo",
+      "brand": "ANYCUBIC",
+      "variantAttributes": {
+        "Include Machine": "Kobra S1 ACE 2 Pro Combo (4 colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "499.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s10",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-s1-ace-2-pro-combo-3d-printer?variant=47197910728866",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:24.658Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra S1 ACE 2 Pro Combo",
+      "brand": "ANYCUBIC",
+      "variantAttributes": {
+        "Include Machine": "Kobra S1 ACE 2 Pro Combo (4 colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "EU Plug"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "574.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s11",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-3-max-v2-3d-printer?variant=50825650733218",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:26.232Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 3 Max V2",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737282",
+      "variantAttributes": {
+        "Include Machine": "Kobra 3 Max V2 (without ACE 2 Pro)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "459.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s12",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-3-max-v2-3d-printer?variant=50825650798754",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:26.232Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 3 Max V2",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737282",
+      "variantAttributes": {
+        "Include Machine": "Kobra 3 Max V2 (without ACE 2 Pro)",
+        "Include Filament": "4KG PETG",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "505.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s13",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-4-combo-3d-printer?variant=47268767662242",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:27.484Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 4 Combo",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737190",
+      "variantAttributes": {
+        "Include Machine": "Kobra 4 Combo (4 colors)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "299.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s14",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-4-combo-3d-printer?variant=47268767760546",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:27.484Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra 4 Combo",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737190",
+      "variantAttributes": {
+        "Include Machine": "Kobra 4 Combo (4 colors)",
+        "Include Filament": "4KG PETG",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "345.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s15",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-s1-max-combo?variant=47268992483490",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:28.917Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra S1 Max Combo",
+      "brand": "ANYCUBIC",
+      "variantAttributes": {
+        "Include Machine": "Kobra S1 Max Combo (4 Color)",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "899.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s16",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-s1-max-combo?variant=47268992614562",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:28.917Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra S1 Max Combo",
+      "brand": "ANYCUBIC",
+      "variantAttributes": {
+        "Include Machine": "Kobra S1 Max Combo (4 Color)",
+        "Include Filament": "+PLA Special*4",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "945.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s17",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-s1-max?variant=46481936089250",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:30.272Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra S1 Max",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737084",
+      "variantAttributes": {
+        "Include Machine": "Kobra S1 Max",
+        "Include Filament": "None",
+        "Region & Plug Type": "Other"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "699.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "kobra-x-combo-us-s18",
+    "productId": "kobra-x-combo-us",
+    "capture": {
+      "url": "https://store.anycubic.com/products/kobra-s1-max?variant=46481936023714",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:30.272Z"
+    },
+    "listing": {
+      "title": "Anycubic Kobra S1 Max",
+      "brand": "ANYCUBIC",
+      "gtin": "16204000737084",
+      "variantAttributes": {
+        "Include Machine": "Kobra S1 Max",
+        "Include Filament": "None",
+        "Region & Plug Type": "EU Plug"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.anycubic.com"
+    },
+    "context": {
+      "priceText": "804.00",
+      "currency": "USD"
+    }
+  }
+]

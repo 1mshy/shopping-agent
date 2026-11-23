@@ -1,0 +1,531 @@
+[
+  {
+    "id": "happybrush-de-s01",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnburste-eco-vibe-3-plus?variant=54519171285260",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:44.791Z"
+    },
+    "listing": {
+      "title": "Eco Vibe 3+ Schallzahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486336086",
+      "variantAttributes": {
+        "Farbe": "Allblack",
+        "Set": "Set S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s02",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnburste-eco-vibe-3-plus?variant=65998710407436",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:44.791Z"
+    },
+    "listing": {
+      "title": "Eco Vibe 3+ Schallzahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486335263",
+      "variantAttributes": {
+        "Farbe": "Forest",
+        "Set": "Set S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s03",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-vibe-3-white-mint?variant=54183068729612",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:47.576Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten Eco Vibe 3+ | White-Mint",
+      "brand": "happybrush",
+      "gtin": "4260486335560",
+      "variantAttributes": {
+        "Größe": "3er Set",
+        "Härtegrad": "Normal"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "14.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s04",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-vibe-3-white-mint?variant=54183068762380",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:47.576Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten Eco Vibe 3+ | White-Mint",
+      "brand": "happybrush",
+      "gtin": "4260486332255",
+      "variantAttributes": {
+        "Größe": "6er Set",
+        "Härtegrad": "Normal"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "26.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s05",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/munddusche-mit-gratis-lite-zahnbuerste?variant=54789267292428",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:48.764Z"
+    },
+    "listing": {
+      "title": "Munddusche + gratis LITE Zahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486337830",
+      "variantAttributes": {
+        "Farbe": "Schwarz + Allblack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s06",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/munddusche-mit-gratis-lite-zahnbuerste?variant=54842199802124",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:48.764Z"
+    },
+    "listing": {
+      "title": "Munddusche + gratis LITE Zahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486337601",
+      "variantAttributes": {
+        "Farbe": "Weiß + Sunrise"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "79.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s07",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnburste-eco-vibe-3?variant=54519202218252",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:50.022Z"
+    },
+    "listing": {
+      "title": "Eco Vibe 3 Schallzahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486330596",
+      "variantAttributes": {
+        "Farbe": "Black-Mint",
+        "Set": "Set S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s08",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnburste-eco-vibe-3?variant=54519202316556",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:50.022Z"
+    },
+    "listing": {
+      "title": "Eco Vibe 3 Schallzahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486336161",
+      "variantAttributes": {
+        "Farbe": "Sunrise",
+        "Set": "Set S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s09",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-vibe-3-sunrise?variant=54183099203852",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:51.285Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten Eco Vibe 3+ | Sunrise",
+      "brand": "happybrush",
+      "gtin": "4260486335799",
+      "variantAttributes": {
+        "Größe": "3er Set"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "14.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s10",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-vibe-3-sunrise?variant=54183099236620",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:51.285Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten Eco Vibe 3+ | Sunrise",
+      "brand": "happybrush",
+      "gtin": "4260486335799",
+      "variantAttributes": {
+        "Größe": "6er Set"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "26.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s11",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/r2-allblack-1",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:52.773Z"
+    },
+    "listing": {
+      "title": "Eco R2 Zahnbürste | Allblack",
+      "brand": "happybrush",
+      "gtin": "4260486335058",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "57.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s12",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnbueste-eco-vibe-3-prosense?variant=62064972202252",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:54.575Z"
+    },
+    "listing": {
+      "title": "Eco Vibe 3 ProSense Schallzahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486336086",
+      "variantAttributes": {
+        "Set": "Set S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s13",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnbueste-eco-vibe-3-prosense?variant=62064972235020",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:54.575Z"
+    },
+    "listing": {
+      "title": "Eco Vibe 3 ProSense Schallzahnbürste",
+      "brand": "happybrush",
+      "gtin": "4260486336086",
+      "variantAttributes": {
+        "Set": "Set M"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s14",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-r2-allblack?variant=54183116636428",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:55.549Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten R2 | Allblack",
+      "brand": "happybrush",
+      "gtin": "4260486335072",
+      "variantAttributes": {
+        "Größe": "3er Set"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "11.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s15",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-r2-allblack?variant=54183116669196",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:55.549Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten R2 | Allblack",
+      "brand": "happybrush",
+      "gtin": "4260486335072",
+      "variantAttributes": {
+        "Größe": "6er Set"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "22.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s16",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/ecochange-zahnburste-mint",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:56.994Z"
+    },
+    "listing": {
+      "title": "EcoChange Zahnbürste | Mint",
+      "brand": "happybrush",
+      "gtin": "4260486336239",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "4.01",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s17",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnbuerste-munddusche-deal26?variant=54640949231884",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:58.226Z"
+    },
+    "listing": {
+      "title": "Vorteilsset Schallzahnbürste Eco Vibe 3",
+      "brand": "happybrush",
+      "gtin": "4260486338790",
+      "variantAttributes": {
+        "Farbe": "Black-Mint"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "139.79",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s18",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/schallzahnbuerste-munddusche-deal26?variant=54640949297420",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:58.226Z"
+    },
+    "listing": {
+      "title": "Vorteilsset Schallzahnbürste Eco Vibe 3",
+      "brand": "happybrush",
+      "gtin": "4260486338783",
+      "variantAttributes": {
+        "Farbe": "Ocean"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "139.79",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s19",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-vibe-3-forest?variant=65998488994060",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:59.624Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten Eco Vibe 3+ | Forest",
+      "brand": "happybrush",
+      "variantAttributes": {
+        "Größe": "3er Set"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "14.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s20",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/aufsteckbuersten-eco-vibe-3-forest?variant=65998489026828",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:59.624Z"
+    },
+    "listing": {
+      "title": "Aufsteckbürsten Eco Vibe 3+ | Forest",
+      "brand": "happybrush",
+      "gtin": "4260486338127",
+      "variantAttributes": {
+        "Größe": "6er Set"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "26.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s21",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/eco-vibe-kids-zahnburste-paw-patrol?variant=54482288247052",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:06:00.828Z"
+    },
+    "listing": {
+      "title": "Eco Vibe Kids Lern-Zahnbürste Paw Patrol | BLACK DEAL",
+      "brand": "happybrush",
+      "gtin": "4260486335492",
+      "variantAttributes": {
+        "Set": "Set S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "33.24",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "happybrush-de-s22",
+    "productId": "happybrush-de",
+    "capture": {
+      "url": "https://www.happybrush.de/products/eco-vibe-kids-zahnburste-paw-patrol?variant=54482288279820",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:06:00.828Z"
+    },
+    "listing": {
+      "title": "Eco Vibe Kids Lern-Zahnbürste Paw Patrol | BLACK DEAL",
+      "brand": "happybrush",
+      "gtin": "4260486335492",
+      "variantAttributes": {
+        "Set": "Set M"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.happybrush.de"
+    },
+    "context": {
+      "priceText": "39.90",
+      "currency": "EUR"
+    }
+  }
+]

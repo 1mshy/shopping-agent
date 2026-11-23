@@ -1,0 +1,4299 @@
+{
+  "formatVersion": 1,
+  "seed": "matcher-v1-2026-11-23",
+  "toolVersion": "gold-tools/1",
+  "rate": 0.1,
+  "items": [
+    {
+      "snapshotId": "990-pro-2tb-s08",
+      "productId": "990-pro-2tb",
+      "identity": {
+        "brand": "Samsung",
+        "model": "990 PRO",
+        "mpn": "MZ-V9P2T0B/AM",
+        "gtin": "887276657011",
+        "mustHave": {
+          "capacity": "2 TB",
+          "heatsink": "without heatsink"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "SAMSUNG 990 PRO w/Heatsink SSD 4TB PCIeGen4 NVMe M.2Internal SolidState HardDrive , MZ-V9P4T0CW",
+        "brand": "SAMSUNG",
+        "mpn": "MZ-V9P4T0CW",
+        "gtin": "797541699670",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "990-pro-2tb-s09",
+      "productId": "990-pro-2tb",
+      "identity": {
+        "brand": "Samsung",
+        "model": "990 PRO",
+        "mpn": "MZ-V9P2T0B/AM",
+        "gtin": "887276657011",
+        "mustHave": {
+          "capacity": "2 TB",
+          "heatsink": "without heatsink"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Samsung 9100 Pro 2TB NVMe PCI-e Internal Solid State Drive (MZ-VAP2T0B/AM) - Black",
+        "brand": "SAMSUNG",
+        "mpn": "MZ-VAP2T0B/AM",
+        "gtin": "887276904900",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "990-pro-2tb-s17",
+      "productId": "990-pro-2tb",
+      "identity": {
+        "brand": "Samsung",
+        "model": "990 PRO",
+        "mpn": "MZ-V9P2T0B/AM",
+        "gtin": "887276657011",
+        "mustHave": {
+          "capacity": "2 TB",
+          "heatsink": "without heatsink"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Samsung 990 2TB NVMe PCI-e Internal Solid State Drive (MZ-V9V2T0B/AM)",
+        "brand": "SAMSUNG",
+        "mpn": "MZ-V9V2T0B/AM",
+        "gtin": "198957280801",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "a1-mini-s18",
+      "productId": "a1-mini",
+      "identity": {
+        "brand": "Bambu Lab",
+        "model": "A1 mini",
+        "gtin": "6937285506146",
+        "mustHave": {
+          "configuration": "printer only, without AMS lite"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Bambu Lab P2S AMS Combo Enclosed FDM 3D Printer - Multi-Colour Printing, Camera, Auto Bed Leveling, 600mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+        "brand": "BAMBU LAB",
+        "mpn": "P2S AMS Combo",
+        "gtin": "6937285513335",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "a1-mini-s21",
+      "productId": "a1-mini",
+      "identity": {
+        "brand": "Bambu Lab",
+        "model": "A1 mini",
+        "gtin": "6937285506146",
+        "mustHave": {
+          "configuration": "printer only, without AMS lite"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "E3D High Flow ObXidian™ HotEnd for Bambu Lab A1 & A1 Mini",
+        "brand": "E3D",
+        "gtin": "05225789",
+        "variantAttributes": {
+          "Nozzle Diameter": "0.40mm"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "caz3d.com"
+      }
+    },
+    {
+      "snapshotId": "a1-mini-s22",
+      "productId": "a1-mini",
+      "identity": {
+        "brand": "Bambu Lab",
+        "model": "A1 mini",
+        "gtin": "6937285506146",
+        "mustHave": {
+          "configuration": "printer only, without AMS lite"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "E3D High Flow ObXidian™ HotEnd for Bambu Lab A1 & A1 Mini",
+        "brand": "E3D",
+        "gtin": "05258557",
+        "variantAttributes": {
+          "Nozzle Diameter": "0.60mm"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "caz3d.com"
+      }
+    },
+    {
+      "snapshotId": "airpods-pro-2-s01",
+      "productId": "airpods-pro-2",
+      "identity": {
+        "brand": "Apple",
+        "model": "AirPods Pro (2nd generation)",
+        "mpn": "MTJV3AM/A",
+        "mustHave": {
+          "chargingCase": "MagSafe charging case (USB-C)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+        "brand": "APPLE",
+        "mpn": "Airpods Pro",
+        "gtin": "0194253397168",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "airpods-pro-2-s08",
+      "productId": "airpods-pro-2",
+      "identity": {
+        "brand": "Apple",
+        "model": "AirPods Pro (2nd generation)",
+        "mpn": "MTJV3AM/A",
+        "mustHave": {
+          "chargingCase": "MagSafe charging case (USB-C)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Excellent) - Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+        "brand": "APPLE",
+        "mpn": "MQD83AM/A",
+        "gtin": "999003956523",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "airpods-pro-2-s09",
+      "productId": "airpods-pro-2",
+      "identity": {
+        "brand": "Apple",
+        "model": "AirPods Pro (2nd generation)",
+        "mpn": "MTJV3AM/A",
+        "mustHave": {
+          "chargingCase": "MagSafe charging case (USB-C)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Fair) - Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+        "brand": "APPLE",
+        "mpn": "MQD83AM/A",
+        "gtin": "999004152900",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "anker-737-s01",
+      "productId": "anker-737",
+      "identity": {
+        "brand": "Anker",
+        "model": "737 Power Bank (PowerCore 24K)",
+        "mpn": "A1289011",
+        "mustHave": {
+          "capacity": "24,000 mAh",
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Excellent) Anker 737 Power Bank, 24000mAh 3-Port Laptop Charger with 140W Output: Smart Digital Display, 3-Port 140W Fast Charging, Black",
+        "brand": "ANKER",
+        "mpn": "A1289011-F0",
+        "gtin": "194644098728",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "anker-737-s02",
+      "productId": "anker-737",
+      "identity": {
+        "brand": "Anker",
+        "model": "737 Power Bank (PowerCore 24K)",
+        "mpn": "A1289011",
+        "mustHave": {
+          "capacity": "24,000 mAh",
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anker Power Bank (25K, 165W, Built-In Cables) with 240W USB-C Cable",
+        "brand": "Anker",
+        "mpn": "COMBO-A1695H11-1-A82E2011-1",
+        "gtin": "194644209476",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "ca.anker.com"
+      }
+    },
+    {
+      "snapshotId": "anker-737-s03",
+      "productId": "anker-737",
+      "identity": {
+        "brand": "Anker",
+        "model": "737 Power Bank (PowerCore 24K)",
+        "mpn": "A1289011",
+        "mustHave": {
+          "capacity": "24,000 mAh",
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anker <b>736</b> Charger (Nano II 100W)",
+        "brand": "Anker",
+        "mpn": "A2145113",
+        "gtin": "194644095949",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "ca.anker.com"
+      }
+    },
+    {
+      "snapshotId": "anker-prime-power-bank-de-s10",
+      "productId": "anker-prime-power-bank-de",
+      "identity": {
+        "brand": "Anker",
+        "model": "Prime Powerbank (20K, 220W)",
+        "mpn": "A110BH11",
+        "gtin": "194644239350",
+        "mustHave": {
+          "capacity": "20,000 mAh",
+          "power": "220 W"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anker <b>325</b> Powerbank (PowerCore 20K)",
+        "brand": "Anker",
+        "mpn": "A1268013",
+        "gtin": "848061059861",
+        "variantAttributes": {
+          "Color": "Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.anker.com"
+      }
+    },
+    {
+      "snapshotId": "anker-prime-power-bank-de-s12",
+      "productId": "anker-prime-power-bank-de",
+      "identity": {
+        "brand": "Anker",
+        "model": "Prime Powerbank (20K, 220W)",
+        "mpn": "A110BH11",
+        "gtin": "194644239350",
+        "mustHave": {
+          "capacity": "20,000 mAh",
+          "power": "220 W"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anker Prime 20000mAh Powerbank (200W)",
+        "brand": "beta-anker-de",
+        "mpn": "A13360B1",
+        "gtin": "194644147648",
+        "variantAttributes": {
+          "Color": "Champagner"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.anker.com"
+      }
+    },
+    {
+      "snapshotId": "anker-prime-power-bank-de-s13",
+      "productId": "anker-prime-power-bank-de",
+      "identity": {
+        "brand": "Anker",
+        "model": "Prime Powerbank (20K, 220W)",
+        "mpn": "A110BH11",
+        "gtin": "194644239350",
+        "mustHave": {
+          "capacity": "20,000 mAh",
+          "power": "220 W"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anker Powerbank (20K, 87W, Integriertes USB-C Kabel)",
+        "brand": "Anker",
+        "mpn": "A1383011",
+        "gtin": "194644043711",
+        "variantAttributes": {
+          "Color": "Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.anker.com"
+      }
+    },
+    {
+      "snapshotId": "bosch-gsr-18v-65-de-s10",
+      "productId": "bosch-gsr-18v-65-de",
+      "identity": {
+        "brand": "Bosch Professional",
+        "model": "GSR 18V-65",
+        "mpn": "06019N3200",
+        "gtin": "4053423321555",
+        "mustHave": {
+          "kit": "tool only in cardboard box, no battery or charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "06019N3206 GSR 18V-65 Akkubohrmaschine 2x ProCORE18V 4.0 Ah und Ladegerät GAL 18V-40 in L-BOXX",
+        "gtin": "4053423321586",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "bosch-gsr-18v-65-de-s11",
+      "productId": "bosch-gsr-18v-65-de",
+      "identity": {
+        "brand": "Bosch Professional",
+        "model": "GSR 18V-65",
+        "mpn": "06019N3200",
+        "gtin": "4053423321555",
+        "mustHave": {
+          "kit": "tool only in cardboard box, no battery or charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "0615A50035 3 Werkzeugsatz - GSR 18V-55 Akku-Bohrmaschine + GWS 18V-7 Schleifmaschine + GBH 18V-22 Bohrhammer 18V 4.0Ah Li-Ion",
+        "gtin": "4053423251043",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "bosch-gsr-18v-65-de-s12",
+      "productId": "bosch-gsr-18v-65-de",
+      "identity": {
+        "brand": "Bosch Professional",
+        "model": "GSR 18V-65",
+        "mpn": "06019N3200",
+        "gtin": "4053423321555",
+        "mustHave": {
+          "kit": "tool only in cardboard box, no battery or charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "06019N3000 GSR 18V-65 Akku-Bohrschrauber-Set 2x 2,0 Ah und Ladegerät GAL 18V-20 im L-Koffer",
+        "gtin": "4053423321524",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "braun-series-9-ca-s04",
+      "productId": "braun-series-9-ca",
+      "identity": {
+        "brand": "Braun",
+        "model": "Series 9 PRO+ 9667cc",
+        "mpn": "9667cc",
+        "gtin": "047400707122",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Braun Series 9 PRO+ Wet/Dry Cordless Foil Shaver (9667cc)",
+        "brand": "BRAUN",
+        "mpn": "9667CC",
+        "gtin": "047400707122",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "braun-series-9-ca-s06",
+      "productId": "braun-series-9-ca",
+      "identity": {
+        "brand": "Braun",
+        "model": "Series 9 PRO+ 9667cc",
+        "mpn": "9667cc",
+        "gtin": "047400707122",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Braun Series 9 PRO+ Wet/Dry Cordless Foil Shaver with PowerCase (9677cc)",
+        "brand": "BRAUN",
+        "mpn": "9677CC",
+        "gtin": "047400707139",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "braun-series-9-ca-s07",
+      "productId": "braun-series-9-ca",
+      "identity": {
+        "brand": "Braun",
+        "model": "Series 9 PRO+ 9667cc",
+        "mpn": "9667cc",
+        "gtin": "047400707122",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Braun Series 6 Electric Shaver Replacement Head (64B)",
+        "brand": "BRAUN",
+        "mpn": "64B",
+        "gtin": "069055140307",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "breville-barista-express-ca-s20",
+      "productId": "breville-barista-express-ca",
+      "identity": {
+        "brand": "Breville",
+        "model": "Barista Express BES870",
+        "mpn": "BES870BSS1BCA1",
+        "gtin": "021614055514",
+        "mustHave": {
+          "colour": "Brushed Stainless Steel"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Breville Barista Express Espresso Machine, Brushed Stainless Steel, BES870XL",
+        "brand": "BREVILLE",
+        "mpn": "BES870XL",
+        "gtin": "0021614055514",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "breville-barista-express-ca-s21",
+      "productId": "breville-barista-express-ca",
+      "identity": {
+        "brand": "Breville",
+        "model": "Barista Express BES870",
+        "mpn": "BES870BSS1BCA1",
+        "gtin": "021614055514",
+        "mustHave": {
+          "colour": "Brushed Stainless Steel"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Breville Barista Express Espresso Machine, Brushed Stainless Steel, Manual Microfoam BES870XL",
+        "brand": "BREVILLE",
+        "mpn": "BES870XL",
+        "gtin": "5053243179762",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "breville-barista-express-ca-s22",
+      "productId": "breville-barista-express-ca",
+      "identity": {
+        "brand": "Breville",
+        "model": "Barista Express BES870",
+        "mpn": "BES870BSS1BCA1",
+        "gtin": "021614055514",
+        "mustHave": {
+          "colour": "Brushed Stainless Steel"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Breville Barista Pro Semi-Automatic Espresso Machine Bean-to-Cup - Brushed Stainless Steel",
+        "brand": "BREVILLE",
+        "mpn": "BES878BSS",
+        "gtin": "021614800619",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "brita-10-cup-s08",
+      "productId": "brita-10-cup",
+      "identity": {
+        "brand": "Brita",
+        "model": "Large 10 Cup Water Filter Pitcher (Smart Light)",
+        "gtin": "060258507058",
+        "mustHave": {
+          "capacity": "10 cup"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Water Filter Replacement for Brita Water Pitchers and Dispensers, Classic 35557, Ob03, Mavea 107007 and More, Reduce Chlorine and Bad Taste(3 Pcs)",
+        "brand": "MYACUC",
+        "mpn": "730553059964",
+        "gtin": "730553059964",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "brita-10-cup-s09",
+      "productId": "brita-10-cup",
+      "identity": {
+        "brand": "Brita",
+        "model": "Large 10 Cup Water Filter Pitcher (Smart Light)",
+        "gtin": "060258507058",
+        "mustHave": {
+          "capacity": "10 cup"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Brita Standard Water Filter Replacement, Chlorine Reduction, BPA-Free, 1 Count",
+        "brand": "BRITA",
+        "mpn": "TU_1310701",
+        "gtin": "029037199259",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "centauri-carbon-2-us-s06",
+      "productId": "centauri-carbon-2-us",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "Centauri Carbon 2",
+        "gtin": "6932704932933",
+        "mustHave": {
+          "configuration": "printer alone (not the Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Centauri 2 Combo",
+        "brand": "ELEGOO",
+        "gtin": "6932704932957",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "centauri-carbon-2-us-s07",
+      "productId": "centauri-carbon-2-us",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "Centauri Carbon 2",
+        "gtin": "6932704932933",
+        "mustHave": {
+          "configuration": "printer alone (not the Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Multi-Size High-Speed Hotend Kit for Centauri 2 Series/Centauri Carbon 2 Series (3pcs)",
+        "brand": "ELEGOO",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "cosori-turboblaze-6l-de-s20",
+      "productId": "cosori-turboblaze-6l-de",
+      "identity": {
+        "brand": "COSORI",
+        "model": "TurboBlaze 6.0 L",
+        "gtin": "810123674831",
+        "mustHave": {
+          "colour": "Dunkelgrau (dark grey)",
+          "capacity": "6.0 L"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "COSORI 6,2-Liter Heißluftfritteuse & Zubehör",
+        "brand": "Cosori",
+        "gtin": "0810123671120",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.cosori.de"
+      }
+    },
+    {
+      "snapshotId": "cosori-turboblaze-6l-de-s21",
+      "productId": "cosori-turboblaze-6l-de",
+      "identity": {
+        "brand": "COSORI",
+        "model": "TurboBlaze 6.0 L",
+        "gtin": "810123674831",
+        "mustHave": {
+          "colour": "Dunkelgrau (dark grey)",
+          "capacity": "6.0 L"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "COSORI 5,5-Liter Heißluftfritteuse",
+        "brand": "Cosori",
+        "gtin": "0817915025574",
+        "variantAttributes": {
+          "Farbe": "Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.cosori.de"
+      }
+    },
+    {
+      "snapshotId": "cosori-turboblaze-6l-de-s22",
+      "productId": "cosori-turboblaze-6l-de",
+      "identity": {
+        "brand": "COSORI",
+        "model": "TurboBlaze 6.0 L",
+        "gtin": "810123674831",
+        "mustHave": {
+          "colour": "Dunkelgrau (dark grey)",
+          "capacity": "6.0 L"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "COSORI 5,5-Liter Heißluftfritteuse",
+        "brand": "Cosori",
+        "gtin": "0810043371094",
+        "variantAttributes": {
+          "Farbe": "Weiß"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.cosori.de"
+      }
+    },
+    {
+      "snapshotId": "cosori-turboblaze-6qt-s08",
+      "productId": "cosori-turboblaze-6qt",
+      "identity": {
+        "brand": "COSORI",
+        "model": "TurboBlaze 6.0-Quart Air Fryer",
+        "mpn": "KAAPAFCSNUS0161A",
+        "gtin": "810123670376",
+        "mustHave": {
+          "colour": "Dark Gray",
+          "capacity": "6.0 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Cosori Air Fryer Liners",
+        "brand": "COSORI",
+        "mpn": "KAACAACSNUS0104Y",
+        "gtin": "810043379823",
+        "variantAttributes": {
+          "Size": "3-5 QT"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.cosori.com"
+      }
+    },
+    {
+      "snapshotId": "cosori-turboblaze-6qt-s09",
+      "productId": "cosori-turboblaze-6qt",
+      "identity": {
+        "brand": "COSORI",
+        "model": "TurboBlaze 6.0-Quart Air Fryer",
+        "mpn": "KAAPAFCSNUS0161A",
+        "gtin": "810123670376",
+        "mustHave": {
+          "colour": "Dark Gray",
+          "capacity": "6.0 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Cosori Air Fryer Liners",
+        "brand": "COSORI",
+        "mpn": "KAACAACSNUS0105Y",
+        "gtin": "810043379830",
+        "variantAttributes": {
+          "Size": "5-6 QT"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.cosori.com"
+      }
+    },
+    {
+      "snapshotId": "dcd793d1-s20",
+      "productId": "dcd793d1",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCD793D1",
+        "mpn": "DCD793D1",
+        "mustHave": {
+          "kit": "drill/driver with one 2.0 Ah battery and charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Open Box - DEWALT DCD777C2 20V MAX Brushless 1/2-inch Drill Kit, 2 x 1.3Ah Batteries, Charger, Bag - Yellow/Black",
+        "brand": "DEWALT",
+        "mpn": "DCD777C2",
+        "gtin": "766619335741",
+        "variantAttributes": {},
+        "condition": "open_box",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "dcd793d1-s21",
+      "productId": "dcd793d1",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCD793D1",
+        "mpn": "DCD793D1",
+        "mustHave": {
+          "kit": "drill/driver with one 2.0 Ah battery and charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DEWALT Dual Action Sander (DWMT70780)",
+        "brand": "DEWALT",
+        "mpn": "DWMT70780",
+        "gtin": "634881050719",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "dcd793d1-s22",
+      "productId": "dcd793d1",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCD793D1",
+        "mpn": "DCD793D1",
+        "mustHave": {
+          "kit": "drill/driver with one 2.0 Ah battery and charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DEWALT 20V MAX XR Brushless 1/2\" 3-Speed Cordless Hammer Drill - DCD1007B - Tool Only",
+        "brand": "DEWALT",
+        "mpn": "DCD1007B",
+        "gtin": "885911802871",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "dcf850-s10",
+      "productId": "dcf850",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCF850B",
+        "mpn": "DCF850B",
+        "gtin": "885911758253",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "NEW - DEWALT DCK283D2 20-Volt MAX Brushless Compact Drill + 3-speed Impact Driver Combo Kit (2-Tool)",
+        "brand": "DEWALT",
+        "mpn": "DCK283D2",
+        "gtin": "885911425360",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "dcf850-s11",
+      "productId": "dcf850",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCF850B",
+        "mpn": "DCF850B",
+        "gtin": "885911758253",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DEWALT DCF845P1 XR 3-Speed Brushless Cordless Impact Driver Kit, 1/4 in, 5.1 in L, Yellow, 20 V, Lithium-Ion, 1825 in-lb, Tool, Battery & Charger",
+        "brand": "DEWALT",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "costcutindustrial.ca"
+      }
+    },
+    {
+      "snapshotId": "dcf850-s12",
+      "productId": "dcf850",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCF850B",
+        "mpn": "DCF850B",
+        "gtin": "885911758253",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DEWALT Precision Point 16GA Finish Nailer Kit - DWFP71917",
+        "brand": "DEWALT",
+        "mpn": "DWFP71917",
+        "gtin": "885911395762",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "dewalt-dcd791-de-s20",
+      "productId": "dewalt-dcd791-de",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCD791NT",
+        "mpn": "DCD791NT-XJ",
+        "gtin": "5035048616369",
+        "mustHave": {
+          "kit": "tool only in TSTAK case, no battery or charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "WRE-50061 DeWalt-Adapter",
+        "gtin": "5055391406837",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "dewalt-dcd791-de-s21",
+      "productId": "dewalt-dcd791-de",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCD791NT",
+        "mpn": "DCD791NT-XJ",
+        "gtin": "5035048616369",
+        "mustHave": {
+          "kit": "tool only in TSTAK case, no battery or charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DCD708P2T-QW Akku-Bohrschrauber 18V 5.0Ah Li-Ion",
+        "gtin": "5035048734322",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "dewalt-dcd791-de-s22",
+      "productId": "dewalt-dcd791-de",
+      "identity": {
+        "brand": "DEWALT",
+        "model": "DCD791NT",
+        "mpn": "DCD791NT-XJ",
+        "gtin": "5035048616369",
+        "mustHave": {
+          "kit": "tool only in TSTAK case, no battery or charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DCD791P2-QW DCD791P2 Akku-Bohrschrauber (bürstenlos) 18 Volt 5.0 Ah Li-Ion",
+        "gtin": "5035048616567",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "dreame-pocket-neo-2-de-s02",
+      "productId": "dreame-pocket-neo-2-de",
+      "identity": {
+        "brand": "Dreame",
+        "model": "Pocket Neo 2",
+        "gtin": "6979181929032",
+        "mustHave": {
+          "colour": "Grau (grey)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Dreame Life 2-in-1 Tote-Tasche mit Schulterriemen",
+        "brand": "Dreame Germany",
+        "variantAttributes": {
+          "Farbe": "Grau"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.dreametech.com"
+      }
+    },
+    {
+      "snapshotId": "dreame-pocket-neo-2-de-s03",
+      "productId": "dreame-pocket-neo-2-de",
+      "identity": {
+        "brand": "Dreame",
+        "model": "Pocket Neo 2",
+        "gtin": "6979181929032",
+        "mustHave": {
+          "colour": "Grau (grey)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Dreame Life 2-in-1 Tote-Tasche mit Schulterriemen",
+        "brand": "Dreame Germany",
+        "variantAttributes": {
+          "Farbe": "Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.dreametech.com"
+      }
+    },
+    {
+      "snapshotId": "elegoo-pla-plus-de-s10",
+      "productId": "elegoo-pla-plus-de",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "PLA Plus",
+        "mustHave": {
+          "colour": "Schwarz (black)",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PLA Matt",
+        "brand": "ELEGOO",
+        "variantAttributes": {
+          "Farbe": "Matte White"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "elegoo-pla-plus-de-s12",
+      "productId": "elegoo-pla-plus-de",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "PLA Plus",
+        "mustHave": {
+          "colour": "Schwarz (black)",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PLA PRO",
+        "brand": "ELEGOO",
+        "variantAttributes": {
+          "Farbe": "Weiß"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "elegoo-pla-plus-de-s13",
+      "productId": "elegoo-pla-plus-de",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "PLA Plus",
+        "mustHave": {
+          "colour": "Schwarz (black)",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PLA Metallisches",
+        "brand": "ELEGOO",
+        "variantAttributes": {
+          "Farbe": "Metall-Gold"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "happybrush-de-s20",
+      "productId": "happybrush-de",
+      "identity": {
+        "brand": "happybrush",
+        "model": "Eco Vibe 3",
+        "gtin": "4260486330596",
+        "mustHave": {
+          "colour": "Black-Mint",
+          "set": "Set S"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Aufsteckbürsten Eco Vibe 3+ | Forest",
+        "brand": "happybrush",
+        "gtin": "4260486338127",
+        "variantAttributes": {
+          "Größe": "6er Set"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.happybrush.de"
+      }
+    },
+    {
+      "snapshotId": "happybrush-de-s21",
+      "productId": "happybrush-de",
+      "identity": {
+        "brand": "happybrush",
+        "model": "Eco Vibe 3",
+        "gtin": "4260486330596",
+        "mustHave": {
+          "colour": "Black-Mint",
+          "set": "Set S"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Eco Vibe Kids Lern-Zahnbürste Paw Patrol | BLACK DEAL",
+        "brand": "happybrush",
+        "gtin": "4260486335492",
+        "variantAttributes": {
+          "Set": "Set S"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.happybrush.de"
+      }
+    },
+    {
+      "snapshotId": "happybrush-de-s22",
+      "productId": "happybrush-de",
+      "identity": {
+        "brand": "happybrush",
+        "model": "Eco Vibe 3",
+        "gtin": "4260486330596",
+        "mustHave": {
+          "colour": "Black-Mint",
+          "set": "Set S"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Eco Vibe Kids Lern-Zahnbürste Paw Patrol | BLACK DEAL",
+        "brand": "happybrush",
+        "gtin": "4260486335492",
+        "variantAttributes": {
+          "Set": "Set M"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.happybrush.de"
+      }
+    },
+    {
+      "snapshotId": "hd-600-us-s20",
+      "productId": "hd-600-us",
+      "identity": {
+        "brand": "Sennheiser",
+        "model": "HD 600",
+        "gtin": "615104340459",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sennheiser HD 660S2 Audiophile Headphones",
+        "brand": "Sennheiser",
+        "gtin": "810091270370",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.audio46.com"
+      }
+    },
+    {
+      "snapshotId": "hd-600-us-s21",
+      "productId": "hd-600-us",
+      "identity": {
+        "brand": "Sennheiser",
+        "model": "HD 600",
+        "gtin": "615104340459",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sennheiser IE 600 In-Ear Headphones",
+        "brand": "Sennheiser",
+        "gtin": "810091270387",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.headphones.com"
+      }
+    },
+    {
+      "snapshotId": "hd-600-us-s22",
+      "productId": "hd-600-us",
+      "identity": {
+        "brand": "Sennheiser",
+        "model": "HD 600",
+        "gtin": "615104340459",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sennheiser MOMENTUM 5 Wireless Adaptive Noise-Cancelling Headphones",
+        "brand": "Sennheiser",
+        "gtin": "810091274163",
+        "variantAttributes": {
+          "Color": "Bronze"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.audio46.com"
+      }
+    },
+    {
+      "snapshotId": "instant-pot-duo-s20",
+      "productId": "instant-pot-duo",
+      "identity": {
+        "brand": "Instant Pot",
+        "model": "Duo V5 7-in-1",
+        "mpn": "112-0032-02",
+        "gtin": "810028585201",
+        "mustHave": {
+          "capacity": "6 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Instant Pot 7-in-1 Duo Wide Base Electric Pressure Cooker - 7.5 Qt - Black",
+        "brand": "INSTANT POT",
+        "mpn": "113-1066-01",
+        "gtin": "810102263537",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "instant-pot-duo-s21",
+      "productId": "instant-pot-duo",
+      "identity": {
+        "brand": "Instant Pot",
+        "model": "Duo V5 7-in-1",
+        "mpn": "112-0032-02",
+        "gtin": "810028585201",
+        "mustHave": {
+          "capacity": "6 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Good) Instant Pot Duo V5 7-in-1 Pressure Cooker - 8QT 113-0059-02",
+        "brand": "INSTANT POT",
+        "mpn": "113-0059-02",
+        "gtin": "999004339035",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "instant-pot-duo-s22",
+      "productId": "instant-pot-duo",
+      "identity": {
+        "brand": "Instant Pot",
+        "model": "Duo V5 7-in-1",
+        "mpn": "112-0032-02",
+        "gtin": "810028585201",
+        "mustHave": {
+          "capacity": "6 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Good) - Instant Pot RIO 7-in-1 Pressure Cooker - 6QT",
+        "brand": "INSTANT POT",
+        "mpn": "112-0041-02",
+        "gtin": "999004631429",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "instant-pot-duo-plus-6qt-s14",
+      "productId": "instant-pot-duo-plus-6qt",
+      "identity": {
+        "brand": "Instant Pot",
+        "model": "Duo Plus 9-in-1",
+        "mpn": "112-0169-01",
+        "gtin": "810028585171",
+        "mustHave": {
+          "capacity": "6 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Instant Pot® Duo™ 6QT Multi-Use Pressure Cooker",
+        "brand": "Instant Pot",
+        "mpn": "112-0170-01",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.instantpot.com"
+      }
+    },
+    {
+      "snapshotId": "instant-pot-duo-plus-6qt-s15",
+      "productId": "instant-pot-duo-plus-6qt",
+      "identity": {
+        "brand": "Instant Pot",
+        "model": "Duo Plus 9-in-1",
+        "mpn": "112-0169-01",
+        "gtin": "810028585171",
+        "mustHave": {
+          "capacity": "6 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Instant Pot® 4, 5 & 6 QT Color Sealing Ring, 2-Pack",
+        "brand": "Instant Pot",
+        "mpn": "211-0005-01",
+        "gtin": "853084004316",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.instantpot.com"
+      }
+    },
+    {
+      "snapshotId": "instant-pot-duo-plus-6qt-s16",
+      "productId": "instant-pot-duo-plus-6qt",
+      "identity": {
+        "brand": "Instant Pot",
+        "model": "Duo Plus 9-in-1",
+        "mpn": "112-0169-01",
+        "gtin": "810028585171",
+        "mustHave": {
+          "capacity": "6 quart"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Instant Pot® Duo™ 8QT Multi-Use Pressure Cooker",
+        "brand": "Instant Pot",
+        "mpn": "113-0059-01",
+        "gtin": "810028585218",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.instantpot.com"
+      }
+    },
+    {
+      "snapshotId": "k1c-s11",
+      "productId": "k1c",
+      "identity": {
+        "brand": "Creality",
+        "model": "K1C (2025 Version)",
+        "mpn": "1001060049",
+        "gtin": "6977726811729",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "K1 Max Glatte PEI-Montageplatte 315×310 mm",
+        "brand": "Creality DE",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.store.creality.com"
+      }
+    },
+    {
+      "snapshotId": "k1c-s12",
+      "productId": "k1c",
+      "identity": {
+        "brand": "Creality",
+        "model": "K1C (2025 Version)",
+        "mpn": "1001060049",
+        "gtin": "6977726811729",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "K1/Ender-Serie “Unicorn” Schnellwechsel-Düse",
+        "brand": "Creality DE",
+        "variantAttributes": {
+          "Menge": "1PC (0,4mm)"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.store.creality.com"
+      }
+    },
+    {
+      "snapshotId": "k1c-s13",
+      "productId": "k1c",
+      "identity": {
+        "brand": "Creality",
+        "model": "K1C (2025 Version)",
+        "mpn": "1001060049",
+        "gtin": "6977726811729",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "K1/Ender-Serie “Unicorn” Schnellwechsel-Düse",
+        "brand": "Creality DE",
+        "variantAttributes": {
+          "Menge": "4PCS (0,4 mm *2 & 0,6 mm *1 & 0,8 mm *1)"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.store.creality.com"
+      }
+    },
+    {
+      "snapshotId": "keurig-k-mini-s04",
+      "productId": "keurig-k-mini",
+      "identity": {
+        "brand": "Keurig",
+        "model": "K-Mini",
+        "gtin": "611247373590",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Wild Orchid",
+        "brand": "KEURIG",
+        "mpn": "N/A",
+        "gtin": "460629307964",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "keurig-k-mini-s05",
+      "productId": "keurig-k-mini",
+      "identity": {
+        "brand": "Keurig",
+        "model": "K-Mini",
+        "gtin": "611247373590",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Warm Stone",
+        "brand": "KEURIG",
+        "mpn": "N/A",
+        "gtin": "460629289482",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "keurig-k-mini-s06",
+      "productId": "keurig-k-mini",
+      "identity": {
+        "brand": "Keurig",
+        "model": "K-Mini",
+        "gtin": "611247373590",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Keurig® K-Mini Mate™ Plus Single Serve K-Cup Pod Coffee Maker, Warm Stone",
+        "brand": "KEURIG",
+        "mpn": "N/A",
+        "gtin": "460798606226",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "keychron-k2-us-s14",
+      "productId": "keychron-k2-us",
+      "identity": {
+        "brand": "Keychron",
+        "model": "K2 (Version 2)",
+        "mpn": "K2-A3Z",
+        "gtin": "4897115553059",
+        "mustHave": {
+          "layout": "US ANSI",
+          "backlight": "white backlight",
+          "version": "Version 2"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - Resin Edition",
+        "brand": "K HE Series",
+        "mpn": "K2H-F1R",
+        "gtin": "4894979044693",
+        "variantAttributes": {
+          "Color": "Resin Edition",
+          "Switches": "Gateron Double-Rail Magnetic Nebula Switch"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.keychron.com"
+      }
+    },
+    {
+      "snapshotId": "keychron-k2-us-s18",
+      "productId": "keychron-k2-us",
+      "identity": {
+        "brand": "Keychron",
+        "model": "K2 (Version 2)",
+        "mpn": "K2-A3Z",
+        "gtin": "4897115553059",
+        "mustHave": {
+          "layout": "US ANSI",
+          "backlight": "white backlight",
+          "version": "Version 2"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Keychron K2 Ultra 8K Wireless Custom Mechanical Keyboard",
+        "brand": "K Ultra series",
+        "mpn": "K2U-J3",
+        "gtin": "4894979058010",
+        "variantAttributes": {
+          "Type": "Fully Assembled",
+          "Color": "Black",
+          "Switch Type": "Keychron Apex Switch - Brown"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.keychron.com"
+      }
+    },
+    {
+      "snapshotId": "keychron-k2-us-s19",
+      "productId": "keychron-k2-us",
+      "identity": {
+        "brand": "Keychron",
+        "model": "K2 (Version 2)",
+        "mpn": "K2-A3Z",
+        "gtin": "4897115553059",
+        "mustHave": {
+          "layout": "US ANSI",
+          "backlight": "white backlight",
+          "version": "Version 2"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Keychron K2 Ultra 8K Wireless Custom Mechanical Keyboard",
+        "brand": "K Ultra series",
+        "mpn": "K2U-J1",
+        "gtin": "4894979058003",
+        "variantAttributes": {
+          "Type": "Fully Assembled",
+          "Color": "Black",
+          "Switch Type": "Keychron Apex Switch - Red"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.keychron.com"
+      }
+    },
+    {
+      "snapshotId": "kobra-3-max-v2-combo-de-s05",
+      "productId": "kobra-3-max-v2-combo-de",
+      "identity": {
+        "brand": "Anycubic",
+        "model": "Kobra 3 Max V2 Combo",
+        "mustHave": {
+          "configuration": "Kobra 3 Max V2 with the 4-colour ACE 2 Pro (Combo), no extra bundle items",
+          "filament": "none included"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anycubic Kobra 3 Max V2 Combo",
+        "brand": "ANYCUBIC",
+        "gtin": "16204000737251",
+        "variantAttributes": {
+          "Inklusive Maschine": "Kobra 3 Max V2 Combo (4 Farben)",
+          "Inklusive Filament": "Keine"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.anycubic3d.com"
+      }
+    },
+    {
+      "snapshotId": "kobra-3-max-v2-combo-de-s11",
+      "productId": "kobra-3-max-v2-combo-de",
+      "identity": {
+        "brand": "Anycubic",
+        "model": "Kobra 3 Max V2 Combo",
+        "mustHave": {
+          "configuration": "Kobra 3 Max V2 with the 4-colour ACE 2 Pro (Combo), no extra bundle items",
+          "filament": "none included"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anycubic doppelseitige 3D-Effektplatte",
+        "brand": "ANYCUBIC",
+        "variantAttributes": {
+          "Kompatible 3D Drucker": "Kobra X",
+          "KOMBINATION": "Oktagramm + Diamantoberfläche"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.anycubic3d.com"
+      }
+    },
+    {
+      "snapshotId": "kobra-x-combo-us-s10",
+      "productId": "kobra-x-combo-us",
+      "identity": {
+        "brand": "Anycubic",
+        "model": "Kobra X Combo",
+        "gtin": "16204000737145",
+        "mustHave": {
+          "configuration": "Kobra X with the 7-colour multi-colour unit (Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anycubic Kobra S1 ACE 2 Pro Combo",
+        "brand": "ANYCUBIC",
+        "variantAttributes": {
+          "Include Machine": "Kobra S1 ACE 2 Pro Combo (4 colors)",
+          "Include Filament": "None",
+          "Region & Plug Type": "EU Plug"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "store.anycubic.com"
+      }
+    },
+    {
+      "snapshotId": "kobra-x-combo-us-s11",
+      "productId": "kobra-x-combo-us",
+      "identity": {
+        "brand": "Anycubic",
+        "model": "Kobra X Combo",
+        "gtin": "16204000737145",
+        "mustHave": {
+          "configuration": "Kobra X with the 7-colour multi-colour unit (Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Anycubic Kobra 3 Max V2",
+        "brand": "ANYCUBIC",
+        "gtin": "16204000737282",
+        "variantAttributes": {
+          "Include Machine": "Kobra 3 Max V2 (without ACE 2 Pro)",
+          "Include Filament": "None",
+          "Region & Plug Type": "Other"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "store.anycubic.com"
+      }
+    },
+    {
+      "snapshotId": "laifen-neo-de-s05",
+      "productId": "laifen-neo-de",
+      "identity": {
+        "brand": "Laifen",
+        "model": "Neo",
+        "mustHave": {
+          "colour": "Schwarz (black)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Laifen P3 Elektrorasierer",
+        "brand": "Laifen-DE",
+        "variantAttributes": {
+          "Version": "Standard Version",
+          "Color": "Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.laifentech.com"
+      }
+    },
+    {
+      "snapshotId": "laifen-neo-de-s06",
+      "productId": "laifen-neo-de",
+      "identity": {
+        "brand": "Laifen",
+        "model": "Neo",
+        "mustHave": {
+          "colour": "Schwarz (black)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Laifen P3 Elektrorasierer",
+        "brand": "Laifen-DE",
+        "variantAttributes": {
+          "Version": "Standard Version",
+          "Color": "White"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.laifentech.com"
+      }
+    },
+    {
+      "snapshotId": "laifen-neo-de-s07",
+      "productId": "laifen-neo-de",
+      "identity": {
+        "brand": "Laifen",
+        "model": "Neo",
+        "mustHave": {
+          "colour": "Schwarz (black)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Reiseetui für Laifen Wave-Zahnbürste",
+        "brand": "Laifen-DE",
+        "variantAttributes": {
+          "Color": "White"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.laifentech.com"
+      }
+    },
+    {
+      "snapshotId": "laifen-swift-us-s14",
+      "productId": "laifen-swift-us",
+      "identity": {
+        "brand": "Laifen",
+        "model": "Swift",
+        "gtin": "6976973852103",
+        "mustHave": {
+          "colour": "Matte Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Laifen Swift 4 High-Speed Hair Dryer",
+        "brand": "Laifen-US",
+        "gtin": "6942590704613",
+        "variantAttributes": {
+          "Color": "Polished Titanium"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.laifentech.com"
+      }
+    },
+    {
+      "snapshotId": "laifen-swift-us-s15",
+      "productId": "laifen-swift-us",
+      "identity": {
+        "brand": "Laifen",
+        "model": "Swift",
+        "gtin": "6976973852103",
+        "mustHave": {
+          "colour": "Matte Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Laifen Air Pro High-Speed Hair Dryer",
+        "brand": "Laifen-US",
+        "gtin": "6942590703821",
+        "variantAttributes": {
+          "Color": "Matt Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.laifentech.com"
+      }
+    },
+    {
+      "snapshotId": "laifen-swift-us-s16",
+      "productId": "laifen-swift-us",
+      "identity": {
+        "brand": "Laifen",
+        "model": "Swift",
+        "gtin": "6976973852103",
+        "mustHave": {
+          "colour": "Matte Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Laifen Air Pro High-Speed Hair Dryer",
+        "brand": "Laifen-US",
+        "gtin": "6942590703814",
+        "variantAttributes": {
+          "Color": "Sand Gold"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.laifentech.com"
+      }
+    },
+    {
+      "snapshotId": "liberty-4-nc-us-s20",
+      "productId": "liberty-4-nc-us",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Liberty 4 NC",
+        "mpn": "A3947Z11",
+        "gtin": "194644126124",
+        "mustHave": {
+          "colour": "Velvet Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Liberty 5 (Refurbished)",
+        "brand": "soundcoreusa",
+        "mpn": "A3957Z11-F0",
+        "gtin": "194644269845",
+        "variantAttributes": {
+          "Color": "Black"
+        },
+        "condition": "refurbished",
+        "sellerKind": "first_party",
+        "storeHost": "us.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "liberty-4-nc-us-s22",
+      "productId": "liberty-4-nc-us",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Liberty 4 NC",
+        "mpn": "A3947Z11",
+        "gtin": "194644126124",
+        "mustHave": {
+          "colour": "Velvet Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Liberty 4 NC Eartips Kit - Black",
+        "brand": "soundcoreus",
+        "mpn": "A3947Z11-94",
+        "variantAttributes": {
+          "Color": "Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "liberty-4-nc-us-s23",
+      "productId": "liberty-4-nc-us",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Liberty 4 NC",
+        "mpn": "A3947Z11",
+        "gtin": "194644126124",
+        "mustHave": {
+          "colour": "Velvet Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Liberty 4 NC Eartips Kit - Black",
+        "brand": "soundcoreus",
+        "mpn": "A3947Z21-94",
+        "variantAttributes": {
+          "Color": "White"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "liberty-4-pro-de-s04",
+      "productId": "liberty-4-pro-de",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Liberty 4 Pro",
+        "mpn": "A3954GF1",
+        "gtin": "194644297237",
+        "mustHave": {
+          "colour": "Schwarz Hochglanz (glossy black)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Liberty Buds | Kabellose Semi-in-Ear Earbuds mit ANC",
+        "brand": "Soundcore",
+        "mpn": "D1200G21",
+        "gtin": "194644242763",
+        "variantAttributes": {
+          "Farbe": "Weiß"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "liberty-4-pro-de-s05",
+      "productId": "liberty-4-pro-de",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Liberty 4 Pro",
+        "mpn": "A3954GF1",
+        "gtin": "194644297237",
+        "mustHave": {
+          "colour": "Schwarz Hochglanz (glossy black)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Liberty 5｜Dolby 3D-Audio True-Wireless Earbuds",
+        "brand": "Soundcore",
+        "mpn": "A3957G11",
+        "gtin": "194644230821",
+        "variantAttributes": {
+          "color": "Tinten-Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "liberty-4-pro-de-s07",
+      "productId": "liberty-4-pro-de",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Liberty 4 Pro",
+        "mpn": "A3954GF1",
+        "gtin": "194644297237",
+        "mustHave": {
+          "colour": "Schwarz Hochglanz (glossy black)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "soundcore Liberty 4 NC Ladecase",
+        "brand": "Soundcore",
+        "mpn": "A3947Z11-96",
+        "variantAttributes": {
+          "Color": "Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "makita-ddf487-de-s08",
+      "productId": "makita-ddf487-de",
+      "identity": {
+        "brand": "Makita",
+        "model": "DDF487Z",
+        "mpn": "DDF487Z",
+        "gtin": "0088381736558",
+        "mustHave": {
+          "kit": "tool only, no battery, charger or case"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DDF343SYX3 Akku Bohrschrauber 14.4 Volt 1.5 AH Li-ion + 59 tlg. Zubehörset",
+        "gtin": "0088381689755",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "makita-ddf487-de-s20",
+      "productId": "makita-ddf487-de",
+      "identity": {
+        "brand": "Makita",
+        "model": "DDF487Z",
+        "mpn": "DDF487Z",
+        "gtin": "0088381736558",
+        "mustHave": {
+          "kit": "tool only, no battery, charger or case"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "D-07945 Makita Wendemesser HM 82 mm",
+        "gtin": "0088381181600",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "makita-ddf487-de-s21",
+      "productId": "makita-ddf487-de",
+      "identity": {
+        "brand": "Makita",
+        "model": "DDF487Z",
+        "mpn": "DDF487Z",
+        "gtin": "0088381736558",
+        "mustHave": {
+          "kit": "tool only, no battery, charger or case"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "F-33652 Niete 40mm Verzinkt für Makita AT450H",
+        "gtin": "0088381294218",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnation.de"
+      }
+    },
+    {
+      "snapshotId": "makita-drill-ca-s10",
+      "productId": "makita-drill-ca",
+      "identity": {
+        "brand": "Makita",
+        "model": "DDF453Z",
+        "mpn": "DDF453ZQ",
+        "gtin": "088381659734",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Makita E-02543 16-Inch Segmented Diamond Blade for Dual-Purpose Concrete and Asphalt Cutting",
+        "brand": "MAKITA",
+        "mpn": "E-02543",
+        "gtin": "088381557245",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "makita-drill-ca-s11",
+      "productId": "makita-drill-ca",
+      "identity": {
+        "brand": "Makita",
+        "model": "DDF453Z",
+        "mpn": "DDF453ZQ",
+        "gtin": "088381659734",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Makita 18V LXT Lantern Radio with XPT, 260 Lumens Lantern, AM/FM Radio, Push-Button Tuner, Durable Jobsite Design, Tool Only (DMR055)",
+        "brand": "MAKITA",
+        "mpn": "DMR055",
+        "gtin": "088381763479",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "makita-drill-ca-s12",
+      "productId": "makita-drill-ca",
+      "identity": {
+        "brand": "Makita",
+        "model": "DDF453Z",
+        "mpn": "DDF453ZQ",
+        "gtin": "088381659734",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Makita 8-1/2 in. Sliding Compound Mitre Saw with LED Cut Line Guide, 12 in. Cut Capacity at 90°, Soft Start, Direct Drive Motor (LS0816F)",
+        "brand": "MAKITA",
+        "mpn": "LS0816F",
+        "gtin": "197050001627",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "makita-xfd131-s18",
+      "productId": "makita-xfd131",
+      "identity": {
+        "brand": "Makita",
+        "model": "XFD131",
+        "mpn": "XFD131",
+        "gtin": "088381866347",
+        "mustHave": {
+          "kit": "driver-drill kit with 3.0 Ah battery and charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "DeWalt XTREME 12V MAX* Brushless 3/8&quot; Drill/Driver Kit DCD701J1",
+        "mpn": "DW-DCD701J1",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.ohiopowertool.com"
+      }
+    },
+    {
+      "snapshotId": "makita-xfd131-s19",
+      "productId": "makita-xfd131",
+      "identity": {
+        "brand": "Makita",
+        "model": "XFD131",
+        "mpn": "XFD131",
+        "gtin": "088381866347",
+        "mustHave": {
+          "kit": "driver-drill kit with 3.0 Ah battery and charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Bosch Power Tools 18V Drill/Driver with 5-In-1 Flexiclick® System and (2) CORE18V® 4 Ah Advanced Power Battery GSR18V-800FCB24",
+        "mpn": "GSR18V-800FCB24",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.ohiopowertool.com"
+      }
+    },
+    {
+      "snapshotId": "makita-xfd131-s22",
+      "productId": "makita-xfd131",
+      "identity": {
+        "brand": "Makita",
+        "model": "XFD131",
+        "mpn": "XFD131",
+        "gtin": "088381866347",
+        "mustHave": {
+          "kit": "driver-drill kit with 3.0 Ah battery and charger"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Makita 18V LXT Lithium-Ion Brushless Cordless 1/2-in. Hammer Driver-Drill Kit, 5.0Ah (XPH14T)",
+        "brand": "Makita",
+        "gtin": "088381729314",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnut.com"
+      }
+    },
+    {
+      "snapshotId": "milwaukee-2953-20-s11",
+      "productId": "milwaukee-2953-20",
+      "identity": {
+        "brand": "Milwaukee",
+        "model": "M18 FUEL 1/4 in Hex Impact Driver",
+        "mpn": "2953-20",
+        "gtin": "045242637867",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Milwaukee M12 Heated Toughshell Jacket Black, Bare M100B",
+        "mpn": "CFG-M100B-20",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.ohiopowertool.com"
+      }
+    },
+    {
+      "snapshotId": "milwaukee-2953-20-s18",
+      "productId": "milwaukee-2953-20",
+      "identity": {
+        "brand": "Milwaukee",
+        "model": "M18 FUEL 1/4 in Hex Impact Driver",
+        "mpn": "2953-20",
+        "gtin": "045242637867",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Milwaukee M12 Subcompact Brushless 1/4&quot; Hex Impact Driver Kit 3450-22",
+        "mpn": "3450-22",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.ohiopowertool.com"
+      }
+    },
+    {
+      "snapshotId": "milwaukee-2953-20-s19",
+      "productId": "milwaukee-2953-20",
+      "identity": {
+        "brand": "Milwaukee",
+        "model": "M18 FUEL 1/4 in Hex Impact Driver",
+        "mpn": "2953-20",
+        "gtin": "045242637867",
+        "mustHave": {
+          "kit": "tool only"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Milwaukee M12 FUEL SURGE 1/4-in. Hex Hydraulic Impact Driver, Tool Only (2551-20)",
+        "brand": "Milwaukee",
+        "gtin": "045242536672",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.toolnut.com"
+      }
+    },
+    {
+      "snapshotId": "mx-master-3s-s20",
+      "productId": "mx-master-3s",
+      "identity": {
+        "brand": "Logitech",
+        "model": "MX Master 3S",
+        "mpn": "910-006556",
+        "gtin": "097855174819",
+        "mustHave": {
+          "colour": "Graphite (black)",
+          "edition": "standard (not for Business, not for Mac)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "MX Keys S Bluetooth Combo - MX Keys S Keyboard, MX Master 3S Mouse, MX Palm Rest",
+        "brand": "LOGITECH",
+        "mpn": "920-012274",
+        "gtin": "097855189936",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "mx-master-3s-s21",
+      "productId": "mx-master-3s",
+      "identity": {
+        "brand": "Logitech",
+        "model": "MX Master 3S",
+        "mpn": "910-006556",
+        "gtin": "097855174819",
+        "mustHave": {
+          "colour": "Graphite (black)",
+          "edition": "standard (not for Business, not for Mac)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Logitech MX Keys S Bluetooth Combo with MX Keys S Keyboard, MX Master 3S Mouse, and MX Palm Rest",
+        "brand": "LOGITECH",
+        "mpn": "7240531",
+        "gtin": "5053243176204",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "mx-master-3s-s22",
+      "productId": "mx-master-3s",
+      "identity": {
+        "brand": "Logitech",
+        "model": "MX Master 3S",
+        "mpn": "910-006556",
+        "gtin": "097855174819",
+        "mustHave": {
+          "colour": "Graphite (black)",
+          "edition": "standard (not for Business, not for Mac)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Logitech MX Master 4 Bluetooth Optical Mouse w/ Advanced Performance Haptic Feedback - Pale Grey",
+        "brand": "LOGITECH",
+        "mpn": "910-007559",
+        "gtin": "097855207579",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "mx-master-3s-de-s01",
+      "productId": "mx-master-3s-de",
+      "identity": {
+        "brand": "Logitech",
+        "model": "MX Master 3S",
+        "mpn": "910-006559",
+        "gtin": "5099206103726",
+        "mustHave": {
+          "colour": "Graphite",
+          "edition": "standard (not for Business, not for Mac)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Logitech MX Master 3S for Business, Maus",
+        "brand": "Logitech",
+        "mpn": "910-006582",
+        "gtin": "5099206107885",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.alternate.de"
+      }
+    },
+    {
+      "snapshotId": "mx-master-3s-de-s02",
+      "productId": "mx-master-3s-de",
+      "identity": {
+        "brand": "Logitech",
+        "model": "MX Master 3S",
+        "mpn": "910-006559",
+        "gtin": "5099206103726",
+        "mustHave": {
+          "colour": "Graphite",
+          "edition": "standard (not for Business, not for Mac)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Logitech MX Master 4, Maus",
+        "brand": "Logitech",
+        "mpn": "910-007562",
+        "gtin": "5099206133082",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.alternate.de"
+      }
+    },
+    {
+      "snapshotId": "mx-master-3s-de-s03",
+      "productId": "mx-master-3s-de",
+      "identity": {
+        "brand": "Logitech",
+        "model": "MX Master 3S",
+        "mpn": "910-006559",
+        "gtin": "5099206103726",
+        "mustHave": {
+          "colour": "Graphite",
+          "edition": "standard (not for Business, not for Mac)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Logitech MX Anywhere 3S, Maus",
+        "brand": "Logitech",
+        "mpn": "910-006929",
+        "gtin": "5099206111721",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.alternate.de"
+      }
+    },
+    {
+      "snapshotId": "ninja-af101-s10",
+      "productId": "ninja-af101",
+      "identity": {
+        "brand": "Ninja",
+        "model": "AF101C",
+        "mpn": "AF101C",
+        "mustHave": {
+          "capacity": "4 qt (3.8 L)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Ninja Crispi Pro 6-in-1 Countertop Glass Air Fryer - 5.7L (6QT) - Cyberspace",
+        "brand": "NINJA",
+        "mpn": "AS101CCY",
+        "gtin": "622356714822",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "ninja-af101-s18",
+      "productId": "ninja-af101",
+      "identity": {
+        "brand": "Ninja",
+        "model": "AF101C",
+        "mpn": "AF101C",
+        "mustHave": {
+          "capacity": "4 qt (3.8 L)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Ninja Flip Toaster 8-in-1 Oven & Air Fryer - 13.3L / 14.1 Qt - Stainless Steel",
+        "brand": "NINJA",
+        "mpn": "SP151C",
+        "gtin": "622356634199",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "ninja-af101-s19",
+      "productId": "ninja-af101",
+      "identity": {
+        "brand": "Ninja",
+        "model": "AF101C",
+        "mpn": "AF101C",
+        "mustHave": {
+          "capacity": "4 qt (3.8 L)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Ultima Cosa Presto Grande 5.5L Air Fryer",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.visions.ca"
+      }
+    },
+    {
+      "snapshotId": "ninja-creami-ca-s04",
+      "productId": "ninja-creami-ca",
+      "identity": {
+        "brand": "Ninja",
+        "model": "CREAMi NC301C",
+        "mpn": "NC301C",
+        "gtin": "622356571265",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Ninja CREAMi Swirl 0.47L Ice Cream Maker",
+        "brand": "NINJA",
+        "mpn": "NC701C",
+        "gtin": "622356641012",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "ninja-creami-ca-s05",
+      "productId": "ninja-creami-ca",
+      "identity": {
+        "brand": "Ninja",
+        "model": "CREAMi NC301C",
+        "mpn": "NC301C",
+        "gtin": "622356571265",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "NINJA PROCHEF WIRELESS THERMOMETER",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.visions.ca"
+      }
+    },
+    {
+      "snapshotId": "ninja-creami-ca-s06",
+      "productId": "ninja-creami-ca",
+      "identity": {
+        "brand": "Ninja",
+        "model": "CREAMi NC301C",
+        "mpn": "NC301C",
+        "gtin": "622356571265",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Silicone Mat for Ninja Creami NC701 - Non-Slip, Drip-Proof Mat Set of 2 with Raised Patterns, Accessories for Ninja Swirl & Creami Pint Containers",
+        "brand": "MYACUC",
+        "mpn": "730553069130",
+        "gtin": "730553069130",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "oneblade-ca-s01",
+      "productId": "oneblade-ca",
+      "identity": {
+        "brand": "Philips",
+        "model": "OneBlade 360 Face + Body",
+        "mpn": "QP2834/23",
+        "gtin": "075020112477",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Philips , OneBlade 360 Pro Face + Body Hybrid Electric Trimmer and Shaver , Black",
+        "brand": "PHILIPS",
+        "mpn": "QP6542/65",
+        "gtin": "075020118363",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "oneblade-ca-s02",
+      "productId": "oneblade-ca",
+      "identity": {
+        "brand": "Philips",
+        "model": "OneBlade 360 Face + Body",
+        "mpn": "QP2834/23",
+        "gtin": "075020112477",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Purchase 2 Quick Set 3 Replacement Blades for OneBlade – Stainless Steel",
+        "brand": "PURCHASE 2 QUICK",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "perlastore.ca"
+      }
+    },
+    {
+      "snapshotId": "oneblade-ca-s18",
+      "productId": "oneblade-ca",
+      "identity": {
+        "brand": "Philips",
+        "model": "OneBlade 360 Face + Body",
+        "mpn": "QP2834/23",
+        "gtin": "075020112477",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Philips OneBlade 360 Wet & Dry Face Trimmer/Shaver (QP2724/22)",
+        "brand": "Philips",
+        "mpn": "QP2724/22",
+        "gtin": "075020106971",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "oral-b-io5-s20",
+      "productId": "oral-b-io5",
+      "identity": {
+        "brand": "Oral-B",
+        "model": "iO Series 5",
+        "gtin": "069055133026",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Oral-B iO Series 10 Rechargeable Electric Toothbrush - Black",
+        "brand": "Oral-B",
+        "mpn": "iO M10.4B4.2A",
+        "gtin": "069055135075",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "oral-b-io5-s21",
+      "productId": "oral-b-io5",
+      "identity": {
+        "brand": "Oral-B",
+        "model": "iO Series 5",
+        "gtin": "069055133026",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Oral-B FlossAction Replacement Heads – 5 Pack",
+        "brand": "Oral-B",
+        "gtin": "069055126523",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "perlastore.ca"
+      }
+    },
+    {
+      "snapshotId": "oral-b-io5-s22",
+      "productId": "oral-b-io5",
+      "identity": {
+        "brand": "Oral-B",
+        "model": "iO Series 5",
+        "gtin": "069055133026",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Oral-B iO Series 6 Smart Electric Toothbrush - Grey Opal",
+        "brand": "Oral-B",
+        "mpn": "iOM6.1A6.1K",
+        "gtin": "069055131053",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "p1s-combo-s15",
+      "productId": "p1s-combo",
+      "identity": {
+        "brand": "Bambu Lab",
+        "model": "P1S Combo",
+        "gtin": "6937285506542",
+        "mustHave": {
+          "configuration": "P1S printer with AMS (Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Bambu Lab Complete Hotend Assembly for P1S/P1P",
+        "brand": "Bambu Lab",
+        "gtin": "6975337031802",
+        "variantAttributes": {
+          "Nozzle Type": "Hardened Steel 0.4mm"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "3dprintingcanada.com"
+      }
+    },
+    {
+      "snapshotId": "p1s-combo-s18",
+      "productId": "p1s-combo",
+      "identity": {
+        "brand": "Bambu Lab",
+        "model": "P1S Combo",
+        "gtin": "6937285506542",
+        "mustHave": {
+          "configuration": "P1S printer with AMS (Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "2510 5V Axial Fan Replacement for Bambu Lab X1C / P1P / P1S (Multiple Types)",
+        "brand": "NA",
+        "variantAttributes": {
+          "Printer Model": "P1 Series"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "west3d.com"
+      }
+    },
+    {
+      "snapshotId": "p1s-combo-s19",
+      "productId": "p1s-combo",
+      "identity": {
+        "brand": "Bambu Lab",
+        "model": "P1S Combo",
+        "gtin": "6937285506542",
+        "mustHave": {
+          "configuration": "P1S printer with AMS (Combo)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Bambu Lab Glass Cover Plate - X1 Series and P1S",
+        "brand": "Bambu Lab",
+        "gtin": "6975337030942",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "digitmakers.ca"
+      }
+    },
+    {
+      "snapshotId": "polylite-pla-us-s10",
+      "productId": "polylite-pla-us",
+      "identity": {
+        "brand": "Polymaker",
+        "model": "PolyLite PLA",
+        "mustHave": {
+          "colour": "Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PolyLite™ PC",
+        "brand": "Polymaker",
+        "gtin": "6938936712688",
+        "variantAttributes": {
+          "Color": "Transparent",
+          "Diameter": "1.75mm",
+          "Net Weight": "3kg"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.polymaker.com"
+      }
+    },
+    {
+      "snapshotId": "polylite-pla-us-s11",
+      "productId": "polylite-pla-us",
+      "identity": {
+        "brand": "Polymaker",
+        "model": "PolyLite PLA",
+        "mustHave": {
+          "colour": "Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Polymaker™ HT-PLA Pro",
+        "brand": "Polymaker",
+        "variantAttributes": {
+          "Color": "Black",
+          "Net Weight": "1kg"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.polymaker.com"
+      }
+    },
+    {
+      "snapshotId": "polylite-pla-us-s13",
+      "productId": "polylite-pla-us",
+      "identity": {
+        "brand": "Polymaker",
+        "model": "PolyLite PLA",
+        "mustHave": {
+          "colour": "Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PolyLite™ Metallic PLA Pro",
+        "brand": "Polymaker",
+        "gtin": "6938936714033",
+        "variantAttributes": {
+          "Color": "Metallic Black",
+          "Net Weight": "1kg"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.polymaker.com"
+      }
+    },
+    {
+      "snapshotId": "polyterra-pla-s10",
+      "productId": "polyterra-pla",
+      "identity": {
+        "brand": "Polymaker",
+        "model": "PolyTerra PLA",
+        "gtin": "6938936708209",
+        "mustHave": {
+          "colour": "Charcoal Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PolyTerra™ Dual PLA - Various Colors (1.75mm 1000g)",
+        "brand": "Polymaker",
+        "gtin": "6938936713388",
+        "variantAttributes": {
+          "Color": "Camouflage (Dark Green-Brown)"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "digitmakers.ca"
+      }
+    },
+    {
+      "snapshotId": "polyterra-pla-s12",
+      "productId": "polyterra-pla",
+      "identity": {
+        "brand": "Polymaker",
+        "model": "PolyTerra PLA",
+        "gtin": "6938936708209",
+        "mustHave": {
+          "colour": "Charcoal Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Polymaker Panchroma Gradient PLA 3D Printer Filament 1KG 1.75mm",
+        "brand": "Polymaker",
+        "gtin": "57306324",
+        "variantAttributes": {
+          "Color": "Fall"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "west3d.com"
+      }
+    },
+    {
+      "snapshotId": "polyterra-pla-s13",
+      "productId": "polyterra-pla",
+      "identity": {
+        "brand": "Polymaker",
+        "model": "PolyTerra PLA",
+        "gtin": "6938936708209",
+        "mustHave": {
+          "colour": "Charcoal Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Polymaker Panchroma Matte PLA",
+        "brand": "Polymaker",
+        "gtin": "6938936714927",
+        "variantAttributes": {
+          "Color": "Charcoal Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "voxelfactory.com"
+      }
+    },
+    {
+      "snapshotId": "raspberry-pi-5-s04",
+      "productId": "raspberry-pi-5",
+      "identity": {
+        "brand": "Raspberry Pi",
+        "model": "Raspberry Pi 5",
+        "gtin": "5056561803326",
+        "mustHave": {
+          "memory": "8 GB",
+          "configuration": "board only (no kit)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Raspberry Pi Compute Module 5 Lite - 8GB RAM",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.sparkfun.com"
+      }
+    },
+    {
+      "snapshotId": "raspberry-pi-5-s05",
+      "productId": "raspberry-pi-5",
+      "identity": {
+        "brand": "Raspberry Pi",
+        "model": "Raspberry Pi 5",
+        "gtin": "5056561803326",
+        "mustHave": {
+          "memory": "8 GB",
+          "configuration": "board only (no kit)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Vilros Raspberry Pi 5 Basic Starter Kit",
+        "brand": "Vilros",
+        "variantAttributes": {
+          "GB Capacity": "1GB",
+          "Case Style": "Aluminum Alloy W/ Passive+ Active Cooling"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.vilros.com"
+      }
+    },
+    {
+      "snapshotId": "raspberry-pi-5-s07",
+      "productId": "raspberry-pi-5",
+      "identity": {
+        "brand": "Raspberry Pi",
+        "model": "Raspberry Pi 5",
+        "gtin": "5056561803326",
+        "mustHave": {
+          "memory": "8 GB",
+          "configuration": "board only (no kit)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Raspberry Pi 5 Desktop Kit",
+        "brand": "Raspberry Pi",
+        "variantAttributes": {
+          "Size": "2GB"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.vilros.com"
+      }
+    },
+    {
+      "snapshotId": "raspberry-pi-5-de-s20",
+      "productId": "raspberry-pi-5-de",
+      "identity": {
+        "brand": "Raspberry Pi",
+        "model": "Raspberry Pi 5",
+        "mpn": "SC1112",
+        "gtin": "5056561803326",
+        "mustHave": {
+          "memory": "8 GB",
+          "configuration": "board only (no kit)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Raspberry Pi 400 Personal Computer Kit & Unit",
+        "brand": "Raspberry Pi",
+        "gtin": "633696493025",
+        "variantAttributes": {
+          "Ausführung": "Raspberry Pi 400 Personal Computer Kit",
+          "Ländervariante": "Deutsch (DE)"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "buyzero.de"
+      }
+    },
+    {
+      "snapshotId": "raspberry-pi-5-de-s21",
+      "productId": "raspberry-pi-5-de",
+      "identity": {
+        "brand": "Raspberry Pi",
+        "model": "Raspberry Pi 5",
+        "mpn": "SC1112",
+        "gtin": "5056561803326",
+        "mustHave": {
+          "memory": "8 GB",
+          "configuration": "board only (no kit)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "BerryBase Raspberry Pi 5 8GB, Active Cooler Starter Kit mit Aluminium Gehäuse",
+        "brand": "BerryBase",
+        "mpn": "RPI5-8-ACAC",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.berrybase.de"
+      }
+    },
+    {
+      "snapshotId": "raspberry-pi-5-de-s22",
+      "productId": "raspberry-pi-5-de",
+      "identity": {
+        "brand": "Raspberry Pi",
+        "model": "Raspberry Pi 5",
+        "mpn": "SC1112",
+        "gtin": "5056561803326",
+        "mustHave": {
+          "memory": "8 GB",
+          "configuration": "board only (no kit)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Raspberry Pi Zero W & WH",
+        "brand": "Raspberry Pi",
+        "gtin": "707565827164",
+        "variantAttributes": {
+          "Ausführung": "Ohne Stiftleiste (Pi Zero W)"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "buyzero.de"
+      }
+    },
+    {
+      "snapshotId": "remington-f5-us-s01",
+      "productId": "remington-f5-us",
+      "identity": {
+        "brand": "Remington",
+        "model": "F5 Power Series Foil Shaver",
+        "mpn": "F5-5800",
+        "gtin": "074590518665",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "F5 Power Series Shaver",
+        "brand": "Remington",
+        "mpn": "F5-5800BCDN",
+        "gtin": "074590518665",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.remingtonproducts.com"
+      }
+    },
+    {
+      "snapshotId": "remington-f5-us-s02",
+      "productId": "remington-f5-us",
+      "identity": {
+        "brand": "Remington",
+        "model": "F5 Power Series Foil Shaver",
+        "mpn": "F5-5800",
+        "gtin": "074590518665",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Foil Shaver Attachment for WPG4020 & WPG4030",
+        "brand": "Remington",
+        "mpn": "RP00253",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.remingtonproducts.com"
+      }
+    },
+    {
+      "snapshotId": "remington-f5-us-s03",
+      "productId": "remington-f5-us",
+      "identity": {
+        "brand": "Remington",
+        "model": "F5 Power Series Foil Shaver",
+        "mpn": "F5-5800",
+        "gtin": "074590518665",
+        "mustHave": {},
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Shaver Replacement Head",
+        "brand": "Remington",
+        "mpn": "SPF-XF50A",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.remingtonproducts.com"
+      }
+    },
+    {
+      "snapshotId": "satechi-hub-us-s01",
+      "productId": "satechi-hub-us",
+      "identity": {
+        "brand": "Satechi",
+        "model": "USB-C Multiport Adapter 8K With Ethernet V3",
+        "gtin": "879961008178",
+        "mustHave": {
+          "colour": "Space Gray"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "USB-C Multiport MX Adapter",
+        "brand": "Satechi",
+        "gtin": "810086360130",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.satechi.net"
+      }
+    },
+    {
+      "snapshotId": "satechi-hub-us-s08",
+      "productId": "satechi-hub-us",
+      "identity": {
+        "brand": "Satechi",
+        "model": "USB-C Multiport Adapter 8K With Ethernet V3",
+        "gtin": "879961008178",
+        "mustHave": {
+          "colour": "Space Gray"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Aluminum USB-C to USB-A 3.0 Adapter",
+        "brand": "Satechi",
+        "gtin": "879961005412",
+        "variantAttributes": {
+          "Color": "Silver"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.satechi.net"
+      }
+    },
+    {
+      "snapshotId": "satechi-hub-us-s09",
+      "productId": "satechi-hub-us",
+      "identity": {
+        "brand": "Satechi",
+        "model": "USB-C Multiport Adapter 8K With Ethernet V3",
+        "gtin": "879961008178",
+        "mustHave": {
+          "colour": "Space Gray"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "7-in-1 USB-C Slim Multiport Adapter with Ethernet",
+        "brand": "Satechi",
+        "gtin": "810086361496",
+        "variantAttributes": {
+          "Color": "Space Grey"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.satechi.net"
+      }
+    },
+    {
+      "snapshotId": "saturn-4-ultra-s10",
+      "productId": "saturn-4-ultra",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "Saturn 4 Ultra",
+        "mustHave": {
+          "resolution": "12K"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Elegoo Saturn 2 / 3 / 4 and 4 Ultra PFA Film (5 Pack) - Protect Your 3D Prints",
+        "brand": "ELEGOO",
+        "gtin": "97379284",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "west3d.com"
+      }
+    },
+    {
+      "snapshotId": "saturn-4-ultra-s11",
+      "productId": "saturn-4-ultra",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "Saturn 4 Ultra",
+        "mustHave": {
+          "resolution": "12K"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "LCD Screen for Saturn 4 & Saturn 4 Ultra",
+        "brand": "ELEGOO",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "ca.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "saturn-4-ultra-16k-de-s14",
+      "productId": "saturn-4-ultra-16k-de",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "Saturn 4 Ultra 16K",
+        "gtin": "6932704932582",
+        "mustHave": {
+          "configuration": "printer alone"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "LCD-Bildschirm für Saturn 4 Ultra 16K",
+        "brand": "ELEGOO",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "saturn-4-ultra-16k-de-s18",
+      "productId": "saturn-4-ultra-16k-de",
+      "identity": {
+        "brand": "ELEGOO",
+        "model": "Saturn 4 Ultra 16K",
+        "gtin": "6932704932582",
+        "mustHave": {
+          "configuration": "printer alone"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Saturn 4 Ultra",
+        "brand": "ELEGOO",
+        "gtin": "6932704932575",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.elegoo.com"
+      }
+    },
+    {
+      "snapshotId": "sn850x-2tb-s01",
+      "productId": "sn850x-2tb",
+      "identity": {
+        "brand": "Western Digital",
+        "model": "WD_BLACK SN850X",
+        "mpn": "WDS200T2X0E",
+        "gtin": "718037891408",
+        "mustHave": {
+          "capacity": "2 TB",
+          "heatsink": "without heatsink"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Western Digital WD_BLACK SN850X 2TB SSD M.2 2280 PCIe 7300MB/s Black Internal Hard Drive (WDS200T2X0E)",
+        "brand": "WD_BLACK",
+        "mpn": "WDS200T2X0E",
+        "gtin": "0718037891408",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "sn850x-2tb-s08",
+      "productId": "sn850x-2tb",
+      "identity": {
+        "brand": "Western Digital",
+        "model": "WD_BLACK SN850X",
+        "mpn": "WDS200T2X0E",
+        "gtin": "718037891408",
+        "mustHave": {
+          "capacity": "2 TB",
+          "heatsink": "without heatsink"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "WD SN850X 1TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops",
+        "brand": "WESTERN DIGITAL",
+        "mpn": "WDBB9H0010BNC-WRSN",
+        "gtin": "619659193065",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "sn850x-2tb-s09",
+      "productId": "sn850x-2tb",
+      "identity": {
+        "brand": "Western Digital",
+        "model": "WD_BLACK SN850X",
+        "mpn": "WDS200T2X0E",
+        "gtin": "718037891408",
+        "mustHave": {
+          "capacity": "2 TB",
+          "heatsink": "without heatsink"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "WD SN850X 2TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops",
+        "brand": "WESTERN DIGITAL",
+        "mpn": "WDBB9H0020BNC-WRSN",
+        "gtin": "619659193072",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "sonicare-4100-s04",
+      "productId": "sonicare-4100",
+      "identity": {
+        "brand": "Philips Sonicare",
+        "model": "ProtectiveClean 4100",
+        "mpn": "HX3681/24",
+        "gtin": "075020100764",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Philips Sonicare 6500 Series Electric Toothbrush HX7413/07 – 9 Modes, Pressure Sensor, Navy Blue",
+        "brand": "Philips Sonicare",
+        "gtin": "075020114556",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "perlastore.ca"
+      }
+    },
+    {
+      "snapshotId": "sonicare-4100-s05",
+      "productId": "sonicare-4100",
+      "identity": {
+        "brand": "Philips Sonicare",
+        "model": "ProtectiveClean 4100",
+        "mpn": "HX3681/24",
+        "gtin": "075020100764",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Philips Sonicare 4100 Electric Toothbrush (HX3681/24) - Black",
+        "brand": "PHILIPS",
+        "mpn": "HX3681/24",
+        "gtin": "075020100764",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "sonicare-4100-s07",
+      "productId": "sonicare-4100",
+      "identity": {
+        "brand": "Philips Sonicare",
+        "model": "ProtectiveClean 4100",
+        "mpn": "HX3681/24",
+        "gtin": "075020100764",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Philips Sonicare Optimal Clean Rechargeable Electric Toothbrush, 2-pack",
+        "brand": "PHILIPS",
+        "mpn": "2023",
+        "gtin": "075020104557",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "soundcore-space-q45-s18",
+      "productId": "soundcore-space-q45",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space Q45",
+        "mpn": "A3040011",
+        "gtin": "194644105235",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished Space One | Active Noise Cancelling Headphones",
+        "brand": "soundcoreca",
+        "mpn": "A3035J11-F0",
+        "gtin": "194644127015",
+        "variantAttributes": {
+          "Color": "Jet Black"
+        },
+        "condition": "refurbished",
+        "sellerKind": "first_party",
+        "storeHost": "ca.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "soundcore-space-q45-s21",
+      "productId": "soundcore-space-q45",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space Q45",
+        "mpn": "A3040011",
+        "gtin": "194644105235",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "soundcore Liberty 5 Pro Ear Tips Kit -- Color White, Blue, Pink",
+        "brand": "Soundcore",
+        "mpn": "D1203Z31-94",
+        "variantAttributes": {
+          "Color": "Blue"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "ca.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "soundcore-space-q45-s22",
+      "productId": "soundcore-space-q45",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space Q45",
+        "mpn": "A3040011",
+        "gtin": "194644105235",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Good) - Soundcore by Anker Space One Over-Ear Sound Isolating Bluetooth Headphones - Black",
+        "brand": "SOUNDCORE",
+        "mpn": "A3035Z11-5",
+        "gtin": "999004283178",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "space-2-us-s18",
+      "productId": "space-2-us",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space 2",
+        "mpn": "D1402Z11",
+        "gtin": "194644321956",
+        "mustHave": {
+          "colour": "Jet Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "soundcore Space 2 | Comfortable Noise Cancelling Headphones for All-Day Wear",
+        "brand": "Soundcore",
+        "mpn": "D1402Z11",
+        "gtin": "194644321956",
+        "variantAttributes": {
+          "Color": "Jet Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "space-2-us-s22",
+      "productId": "space-2-us",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space 2",
+        "mpn": "D1402Z11",
+        "gtin": "194644321956",
+        "mustHave": {
+          "colour": "Jet Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "soundcore Sport X20 | Comfortable In-Ear Sport Earbuds with Hook",
+        "brand": "soundcoreus",
+        "mpn": "A3968Z11",
+        "gtin": "194644186357",
+        "variantAttributes": {
+          "Color": "Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "space-2-us-s23",
+      "productId": "space-2-us",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space 2",
+        "mpn": "D1402Z11",
+        "gtin": "194644321956",
+        "mustHave": {
+          "colour": "Jet Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "soundcore Sport X20 | Comfortable In-Ear Sport Earbuds with Hook",
+        "brand": "soundcoreus",
+        "mpn": "A3968Z21",
+        "gtin": "194644193614",
+        "variantAttributes": {
+          "Color": "White"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "space-one-de-s20",
+      "productId": "space-one-de",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space One",
+        "mpn": "A3035G11",
+        "gtin": "194644127015",
+        "mustHave": {
+          "colour": "Black (Nachtschwarz)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Reise-Etui für Space One Pro",
+        "brand": "soundcorede",
+        "mpn": "A3062Z11-97",
+        "gtin": "194644037307",
+        "variantAttributes": {
+          "Color": "Grau"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "space-one-de-s21",
+      "productId": "space-one-de",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space One",
+        "mpn": "A3035G11",
+        "gtin": "194644127015",
+        "mustHave": {
+          "colour": "Black (Nachtschwarz)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Soundcore Space A40 Ohrstöpsel-Kit - Schwarz",
+        "brand": "Soundcore",
+        "mpn": "A3936011-94",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "space-one-de-s22",
+      "productId": "space-one-de",
+      "identity": {
+        "brand": "Soundcore",
+        "model": "Space One",
+        "mpn": "A3035G11",
+        "gtin": "194644127015",
+        "mustHave": {
+          "colour": "Black (Nachtschwarz)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "soundcore Kopfhörer-Case",
+        "brand": "soundcorede",
+        "mpn": "T00Z2011",
+        "gtin": "194644197155",
+        "variantAttributes": {
+          "Color": "Schwarz"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.soundcore.com"
+      }
+    },
+    {
+      "snapshotId": "sunlu-pla-plus-s20",
+      "productId": "sunlu-pla-plus",
+      "identity": {
+        "brand": "SUNLU",
+        "model": "PLA+",
+        "mustHave": {
+          "material": "PLA+ (PLA Plus), not PLA+ 2.0, Silk or High Speed",
+          "colour": "Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "SUNLU PLA New Color Collection, Fluorescent & Transparent Series 1.75mm 1KG",
+        "brand": "SUNLU Official Store",
+        "variantAttributes": {
+          "Shipment": "Ship to USA",
+          "Material": "PLA Fluorescent Series",
+          "Material/Color": "Fluorescent Yellow"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "store.sunlu.com"
+      }
+    },
+    {
+      "snapshotId": "sunlu-pla-plus-s21",
+      "productId": "sunlu-pla-plus",
+      "identity": {
+        "brand": "SUNLU",
+        "model": "PLA+",
+        "mustHave": {
+          "material": "PLA+ (PLA Plus), not PLA+ 2.0, Silk or High Speed",
+          "colour": "Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PLA+(PLA Plus) 3KG Large Spool 3D Printer Filament 3KG",
+        "brand": "Affordable 3D Printing Filaments and Resins",
+        "variantAttributes": {
+          "Shipment": "Ship to USA",
+          "Color": "PLA+ Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "store.sunlu.com"
+      }
+    },
+    {
+      "snapshotId": "sunlu-pla-plus-s22",
+      "productId": "sunlu-pla-plus",
+      "identity": {
+        "brand": "SUNLU",
+        "model": "PLA+",
+        "mustHave": {
+          "material": "PLA+ (PLA Plus), not PLA+ 2.0, Silk or High Speed",
+          "colour": "Black",
+          "diameter": "1.75 mm",
+          "weight": "1 kg"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "PLA+(PLA Plus) 3KG Large Spool 3D Printer Filament 3KG",
+        "brand": "Affordable 3D Printing Filaments and Resins",
+        "variantAttributes": {
+          "Shipment": "Ship to USA",
+          "Color": "PLA+ White"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "store.sunlu.com"
+      }
+    },
+    {
+      "snapshotId": "ugreen-nexode-65w-de-s01",
+      "productId": "ugreen-nexode-65w-de",
+      "identity": {
+        "brand": "UGREEN",
+        "model": "Nexode Pro USB-C Mini Ladegerät 65W 3-Port",
+        "mpn": "25261",
+        "gtin": "6941876222612",
+        "mustHave": {
+          "power": "65 W",
+          "ports": "3"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "UGREEN x Honkai: Star Rail Nexode Air Mini-Ladegerät (65 W, GaN, USB-C-Kabel, TÜV-zertifiziert)",
+        "brand": "UGREEN DE",
+        "mpn": "95437SR",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.ugreen.com"
+      }
+    },
+    {
+      "snapshotId": "ugreen-nexode-65w-de-s02",
+      "productId": "ugreen-nexode-65w-de",
+      "identity": {
+        "brand": "UGREEN",
+        "model": "Nexode Pro USB-C Mini Ladegerät 65W 3-Port",
+        "mpn": "25261",
+        "gtin": "6941876222612",
+        "mustHave": {
+          "power": "65 W",
+          "ports": "3"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "UGREEN Nexode Desktop Ladegerät (200W, 8-Port, GaN)",
+        "brand": "UGREEN DE",
+        "mpn": "55324",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.ugreen.com"
+      }
+    },
+    {
+      "snapshotId": "ugreen-nexode-65w-de-s03",
+      "productId": "ugreen-nexode-65w-de",
+      "identity": {
+        "brand": "UGREEN",
+        "model": "Nexode Pro USB-C Mini Ladegerät 65W 3-Port",
+        "mpn": "25261",
+        "gtin": "6941876222612",
+        "mustHave": {
+          "power": "65 W",
+          "ports": "3"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "UGREEN Set-Angebot: 160W Ladegerät + 240W USB-C Kabel",
+        "brand": "UGREEN DE",
+        "mpn": "65637＋65867",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "de.ugreen.com"
+      }
+    },
+    {
+      "snapshotId": "ugreen-nexode-65w-us-s12",
+      "productId": "ugreen-nexode-65w-us",
+      "identity": {
+        "brand": "UGREEN",
+        "model": "Nexode 65W 3-Port Travel Charger",
+        "mpn": "90409",
+        "gtin": "6957303894093",
+        "mustHave": {
+          "configuration": "charger only (no cable)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "UGREEN Nexode Air USB-C Charger (65W, GaN, Foldable Plug)",
+        "brand": "UGREEN US",
+        "mpn": "35478",
+        "variantAttributes": {
+          "Color": "Orange"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.ugreen.com"
+      }
+    },
+    {
+      "snapshotId": "ugreen-nexode-65w-us-s13",
+      "productId": "ugreen-nexode-65w-us",
+      "identity": {
+        "brand": "UGREEN",
+        "model": "Nexode 65W 3-Port Travel Charger",
+        "mpn": "90409",
+        "gtin": "6957303894093",
+        "mustHave": {
+          "configuration": "charger only (no cable)"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "UGREEN Nexode Air USB-C Charger (65W, GaN, Foldable Plug)",
+        "brand": "UGREEN US",
+        "mpn": "75813",
+        "variantAttributes": {
+          "Color": "Space Gray"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "us.ugreen.com"
+      }
+    },
+    {
+      "snapshotId": "wf-1000xm5-s10",
+      "productId": "wf-1000xm5",
+      "identity": {
+        "brand": "Sony",
+        "model": "WF-1000XM5",
+        "mpn": "WF1000XM5/B",
+        "gtin": "027242930391",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Excellent) - Sony WF-1000XM5 Truly Wireless Bluetooth Noise Cancelling Earbuds with Alexa - Black",
+        "brand": "SONY",
+        "mpn": "WF1000XM5/B",
+        "gtin": "726358898013",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "wf-1000xm5-s11",
+      "productId": "wf-1000xm5",
+      "identity": {
+        "brand": "Sony",
+        "model": "WF-1000XM5",
+        "mpn": "WF1000XM5/B",
+        "gtin": "027242930391",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sony WH-CH530 Headphones Mint",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.visions.ca"
+      }
+    },
+    {
+      "snapshotId": "wf-1000xm5-s13",
+      "productId": "wf-1000xm5",
+      "identity": {
+        "brand": "Sony",
+        "model": "WF-1000XM5",
+        "mpn": "WF1000XM5/B",
+        "gtin": "027242930391",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Refurbished (Good) - Sony WF1000XM5 In-Ear Noise Cancelling True Wireless Earbuds - Black",
+        "brand": "SONY",
+        "mpn": "WF1000XM5/B",
+        "gtin": "999004555770",
+        "variantAttributes": {},
+        "condition": "refurbished",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "wh-1000xm5-s04",
+      "productId": "wh-1000xm5",
+      "identity": {
+        "brand": "Sony",
+        "model": "WH-1000XM5",
+        "mpn": "WH1000XM5/B",
+        "gtin": "027242923232",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sony in Ear Headphones",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.visions.ca"
+      }
+    },
+    {
+      "snapshotId": "wh-1000xm5-s05",
+      "productId": "wh-1000xm5",
+      "identity": {
+        "brand": "Sony",
+        "model": "WH-1000XM5",
+        "mpn": "WH1000XM5/B",
+        "gtin": "027242923232",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sony WH-1000XM5 Noise-Canceling Wireless Over-Ear Headphones (Black)",
+        "brand": "SONY",
+        "mpn": "SOWH1000XM5",
+        "gtin": "758835611075",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "marketplace_seller",
+        "storeHost": "www.bestbuy.ca"
+      }
+    },
+    {
+      "snapshotId": "wh-1000xm5-s06",
+      "productId": "wh-1000xm5",
+      "identity": {
+        "brand": "Sony",
+        "model": "WH-1000XM5",
+        "mpn": "WH1000XM5/B",
+        "gtin": "027242923232",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Sony WH-CH530 Headphones Mint",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.visions.ca"
+      }
+    },
+    {
+      "snapshotId": "wh-1000xm5-us-s18",
+      "productId": "wh-1000xm5-us",
+      "identity": {
+        "brand": "Sony",
+        "model": "WH-1000XM5",
+        "mpn": "WH1000XM5/B",
+        "gtin": "027242923232",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Strauss & Wagner Earpad Covers for Sony WH-1000XM5 - Silicone",
+        "brand": "Strauss & Wagner",
+        "gtin": "609788732983",
+        "variantAttributes": {
+          "Color": "Black"
+        },
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.audio46.com"
+      }
+    },
+    {
+      "snapshotId": "wh-1000xm5-us-s21",
+      "productId": "wh-1000xm5-us",
+      "identity": {
+        "brand": "Sony",
+        "model": "WH-1000XM5",
+        "mpn": "WH1000XM5/B",
+        "gtin": "027242923232",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Strauss & Wagner Dakar 3.5mm to L-Shape 3.5mm Coiled Headphone Cable With Microphone for SONY WH-1000XM3/XM4/XM5/XM6, Skullcandy Crusher/HESH 2.0, Philips SHP9500/9600",
+        "brand": "Strauss & Wagner",
+        "gtin": "609788730460",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.audio46.com"
+      }
+    },
+    {
+      "snapshotId": "wh-1000xm5-us-s22",
+      "productId": "wh-1000xm5-us",
+      "identity": {
+        "brand": "Sony",
+        "model": "WH-1000XM5",
+        "mpn": "WH1000XM5/B",
+        "gtin": "027242923232",
+        "mustHave": {
+          "colour": "Black"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "Strauss & Wagner Micera 3.5mm TRRS to 3.5mm TRS Headphone Cable with Boom Microphone & PC Audio/Mic Splitter for Sony MDR-1000X, WH-H800, WH-1000XM Series & More",
+        "brand": "Strauss & Wagner",
+        "gtin": "604634129160",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.audio46.com"
+      }
+    },
+    {
+      "snapshotId": "wmf-lono-kettle-de-s04",
+      "productId": "wmf-lono-kettle-de",
+      "identity": {
+        "brand": "WMF",
+        "model": "Lono Wasserkocher 1,6 l",
+        "mustHave": {
+          "capacity": "1.6 L"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "WMF Lono Waffeleisen Edition",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.wmf.com"
+      }
+    },
+    {
+      "snapshotId": "wmf-lono-kettle-de-s08",
+      "productId": "wmf-lono-kettle-de",
+      "identity": {
+        "brand": "WMF",
+        "model": "Lono Wasserkocher 1,6 l",
+        "mustHave": {
+          "capacity": "1.6 L"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "WMF Lono Silk Espresso Siebträgermaschine",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.wmf.com"
+      }
+    },
+    {
+      "snapshotId": "wmf-lono-kettle-de-s09",
+      "productId": "wmf-lono-kettle-de",
+      "identity": {
+        "brand": "WMF",
+        "model": "Lono Wasserkocher 1,6 l",
+        "mustHave": {
+          "capacity": "1.6 L"
+        },
+        "condition": "new",
+        "packQuantity": 1
+      },
+      "listing": {
+        "title": "WMF Lono Glas-Wasserkocher 1.7 l",
+        "variantAttributes": {},
+        "condition": "new",
+        "sellerKind": "first_party",
+        "storeHost": "www.wmf.com"
+      }
+    }
+  ]
+}

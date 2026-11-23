@@ -1,0 +1,522 @@
+[
+  {
+    "id": "satechi-hub-us-s01",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/usb-c-multiport-mx-adapter",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:34.356Z"
+    },
+    "listing": {
+      "title": "USB-C Multiport MX Adapter",
+      "brand": "Satechi",
+      "gtin": "810086360130",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "88.19",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s02",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/aluminum-type-c-pro-hub-adapter-with-ethernet?variant=2265460277257",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:37.138Z"
+    },
+    "listing": {
+      "title": "Type-C Pro Hub Adapter with Ethernet",
+      "brand": "Satechi",
+      "gtin": "879961007331",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "62.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s03",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/aluminum-type-c-pro-hub-adapter-with-ethernet?variant=2265460244489",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:37.138Z"
+    },
+    "listing": {
+      "title": "Type-C Pro Hub Adapter with Ethernet",
+      "brand": "Satechi",
+      "gtin": "879961007324",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "62.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s04",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/extendview-usb4-dual-hdmi-multiport-adapter",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:38.560Z"
+    },
+    "listing": {
+      "title": "ExtendView™ USB4 Dual HDMI Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086364114",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "119.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s05",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/usb-c-multiport-adapter-8k-with-ethernet-v3?variant=40922816348248",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:40.068Z"
+    },
+    "listing": {
+      "title": "USB-C Multiport Adapter 8K With Ethernet V3",
+      "brand": "Satechi",
+      "gtin": "879961008178",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s06",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/usb-c-multiport-adapter-8k-with-ethernet-v3?variant=40922816381016",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:40.068Z"
+    },
+    "listing": {
+      "title": "USB-C Multiport Adapter 8K With Ethernet V3",
+      "brand": "Satechi",
+      "gtin": "879961008192",
+      "variantAttributes": {
+        "Color": "Midnight"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s07",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/aluminum-usb-c-to-usb-a-adapter?variant=27300143433",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:41.290Z"
+    },
+    "listing": {
+      "title": "Aluminum USB-C to USB-A 3.0 Adapter",
+      "brand": "Satechi",
+      "gtin": "879961005436",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "14.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s08",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/aluminum-usb-c-to-usb-a-adapter?variant=27300143369",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:41.290Z"
+    },
+    "listing": {
+      "title": "Aluminum USB-C to USB-A 3.0 Adapter",
+      "brand": "Satechi",
+      "gtin": "879961005412",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "10.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s09",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/7-in-1-usb-c-slim-multiport-adapter-with-ethernet?variant=43932203188312",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:42.527Z"
+    },
+    "listing": {
+      "title": "7-in-1 USB-C Slim Multiport Adapter with Ethernet",
+      "brand": "Satechi",
+      "gtin": "810086361496",
+      "variantAttributes": {
+        "Color": "Space Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "55.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s10",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/7-in-1-usb-c-slim-multiport-adapter-with-ethernet?variant=43932203221080",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:42.527Z"
+    },
+    "listing": {
+      "title": "7-in-1 USB-C Slim Multiport Adapter with Ethernet",
+      "brand": "Satechi",
+      "gtin": "810086361502",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "55.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s11",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/usb-c-snap-hub?variant=44267709005912",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:43.915Z"
+    },
+    "listing": {
+      "title": "USB-C Snap Hub",
+      "brand": "Satechi",
+      "gtin": "810086364183",
+      "variantAttributes": {
+        "Colors": "Citrus"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "31.49",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s12",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/usb-c-snap-hub?variant=44267709038680",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:43.915Z"
+    },
+    "listing": {
+      "title": "USB-C Snap Hub",
+      "brand": "Satechi",
+      "gtin": "810086364190",
+      "variantAttributes": {
+        "Colors": "Blush"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "31.49",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s13",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/6-in-1-usb-c-slim-multiport-adapter?variant=43932203090008",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:45.183Z"
+    },
+    "listing": {
+      "title": "6-in-1 USB-C Slim Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086361755",
+      "variantAttributes": {
+        "Color": "Space Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "48.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s14",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/6-in-1-usb-c-slim-multiport-adapter?variant=43932203122776",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:45.183Z"
+    },
+    "listing": {
+      "title": "6-in-1 USB-C Slim Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086361762",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "48.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s15",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/type-c-multi-port-adapter-with-ethernet-v2?variant=45020091145",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:46.497Z"
+    },
+    "listing": {
+      "title": "Type-C Multi-Port Adapter 4K with Ethernet V2",
+      "brand": "Satechi",
+      "gtin": "879961007140",
+      "variantAttributes": {
+        "Color": "Space Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "62.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s16",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/type-c-multi-port-adapter-with-ethernet-v2?variant=45020091081",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:46.497Z"
+    },
+    "listing": {
+      "title": "Type-C Multi-Port Adapter 4K with Ethernet V2",
+      "brand": "Satechi",
+      "gtin": "879961007133",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "62.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s17",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/4-in-1-usb-c-slim-multiport-adapter-4k?variant=43932203319384",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:47.920Z"
+    },
+    "listing": {
+      "title": "4-in-1 USB-C Slim Multiport Adapter 4K",
+      "brand": "Satechi",
+      "gtin": "810086361700",
+      "variantAttributes": {
+        "Color": "Space Grey"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "41.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s18",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/4-in-1-usb-c-slim-multiport-adapter-4k?variant=43932203352152",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:47.920Z"
+    },
+    "listing": {
+      "title": "4-in-1 USB-C Slim Multiport Adapter 4K",
+      "brand": "Satechi",
+      "gtin": "810086361717",
+      "variantAttributes": {
+        "Color": "Silver"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "41.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s19",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/onthego-7-in-1-multiport-adapter",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:49.260Z"
+    },
+    "listing": {
+      "title": "OntheGo™ 7-in-1 Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086362622",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "41.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s20",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/onthego-5-in-1-multiport-adapter?variant=44267671093336",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:50.721Z"
+    },
+    "listing": {
+      "title": "OntheGo™ 5-in-1 Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086364152",
+      "variantAttributes": {
+        "Color": "Citrus"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "31.49",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s21",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/onthego-5-in-1-multiport-adapter?variant=44267671126104",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:50.721Z"
+    },
+    "listing": {
+      "title": "OntheGo™ 5-in-1 Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086364145",
+      "variantAttributes": {
+        "Color": "Blush"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "31.49",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "satechi-hub-us-s22",
+    "productId": "satechi-hub-us",
+    "capture": {
+      "url": "https://www.satechi.net/products/13-in-1-usb-c-triple-display-multiport-adapter",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:04:51.979Z"
+    },
+    "listing": {
+      "title": "13-in-1 USB-C Triple Display Multiport Adapter",
+      "brand": "Satechi",
+      "gtin": "810086361922",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.satechi.net"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  }
+]

@@ -1,0 +1,195 @@
+const S = (src, ...qs) => qs.map((q) => ({ src, q }));
+export const PRODUCTS = [
+  // 3d-printing
+  {
+    id: 'a1-mini',
+    country: 'CA',
+    category: '3d-printing',
+    relevant: 'a1|bambu',
+    preferVariant: '^(a1 mini|printer|3d printer|default)',
+    otherVariant: true,
+    queries: [
+      ...S('bby', 'bambu lab a1 mini'),
+      ...S('shopify:west3d.com', 'a1 mini'),
+      ...S('shopify:caz3d.com', 'a1 mini'),
+      ...S('shopify:3dprintingcanada.com', 'a1 mini'),
+      ...S('shopify:digitmakers.ca', 'a1 mini'),
+    ],
+  },
+  {
+    id: 'p1s-combo',
+    country: 'CA',
+    category: '3d-printing',
+    relevant: 'p1s|p1p|p2s|bambu',
+    preferVariant: 'combo',
+    otherVariant: true,
+    queries: [
+      ...S('bby', 'bambu lab p1s combo'),
+      ...S('shopify:3dprintingcanada.com', 'p1s'),
+      ...S('shopify:west3d.com', 'p1s'),
+      ...S('shopify:digitmakers.ca', 'p1s'),
+      ...S('shopify:caz3d.com', 'p1s'),
+    ],
+  },
+  {
+    id: 'polyterra-pla',
+    country: 'CA',
+    category: '3d-printing',
+    relevant: 'polyterra|panchroma|polymaker|polylite',
+    preferVariant: 'black',
+    otherVariant: true,
+    queries: [
+      ...S('shopify:digitmakers.ca', 'polyterra'),
+      ...S('shopify:west3d.com', 'polyterra'),
+      ...S('shopify:voxelfactory.com', 'panchroma'),
+      ...S('shopify:filaments.ca', 'polyterra'),
+      ...S('bby', 'polymaker polyterra pla'),
+    ],
+  },
+  {
+    id: 'saturn-4-ultra',
+    country: 'CA',
+    category: '3d-printing',
+    relevant: 'saturn',
+    preferVariant: 'grey|gray|default',
+    otherVariant: false,
+    queries: [
+      ...S('shopify:ca.elegoo.com', 'saturn 4 ultra'),
+      ...S('shopify:west3d.com', 'saturn 4'),
+      ...S('shopify:3dprintingcanada.com', 'saturn 4'),
+      ...S('bby', 'elegoo saturn 4 ultra'),
+      ...S('shopify:ca.elegoo.com', 'saturn 4'),
+    ],
+  },
+  // computing
+  {
+    id: 'mx-master-3s',
+    country: 'CA',
+    category: 'computing',
+    relevant: 'mx|logitech',
+    queries: [
+      ...S('bby', 'logitech mx master 3s'),
+      ...S('magento:www.visions.ca', 'logitech mx master'),
+    ],
+  },
+  {
+    id: '990-pro-2tb',
+    country: 'CA',
+    category: 'computing',
+    relevant: '990|samsung',
+    queries: [...S('bby', 'samsung 990 pro 2tb'), ...S('bby', 'samsung 990 pro')],
+  },
+  {
+    id: 'sn850x-2tb',
+    country: 'CA',
+    category: 'computing',
+    relevant: 'sn850|wd|western',
+    queries: [...S('bby', 'wd black sn850x 2tb'), ...S('bby', 'wd_black sn850x')],
+  },
+  // audio
+  {
+    id: 'wh-1000xm5',
+    country: 'CA',
+    category: 'audio',
+    relevant: 'sony|1000x',
+    queries: [...S('bby', 'sony wh-1000xm5'), ...S('magento:www.visions.ca', 'sony wh-1000xm5')],
+  },
+  {
+    id: 'airpods-pro-2',
+    country: 'CA',
+    category: 'audio',
+    relevant: 'airpods',
+    queries: [...S('bby', 'airpods pro 2'), ...S('magento:www.visions.ca', 'airpods')],
+  },
+  {
+    id: 'soundcore-space-q45',
+    country: 'CA',
+    category: 'audio',
+    relevant: 'soundcore|space|anker',
+    preferVariant: 'black',
+    otherVariant: true,
+    queries: [
+      ...S('shopify:ca.soundcore.com', 'space q45'),
+      ...S('bby', 'soundcore space q45'),
+      ...S('shopify:ca.soundcore.com', 'space one'),
+    ],
+  },
+  // kitchen-appliances
+  {
+    id: 'instant-pot-duo',
+    country: 'CA',
+    category: 'kitchen-appliances',
+    relevant: 'instant|duo',
+    queries: [
+      ...S('bby', 'instant pot duo 6 quart'),
+      ...S('magento:www.visions.ca', 'instant pot'),
+    ],
+  },
+  {
+    id: 'keurig-k-mini',
+    country: 'CA',
+    category: 'kitchen-appliances',
+    relevant: 'keurig|k-mini',
+    queries: [...S('bby', 'keurig k-mini'), ...S('bby', 'keurig k mini black')],
+  },
+  {
+    id: 'ninja-af101',
+    country: 'CA',
+    category: 'kitchen-appliances',
+    relevant: 'ninja|air fryer',
+    queries: [
+      ...S('bby', 'ninja af101'),
+      ...S('bby', 'ninja air fryer'),
+      ...S('magento:www.visions.ca', 'ninja air fryer'),
+    ],
+  },
+  // power-tools
+  {
+    id: 'dcd793d1',
+    country: 'CA',
+    category: 'power-tools',
+    relevant: 'dewalt|dcd',
+    queries: [
+      ...S('bby', 'dewalt dcd793d1'),
+      ...S('woo:costcutindustrial.ca', 'dcd793'),
+      ...S('bby', 'dewalt 20v drill driver'),
+      ...S('woo:costcutindustrial.ca', 'dewalt drill'),
+    ],
+  },
+  {
+    id: 'dcf887',
+    country: 'CA',
+    category: 'power-tools',
+    relevant: 'dewalt|dcf',
+    queries: [
+      ...S('bby', 'dewalt dcf887'),
+      ...S('woo:costcutindustrial.ca', 'dcf887'),
+      ...S('bby', 'dewalt impact driver'),
+      ...S('woo:costcutindustrial.ca', 'impact driver'),
+    ],
+  },
+  // personal-care
+  {
+    id: 'sonicare-4100',
+    country: 'CA',
+    category: 'personal-care',
+    relevant: 'sonicare|philips|toothbrush',
+    queries: [
+      ...S('bby', 'sonicare 4100'),
+      ...S('shopify:perlastore.ca', 'sonicare 4100'),
+      ...S('bby', 'philips sonicare'),
+      ...S('shopify:perlastore.ca', 'sonicare'),
+    ],
+  },
+  {
+    id: 'oral-b-io5',
+    country: 'CA',
+    category: 'personal-care',
+    relevant: 'oral-b|oral b|io',
+    queries: [
+      ...S('bby', 'oral-b io series 5'),
+      ...S('shopify:perlastore.ca', 'oral-b io'),
+      ...S('bby', 'oral-b io'),
+    ],
+  },
+];

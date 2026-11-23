@@ -1,0 +1,478 @@
+[
+  {
+    "id": "wh-1000xm5-s01",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/16162187",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:32.179Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/B",
+      "gtin": "027242923232",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "349.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s02",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-active-subwoofer-sacs9m2",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony Active Subwoofer",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "248",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s03",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/17540636",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:33.602Z"
+    },
+    "listing": {
+      "title": "Open Box - Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/B",
+      "gtin": "999004113796",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "299.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s04",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-in-ear-headphones-mdrex15apb",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony in Ear Headphones",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s05",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-noise-canceling-wireless-over-ear-headphones-black/18217759",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:35.168Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM5 Noise-Canceling Wireless Over-Ear Headphones (Black)",
+      "brand": "SONY",
+      "mpn": "SOWH1000XM5",
+      "gtin": "758835611075",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "374.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s06",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch530-headphones-mint-whch530-g",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH530 Headphones Mint",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s07",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/17725174",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:36.431Z"
+    },
+    "listing": {
+      "title": "Open Box - Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/B",
+      "gtin": "999004194856",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "269.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s08",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch530-headphones-blue-whch530-l",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH530 Headphones Blue",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s09",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-silver/16162186",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:37.788Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Silver",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/S",
+      "gtin": "027242923249",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "349.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s10",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch730n-headphones-white-whch730n-w",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH730N Headphones White",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "138",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s11",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-blue/17039478",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:39.364Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Blue",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/L",
+      "gtin": "027242923911",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "349.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s12",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-in-ear-head-phones-mdrex15apw",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony In-Ear Headphones",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s13",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-smoky-pink/18477938",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:40.314Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Smoky Pink",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/P",
+      "gtin": "027242931510",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "349.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s14",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch530-headphones-pink-whch530-p",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH530 Headphones Pink",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s15",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm6-over-ear-noise-cancelling-bluetooth-headphones-black/19320383",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:41.419Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM6 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+      "brand": "SONY",
+      "mpn": "WH1000XM6B.UC",
+      "gtin": "027242930698",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "479.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s16",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch730n-headphones-blue-whch730n-l",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH730N Headphones Blue",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "138",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s17",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-open-box/19604076",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:42.952Z"
+    },
+    "listing": {
+      "title": "Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - OPEN BOX",
+      "brand": "SONY",
+      "mpn": "WH-1000XM5",
+      "gtin": "791126297237",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "309.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s18",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-wh-ch730n-headphones-black-whch730n-b",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony WH-CH730N Headphones Black",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "138",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s19",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-fair-sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/17724908",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:44.165Z"
+    },
+    "listing": {
+      "title": "Refurbished (Fair) - Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/B",
+      "gtin": "999004194368",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s20",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.visions.ca/sony-bravia-theatre-trio-hta8",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:42:48.038Z"
+    },
+    "listing": {
+      "title": "Sony Bravia Theatre Trio",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "1498",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s21",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-black/18142426",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:45.528Z"
+    },
+    "listing": {
+      "title": "Refurbished(Excellent) - Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Black",
+      "brand": "SONY",
+      "mpn": "WH1000XM5/B",
+      "gtin": "703387135302",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "330",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "wh-1000xm5-s22",
+    "productId": "wh-1000xm5",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-sony-wh-1000xm5-over-ear-noise-cancelling-bluetooth-headphones-blue/17932849",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:46.964Z"
+    },
+    "listing": {
+      "title": "Open Box - Sony WH-1000XM5 Over-Ear Noise Cancelling Bluetooth Headphones - Blue",
+      "brand": "SONY",
+      "mpn": "wh-1000xm5",
+      "gtin": "814561013245",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "424.85",
+      "currency": "CAD"
+    }
+  }
+]

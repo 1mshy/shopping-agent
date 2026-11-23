@@ -1,0 +1,481 @@
+[
+  {
+    "id": "ninja-af101-s01",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-air-fryer-3-79l-black-open-box/15928516",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.899Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer - 3.79L - Black - Open Box",
+      "brand": "NINJA",
+      "mpn": "AF100WM/AF101",
+      "gtin": "617285152395",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s02",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-foodi-4-in-1-dual-zone-air-fryer-9-46kg-10qt-black-only-at-best-buy/16057683",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:24.046Z"
+    },
+    "listing": {
+      "title": "Ninja Foodi 4-in-1 Dual Zone Air Fryer - 9.46kg/10Qt - Black - Only at Best Buy",
+      "brand": "NINJA",
+      "mpn": "DZ300C",
+      "gtin": "622356597951",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s03",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-pro-xl-6-in-1-air-fryer-6-5qt-af181c",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Ninja Pro XL 6 in 1 Air Fryer 6.5qt.",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s04",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-air-fryer-pro-4-in-1-with-5-qt-capacity-air-fry-roast-reheat-dehydrate-air-crisp-technology-nonstick-basket-crisper-plate-grey-af141/18172012",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:25.506Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer Pro 4-in-1 with 5 QT Capacity, Air Fry, Roast, Reheat, Dehydrate, Air Crisp Technology, Nonstick Basket & Crisper Plate, Grey, AF141",
+      "brand": "NINJA",
+      "mpn": "AF141",
+      "gtin": "622356635042",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "257.7",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s05",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/18480147",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:26.705Z"
+    },
+    "listing": {
+      "title": "Ninja Crispi 4-in-1 Portable Glass Air Fryer Cooking System",
+      "brand": "NINJA",
+      "mpn": "FN101CGY",
+      "gtin": "622356662147",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s06",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-air-fryer-xl-5-5-quart-blacksilver",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer XL 5.5 Quart Black/Silver",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s07",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-af101c-3-79l-4-qt-air-fryer-w-dehydrate-roast-bake-black/19654377",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:28.101Z"
+    },
+    "listing": {
+      "title": "Ninja AF101C 3.79L (4 Qt) Air Fryer w/ Dehydrate, Roast & Bake - Black",
+      "brand": "NINJA",
+      "mpn": "AF101CB",
+      "gtin": "874569210121",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s08",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-doublestack-2-basket-6-in-1-air-fryer-7-6l-8qt-black/20209086",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:29.713Z"
+    },
+    "listing": {
+      "title": "Ninja DoubleStack 2-Basket 6-in-1 Air Fryer - 7.6L (8QT) - Black",
+      "brand": "NINJA",
+      "mpn": "SL202CCO",
+      "gtin": "622356663045",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s09",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-flip-toaster-8-in-1-oven-air-fryer-sp151c",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Ninja Flip Toaster 8 in 1 Oven & Air Fryer",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s10",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-crispi-pro-6-in-1-countertop-glass-air-fryer-5-7l-6qt-cyberspace/19612631",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:30.864Z"
+    },
+    "listing": {
+      "title": "Ninja Crispi Pro 6-in-1 Countertop Glass Air Fryer - 5.7L (6QT) - Cyberspace",
+      "brand": "NINJA",
+      "mpn": "AS101CCY",
+      "gtin": "622356714822",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "329.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s11",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system-fn101cgy",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Ninja Crispi 4 in 1 Portable Air Fryer Cooking System",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s12",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-6-in-1-dual-zone-air-fryer-7-57l-8qt-grey/19950435",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:32.178Z"
+    },
+    "listing": {
+      "title": "Ninja 6-in-1 Dual Zone Air Fryer - 7.57L (8QT) - Grey",
+      "brand": "NINJA",
+      "mpn": "DZ801C",
+      "gtin": "622356715744",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s13",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/ninja-air-fryer-pro-4-in-1-4-7l-5qt-capacity-af141c",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer Pro 4-in-1 - 4.7L (5QT) Capacity",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s14",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-max-xl-air-fryer-5-2l-5-5qt-grey-only-at-best-buy/15644372",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:33.520Z"
+    },
+    "listing": {
+      "title": "Ninja Max XL Air Fryer - 5.2L (5.5QT) - Grey - Only at Best Buy",
+      "brand": "NINJA",
+      "mpn": "AF161C",
+      "gtin": "622356559379",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s15",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/magnavox-home-2-5l-air-fryer-with-digital-touchscreen-mhaf2502",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Magnavox Home 2.5L Air Fryer with Digital Touchscreen",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "68",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s16",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-air-fryer-pro-xl-6-in-1-6-15l-6-5qt-capacity-black/19950436",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:34.637Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer Pro XL 6-in-1 - 6.15L (6.5QT) Capacity - Black",
+      "brand": "NINJA",
+      "mpn": "AF181C",
+      "gtin": "622356642835",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s17",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/hauz-5-0l-1700w-countertop-air-fryer-in-black-aaf543",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Hauz 5.0L 1700W Countertop Air Fryer in Black",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "28",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s18",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-flip-toaster-8-in-1-oven-air-fryer-13-3l-14-1-qt-stainless-steel/18235895",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:35.978Z"
+    },
+    "listing": {
+      "title": "Ninja Flip Toaster 8-in-1 Oven & Air Fryer - 13.3L / 14.1 Qt - Stainless Steel",
+      "brand": "NINJA",
+      "mpn": "SP151C",
+      "gtin": "622356634199",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s19",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/ultima-cosa-presto-grande-5-5l-air-fryer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Ultima Cosa Presto Grande 5.5L Air Fryer",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "78",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s20",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-af100c-air-fryer-3-78l-4qt-black/19950434",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:37.371Z"
+    },
+    "listing": {
+      "title": "Ninja AF100C Air Fryer - 3.78L (4QT) - Black",
+      "brand": "NINJA",
+      "mpn": "AF100C",
+      "gtin": "622356556316",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s21",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.visions.ca/magnavox-air-fryer-wit-glass-bowls-mhaf6003",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:22.513Z"
+    },
+    "listing": {
+      "title": "Magnavox 7.7L Portable Touchscreen Air Fryer with 2 Glass Bowls-Black",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "58",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "ninja-af101-s22",
+    "productId": "ninja-af101",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/ninja-air-fryer-pro-4-in-1-4-7l-5qt-capacity-black/18235868",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:52:38.576Z"
+    },
+    "listing": {
+      "title": "Ninja Air Fryer Pro 4-in-1 - 4.7L (5QT) Capacity - Black",
+      "brand": "NINJA",
+      "mpn": "AF141C",
+      "gtin": "622356642828",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  }
+]

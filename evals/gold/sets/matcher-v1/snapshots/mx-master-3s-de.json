@@ -1,0 +1,508 @@
+[
+  {
+    "id": "mx-master-3s-de-s01",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-3S-for-Business-Maus/html/product/1902948",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:48.430Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S for Business, Maus",
+      "brand": "Logitech",
+      "mpn": "910-006582",
+      "gtin": "5099206107885",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "77.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s02",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-4-Maus/html/product/100162078",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:49.486Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 4, Maus",
+      "brand": "Logitech",
+      "mpn": "910-007562",
+      "gtin": "5099206133082",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "117.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s03",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Anywhere-3S-Maus/html/product/100013041",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:50.751Z"
+    },
+    "listing": {
+      "title": "Logitech MX Anywhere 3S, Maus",
+      "brand": "Logitech",
+      "mpn": "910-006929",
+      "gtin": "5099206111721",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "77.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s04",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-Combo-for-Business-Gen-2-Desktop-Set/html/product/1903213",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:52.289Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys Combo for Business Gen 2, Desktop-Set",
+      "brand": "Logitech",
+      "mpn": "920-010926",
+      "gtin": "5099206104419",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "154.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s05",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-3S-Maus/html/product/1843035",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:53.439Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S, Maus",
+      "brand": "Logitech",
+      "mpn": "910-006559",
+      "gtin": "5099206103726",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "192.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s06",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-4-Maus/html/product/100162079",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:54.773Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 4, Maus",
+      "brand": "Logitech",
+      "mpn": "910-007563",
+      "gtin": "5099206133099",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "108.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s07",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-S-Combo-Desktop-Set/html/product/100119798",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:56.042Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys S Combo, Desktop-Set",
+      "brand": "Logitech",
+      "mpn": "920-011606",
+      "gtin": "5099206112360",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "151.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s08",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-3S-Maus/html/product/1843036",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:58.300Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S, Maus",
+      "brand": "Logitech",
+      "mpn": "910-006560",
+      "gtin": "5099206103733",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "104.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s09",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/Master-4-for-Mac-Maus/html/product/100162082",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:59.130Z"
+    },
+    "listing": {
+      "title": "Logitech Master 4 for Mac, Maus",
+      "brand": "Logitech",
+      "mpn": "910-007577",
+      "gtin": "5099206133112",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "120.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s10",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Mechanical-Tastatur/html/product/1843304",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:00.225Z"
+    },
+    "listing": {
+      "title": "Logitech MX Mechanical, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010748",
+      "gtin": "5099206103016",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "124.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s11",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-3S-f%C3%BCr-Mac-Maus/html/product/1866836",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:01.576Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S für Mac, Maus",
+      "brand": "Logitech",
+      "mpn": "910-006571",
+      "gtin": "5099206103740",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "188.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s12",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Vertical-Maus/html/product/1478582",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:02.955Z"
+    },
+    "listing": {
+      "title": "Logitech MX Vertical, Maus",
+      "brand": "Logitech",
+      "mpn": "910-005448",
+      "gtin": "5099206081901",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "61.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s13",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Master-3S-f%C3%BCr-Mac-Maus/html/product/1866837",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:04.328Z"
+    },
+    "listing": {
+      "title": "Logitech MX Master 3S für Mac, Maus",
+      "brand": "Logitech",
+      "mpn": "910-006572",
+      "gtin": "5099206103757",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "123.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s14",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-Mini-Tastatur/html/product/1784066",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:05.619Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys Mini, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010480",
+      "gtin": "5099206098848",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "90.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s15",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Brio-705-for-Business-Webcam/html/product/100145117",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:06.939Z"
+    },
+    "listing": {
+      "title": "Logitech MX Brio 705 for Business, Webcam",
+      "brand": "Logitech",
+      "mpn": "960-001530",
+      "gtin": "5099206109346",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "184.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s16",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-Mini-for-Business-Tastatur/html/product/1828542",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:08.378Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys Mini for Business , Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010597",
+      "gtin": "5099206101463",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "94.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s17",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Palm-Rest-Handgelenkauflage/html/product/1579722",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:09.746Z"
+    },
+    "listing": {
+      "title": "Logitech MX Palm Rest, Handgelenkauflage",
+      "brand": "Logitech",
+      "mpn": "956-000001",
+      "gtin": "5099206087255",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "16.29",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s18",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-for-Business-Tastatur/html/product/1828534",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:10.999Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys for Business, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010244",
+      "gtin": "5099206096752",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "94.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s19",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-Mini-Tastatur/html/product/1784060",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:12.562Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys Mini, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010479",
+      "gtin": "5099206098831",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "79.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s20",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Mechanical-Mini-Tastatur/html/product/1843310",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:13.836Z"
+    },
+    "listing": {
+      "title": "Logitech MX Mechanical Mini, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010771",
+      "gtin": "5099206103139",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "127.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s21",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Keys-f%C3%BCr-Mac-Tastatur/html/product/1652940",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:15.545Z"
+    },
+    "listing": {
+      "title": "Logitech MX Keys für Mac, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-009553",
+      "gtin": "5099206090385",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "88.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "mx-master-3s-de-s22",
+    "productId": "mx-master-3s-de",
+    "capture": {
+      "url": "https://www.alternate.de/Logitech/MX-Mechanical-Mini-Tastatur/html/product/1843309",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:16.738Z"
+    },
+    "listing": {
+      "title": "Logitech MX Mechanical Mini, Tastatur",
+      "brand": "Logitech",
+      "mpn": "920-010772",
+      "gtin": "5099206103146",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "126.9",
+      "currency": "EUR"
+    }
+  }
+]

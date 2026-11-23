@@ -1,0 +1,557 @@
+[
+  {
+    "id": "sunlu-pla-plus-s01",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/over-6kg-bundle-sale-pla-and-pla-plus-pla-meta-macaron-filament1kg-roll?variant=44557138067738",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:11.592Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA+(PLA Plus) 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "gtin": "6949550959724",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Item": "PLA Plus (PLA+)",
+        "Color": "PLA+ Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "20.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s02",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/over-6kg-bundle-sale-pla-and-pla-plus-pla-meta-macaron-filament1kg-roll?variant=44557138100506",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:11.592Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA+(PLA Plus) 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "gtin": "6949550959748",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Item": "PLA Plus (PLA+)",
+        "Color": "PLA+ White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "20.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s03",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/filament-connector-fusion-splicer-weldable-to-pla-abs-petg-pcl-pa-and-pc?variant=49355069391130",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:14.203Z"
+    },
+    "listing": {
+      "title": "SUNLU Filament Connector FC01, Fusion Splicer, Weldable to 1.75mm PLA, ABS, PETG, PCL, PA and PC Filament",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "Type": "Filament Connector",
+        "Package": "FC01 & PTFE(≈200pcs)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "59.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s04",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/filament-connector-fusion-splicer-weldable-to-pla-abs-petg-pcl-pa-and-pc?variant=49355203281178",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:14.203Z"
+    },
+    "listing": {
+      "title": "SUNLU Filament Connector FC01, Fusion Splicer, Weldable to 1.75mm PLA, ABS, PETG, PCL, PA and PC Filament",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "Type": "Filament Connector",
+        "Package": "FC01 & PTFE(≈400pcs)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "67.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s05",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/silk-pla-plus-v2-3d-printer-filament-1kg-enhanced-silk-shine?variant=52687944220954",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:15.446Z"
+    },
+    "listing": {
+      "title": "SUNLU SILK PLA+ 2.0(SILK PLA+ V2) 3D Filament 1KG, High Gloss Shiny SILK Filament",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Material": "SILK PLA+ 2.0",
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "24.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s06",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/silk-pla-plus-v2-3d-printer-filament-1kg-enhanced-silk-shine?variant=52687944286490",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:15.446Z"
+    },
+    "listing": {
+      "title": "SUNLU SILK PLA+ 2.0(SILK PLA+ V2) 3D Filament 1KG, High Gloss Shiny SILK Filament",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Material": "SILK PLA+ 2.0",
+        "Color": "Vivid Rose"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s07",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/over-6kg-of-pla-pla-meta-3d-filaments-1kg-2-2lbs-fit-most-of-fdm-printer?variant=39924203061334",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:16.907Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "gtin": "6949550958949",
+      "variantAttributes": {
+        "Shipment ": "Ship to USA",
+        "Material": "PLA",
+        "Material/Color": "PLA Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "19.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s08",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/over-6kg-of-pla-pla-meta-3d-filaments-1kg-2-2lbs-fit-most-of-fdm-printer?variant=39924203094102",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:16.907Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "gtin": "6949550958956",
+      "variantAttributes": {
+        "Shipment ": "Ship to USA",
+        "Material": "PLA",
+        "Material/Color": "PLA White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "19.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s09",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/moq-6kg-high-speed-pla-pla-plus-hs_pla-3d-printer-filament-1kg?variant=50308786716954",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:18.317Z"
+    },
+    "listing": {
+      "title": "SUNLU High Speed PLA+(PLA Plus), HS_PLA+ 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Item": "High Speed PLA+",
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "21.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s10",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/moq-6kg-high-speed-pla-pla-plus-hs_pla-3d-printer-filament-1kg?variant=50308786749722",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:18.317Z"
+    },
+    "listing": {
+      "title": "SUNLU High Speed PLA+(PLA Plus), HS_PLA+ 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Item": "High Speed PLA+",
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "21.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s11",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/over-3kg-bundle-sales-1-75mm-sunlu-multi-color-silk-3d-printer-filament-1kg-roll-dual-color-tri-color-silk-filament?variant=50891422466330",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:19.769Z"
+    },
+    "listing": {
+      "title": "SUNLU Multi-Color SILK Filament(Dual-color, Tri-color and Four-color) 3D Printer Filament 1KG",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "Item": "Muti-Color SILK PLA+",
+        "Color": "Four-Color | Red+Yellow+Green+Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "31.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s12",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/over-3kg-bundle-sales-1-75mm-sunlu-multi-color-silk-3d-printer-filament-1kg-roll-dual-color-tri-color-silk-filament?variant=47435891736858",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:19.769Z"
+    },
+    "listing": {
+      "title": "SUNLU Multi-Color SILK Filament(Dual-color, Tri-color and Four-color) 3D Printer Filament 1KG",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "gtin": "6949575278138",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "Item": "Muti-Color SILK PLA+",
+        "Color": "Dual-Color | Black+Purple"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "31.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s13",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/moq-6kg-pla-2-0-upgraded-pla-pla-plus-3d-printer-filament-1kg?variant=49302308159770",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:21.064Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA+ 2.0, Upgraded PLA+(PLA Plus), 3D Printer Filament 1KG",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "ITEM": "PLA Plus 2.0 (PLA+ 2.0)",
+        "Color": "PLA+ 2.0 | Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s14",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/moq-6kg-pla-2-0-upgraded-pla-pla-plus-3d-printer-filament-1kg?variant=49302308192538",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:21.064Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA+ 2.0, Upgraded PLA+(PLA Plus), 3D Printer Filament 1KG",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "ITEM": "PLA Plus 2.0 (PLA+ 2.0)",
+        "Color": "PLA+ 2.0 | White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s15",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/moq-6kg-high-speed-pla-2-0hspla-plus-2-0-high-speed-3d-printer-filament-1kg?variant=50525301768474",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:22.419Z"
+    },
+    "listing": {
+      "title": "SUNLU High Speed PLA+ 2.0(HSPLA Plus 2.0), High Speed 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Item": "High Speed PLA+ 2.0",
+        "Color": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s16",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/moq-6kg-high-speed-pla-2-0hspla-plus-2-0-high-speed-3d-printer-filament-1kg?variant=50525301801242",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:22.419Z"
+    },
+    "listing": {
+      "title": "SUNLU High Speed PLA+ 2.0(HSPLA Plus 2.0), High Speed 3D Printer Filament 1KG",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Item": "High Speed PLA+ 2.0",
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "22.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s17",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/1-75mm-sunlu-regular16m-or-upgraded8m-rainbow-3d-printer-filament-1kg-roll?variant=47080013201690",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:23.721Z"
+    },
+    "listing": {
+      "title": "SUNLU Rainbow Filament 3D Printer Filament 1KG, PLA Rainbow, SILK PLA+ Rainbow",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "gtin": "6949575279036",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "Material": "PLA Rainbow",
+        "Color": "Rainbow-01"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "30.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s18",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/1-75mm-sunlu-regular16m-or-upgraded8m-rainbow-3d-printer-filament-1kg-roll?variant=47080013234458",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:23.721Z"
+    },
+    "listing": {
+      "title": "SUNLU Rainbow Filament 3D Printer Filament 1KG, PLA Rainbow, SILK PLA+ Rainbow",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "gtin": "6949575279043",
+      "variantAttributes": {
+        "Shipment": "Ship to Europe",
+        "Material": "PLA Rainbow",
+        "Color": "Rainbow-02"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "28.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s19",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/sunlu-pla-filament-neon-transparent-color-collection?variant=51664690381082",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:25.032Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA New Color Collection, Fluorescent & Transparent Series 1.75mm 1KG",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Material": "PLA Transparent Series",
+        "Material/Color": "Mist Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "20.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s20",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/sunlu-pla-filament-neon-transparent-color-collection?variant=51664690053402",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:25.032Z"
+    },
+    "listing": {
+      "title": "SUNLU PLA New Color Collection, Fluorescent & Transparent Series 1.75mm 1KG",
+      "brand": "SUNLU Official Store",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Material": "PLA Fluorescent Series",
+        "Material/Color": "Fluorescent Yellow"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "20.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s21",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/pla-pla-plus-3kg-large-spool-3d-printer-filament-3kg?variant=49815261118746",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:26.529Z"
+    },
+    "listing": {
+      "title": "PLA+(PLA Plus) 3KG Large Spool 3D Printer Filament 3KG",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Color": "PLA+ Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "53.00",
+      "currency": "unknown"
+    }
+  },
+  {
+    "id": "sunlu-pla-plus-s22",
+    "productId": "sunlu-pla-plus",
+    "capture": {
+      "url": "https://store.sunlu.com/products/pla-pla-plus-3kg-large-spool-3d-printer-filament-3kg?variant=49815261151514",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:56:26.529Z"
+    },
+    "listing": {
+      "title": "PLA+(PLA Plus) 3KG Large Spool 3D Printer Filament 3KG",
+      "brand": "Affordable 3D Printing Filaments and Resins",
+      "variantAttributes": {
+        "Shipment": "Ship to USA",
+        "Color": "PLA+ White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "store.sunlu.com"
+    },
+    "context": {
+      "priceText": "53.00",
+      "currency": "unknown"
+    }
+  }
+]

@@ -1,0 +1,439 @@
+[
+  {
+    "id": "brita-10-cup-s01",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-champlain-2-4-l-10-cup-pitcher-with-2-filters/17664110",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:02.777Z"
+    },
+    "listing": {
+      "title": "Brita Champlain 2.4 L (10-cup) Pitcher with 2 Filters",
+      "brand": "BRITA",
+      "mpn": "Brita",
+      "gtin": "060258361421",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "54.11",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s02",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-standard-replacement-water-filter-5-count-reduces-chlorine-taste-odour-mercury-copper-zinc-and-cadmium-bpa-free-151-l-per-filter/20194889",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:04.095Z"
+    },
+    "listing": {
+      "title": "Brita Standard Replacement Water Filter, 5 Count, Reduces Chlorine Taste & Odour, Mercury, Copper, Zinc and Cadmium, BPA-Free, 151 L per Filter",
+      "brand": "BRITA",
+      "mpn": "STD-5PK",
+      "gtin": "0640712071327",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "70.53",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s03",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-on-tap-faucet-water-filter-system-replacement-filters-6-pack/20194516",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:05.393Z"
+    },
+    "listing": {
+      "title": "Brita On Tap Faucet Water Filter System Replacement Filters, 6-pack",
+      "brand": "BRITA",
+      "mpn": "642401",
+      "gtin": "463965736610",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "178.03",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s04",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-10-cup-filter-pitcher-with-smart-light-indicator-reduces-chlorine-taste-and-odour-from-tap-water-filters-151-litres-huron-white/19592055",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:06.917Z"
+    },
+    "listing": {
+      "title": "Brita 10 Cup Filter Pitcher with Smart Light Indicator, Reduces Chlorine taste and odour from Tap Water, Filters 151 Litres, Huron, White",
+      "brand": "BRITA",
+      "mpn": "TU_353675",
+      "gtin": "060258506846",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "74.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s05",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-replacement-filters-8-pack/17684203",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:08.274Z"
+    },
+    "listing": {
+      "title": "Brita Replacement Filters, 8-pack",
+      "brand": "BRITA",
+      "mpn": "Brita",
+      "gtin": "628304127584",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "66.93",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s06",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-hub-instant-powerful-countertop-water-filter-system-12-cup-water-reservoir-includes-6-month-carbon-block-filter-white-87340c/19179919",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:09.726Z"
+    },
+    "listing": {
+      "title": "Brita Hub Instant Powerful Countertop Water Filter System, 12 Cup Water Reservoir, Includes 6 Month Carbon Block Filter, White, ‎87340C",
+      "brand": "HAMILTON BEACH",
+      "mpn": "87340C",
+      "gtin": "0040094953073",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "189",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s07",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-large-10-cup-water-filter-pitcher-with-smart-light-filter-reminder-and-2-standard-filtes-white/19422050",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:11.158Z"
+    },
+    "listing": {
+      "title": "Brita Large 10 Cup Water Filter Pitcher with Smart Light Filter Reminder and 2 Standard Filtes, White",
+      "brand": "BRITA",
+      "mpn": "060258507058",
+      "gtin": "060258507058",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "54.11",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s08",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/water-filter-replacement-for-brita-water-pitchers-and-dispensers-classic-35557-ob03-mavea-107007-and-more-reduce-chlorine-and-bad-taste-3-pcs/19419989",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:12.400Z"
+    },
+    "listing": {
+      "title": "Water Filter Replacement for Brita Water Pitchers and Dispensers, Classic 35557, Ob03, Mavea 107007 and More, Reduce Chlorine and Bad Taste(3 Pcs)",
+      "brand": "MYACUC",
+      "mpn": "730553059964",
+      "gtin": "730553059964",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "63.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s09",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-standard-water-filter-replacement-chlorine-reduction-bpa-free-1-count/20161074",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:13.889Z"
+    },
+    "listing": {
+      "title": "Brita Standard Water Filter Replacement, Chlorine Reduction, BPA-Free, 1 Count",
+      "brand": "BRITA",
+      "mpn": "TU_1310701",
+      "gtin": "029037199259",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "46.66",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s10",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-champlain-2-4-l-10-cup-pitcher-with-2-filters/19796078",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:14.908Z"
+    },
+    "listing": {
+      "title": "Brita Champlain 2.4 L (10-cup) Pitcher with 2 Filters",
+      "brand": "BRITA",
+      "mpn": "463428476695",
+      "gtin": "463428476695",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "54.11",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s11",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-replacement-filters-8-pack/19796077",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:16.509Z"
+    },
+    "listing": {
+      "title": "Brita Replacement Filters, 8-pack",
+      "brand": "BRITA",
+      "mpn": "461130891348",
+      "gtin": "461130891348",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "66.93",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s12",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-on-tap-faucet-water-filter-system-replacement-filters-6-pack/19796074",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:17.923Z"
+    },
+    "listing": {
+      "title": "Brita On Tap Faucet Water Filter System Replacement Filters, 6-pack",
+      "brand": "BRITA",
+      "mpn": "642401",
+      "gtin": "461710982107",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "178.03",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s13",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-pitcher-replacement-filters-635503pak3/14438890",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:19.206Z"
+    },
+    "listing": {
+      "title": "Brita Pitcher Replacement Filters (635503PAK3)",
+      "brand": "BRITA",
+      "mpn": "635503PAK3",
+      "gtin": "0060258355031",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "32.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s14",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-water-filtration-system-dispenser-636178cdn1/14437505",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:20.498Z"
+    },
+    "listing": {
+      "title": "Brita Water Filtration System Dispenser (636178CDN1)",
+      "brand": "BRITA",
+      "mpn": "636178CDN1",
+      "gtin": "0060258350340",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "47.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s15",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/3pcs-coffee-machine-filters-compatible-with-brita-intenza-bosch-tcz7003-water-filter-replacement/19994096",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:21.829Z"
+    },
+    "listing": {
+      "title": "3PCS Coffee Machine Filters Compatible With Brita Intenza Bosch TCZ7003 Water Filter Replacement",
+      "brand": "SYMLIS",
+      "mpn": "RYING0721-CBD12",
+      "gtin": "923376950253",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "38.61",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s16",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-on-tap-faucet-water-filter-system-replacement-filters-6-pack/17684202",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:23.107Z"
+    },
+    "listing": {
+      "title": "Brita On Tap Faucet Water Filter System Replacement Filters, 6-pack",
+      "brand": "BRITA",
+      "mpn": "642401",
+      "gtin": "784868180936",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "178.03",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s17",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-standard-replacement-filter-3-pack-reduces-contaminants-retains-healthy-minerals-wqa-certified-for-chlorine-reduction-bpa-free-replace-after-151-litres/17931377",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:24.541Z"
+    },
+    "listing": {
+      "title": "Brita Standard Replacement Filter 3-Pack: Reduces Contaminants, Retains Healthy Minerals, WQA Certified for Chlorine Reduction, BPA-Free, Replace After 151 Litres",
+      "brand": "BRITA",
+      "mpn": "TU_1310787",
+      "gtin": "674252210670",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s18",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/brita-replacement-filters-8-pack-white/19433411",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:26.237Z"
+    },
+    "listing": {
+      "title": "Brita , Replacement Filters 8-pack , White",
+      "brand": "BRITA",
+      "mpn": "060258507119",
+      "gtin": "060258507119",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "84.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "brita-10-cup-s19",
+    "productId": "brita-10-cup",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-brita-hub-87341-compact-countertop-water-filtration-system-with-2-filters-silver/20211542",
+      "country": "CA",
+      "capturedAt": "2026-11-23T17:03:27.226Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - BRITA Hub 87341 Compact Countertop Water Filtration System with 2 Filters - Silver",
+      "brand": "BRITA",
+      "mpn": "87341",
+      "gtin": "040094873418",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "CAD"
+    }
+  }
+]

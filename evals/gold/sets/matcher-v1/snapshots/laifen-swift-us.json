@@ -1,0 +1,532 @@
+[
+  {
+    "id": "laifen-swift-us-s01",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-swift-special-high-speed-hair-dryer-3-nozzles?variant=43530605494509",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:43.968Z"
+    },
+    "listing": {
+      "title": "Laifen Swift Special · High-speed hair dryer (3 nozzles)",
+      "brand": "Laifen - US",
+      "gtin": "850051675012",
+      "variantAttributes": {
+        "Color": "Matte Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "118.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s02",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-swift-special-high-speed-hair-dryer-3-nozzles?variant=47370069672173",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:43.968Z"
+    },
+    "listing": {
+      "title": "Laifen Swift Special · High-speed hair dryer (3 nozzles)",
+      "brand": "Laifen - US",
+      "gtin": "6976973852172",
+      "variantAttributes": {
+        "Color": "Matte Pink"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s03",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/air-hair-dryer?variant=50384833839341",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:46.680Z"
+    },
+    "listing": {
+      "title": "Laifen Air High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6942590702626",
+      "variantAttributes": {
+        "Nozzle": "1 Smooth Nozzle + 1 Diffuser Nozzle",
+        "Color": "Purple"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "56.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s04",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/air-hair-dryer?variant=50384833872109",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:46.680Z"
+    },
+    "listing": {
+      "title": "Laifen Air High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6942590702640",
+      "variantAttributes": {
+        "Nozzle": "1 Smooth Nozzle + 1 Diffuser Nozzle",
+        "Color": "Glossy Tan"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "56.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s05",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-t1-pro-1-blade-electric-shaver-with-linear-motor?variant=48571416445165",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:47.993Z"
+    },
+    "listing": {
+      "title": "Laifen T1 Pro 1-Blade Electric Shaver with Linear Motor",
+      "brand": "Laifen-US",
+      "gtin": "6976973858129",
+      "variantAttributes": {
+        "Color": "Space Gray Aluminum Alloy",
+        "Version": "Standard Edition"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s06",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-t1-pro-1-blade-electric-shaver-with-linear-motor?variant=48571416510701",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:47.993Z"
+    },
+    "listing": {
+      "title": "Laifen T1 Pro 1-Blade Electric Shaver with Linear Motor",
+      "brand": "Laifen-US",
+      "gtin": "6976973858150",
+      "variantAttributes": {
+        "Color": "Space Gray Aluminum Alloy",
+        "Version": "Stubble Edition"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s07",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-swift-high-speed-hair-dryer?variant=43488173588717",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:49.193Z"
+    },
+    "listing": {
+      "title": "Laifen Swift · High-speed hair dryer",
+      "brand": "Laifen - US",
+      "gtin": "6976973852103",
+      "variantAttributes": {
+        "Color": "Matte Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "97.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s08",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-swift-high-speed-hair-dryer?variant=43488173555949",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:49.193Z"
+    },
+    "listing": {
+      "title": "Laifen Swift · High-speed hair dryer",
+      "brand": "Laifen - US",
+      "gtin": "6976973852127",
+      "variantAttributes": {
+        "Color": "Silver Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "97.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s09",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-mini-high-speed-hair-dryer?variant=49218692350189",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:50.445Z"
+    },
+    "listing": {
+      "title": "Laifen Mini · High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6976973859867",
+      "variantAttributes": {
+        "Color": "Matt Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "87.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s10",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-mini-high-speed-hair-dryer?variant=49218692415725",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:50.445Z"
+    },
+    "listing": {
+      "title": "Laifen Mini · High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6976973859874",
+      "variantAttributes": {
+        "Color": "Sand Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "87.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s11",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-p3-pro-3-blade-electric-shaver-with-linear-motor?variant=48405006221549",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:51.672Z"
+    },
+    "listing": {
+      "title": "Laifen P3 Pro 3-Blade Electric Shaver with Linear Motor",
+      "brand": "Laifen-US",
+      "gtin": "6976973858235",
+      "variantAttributes": {
+        "Color": "Original Aluminum Alloy"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s12",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-p3-pro-3-blade-electric-shaver-with-linear-motor?variant=48571544699117",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:51.672Z"
+    },
+    "listing": {
+      "title": "Laifen P3 Pro 3-Blade Electric Shaver with Linear Motor",
+      "brand": "Laifen-US",
+      "gtin": "6976973858242",
+      "variantAttributes": {
+        "Color": "Space Gray Aluminum Alloy"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s13",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/swift-4-hair-dryer?variant=50260581449965",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:52.999Z"
+    },
+    "listing": {
+      "title": "Laifen Swift 4 High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6976973858402",
+      "variantAttributes": {
+        "Color": "Polished Platinum"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s14",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/swift-4-hair-dryer?variant=50260581417197",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:52.999Z"
+    },
+    "listing": {
+      "title": "Laifen Swift 4 High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6942590704613",
+      "variantAttributes": {
+        "Color": "Polished Titanium"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s15",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/air-pro-hair-dryer?variant=50260514210029",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:54.253Z"
+    },
+    "listing": {
+      "title": "Laifen Air Pro High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6942590703821",
+      "variantAttributes": {
+        "Color": "Matt Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "71.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s16",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/air-pro-hair-dryer?variant=50260514177261",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:54.253Z"
+    },
+    "listing": {
+      "title": "Laifen Air Pro High-Speed Hair Dryer",
+      "brand": "Laifen-US",
+      "gtin": "6942590703814",
+      "variantAttributes": {
+        "Color": "Sand Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "71.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s17",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/promolaifen-swift-special-high-speed-hair-dryer-3-nozzles?variant=48443237859565",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:55.703Z"
+    },
+    "listing": {
+      "title": "[Promo]Laifen Swift Special · High-speed hair dryer (3 nozzles)",
+      "brand": "Laifen-US",
+      "gtin": "850051675012",
+      "variantAttributes": {
+        "Color": "Matte Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s18",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/promolaifen-swift-special-high-speed-hair-dryer-3-nozzles?variant=48443237794029",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:55.703Z"
+    },
+    "listing": {
+      "title": "[Promo]Laifen Swift Special · High-speed hair dryer (3 nozzles)",
+      "brand": "Laifen-US",
+      "gtin": "850051675043",
+      "variantAttributes": {
+        "Color": "Silver Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s19",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/bundle-laifen-swift-special-storage-bag?variant=48191078400237",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:56.931Z"
+    },
+    "listing": {
+      "title": "Bundle(Laifen Swift Special + Storage Bag)",
+      "brand": "Laifen-US",
+      "variantAttributes": {
+        "Laifen Swift Special · High-speed hair dryer (3 nozzles) (Color)": "Matte Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "137.88",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s20",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/bundle-laifen-swift-special-storage-bag?variant=50141937533165",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:56.931Z"
+    },
+    "listing": {
+      "title": "Bundle(Laifen Swift Special + Storage Bag)",
+      "brand": "Laifen-US",
+      "variantAttributes": {
+        "Laifen Swift Special · High-speed hair dryer (3 nozzles) (Color)": "Pearl White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "137.88",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s21",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-swift-premium-high-speed-hair-dryer-love-bound-box",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:58.351Z"
+    },
+    "listing": {
+      "title": "Laifen Premium High-Speed Hair Dryer Love-Bound Box",
+      "brand": "Laifen-US",
+      "gtin": "6976973858471",
+      "variantAttributes": {
+        "Color": "Golden Pink"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "118.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "laifen-swift-us-s22",
+    "productId": "laifen-swift-us",
+    "capture": {
+      "url": "https://us.laifentech.com/products/laifen-royal-blue-gift-box",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:59.819Z"
+    },
+    "listing": {
+      "title": "Laifen Royal Blue Gift Box High-speed hair dryer",
+      "brand": "Laifen-US",
+      "gtin": "6976973858525",
+      "variantAttributes": {
+        "Color": "Royal Blue"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "us.laifentech.com"
+    },
+    "context": {
+      "priceText": "104.99",
+      "currency": "USD"
+    }
+  }
+]

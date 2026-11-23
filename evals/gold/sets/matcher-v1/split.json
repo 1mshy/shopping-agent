@@ -1,0 +1,312 @@
+{
+  "formatVersion": 1,
+  "seed": "matcher-v1-2026-11-23",
+  "toolVersion": "gold-tools/1",
+  "assignments": [
+    {
+      "productId": "990-pro-2tb",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "a1-mini",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "airpods-pro-2",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "anker-737",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "anker-prime-power-bank-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "bosch-gsr-18v-65-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "braun-series-9-ca",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "breville-barista-express-ca",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "brita-10-cup",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "centauri-carbon-2-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "cosori-turboblaze-6l-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "cosori-turboblaze-6qt",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "dcd793d1",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "dcf850",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "dewalt-dcd791-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "dreame-pocket-neo-2-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "elegoo-pla-plus-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "happybrush-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "hd-600-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "instant-pot-duo",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "instant-pot-duo-plus-6qt",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "k1c",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "keurig-k-mini",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "keychron-k2-us",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "kobra-3-max-v2-combo-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "kobra-x-combo-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "laifen-neo-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "laifen-swift-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "liberty-4-nc-us",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "liberty-4-pro-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "makita-ddf487-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "makita-drill-ca",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "makita-xfd131",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "milwaukee-2953-20",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "mx-master-3s",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "mx-master-3s-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "ninja-af101",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "ninja-creami-ca",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "oneblade-ca",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "oral-b-io5",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "p1s-combo",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "polylite-pla-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "polyterra-pla",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "raspberry-pi-5",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "raspberry-pi-5-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "remington-f5-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "satechi-hub-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "saturn-4-ultra",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "saturn-4-ultra-16k-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "sn850x-2tb",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "sonicare-4100",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "soundcore-space-q45",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "space-2-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "space-one-de",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "sunlu-pla-plus",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "ugreen-nexode-65w-de",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "ugreen-nexode-65w-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "wf-1000xm5",
+      "side": "held_out",
+      "run": 1
+    },
+    {
+      "productId": "wh-1000xm5",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "wh-1000xm5-us",
+      "side": "dev",
+      "run": 1
+    },
+    {
+      "productId": "wmf-lono-kettle-de",
+      "side": "dev",
+      "run": 1
+    }
+  ]
+}

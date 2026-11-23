@@ -1,0 +1,511 @@
+[
+  {
+    "id": "p1s-combo-s01",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p1s-combo-enclosed-fdm-3d-printer-multi-colour-printing-built-in-camera-auto-bed-leveling-500mm-s-300c-256-x-256-x-256mm-build-volume/19854442",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:41.973Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S Combo Enclosed FDM 3D Printer – Multi-Colour Printing, Built-In Camera, Auto Bed Leveling, 500mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+      "brand": "BAMBU LAB",
+      "mpn": "P1S Combo",
+      "gtin": "6937285506542",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "629.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s02",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/bambu-lab-p1s-combo-3d-bundle",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:42.105Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S Combo",
+      "brand": "Bambu Lab",
+      "gtin": "6937285506542",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "629.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s03",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://west3d.com/products/bambu-lab-p1s-3d-printer-and-p1s-ams-combo?variant=47503120302292",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:42.540Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S 3D Printer or P1S AMS Combo",
+      "brand": "Bambu Lab",
+      "variantAttributes": {
+        "Version": "P1S 3D Printer + AMS Combo"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "734.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s04",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://west3d.com/products/bambu-lab-p1s-3d-printer-and-p1s-ams-combo?variant=47503120269524",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:42.540Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S 3D Printer or P1S AMS Combo",
+      "brand": "Bambu Lab",
+      "variantAttributes": {
+        "Version": "P1S 3D Printer"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "535.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s05",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://digitmakers.ca/products/bambu-lab-p1s-combo-3d-printer",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:42.649Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S Combo 3D Printer",
+      "brand": "Bambu Lab",
+      "gtin": "6975337033196",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "629.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s06",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://caz3d.com/products/bambu-lab-p1s-combo-3d-printer?variant=50313207021885",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:42.770Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S 3D Printer",
+      "brand": "Bambu Lab",
+      "gtin": "6975337033196",
+      "variantAttributes": {
+        "Variant": "P1S Combo"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "629.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s07",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://caz3d.com/products/bambu-lab-p1s-combo-3d-printer?variant=50204062417213",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:42.770Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S 3D Printer",
+      "brand": "Bambu Lab",
+      "gtin": "6975337033080",
+      "variantAttributes": {
+        "Variant": "P1S"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "479.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s08",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p1s-combo-enclosed-fdm-3d-printer-with-8-x-1kg-pla-filament-best-buy-exclusive-starter-pack-multi-colour-built-in-camera-auto-bed-leveling-500mm-s-300c/20184398",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:43.527Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S Combo Enclosed FDM 3D Printer with 8 x 1kg PLA Filament - Best Buy Exclusive Starter Pack - Multi-Colour - Built-In Camera - Auto Bed Leveling - 500mm/s - 300°C",
+      "brand": "BAMBU LAB",
+      "mpn": "999004672194",
+      "gtin": "999004672194",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "999",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s09",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/bambu-lab-p1s",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:43.652Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P1S",
+      "brand": "Bambu Lab",
+      "gtin": "6975337033080",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "479.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s10",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://west3d.com/products/replacement-toolhead-board-for-bambu-lab-p1-series-3d-printers-p1p-p1s",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:43.812Z"
+    },
+    "listing": {
+      "title": "Replacement Toolhead Board for Bambu Lab P1 Series 3D Printers (P1P P1S)",
+      "brand": "Bambu Lab",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "62.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s11",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://digitmakers.ca/products/bambu-lab-hardened-steel-extruder-gear-assembly-x1-and-p1-series",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:43.931Z"
+    },
+    "listing": {
+      "title": "Bambu Lab Hardened Steel Extruder Gear Assembly - X1 and P1 Series",
+      "brand": "Bambu Lab",
+      "gtin": "6975337034124",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s12",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://caz3d.com/products/biqu-panda-breath-for-bambu-lab-x1c-p1s-a1-smart-chamber-heater-hepa-air-filtration-system?variant=51755436441917",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:44.175Z"
+    },
+    "listing": {
+      "title": "BIQU Panda Breath for Bambu Lab X1C/P1S/A1 – Smart Chamber Heater & HEPA Air Filtration System",
+      "brand": "BIQU",
+      "gtin": "1060000855",
+      "variantAttributes": {
+        "Type": "Panda Breath"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s13",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://caz3d.com/products/biqu-panda-breath-for-bambu-lab-x1c-p1s-a1-smart-chamber-heater-hepa-air-filtration-system?variant=51755436474685",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:44.175Z"
+    },
+    "listing": {
+      "title": "BIQU Panda Breath for Bambu Lab X1C/P1S/A1 – Smart Chamber Heater & HEPA Air Filtration System",
+      "brand": "BIQU",
+      "gtin": "1060000864",
+      "variantAttributes": {
+        "Type": "Panda Breath Filter Pack"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "19.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s14",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-p2s-ams-combo-enclosed-fdm-3d-printer-multi-colour-printing-camera-auto-bed-leveling-600mm-s-300c-256-x-256-x-256mm-build-volume/19854444",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:39.285Z"
+    },
+    "listing": {
+      "title": "Bambu Lab P2S AMS Combo Enclosed FDM 3D Printer - Multi-Colour Printing, Camera, Auto Bed Leveling, 600mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+      "brand": "BAMBU LAB",
+      "mpn": "P2S AMS Combo",
+      "gtin": "6937285513335",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "889.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s15",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/bambu-lab-complete-hotend-assembly-for-p1s-p1p?variant=41467242446917",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:44.925Z"
+    },
+    "listing": {
+      "title": "Bambu Lab Complete Hotend Assembly for P1S/P1P",
+      "brand": "Bambu Lab",
+      "gtin": "6975337031802",
+      "variantAttributes": {
+        "Nozzle Type": "Hardened Steel 0.4mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s16",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://3dprintingcanada.com/products/bambu-lab-complete-hotend-assembly-for-p1s-p1p?variant=41467242479685",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:44.925Z"
+    },
+    "listing": {
+      "title": "Bambu Lab Complete Hotend Assembly for P1S/P1P",
+      "brand": "Bambu Lab",
+      "gtin": "6975337031680",
+      "variantAttributes": {
+        "Nozzle Type": "Hardened Steel 0.6mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "3dprintingcanada.com"
+    },
+    "context": {
+      "priceText": "44.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s17",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://west3d.com/products/2510-5v-axial-fan-replacement-for-bambu-lab-x1c-p1p-p1s-multiple-types?variant=46343916650708",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:45.305Z"
+    },
+    "listing": {
+      "title": "2510 5V Axial Fan Replacement for Bambu Lab X1C / P1P / P1S (Multiple Types)",
+      "brand": "NA",
+      "variantAttributes": {
+        "Printer Model": "X1 Series"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "7.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s18",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://west3d.com/products/2510-5v-axial-fan-replacement-for-bambu-lab-x1c-p1p-p1s-multiple-types?variant=46343916683476",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:45.305Z"
+    },
+    "listing": {
+      "title": "2510 5V Axial Fan Replacement for Bambu Lab X1C / P1P / P1S (Multiple Types)",
+      "brand": "NA",
+      "variantAttributes": {
+        "Printer Model": "P1 Series"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "west3d.com"
+    },
+    "context": {
+      "priceText": "7.00",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s19",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://digitmakers.ca/products/bambu-lab-glass-cover-plate",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:45.406Z"
+    },
+    "listing": {
+      "title": "Bambu Lab Glass Cover Plate - X1 Series and P1S",
+      "brand": "Bambu Lab",
+      "gtin": "6975337030942",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "digitmakers.ca"
+    },
+    "context": {
+      "priceText": "39.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s20",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://caz3d.com/products/e3d-high-flow-obxidian%E2%84%A2-complete-hotend-for-bambu-lab-x1c-p1p-p1s-copy?variant=51487645434173",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:45.581Z"
+    },
+    "listing": {
+      "title": "E3D High Flow ObXiDian® 500 Complete HotEnd for Bambu Lab X1C, P1P, P1S & X1E",
+      "brand": "E3D",
+      "gtin": "5063384004410",
+      "variantAttributes": {
+        "Printer Model": "P1 Series",
+        "Nozzle Diameter": "0.40mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "218.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s21",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://caz3d.com/products/e3d-high-flow-obxidian%E2%84%A2-complete-hotend-for-bambu-lab-x1c-p1p-p1s-copy?variant=51487645466941",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:45.581Z"
+    },
+    "listing": {
+      "title": "E3D High Flow ObXiDian® 500 Complete HotEnd for Bambu Lab X1C, P1P, P1S & X1E",
+      "brand": "E3D",
+      "gtin": "5063384004427",
+      "variantAttributes": {
+        "Printer Model": "P1 Series",
+        "Nozzle Diameter": "0.60mm"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "caz3d.com"
+    },
+    "context": {
+      "priceText": "218.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "p1s-combo-s22",
+    "productId": "p1s-combo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/bambu-lab-a1-combo-fdm-3d-printer-multi-colour-printing-built-in-camera-auto-bed-leveling-500mm-s-300c-256-x-256-x-256mm-build-volume/19854443",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:48:36.540Z"
+    },
+    "listing": {
+      "title": "Bambu Lab A1 Combo FDM 3D Printer - Multi-Colour Printing, Built-in Camera, Auto Bed Leveling, 500mm/s, 300°C – 256 x 256 x 256mm Build Volume",
+      "brand": "BAMBU LAB",
+      "mpn": "A1 Combo",
+      "gtin": "6937285506160",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "489.99",
+      "currency": "CAD"
+    }
+  }
+]

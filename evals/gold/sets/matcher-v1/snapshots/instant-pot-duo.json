@@ -1,0 +1,484 @@
+[
+  {
+    "id": "instant-pot-duo-s01",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-7-in-1-electric-pressure-cooker-6-quart-stainless-steel-includes-app-with-800-recipes/17717326",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.662Z"
+    },
+    "listing": {
+      "title": "Instant Pot Duo 7-in-1 Electric Pressure Cooker - 6 Quart Stainless Steel, Includes App with 800+ Recipes",
+      "brand": "GENER",
+      "mpn": "KGFD765443",
+      "gtin": "674252208615",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "259.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s02",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/instant-pot-6qt-vortex-slim-black-ca",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Instant Pot 6Qt Vortex Slim Black CA",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "88",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s03",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-v5-7-in-1-pressure-cooker-6qt/16374908",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:32.831Z"
+    },
+    "listing": {
+      "title": "Instant Pot Duo V5 7-in-1 Pressure Cooker - 6QT",
+      "brand": "INSTANT POT",
+      "mpn": "112-0032-02",
+      "gtin": "810028585201",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s04",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/instant-pot-vortex-plus-6-quart-air-fryer-with-clearcook-and-odorerase-stainless-steel",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Instant Pot Vortex Plus 6-quart Air Fryer with ClearCook and OdorErase - Stainless Steel",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "138",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s05",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-v5-7-in-1-pressure-cooker-8qt/16374909",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:34.177Z"
+    },
+    "listing": {
+      "title": "Instant Pot Duo V5 7-in-1 Pressure Cooker - 8QT",
+      "brand": "INSTANT POT",
+      "mpn": "113-0059-02",
+      "gtin": "810028585218",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s06",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/instant-pot-vortex-plus-7-in-1-plus-air-fryer-oven-10-quart-140-3000-02",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Instant Pot Vortex Plus 7-in-1 plus Air Fryer Oven - 10 Quart",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "128",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s07",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-duo-plus-9-in-1-electric-pressure-cooker-6qt/16609677",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:35.303Z"
+    },
+    "listing": {
+      "title": "Instant Pot Duo Plus 9-in-1 Electric Pressure Cooker - 6QT",
+      "brand": "INSTANT POT",
+      "mpn": "112-0169-02",
+      "gtin": "810028585171",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s08",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/instant-pot-duo-crisp-11-in-1-multi-use-pressure-cooker-plus-air-fryer-8-quart-140-0021-02",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Instant Pot Duo Crisp 11-in-1 Multi-Use Pressure Cooker plus Air Fryer - 8 Quart",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "139",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s09",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-instant-pot-duo-v5-7-in-1-pressure-cooker-6qt/18926856",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:36.965Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) Instant Pot Duo V5 7-in-1 Pressure Cooker - 6QT",
+      "brand": "INSTANT POT",
+      "mpn": "112-0170-02",
+      "gtin": "999004339028",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.97",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s10",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/fujifilm-instax-mini-41-instant-camera-600024303",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Fujifilm Instax Mini 41 Instant Camera",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "129",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s11",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-rio-7-in-1-pressure-cooker-6qt/17930063",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:38.442Z"
+    },
+    "listing": {
+      "title": "Instant Pot RIO 7-in-1 Pressure Cooker - 6QT",
+      "brand": "INSTANT POT",
+      "mpn": "112-0041-02",
+      "gtin": "810028589438",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s12",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/fujifilm-instax-square-sq40-instant-camera",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Fujifilm Instax Square SQ40 Instant Camera",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "169",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s13",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-instant-pot-duo-crisp-with-ultimate-lid-multi-cooker-air-fryer-6-5qt-black/19770082",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:39.789Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) – Instant Pot Duo Crisp With Ultimate Lid Multi-Cooker & Air Fryer - 6.5Qt - Black",
+      "brand": "INSTANT POT",
+      "mpn": "140-0068-01",
+      "gtin": "999004620843",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "239.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s14",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/fujifilm-instax-mini-41-instant-camera-case-600024421",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Fujifilm Instax Mini 41 Instant Camera Case",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "29.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s15",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-rio-mini-multi-cooker-4qt/19396444",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:41.076Z"
+    },
+    "listing": {
+      "title": "Instant Pot Rio Mini Multi-Cooker - 4QT",
+      "brand": "INSTANT POT",
+      "mpn": "140-8006-02",
+      "gtin": "810102268389",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s16",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.visions.ca/fujifilm-instax-mini-99-instant-camera-case",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:31.031Z"
+    },
+    "listing": {
+      "title": "Fujifilm Instax Mini 99 Instant Camera Case",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "29",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s17",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-instant-pot-7-in-1-duo-wide-base-electric-pressure-cooker-7-5-qt-black/20294417",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:42.321Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Instant Pot 7-in-1 Duo Wide Base Electric Pressure Cooker - 7.5 Qt - Black",
+      "brand": "INSTANT POT",
+      "mpn": "113-1066-01",
+      "gtin": "999004631436",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s18",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-instant-pot-duo-plus-9-in-1-electric-pressure-cooker-6qt-112-0169-02/18926855",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:43.705Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) Instant Pot Duo Plus 9-in-1 Electric Pressure Cooker - 6QT 112-0169-02",
+      "brand": "INSTANT POT",
+      "mpn": "112-0169-02",
+      "gtin": "999004339042",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "139.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s19",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-instant-pot-rio-7-in-1-pressure-cooker-6qt/19770083",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:45.076Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Instant Pot RIO 7-in-1 Pressure Cooker - 6QT",
+      "brand": "INSTANT POT",
+      "mpn": "112-0312-02",
+      "gtin": "999004620867",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "109.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s20",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/instant-pot-7-in-1-duo-wide-base-electric-pressure-cooker-7-5-qt-black/17103348",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:46.411Z"
+    },
+    "listing": {
+      "title": "Instant Pot 7-in-1 Duo Wide Base Electric Pressure Cooker - 7.5 Qt - Black",
+      "brand": "INSTANT POT",
+      "mpn": "113-1066-01",
+      "gtin": "810102263537",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "229.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s21",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-instant-pot-duo-v5-7-in-1-pressure-cooker-8qt-113-0059-02/18926857",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:47.918Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) Instant Pot Duo V5 7-in-1 Pressure Cooker - 8QT 113-0059-02",
+      "brand": "INSTANT POT",
+      "mpn": "113-0059-02",
+      "gtin": "999004339035",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "125.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "instant-pot-duo-s22",
+    "productId": "instant-pot-duo",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-instant-pot-rio-7-in-1-pressure-cooker-6qt/20294416",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:49.307Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Instant Pot RIO 7-in-1 Pressure Cooker - 6QT",
+      "brand": "INSTANT POT",
+      "mpn": "112-0041-02",
+      "gtin": "999004631429",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "99.98",
+      "currency": "CAD"
+    }
+  }
+]

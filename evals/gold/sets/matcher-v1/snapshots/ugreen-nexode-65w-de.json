@@ -1,0 +1,505 @@
+[
+  {
+    "id": "ugreen-nexode-65w-de-s01",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/honkai-star-rail-nexode-air-65w-mini-ladegeraet",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:14.909Z"
+    },
+    "listing": {
+      "title": "UGREEN x Honkai: Star Rail Nexode Air Mini-Ladegerät (65 W, GaN, USB-C-Kabel, TÜV-zertifiziert)",
+      "brand": "UGREEN DE",
+      "mpn": "95437SR",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "29.97",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s02",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-200w-8-port-gan-desktop-ladegeraet",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:17.609Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Desktop Ladegerät (200W, 8-Port, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "55324",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "59.95",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s03",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/ugreen-set-angebot-160w-ladegerat-240w-usb-c-kabel",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:19.079Z"
+    },
+    "listing": {
+      "title": "UGREEN Set-Angebot: 160W Ladegerät + 240W USB-C Kabel",
+      "brand": "UGREEN DE",
+      "mpn": "65637＋65867",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "70.88",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s04",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-air-slim-ladegeraet-65w-3-port-klappstecker",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:20.565Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air Slim Ladegerät (65W, 3-Port, Klappstecker)",
+      "brand": "UGREEN DE",
+      "mpn": "95907",
+      "variantAttributes": {
+        "Color": "Space Grau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "31.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s05",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/ugreen-nexode-500w-6-port-gan-desktop-schnell-ladegeraet",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:21.783Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Schnell-Ladegerät (500W, 6-Port, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "55550",
+      "gtin": "6941876255504",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "177.64",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s06",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/ugreen-set-angebot-nexode-pro-160w-4-port-ladegerat-nexode-powerbank-mit-48-000-mah-und-300-w",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:23.230Z"
+    },
+    "listing": {
+      "title": "UGREEN Set-Angebot: Nexode Pro 160W 4-Port-Ladegerät + Nexode Powerbank mit 48.000 mAh und 300 W",
+      "brand": "UGREEN DE",
+      "mpn": "25286+25095",
+      "gtin": "6941876222865",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "179.08",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s07",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-air-usb-c-ladegeraet-65w-gan?variant=53696952631639",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:24.533Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air USB-C Ladegerät (65W, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "35398",
+      "variantAttributes": {
+        "Farbe": "Cosmic Orange"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s08",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-air-usb-c-ladegeraet-65w-gan?variant=53696952664407",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:24.533Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Air USB-C Ladegerät (65W, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "45115",
+      "variantAttributes": {
+        "Farbe": "Space Grau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "24.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s09",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-300w-5-anschluss-gan-schnellladegerat",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:25.746Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode PD ladegerät (300W, 5-Ports, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "45699",
+      "gtin": "6938612229509",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s10",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-pro-160w-smart-display-ladegeraet-mit-ausziehbarem-kabel",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:27.169Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro Smart-Display-Ladegerät (160 W, 4 Anschlüsse, GaN, ausziehbares Kabel, App-Steuerung)",
+      "brand": "UGREEN DE",
+      "mpn": "95256",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s11",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-pro-65w-mini-gan-ladegerat",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:28.505Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro USB-C Mini Ladegerät (65W, 3-Ports, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "25261",
+      "gtin": "6941876222612",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "29.75",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s12",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-pro-smart-display-desktop-ladegeraet-300w-8-anschluesse",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:29.932Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro Smart-Display-Desktop-Ladegerät (300 W, 8 Anschlüsse, GaN, 5 Lademodi)",
+      "brand": "UGREEN DE",
+      "mpn": "75753",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s13",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-pro-160w-ladegeraet-5-in-1-smart-display",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:31.342Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro 160 W Ladegerät (5-in-1, Smart Display, 140 W Max, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "65637",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s14",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-pro-65w-usb-c-ladegerat-3-ports-ultra-slim-gan-schnellladegerat",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:32.641Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro Ultra-Slim USB-C Ladegerät (65W, 3-Ports, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "25356",
+      "gtin": "6941876223565",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "36.42",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s15",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-100w-ladegeraet-ausziehbares-usb-c-kabel",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:33.964Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Ladegerät (100W) mit ausziehbarem USB-C-Kabel",
+      "brand": "UGREEN DE",
+      "mpn": "65586",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "41.85",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s16",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/65w-5port-gan-desktop-gan-schnellladegerat-pps",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:35.227Z"
+    },
+    "listing": {
+      "title": "UGREEN Desktop Schnellladegerät (65W, 5-Port, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "65195",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "25.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s17",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-65w-ladegeraet-ausziehbares-usb-c-kabel",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:36.419Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Ladegerät (65W mit ausziehbarem USB-C-Kabel)",
+      "brand": "UGREEN DE",
+      "mpn": "55900",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "29.94",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s18",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-45w-ladegeraet-ausziehbares-usb-c-kabel",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:37.886Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Ladegerät (45W mit ausziehbarem USB-C-Kabel)",
+      "brand": "UGREEN DE",
+      "mpn": "65311",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "34.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s19",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/ugreen-65w-usb-c-ladegerat-3-ports-gan-wandladegerat-60w-usb-c-ladekabel-2?variant=47254495035735",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:39.305Z"
+    },
+    "listing": {
+      "title": "UGREEN 65W USB-C GaN Ladegerät + 60W USB-C Ladekabel*2",
+      "brand": "UGREEN DE",
+      "mpn": "10335+50150P",
+      "gtin": "6938622715061",
+      "variantAttributes": {
+        "Sets": "65 W USB-C Ladegerät + 60 W USB-C Ladekabel*2 (1 M)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "30.10",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s20",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/ugreen-65w-usb-c-ladegerat-3-ports-gan-wandladegerat-60w-usb-c-ladekabel-2?variant=47254495068503",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:39.305Z"
+    },
+    "listing": {
+      "title": "UGREEN 65W USB-C GaN Ladegerät + 60W USB-C Ladekabel*2",
+      "brand": "UGREEN DE",
+      "mpn": "40747+50150P",
+      "gtin": "6938622715078",
+      "variantAttributes": {
+        "Sets": "100 W USB-C Ladegerät + 60 W USB-C Ladekabel*2 (1 M)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "41.98",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s21",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/nexode-pro-100w-gan-ladegerat-schnellladegerat",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:40.635Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro USB-C Mini Ladegerät (100W, 3-Ports, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "15203",
+      "gtin": "6941876212033",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "38.84",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "ugreen-nexode-65w-de-s22",
+    "productId": "ugreen-nexode-65w-de",
+    "capture": {
+      "url": "https://de.ugreen.com/products/ugreen-nexode-pro-160w-usb-c-ladegerat-superschlank-gan-wandladegerat",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:05:41.843Z"
+    },
+    "listing": {
+      "title": "UGREEN Nexode Pro USB-C Ladegerät (160W, 4-Ports, GaN)",
+      "brand": "UGREEN DE",
+      "mpn": "25095",
+      "gtin": "6941876220953",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.ugreen.com"
+    },
+    "context": {
+      "priceText": "63.51",
+      "currency": "EUR"
+    }
+  }
+]

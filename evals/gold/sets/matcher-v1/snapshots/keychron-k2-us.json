@@ -1,0 +1,559 @@
+[
+  {
+    "id": "keychron-k2-us-s01",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard?variant=39900391309401",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:31.543Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Wireless Mechanical Keyboard (Version 2)",
+      "brand": "K series",
+      "mpn": "K2-A3Z",
+      "gtin": "4897115553059",
+      "variantAttributes": {
+        "Version": "White Backlight (Version B)",
+        "Switch Option": "Keychron Super Brown"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "48.74",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s02",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard?variant=39900390359129",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:31.543Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Wireless Mechanical Keyboard (Version 2)",
+      "brand": "K series",
+      "mpn": "K2-A1Z",
+      "gtin": "4897115553035",
+      "variantAttributes": {
+        "Version": "White Backlight (Version B)",
+        "Switch Option": "Keychron Super Red"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "48.74",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s03",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-pro-qmk-via-wireless-mechanical-keyboard-iso-layout-collection?variant=40437097136217",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:34.305Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Pro QMK/VIA Wireless Mechanical Keyboard ISO Layout Collection",
+      "brand": "ISO Keyboards",
+      "mpn": "K2P-J3-UK",
+      "gtin": "4895248880882",
+      "variantAttributes": {
+        "Type": "Fully Assembled (Hot-Swappable) / RGB Backlight Aluminum Frame-ABS Keycaps",
+        "Layout Version": "UK-ISO",
+        "Switch Option": "Keychron K Pro Mechanical Brown"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "83.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s04",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-pro-qmk-via-wireless-mechanical-keyboard-iso-layout-collection?variant=40437097103449",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:34.305Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Pro QMK/VIA Wireless Mechanical Keyboard ISO Layout Collection",
+      "brand": "ISO Keyboards",
+      "mpn": "K2P-J1-UK",
+      "gtin": "4895248880875",
+      "variantAttributes": {
+        "Type": "Fully Assembled (Hot-Swappable) / RGB Backlight Aluminum Frame-ABS Keycaps",
+        "Layout Version": "UK-ISO",
+        "Switch Option": "Keychron K Pro Mechanical Red"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "83.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s05",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/k2-pro-aluminum-plate",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:35.777Z"
+    },
+    "listing": {
+      "title": "K2 Pro / K2 Max / K2 Ultra Aluminum Plate",
+      "brand": "Z-Plate",
+      "mpn": "P258",
+      "gtin": "4895248846772",
+      "variantAttributes": {
+        "Version": "ANSI",
+        "Material": "Aluminum"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "7.50",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s06",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard-uk-iso-layout?variant=31457029423193",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:37.233Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Wireless Mechanical Keyboard (UK ISO Layout) - Version 2",
+      "brand": "ISO Keyboards",
+      "mpn": "K2-A3-UK",
+      "gtin": "4897115553837",
+      "variantAttributes": {
+        "Version": "White Backlight",
+        "Switch Type": "Gateron G Pro Mechanical",
+        "Switch Option": "Brown Switch"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "48.74",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s07",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard-uk-iso-layout?variant=31457029357657",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:37.233Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Wireless Mechanical Keyboard (UK ISO Layout) - Version 2",
+      "brand": "ISO Keyboards",
+      "mpn": "K2-A1-UK",
+      "gtin": "4897115553714",
+      "variantAttributes": {
+        "Version": "White Backlight",
+        "Switch Type": "Gateron G Pro Mechanical",
+        "Switch Option": "Red Switch"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "48.74",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s08",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-keyboard?variant=44855814881369",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:38.453Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard",
+      "brand": "K HE Series",
+      "mpn": "K2H-J1G",
+      "gtin": "4894979071552",
+      "variantAttributes": {
+        "Type": "Standard Version",
+        "Color": "Black",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch Version 2"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "103.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s09",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-keyboard?variant=41846757883993",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:38.453Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard",
+      "brand": "K HE Series",
+      "mpn": "K2H-J1",
+      "gtin": "4895248888994",
+      "variantAttributes": {
+        "Type": "Standard Version",
+        "Color": "Black",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch Version 1"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "103.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s10",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-custom-keyboard-all-wood-special-edition?variant=47885278380121",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:39.755Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - All-Wood Special Edition",
+      "brand": "K HE Series",
+      "mpn": "K2H-F1WG",
+      "variantAttributes": {
+        "Color": "All-Wood Special Edition",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch Version 2"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s11",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-custom-keyboard-all-wood-special-edition?variant=42742348644441",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:39.755Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - All-Wood Special Edition",
+      "brand": "K HE Series",
+      "mpn": "K2H-F1W",
+      "gtin": "4894979044402",
+      "variantAttributes": {
+        "Color": "All-Wood Special Edition",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch Version 1"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s12",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-custom-keyboard-concrete-edition?variant=47885218316377",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:41.006Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - Concrete Edition",
+      "brand": "K HE Series",
+      "mpn": "K2H-F1CG",
+      "variantAttributes": {
+        "Color": "Concrete Edition",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch Version 2"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s13",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-custom-keyboard-concrete-edition?variant=42878201364569",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:41.006Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - Concrete Edition",
+      "brand": "K HE Series",
+      "mpn": "K2H-F1C",
+      "gtin": "4894979047205",
+      "variantAttributes": {
+        "Color": "Concrete Edition",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch Version 1"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s14",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-wireless-magnetic-switch-custom-keyboard-resin-edition",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:42.451Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Wireless Magnetic Switch Custom Keyboard - Resin Edition",
+      "brand": "K HE Series",
+      "mpn": "K2H-F1R",
+      "gtin": "4894979044693",
+      "variantAttributes": {
+        "Color": "Resin Edition",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s15",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard?variant=41767492321369",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:43.928Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Max QMK Wireless Mechanical Keyboard",
+      "brand": "K Max series",
+      "mpn": "K2M-J3",
+      "gtin": "4895248880158",
+      "variantAttributes": {
+        "Color": "Black",
+        "Version": "RGB Backlight Aluminum Frame (Hot-Swappable)",
+        "Switch Type": "Keychron Super Brown"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "93.74",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s16",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard?variant=41767492288601",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:43.928Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Max QMK Wireless Mechanical Keyboard",
+      "brand": "K Max series",
+      "mpn": "K2M-J1",
+      "gtin": "4895248880141",
+      "variantAttributes": {
+        "Color": "Black",
+        "Version": "RGB Backlight Aluminum Frame (Hot-Swappable)",
+        "Switch Type": "Keychron Super Red"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "93.74",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s17",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-he-keyboard-and-m3-mouse-wireless-elite-bundle",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:45.319Z"
+    },
+    "listing": {
+      "title": "Keychron K2 HE Keyboard and M3 Mouse Wireless Elite Bundle",
+      "brand": "K HE Series",
+      "mpn": "KCBD9",
+      "gtin": "4894979036247",
+      "variantAttributes": {
+        "Version": "Keychron K2 HE & M3 3311 Bundle",
+        "Color": "Black",
+        "Switches": "Gateron Double-Rail Magnetic Nebula Switch"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s18",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-ultra-8k-wireless-custom-mechanical-keyboard?variant=43245836763225",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:46.817Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Ultra 8K Wireless Custom Mechanical Keyboard",
+      "brand": "K Ultra series",
+      "mpn": "K2U-J3",
+      "gtin": "4894979058010",
+      "variantAttributes": {
+        "Type": "Fully Assembled",
+        "Color": "Black",
+        "Switch Type": "Keychron Apex Switch - Brown"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "107.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s19",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-ultra-8k-wireless-custom-mechanical-keyboard?variant=43245836730457",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:46.817Z"
+    },
+    "listing": {
+      "title": "Keychron K2 Ultra 8K Wireless Custom Mechanical Keyboard",
+      "brand": "K Ultra series",
+      "mpn": "K2U-J1",
+      "gtin": "4894979058003",
+      "variantAttributes": {
+        "Type": "Fully Assembled",
+        "Color": "Black",
+        "Switch Type": "Keychron Apex Switch - Red"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "107.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s20",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-qmk-wireless-mechanical-keyboard-version-3?variant=42132483309657",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:48.310Z"
+    },
+    "listing": {
+      "title": "Keychron K2 QMK Wireless Mechanical Keyboard (Version 3)",
+      "brand": "K QMK series",
+      "mpn": "K2X-B3",
+      "gtin": "4895248885962",
+      "variantAttributes": {
+        "Version": "RGB Backlight",
+        "Switch Type": "Keychron Super Switch",
+        "Switch Option": "Brown"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "keychron-k2-us-s21",
+    "productId": "keychron-k2-us",
+    "capture": {
+      "url": "https://www.keychron.com/products/keychron-k2-qmk-wireless-mechanical-keyboard-version-3?variant=42132483276889",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:48.310Z"
+    },
+    "listing": {
+      "title": "Keychron K2 QMK Wireless Mechanical Keyboard (Version 3)",
+      "brand": "K QMK series",
+      "mpn": "K2X-B1",
+      "gtin": "4895248885955",
+      "variantAttributes": {
+        "Version": "RGB Backlight",
+        "Switch Type": "Keychron Super Switch",
+        "Switch Option": "Red"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.keychron.com"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "USD"
+    }
+  }
+]

@@ -1,0 +1,509 @@
+[
+  {
+    "id": "raspberry-pi-5-de-s01",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.alternate.de/Raspberry-Pi-Foundation/Raspberry-Pi-5-8GB-Mainboard/html/product/100038157",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:20.829Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Foundation Raspberry Pi 5 8GB, Mainboard",
+      "brand": "Raspberry Pi Foundation",
+      "mpn": "SC1112",
+      "gtin": "5056561803326",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "206.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s02",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-5?variant=52720382771467",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:20.955Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5",
+      "brand": "Raspberry Pi",
+      "variantAttributes": {
+        "Ausführung": "nur Pi 5 Platine",
+        "Modell": "Raspberry Pi 5 / 1 GB"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "49.89",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s03",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-ram",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:24.695Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5, 8GB RAM",
+      "brand": "Raspberry Pi",
+      "mpn": "RPI5-8GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "189",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s04",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.alternate.de/Raspberry-Pi-Foundation/Raspberry-Pi-5-Offizielles-Netzteil-USB-C-27-Watt/html/product/100038175",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:25.236Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Foundation Raspberry Pi 5 Offizielles Netzteil USB-C 27 Watt",
+      "brand": "Raspberry Pi Foundation",
+      "mpn": "RB-Netzteil5-W",
+      "gtin": "5056561803401",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "12.59",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s05",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-5-2gb",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:25.355Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 / 2 GB",
+      "brand": "Raspberry Pi",
+      "gtin": "5056561803302",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "83.90",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s06",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-ram-b-ware",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:27.480Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5, 8GB RAM, B-Ware",
+      "brand": "Raspberry Pi",
+      "mpn": "RPI5-8GB_B",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "179.55",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s07",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.alternate.de/Raspberry-Pi-Foundation/Raspberry-Pi-5-Offizielles-Netzteil-USB-C-27-Watt/html/product/100038168",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:27.942Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Foundation Raspberry Pi 5 Offizielles Netzteil USB-C 27 Watt",
+      "brand": "Raspberry Pi Foundation",
+      "mpn": "RB-Netzteil5-B",
+      "gtin": "5056561803418",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "12.59",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s08",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-cm5-compute-module-5?variant=53326347567371",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:28.064Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi CM5 (Compute Module 5)",
+      "brand": "Raspberry Pi",
+      "variantAttributes": {
+        "Wireless": "Yes",
+        "RAM": "1GB",
+        "eMMC storage": "0GB (Lite)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "61.21",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s09",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-ram-light-starter-kit-weiss",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:30.365Z"
+    },
+    "listing": {
+      "title": "BerryBase Raspberry Pi 5, 8GB RAM, Light Starter Kit, weiß",
+      "brand": "BerryBase",
+      "mpn": "RPI5-8-LGKITW",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "215.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s10",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.alternate.de/Raspberry-Pi-Foundation/Kunststoffgeh%C3%A4use-f%C3%BCr-Raspberry-Pi-5/html/product/100038184",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:30.823Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Foundation Kunststoffgehäuse für Raspberry Pi 5",
+      "brand": "Raspberry Pi Foundation",
+      "mpn": "SC1160",
+      "gtin": "5056561803746",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "9.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s11",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-4b?variant=42561717666035",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:30.954Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 4B 1GB/2GB/3GB/4GB",
+      "brand": "Raspberry Pi",
+      "variantAttributes": {
+        "Raspberry Modell": "Raspberry Pi 4 / 1 GB"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "38.90",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s12",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-ram-active-cooler-kit",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:33.024Z"
+    },
+    "listing": {
+      "title": "BerryBase Raspberry Pi 5, 8GB RAM, Active Cooler Kit",
+      "brand": "BerryBase",
+      "mpn": "RPI5-8-ACKIT",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "206.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s13",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.alternate.de/Inter-Tech/ODS-739-Raspberry-Alu-Case-Geh%C3%A4use/html/product/100153917",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:33.583Z"
+    },
+    "listing": {
+      "title": "Inter-Tech ODS-739 Raspberry Alu Case, Gehäuse",
+      "brand": "Inter-Tech",
+      "mpn": "88887413",
+      "gtin": "4260455649681",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.alternate.de"
+    },
+    "context": {
+      "priceText": "11.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s14",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-500?variant=46139539325195",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:33.698Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 500",
+      "brand": "Raspberry Pi",
+      "gtin": "5056561804262",
+      "variantAttributes": {
+        "Ausführung": "nur Raspberry Pi 500 Einheit",
+        "Ländervariante": "Deutsch (DE)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "201.90",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s15",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-starter-kit-mit-microsd-netzteil-gehaeuse-luefter-hdmi-kabel-und-sd-reader",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:35.749Z"
+    },
+    "listing": {
+      "title": "BerryBase Raspberry Pi 5 8GB Starter Kit mit microSD, Netzteil, Gehäuse, Lüfter, HDMI Kabel und SD Reader",
+      "brand": "BerryBase",
+      "mpn": "RPI5-8GB-ASK",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "251.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s16",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-500plus?variant=52130001453323",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:35.996Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 500+ All-in-One Keyboard-PC mit 16 GB & SSD",
+      "brand": "Raspberry Pi",
+      "gtin": "5056561804682",
+      "variantAttributes": {
+        "Ausführung": "nur Raspberry Pi 500+ Einheit (DE)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "468.67",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s17",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-ram-ultimate-starter-kit",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:38.068Z"
+    },
+    "listing": {
+      "title": "BerryBase Raspberry Pi 5, 8GB RAM, Ultimate Starter Kit",
+      "brand": "BerryBase",
+      "mpn": "RPI5-USK-8GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "269.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s18",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-4-model-b-8gb",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:38.364Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 4 8GB",
+      "brand": "Raspberry Pi",
+      "gtin": "0765756931199",
+      "variantAttributes": {
+        "Raspberry Modell": "Raspberry Pi 4 / 8 GB"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "181.90",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s19",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-passive-cooler-starter-kit",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:40.440Z"
+    },
+    "listing": {
+      "title": "BerryBase Raspberry Pi 5 8GB, Passive Cooler Starter Kit",
+      "brand": "BerryBase",
+      "mpn": "RPI5-8-PCK",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "239.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s20",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-400?variant=32091938881638",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:40.568Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 400 Personal Computer Kit & Unit",
+      "brand": "Raspberry Pi",
+      "gtin": "633696493025",
+      "variantAttributes": {
+        "Ausführung": "Raspberry Pi 400 Personal Computer Kit",
+        "Ländervariante": "Deutsch (DE)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "101.90",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s21",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://www.berrybase.de/raspberry-pi-5-8gb-active-cooler-starter-kit-mit-aluminium-gehaeuse",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:42.765Z"
+    },
+    "listing": {
+      "title": "BerryBase Raspberry Pi 5 8GB, Active Cooler Starter Kit mit Aluminium Gehäuse",
+      "brand": "BerryBase",
+      "mpn": "RPI5-8-ACAC",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.berrybase.de"
+    },
+    "context": {
+      "priceText": "256.9",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-de-s22",
+    "productId": "raspberry-pi-5-de",
+    "capture": {
+      "url": "https://buyzero.de/products/raspberry-pi-zero-w?variant=38399156114",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:58:42.865Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Zero W & WH",
+      "brand": "Raspberry Pi",
+      "gtin": "707565827164",
+      "variantAttributes": {
+        "Ausführung": "Ohne Stiftleiste (Pi Zero W)"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "buyzero.de"
+    },
+    "context": {
+      "priceText": "16.50",
+      "currency": "EUR"
+    }
+  }
+]

@@ -1,0 +1,478 @@
+[
+  {
+    "id": "raspberry-pi-5-s01",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.502Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 8GB Board Only",
+      "brand": "Raspberry Pi",
+      "gtin": "5056561803326",
+      "variantAttributes": {
+        "GB Capacity": "8GB",
+        "Style": "Board Only"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "175.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s02",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-16gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 - 16GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "385",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s03",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5-16gb-complete-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:19.205Z"
+    },
+    "listing": {
+      "title": "Vilros Raspberry Pi 5 16GB Complete Kit with Cooling Case, 128GB microSD & HDMI Cables",
+      "brand": "Vilros",
+      "variantAttributes": {
+        "GB Capacity": "16GB",
+        "Style": "Complete Kit"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "594.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s04",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-compute-module-5-lite-8gb-ram.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.342Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Compute Module 5 Lite - 8GB RAM",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "180",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s05",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/vilros-raspberry-pi-5-basic-starter-kit?variant=42280695136350",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:20.545Z"
+    },
+    "listing": {
+      "title": "Vilros Raspberry Pi 5 Basic Starter Kit",
+      "brand": "Vilros",
+      "variantAttributes": {
+        "GB Capacity": "1GB",
+        "Case Style": "Aluminum Alloy W/ Passive+ Active Cooling"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "114.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s06",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-8gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 - 8GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "180",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s07",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5-desktop-kit?variant=41114760806494",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:21.957Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 Desktop Kit",
+      "brand": "Raspberry Pi",
+      "variantAttributes": {
+        "Size": "2GB"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "148.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s08",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-ai-hat-2.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.342Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi AI HAT+ 2",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "200",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s09",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/vilros-raspberry-pi-5-complete-starter-kit?variant=42280697331806",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:23.400Z"
+    },
+    "listing": {
+      "title": "Vilros Raspberry Pi 5 Complete Starter Kit",
+      "brand": "Vilros",
+      "variantAttributes": {
+        "GB Capacity": "1GB",
+        "Case Style": "Aluminum Alloy W/ Passive+Active Cooling"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "144.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s10",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-4gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 - 4GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "110",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s11",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-compute-module-4-lite.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.342Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Compute Module 4 - Lite",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "45",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s12",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5-4gb-board-only",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:24.582Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 4GB Board Only",
+      "brand": "Raspberry Pi",
+      "variantAttributes": {
+        "GB Capacity": "4GB",
+        "Style": "Board Only"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "110.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s13",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-2gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 - 2GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "70",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s14",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-compute-module-4-16gb-wireless-version-2gb-ram.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.342Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Compute Module 4 16GB (Wireless Version) - 2GB RAM",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "90",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s15",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5-8gb-complete-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:26.053Z"
+    },
+    "listing": {
+      "title": "Vilros Raspberry Pi 5 8GB Complete Kit with Cooling Case, 128GB microSD & HDMI Cables",
+      "brand": "Vilros",
+      "variantAttributes": {
+        "GB Capacity": "8GB",
+        "Style": "Complete Kit"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "264.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s16",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-essential-kit-8gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 Essential Kit - 8GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "149.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s17",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-compute-module-5-16gb-8gb-ram.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.342Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Compute Module 5 16GB - 8GB RAM",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "150",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s18",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5-4gb-basic-starter-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:27.341Z"
+    },
+    "listing": {
+      "title": "Vilros Raspberry Pi 5 4GB Basic Starter Kit with Cooling Case & 32GB microSD",
+      "brand": "Vilros",
+      "variantAttributes": {
+        "GB Capacity": "4GB",
+        "Style": "Starter Kit"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s19",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-essential-kit-4gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 Essential Kit - 4GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "99.95",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s20",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-compute-module-32gb-8gb-ram.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:16.342Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi Compute Module 5 32GB - 8GB RAM",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "150",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s21",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.vilros.com/products/raspberry-pi-5-4gb-essentials-kit",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:57:28.786Z"
+    },
+    "listing": {
+      "title": "Vilros Raspberry Pi 5 4GB Essentials Kit with Clear Case & 32GB microSD",
+      "brand": "Vilros",
+      "variantAttributes": {
+        "GB Capacity": "4GB",
+        "Style": "Essentials Kit"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.vilros.com"
+    },
+    "context": {
+      "priceText": "149.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "raspberry-pi-5-s22",
+    "productId": "raspberry-pi-5",
+    "capture": {
+      "url": "https://www.sparkfun.com/raspberry-pi-5-basic-kit-8gb.html",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:46:32.261Z"
+    },
+    "listing": {
+      "title": "Raspberry Pi 5 Basic Kit - 8GB",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.sparkfun.com"
+    },
+    "context": {
+      "priceText": "159.95",
+      "currency": "USD"
+    }
+  }
+]

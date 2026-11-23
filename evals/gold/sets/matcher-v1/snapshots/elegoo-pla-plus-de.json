@@ -1,0 +1,512 @@
+[
+  {
+    "id": "elegoo-pla-plus-de-s01",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-filament-1-75mm-colored-1kg?variant=45117597057163",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:14.844Z"
+    },
+    "listing": {
+      "title": "PLA",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Typ": "PLA (RFID)",
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "12.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s02",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-filament-1-75mm-colored-1kg?variant=45117597089931",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:14.844Z"
+    },
+    "listing": {
+      "title": "PLA",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Typ": "PLA (RFID)",
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "12.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s03",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://www.3djake.de/elegoo/petg-glitter-orange",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:56:55.998Z"
+    },
+    "listing": {
+      "title": "Elegoo PETG Glitter Orange, 1,75 mm / 1000 g",
+      "brand": "Elegoo",
+      "gtin": "6932704937334",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.3djake.de"
+    },
+    "context": {
+      "priceText": "11.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s04",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-pla-plus-3d-printer-filament-1-75mm-colored-1kg?variant=43605358346379",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:16.258Z"
+    },
+    "listing": {
+      "title": "PLA Plus",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s05",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-pla-plus-3d-printer-filament-1-75mm-colored-1kg?variant=43605358379147",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:16.258Z"
+    },
+    "listing": {
+      "title": "PLA Plus",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s06",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://www.3djake.de/nobufil/plax-lw-classic-grey",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:16.545Z"
+    },
+    "listing": {
+      "title": "Nobufil PLAx LW Classic Grey, 1,75 mm / 850 g",
+      "brand": "Nobufil",
+      "gtin": "9180010462072",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.3djake.de"
+    },
+    "context": {
+      "priceText": "31.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s07",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-rapid-pla-plus-filament-1-75mm-colored-1kg?variant=43605365391499",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:17.760Z"
+    },
+    "listing": {
+      "title": "RAPID PLA Plus",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s08",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-rapid-pla-plus-filament-1-75mm-colored-1kg?variant=43605365424267",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:17.760Z"
+    },
+    "listing": {
+      "title": "RAPID PLA Plus",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s09",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-matte-filament-1-75mm-colored-1kg?variant=43605375287435",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:19.108Z"
+    },
+    "listing": {
+      "title": "PLA Matt",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Matte Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "17.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s10",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-matte-filament-1-75mm-colored-1kg?variant=43605375320203",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:19.108Z"
+    },
+    "listing": {
+      "title": "PLA Matt",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Matte White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "17.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s11",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-pro-filament-1-75mm-colored-1kg?variant=43605375778955",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:20.365Z"
+    },
+    "listing": {
+      "title": "PLA PRO",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "16.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s12",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-pro-filament-1-75mm-colored-1kg?variant=43605375811723",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:20.365Z"
+    },
+    "listing": {
+      "title": "PLA PRO",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "16.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s13",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-metal-filament-1-75-mm-colored-1-kg?variant=43903033802891",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:21.746Z"
+    },
+    "listing": {
+      "title": "PLA Metallisches",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Metall-Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "18.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s14",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-metal-filament-1-75-mm-colored-1-kg?variant=43903033868427",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:21.746Z"
+    },
+    "listing": {
+      "title": "PLA Metallisches",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Metall-Bronze"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "18.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s15",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/galaxy-pla-filament-1-75mm-colored-1kg?variant=43605341241483",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:23.179Z"
+    },
+    "listing": {
+      "title": "PLA Galaxy",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Galaxy Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "18.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s16",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/galaxy-pla-filament-1-75mm-colored-1kg?variant=43605341274251",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:23.179Z"
+    },
+    "listing": {
+      "title": "PLA Galaxy",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Galaxy Purple"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "18.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s17",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-basic-filament-1-75mm-colored-1kg?variant=43605367521419",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:24.562Z"
+    },
+    "listing": {
+      "title": "PLA Basic Nachfüllpack",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Typ": "Nachfüllpack",
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "12.49",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s18",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/pla-basic-filament-1-75mm-colored-1kg?variant=43605367554187",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:24.562Z"
+    },
+    "listing": {
+      "title": "PLA Basic Nachfüllpack",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Typ": "Nachfüllpack",
+        "Farbe": "Rot"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "12.49",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s19",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg?variant=43605379154059",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:25.947Z"
+    },
+    "listing": {
+      "title": "PLA Seide",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Seidenschwarz-Rot"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "18.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s20",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/elegoo-silk-pla-filament-1-75mm-colored-1kg?variant=43605378793611",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:25.947Z"
+    },
+    "listing": {
+      "title": "PLA Seide",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Farbe": "Seidengold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "18.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s21",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/rapid-pla-plus-filament-1-75mm-colored-5kg-for-orangestorm-giga?variant=43605340225675",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:27.201Z"
+    },
+    "listing": {
+      "title": "Rapid PLA Plus 5-kg-Spule",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Filamenttyp": "Rapid PLA+",
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "64.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "elegoo-pla-plus-de-s22",
+    "productId": "elegoo-pla-plus-de",
+    "capture": {
+      "url": "https://de.elegoo.com/products/rapid-pla-plus-filament-1-75mm-colored-5kg-for-orangestorm-giga?variant=43605339897995",
+      "country": "DE",
+      "capturedAt": "2026-11-23T16:57:27.201Z"
+    },
+    "listing": {
+      "title": "Rapid PLA Plus 5-kg-Spule",
+      "brand": "ELEGOO",
+      "variantAttributes": {
+        "Filamenttyp": "Rapid PLA+",
+        "Farbe": "Grau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "de.elegoo.com"
+    },
+    "context": {
+      "priceText": "64.99",
+      "currency": "EUR"
+    }
+  }
+]

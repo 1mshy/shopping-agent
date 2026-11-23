@@ -1,0 +1,505 @@
+[
+  {
+    "id": "airpods-pro-2-s01",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/apple-airpods-pro-2nd-generation-in-ear-noise-cancelling-truly-wireless-headphones-white/17063744",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:48.294Z"
+    },
+    "listing": {
+      "title": "Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+      "brand": "APPLE",
+      "mpn": "Airpods Pro",
+      "gtin": "0194253397168",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "349.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s02",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.visions.ca/logiix-peels-2-pack-for-airpods-gen-1-2-navy-white",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:47.850Z"
+    },
+    "listing": {
+      "title": "LOGiiX Peels 2-pack for AirPods Gen 1&2 - Navy / White",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.visions.ca"
+    },
+    "context": {
+      "priceText": "1",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s03",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/apple-airpods-pro-3-noise-cancelling-true-wireless-earbuds-with-magsafe-charging-case/19451577",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:49.288Z"
+    },
+    "listing": {
+      "title": "Apple AirPods Pro 3 Noise Cancelling True Wireless Earbuds with MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MFHP4AM/A",
+      "gtin": "195950543612",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "259.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s04",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-apple-airpods-pro-2nd-generation-in-ear-noise-cancelling-true-wireless-earbuds-white/16558113",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:50.923Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling True Wireless Earbuds - White",
+      "brand": "APPLE",
+      "mpn": "MQD83AM/A",
+      "gtin": "999003896225",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "224.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s05",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-apple-airpods-pro-2nd-generation-noise-cancelling-true-wireless-earbuds-with-usb-c-magsafe-charging-case/17543757",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:52.063Z"
+    },
+    "listing": {
+      "title": "Open Box - Apple AirPods Pro (2nd generation) Noise Cancelling True Wireless Earbuds with USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004151552",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s06",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-fair-apple-airpods-pro-2nd-generation-noise-cancelling-true-wireless-earbuds-with-usb-c-magsafe-charging-case/17448888",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:53.338Z"
+    },
+    "listing": {
+      "title": "Refurbished (Fair) - Apple AirPods Pro (2nd generation) Noise Cancelling True Wireless Earbuds with USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004101366",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s07",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-apple-airpods-pro-2nd-generation-noise-cancelling-true-wireless-earbuds-with-usb-c-magsafe-charging-case/17448886",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:54.765Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Apple AirPods Pro (2nd generation) Noise Cancelling True Wireless Earbuds with USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004101373",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "169.96",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s08",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-apple-airpods-pro-2nd-generation-in-ear-noise-cancelling-truly-wireless-headphones-white/16680242",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:56.349Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+      "brand": "APPLE",
+      "mpn": "MQD83AM/A",
+      "gtin": "999003956523",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "195.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s09",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-fair-apple-airpods-pro-2nd-generation-in-ear-noise-cancelling-truly-wireless-headphones-white/17544276",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:57.855Z"
+    },
+    "listing": {
+      "title": "Refurbished (Fair) - Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling Truly Wireless Headphones - White",
+      "brand": "APPLE",
+      "mpn": "MQD83AM/A",
+      "gtin": "999004152900",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s10",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/airpods-pro-2nd-generation-usb-c-right-ear-replacement-a3047-refurbished-excellent/17611148",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:50:59.129Z"
+    },
+    "listing": {
+      "title": "AirPods Pro (2nd Generation) USB-C Right Ear Replacement A3047 Refurbished Excellent",
+      "brand": "APPLE",
+      "mpn": "APRO2USBC-R-LN-F7",
+      "gtin": "659467662827",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "104.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s11",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/apple-airpods-pro-2nd-generation-brand-new/16644217",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:00.227Z"
+    },
+    "listing": {
+      "title": "Apple AirPods Pro 2nd Generation - Brand New",
+      "brand": "APPLE",
+      "mpn": "MQD83AM/A",
+      "gtin": "999003908331",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "359.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s12",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-fair-apple-airpods-pro-2nd-generation-with-magsafe-wireless-charging-case-lightning/19884489",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:01.578Z"
+    },
+    "listing": {
+      "title": "Refurbished Fair - Apple AirPods Pro 2nd Generation with MagSafe Wireless Charging Case - Lightning",
+      "brand": "APPLE",
+      "mpn": "Airpods Pro Lighting",
+      "gtin": "064900429804",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s13",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/open-box-apple-airpods-pro-3-noise-cancelling-true-wireless-earbuds-with-magsafe-charging-case/19475698",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:02.732Z"
+    },
+    "listing": {
+      "title": "Open Box - Apple AirPods Pro 3 Noise Cancelling True Wireless Earbuds with MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MFHP4AM/A",
+      "gtin": "999004555381",
+      "variantAttributes": {},
+      "condition": "open_box",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "264.98",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s14",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-apple-airpods-pro-2nd-generation-noise-cancelling-true-wireless-earbuds-with-usb-c-magsafe-charging-case/17448885",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:03.836Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Apple AirPods Pro (2nd generation) Noise Cancelling True Wireless Earbuds with USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004101380",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "349.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s15",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-apple-airpods-pro-2nd-generation-noise-cancelling-true-wireless-earbuds-with-usb-c-magsafe-charging-case/17543378",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:05.315Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Apple AirPods Pro (2nd generation) Noise Cancelling True Wireless Earbuds with USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004150296",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "235.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s16",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-apple-airpods-pro-3-noise-cancelling-true-wireless-earbuds-with-magsafe-charging-case/19795440",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:07.073Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Apple AirPods Pro 3 Noise Cancelling True Wireless Earbuds with MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MFHP4AM/A",
+      "gtin": "999004611452",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "219.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s17",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-good-apple-airpods-pro-2nd-gen-noise-cancelling-true-wireless-earbuds-w-usb-c-magsafe-charging-case/17977995",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:08.403Z"
+    },
+    "listing": {
+      "title": "Refurbished (Good) - Apple AirPods Pro (2nd gen) Noise Cancelling True Wireless Earbuds w/ USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004292385",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "253",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s18",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-apple-airpods-pro-2nd-generation-in-ear-noise-cancelling-true-wireless-earbuds-white/17076835",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:09.601Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Apple AirPods Pro (2nd generation) In-Ear Noise Cancelling True Wireless Earbuds - White",
+      "brand": "APPLE",
+      "mpn": "MQD83AM/A",
+      "gtin": "999004003202",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "239.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s19",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-fair-apple-airpods-pro-3-noise-cancelling-true-wireless-earbuds-with-magsafe-charging-case/19795438",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:11.075Z"
+    },
+    "listing": {
+      "title": "Refurbished (Fair) - Apple AirPods Pro 3 Noise Cancelling True Wireless Earbuds with MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MFHP4AM/A",
+      "gtin": "999004611520",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "209.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s20",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-fair-apple-airpods-pro-2nd-generation-noise-cancelling-true-wl-earbuds-w-usb-c-magsafe-charging-case/17971009",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:11.895Z"
+    },
+    "listing": {
+      "title": "Refurbished (Fair) - Apple AirPods Pro (2nd generation) Noise Cancelling True WL Earbuds w/USB-C MagSafe Charging Case",
+      "brand": "APPLE",
+      "mpn": "MTJV3AM/A",
+      "gtin": "999004231667",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "204.95",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s21",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-airpods-pro-2nd-generation-left-ear-replacement-lightning-version/17555651",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:13.317Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - AirPods Pro (2nd Generation) - Left Ear Replacement Lightning Version.",
+      "brand": "APPLE",
+      "mpn": "A2699",
+      "gtin": "659467589513",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "69.99",
+      "currency": "CAD"
+    }
+  },
+  {
+    "id": "airpods-pro-2-s22",
+    "productId": "airpods-pro-2",
+    "capture": {
+      "url": "https://www.bestbuy.ca/en-ca/product/refurbished-excellent-apple-mqd83am-a-airpods-pro-2nd-generation/18910897",
+      "country": "CA",
+      "capturedAt": "2026-11-23T16:51:14.729Z"
+    },
+    "listing": {
+      "title": "Refurbished (Excellent) - Apple MQD83AM/A AirPods Pro (2nd Generation)",
+      "brand": "APPLE",
+      "mpn": "MQD83AM/A",
+      "gtin": "710579361869",
+      "variantAttributes": {},
+      "condition": "refurbished",
+      "sellerKind": "marketplace_seller",
+      "storeHost": "www.bestbuy.ca"
+    },
+    "context": {
+      "priceText": "184.99",
+      "currency": "CAD"
+    }
+  }
+]

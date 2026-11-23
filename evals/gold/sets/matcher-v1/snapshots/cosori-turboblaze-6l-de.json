@@ -1,0 +1,507 @@
+[
+  {
+    "id": "cosori-turboblaze-6l-de-s01",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turboblaze-6-liter-heissluftfritteuse?variant=50085922406747",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:36.610Z"
+    },
+    "listing": {
+      "title": "COSORI TurboBlaze™ 6.0-Liter Heißluftfritteuse",
+      "brand": "Cosori",
+      "gtin": "810123674831",
+      "variantAttributes": {
+        "Farbe": "Dunkelgrau"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "139.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s02",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turboblaze-6-liter-heissluftfritteuse?variant=50555396555099",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:36.610Z"
+    },
+    "listing": {
+      "title": "COSORI TurboBlaze™ 6.0-Liter Heißluftfritteuse",
+      "brand": "Cosori",
+      "gtin": "810123674145",
+      "variantAttributes": {
+        "Farbe": "Blanco"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "139.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s03",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-2-liter-heissluftfritteuse",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:39.315Z"
+    },
+    "listing": {
+      "title": "COSORI 2-Liter Mini Heißluftfritteuse",
+      "brand": "Cosori",
+      "gtin": "0810123674725",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s04",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-backpapier-fur-heissluftfritteuse-4-5-6l",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:40.736Z"
+    },
+    "listing": {
+      "title": "COSORI Backpapier für Heißluftfritteuse 4.5-6L",
+      "brand": "Cosori",
+      "gtin": "0810043379878",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "15.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s05",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turboblaze-keramik-backblech-ersatzteil",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:41.950Z"
+    },
+    "listing": {
+      "title": "COSORI TurboBlaze Keramik-Backblech – Original Ersatzteil",
+      "brand": "COSORI DE",
+      "gtin": "810123679232",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "20.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s06",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-premium-4-7-liter-heissluftfritteuse-dunkelgrau",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:43.265Z"
+    },
+    "listing": {
+      "title": "COSORI 4,7-Liter Heißluftfritteuse Dunkelgrau",
+      "brand": "Cosori",
+      "gtin": "810123674718",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s07",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-backpapier-fur-heissluftfritteuse-3-4-5l",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:44.698Z"
+    },
+    "listing": {
+      "title": "COSORI Backpapier für Heißluftfritteuse 3-4.5L",
+      "brand": "Cosori",
+      "gtin": "0810043379861",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s08",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-dual-blaze-twinfry-10-litre-heissluftfritteuse?variant=50923782046043",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:46.135Z"
+    },
+    "listing": {
+      "title": "COSORI Dual Blaze Twinfry™ 10-Litre Heißluftfritteuse-Gold",
+      "brand": "Cosori",
+      "gtin": "0810123678457",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "159.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s09",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-dual-blaze-twinfry-10-litre-heissluftfritteuse?variant=50923782078811",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:46.135Z"
+    },
+    "listing": {
+      "title": "COSORI Dual Blaze Twinfry™ 10-Litre Heißluftfritteuse-Gold",
+      "brand": "Cosori",
+      "gtin": "0810123678440",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "229.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s10",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-dual-basket-8-5-liter-heissluftfritteuse",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:47.417Z"
+    },
+    "listing": {
+      "title": "COSORI Dual Basket 8,5-Liter Heißluftfritteuse",
+      "brand": "Cosori",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "199.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s11",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turbo-tower-10-8-liter-heissluftfritteuse-pro-smart?variant=50505892528475",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:48.799Z"
+    },
+    "listing": {
+      "title": "COSORI Turbo Tower™ 10,8-Liter Heißluftfritteuse Pro Smart",
+      "brand": "Cosori",
+      "gtin": "0810123675180",
+      "variantAttributes": {
+        "Farbe": "Silber"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "279.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s12",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turbo-tower-10-8-liter-heissluftfritteuse-pro-smart?variant=50505892495707",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:48.799Z"
+    },
+    "listing": {
+      "title": "COSORI Turbo Tower™ 10,8-Liter Heißluftfritteuse Pro Smart",
+      "brand": "Cosori",
+      "gtin": "0810123675203",
+      "variantAttributes": {
+        "Farbe": "Gold"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "279.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s13",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-2-kammern-8-5-liter-heissluftfritteuse-gold?variant=54022610321755",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:50.221Z"
+    },
+    "listing": {
+      "title": "COSORI 2 Kammern 8,5-Liter Heißluftfritteuse-Gold",
+      "brand": "Cosori",
+      "gtin": "0810123673988",
+      "variantAttributes": {
+        "Color": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s14",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-2-kammern-8-5-liter-heissluftfritteuse-gold?variant=54022610354523",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:50.221Z"
+    },
+    "listing": {
+      "title": "COSORI 2 Kammern 8,5-Liter Heißluftfritteuse-Gold",
+      "brand": "Cosori",
+      "gtin": "0810123675968",
+      "variantAttributes": {
+        "Color": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s15",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turbo-tower-10-8-liter-heissluftfritteuse-pro",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:51.681Z"
+    },
+    "listing": {
+      "title": "COSORI Turbo Tower™ 10,8-Liter Heißluftfritteuse Pro",
+      "brand": "Cosori",
+      "gtin": "0810123675241",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "259.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s16",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/iconic-single",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:52.910Z"
+    },
+    "listing": {
+      "title": "COSORI ICONIC™ Single Edelstahl-Heißluftfritteuse – 6,2 Liter",
+      "brand": "COSORI",
+      "gtin": "0810123677696",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "239.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s17",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-turbo-tower%E2%84%A2-10-8-liter-heissluftfritteuse-standard",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:54.193Z"
+    },
+    "listing": {
+      "title": "COSORI Turbo Tower™ 10,8-Liter Heißluftfritteuse Standard",
+      "brand": "Cosori",
+      "gtin": "810123675173",
+      "variantAttributes": {
+        "Funktionen": "6 Funktionen"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s18",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-dual-blaze-twinfry%E2%84%A2-10-litre-heissluftfritteuse",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:55.528Z"
+    },
+    "listing": {
+      "title": "COSORI Dual Blaze Twinfry™ 10-Litre Heißluftfritteuse",
+      "brand": "Cosori",
+      "gtin": "0810123674664",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "229.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s19",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-dual-blaze-twinfry%E2%84%A2-compact-8-6l-heissluftfritteuse",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:57.018Z"
+    },
+    "listing": {
+      "title": "COSORI Dual Blaze TwinFry™ Compact 8,6L Heißluftfritteuse",
+      "brand": "COSORI",
+      "gtin": "0810123677870",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "189.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s20",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-6-2-liter-heissluftfritteuse-zubehor",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:02:58.501Z"
+    },
+    "listing": {
+      "title": "COSORI 6,2-Liter Heißluftfritteuse & Zubehör",
+      "brand": "Cosori",
+      "gtin": "0810123671120",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s21",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-premium-heissluftfritteuse-55-liter-grau?variant=47290600456539",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:00.014Z"
+    },
+    "listing": {
+      "title": "COSORI 5,5-Liter Heißluftfritteuse",
+      "brand": "Cosori",
+      "gtin": "0817915025574",
+      "variantAttributes": {
+        "Farbe": "Schwarz"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6l-de-s22",
+    "productId": "cosori-turboblaze-6l-de",
+    "capture": {
+      "url": "https://www.cosori.de/products/cosori-premium-heissluftfritteuse-55-liter-grau?variant=50739016565083",
+      "country": "DE",
+      "capturedAt": "2026-11-23T17:03:00.014Z"
+    },
+    "listing": {
+      "title": "COSORI 5,5-Liter Heißluftfritteuse",
+      "brand": "Cosori",
+      "gtin": "0810043371094",
+      "variantAttributes": {
+        "Farbe": "Weiß"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.de"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "EUR"
+    }
+  }
+]

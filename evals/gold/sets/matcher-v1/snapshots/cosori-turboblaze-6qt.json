@@ -1,0 +1,408 @@
+[
+  {
+    "id": "cosori-turboblaze-6qt-s01",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/turboblaze-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:47.819Z"
+    },
+    "listing": {
+      "title": "TurboBlaze® 6.0-Quart Air Fryer - Dark Gray",
+      "brand": "COSORI",
+      "mpn": "KAAPAFCSNUS0161A",
+      "gtin": "810123670376",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "89.98",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s02",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/pro-le-5-0-quart-air-fryer?variant=49790153097525",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:50.329Z"
+    },
+    "listing": {
+      "title": "Cosori® Pro LE 5.0-Quart Air Fryer",
+      "brand": "Cosori",
+      "mpn": "KAAPAFCSNUS0045A",
+      "gtin": "810043374538",
+      "variantAttributes": {
+        "Cosori® Pro LE 5.0-Quart Air Fryer": "Black"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "89.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s03",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/pro-le-5-0-quart-air-fryer?variant=52291165258037",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:50.329Z"
+    },
+    "listing": {
+      "title": "Cosori® Pro LE 5.0-Quart Air Fryer",
+      "brand": "Cosori",
+      "mpn": "KAAPAFCSNUS0187A",
+      "gtin": "810123671984",
+      "variantAttributes": {
+        "Cosori® Pro LE 5.0-Quart Air Fryer": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "99.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s04",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/air-fryer-accessories",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:51.671Z"
+    },
+    "listing": {
+      "title": "Air Fryer Accessories",
+      "brand": "Cosori",
+      "mpn": "KAACAACSNUS0002",
+      "gtin": "817915024539",
+      "variantAttributes": {
+        "Size": "5.8-Quart"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "31.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s05",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/turboblaze-6-0-quart-smart-air-fryer-gray",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:53.103Z"
+    },
+    "listing": {
+      "title": "TurboBlaze® 6.0-Quart Air Fryer - Light Gray",
+      "brand": "COSORI",
+      "mpn": "KAAPAFCSNUS0206A",
+      "gtin": "810123673841",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s06",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/lite-2-1-quart-mini-air-fryer?variant=45003259216181",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:54.407Z"
+    },
+    "listing": {
+      "title": "Lite 2.1-Quart Mini Air Fryer",
+      "brand": "Cosori",
+      "mpn": "KAAPAFCSNUS0130A",
+      "gtin": "810043379328",
+      "variantAttributes": {
+        "Color": "Gray"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s07",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/lite-2-1-quart-mini-air-fryer?variant=45003259248949",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:54.407Z"
+    },
+    "listing": {
+      "title": "Lite 2.1-Quart Mini Air Fryer",
+      "brand": "Cosori",
+      "mpn": "KAAPAFCSNUS0131A",
+      "gtin": "810043379335",
+      "variantAttributes": {
+        "Color": "Red"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "59.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s08",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/cosori-air-fryer-liners?variant=51406103118133",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:55.794Z"
+    },
+    "listing": {
+      "title": "Cosori Air Fryer Liners",
+      "brand": "COSORI",
+      "mpn": "KAACAACSNUS0104Y",
+      "gtin": "810043379823",
+      "variantAttributes": {
+        "Size": "3-5 QT"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "11.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s09",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/cosori-air-fryer-liners?variant=51406103150901",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:55.794Z"
+    },
+    "listing": {
+      "title": "Cosori Air Fryer Liners",
+      "brand": "COSORI",
+      "mpn": "KAACAACSNUS0105Y",
+      "gtin": "810043379830",
+      "variantAttributes": {
+        "Size": "5-6 QT"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "13.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s10",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/turboblaze-6-0-quart-air-fryer-cream",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:57.125Z"
+    },
+    "listing": {
+      "title": "TurboBlaze® 6.0-Quart Smart Air Fryer - Cream",
+      "brand": "COSORI",
+      "mpn": "KAAPAFCSSUS0205A",
+      "variantAttributes": {
+        "Color": "White"
+      },
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "129.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s11",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/13-quart-air-fryer-oven",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:58.463Z"
+    },
+    "listing": {
+      "title": "13-Quart Air Fryer Oven",
+      "brand": "Cosori",
+      "mpn": "KAAPAFCSNUS0109Y",
+      "gtin": "810043378772",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "139.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s12",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/cosori-air-fryer-wire-rack-for-cs100-ao-cto-r251s-air-fryer-toaster-oven-replacement-accessories",
+      "country": "US",
+      "capturedAt": "2026-11-23T16:59:59.897Z"
+    },
+    "listing": {
+      "title": "COSORI Air Fryer Wire Rack for CS100-AO & CTO-R251S, Air Fryer Toaster Oven Replacement Accessories",
+      "brand": "COSORI",
+      "mpn": "KAACTACSNUS0014Y",
+      "gtin": "810043378123",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "16.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s13",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/dual-blaze-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:01.231Z"
+    },
+    "listing": {
+      "title": "Dual Blaze® 6.8-Quart Smart Air Fryer",
+      "brand": "Cosori",
+      "mpn": "KAAPAFCSSUS0061A",
+      "gtin": "810123678785",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "129.00",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s14",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/cosori-twinfry-9-quart-double-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:02.542Z"
+    },
+    "listing": {
+      "title": "COSORI TWINFRY 9-Quart Double Air Fryer",
+      "brand": "COSORI",
+      "mpn": "KAAPAFCSNUS0251Y",
+      "gtin": "0810123679485",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "179.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s15",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/13qt-air-fryer-wire-oven-rack",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:03.881Z"
+    },
+    "listing": {
+      "title": "13-Quart Air Fryer Oven Wire Rack",
+      "brand": "Cosori",
+      "mpn": "KAACAACSNUS0227Y",
+      "gtin": "810123671045",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "12.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s16",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/cosori-9-0-quart-dual-basket-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:05.350Z"
+    },
+    "listing": {
+      "title": "Cosori 9.0-Quart Dual Basket Air Fryer",
+      "brand": "COSORI",
+      "mpn": "KAAPAFCSNUS0177Y",
+      "gtin": "810123671557",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "169.99",
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "cosori-turboblaze-6qt-s17",
+    "productId": "cosori-turboblaze-6qt",
+    "capture": {
+      "url": "https://www.cosori.com/products/iconic-air-fryer",
+      "country": "US",
+      "capturedAt": "2026-11-23T17:00:06.551Z"
+    },
+    "listing": {
+      "title": "Iconic® The Stainless Steel 6.5-Quart Smart Air Fryer",
+      "brand": "COSORI",
+      "mpn": "KAAPAFCSSUS0252Y",
+      "gtin": "810123677740",
+      "variantAttributes": {},
+      "condition": "new",
+      "sellerKind": "first_party",
+      "storeHost": "www.cosori.com"
+    },
+    "context": {
+      "priceText": "249.00",
+      "currency": "USD"
+    }
+  }
+]

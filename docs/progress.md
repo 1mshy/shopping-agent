@@ -17,6 +17,26 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-23: Gold set v1 (P0-4c), agent-labelled, waiting for the owner's review
+
+**Merged by the orchestrator** after reading both review sheets and sampling labels. Owner workload trimmed: of the 97 disagreements, only the 25 where one pass said `exact`, `variant` or `bundle` need a ruling (marked ⚑); in the other 72 both passes call the listing a non-match, and the tie-break stands. v1 is taken as enough for Phase 1; the 403-walled large retailers and single-store products are revisited when the browser rung exists (Phase 2).
+
+**Shipped** (branch `phase0/gold-v1`): `evals/gold/sets/matcher-v1/` (products, snapshots, primary labels, both agent passes with evidence, split, worklist, two review sheets, README), `evals/gold/agent-label.ts` (the labeller), `evals/gold/capture/` (the capture scripts and how the capture was done). `@anthropic-ai/sdk` 1.6.0 added to `evals` (the newest release older than two weeks).
+
+**Products (n = 61).** CA 25, US 18, DE 18. Categories: 3d-printing 12, computing 12, audio 10, kitchen-appliances 10, personal-care 9, power-tools 8. 19 of the predecessor's 20 keep their ids; the Kobra 3 Combo became the Kobra 3 Max V2 Combo (German stores sell only that). Two more products were retargeted after the first labelling found no exact listing (Milwaukee 2853-20 to 2953-20; Liberty 4 NC (DE) to Liberty 4 Pro); their listings were relabelled. Identity: GTIN on 50, MPN on 38, neither on 7, all taken from a listing the store publishes.
+
+**Snapshots (n = 1,307, 17-23 per product)** from 47 stores out of 237 probed: shop search through Shopify predictive search, WooCommerce Store API, Magento GraphQL, Best Buy Canada's JSON API, and three German HTML search pages. About 1,810 requests, at most one in flight per host and at least 1.2 s apart, honest lab User-Agent. One 429 (alternate.de, after 45 requests); the host was stopped. Most large retailers answered 403 to plain HTTP and were not retried. **All requests came from one Canadian IP**: US and DE stores were seen from Canada, and two US stores showed CAD prices (recorded as currency `unknown`). 31 of 61 products have listings from one store; Best Buy Canada supplies 295 of the 542 CA listings. Set size 2.3 MB.
+
+**Labels.** Claude Opus 5.5 (`claude-opus-5-5`) on the native Anthropic API, effort `low`, structured output, prompt `gold-label.v1` with the owner's rulings (line or material suffix never `exact`; Combo versus not-Combo is `variant` both ways; condition and price are not identity). Pass A: product first, listings in id order. Pass B: listings first in reverse order, product after. The passes agree on 1,210 of 1,307 (92.6%). The 97 disagreements went to a third call that saw both readings: other_line/other_model 45, accessory_or_part/other_line 26, other_model/variant 18, bundle/variant 3, exact/unknown 3, other 2. Primary labels: exact 116, variant 125, bundle 52, accessory_or_part 226, other_model 531, other_line 246, unknown 11. Hard negatives 934 of 1,307 (71.5%; dev 600 of 867, held-out 334 of 440). Every product has at least one exact listing; held-out has 38.
+
+**Spend:** $7.43 over 154 calls (690,802 input, 233,509 output tokens at $4 / $20 per million, cache counted as plain input), plus $0.23 on a two-product trial; cap $15.
+
+**Split and worklist.** `split.ts assign --seed matcher-v1-2026-11-23`: dev 41, held-out 20 (the same-item pairs WH-1000XM5 CA/US and Raspberry Pi 5 US/DE went to held-out together through the leakage guard). `double-label.ts pick`: 174 snapshots (13.3%: `ceil(10%)` per product); 14 of them are also disagreements.
+
+**Validator (strict): fails on one requirement only.** Met: products 61, snapshots per product, labels 1,307, all labelled, categories 6, countries 3, hard negatives 71.5%, split assigned, dev 41, held-out 20. Short: `double_labelled` 0 of 1,307. Violations: 0. `double-label.ts agreement` refuses (n = 0) until the owner's second labels exist.
+
+**What the owner needs to do.** (1) Label the 174 rows of `evals/gold/sets/matcher-v1/REVIEW.md` without opening the other sheet; the orchestrator files them as `labels/<owner handle>.json` with `"pass": "second"` and runs the agreement report. (2) Rule on the 97 rows of `REVIEW-disagreements.md` ("ok" or a relation); differing rulings become `adjudicated` labels. (3) Decide whether v1 is enough as it stands (31 single-store products; 116 exact listings, 38 held-out) or more stores and exact listings should be added before Phase 2 measures identity precision on it.
+
 ### 2026-11-23: Spike B part 2: functional check stopped at the profile host
 
 **Second run, same day (orchestrator):** profile re-hosted on jsDelivr pinned to the tag `agent-profile-v1`; the same 6-row functional check got HTTP 200 on 6 of 6, 0 profile rejections, 20 products per request, 120 of 120 offers priced with link and checkout URL, attribution parameters (`_gsid`, `utm_source`, `utm_medium`) on all 120, 108 of 120 in the requested currency, no 429. Spike B is done; see the updated report.
