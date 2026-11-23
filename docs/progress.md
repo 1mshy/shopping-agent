@@ -8,13 +8,25 @@ Per phase: what shipped, measured numbers with sample sizes, and deviations from
 |---|---|---|---|
 | 1 | Project name and repository | **decided 2026-11-17** | Agentic Dasher: `agentic-dasher` (root package, image, compose project), `@agentic-dasher/*` (workspace packages). GitHub repo not renamed yet (`1mshy/shopping-agent`) |
 | 2 | Licence | **decided 2026-11-17** | PolyForm Noncommercial 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`): anyone may use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source |
-| 4 | robots.txt default | open, needed by Phase 1 | spec default `ignore` |
+| 3 | Agent-profile host | **decided 2026-11-23** | GitHub raw from this repository (owner left the choice to the orchestrator); see the 2026-11-23 entry below |
+| 4 | robots.txt default | **decided 2026-11-23** | `ignore`, setting exposed |
 
 Owner asked for "open source for anyone to use, distribute and modify, but no commercial use". A non-commercial restriction cannot be OSI open source, so the project is described as source-available. PolyForm Noncommercial was chosen over CC BY-NC because it is written for software (patent grant, cure period for violations) and Creative Commons advises against using its licences for software.
 
 ---
 
 ## Phase 0: Foundations, contracts and spikes
+
+### 2026-11-23: Owner answers on the Phase 0 gates
+
+- **Predecessor copy confirmed:** `~/Documents/GitHub/hermes-shopping` (`browser-agent`, `51db126` plus uncommitted files) is the first iteration and the reference for everything ported. The corpus gate holds without condition.
+- **Deployment:** the app runs in a Docker container on the user's own laptop or computer. Nothing about the app is public; only the static agent profile is.
+- **Spike B:** the owner accepts the Shopify API License and Terms of Use and left the rest to the orchestrator, who chose:
+  - Profile host: GitHub raw from this public repository (S§9 #3). Shopify's guide names GitHub raw; UCP's hosting rules ask for `Cache-Control: public`, and raw sends `max-age=300` without it and as `text/plain` (checked 2026-11-23). The functional check shows whether Shopify accepts it; the fallback is an own domain or a static host that sets headers.
+  - Part 2 is a small functional check: a handful of `search_catalog` queries to confirm the profile is accepted and results come back in the requested currency. No latency statistics and no 60-query run, which keeps clear of the terms' benchmarking clause.
+  - The keyless Catalog stays on by default (S§5.3) for a single-user install, with the optional Dev Dashboard token setting. Shopify says not to use unauthenticated requests for production traffic; one person's searches from their own machine are taken as outside that, and the owner may overrule.
+- **LLMs:** hosted Claude Haiku 5.5 only for now. Spike D drops the second hosted model and the local one; the wire recordings cover Haiku 5.5 only, and OpenAI, vLLM, Ollama and llama.cpp wait. Still needed: the route (proposed OpenRouter, as S§9 #5 keeps Claude there until a native adapter) and a spending ceiling.
+- **Decision #4:** robots.txt public default is `ignore`, setting exposed.
 
 ### 2026-11-18: Spike A: HTTP transport lab
 

@@ -224,7 +224,7 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 
 **Sessions.** One cookie jar per host session for HTTP. One persistent Chrome profile. A walled render clears only that site's cookies (including parent-domain bot-manager cookies) and origin storage.
 
-**robots.txt.** A setting: `ignore | report | respect`, parsed with `robots-parser` and cached for a day. A challenge page served in place of robots.txt gives no verdict, whatever its status. The default is `ignore`, following the owner's standing decision of 2026-10-23. The public default is listed in §9.
+**robots.txt.** A setting: `ignore | report | respect`, parsed with `robots-parser` and cached for a day. A challenge page served in place of robots.txt gives no verdict, whatever its status. The default is `ignore`, following the owner's decision of 2026-10-23, confirmed as the public default on 2026-11-23 (§9 #4).
 
 **Browser add-on image.** `debian:bookworm-slim` + pinned Google Chrome stable (package cached in the build, amd64 + arm64), an init process supervising Xvfb, the launcher and x11vnc/noVNC; `--user-data-dir` on a named volume; timezone and language set to the user's; no automation flags; stale `SingletonLock` cleared; a forwarder exposing CDP and noVNC only on the compose network with a shared token. One Dockerfile, one pin.
 
@@ -590,8 +590,8 @@ The project can start on the defaults shown. Each item names the phase that need
 |---|---|---|---|
 | 1 | Project name and repository | **Decided 2026-11-17:** Agentic Dasher (`agentic-dasher`, `@agentic-dasher/*`); repository still `1mshy/shopping-agent` | Phase 0 |
 | 2 | Licence | **Decided 2026-11-17:** PolyForm Noncommercial 1.0.0. Free to use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source | Phase 0 |
-| 3 | Where the public UCP agent-profile JSON is hosted (e.g. GitHub Pages of the project) | project GitHub Pages | Phase 2 |
-| 4 | robots.txt public default: keep `ignore` (owner's 2026-10-23 decision), or `respect` for unattended discovery of hosts the user never named | `ignore`, setting exposed | Phase 1 |
+| 3 | Where the public UCP agent-profile JSON is hosted (e.g. GitHub Pages of the project) | **Decided 2026-11-23** (owner left the choice to the orchestrator): GitHub raw from the public repository, `https://raw.githubusercontent.com/1mshy/shopping-agent/main/lab/catalog/agent-profile.json`, which Shopify's guide names as a static host. It sends `max-age=300` without `public` and as `text/plain`; spike B's functional check shows whether Shopify accepts it, and an own domain or a header-setting static host is the fallback. The app itself runs in Docker on the user's own machine; only the profile is public | Phase 2 |
+| 4 | robots.txt public default: keep `ignore` (owner's 2026-10-23 decision), or `respect` for unattended discovery of hosts the user never named | **Decided 2026-11-23:** `ignore`, setting exposed | Phase 1 |
 | 5 | Native Anthropic Messages adapter in v1, or OpenRouter/LiteLLM for Claude until later | later (Phase 7) | Phase 2 |
 | 6 | May the capability probe call models.dev / OpenRouter's model list to prefill context sizes and prices? | yes, opt-out | Phase 2 |
 | 7 | eBay: accept the BYO-key flow and the honesty question of the "not persisting eBay data" exemption | BYO key, deletion-webhook option documented | Phase 5 |
