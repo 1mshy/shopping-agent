@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { Offer, ProbeResult } from './client.ts';
 import {
+  FUNCTIONAL_CHECK_MAX_LINES,
+  isProfileRejection,
   MIN_INTERVAL_MS,
   parseArgs,
   parseProductList,
@@ -47,6 +49,11 @@ function ok(latencyMs: number, productCount: number, offers: Offer[]): ProbeResu
 function err(kind: 'rate_limited' | 'network', status: number | null): ProbeResult {
   const base = { status, latencyMs: 5, contentType: null, rateLimitHeaders: {} };
   return { ...base, ok: false, error: { kind, message: kind } };
+}
+
+function rpcErr(jsonrpcCode: number, ucpCode?: string): ProbeResult {
+  const base = { status: 200, latencyMs: 5, contentType: 'application/json', rateLimitHeaders: {} };
+  return { ...base, ok: false, error: { kind: 'jsonrpc', message: 'm', jsonrpcCode, ucpCode } };
 }
 
 describe('parseArgs', () => {
@@ -153,5 +160,58 @@ describe('runAll', () => {
     });
     expect(calls).toEqual(['search', 'sleep 2000', 'search']);
     expect(records.map((r) => r.errorKind)).toEqual([null, 'rate_limited']);
+  });
+});
+
+describe('functional check (2026-11-23: no latency, at most 6 requests)', () => {
+  const base = ['--profile', PROFILE, '--products', 'p.json', '--owner-approved'];
+  it('is off by default and set by --functional-check', () => {
+    expect(parseArgs(base).functionalCheck).toBe(false);
+    expect(parseArgs([...base, '--functional-check']).functionalCheck).toBe(true);
+  });
+  it('caps the list at 6 rows when asked', () => {
+    expect(FUNCTIONAL_CHECK_MAX_LINES).toBe(6);
+    const six = JSON.stringify(Array(6).fill(LINE));
+    expect(parseProductList(six, FUNCTIONAL_CHECK_MAX_LINES)).toHaveLength(6);
+    expect(() =>
+      parseProductList(JSON.stringify(Array(7).fill(LINE)), FUNCTIONAL_CHECK_MAX_LINES),
+    ).toThrow(/max 6/);
+  });
+  it('records no latency and the summary has no latency key', () => {
+    const r = toRecord(0, LINE, ok(120, 1, [offer('CAD')]), { latency: false });
+    expect(r.latencyMs).toBeNull();
+    const s = summarise([r], 1, { latency: false });
+    expect(s).not.toHaveProperty('latencyMs');
+    expect(JSON.stringify(s)).not.toMatch(/p50|p95|120/);
+  });
+  it('keeps UCP message codes and counts offers with links, without the links', () => {
+    const o = { ...offer('CAD', 'https://s.test/p?_gsid=1'), checkoutUrl: 'https://s.test/c' };
+    const res = ok(1, 1, [o]);
+    if (res.ok) res.messages = [{ type: 'warning', code: 'w1', content: 'x'.repeat(400) }];
+    const r = toRecord(0, LINE, res);
+    expect(r.offersWithUrl).toBe(1);
+    expect(r.offersWithCheckoutUrl).toBe(1);
+    expect(r.messages[0]).toMatchObject({ type: 'warning', code: 'w1', severity: null });
+    expect(r.messages[0]?.content).toHaveLength(300);
+    expect(JSON.stringify(r)).not.toMatch(/s\.test/);
+  });
+});
+
+describe('profile rejection', () => {
+  it('is recognised by MCP code -32001 or a profile error code', () => {
+    expect(isProfileRejection(toRecord(0, LINE, rpcErr(-32001)))).toBe(true);
+    expect(isProfileRejection(toRecord(0, LINE, rpcErr(-32000, 'profile_unreachable')))).toBe(true);
+    expect(isProfileRejection(toRecord(0, LINE, rpcErr(-32602)))).toBe(false);
+    expect(isProfileRejection(toRecord(0, LINE, err('network', null)))).toBe(false);
+  });
+  it('stops the run at the first rejection', async () => {
+    let n = 0;
+    const records = await runAll([LINE, LINE, LINE], {
+      intervalMs: 2000,
+      search: async () => (n++ === 0 ? rpcErr(-32001, 'invalid_profile_url') : ok(1, 1, [])),
+      sleep: async () => {},
+    });
+    expect(records).toHaveLength(1);
+    expect(summarise(records, 3).profileRejections).toBe(1);
   });
 });

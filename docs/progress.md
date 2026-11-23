@@ -8,7 +8,7 @@ Per phase: what shipped, measured numbers with sample sizes, and deviations from
 |---|---|---|---|
 | 1 | Project name and repository | **decided 2026-11-17** | Agentic Dasher: `agentic-dasher` (root package, image, compose project), `@agentic-dasher/*` (workspace packages). GitHub repo not renamed yet (`1mshy/shopping-agent`) |
 | 2 | Licence | **decided 2026-11-17** | PolyForm Noncommercial 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`): anyone may use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source |
-| 3 | Agent-profile host | **decided 2026-11-23** | GitHub raw from this repository (owner left the choice to the orchestrator); see the 2026-11-23 entry below |
+| 3 | Agent-profile host | **decided 2026-11-23, refused by Shopify the same day** | GitHub raw from this repository (owner left the choice to the orchestrator); Shopify refuses its `text/plain` (`profile_malformed`), so a host serving `application/json` must be chosen; see the spike B part 2 entry below |
 | 4 | robots.txt default | **decided 2026-11-23** | `ignore`, setting exposed |
 
 Owner asked for "open source for anyone to use, distribute and modify, but no commercial use". A non-commercial restriction cannot be OSI open source, so the project is described as source-available. PolyForm Noncommercial was chosen over CC BY-NC because it is written for software (patent grant, cure period for violations) and Creative Commons advises against using its licences for software.
@@ -16,6 +16,18 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 ---
 
 ## Phase 0: Foundations, contracts and spikes
+
+### 2026-11-23: Spike B part 2: functional check stopped at the profile host
+
+Report: `docs/spikes/b-shopify-catalog.md`; harness `lab/catalog/`. The run was the 6-row functional check chosen earlier today (2 queries × CA/CAD, US/USD, DE/EUR; sequential, ≥2 s apart, no retries, stop on 429). No latency was recorded, because the API terms forbid benchmarking.
+
+- **n = 1 request sent** (CA/CAD). The profile URL `https://raw.githubusercontent.com/1mshy/shopping-agent/main/lab/catalog/agent-profile.json` served HTTP 200, `text/plain; charset=utf-8`, `cache-control: max-age=300`, with a body identical to the committed file.
+- **Shopify answered** HTTP 422, JSON-RPC `-32001` "UCP discovery failed", `data.code: profile_malformed`, "Unable to fetch agent profile: Invalid content type". The runner stopped on the profile rejection, so the other 5 rows were not sent and no other host was tried.
+- **Not observed:** products, offers, currency match and attribution parameters (0 products, 0 offers). The request shape got as far as profile discovery without an invalid-params error. Whether Shopify enforces UCP's `Cache-Control: public` rule is not known.
+- **Fallback needs:** HTTPS, no redirect, `Content-Type: application/json`, and `Cache-Control: public` with `max-age` ≥60. The jsDelivr mirror of this repository meets all of these by its headers (checked once, not sent to Shopify), but it is third-party and caches a branch URL for up to 7 days. GitHub Pages and header-setting static hosts were not checked.
+- **Code:** `run.ts` has a `--functional-check` flag (≤6 rows, no latency anywhere) and stops at the first profile rejection. Records also carry the UCP version, message codes, and counts of offers with a link or a checkout URL. Tests were added.
+- **Spec:** S§5.3 now requires `Content-Type: application/json`, which is confirmed live. It keeps its [verify] mark for the result-side claims and switches the source off on a profile rejection. S§9 #3 records the refusal.
+- **Open:** a new profile host (orchestrator or owner), then the same 6-row check.
 
 ### 2026-11-23: Owner answers on the Phase 0 gates
 

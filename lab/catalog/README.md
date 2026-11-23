@@ -1,13 +1,13 @@
 # lab/catalog: Shopify Global Catalog probe (plan P0 spike B)
 
-**Status: preparation only.** Nothing has been published and no measurement has been made. The live run below waits for the owner.
+**Status: functional check stopped at the profile (2026-11-23).** The profile is published on GitHub raw (S§9 #3) and Shopify refused it: `profile_malformed`, "Invalid content type" (GitHub raw serves `text/plain`). One `search_catalog` request was sent; no search result has been seen. Report: `docs/spikes/b-shopify-catalog.md`.
 
 | File | What |
 |---|---|
 | `SOURCES.md` | What Shopify's and UCP's docs and terms say, with quotes and dates, and a verdict for every S§5.3 claim. Read §8 first. |
-| `agent-profile.json` | **Draft** agent profile awaiting the owner's review. Not published anywhere. |
+| `agent-profile.json` | Agent profile, published from `main` at `https://raw.githubusercontent.com/1mshy/shopping-agent/main/lab/catalog/agent-profile.json`; Shopify refuses that host's content type. |
 | `client.ts` | `search_catalog` probe client: raw `fetch`, typed result or typed error, latency and rate-limit headers. |
-| `run.ts` | Live runner for the measurement. |
+| `run.ts` | Live runner; `--functional-check` is the run chosen on 2026-11-23. |
 | `fixtures.ts` | **Synthetic** payloads for tests, shaped after documented examples. Not evidence of live behaviour. |
 | `*.test.ts` | Vitest; no external network (a local server on 127.0.0.1). |
 
@@ -17,7 +17,7 @@ It follows the documented structure (`ucp.version`, `ucp.services`, `ucp.payment
 
 The documented profile schema has **no contact, owner or name field**, so there is nothing personal to fill in. Before publishing, the owner must:
 
-1. Choose the host (S§9 decision 3) and check its real response headers: HTTPS, **no redirect**, and `Cache-Control` with `public` and `max-age` of at least 60, without `private`, `no-store` or `no-cache` ([UCP-OV] Hosting). Not checked here for any host.
+1. Choose the host (S§9 decision 3) and check its real response headers: HTTPS, **no redirect**, and `Cache-Control` with `public` and `max-age` of at least 60, without `private`, `no-store` or `no-cache` ([UCP-OV] Hosting), and **`Content-Type: application/json`**: Shopify refused GitHub raw's `text/plain` on 2026-11-23 (`profile_malformed`). Whether Shopify also enforces the `Cache-Control` rule is not known.
 2. Accept the Shopify API License and Terms of Use (using the API means accepting them, [CAT]).
 3. Decide whether the measurement is acceptable under the terms' benchmarking and "no bulk harvesting" clauses (SOURCES.md §8), or ask Shopify first.
 4. Optionally create Dev Dashboard credentials (Token tier, 5 req/s per client). The probe does not use them yet.
@@ -31,17 +31,21 @@ Exactly one request was sent to `https://catalog.shopify.com/api/ucp/mcp`: the p
 
 A profile-less `search_catalog` was **not** sent: the docs say every request must carry the profile ([GC], [UCP-MCP]) and the live schema marks it required, so sending one would knowingly break a documented MUST. The expected answer is documented instead: `invalid_profile_url`, JSON-RPC `-32001` ([UCP-OV]).
 
-## The live run (not done; needs the owner)
+## The live run
 
-Product list: a JSON array of at most 60 rows, `{"query": "...", "country": "CA", "currency": "CAD"}`.
+On 2026-11-23 the owner accepted the API terms and the orchestrator replaced the 60-query measurement with a **functional check** (the terms forbid benchmarking the API): at most 6 rows, e.g. 2 queries x CA, US, DE, and no latency recorded anywhere.
 
 ```sh
-node lab/catalog/run.ts --profile https://<published host>/agent-profile.json \
-  --products <gold-products.json> --owner-approved
+node lab/catalog/run.ts --profile <published https URL of agent-profile.json> \
+  --products <list.json> --owner-approved --functional-check
 ```
+
+Product list: a JSON array of rows `{"query": "...", "country": "CA", "currency": "CAD"}`, at most 6 with `--functional-check` (60 without). Every run stops at the first 429 and at the first profile rejection (MCP `-32001` or a `profile_*` code), since every later request would be refused the same way.
+
+The full 60-query description below is kept for reference; it is not to be run without a new owner decision.
 
 - 20 products x CA, US, DE = **60 `search_catalog` requests**, sequential, one every 2 s at least (`--interval-ms`, no lower than 2000), so about 2 minutes plus latency. No retries. The run **stops at the first 429** and records it.
 - Options: `--limit` (default 20, as S§5.6), `--ships-to` (adds `filters.ships_to.country`), `--out` (default `lab/out/catalog`).
 - It refuses to start without `--profile`, without `--owner-approved`, or with an `example`, placeholder, non-https or IP-literal profile URL.
-- Output in `lab/out/catalog/<timestamp>/`: `records.jsonl` (per request: status, latency, rate-limit headers, error, counts of products and offers by currency, attribution parameter names) and `summary.json` (n, latency p50/p95 by nearest rank, hits per query, share of priced offers in the requested currency, errors by kind). **It writes no titles, prices or URLs**: the terms cap price caching at 10 minutes and forbid a standing product database, so raw Catalog payloads are not kept.
+- Output in `lab/out/catalog/<timestamp>/`: `records.jsonl` (per request: status, latency (null with `--functional-check`), rate-limit headers, error, UCP version and message codes, counts of products and offers by currency and with a link or checkout URL, attribution parameter names) and `summary.json` (n, latency p50/p95 by nearest rank (left out with `--functional-check`), hits per query, share of priced offers in the requested currency, errors by kind, profile rejections). **It writes no titles, prices or URLs**: the terms cap price caching at 10 minutes and forbid a standing product database, so raw Catalog payloads are not kept.
 - Rate limiting is per IP for anonymous traffic plus one shared pool ([RL]), so this run cannot separate "by IP" from "by profile"; the docs already answer it.

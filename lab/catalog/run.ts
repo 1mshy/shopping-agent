@@ -1,6 +1,9 @@
 // Live runner for plan P0 spike B. A person starts it; CI never does. See README.md.
 //   node lab/catalog/run.ts --profile <published https URL> --products <file.json> --owner-approved
-// Sequential, one request every --interval-ms (min 2000), stops at the first 429, never retries.
+//     [--functional-check]
+// Sequential, one request every --interval-ms (min 2000), never retries, stops at the first 429
+// and at the first profile rejection. --functional-check (the run chosen on 2026-11-23) caps the
+// list at 6 rows and records no latency at all: the API terms forbid benchmarking the API.
 // It writes measurement records only: no titles, prices or URLs, because the Catalog terms cap
 // price caching at 10 minutes and forbid a standing product database (SOURCES.md §5).
 
@@ -11,6 +14,16 @@ import { assertProfileUrl, type ProbeResult, searchCatalog } from './client.ts';
 
 export const MIN_INTERVAL_MS = 2000;
 export const MAX_LINES = 60; // plan: 20 gold products x CA, US, DE
+export const FUNCTIONAL_CHECK_MAX_LINES = 6; // 2026-11-23: e.g. 2 queries x CA, US, DE
+/** [UCP-OV] / [PROF] codes by which a business rejects the agent profile. */
+export const PROFILE_ERROR_CODES = new Set([
+  'invalid_profile_url',
+  'profile_unreachable',
+  'profile_malformed',
+  'profile_too_large',
+  'version_unsupported',
+]);
+const MESSAGE_TEXT_MAX = 300;
 
 export interface ProductLine {
   query: string;
@@ -25,6 +38,7 @@ export interface RunOptions {
   limit: number;
   shipsTo: boolean;
   outDir: string;
+  functionalCheck: boolean;
 }
 
 export function parseArgs(argv: string[]): RunOptions {
@@ -54,14 +68,15 @@ export function parseArgs(argv: string[]): RunOptions {
     limit,
     shipsTo: argv.includes('--ships-to'),
     outDir: value('--out') ?? join('lab', 'out', 'catalog'),
+    functionalCheck: argv.includes('--functional-check'),
   };
 }
 
-export function parseProductList(text: string): ProductLine[] {
+export function parseProductList(text: string, maxLines = MAX_LINES): ProductLine[] {
   const data: unknown = JSON.parse(text);
   if (!Array.isArray(data)) throw new Error('product list must be a JSON array');
-  if (data.length > MAX_LINES)
-    throw new Error(`product list has ${data.length} rows; max ${MAX_LINES}`);
+  if (data.length > maxLines)
+    throw new Error(`product list has ${data.length} rows; max ${maxLines}`);
   return data.map((row, i) => {
     const r = row as Partial<Record<keyof ProductLine, unknown>>;
     const okRow =
@@ -86,13 +101,23 @@ export interface RunRecord {
   country: string;
   currency: string;
   status: number | null;
-  latencyMs: number;
+  latencyMs: number | null; // null in a functional check: no latency is recorded
   contentType: string | null;
   rateLimitHeaders: Record<string, string>;
   errorKind: string | null;
   error: unknown;
+  ucpVersion: string | null;
+  /** UCP `messages[]` of a successful reply: type, code, severity and at most 300 chars of text. */
+  messages: {
+    type: string | null;
+    code: string | null;
+    severity: string | null;
+    content: string | null;
+  }[];
   productCount: number;
   offerCount: number;
+  offersWithUrl: number;
+  offersWithCheckoutUrl: number;
   offersRequestedCurrency: number;
   offersOtherCurrency: number;
   offersMissingPrice: number;
@@ -105,7 +130,14 @@ const bump = (m: Record<string, number>, k: string) => {
   m[k] = (m[k] ?? 0) + 1;
 };
 
-export function toRecord(index: number, line: ProductLine, r: ProbeResult): RunRecord {
+const strOrNull = (v: unknown): string | null => (typeof v === 'string' ? v : null);
+
+export function toRecord(
+  index: number,
+  line: ProductLine,
+  r: ProbeResult,
+  opts: { latency?: boolean } = {},
+): RunRecord {
   const offers = r.ok ? r.offers : [];
   const amountJsonTypes: Record<string, number> = {};
   const attributionParamCounts: Record<string, number> = {};
@@ -118,13 +150,26 @@ export function toRecord(index: number, line: ProductLine, r: ProbeResult): RunR
     index,
     ...line,
     status: r.status,
-    latencyMs: r.latencyMs,
+    latencyMs: opts.latency === false ? null : r.latencyMs,
     contentType: r.contentType,
     rateLimitHeaders: r.rateLimitHeaders,
     errorKind: r.ok ? null : r.error.kind,
     error: r.ok ? null : r.error, // error bodies carry no product data
+    ucpVersion: r.ok ? r.ucpVersion : null,
+    messages: (r.ok ? r.messages : []).map((m) => {
+      const o = typeof m === 'object' && m !== null ? (m as Record<string, unknown>) : {};
+      const content = strOrNull(o.content);
+      return {
+        type: strOrNull(o.type),
+        code: strOrNull(o.code),
+        severity: strOrNull(o.severity),
+        content: content === null ? null : content.slice(0, MESSAGE_TEXT_MAX),
+      };
+    }),
     productCount: r.ok ? r.productCount : 0,
     offerCount: offers.length,
+    offersWithUrl: offers.filter((o) => o.url !== null).length,
+    offersWithCheckoutUrl: offers.filter((o) => o.checkoutUrl !== null).length,
     offersRequestedCurrency: count('requested'),
     offersOtherCurrency: count('other'),
     offersMissingPrice: count('missing'),
@@ -141,8 +186,19 @@ export function percentile(values: number[], p: number): number | null {
   return sorted[Math.max(1, Math.ceil((p / 100) * sorted.length)) - 1] ?? null;
 }
 
-export function summarise(records: RunRecord[], planned: number) {
-  const answered = records.filter((r) => r.status !== null).map((r) => r.latencyMs);
+/** True when the reply is a profile rejection ([UCP-OV]: MCP code -32001 or a profile error code). */
+export function isProfileRejection(r: RunRecord): boolean {
+  if (r.errorKind !== 'jsonrpc' && r.errorKind !== 'ucp_error') return false;
+  const e = (r.error ?? {}) as { jsonrpcCode?: number; ucpCode?: string };
+  return (
+    e.jsonrpcCode === -32001 || (e.ucpCode !== undefined && PROFILE_ERROR_CODES.has(e.ucpCode))
+  );
+}
+
+export function summarise(records: RunRecord[], planned: number, opts: { latency?: boolean } = {}) {
+  const answered = records.flatMap((r) =>
+    r.status !== null && r.latencyMs !== null ? [r.latencyMs] : [],
+  );
   const ok = records.filter((r) => r.errorKind === null);
   const hits = ok.map((r) => r.productCount);
   const sum = (f: (r: RunRecord) => number) => records.reduce((a, r) => a + f(r), 0);
@@ -159,7 +215,15 @@ export function summarise(records: RunRecord[], planned: number) {
     planned,
     attempted: records.length,
     ok: ok.length,
-    latencyMs: { n: answered.length, p50: percentile(answered, 50), p95: percentile(answered, 95) },
+    ...(opts.latency === false
+      ? {}
+      : {
+          latencyMs: {
+            n: answered.length,
+            p50: percentile(answered, 50),
+            p95: percentile(answered, 95),
+          },
+        }),
     hitsPerQuery: {
       n: hits.length,
       mean: hits.length ? hits.reduce((a, b) => a + b, 0) / hits.length : null,
@@ -169,6 +233,7 @@ export function summarise(records: RunRecord[], planned: number) {
     offers,
     shareRequestedCurrency: offers.withPrice ? offers.requestedCurrency / offers.withPrice : null,
     errorsByKind,
+    profileRejections: records.filter(isProfileRejection).length,
   };
 }
 
@@ -179,22 +244,28 @@ export async function runAll(
     search: (line: ProductLine, index: number) => Promise<ProbeResult>;
     sleep: (ms: number) => Promise<void>;
     onRecord?: (r: RunRecord) => void;
+    latency?: boolean;
   },
 ): Promise<RunRecord[]> {
   const records: RunRecord[] = [];
   for (const [i, line] of lines.entries()) {
     if (i > 0) await deps.sleep(deps.intervalMs);
-    const record = toRecord(i, line, await deps.search(line, i));
+    const record = toRecord(i, line, await deps.search(line, i), { latency: deps.latency });
     records.push(record);
     deps.onRecord?.(record);
     if (record.errorKind === 'rate_limited') break; // stop; do not retry against a shared pool
+    if (isProfileRejection(record)) break; // every later request would be rejected the same way
   }
   return records;
 }
 
 async function main(): Promise<void> {
   const opts = parseArgs(process.argv.slice(2));
-  const lines = parseProductList(readFileSync(opts.productsFile, 'utf8'));
+  const latency = !opts.functionalCheck;
+  const lines = parseProductList(
+    readFileSync(opts.productsFile, 'utf8'),
+    opts.functionalCheck ? FUNCTIONAL_CHECK_MAX_LINES : MAX_LINES,
+  );
   const dir = resolve(opts.outDir, new Date().toISOString().replace(/[:.]/g, '-'));
   mkdirSync(dir, { recursive: true });
   console.info(
@@ -202,6 +273,7 @@ async function main(): Promise<void> {
   );
   const records = await runAll(lines, {
     intervalMs: opts.intervalMs,
+    latency,
     sleep: (ms) => new Promise((r) => setTimeout(r, ms)),
     search: (line, i) =>
       searchCatalog(
@@ -210,12 +282,13 @@ async function main(): Promise<void> {
       ),
     onRecord: (r) => {
       writeFileSync(join(dir, 'records.jsonl'), `${JSON.stringify(r)}\n`, { flag: 'a' });
+      const ms = r.latencyMs === null ? '' : ` ${r.latencyMs} ms`;
       console.info(
-        `#${r.index} ${r.country} ${r.status ?? '-'} ${r.latencyMs} ms ${r.errorKind ?? `${r.productCount} hits`}`,
+        `#${r.index} ${r.country} ${r.status ?? '-'}${ms} ${r.errorKind ?? `${r.productCount} hits`}`,
       );
     },
   });
-  const summary = summarise(records, lines.length);
+  const summary = summarise(records, lines.length, { latency });
   writeFileSync(
     join(dir, 'summary.json'),
     `${JSON.stringify({ options: opts, summary }, null, 2)}\n`,
