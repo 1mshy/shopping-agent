@@ -5,7 +5,7 @@
 | File | What |
 |---|---|
 | `SOURCES.md` | What Shopify's and UCP's docs and terms say, with quotes and dates, and a verdict for every S§5.3 claim. Read §8 first. |
-| `agent-profile.json` | Agent profile, published from `main` at `https://raw.githubusercontent.com/1mshy/shopping-agent/main/lab/catalog/agent-profile.json`; Shopify refuses that host's content type. |
+| `agent-profile.json` | Agent profile, served from jsDelivr pinned to the tag `agent-profile-v1`: `https://cdn.jsdelivr.net/gh/1mshy/shopping-agent@agent-profile-v1/lab/catalog/agent-profile.json` (accepted by Shopify 2026-11-23). GitHub raw is refused (`text/plain`). A change needs a new tag. |
 | `client.ts` | `search_catalog` probe client: raw `fetch`, typed result or typed error, latency and rate-limit headers. |
 | `run.ts` | Live runner; `--functional-check` is the run chosen on 2026-11-23. |
 | `fixtures.ts` | **Synthetic** payloads for tests, shaped after documented examples. Not evidence of live behaviour. |

@@ -8,7 +8,7 @@ Per phase: what shipped, measured numbers with sample sizes, and deviations from
 |---|---|---|---|
 | 1 | Project name and repository | **decided 2026-11-17** | Agentic Dasher: `agentic-dasher` (root package, image, compose project), `@agentic-dasher/*` (workspace packages). GitHub repo not renamed yet (`1mshy/shopping-agent`) |
 | 2 | Licence | **decided 2026-11-17** | PolyForm Noncommercial 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`): anyone may use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source |
-| 3 | Agent-profile host | **decided 2026-11-23, refused by Shopify the same day** | GitHub raw from this repository (owner left the choice to the orchestrator); Shopify refuses its `text/plain` (`profile_malformed`), so a host serving `application/json` must be chosen; see the spike B part 2 entry below |
+| 3 | Agent-profile host | **decided 2026-11-23** | jsDelivr mirror pinned to the tag `agent-profile-v1` (`https://cdn.jsdelivr.net/gh/1mshy/shopping-agent@agent-profile-v1/lab/catalog/agent-profile.json`), chosen by the orchestrator after Shopify refused GitHub raw's `text/plain`; accepted by Shopify in the second functional check |
 | 4 | robots.txt default | **decided 2026-11-23** | `ignore`, setting exposed |
 
 Owner asked for "open source for anyone to use, distribute and modify, but no commercial use". A non-commercial restriction cannot be OSI open source, so the project is described as source-available. PolyForm Noncommercial was chosen over CC BY-NC because it is written for software (patent grant, cure period for violations) and Creative Commons advises against using its licences for software.
@@ -18,6 +18,8 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 ## Phase 0: Foundations, contracts and spikes
 
 ### 2026-11-23: Spike B part 2: functional check stopped at the profile host
+
+**Second run, same day (orchestrator):** profile re-hosted on jsDelivr pinned to the tag `agent-profile-v1`; the same 6-row functional check got HTTP 200 on 6 of 6, 0 profile rejections, 20 products per request, 120 of 120 offers priced with link and checkout URL, attribution parameters (`_gsid`, `utm_source`, `utm_medium`) on all 120, 108 of 120 in the requested currency, no 429. Spike B is done; see the updated report.
 
 Report: `docs/spikes/b-shopify-catalog.md`; harness `lab/catalog/`. The run was the 6-row functional check chosen earlier today (2 queries × CA/CAD, US/USD, DE/EUR; sequential, ≥2 s apart, no retries, stop on 429). No latency was recorded, because the API terms forbid benchmarking.
 

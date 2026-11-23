@@ -1,6 +1,6 @@
 # Spike B: Shopify Global Catalog
 
-Plan P0 workstream 5, spike B · sources read 2026-11-17, functional check run 2026-11-23 · harness `lab/catalog/` · status: **stopped at the profile host; host to be chosen again**
+Plan P0 workstream 5, spike B · sources read 2026-11-17, functional check run 2026-11-23 · harness `lab/catalog/` · status: **done: profile accepted on jsDelivr (second run), keyless results usable**
 
 ## Question
 
@@ -51,13 +51,32 @@ Candidates. Only the first was header-checked, and none has been sent to Shopify
 - **GitHub Pages for this repository:** needs Pages to be enabled. Its headers were not checked.
 - **A static host with a headers file** (for example Cloudflare Pages or Netlify), or an own domain. These need an account and setup, and give full control of the headers.
 
+## Second run: jsDelivr profile (2026-11-23, 16:46Z)
+
+The orchestrator chose the jsDelivr mirror of this repository pinned to the annotated tag `agent-profile-v1`: `https://cdn.jsdelivr.net/gh/1mshy/shopping-agent@agent-profile-v1/lab/catalog/agent-profile.json`. Before the run it answered HTTP 200, no redirect, `content-type: application/json; charset=utf-8`, `cache-control: public, max-age=604800, s-maxage=43200`, an `etag`, and a body identical to the committed file. Same runner, same 6 rows, `--functional-check`, Node 22.22.0, anonymous tier.
+
+| Measure | Value (n = 6 requests, 120 offers) |
+|---|---|
+| HTTP 200, no UCP error message | 6 of 6 |
+| Profile rejections | 0 |
+| Products returned per request (`limit` 20) | 20 in each |
+| Offers with a price | 120 of 120; amounts are JSON numbers |
+| Offers in the requested currency | 108 of 120 (CA 35 of 40, US 38 of 40, DE 35 of 40); others seen: AUD, USD, CAD, INR |
+| Offers with a product link and a checkout URL | 120 of 120 each |
+| Attribution parameters on links | `_gsid`, `utm_source`, `utm_medium` on all 120 |
+| 429 or rate-limit headers | none; only `shopify-complexity-score` (81 to 400) |
+
+So Shopify accepts a profile served as `application/json` with `Cache-Control: public` (whether it would also refuse a missing `public` is still untested), and keyless results come back priced, linked and attributed. About one offer in ten is in another currency than requested even when the country is sent, which confirms S§5.3's rule that such offers are dropped. Relevance and result quality were not judged.
+
 ## Limits
 
-- n = 1. This is one reply from one IP, on one day, on the anonymous tier. It establishes a refusal reason, not a rate or a distribution.
+- First run: n = 1. This is one reply from one IP, on one day, on the anonymous tier. It establishes a refusal reason, not a rate or a distribution.
 - The refusal names only the first check that failed. Other profile problems, if there are any, are hidden behind it.
 - No search result was seen, so none of the result-side claims of S§5.3 (currency handling, attribution, re-reading hits at the shop) moved from documentation to live evidence.
 
 ## Decision
+
+Updated after the second run: the profile is served from jsDelivr pinned to the tag `agent-profile-v1` (S§9 #3); a profile change means a new tag and a settings default update. The keyless Catalog stays on by default and is now shown to work; offers in another currency are dropped as S§5.3 says. Points 1 and 2 below are the first run's decision, kept for the record.
 
 1. **GitHub raw cannot host the profile.** Shopify refuses its `text/plain`. S§9 #3 has to be chosen again. This is for the orchestrator or the owner. My recommendation is the jsDelivr URL pinned to a tag (it meets every documented rule with no account), or GitHub Pages if a project-owned URL matters more.
 2. **Re-run the same functional check once the new host is published:** the same 6 rows, the same limits, `--functional-check`. That run answers the open questions (results, currency, attribution). Until then the keyless Catalog stays on by default as decided on 2026-11-23, but it is not shown to work.
