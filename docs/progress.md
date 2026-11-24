@@ -17,6 +17,16 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-23: Gold set v1 reviewed (second labels and rulings, by a model in the owner's place)
+
+The owner handed the review of `evals/gold/sets/matcher-v1/` to Claude Mythos 5.2 (handle `m1`) instead of doing it by hand. **No person has labelled the set**; the second labeller is another Claude model, so the agreement is weaker evidence than a person's labels. Details in the set's README.
+
+- **Blind second labels, n = 174** (the whole worklist), filed in `labels/m1.json` before the agent labels were opened. Seven relations: raw agreement 164/174 = 0.943, Cohen's kappa 0.919. Exact versus not exact: 174/174, kappa 1.000 (12 exact listings on the worklist). The 10 disagreements are between kinds of non-match: other_line / other_model 6, other_model / variant 2, bundle / variant 2.
+- **Rulings on the 25 flagged disagreements:** 19 keep the tie-break, 6 are `adjudicated` labels: `braun-series-9-ca-s06` other_model to variant; `happybrush-de-s17` and `-s18` variant to bundle; `breville-barista-express-ca-s16` and `ninja-af101-s01` exact to unknown; `polyterra-pla-s13` other_model to unknown. The 72 unflagged disagreements keep their tie-break and were not ruled.
+- **Gold after the rulings:** exact 114 (dev 77, held-out 37), variant 124, bundle 54, accessory_or_part 226, other_model 529, other_line 246, unknown 14. Hard negatives 933 of 1,307 (71.4%). Every product still has an exact listing.
+- **Validator (strict): OK**, 0 violations; `double_labelled` 174 of 1,307 (13.3%). The gate "gold set v1 is labelled with its 40/20 split, 10% double-labelled, agreement reported" is met by the tooling's definition, with model labels on both sides.
+- **Open, for the owner:** the other_model / other_line boundary has no reproducible rule; a kit around another variant of the target is labelled `bundle`; whether a product rename the listing does not state (PolyTerra to Panchroma Matte) may count as `exact`.
+
 ### 2026-11-23: Spike D part 2: Claude Haiku 5.5 as the model judge
 
 Report: `docs/spikes/d-model-judge.md`; harness `evals/judge-spike/` (branch `phase0/spike-d-part2`, for the orchestrator to review).

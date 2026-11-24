@@ -1,0 +1,1346 @@
+[
+  {
+    "snapshotId": "990-pro-2tb-s08",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "4 TB and with heatsink"
+  },
+  {
+    "snapshotId": "990-pro-2tb-s09",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "9100 PRO"
+  },
+  {
+    "snapshotId": "990-pro-2tb-s17",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "990 (MZ-V9V), not 990 PRO"
+  },
+  {
+    "snapshotId": "a1-mini-s18",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "P2S: same brand, another FDM printer"
+  },
+  {
+    "snapshotId": "a1-mini-s21",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "a1-mini-s22",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "airpods-pro-2-s01",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "title has no USB-C; GTIN 194253397168 is the Lightning-case model as far as I know (same title as the MQD83AM/A rows)"
+  },
+  {
+    "snapshotId": "airpods-pro-2-s08",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MQD83AM/A is the Lightning-case model"
+  },
+  {
+    "snapshotId": "airpods-pro-2-s09",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MQD83AM/A is the Lightning-case model"
+  },
+  {
+    "snapshotId": "anker-737-s01",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN A1289011 with a refurbished suffix; condition is not identity"
+  },
+  {
+    "snapshotId": "anker-737-s02",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "anker-737-s03",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "a wall charger, not a power bank"
+  },
+  {
+    "snapshotId": "anker-prime-power-bank-de-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "anker-prime-power-bank-de-s12",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Prime 20K 200 W, the earlier model"
+  },
+  {
+    "snapshotId": "anker-prime-power-bank-de-s13",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "bosch-gsr-18v-65-de-s10",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "same GSR 18V-65 as a manufacturer kit with batteries, charger and L-BOXX"
+  },
+  {
+    "snapshotId": "bosch-gsr-18v-65-de-s11",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "set built around the GSR 18V-55"
+  },
+  {
+    "snapshotId": "bosch-gsr-18v-65-de-s12",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "same GSR 18V-65 as a manufacturer kit with batteries and charger"
+  },
+  {
+    "snapshotId": "braun-series-9-ca-s04",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN and GTIN match"
+  },
+  {
+    "snapshotId": "braun-series-9-ca-s06",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "9677cc: same Series 9 PRO+ shaver, other colour and accessory set (PowerCase)"
+  },
+  {
+    "snapshotId": "braun-series-9-ca-s07",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "head for Series 6, not for the Series 9"
+  },
+  {
+    "snapshotId": "breville-barista-express-ca-s20",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "GTIN matches"
+  },
+  {
+    "snapshotId": "breville-barista-express-ca-s21",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "title names BES870XL and the colour; s20 shows BES870XL carries the target GTIN; the other GTIN is a reseller's"
+  },
+  {
+    "snapshotId": "breville-barista-express-ca-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Barista Pro"
+  },
+  {
+    "snapshotId": "brita-10-cup-s08",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "brita-10-cup-s09",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "centauri-carbon-2-us-s06",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Centauri 2, not Centauri Carbon 2 (and a Combo)"
+  },
+  {
+    "snapshotId": "centauri-carbon-2-us-s07",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "cosori-turboblaze-6l-de-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "cosori-turboblaze-6l-de-s21",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "cosori-turboblaze-6l-de-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "cosori-turboblaze-6qt-s08",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "liner size 3-5 QT does not fit the target, still a Cosori air-fryer consumable"
+  },
+  {
+    "snapshotId": "cosori-turboblaze-6qt-s09",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dcd793d1-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dcd793d1-s21",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dcd793d1-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dcf850-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "2-tool kit with another impact driver"
+  },
+  {
+    "snapshotId": "dcf850-s11",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dcf850-s12",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dewalt-dcd791-de-s20",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "an adapter, nothing ties it to the drill"
+  },
+  {
+    "snapshotId": "dewalt-dcd791-de-s21",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dewalt-dcd791-de-s22",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "DCD791 as the P2 kit with two 5.0 Ah batteries"
+  },
+  {
+    "snapshotId": "dreame-pocket-neo-2-de-s02",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "dreame-pocket-neo-2-de-s03",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "elegoo-pla-plus-de-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "elegoo-pla-plus-de-s12",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "elegoo-pla-plus-de-s13",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "happybrush-de-s20",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "brush heads for the Eco Vibe 3 family"
+  },
+  {
+    "snapshotId": "happybrush-de-s21",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "happybrush-de-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "hd-600-us-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "hd-600-us-s21",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "in-ear"
+  },
+  {
+    "snapshotId": "hd-600-us-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "same brand, over-ear headphones, another line; could as well be other_line"
+  },
+  {
+    "snapshotId": "instant-pot-duo-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Duo Wide Base 7.5 qt"
+  },
+  {
+    "snapshotId": "instant-pot-duo-s21",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Duo V5 in 8 qt"
+  },
+  {
+    "snapshotId": "instant-pot-duo-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "RIO"
+  },
+  {
+    "snapshotId": "instant-pot-duo-plus-6qt-s14",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Duo, not Duo Plus (owner ruling)"
+  },
+  {
+    "snapshotId": "instant-pot-duo-plus-6qt-s15",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "instant-pot-duo-plus-6qt-s16",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "k1c-s11",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "plate for the K1 Max: K1 family, does not fit the K1C"
+  },
+  {
+    "snapshotId": "k1c-s12",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "k1c-s13",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "keurig-k-mini-s04",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "keurig-k-mini-s05",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "keurig-k-mini-s06",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "keychron-k2-us-s14",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "keychron-k2-us-s18",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "keychron-k2-us-s19",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "kobra-3-max-v2-combo-de-s05",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Combo (4 colours), no filament selected"
+  },
+  {
+    "snapshotId": "kobra-3-max-v2-combo-de-s11",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "plate selected for the Kobra X: Kobra family, does not fit the target"
+  },
+  {
+    "snapshotId": "kobra-x-combo-us-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "kobra-x-combo-us-s11",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "laifen-neo-de-s05",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "laifen-neo-de-s06",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "laifen-neo-de-s07",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "laifen-swift-us-s14",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "laifen-swift-us-s15",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "laifen-swift-us-s16",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "liberty-4-nc-us-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "liberty-4-nc-us-s22",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "liberty-4-nc-us-s23",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "liberty-4-pro-de-s04",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "liberty-4-pro-de-s05",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "liberty-4-pro-de-s07",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "case for the Liberty 4 NC: Liberty family, not for the 4 Pro"
+  },
+  {
+    "snapshotId": "makita-ddf487-de-s08",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "makita-ddf487-de-s20",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "makita-ddf487-de-s21",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "makita-drill-ca-s10",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "makita-drill-ca-s11",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "makita-drill-ca-s12",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "makita-xfd131-s18",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "another brand"
+  },
+  {
+    "snapshotId": "makita-xfd131-s19",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "another brand"
+  },
+  {
+    "snapshotId": "makita-xfd131-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "milwaukee-2953-20-s11",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "milwaukee-2953-20-s18",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "milwaukee-2953-20-s19",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "mx-master-3s-s20",
+    "relation": "bundle",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "keyboard, mouse and palm rest"
+  },
+  {
+    "snapshotId": "mx-master-3s-s21",
+    "relation": "bundle",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "keyboard, mouse and palm rest"
+  },
+  {
+    "snapshotId": "mx-master-3s-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "mx-master-3s-de-s01",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "for Business edition"
+  },
+  {
+    "snapshotId": "mx-master-3s-de-s02",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "mx-master-3s-de-s03",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MX Anywhere: same brand, another mouse; could as well be other_line"
+  },
+  {
+    "snapshotId": "ninja-af101-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ninja-af101-s18",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "a toaster oven"
+  },
+  {
+    "snapshotId": "ninja-af101-s19",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "another brand"
+  },
+  {
+    "snapshotId": "ninja-creami-ca-s04",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ninja-creami-ca-s05",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ninja-creami-ca-s06",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "mat for the CREAMi family (named for the NC701)"
+  },
+  {
+    "snapshotId": "oneblade-ca-s01",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "360 Pro"
+  },
+  {
+    "snapshotId": "oneblade-ca-s02",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "oneblade-ca-s18",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "OneBlade 360 in the Face kit, not Face + Body; other_model is defensible (QP2724 vs QP2834)"
+  },
+  {
+    "snapshotId": "oral-b-io5-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "oral-b-io5-s21",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "FlossAction heads fit the non-iO brushes, not the iO"
+  },
+  {
+    "snapshotId": "oral-b-io5-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "p1s-combo-s15",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "p1s-combo-s18",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "p1s-combo-s19",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "polylite-pla-us-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "PolyLite PC: another material"
+  },
+  {
+    "snapshotId": "polylite-pla-us-s11",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "polylite-pla-us-s13",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "polyterra-pla-s10",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "PolyTerra Dual PLA"
+  },
+  {
+    "snapshotId": "polyterra-pla-s12",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "polyterra-pla-s13",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Panchroma Matte is the renamed PolyTerra with a new barcode; under the line-name ruling not exact. Worth an explicit owner ruling"
+  },
+  {
+    "snapshotId": "raspberry-pi-5-s04",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "raspberry-pi-5-s05",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "kit around the 1 GB board: the target itself is not in it, so not bundle"
+  },
+  {
+    "snapshotId": "raspberry-pi-5-s07",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "kit around the 2 GB board: the target itself is not in it, so not bundle"
+  },
+  {
+    "snapshotId": "raspberry-pi-5-de-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "raspberry-pi-5-de-s21",
+    "relation": "bundle",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "the 8 GB board with cooler and case"
+  },
+  {
+    "snapshotId": "raspberry-pi-5-de-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "remington-f5-us-s01",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "GTIN matches"
+  },
+  {
+    "snapshotId": "remington-f5-us-s02",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "attachment for the WPG groomers"
+  },
+  {
+    "snapshotId": "remington-f5-us-s03",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "a Remington shaver head; fit to the F5 not shown"
+  },
+  {
+    "snapshotId": "satechi-hub-us-s01",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "satechi-hub-us-s08",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "a single-port adapter, not a multiport hub"
+  },
+  {
+    "snapshotId": "satechi-hub-us-s09",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "saturn-4-ultra-s10",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "saturn-4-ultra-s11",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "saturn-4-ultra-16k-de-s14",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "saturn-4-ultra-16k-de-s18",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "Saturn 4 Ultra (12K), not the 16K"
+  },
+  {
+    "snapshotId": "sn850x-2tb-s01",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN and GTIN match"
+  },
+  {
+    "snapshotId": "sn850x-2tb-s08",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "1 TB with heatsink"
+  },
+  {
+    "snapshotId": "sn850x-2tb-s09",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "with heatsink"
+  },
+  {
+    "snapshotId": "sonicare-4100-s04",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "sonicare-4100-s05",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN and GTIN match"
+  },
+  {
+    "snapshotId": "sonicare-4100-s07",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "soundcore-space-q45-s18",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "soundcore-space-q45-s21",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "soundcore-space-q45-s22",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "space-2-us-s18",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN and GTIN match"
+  },
+  {
+    "snapshotId": "space-2-us-s22",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "earbuds"
+  },
+  {
+    "snapshotId": "space-2-us-s23",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "earbuds"
+  },
+  {
+    "snapshotId": "space-one-de-s20",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "case for the Space One Pro: Space One family, fit to the target not shown"
+  },
+  {
+    "snapshotId": "space-one-de-s21",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "ear tips for the Space A40 earbuds"
+  },
+  {
+    "snapshotId": "space-one-de-s22",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "generic soundcore headphone case"
+  },
+  {
+    "snapshotId": "sunlu-pla-plus-s20",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "sunlu-pla-plus-s21",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "PLA+ black on a 3 kg spool"
+  },
+  {
+    "snapshotId": "sunlu-pla-plus-s22",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "PLA+ white on a 3 kg spool"
+  },
+  {
+    "snapshotId": "ugreen-nexode-65w-de-s01",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ugreen-nexode-65w-de-s02",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ugreen-nexode-65w-de-s03",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ugreen-nexode-65w-us-s12",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "ugreen-nexode-65w-us-s13",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "wf-1000xm5-s10",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN matches; refurbished is not identity"
+  },
+  {
+    "snapshotId": "wf-1000xm5-s11",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "over-ear headphones"
+  },
+  {
+    "snapshotId": "wf-1000xm5-s13",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "MPN matches; refurbished is not identity"
+  },
+  {
+    "snapshotId": "wh-1000xm5-s04",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "in-ear"
+  },
+  {
+    "snapshotId": "wh-1000xm5-s05",
+    "relation": "exact",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "title names the model and Black; MPN and GTIN are a reseller's own codes"
+  },
+  {
+    "snapshotId": "wh-1000xm5-s06",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "wh-1000xm5-us-s18",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "wh-1000xm5-us-s21",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "wh-1000xm5-us-s22",
+    "relation": "accessory_or_part",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second"
+  },
+  {
+    "snapshotId": "wmf-lono-kettle-de-s04",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "a waffle iron"
+  },
+  {
+    "snapshotId": "wmf-lono-kettle-de-s08",
+    "relation": "other_line",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "an espresso machine"
+  },
+  {
+    "snapshotId": "wmf-lono-kettle-de-s09",
+    "relation": "other_model",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:31:06Z",
+    "pass": "second",
+    "note": "the glass kettle"
+  },
+  {
+    "snapshotId": "braun-series-9-ca-s06",
+    "relation": "variant",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:35:00Z",
+    "pass": "adjudicated",
+    "note": "The 9677cc is the same Series 9 PRO+ shaver in another colour and accessory set (PowerCase). The set labels such model-number kits of one model as variant (Sonicare HX3689, DCD791P2) and keeps other_model for other shavers (Series 6, Sport+)."
+  },
+  {
+    "snapshotId": "breville-barista-express-ca-s16",
+    "relation": "unknown",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:35:00Z",
+    "pass": "adjudicated",
+    "note": "The listing does not state the colour, its MPN is an ASIN and its GTIN a marketplace code, so nothing in its fields fixes the must-have colour. Same case as mx-master-3s-s02 and sonicare-4100-s02, which are unknown."
+  },
+  {
+    "snapshotId": "happybrush-de-s17",
+    "relation": "bundle",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:35:00Z",
+    "pass": "adjudicated",
+    "note": "A Vorteilsset is the toothbrush sold with other items as one unit; this one is in the target colour, so it is the target plus extras."
+  },
+  {
+    "snapshotId": "happybrush-de-s18",
+    "relation": "bundle",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:35:00Z",
+    "pass": "adjudicated",
+    "note": "A Vorteilsset is the toothbrush sold with other items as one unit. The set labels a kit around another variant as bundle too (laifen-neo-de-s13, raspberry-pi-5-s05)."
+  },
+  {
+    "snapshotId": "ninja-af101-s01",
+    "relation": "unknown",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:35:00Z",
+    "pass": "adjudicated",
+    "note": "MPN \"AF100WM/AF101\" names two models. The set labels the AF100C other_model (ninja-af101-s20), so this listing is either the target's US twin or another model, and its fields do not say which."
+  },
+  {
+    "snapshotId": "polyterra-pla-s13",
+    "relation": "unknown",
+    "labellerId": "m1",
+    "labelledAt": "2026-11-24T02:35:00Z",
+    "pass": "adjudicated",
+    "note": "Panchroma Matte is the renamed PolyTerra (s03 and s07 say so in their titles), so other_model clashes with s03 (exact) and s14 (variant, the same listing in another colour). This listing does not state the rename, the diameter or the weight, and its GTIN is new, so exact cannot be shown from its fields."
+  }
+]
