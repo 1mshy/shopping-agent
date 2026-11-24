@@ -1,0 +1,97 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "messages-models-list",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:49:20.005Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "GET",
+    "path": "/v1/models",
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "anthropic-version": "2026-10-21",
+      "x-api-key": "[REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 275.3,
+    "headers": {
+      "cache-control": "private, no-store",
+      "content-type": "application/json",
+      "server": "cloudflare"
+    },
+    "omittedHeaders": [
+      "anthropic-organization-id",
+      "anthropic-workspace-id",
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "request-id",
+      "server-timing",
+      "strict-transport-security",
+      "vary",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 276.1,
+        "utf8": "{\"data\":[{\"type\":\"model\",\"id\":\"claude-fable-5-2\",\"display_name\":\"Claude Fable 5.2\",\"created_at\":\"2026-11-09T18:30:00Z\",\"line\":\"fable\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":false},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-haiku-5-5\",\"display_name\":\"Claude Haiku 5.5\",\"created_at\":\"2026-10-07T18:00:00Z\",\"line\":\"haiku\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"s"
+      },
+      {
+        "atMs": 276.2,
+        "utf8": "upported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-sonnet-5-5\",\"display_name\":\"Claude Sonnet 5.5\",\"created_at\":\"2026-09-28T00:00:00Z\",\"line\":\"sonnet\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"su"
+      },
+      {
+        "atMs": 276.2,
+        "utf8": "pported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":false},\"between_tools\":{\"supported\":true}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-opus-5-5\",\"display_name\":\"Claude Opus 5.5\",\"created_at\":\"2026-09-21T16:24:00Z\",\"line\":\"opus\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":false},\"between_to"
+      },
+      {
+        "atMs": 276.3,
+        "utf8": "ols\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-fable-5-1\",\"display_name\":\"Claude Fable 5.1\",\"created_at\":\"2026-08-28T00:00:00Z\",\"line\":\"fable\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":false},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-opus-5\",\"display_name\":\"Claude Opus 5\",\"created_at\":\"2026-07-24T00:00:00Z\",\"line\":\"opus\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":tr"
+      },
+      {
+        "atMs": 276.3,
+        "utf8": "ue},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-sonnet-5\",\"display_name\":\"Claude Sonnet 5\",\"created_at\":\"2026-06-29T00:00:00Z\",\"line\":\"sonnet\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"s"
+      },
+      {
+        "atMs": 276.4,
+        "utf8": "upported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-fable-5\",\"display_name\":\"Claude Fable 5\",\"created_at\":\"2026-06-07T00:00:00Z\",\"line\":\"fable\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},"
+      },
+      {
+        "atMs": 276.4,
+        "utf8": "\"ada"
+      },
+      {
+        "atMs": 276.4,
+        "utf8": "ptive\":{\"supported\":true},\"disabled\":{\"supported\":false},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-opus-4-8\",\"display_name\":\"Claude Opus 4.8\",\"created_at\":\"2026-05-28T00:00:00Z\",\"line\":\"opus\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-opus-4-7\",\"display_name\":\"Claude Opus 4.7\",\"created_at\":\"2026-04-14T00:00:00Z\",\"line\":\"opus\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"c"
+      },
+      {
+        "atMs": 276.5,
+        "utf8": "apabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":true},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":false},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-sonnet-4-6\",\"display_name\":\"Claude Sonnet 4.6\",\"created_at\":\"2026-02-17T00:00:00Z\",\"line\":\"sonnet\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\""
+      },
+      {
+        "atMs": 276.5,
+        "utf8": ":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":false},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":true},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-opus-4-6\",\"display_name\":\"Claude Opus 4.6\",\"created_at\":\"2026-02-04T00:00:00Z\",\"line\":\"opus\",\"max_input_tokens\":1000000,\"max_tokens\":128000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":true}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":false},\"max\":{\"supported\":true}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinki"
+      },
+      {
+        "atMs": 276.5,
+        "utf8": "ng\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":true},\"adaptive\":{\"supported\":true},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null},{\"type\":\"model\",\"id\":\"claude-opus-4-5-20251101\",\"display_name\":\"Claude Opus 4.5\",\"created_at\":\"2025-11-24T00:00:00Z\",\"line\":\"opus\",\"max_input_tokens\":200000,\"max_tokens\":64000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":true},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":false}},\"effort\":{\"supported\":true,\"low\":{\"supported\":true},\"medium\":{\"supported\":true},\"high\":{\"supported\":true},\"xhigh\":{\"supported\":false},\"max\":{\"supported\":false}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":true},\"adaptive\":{\"supported\":false},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"deprecated\",\"deprecated_at\":\"2026-11-23T18:30:00Z\",\"retires_at\":\"2027-01-22T20:00:00Z\"},{\"type\":\"model\",\"id\":\"claude-haiku-4-5-20251001\",\"display_"
+      },
+      {
+        "atMs": 276.6,
+        "utf8": "name\":\"Claude Haiku 4.5\",\"created_at\":\"2025-10-15T00:00:00Z\",\"line\":\"haiku\",\"max_input_tokens\":200000,\"max_tokens\":64000,\"capabilities\":{\"batch\":{\"supported\":true},\"citations\":{\"supported\":true},\"code_execution\":{\"supported\":false},\"context_management\":{\"supported\":true,\"clear_tool_uses_20250919\":{\"supported\":true},\"clear_thinking_20251015\":{\"supported\":true},\"compact_20260112\":{\"supported\":false}},\"effort\":{\"supported\":false,\"low\":{\"supported\":false},\"medium\":{\"supported\":false},\"high\":{\"supported\":false},\"xhigh\":{\"supported\":false},\"max\":{\"supported\":false}},\"image_input\":{\"supported\":true},\"pdf_input\":{\"supported\":true},\"server_tools\":{\"supported\":true,\"code_execution\":{\"supported\":true},\"web_search\":{\"supported\":true}},\"structured_outputs\":{\"supported\":true},\"thinking\":{\"supported\":true,\"types\":{\"enabled\":{\"supported\":true},\"adaptive\":{\"supported\":false},\"disabled\":{\"supported\":true},\"between_tools\":{\"supported\":false}}}},\"lifecycle\":\"active\",\"deprecated_at\":null,\"retires_at\":null}],\"has_more\":false,\"first_id\":\"claude-fable-5-2\",\"last_id\":\"claude-haiku-4-5-20251001\"}"
+      }
+    ]
+  }
+}

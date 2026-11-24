@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic-compat",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "nonstream-usage",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:50:13.162Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/chat/completions",
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a terse assistant used to test an API client. Follow instructions exactly."
+        },
+        {
+          "role": "user",
+          "content": "Reply with the single word: ready."
+        }
+      ],
+      "max_completion_tokens": 64
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 380.5,
+    "headers": {
+      "content-type": "application/json",
+      "server": "cloudflare",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "6000000",
+      "x-ratelimit-requests": "10000",
+      "x-ratelimit-reset-requests": "0s",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-ratelimit-tokens": "6000000"
+    },
+    "omittedHeaders": [
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-request-id",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 380.6,
+        "utf8": "{\"id\":\"msg_************************\",\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"ready\"}}],\"created\":1795535413,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion\",\"usage\":{\"completion_tokens\":4,\"prompt_tokens\":45,\"total_tokens\":49}}"
+      }
+    ]
+  }
+}

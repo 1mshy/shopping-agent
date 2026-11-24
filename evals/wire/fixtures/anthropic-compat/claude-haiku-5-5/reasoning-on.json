@@ -1,0 +1,84 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic-compat",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "reasoning-on",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:50:18.059Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/chat/completions",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a terse assistant used to test an API client. Follow instructions exactly."
+        },
+        {
+          "role": "user",
+          "content": "Is 391 a prime number? Answer yes or no."
+        }
+      ],
+      "max_completion_tokens": 1024,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "reasoning_effort": "low"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 327.6,
+    "headers": {
+      "cache-control": "no-cache",
+      "content-type": "text/event-stream",
+      "server": "cloudflare",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "6000000",
+      "x-ratelimit-requests": "10000",
+      "x-ratelimit-reset-requests": "0s",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-ratelimit-tokens": "6000000"
+    },
+    "omittedHeaders": [
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-request-id",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 327.7,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"}}],\"created\":1795535418,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"        }\n\n"
+      },
+      {
+        "atMs": 448.7,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"No\"}}],\"created\":1795535418,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"   }\n\n"
+      },
+      {
+        "atMs": 468.9,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}],\"created\":1795535418,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\",\"usage\":{\"completion_tokens\":38,\"prompt_tokens\":52,\"total_tokens\":90}            }\n\ndata: [DONE]\n\n"
+      }
+    ]
+  }
+}

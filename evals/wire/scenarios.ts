@@ -2,7 +2,10 @@
 // the seven-step capability probe (S§5.7) or a client behaviour, and cites the documentation
 // its request shape was taken from (read 2026-11-17). Prompts are neutral and short; nothing
 // here asserts what a server answers. That is what the recordings are for.
-import type { JsonValue, ServerFamily } from './format.ts';
+// This file holds the Chat Completions matrix; the Messages matrix is in scenarios-messages.ts.
+import { type JsonValue, type ServerFamily, type WireApi, wireApiOf } from './format.ts';
+import { COUNT, LONG_PREFIX, PRICE_QUESTION, READY, SYSTEM } from './prompts.ts';
+import { MESSAGES_SCENARIOS } from './scenarios-messages.ts';
 
 export type MaxTokensField = 'max_completion_tokens' | 'max_tokens';
 export interface ScenarioContext {
@@ -13,11 +16,15 @@ export interface ScenarioContext {
 
 export interface Scenario {
   readonly id: string;
+  /** The wire shape of the request. A scenario only applies to families that speak it. */
+  readonly api: WireApi;
   /** Probe steps (S§5.7, 1-7) this exchange is evidence for; empty for client behaviour. */
   readonly probeSteps: readonly number[];
   readonly serves: string;
-  /** 'all', or the only server families where the request makes sense. */
+  /** 'all' (every family speaking `api`), or the only server families where it makes sense. */
   readonly families: 'all' | readonly ServerFamily[];
+  /** A scenario that must be recorded immediately before this one in a session (a cache pair). */
+  readonly mustFollow?: string;
   readonly method: 'GET' | 'POST';
   /** 'base': path is appended to the base URL (e.g. …/v1). 'origin': from the server root. */
   readonly root: 'base' | 'origin';
@@ -43,9 +50,7 @@ const DOC = {
   vllmReasoning: 'https://docs.vllm.ai/en/latest/features/reasoning_outputs.html',
 } as const;
 
-const SYSTEM = 'You are a terse assistant used to test an API client. Follow instructions exactly.';
 const STREAM = { stream: true, stream_options: { include_usage: true } };
-const READY = 'Reply with the single word: ready.';
 
 const messages = (user: string, system = SYSTEM): JsonValue => [
   { role: 'system', content: system },
@@ -72,26 +77,13 @@ const PRICE_TOOL = {
     },
   },
 };
-const PRICE_QUESTION = 'What does the Kindle Paperwhite cost at Amazon? Use the tool.';
 
-// About 2,500 tokens of byte-stable text, above the 1,024-token minimum cacheable prefix that
-// OpenAI documents; other servers' thresholds are what the recordings will show.
-const LONG_PREFIX = [
-  SYSTEM,
-  ...Array.from(
-    { length: 100 },
-    (_, i) =>
-      `Reference note ${String(i + 1).padStart(3, '0')}: a product listing is identified by brand, model, variant, condition and seller; keep these separate.`,
-  ),
-].join('\n');
-
-const COUNT = 'Count from 1 to 200, separated by spaces.';
-
-type CompletionSpec = Omit<Scenario, 'method' | 'root' | 'path' | 'auth' | 'families'> &
+type CompletionSpec = Omit<Scenario, 'api' | 'method' | 'root' | 'path' | 'auth' | 'families'> &
   Partial<Pick<Scenario, 'auth' | 'families'>>;
 
 /** A POST to {base}/chat/completions with the session key, for every family unless narrowed. */
 const completion = (spec: CompletionSpec): Scenario => ({
+  api: 'chat-completions',
   method: 'POST',
   root: 'base',
   path: () => '/chat/completions',
@@ -100,9 +92,10 @@ const completion = (spec: CompletionSpec): Scenario => ({
   ...spec,
 });
 
-export const SCENARIOS: readonly Scenario[] = [
+const CHAT_SCENARIOS: readonly Scenario[] = [
   {
     id: 'models-list',
+    api: 'chat-completions',
     probeSteps: [1],
     serves: 'Model list: model ids, and context length where the server puts it in the list',
     families: 'all',
@@ -115,6 +108,7 @@ export const SCENARIOS: readonly Scenario[] = [
   },
   {
     id: 'side-door-props',
+    api: 'chat-completions',
     probeSteps: [1],
     serves: 'llama.cpp /props: n_ctx under default_generation_settings, build_info, template caps',
     families: ['llamacpp'],
@@ -127,6 +121,7 @@ export const SCENARIOS: readonly Scenario[] = [
   },
   {
     id: 'side-door-show',
+    api: 'chat-completions',
     probeSteps: [1],
     serves: 'Ollama /api/show: model_info["<arch>.context_length"] and capabilities',
     families: ['ollama'],
@@ -139,6 +134,7 @@ export const SCENARIOS: readonly Scenario[] = [
   },
   {
     id: 'side-door-model-endpoints',
+    api: 'chat-completions',
     probeSteps: [1],
     serves: 'OpenRouter per-provider endpoints for the model: context_length and parameters',
     families: ['openrouter'],
@@ -327,6 +323,7 @@ export const SCENARIOS: readonly Scenario[] = [
       completion({
         id: `cache-prefix-${which}`,
         probeSteps: [7],
+        ...(which === 'second' ? { mustFollow: 'cache-prefix-first' } : {}),
         serves: `Prefix cache, ${which} of a pair with a byte-stable long prefix: usage.prompt_tokens_details.cached_tokens`,
         body: (c) => ({
           model: c.model,
@@ -364,6 +361,9 @@ export const SCENARIOS: readonly Scenario[] = [
   }),
 ];
 
+/** Every scenario: the Chat Completions matrix, then the Messages matrix. */
+export const SCENARIOS: readonly Scenario[] = [...CHAT_SCENARIOS, ...MESSAGES_SCENARIOS];
+
 export function scenarioById(id: string): Scenario {
   const s = SCENARIOS.find((x) => x.id === id);
   if (!s) throw new Error(`unknown scenario "${id}"`);
@@ -371,5 +371,6 @@ export function scenarioById(id: string): Scenario {
 }
 
 export function appliesTo(s: Scenario, family: ServerFamily): boolean {
+  if (s.api !== wireApiOf(family)) return false;
   return s.families === 'all' || s.families.includes(family);
 }

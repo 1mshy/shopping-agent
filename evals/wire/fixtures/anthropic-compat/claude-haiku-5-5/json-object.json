@@ -1,0 +1,71 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic-compat",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "json-object",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:50:17.658Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/chat/completions",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a terse assistant used to test an API client. Follow instructions exactly."
+        },
+        {
+          "role": "user",
+          "content": "Return a JSON object with keys \"brand\" and \"model\" for the Kindle Paperwhite."
+        }
+      ],
+      "max_completion_tokens": 128,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "response_format": {
+        "type": "json_object"
+      }
+    }
+  },
+  "response": {
+    "status": 400,
+    "headersAtMs": 68.8,
+    "headers": {
+      "content-type": "application/json",
+      "server": "cloudflare"
+    },
+    "omittedHeaders": [
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-request-id",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 68.9,
+        "utf8": "{\"error\":{\"code\":\"invalid_request_error\",\"message\":\"response_format.type: Input should be 'json_schema'\",\"type\":\"invalid_request_error\",\"param\":null}}"
+      }
+    ]
+  }
+}

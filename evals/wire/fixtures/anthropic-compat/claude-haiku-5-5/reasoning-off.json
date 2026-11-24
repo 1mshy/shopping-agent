@@ -1,0 +1,80 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic-compat",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "reasoning-off",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:50:17.728Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/chat/completions",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a terse assistant used to test an API client. Follow instructions exactly."
+        },
+        {
+          "role": "user",
+          "content": "Reply with the single word: ready."
+        }
+      ],
+      "max_completion_tokens": 64,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "reasoning_effort": "none"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 322.8,
+    "headers": {
+      "cache-control": "no-cache",
+      "content-type": "text/event-stream",
+      "server": "cloudflare",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "6000000",
+      "x-ratelimit-requests": "10000",
+      "x-ratelimit-reset-requests": "0s",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-ratelimit-tokens": "6000000"
+    },
+    "omittedHeaders": [
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-request-id",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 322.9,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"}}],\"created\":1795535417,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"    }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"ready\"}}],\"created\":1795535417,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"        }\n\n"
+      },
+      {
+        "atMs": 327.6,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}],\"created\":1795535417,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\",\"usage\":{\"completion_tokens\":4,\"prompt_tokens\":45,\"total_tokens\":49}   }\n\ndata: [DONE]\n\n"
+      }
+    ]
+  }
+}

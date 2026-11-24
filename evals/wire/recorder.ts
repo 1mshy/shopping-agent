@@ -8,6 +8,7 @@ import { dirname, join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { z } from 'zod';
 import {
+  ANTHROPIC_VERSION,
   type BodyChunk,
   encodeChunk,
   FORMAT_VERSION,
@@ -18,6 +19,7 @@ import {
   type ServerFamily,
   serializeFixture,
   type WireFixture,
+  wireApiOf,
 } from './format.ts';
 import { findSecretLeaks, secretsIn } from './leak-check.ts';
 import { redactExchange, redactText, selectResponseHeaders } from './redact.ts';
@@ -120,9 +122,11 @@ export function validateSession(o: SessionOptions): string | null {
   if (o.scenarios.length === 0) return 'no scenario to record';
   const ids = o.scenarios.map((s) => s.id);
   if (new Set(ids).size !== ids.length) return '--scenarios lists a scenario twice';
-  const second = ids.indexOf('cache-prefix-second');
-  if (second !== -1 && ids[second - 1] !== 'cache-prefix-first') {
-    return 'cache-prefix-second must come immediately after cache-prefix-first';
+  for (const [i, s] of o.scenarios.entries()) {
+    if (s.mustFollow !== undefined && ids[i - 1] !== s.mustFollow) {
+      return `${s.id} must come immediately after ${s.mustFollow}`;
+    }
+    if (!appliesTo(s, o.family)) return `${s.id} does not apply to --family ${o.family}`;
   }
   if (o.label !== undefined && !LABEL.test(o.label)) {
     return "--label must be 1-100 letters, digits, '.', '_' or '-', not starting with '.'";
@@ -163,14 +167,25 @@ export function existingTargets(o: SessionOptions): string[] {
 
 const trimSlash = (p: string) => p.replace(/\/+$/, '');
 
-function headersFor(key: string | null, hasBody: boolean, stream: boolean): Record<string, string> {
+/** The headers the recorder sets. Chat Completions families get the key as a bearer token; the
+ * Messages API gets it as `x-api-key`, with the `anthropic-version` it requires. */
+export function headersFor(
+  family: ServerFamily,
+  key: string | null,
+  hasBody: boolean,
+  stream: boolean,
+): Record<string, string> {
+  const messages = wireApiOf(family) === 'messages';
+  const auth: Record<string, string> =
+    key === null ? {} : messages ? { 'x-api-key': key } : { authorization: `Bearer ${key}` };
   return {
     accept: stream ? 'text/event-stream' : 'application/json',
     // Ask for an unencoded body so the recorded chunks are the bytes the server framed.
     'accept-encoding': 'identity',
     'user-agent': USER_AGENT,
     ...(hasBody ? { 'content-type': 'application/json' } : {}),
-    ...(key === null ? {} : { authorization: `Bearer ${key}` }),
+    ...(messages ? { 'anthropic-version': ANTHROPIC_VERSION } : {}),
+    ...auth,
   };
 }
 
@@ -186,6 +201,7 @@ export async function recordExchange(scenario: Scenario, o: SessionOptions): Pro
   const stream =
     typeof body === 'object' && body !== null && 'stream' in body && body.stream === true;
   const headers = headersFor(
+    o.family,
     scenario.auth === 'invalid' ? INVALID_KEY : o.apiKey,
     body !== null,
     stream,
@@ -335,7 +351,7 @@ export async function detectServerVersion(o: SessionOptions): Promise<string | n
   if (!target) return null;
   try {
     const res = await (o.fetch ?? fetch)(new URL(target[0], o.baseUrl), {
-      headers: headersFor(o.apiKey, false, false),
+      headers: headersFor(o.family, o.apiKey, false, false),
       redirect: 'manual',
       signal: AbortSignal.timeout(o.timeoutMs),
     });
@@ -352,6 +368,9 @@ export const USAGE = `usage: node evals/wire/record.ts --base-url URL --model ID
          [--max-tokens-field max_completion_tokens|max_tokens] [--timeout-ms 120000]
        node evals/wire/record.ts --list [--family FAMILY]
 families: ${SERVER_FAMILIES.join(', ')}
+--family anthropic records the native Messages API (key as x-api-key, anthropic-version
+${ANTHROPIC_VERSION}, the messages-* scenarios); every other family records Chat Completions
+(key as a bearer token). --max-tokens-field applies to Chat Completions only.
 The API key is read from the environment variable named by --api-key-env, never from argv.
 Secrets must be at least ${MIN_SECRET_LENGTH} printable ASCII characters with no whitespace.
 Exit codes: 0 all recorded, 1 a request failed or a leak was refused, 2 bad arguments.`;

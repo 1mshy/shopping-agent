@@ -27,7 +27,26 @@ const WHOLE_MATCH = [
 const GROUP_ONE = [
   /\b(?:Bearer|Basic)[ \t]+([A-Za-z0-9._~+/=*-]{8,})/dg,
   /(?:\/home\/|\/Users\/|\\\\Users\\\\|\\Users\\)([^/\\" \t\r\n\f\v]+)/dg, // local user names
+  // Anthropic request ids (`req_…`, error bodies) and message ids (`msg_…`): each names one
+  // request in Anthropic's logs, which no test needs. The prefix stays readable.
+  /\b(?:req|msg)_([A-Za-z0-9]{16,})/dg,
+  // Anthropic thinking signatures and redacted-thinking data: opaque encrypted blobs whose
+  // binding (account, conversation) cannot be verified, so all but the first 8 characters are
+  // masked. Matched only in their Messages API shapes: a `signature_delta`, a `thinking` block
+  // (its `thinking` text may come first) and a `redacted_thinking` block. Other `signature`
+  // fields (OpenRouter `reasoning_details[].signature`) are left alone, and values of 8
+  // characters or fewer (the empty one of content_block_start) are not touched.
+  /"type"[ \t\r\n]*:[ \t\r\n]*"signature_delta"[ \t\r\n]*,[ \t\r\n]*"signature"[ \t\r\n]*:[ \t\r\n]*"[^"\\]{8}((?:[^"\\]|\\.)+)"/dg,
+  /"type"[ \t\r\n]*:[ \t\r\n]*"thinking"[ \t\r\n]*,[ \t\r\n]*(?:"thinking"[ \t\r\n]*:[ \t\r\n]*"(?:[^"\\]|\\.)*"[ \t\r\n]*,[ \t\r\n]*)?"signature"[ \t\r\n]*:[ \t\r\n]*"[^"\\]{8}((?:[^"\\]|\\.)+)"/dg,
+  /"type"[ \t\r\n]*:[ \t\r\n]*"redacted_thinking"[ \t\r\n]*,[ \t\r\n]*"data"[ \t\r\n]*:[ \t\r\n]*"[^"\\]{8}((?:[^"\\]|\\.)+)"/dg,
 ];
+
+/** The blob field of an Anthropic thinking-shaped JSON object, if it has one (see GROUP_ONE). */
+function thinkingBlobField(o: Readonly<Record<string, JsonValue>>): string | null {
+  if (o.type === 'thinking' || o.type === 'signature_delta') return 'signature';
+  if (o.type === 'redacted_thinking') return 'data';
+  return null;
+}
 const JSON_STRING_FIELD = /"([A-Za-z0-9_-]{1,64})"[ \t\r\n]*:[ \t\r\n]*"((?:[^"\\\r\n]|\\.)*)"/dg;
 const QUERY_PARAM = /[?&]([A-Za-z0-9_.-]+)=([^&"#\\ \t\r\n\f\v]*)/dg;
 
@@ -156,13 +175,19 @@ export function redactJson(value: JsonValue, secrets: readonly string[]): JsonVa
   if (typeof value === 'string') return redactText(value, secrets);
   if (Array.isArray(value)) return value.map((v) => redactJson(v, secrets));
   if (value === null || typeof value !== 'object') return value;
+  const blob = thinkingBlobField(value);
   return Object.fromEntries(
-    Object.entries(value).map(([k, v]) => [
-      k,
-      isSensitiveName(k) && (v === null || typeof v !== 'object')
-        ? REDACTED
-        : redactJson(v, secrets),
-    ]),
+    Object.entries(value).map(([k, v]) => {
+      if (k === blob && typeof v === 'string' && v.length > 8) {
+        return [k, `${redactText(v.slice(0, 8), secrets)}${REDACTED}`];
+      }
+      return [
+        k,
+        isSensitiveName(k) && (v === null || typeof v !== 'object')
+          ? REDACTED
+          : redactJson(v, secrets),
+      ];
+    }),
   );
 }
 
@@ -187,10 +212,17 @@ const KEPT_RESPONSE_HEADERS = new Set([
   'openai-version',
   'openai-processing-ms',
   'x-litellm-response-cost',
+  // Anthropic: whether the SDKs may retry an error response (a client's retry policy reads it).
+  'x-should-retry',
 ]);
+/** Rate-limit headers: OpenAI-style, and the Anthropic Messages API's own. Limits, remaining
+ * counts and reset times; no account or request identifier. */
+const KEPT_RESPONSE_PREFIXES = ['x-ratelimit-', 'anthropic-ratelimit-'];
 
 /** Keeps allow-listed response headers and names the rest. Values of dropped headers are never
- * stored. `content-encoding` is dropped because fetch has already decoded the body. */
+ * stored. `content-encoding` is dropped because fetch has already decoded the body. Identifiers
+ * such as `request-id`, `x-request-id`, `anthropic-organization-id` and
+ * `anthropic-workspace-id` are dropped by not being on the list. */
 export function selectResponseHeaders(entries: Iterable<[string, string]>): {
   headers: Record<string, string>;
   omitted: string[];
@@ -199,7 +231,8 @@ export function selectResponseHeaders(entries: Iterable<[string, string]>): {
   const omitted = new Set<string>();
   for (const [rawName, value] of entries) {
     const name = rawName.toLowerCase();
-    const kept = KEPT_RESPONSE_HEADERS.has(name) || name.startsWith('x-ratelimit-');
+    const kept =
+      KEPT_RESPONSE_HEADERS.has(name) || KEPT_RESPONSE_PREFIXES.some((p) => name.startsWith(p));
     if (kept && !isSensitiveName(name, 'header')) headers[name] = value;
     else omitted.add(name);
   }

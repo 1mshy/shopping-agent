@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   bodyBytes,
+  decodeChunk,
   encodeChunk,
   isSensitiveName,
   REDACTED,
@@ -16,7 +17,7 @@ import {
   redactText,
   selectResponseHeaders,
 } from '../redact.ts';
-import { syntheticStream } from './synthetic.ts';
+import { syntheticMessagesStream, syntheticStream } from './synthetic.ts';
 
 const SECRET = 'wire-test-secret-7f3a9c2e5b1d';
 const enc = new TextEncoder();
@@ -310,6 +311,160 @@ describe('signature', () => {
     const details = { reasoning_details: [{ type: 'reasoning.text', signature: 'abc123' }] };
     expect(redactJson(details, [])).toEqual(details);
     expect(text(maskBytes(enc.encode(JSON.stringify(details)), []))).toContain('"abc123"');
+  });
+});
+
+// P0-6b: the Messages API's header and body shapes.
+describe('Anthropic Messages shapes', () => {
+  it('redacts x-api-key and keeps anthropic-version', () => {
+    expect(isSensitiveName('x-api-key', 'header')).toBe(true);
+    expect(isSensitiveName('anthropic-version', 'header')).toBe(false);
+    expect(
+      redactHeaders({ 'x-api-key': SECRET, 'anthropic-version': '2026-10-21' }, [SECRET]),
+    ).toEqual({ 'x-api-key': REDACTED, 'anthropic-version': '2026-10-21' });
+  });
+
+  it('keeps Anthropic rate-limit and retry headers and drops request and account ids', () => {
+    const { headers, omitted } = selectResponseHeaders([
+      ['content-type', 'text/event-stream; charset=utf-8'],
+      ['anthropic-ratelimit-requests-limit', '4000'],
+      ['anthropic-ratelimit-output-tokens-reset', '2026-11-24T10:00:00Z'],
+      ['x-should-retry', 'false'],
+      ['request-id', 'req_0000000000000000000000ab'],
+      ['x-request-id', 'req_0000000000000000000000ab'],
+      ['anthropic-organization-id', '00000000-0000-0000-0000-000000000000'],
+      ['anthropic-workspace-id', 'wrkspc_0000000000000000000000ef'],
+      ['cf-ray', 'abc-XYZ'],
+    ]);
+    expect(headers).toEqual({
+      'content-type': 'text/event-stream; charset=utf-8',
+      'anthropic-ratelimit-requests-limit': '4000',
+      'anthropic-ratelimit-output-tokens-reset': '2026-11-24T10:00:00Z',
+      'x-should-retry': 'false',
+    });
+    expect(omitted).toEqual([
+      'anthropic-organization-id',
+      'anthropic-workspace-id',
+      'cf-ray',
+      'request-id',
+      'x-request-id',
+    ]);
+  });
+
+  it('masks request and message ids after their prefix, in text and in bytes', () => {
+    const raw =
+      '{"type":"error","error":{"type":"not_found_error","message":"x"},"request_id":"req_0000000000000000000000ab"}';
+    const masked = text(maskBytes(enc.encode(raw), []));
+    expect(masked).toContain(`"request_id":"req_${'*'.repeat(24)}"`);
+    expect(() => JSON.parse(masked)).not.toThrow();
+    expect(redactText('id msg_0000000000000000000000cd end', [])).toBe(`id msg_${REDACTED} end`);
+    // Tool-use ids stay: a client test sends them back in a tool_result.
+    expect(redactText('toolu_0000000000000000000000ij', [])).toBe('toolu_0000000000000000000000ij');
+    // A field named request_id is not itself sensitive; only the id shape is masked.
+    expect(isSensitiveName('request_id')).toBe(false);
+  });
+
+  it('finds and removes a key echoed in an x-api-key error message and in a kept header', () => {
+    const KEY = 'sk-ant-wire-test-0a1b2c3d4e5f6a7b8c9dWXYZ';
+    const f = syntheticStream();
+    f.request.headers['x-api-key'] = KEY;
+    f.response.headers['anthropic-ratelimit-requests-remaining'] = `1; ${KEY.slice(4, 20)}`;
+    f.response.chunks = [
+      encodeChunk(
+        enc.encode(
+          `event: error\ndata: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key ${KEY}"}}\n\n`,
+        ),
+        10,
+      ),
+    ];
+    expect(findSecretLeaks(f, [KEY])).not.toEqual([]);
+    const r = redactExchange(f, [KEY]);
+    expect(r.request.headers['x-api-key']).toBe(REDACTED);
+    expect(findSecretLeaks(r, [KEY])).toEqual([]);
+    expect(text(bodyBytes(r))).toMatch(/^event: error\ndata: \{.*\}\n\n$/);
+  });
+});
+
+// Orchestrator review of P0-6b: Anthropic thinking signatures are opaque encrypted blobs whose
+// binding cannot be verified, so they are masked in place, keeping the first 8 characters.
+describe('Anthropic thinking signatures', () => {
+  const SIG = `MadeUpSig${'A'.repeat(40)}+/${'z'.repeat(40)}==`;
+  const kept = SIG.slice(0, 8);
+  const maskedSig = `${kept}${'*'.repeat(SIG.length - 8)}`;
+  const sse = [
+    'event: content_block_start',
+    'data: {"type":"content_block_start","index":0,"content_block":{"type":"thinking","thinking":"","signature":""}   }',
+    '',
+    'event: content_block_delta',
+    'data: {"type":"content_block_delta","index":0,"delta":{"type":"thinking_delta","thinking":"a \\"quoted\\" thought"}}',
+    '',
+    'event: content_block_delta',
+    `data: {"type":"content_block_delta","index":0,"delta":{"type":"signature_delta","signature":"${SIG}"}  }`,
+    '',
+    'event: message_stop',
+    'data: {"type":"message_stop"}',
+    '',
+    '',
+  ].join('\n');
+
+  it('masks a signature_delta in place, across a chunk boundary, keeping SSE framing', () => {
+    const f = syntheticMessagesStream();
+    const whole = enc.encode(sse);
+    const cut = sse.indexOf(SIG) + 20; // inside the signature
+    f.response.chunks = [encodeChunk(whole.slice(0, cut), 10), encodeChunk(whole.slice(cut), 20)];
+    const r = redactExchange(f, []);
+    expect(r.response.chunks.map((c) => c.atMs)).toEqual([10, 20]);
+    expect(r.response.chunks.map((c) => decodeChunk(c).length)).toEqual([cut, whole.length - cut]);
+    const out = text(bodyBytes(r));
+    expect(out).toBe(sse.replace(SIG, maskedSig));
+    for (const block of out.split('\n\n').filter(Boolean)) {
+      const data =
+        block
+          .split('\n')
+          .find((l) => l.startsWith('data: '))
+          ?.slice(6) ?? '';
+      expect(() => JSON.parse(data)).not.toThrow();
+    }
+    // The empty signature of content_block_start and the thinking text are untouched.
+    expect(out).toContain('"signature":""');
+    expect(out).toContain('a \\"quoted\\" thought');
+  });
+
+  it('masks the signature of a thinking block and the data of a redacted_thinking block', () => {
+    const body = JSON.stringify({
+      content: [
+        { type: 'thinking', thinking: 'step "one", then two', signature: SIG },
+        { type: 'redacted_thinking', data: SIG },
+        { type: 'text', text: 'No' },
+      ],
+    });
+    const out = text(maskBytes(enc.encode(body), []));
+    expect(out.length).toBe(body.length);
+    expect(out).not.toContain(SIG);
+    const parsed = JSON.parse(out) as { content: Record<string, string>[] };
+    expect(parsed.content[0]?.signature).toBe(maskedSig);
+    expect(parsed.content[0]?.thinking).toBe('step "one", then two');
+    expect(parsed.content[1]?.data).toBe(maskedSig);
+    expect(parsed.content[2]?.text).toBe('No');
+  });
+
+  it('masks the same values in a request body (a thinking block sent back)', () => {
+    const msgs = [
+      { role: 'assistant', content: [{ type: 'thinking', thinking: 't', signature: SIG }] },
+    ];
+    expect(redactJson(msgs, [])).toEqual([
+      {
+        role: 'assistant',
+        content: [{ type: 'thinking', thinking: 't', signature: `${kept}${REDACTED}` }],
+      },
+    ]);
+  });
+
+  it('leaves short values and other signature fields alone', () => {
+    const short = '{"type":"signature_delta","signature":"abc123"}';
+    expect(text(maskBytes(enc.encode(short), []))).toBe(short);
+    const other = `{"type":"reasoning.text","signature":"${SIG}"}`;
+    expect(text(maskBytes(enc.encode(other), []))).toBe(other);
   });
 });
 

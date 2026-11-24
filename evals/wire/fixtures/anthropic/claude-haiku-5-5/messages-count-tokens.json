@@ -1,0 +1,84 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "messages-count-tokens",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:49:28.297Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/messages/count_tokens",
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "anthropic-version": "2026-10-21",
+      "x-api-key": "[REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "system": "You are a terse assistant used to test an API client. Follow instructions exactly.",
+      "tools": [
+        {
+          "name": "get_price",
+          "description": "Look up the current listed price of a product at one store.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "product": {
+                "type": "string"
+              },
+              "store": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product",
+              "store"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "What does the Kindle Paperwhite cost at Amazon? Use the tool."
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 94.5,
+    "headers": {
+      "content-type": "application/json",
+      "server": "cloudflare"
+    },
+    "omittedHeaders": [
+      "anthropic-organization-id",
+      "anthropic-workspace-id",
+      "cf-cache-status",
+      "cf-ray",
+      "content-length",
+      "content-security-policy",
+      "date",
+      "request-id",
+      "server-timing",
+      "strict-transport-security",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 94.7,
+        "utf8": "{\"input_tokens\":448}"
+      }
+    ]
+  }
+}

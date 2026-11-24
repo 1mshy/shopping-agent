@@ -1,0 +1,67 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "messages-error-sampling",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:49:28.756Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/messages",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "anthropic-version": "2026-10-21",
+      "x-api-key": "[REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "max_tokens": 512,
+      "system": "You are a terse assistant used to test an API client. Follow instructions exactly.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single word: ready."
+        }
+      ],
+      "stream": true,
+      "temperature": 0
+    }
+  },
+  "response": {
+    "status": 400,
+    "headersAtMs": 131.6,
+    "headers": {
+      "content-type": "application/json",
+      "server": "cloudflare",
+      "x-should-retry": "false"
+    },
+    "omittedHeaders": [
+      "anthropic-organization-id",
+      "anthropic-workspace-id",
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "request-id",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 131.7,
+        "utf8": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"temperature: Extra inputs are not permitted\"},\"request_id\":\"req_************************\"}"
+      }
+    ]
+  }
+}

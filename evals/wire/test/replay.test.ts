@@ -6,7 +6,13 @@ import { describe, expect, it } from 'vitest';
 import { decodeChunk, type WireFixture } from '../format.ts';
 import { createReplayFetch, startReplayServer, WireReplayMismatchError } from '../replay.ts';
 import { useReplayFetch, useReplayServer } from '../replay-vitest.ts';
-import { SPLIT_CHUNKS, syntheticModels, syntheticStream } from './synthetic.ts';
+import {
+  MESSAGES_CHUNKS,
+  SPLIT_CHUNKS,
+  syntheticMessagesStream,
+  syntheticModels,
+  syntheticStream,
+} from './synthetic.ts';
 
 // The 127.0.0.1 tests below expect each chunk to arrive as its own read. They rely on the
 // server writing each chunk separately with Nagle off and a pause between writes, and on
@@ -83,6 +89,38 @@ describe('replay fetch', () => {
     const unused = createReplayFetch([syntheticModels(), syntheticStream()]);
     await unused('http://x/v1/models');
     expect(() => unused.assertDone()).toThrow(/not requested/);
+  });
+});
+
+// P0-6b: a Messages request must carry x-api-key and the recorded API version and betas.
+describe('replay of a Messages exchange', () => {
+  const messagesRequest = (headers: Record<string, string>): RequestInit => ({
+    method: 'POST',
+    headers: { 'content-type': 'application/json', ...headers },
+    body: JSON.stringify(syntheticMessagesStream().request.body),
+  });
+  const good = { 'x-api-key': 'anything', 'anthropic-version': '2026-10-21' };
+
+  it('serves the named-event stream with its chunk boundaries', async () => {
+    const replay = createReplayFetch(syntheticMessagesStream());
+    const res = await replay('http://x/v1/messages', messagesRequest(good));
+    expect(await readChunks(res)).toEqual(MESSAGES_CHUNKS);
+    replay.assertDone();
+  });
+
+  it.each([
+    ['no x-api-key', { 'anthropic-version': '2026-10-21' }, /x-api-key/],
+    [
+      'a bearer token instead',
+      { authorization: 'Bearer a', 'anthropic-version': '2026-10-21' },
+      /x-api-key/,
+    ],
+    ['no anthropic-version', { 'x-api-key': 'a' }, /anthropic-version \(none\)/],
+    ['another anthropic-version', { ...good, 'anthropic-version': '2023-06-01' }, /2023-06-01/],
+    ['an unrecorded beta', { ...good, 'anthropic-beta': 'some-beta-2026-01-01' }, /anthropic-beta/],
+  ])('rejects a request with %s', async (_name, headers, message) => {
+    const replay = createReplayFetch(syntheticMessagesStream());
+    await expect(replay('http://x/v1/messages', messagesRequest(headers))).rejects.toThrow(message);
   });
 });
 

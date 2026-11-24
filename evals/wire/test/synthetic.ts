@@ -46,6 +46,43 @@ export function syntheticStream(overrides: Partial<WireFixture['meta']> = {}): W
   };
 }
 
+/** Messages API SSE (named events), split mid-event. Made up, in the documented event order. */
+export const MESSAGES_CHUNKS: readonly Uint8Array[] = [
+  enc.encode(
+    'event: message_start\ndata: {"type":"message_start","message":{"id":"msg_synthetic","type":"message","role":"assistant","content":[],"model":"synthetic-model","stop_reason":null,"usage":{"input_tokens":5,"output_tokens":1}}}\n\nevent: content_block_start\ndata: {"type":"content_block_start","index":0,"content_block":{"type":"text","text":""}}\n\n',
+  ),
+  enc.encode('event: content_block_delta\ndata: {"type":"content_block_delta","index":0,"del'),
+  enc.encode(
+    'ta":{"type":"text_delta","text":"ready"}}\n\nevent: content_block_stop\ndata: {"type":"content_block_stop","index":0}\n\nevent: message_delta\ndata: {"type":"message_delta","delta":{"stop_reason":"end_turn","stop_sequence":null},"usage":{"output_tokens":2}}\n\nevent: message_stop\ndata: {"type":"message_stop"}\n\n',
+  ),
+];
+
+export function syntheticMessagesStream(): WireFixture {
+  const f = syntheticStream({ serverFamily: 'anthropic', scenario: 'messages-stream' });
+  return {
+    ...f,
+    request: {
+      method: 'POST',
+      path: '/v1/messages',
+      headers: {
+        'x-api-key': '[REDACTED]',
+        'anthropic-version': '2026-10-21',
+        'content-type': 'application/json',
+      },
+      body: {
+        model: 'synthetic-model',
+        max_tokens: 16,
+        messages: [{ role: 'user', content: 'hi' }],
+        stream: true,
+      },
+    },
+    response: {
+      ...f.response,
+      chunks: MESSAGES_CHUNKS.map((bytes, i) => encodeChunk(bytes, 10 + i * 10)),
+    },
+  };
+}
+
 export function syntheticModels(): WireFixture {
   return {
     ...syntheticStream({ scenario: 'models-list' }),

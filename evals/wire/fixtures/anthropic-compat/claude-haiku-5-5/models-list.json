@@ -1,0 +1,53 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic-compat",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "models-list",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:50:12.544Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "GET",
+    "path": "/v1/models",
+    "headers": {
+      "accept": "application/json",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "authorization": "Bearer [REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 400,
+    "headersAtMs": 169.8,
+    "headers": {
+      "cache-control": "private, no-store",
+      "content-type": "application/json",
+      "server": "cloudflare",
+      "x-should-retry": "false"
+    },
+    "omittedHeaders": [
+      "anthropic-organization-id",
+      "anthropic-workspace-id",
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "request-id",
+      "server-timing",
+      "strict-transport-security",
+      "vary",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 170.8,
+        "utf8": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"anthropic-version: header is required\"},\"request_id\":\"req_************************\"}"
+      }
+    ]
+  }
+}

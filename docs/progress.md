@@ -17,6 +17,27 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-24: Wire recordings of Claude Haiku 5.5 (P0-6b)
+
+**Shipped** (branch `phase0/wire-recordings`, squash-merged). `evals/wire` gains a native Anthropic Messages recording path (family `anthropic`: key as `x-api-key`, `anthropic-version: 2026-10-21`), a 19-scenario `messages-*` matrix covering the seven probe steps of S§5.7, the family `anthropic-compat` for Anthropic's OpenAI-compatibility endpoint (the existing matrix), replay matching on `x-api-key`, `anthropic-version` and `anthropic-beta`, and a counts-only review script (`review.ts`). Tests were written against the scripted server before any recording.
+
+**Committed: 38 real recordings** of `claude-haiku-5-5` under `evals/wire/fixtures/` (19 Messages, 19 compatibility endpoint; 29 HTTP 200 and 9 error statuses), each unedited recorder output, parsed and replayed byte for byte in `test/fixtures.test.ts`. 39 requests in all (one scenario was recorded twice, below), sequential, no retries. **Spend: $0.0021** at list price, of a $1.00 cap.
+
+**What the recordings show** (counts are of these recordings, one session per endpoint, one day):
+
+- `tool_choice: none` with tools supplied returned an empty reply on both wire shapes (2 of 2). S§5.7's forced finish now says an empty final call goes to the deterministic finisher.
+- Messages: usage arrives in `message_start` and, cumulative, in the last `message_delta`; the provisional `output_tokens` of `message_start` equalled the final count in 3 of 11 streams. Thinking tokens are `usage.output_tokens_details.thinking_tokens` (35 of 38 output tokens in the one thinking recording); no thinking block appeared in the 10 requests at default settings. The cache pair wrote and then read 3,628 tokens. A sampling parameter is refused (400).
+- Compatibility endpoint: no cache and no cached count (3,645 and 3,644 prompt tokens), no reasoning field (38 completion tokens billed for a one-word reply), `json_object` refused (400), `/models` refused without `anthropic-version` (400), errors in OpenAI's shape without a request id.
+- Every SSE `data` object on both endpoints (24 of 24 streams) is padded with spaces before its closing brace, so a client parses the JSON and never matches the text.
+
+**Leak review, done twice.** The author's `review.ts` and the orchestrator's own scan of the 59 files under `evals/wire` both found 0 of the key's 99 eight-character windows, 0 base64 windows and no personal term. Response headers that name the account or the request (`request-id`, `anthropic-organization-id`, `anthropic-workspace-id`, `cf-ray`) are dropped; `req_…` and `msg_…` ids in bodies are masked after the prefix. **Sent back once by the orchestrator:** the thinking signature (an opaque blob of 884 characters whose binding cannot be checked) is now masked after its first 8 characters by a redaction rule, and that scenario was re-recorded so the file is still recorder output; id-shaped examples in the tests, copied from Anthropic's documentation, were replaced by made-up values. Kept and visible: `toolu_…` ids (parallel calls need distinct ids), the rate-limit header values (they show the account's usage tier) and the model list (14 models).
+
+**Spec edits:** S§5.7 (the forced finish), S§9 #5 (the evidence; the decision stays the owner's).
+
+**Deviation.** The brief asked for Messages recordings; the compatibility endpoint was recorded too because Anthropic's documentation offers one and decision #5 rests on the difference. The plan's other servers (OpenRouter, OpenAI, vLLM, Ollama, llama.cpp) are not recorded (owner, 2026-11-23: hosted Haiku 5.5 only for now).
+
+**Not established:** behaviour on any other model or day; what `/models` returns on the compatibility endpoint once the version header is sent; whether a masked signature matters to a test (it cannot be replayed to the real API).
+
 ### 2026-11-23: Gold set v1 reviewed (second labels and rulings, by a model in the owner's place)
 
 The owner handed the review of `evals/gold/sets/matcher-v1/` to Claude Mythos 5.2 (handle `m1`) instead of doing it by hand. **No person has labelled the set**; the second labeller is another Claude model, so the agreement is weaker evidence than a person's labels. Details in the set's README.

@@ -1,20 +1,33 @@
-// Wire-fixture format (S§5.16, P§0 workstream 6): one HTTP exchange with an OpenAI-compatible
-// server, recorded so the Phase 2 client and capability probe can be tested without a model.
+// Wire-fixture format (S§5.16, P§0 workstream 6): one HTTP exchange with an LLM server (an
+// OpenAI-compatible Chat Completions server, or the native Anthropic Messages API), recorded so
+// the Phase 2 client and capability probe can be tested without a model.
 // The response body is kept as the ordered chunks the client read, each with its arrival
 // offset, so SSE chunk boundaries survive byte for byte. See README.md.
 import { z } from 'zod';
 
 export const FORMAT_VERSION = 1;
-export const RECORDER_VERSION = '0.2.0';
+export const RECORDER_VERSION = '0.3.0';
 export const SERVER_FAMILIES = [
   'openrouter',
   'openai',
   'vllm',
   'ollama',
   'llamacpp',
+  /** The native Anthropic Messages API (`POST /v1/messages`, `x-api-key`, `anthropic-version`). */
+  'anthropic',
+  /** Anthropic's OpenAI SDK compatibility endpoint (`POST /v1/chat/completions`, bearer key). */
+  'anthropic-compat',
   'other',
 ] as const;
 export type ServerFamily = (typeof SERVER_FAMILIES)[number];
+
+/** The two wire shapes: OpenAI-style Chat Completions, and Anthropic Messages. */
+export type WireApi = 'chat-completions' | 'messages';
+
+/** Which wire shape a family speaks. Only `anthropic` speaks Messages. */
+export function wireApiOf(family: ServerFamily): WireApi {
+  return family === 'anthropic' ? 'messages' : 'chat-completions';
+}
 export type JsonValue = string | number | boolean | null | JsonValue[] | { [k: string]: JsonValue };
 
 /** Statuses whose response has no body; a fixture with one of them has no chunks. */
@@ -67,6 +80,10 @@ export function isSensitiveName(name: string, kind: 'header' | 'field' = 'field'
 
 /** A sensitive header must hold `[REDACTED]` or `<Scheme> [REDACTED]`. */
 const isRedactedValue = (v: string) => v === REDACTED || /^[A-Za-z]+ \[REDACTED\]$/.test(v);
+
+/** The Anthropic API version every Messages request in this directory sends (`anthropic-version`).
+ * From https://platform.claude.com/docs/en/api/versioning (read 2026-11-24): the latest version. */
+export const ANTHROPIC_VERSION = '2026-10-21';
 
 const ms = z.number().finite().nonnegative();
 const headerMap = z

@@ -1,0 +1,107 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "messages-tool-choice-none",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:49:23.960Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/messages",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "anthropic-version": "2026-10-21",
+      "x-api-key": "[REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "max_tokens": 512,
+      "system": "You are a terse assistant used to test an API client. Follow instructions exactly.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What does the Kindle Paperwhite cost at Amazon? Use the tool."
+        }
+      ],
+      "stream": true,
+      "tools": [
+        {
+          "name": "get_price",
+          "description": "Look up the current listed price of a product at one store.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "product": {
+                "type": "string"
+              },
+              "store": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product",
+              "store"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "none"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 435.6,
+    "headers": {
+      "anthropic-ratelimit-input-tokens-limit": "5000000",
+      "anthropic-ratelimit-input-tokens-remaining": "5000000",
+      "anthropic-ratelimit-input-tokens-reset": "2026-11-24T15:49:24Z",
+      "anthropic-ratelimit-output-tokens-limit": "1000000",
+      "anthropic-ratelimit-output-tokens-remaining": "1000000",
+      "anthropic-ratelimit-output-tokens-reset": "2026-11-24T15:49:24Z",
+      "anthropic-ratelimit-requests-limit": "10000",
+      "anthropic-ratelimit-requests-remaining": "9999",
+      "anthropic-ratelimit-requests-reset": "2026-11-24T15:49:24Z",
+      "anthropic-ratelimit-tokens-limit": "6000000",
+      "anthropic-ratelimit-tokens-remaining": "6000000",
+      "anthropic-ratelimit-tokens-reset": "2026-11-24T15:49:24Z",
+      "cache-control": "no-cache",
+      "content-type": "text/event-stream; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "omittedHeaders": [
+      "anthropic-organization-id",
+      "anthropic-workspace-id",
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "request-id",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 435.8,
+        "utf8": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-5-5\",\"id\":\"msg_************************\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"container\":null,\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":448,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":1,\"service_tier\":\"standard\",\"inference_geo\":\"global\",\"speed\":\"standard\"},\"diagnostics\":null}}\n\n"
+      },
+      {
+        "atMs": 437.8,
+        "utf8": "event: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null,\"container\":null},\"usage\":{\"input_tokens\":448,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":1,\"output_tokens_details\":{\"thinking_tokens\":0}}               }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"         }\n\n"
+      }
+    ]
+  }
+}

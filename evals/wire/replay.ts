@@ -57,6 +57,17 @@ export function describeMismatch(f: WireFixture, r: Received): string[] {
   if (rec.headers.authorization !== undefined && !r.headers.authorization) {
     problems.push('no Authorization header, but the recorded request had one');
   }
+  if (rec.headers['x-api-key'] !== undefined && !r.headers['x-api-key']) {
+    problems.push('no x-api-key header, but the recorded request had one');
+  }
+  // The Messages API's shape depends on the version and beta headers, so they must match.
+  for (const name of ['anthropic-version', 'anthropic-beta']) {
+    const recorded = rec.headers[name];
+    const received = r.headers[name] || undefined;
+    if (recorded !== received) {
+      problems.push(`${name} ${received ?? '(none)'}, recorded ${recorded ?? '(none)'}`);
+    }
+  }
   const ct = mediaType(rec.headers['content-type']);
   if (ct !== undefined && mediaType(r.headers['content-type']) !== ct) {
     problems.push(`content-type ${r.headers['content-type']}, recorded ${ct}`);

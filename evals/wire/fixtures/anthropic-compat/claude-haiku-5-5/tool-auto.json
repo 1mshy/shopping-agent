@@ -1,0 +1,113 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic-compat",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "tool-auto",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:50:14.560Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/chat/completions",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "authorization": "Bearer [REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a terse assistant used to test an API client. Follow instructions exactly."
+        },
+        {
+          "role": "user",
+          "content": "What does the Kindle Paperwhite cost at Amazon? Use the tool."
+        }
+      ],
+      "max_completion_tokens": 256,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_price",
+            "description": "Look up the current listed price of a product at one store.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string"
+                },
+                "store": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "product",
+                "store"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "tool_choice": "auto"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 298.6,
+    "headers": {
+      "cache-control": "no-cache",
+      "content-type": "text/event-stream",
+      "server": "cloudflare",
+      "x-ratelimit-remaining-requests": "9999",
+      "x-ratelimit-remaining-tokens": "6000000",
+      "x-ratelimit-requests": "10000",
+      "x-ratelimit-reset-requests": "0s",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-ratelimit-tokens": "6000000"
+    },
+    "omittedHeaders": [
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-request-id",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 298.7,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"    }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"id\":\"toolu_015cnWCL33CGf6vUjLhNUbh8\",\"type\":\"function\",\"function\":{\"name\":\"get_price\",\"arguments\":\"\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"}\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"         }\n\n"
+      },
+      {
+        "atMs": 455.8,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"{\\\"produ\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"          }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"ct\\\": \\\"K\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"               }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"indle P\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"          }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"aperwhi\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"}\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"te\\\"\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"          }\n\n"
+      },
+      {
+        "atMs": 471.2,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\", \\\"stor\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"           }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"e\\\": \\\"Am\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"       }\n\ndata: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{\"tool_calls\":[{\"index\":0,\"type\":\"function\",\"function\":{\"arguments\":\"azon\\\"}\"}}]}}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\"     }\n\n"
+      },
+      {
+        "atMs": 474.4,
+        "utf8": "data: {\"id\":\"msg_************************\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"tool_calls\"}],\"created\":1795535414,\"model\":\"claude-haiku-5-5\",\"object\":\"chat.completion.chunk\",\"usage\":{\"completion_tokens\":80,\"prompt_tokens\":448,\"total_tokens\":528}    }\n\ndata: [DONE]\n\n"
+      }
+    ]
+  }
+}

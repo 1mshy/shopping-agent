@@ -1,0 +1,86 @@
+{
+  "formatVersion": 1,
+  "meta": {
+    "serverFamily": "anthropic",
+    "serverVersion": null,
+    "model": "claude-haiku-5-5",
+    "scenario": "messages-cache-first",
+    "basePath": "/v1",
+    "recordedAt": "2026-11-24T15:49:27.498Z",
+    "recorderVersion": "0.3.0",
+    "synthetic": false
+  },
+  "request": {
+    "method": "POST",
+    "path": "/v1/messages",
+    "headers": {
+      "accept": "text/event-stream",
+      "accept-encoding": "identity",
+      "user-agent": "agentic-dasher-wire-recorder/0.3.0",
+      "content-type": "application/json",
+      "anthropic-version": "2026-10-21",
+      "x-api-key": "[REDACTED]"
+    },
+    "body": {
+      "model": "claude-haiku-5-5",
+      "max_tokens": 256,
+      "system": [
+        {
+          "type": "text",
+          "text": "You are a terse assistant used to test an API client. Follow instructions exactly.\nReference note 001: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 002: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 003: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 004: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 005: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 006: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 007: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 008: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 009: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 010: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 011: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 012: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 013: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 014: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 015: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 016: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 017: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 018: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 019: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 020: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 021: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 022: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 023: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 024: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 025: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 026: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 027: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 028: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 029: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 030: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 031: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 032: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 033: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 034: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 035: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 036: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 037: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 038: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 039: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 040: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 041: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 042: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 043: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 044: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 045: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 046: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 047: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 048: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 049: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 050: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 051: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 052: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 053: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 054: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 055: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 056: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 057: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 058: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 059: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 060: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 061: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 062: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 063: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 064: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 065: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 066: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 067: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 068: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 069: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 070: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 071: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 072: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 073: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 074: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 075: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 076: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 077: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 078: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 079: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 080: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 081: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 082: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 083: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 084: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 085: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 086: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 087: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 088: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 089: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 090: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 091: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 092: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 093: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 094: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 095: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 096: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 097: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 098: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 099: a product listing is identified by brand, model, variant, condition and seller; keep these separate.\nReference note 100: a product listing is identified by brand, model, variant, condition and seller; keep these separate.",
+          "cache_control": {
+            "type": "ephemeral"
+          }
+        }
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the single word: ready."
+        }
+      ],
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "headersAtMs": 387,
+    "headers": {
+      "anthropic-ratelimit-input-tokens-limit": "5000000",
+      "anthropic-ratelimit-input-tokens-remaining": "4998000",
+      "anthropic-ratelimit-input-tokens-reset": "2026-11-24T15:49:27Z",
+      "anthropic-ratelimit-output-tokens-limit": "1000000",
+      "anthropic-ratelimit-output-tokens-remaining": "1000000",
+      "anthropic-ratelimit-output-tokens-reset": "2026-11-24T15:49:27Z",
+      "anthropic-ratelimit-requests-limit": "10000",
+      "anthropic-ratelimit-requests-remaining": "9999",
+      "anthropic-ratelimit-requests-reset": "2026-11-24T15:49:27Z",
+      "anthropic-ratelimit-tokens-limit": "6000000",
+      "anthropic-ratelimit-tokens-remaining": "5998000",
+      "anthropic-ratelimit-tokens-reset": "2026-11-24T15:49:27Z",
+      "cache-control": "no-cache",
+      "content-type": "text/event-stream; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "omittedHeaders": [
+      "anthropic-organization-id",
+      "anthropic-workspace-id",
+      "cf-cache-status",
+      "cf-ray",
+      "content-security-policy",
+      "date",
+      "request-id",
+      "server-timing",
+      "strict-transport-security",
+      "traceresponse",
+      "vary",
+      "x-robots-tag"
+    ],
+    "chunks": [
+      {
+        "atMs": 387.1,
+        "utf8": "event: message_start\ndata: {\"type\":\"message_start\",\"message\":{\"model\":\"claude-haiku-5-5\",\"id\":\"msg_************************\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"container\":null,\"stop_reason\":null,\"stop_sequence\":null,\"stop_details\":null,\"usage\":{\"input_tokens\":17,\"cache_creation_input_tokens\":3628,\"cache_read_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":3628,\"ephemeral_1h_input_tokens\":0},\"output_tokens\":4,\"service_tier\":\"standard\",\"inference_geo\":\"global\",\"speed\":\"standard\"},\"diagnostics\":null}          }\n\nevent: content_block_start\ndata: {\"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}      }\n\nevent: ping\ndata: {\"type\": \"ping\"}\n\nevent: content_block_delta\ndata: {\"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"ready\"}          }\n\nevent: content_block_stop\ndata: {\"type\":\"content_block_stop\",\"index\":0        }\n\nevent: message_delta\ndata: {\"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null,\"container\":null},\"usage\":{\"input_tokens\":17,\"cache_creation_input_tokens\":3628,\"cache_read_input_tokens\":0,\"output_tokens\":4,\"output_tokens_details\":{\"thinking_tokens\":0}}      }\n\nevent: message_stop\ndata: {\"type\":\"message_stop\"         }\n\n"
+      }
+    ]
+  }
+}

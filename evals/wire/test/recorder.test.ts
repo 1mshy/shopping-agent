@@ -7,7 +7,7 @@ import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { decodeChunk, parseFixture, type WireFixture } from '../format.ts';
+import { bodyBytes, decodeChunk, parseFixture, type WireFixture } from '../format.ts';
 import {
   detectServerVersion,
   fixtureDirName,
@@ -20,7 +20,7 @@ import {
 import { createReplayFetch, startReplayServer } from '../replay.ts';
 import { scenarioById } from '../scenarios.ts';
 import { type ScriptedResponse, type SeenRequest, startScriptedServer } from './scripted-server.ts';
-import { SPLIT_CHUNKS } from './synthetic.ts';
+import { MESSAGES_CHUNKS, SPLIT_CHUNKS } from './synthetic.ts';
 
 // Made-up values only. Never point these tests at a real key variable.
 const SECRET = 'wire-test-secret-7f3a9c2e5b1d';
@@ -268,6 +268,221 @@ describe('record then replay against a scripted server', () => {
     expect(f?.text).not.toContain(ACCOUNT);
     expect(f?.fixture.meta.basePath).toBe('/v1/[REDACTED]/gw');
     expect(f?.fixture.request.path).toBe('/v1/[REDACTED]/gw/models');
+  });
+});
+
+// P0-6b: the native Messages path. The scripted server behaves like the documented API: the key
+// in x-api-key, anthropic-version required, named SSE events, request and account ids in headers
+// and error bodies, and a 401 that echoes the key it was given.
+function messagesRoute(req: SeenRequest): ScriptedResponse {
+  const key = String(req.headers['x-api-key'] ?? '');
+  const ids = {
+    'request-id': 'req_0000000000000000000000ab',
+    'anthropic-organization-id': '00000000-0000-4000-8000-0000000000ab',
+    'anthropic-ratelimit-requests-limit': '4000',
+  };
+  const error = (status: number, type: string, message: string): ScriptedResponse => ({
+    status,
+    headers: { 'content-type': 'application/json', 'x-should-retry': 'false', ...ids },
+    chunks: [
+      JSON.stringify({
+        type: 'error',
+        error: { type, message },
+        request_id: 'req_0000000000000000000000ab',
+      }),
+    ],
+  });
+  if (req.headers.authorization !== undefined) return error(400, 'invalid_request_error', 'bearer');
+  if (key !== SECRET) return error(401, 'authentication_error', `invalid x-api-key ${key}`);
+  if (req.headers['anthropic-version'] !== '2026-10-21') {
+    return error(400, 'invalid_request_error', 'anthropic-version: header is required');
+  }
+  if (req.url === '/v1/models') {
+    return {
+      status: 200,
+      headers: { 'content-type': 'application/json', ...ids },
+      chunks: ['{"data":[{"type":"model","id":"scripted-model"}],"has_more":false}'],
+    };
+  }
+  return {
+    status: 200,
+    headers: { 'content-type': 'text/event-stream; charset=utf-8', ...ids },
+    chunks: [
+      'event: message_start\ndata: {"type":"message_start","message":{"id":"msg_0000000000000000000000cd","content":[]}}\n\n',
+      ...MESSAGES_CHUNKS.slice(1),
+    ],
+  };
+}
+
+describe('the Messages path (family anthropic)', () => {
+  const messagesOptions = (over: Partial<SessionOptions> = {}) =>
+    options({
+      family: 'anthropic',
+      scenarios: ['messages-models-list', 'messages-stream', 'messages-error-bad-credentials'].map(
+        scenarioById,
+      ),
+      ...over,
+    });
+
+  it('sends x-api-key and anthropic-version, and writes clean fixtures', async () => {
+    await restart(messagesRoute);
+    const result = await recordSession(messagesOptions());
+    expect(result.failed).toEqual([]);
+    expect(server.seen.map((r) => [r.method, r.url])).toEqual([
+      ['GET', '/v1/models'],
+      ['POST', '/v1/messages'],
+      ['POST', '/v1/messages'],
+    ]);
+    for (const seen of server.seen) {
+      expect(seen.headers.authorization).toBeUndefined();
+      expect(seen.headers['anthropic-version']).toBe('2026-10-21');
+    }
+    expect(server.seen[1]?.headers['x-api-key']).toBe(SECRET);
+
+    const files = await writtenFixtures(join(out, 'anthropic', 'scripted-model'));
+    expect([...files.keys()].sort()).toEqual([
+      'messages-error-bad-credentials.json',
+      'messages-models-list.json',
+      'messages-stream.json',
+    ]);
+    for (const { text, fixture } of files.values()) {
+      expectClean(text);
+      expect(text).not.toContain('00000000-0000-4000-8000-0000000000ab');
+      expect(text).not.toContain('0000000000000000000000ab');
+      expect(text).not.toContain('0000000000000000000000cd');
+      expect(fixture.meta.serverFamily).toBe('anthropic');
+      expect(fixture.request.headers).toMatchObject({
+        'x-api-key': '[REDACTED]',
+        'anthropic-version': '2026-10-21',
+      });
+      expect(fixture.request.headers.authorization).toBeUndefined();
+      expect(fixture.response.headers['anthropic-ratelimit-requests-limit']).toBe('4000');
+      expect(fixture.response.omittedHeaders).toEqual(
+        expect.arrayContaining(['anthropic-organization-id', 'request-id']),
+      );
+    }
+    const stream = files.get('messages-stream.json')?.fixture as WireFixture;
+    const body = Buffer.from(bodyBytes(stream)).toString('utf8');
+    expect(body).toContain(`"id":"msg_${'*'.repeat(24)}"`);
+    expect(body.endsWith('event: message_stop\ndata: {"type":"message_stop"}\n\n')).toBe(true);
+    const bad = files.get('messages-error-bad-credentials.json')?.fixture as WireFixture;
+    expect(bad.response.status).toBe(401);
+    expect(bad.response.headers['x-should-retry']).toBe('false');
+    expect(JSON.parse(Buffer.from(bodyBytes(bad)).toString('utf8'))).toMatchObject({
+      type: 'error',
+      error: { type: 'authentication_error' },
+      request_id: `req_${'*'.repeat(24)}`,
+    });
+
+    // Replay the stream the way a Messages client would send it.
+    const replay = createReplayFetch(stream);
+    const res = await replay('http://any/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': 'anything',
+        'anthropic-version': '2026-10-21',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(stream.request.body),
+    });
+    expect(Buffer.from(await res.arrayBuffer())).toEqual(Buffer.from(bodyBytes(stream)));
+    replay.assertDone();
+  });
+
+  it('masks a thinking signature split across two server writes, keeping 8 characters', async () => {
+    const sig = `FakeSig0${'Q'.repeat(60)}/+${'w'.repeat(30)}=`;
+    const event = `event: content_block_delta\ndata: {"type":"content_block_delta","index":0,"delta":{"type":"signature_delta","signature":"${sig}"}   }\n\n`;
+    const cut = event.indexOf(sig) + 33;
+    await restart((req) =>
+      req.method === 'POST'
+        ? {
+            status: 200,
+            headers: { 'content-type': 'text/event-stream; charset=utf-8' },
+            chunks: [
+              MESSAGES_CHUNKS[0] as Uint8Array,
+              event.slice(0, cut),
+              event.slice(cut),
+              'event: message_stop\ndata: {"type":"message_stop"}\n\n',
+            ],
+          }
+        : messagesRoute(req),
+    );
+    const result = await recordSession(
+      messagesOptions({ scenarios: [scenarioById('messages-thinking-summarized')] }),
+    );
+    expect(result.failed).toEqual([]);
+    const files = await writtenFixtures(join(out, 'anthropic', 'scripted-model'));
+    const f = files.get('messages-thinking-summarized.json');
+    if (!f) throw new Error('fixture not written');
+    expect(f.text).not.toContain(sig.slice(8, 30));
+    const chunks = f.fixture.response.chunks.map(decodeChunk);
+    expect(chunks.map((c) => c.length)).toEqual([
+      (MESSAGES_CHUNKS[0] as Uint8Array).length,
+      cut,
+      event.length - cut,
+      'event: message_stop\ndata: {"type":"message_stop"}\n\n'.length,
+    ]);
+    const body = Buffer.concat(chunks).toString('utf8');
+    expect(body).toContain(`"signature":"FakeSig0${'*'.repeat(sig.length - 8)}"`);
+  });
+
+  it('fails closed when the key comes back escaped in a Messages error', async () => {
+    const escaped = [...SECRET].map((c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`);
+    await restart((req) =>
+      req.method === 'POST'
+        ? {
+            status: 401,
+            headers: { 'content-type': 'application/json' },
+            chunks: [`{"type":"error","error":{"message":"${escaped.join('')}"}}`],
+          }
+        : messagesRoute(req),
+    );
+    await expect(recordSession(messagesOptions())).rejects.toBeInstanceOf(SecretLeakError);
+    expect(await filesUnder(out)).toEqual(new Map());
+    expect(await stagingLeftovers()).toEqual([]);
+  });
+
+  it('runs end to end as `node evals/wire/record.ts --family anthropic`', async () => {
+    await restart(messagesRoute);
+    const args = [
+      RECORD_TS,
+      ...['--base-url', `${server.origin}/v1`, '--model', 'scripted-model'],
+      ...['--family', 'anthropic', '--out', out, '--label', 'scripted'],
+      ...['--scenarios', 'messages-models-list,messages-stream,messages-error-bad-credentials'],
+      ...['--api-key-env', 'WIRE_TEST_KEY'],
+    ];
+    const { stdout, stderr } = await promisify(execFile)(process.execPath, args, {
+      env: { PATH: process.env.PATH, WIRE_TEST_KEY: SECRET },
+    });
+    expect(`${stdout}${stderr}`).not.toContain(SECRET);
+    expect(`${stdout}${stderr}`).not.toContain(SECRET.slice(0, 8));
+    const files = await writtenFixtures(join(out, 'anthropic', 'scripted'));
+    expect(files.size).toBe(3);
+    for (const { text } of files.values()) expectClean(text);
+  });
+
+  it.each([
+    ['a Chat Completions scenario', ['stream-usage']],
+    ['messages-cache-second alone', ['messages-cache-second']],
+    [
+      'messages-cache-second out of order',
+      ['messages-cache-first', 'messages-stream', 'messages-cache-second'],
+    ],
+  ])('refuses %s before any request', async (_name, ids) => {
+    await restart(messagesRoute);
+    await expect(
+      recordSession(messagesOptions({ scenarios: ids.map(scenarioById) })),
+    ).rejects.toThrow();
+    expect(server.seen).toEqual([]);
+  });
+
+  it('refuses a Messages scenario for a Chat Completions family', async () => {
+    await expect(
+      recordSession(
+        options({ family: 'anthropic-compat', scenarios: [scenarioById('messages-stream')] }),
+      ),
+    ).rejects.toThrow(/does not apply/);
+    expect(server.seen).toEqual([]);
   });
 });
 

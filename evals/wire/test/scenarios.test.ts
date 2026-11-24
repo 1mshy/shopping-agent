@@ -20,9 +20,18 @@ describe('scenario matrix', () => {
     }
   });
 
-  it('covers all seven probe steps (S§5.7)', () => {
-    const steps = new Set(SCENARIOS.flatMap((s) => s.probeSteps));
-    expect([...steps].sort()).toEqual([1, 2, 3, 4, 5, 6, 7]);
+  it.each(['chat-completions', 'messages'] as const)(
+    'covers all seven probe steps (S§5.7) on %s',
+    (api) => {
+      const steps = new Set(SCENARIOS.filter((s) => s.api === api).flatMap((s) => s.probeSteps));
+      expect([...steps].sort()).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    },
+  );
+
+  it('names every mustFollow scenario, of the same wire shape', () => {
+    for (const s of SCENARIOS.filter((x) => x.mustFollow !== undefined)) {
+      expect(scenarioById(s.mustFollow as string).api).toBe(s.api);
+    }
   });
 
   it('includes the requests the unit brief names', () => {
@@ -76,12 +85,91 @@ describe('scenario matrix', () => {
     expect(scenarioById('stream-usage').body(legacy)).toHaveProperty('max_tokens');
   });
 
-  it('sends a byte-identical long prefix in the cache pair', () => {
-    const first = JSON.stringify(scenarioById('cache-prefix-first').body(ctx));
-    const second = JSON.stringify(scenarioById('cache-prefix-second').body(ctx));
+  it.each([
+    ['cache-prefix-first', 'cache-prefix-second'],
+    ['messages-cache-first', 'messages-cache-second'],
+  ])('sends a byte-identical long prefix in the cache pair %s', (a, b) => {
+    const first = JSON.stringify(scenarioById(a).body(ctx));
+    const second = JSON.stringify(scenarioById(b).body(ctx));
     const prefixEnd = first.indexOf('"role":"user"');
     expect(prefixEnd).toBeGreaterThan(6000);
     expect(second.slice(0, prefixEnd)).toBe(first.slice(0, prefixEnd));
     expect(second).not.toBe(first);
+    expect(scenarioById(b).mustFollow).toBe(a);
+  });
+});
+
+describe('Messages matrix', () => {
+  const messages = SCENARIOS.filter((s) => s.api === 'messages');
+  const body = (id: string) => scenarioById(id).body(ctx) as Record<string, unknown>;
+
+  it('applies only to the anthropic family, and the Chat Completions matrix never does', () => {
+    expect(messages.length).toBeGreaterThan(10);
+    for (const s of messages) {
+      expect(s.id).toMatch(/^messages-/);
+      expect(appliesTo(s, 'anthropic')).toBe(true);
+      for (const f of SERVER_FAMILIES.filter((x) => x !== 'anthropic')) {
+        expect(appliesTo(s, f)).toBe(false);
+      }
+    }
+    for (const s of SCENARIOS.filter((x) => x.api === 'chat-completions')) {
+      expect(appliesTo(s, 'anthropic')).toBe(false);
+    }
+    // The compatibility endpoint takes the Chat Completions matrix, side doors excepted.
+    expect(appliesTo(scenarioById('tool-choice-none'), 'anthropic-compat')).toBe(true);
+    expect(appliesTo(scenarioById('side-door-props'), 'anthropic-compat')).toBe(false);
+  });
+
+  it('includes the requests the unit brief names', () => {
+    for (const id of [
+      'messages-models-list',
+      'messages-stream',
+      'messages-nonstream',
+      'messages-tool-auto',
+      'messages-tool-result-followup',
+      'messages-tool-choice-none',
+      'messages-json-schema',
+      'messages-thinking-summarized',
+      'messages-thinking-disabled',
+      'messages-stream-max-tokens',
+      'messages-cache-first',
+      'messages-cache-second',
+      'messages-count-tokens',
+      'messages-error-bad-credentials',
+      'messages-error-rejected-request',
+      'messages-error-unknown-model',
+    ]) {
+      expect(scenarioById(id).api).toBe('messages');
+    }
+  });
+
+  it('caps output with max_tokens, sends no sampling parameter and no prefill', () => {
+    for (const s of messages.filter((x) => x.method === 'POST')) {
+      const b = s.body(ctx) as Record<string, unknown>;
+      expect(b).not.toHaveProperty('max_completion_tokens');
+      if (s.id !== 'messages-error-sampling') {
+        for (const p of ['temperature', 'top_p', 'top_k']) expect(b).not.toHaveProperty(p);
+      }
+      if (s.path(ctx) === '/messages' && Array.isArray(b.messages)) {
+        expect(b.messages.at(-1)).toMatchObject({ role: 'user' });
+        expect(typeof b.max_tokens).toBe('number');
+      }
+    }
+    expect(body('messages-error-sampling')).toHaveProperty('temperature');
+  });
+
+  it('records the forced finish as tool_choice none with tools supplied', () => {
+    expect(body('messages-tool-choice-none').tool_choice).toEqual({ type: 'none' });
+    expect(Array.isArray(body('messages-tool-choice-none').tools)).toBe(true);
+  });
+
+  it('puts the cache breakpoint on the system block, and the token count on its own path', () => {
+    expect(body('messages-cache-first').system).toEqual([
+      expect.objectContaining({ cache_control: { type: 'ephemeral' } }),
+    ]);
+    expect(scenarioById('messages-count-tokens').path(ctx)).toBe('/messages/count_tokens');
+    expect(body('messages-count-tokens')).not.toHaveProperty('max_tokens');
+    expect(body('messages-nonstream').stream).toBe(false);
+    expect(body('messages-stream').stream).toBe(true);
   });
 });
