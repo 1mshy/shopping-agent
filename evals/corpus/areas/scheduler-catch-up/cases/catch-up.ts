@@ -31,7 +31,12 @@ function woken(
   return { now, wake, job, running: null, pendingRetryAt: null, ...more };
 }
 
-const DEADLINE = 'deadlineMs (15 min) is input data only; no case depends on it.';
+const DEADLINE =
+  'deadlineMs (15 min) does not decide this case (the deadline cases are run-at-its-deadline-times-out and run-just-inside-its-deadline-is-joined).';
+const SETTLED_DEADLINE = {
+  how: 'ruling',
+  ref: 'Settled by the orchestrator 2026-11-23, the owner may overrule (docs/progress.md): "a job that reaches its deadline ends as timed out keeping its partial results"',
+} as const;
 
 export const catchUpCases: readonly CatchUpCase[] = [
   {
@@ -253,5 +258,35 @@ export const catchUpCases: readonly CatchUpCase[] = [
     ],
     specDerived: true,
     notes: `Added: a retry and a slot both due at one wake. In the predecessor they were two APScheduler jobs, and the second sweep joined the first through refresh_offers; the spec's "coalesce into one" and S§6 "overdue jobs run once" give one run. ${DEADLINE}`,
+  },
+  {
+    id: 'run-at-its-deadline-times-out',
+    what: 'A sweep that has run for its full 15 min deadline ends as timed out, keeping what it read',
+    input: woken('caller', at('09:45:00'), sweep(at('10:00:00')), {
+      running: { runId: 41, startedAt: at('09:30:00') },
+    }),
+    expected: { action: 'time_out', runId: 41, runStatus: 'timed_out', keepPartialResults: true },
+    from: [
+      SETTLED_DEADLINE,
+      {
+        how: 'spec',
+        ref: 'S§5.8 Scheduler: "every job has an overlap lock, a deadline and a run row"',
+      },
+    ],
+    specDerived: true,
+    notes:
+      "Added for the detail settled on 2026-11-23. now − startedAt = 09:45:00 − 09:30:00 = 900000 ms = deadlineMs: the deadline is reached, so the run ends `timed_out` instead of being joined, and the observations it already wrote stay (S§2.8 partial results). The predecessor's APScheduler jobs had no deadline (none was read).",
+  },
+  {
+    id: 'run-just-inside-its-deadline-is-joined',
+    what: 'One second before its deadline the sweep is still joined',
+    input: woken('caller', at('09:44:59'), sweep(at('10:00:00')), {
+      running: { runId: 41, startedAt: at('09:30:00') },
+    }),
+    expected: { action: 'join', runId: 41 },
+    from: [SETTLED_DEADLINE, SPEC_SCHED],
+    specDerived: true,
+    notes:
+      'Added beside run-at-its-deadline-times-out: now − startedAt = 899000 ms < 900000 ms, so the run is still within its deadline and a second caller joins it.',
   },
 ];

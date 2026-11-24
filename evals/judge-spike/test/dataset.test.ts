@@ -56,10 +56,12 @@ describe('the dataset', () => {
     }
   });
 
-  it('counts 123 single labels and 35 sets, and no set holds exact', () => {
+  // 123 single and 35 sets at d5acab7, where spike D was measured; 2026-11-24 (P0-3e): two URL-only
+  // exacts became unknown (singles still) and two other_line singles became sets.
+  it('counts 121 single labels and 37 sets, and no set holds exact', () => {
     const sets = DATASET.filter((i) => 'oneOf' in i.gold);
-    expect(sets).toHaveLength(35);
-    expect(DATASET.length - sets.length).toBe(123);
+    expect(sets).toHaveLength(37);
+    expect(DATASET.length - sets.length).toBe(121);
     for (const i of sets) expect('oneOf' in i.gold && i.gold.oneOf.includes('exact')).toBe(false);
   });
 

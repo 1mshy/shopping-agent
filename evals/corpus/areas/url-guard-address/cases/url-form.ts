@@ -22,9 +22,16 @@ function notWeb(id: string, what: string, url: string): GuardCase {
   };
 }
 
-const NO_HOST_GAP =
-  'No refusal reason for "the URL names no host"; `scheme` is used, the clause "http/https only" ' +
-  'being the closest, and the predecessor refused it under the same error (NotAWebPage).';
+const urlForm: GuardDecision = {
+  pass: false,
+  outcome: { kind: 'refused_by_policy', rung: 'http', reason: 'url_form' },
+};
+
+const NO_HOST =
+  'Refused as `url_form`: a URL unacceptable as written (user-info, no host) gets its own refusal ' +
+  'reason instead of `scheme` (settled by the orchestrator 2026-11-23, the owner may overrule; ' +
+  'docs/progress.md). Until then this case used `scheme` as the closest value. The predecessor ' +
+  'refused it under the same error as a non-web scheme (NotAWebPage).';
 
 export const urlFormCases: readonly GuardCase[] = [
   notWeb('file-url-is-refused', 'A file: URL is refused', 'file:///etc/hostname'),
@@ -58,17 +65,18 @@ export const urlFormCases: readonly GuardCase[] = [
       'An https URL whose authority is empty is refused',
       'https:///p/1',
     ),
-    specSilent: true,
-    gap: NO_HOST_GAP,
+    expected: urlForm,
+    established: ['test', 'ran', 'spec', 'ruling'],
     note:
-      'The WHATWG URL parser (Node\'s URL) reads "https:///p/1" as host "p", path "/1"; the ' +
-      'predecessor (urlsplit) saw no host. A guard that only parses with URL fails this case: it ' +
+      `${NO_HOST} The WHATWG URL parser (Node's URL) reads "https:///p/1" as host "p", path "/1"; ` +
+      'the predecessor (urlsplit) saw no host. A guard that only parses with URL fails this case: it ' +
       'must refuse an empty authority in the text as written.',
   },
   {
     ...notWeb('http-scheme-alone-is-refused', 'The bare string "http://" is refused', 'http://'),
-    specSilent: true,
-    gap: NO_HOST_GAP,
+    expected: urlForm,
+    established: ['test', 'ran', 'spec', 'ruling'],
+    note: NO_HOST,
   },
   {
     id: 'https-store-url-passes',

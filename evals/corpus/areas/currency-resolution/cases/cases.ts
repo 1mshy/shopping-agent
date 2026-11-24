@@ -34,10 +34,22 @@ const marksBeatHost = {
   at: 'test_explicit_currency_marks_beat_the_host',
   how: 'test assertion',
 } as const;
-// S§5.2 lists platform, priceCurrency, hreflang/og:locale and ccTLD; it does not place a mark
-// written on the figure. The predecessor believed an explicit mark over the host
-// (money.currency_from_text). Here it ranks after the declared sources and before the locale and
-// the host; the cases where that order decides against the host are marked specSilent.
+// The predecessor believed an explicit mark over the host (money.currency_from_text). The
+// orchestrator settled on 2026-11-23 (the owner may overrule) that currency evidence ranks an
+// explicit mark on the figure, then a platform declaration, then the page locale, then the ccTLD;
+// the cases where that order decides against the host cite it (before, they were specSilent).
+const SETTLED_RANK = {
+  file: 'docs/progress.md',
+  at: '2026-11-23, "Settled by the orchestrator"',
+  how: 'owner ruling',
+  note: 'currency evidence ranks an explicit mark on the figure, then a platform declaration, then the page locale, then the ccTLD (an engineering detail the owner may overrule)',
+} as const;
+const RULING_PRESENTMENT = {
+  file: 'docs/progress.md',
+  at: '2026-11-23, "Owner rulings on the Phase 1 questions"',
+  how: 'owner ruling',
+  note: 'A Shopify Markets presentment price is the shop\'s own price for that market, not a converted figure; conversions made by the agent or a site\'s "approx." figures are still refused.',
+} as const;
 const wholeWords = {
   file: TEST_CANADA,
   at: 'test_iso_codes_are_matched_as_whole_words',
@@ -122,14 +134,59 @@ export const cases: readonly CurrencyCase[] = [
     divergence:
       'The predecessor accepted any three letters as a declared currency. S§4.1 and ListingCurrency allow only an ISO 4217 code with a minor unit, or unknown.',
   },
+  // Shopify Markets: the presentment price of a market prefix is the shop's own
+  {
+    id: 'shopify-markets-presentment-price-is-the-shops-own',
+    what: 'A US Shopify .com pinned to /en-ca bills CAD there: "$25.00 CAD" is its own price, not a conversion',
+    input: evidence('shop.example.com', { platform: 'CAD', priceText: '$25.00 CAD' }),
+    expected: is('CAD', 'price_mark'),
+    from: [
+      RULING_PRESENTMENT,
+      SETTLED_RANK,
+      {
+        file: TEST_SHOPIFY,
+        at: 'test_currency_comes_from_cart_js_not_the_hostname',
+        how: 'test assertion',
+        note: "the predecessor took the market's currency from /cart.js under the market prefix",
+      },
+    ],
+    notes:
+      "Added for the owner's ruling of 2026-11-23, which answers question 5 of progress.md 2026-11-18 (is a presentment price a converted figure? no). `platform` is what /en-ca/cart.js states for the pinned Canadian market (shopify-market-prefix). The mark (CAD) agrees with that declaration, so nothing is refused; the source named is the mark, which ranks first.",
+  },
+  {
+    id: 'shopify-markets-presentment-bare-dollar',
+    what: 'The same pinned market showing a bare "$25.00" bills CAD by its /cart.js',
+    input: evidence('shop.example.com', { platform: 'CAD', priceText: '$25.00' }),
+    expected: is('CAD', 'platform'),
+    from: [RULING_PRESENTMENT, SETTLED_RANK],
+    notes:
+      'Added for the owner\'s ruling of 2026-11-23. A bare "$" is no explicit mark, and a .com names no market, so there is no conflict: the platform declaration decides.',
+  },
+  {
+    id: 'site-approx-conversion-is-refused',
+    what: 'A site\'s "approx." figure is a conversion and is refused, even with nothing declared',
+    input: evidence('shop.example.com', { priceText: 'approx. CA$25.00' }),
+    expected: refused('converted'),
+    from: [RULING_PRESENTMENT],
+    notes:
+      'Added for the owner\'s ruling of 2026-11-23 ("a site\'s approx. figures are still refused"). Without the word "approx." the mark would name CAD (ca-dollar-mark-on-a-dot-com). No predecessor case was read for this text.',
+  },
+  {
+    id: 'site-approx-sign-beside-a-declared-currency-is-refused',
+    what: 'An "≈ €23.10" figure beside a USD declaration is a conversion',
+    input: evidence('shop.example.com', { priceCurrency: 'USD', priceText: '≈ €23.10' }),
+    expected: refused('converted'),
+    from: [RULING_PRESENTMENT],
+    notes:
+      "Added for the owner's ruling of 2026-11-23. Refused twice over: the site marks the figure approximate, and its mark (EUR) is not the declared USD.",
+  },
   // An explicit mark on the figure
   {
     id: 'us-dollar-mark-on-a-canadian-host',
     what: '"US$" on a .ca storefront is US dollars',
     input: evidence('newegg.ca', { priceText: 'US$88' }),
     expected: is('USD', 'price_mark'),
-    from: [marksBeatHost],
-    specSilent: true,
+    from: [marksBeatHost, SETTLED_RANK],
   },
   {
     id: 'cdn-dollar-mark-on-a-dot-com',
@@ -157,8 +214,7 @@ export const cases: readonly CurrencyCase[] = [
     what: 'A pound sign names pounds even on a .ca host',
     input: evidence('amazon.ca', { priceText: '£12' }),
     expected: is('GBP', 'price_mark'),
-    from: [marksBeatHost],
-    specSilent: true,
+    from: [marksBeatHost, SETTLED_RANK],
   },
   {
     id: 'australian-dollar-mark',
@@ -186,16 +242,14 @@ export const cases: readonly CurrencyCase[] = [
     what: 'An ISO code after the figure beats the .ca host',
     input: evidence('newegg.ca', { priceText: '12 USD' }),
     expected: is('USD', 'price_mark'),
-    from: [wholeWords],
-    specSilent: true,
+    from: [wholeWords, SETTLED_RANK],
   },
   {
     id: 'iso-code-in-lower-case',
     what: 'An ISO code is matched in any case',
     input: evidence('newegg.ca', { priceText: 'usd 12' }),
     expected: is('USD', 'price_mark'),
-    from: [wholeWords],
-    specSilent: true,
+    from: [wholeWords, SETTLED_RANK],
   },
   {
     id: 'iso-code-glued-to-a-dollar-sign',

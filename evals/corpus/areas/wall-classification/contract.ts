@@ -12,7 +12,10 @@
 //   2. `access_denied` when the page states that access is denied.
 //   3. `challenge` otherwise.
 // Vendor: named only when the evidence names it (a vendor's title, markup or redirect); otherwise
-// null, which the shared contract defines as "saw a wall but cannot name its vendor".
+// null, which the shared contract defines as "saw a wall but cannot name its vendor". A site's own
+// (in-house) wall names the site as its vendor (`ebay`, `amazon`), and a bare 403 with no wall
+// marker is a block (a wall with vendor null), not a named wall (both settled by the orchestrator
+// 2026-11-23, the owner may overrule). A 401 with no wall evidence is `login_required` (same).
 import type { FetchOutcome, FetchOutcomeKind, Rung } from '@agentic-dasher/shared';
 
 /** Where in the markup a bot-manager signal was found, outside the visible text. */
@@ -76,7 +79,9 @@ export type Established =
   /** The predecessor's pure function was run offline on this input. */
   | 'ran'
   /** The spec decides it (S§ in `from`). */
-  | 'spec';
+  | 'spec'
+  /** The owner's rulings of 2026-11-23, or a detail the orchestrator settled that day. */
+  | 'ruling';
 
 export interface WallCase {
   readonly id: string;

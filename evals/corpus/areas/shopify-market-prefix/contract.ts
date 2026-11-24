@@ -3,7 +3,9 @@
 // stores/shopify.py preferred_market, _locale_candidates and the search-result URL rule). One
 // storefront serves several markets behind locale path prefixes (/en-ca), each with its own
 // currency and its own prices. Both functions are pure: the `/cart.js` probes are done by the
-// caller and passed in as answers. Phase 1 workstream 3 (in-store search) writes them.
+// caller and passed in as answers. Phase 1 workstream 3 (in-store search) writes them. A price read
+// under the pinned prefix is the shop's own price for that market, not a converted figure (owner's
+// ruling of 2026-11-23; currency-resolution shopify-markets-presentment-price-is-the-shops-own).
 import type { ListingCurrency, MinorUnitCurrency } from '@agentic-dasher/shared';
 
 /** How a case's expected value was established. */

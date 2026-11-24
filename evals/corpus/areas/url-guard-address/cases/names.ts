@@ -103,19 +103,22 @@ export const nameCases: readonly GuardCase[] = [
     },
     expected: {
       pass: false,
-      outcome: { kind: 'refused_by_policy', rung: 'http', reason: 'scheme' },
+      outcome: { kind: 'refused_by_policy', rung: 'http', reason: 'url_form' },
     },
-    from: 'fetch.py refuse_private lines 131-153 (urlsplit hostname), run offline',
-    established: ['ran', 'spec'],
+    from:
+      'fetch.py refuse_private lines 131-153 (urlsplit hostname), run offline; docs/progress.md ' +
+      '2026-11-23 "Settled by the orchestrator" ("a URL unacceptable as written (user-info, no host) ' +
+      'gets its own refusal reason instead of `scheme`")',
+    established: ['ran', 'spec', 'ruling'],
     divergence:
       'The predecessor took the host after the @ (the store) and let the URL through; no predecessor ' +
       'test covers user-info. The orchestrator set this case to a refusal on 2026-11-18: URL parsers ' +
       'disagree about user-info, and a guard and a transport that read the host differently is the ' +
       'classic way past an address check (S§5.15). No shop link needs credentials in the URL. The ' +
       'owner may overrule this.',
-    gap:
-      'POLICY_REFUSAL_REASONS has no value for a URL that is not acceptable as written (user-info, ' +
-      'no host); `scheme` is used as the closest. The Phase 1 guard unit should propose a reason.',
+    note:
+      'Reason `url_form`, added to POLICY_REFUSAL_REASONS for the detail the orchestrator settled ' +
+      'on 2026-11-23 (the owner may overrule). Until then this case used `scheme` as the closest value.',
   },
   {
     id: 'unresolvable-name-is-a-network-error-not-a-refusal',

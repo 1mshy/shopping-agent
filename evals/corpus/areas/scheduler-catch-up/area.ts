@@ -3,7 +3,7 @@ import { catchUpCases } from './cases/catch-up.ts';
 import type { CatchUpCase } from './contract.ts';
 
 const PREDECESSOR =
-  'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db12684598a1c662f6e4292ba273c2b528592a (51db126), working tree with uncommitted files as read on 2026-11-18; the owner has not yet confirmed this is the reference copy';
+  'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db12684598a1c662f6e4292ba273c2b528592a (51db126), working tree with uncommitted files as read on 2026-11-18; the owner confirmed it as the reference copy on 2026-11-23';
 
 export const area = defineArea<CatchUpCase>({
   id: 'scheduler-catch-up',
@@ -16,6 +16,7 @@ export const area = defineArea<CatchUpCase>({
     'pricewatch/.venv APScheduler 3.11.3 schedulers/base.py:1191-1228 (library behaviour the predecessor relied on, run offline)',
     'reports/2026-09-18-reliability.md (12 s freeze, exactly one catch-up)',
     'docs/spec.md S§5.8 Scheduler, S§2 invariant 12, S§4.4 job and job_run, S§6 sleep/restart gate',
+    'docs/progress.md 2026-11-23 "Settled by the orchestrator": a job at its deadline ends as timed out keeping its partial results',
   ],
   cases: catchUpCases,
 });

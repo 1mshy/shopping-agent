@@ -49,12 +49,15 @@ export type GateDecision =
  * 0, 3000, 5000, 10000, 20000, 30000 ms. Probe k is made delay[k] after probe k − 1's answer (the
  * first, delay 0, at the gate's start); a probe that times out counts as not resolved. Any
  * resolved probe runs the job. After six unresolved probes the run is postponed with a retry
- * 60000 ms after `now`. A failed run also retries 60000 ms after `now`. Whether S§5.8's "probes at
- * 0/3/5/10/20/30 s" are delays (as ported) or offsets from the start is open (report).
+ * 60000 ms after `now`. A failed run also retries 60000 ms after `now`. S§5.8's "probes at
+ * 0/3/5/10/20/30 s" are delays between probes, as ported, so with answers arriving at once the
+ * probes fall at 0, 3, 8, 18, 38 and 68 s (settled by the orchestrator 2026-11-23, the owner may
+ * overrule).
  */
 export type NetworkGate = (input: GateInput) => GateDecision;
 
-export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec';
+/** `ruling`: the owner's rulings of 2026-11-23 or a detail the orchestrator settled that day. */
+export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec' | 'ruling';
 
 export interface CaseSource {
   readonly how: Provenance;

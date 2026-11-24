@@ -12,6 +12,7 @@ import {
   review,
   run,
   S54_JUDGE,
+  SUFFIX_RULING,
   test,
 } from '../../match-title-rules/evidence.ts';
 import { asked, listing, type MatchCase } from '../contract.ts';
@@ -81,13 +82,14 @@ export const wrongVariant: readonly MatchCase[] = [
       run('score = 71.16: still accepted at 51db126'),
       spec54('configuration'),
     ],
-    label: 'the Phase 1 hand check names it a variant; S§5.4: a variant is not a match',
+    label:
+      'the Phase 1 hand check names it a variant; S§5.4: a variant is not a match; the edition ' +
+      `suffix makes a different product under ${SUFFIX_RULING}, variant being one of that pair ` +
+      '(the gold set labels the Bluetooth edition variant too: mx-master-3s-s01, -s15)',
     divergence:
       'The predecessor accepts it (71.16 at 51db126) and its hand check counted it. S§5.4: ' +
-      'variants in configuration are not matches.',
-    ownerCheck:
-      'The hand check counted the receiver-less edition. Confirm it is a variant for a query that ' +
-      'does not name the receiver.',
+      "variants in configuration are not matches, and the owner's ruling of 2026-11-23 makes " +
+      'it never exact.',
   },
   {
     id: 'six-cup-for-ten-cup',

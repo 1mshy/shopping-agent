@@ -3,7 +3,7 @@
 // catch-up; … a second caller of a running job joins it"; S§2 invariant 12; predecessor
 // scheduler.py `_CATCH_UP`, `start`, `retry_sweep`, service.py `refresh_offers`). A pure decision:
 // given a job, what woke the scheduler, the job's run in progress and any pending retry, at `now`.
-import type { Id, Timestamp } from '@agentic-dasher/shared';
+import type { Id, JobRunStatus, Timestamp } from '@agentic-dasher/shared';
 
 export interface SchedulerJob {
   /** S§4.4 job.name (unique). */
@@ -16,7 +16,10 @@ export interface SchedulerJob {
   readonly everyMs: number;
   /** The earliest slot not yet run (S§4.4 job.next_run_at). */
   readonly nextRunAt: Timestamp;
-  /** S§4.4 job deadline. What reaching it does is open (report); no case depends on it. */
+  /**
+   * S§4.4 job deadline, from the run's start. A run that reaches it ends as timed out, keeping its
+   * partial results (settled by the orchestrator 2026-11-23, the owner may overrule).
+   */
   readonly deadlineMs: number;
   /** S§4.4 job network gate: the run waits on the DNS gate (scheduler-network-gate). */
   readonly networkGate: boolean;
@@ -51,10 +54,22 @@ export type CatchUpDecision =
       readonly retryCleared: boolean;
     }
   | { readonly action: 'join'; readonly runId: Id }
-  | { readonly action: 'wait'; readonly nextRunAt: Timestamp };
+  | { readonly action: 'wait'; readonly nextRunAt: Timestamp }
+  /**
+   * The run in progress has reached the job's deadline: end it with job_run status `timed_out`,
+   * keeping what it has written (its partial results), and release the overlap lock.
+   */
+  | {
+      readonly action: 'time_out';
+      readonly runId: Id;
+      readonly runStatus: Extract<JobRunStatus, 'timed_out'>;
+      readonly keepPartialResults: true;
+    };
 
 /**
- * The subject (Phase 1, apps/server scheduler). A running job is joined, never run twice. Else a
+ * The subject (Phase 1, apps/server scheduler). A running job whose run has lasted `deadlineMs` or
+ * more (`now − startedAt ≥ deadlineMs`) is timed out; otherwise a running job is joined, never run
+ * twice. Else a
  * tick runs once when `nextRunAt ≤ now`, standing for every slot from `nextRunAt` to `now`; boot
  * always runs once (a catch-up), standing for the overdue slots if any; a due retry runs once. The
  * next slot is the first slot strictly after `now` on the job's grid (when `now` is exactly on a
@@ -62,7 +77,8 @@ export type CatchUpDecision =
  */
 export type PlanJobRun = (input: CatchUpInput) => CatchUpDecision;
 
-export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec';
+/** `ruling`: the owner's rulings of 2026-11-23 or a detail the orchestrator settled that day. */
+export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec' | 'ruling';
 
 export interface CaseSource {
   readonly how: Provenance;

@@ -10,7 +10,9 @@ export type How =
   | 'test assertion'
   | 'reading the function'
   | 'running the function offline'
-  | 'spec';
+  | 'spec'
+  /** The owner's rulings of 2026-11-23, or a detail the orchestrator settled that day. */
+  | 'owner ruling';
 
 export interface Provenance {
   readonly file: string;
@@ -27,6 +29,8 @@ export interface CaseMeta {
   readonly divergence?: string;
   /** Predecessor behaviour the spec does not mention, ported as is. */
   readonly specSilent?: true;
+  /** Why a case was added, and anything else that is neither evidence nor a divergence. */
+  readonly notes?: string;
 }
 
 /**
@@ -65,25 +69,35 @@ export type CurrencySource =
 export const CURRENCY_REFUSAL_CODES = [
   'unknown_currency', // nothing establishes it; the observation keeps currency `unknown`
   'not_a_listing_currency', // a source states a code that is not an ISO 4217 code with a minor unit
-  'converted', // the figure's explicit mark names another currency than the one declared
+  'converted', // the figure's explicit mark names another currency than the one declared, or the site marks it approximate
   'conflict', // a bare "$" on a host that names a market whose dollar is not the declared currency
 ] as const;
 export type CurrencyRefusalCode = (typeof CURRENCY_REFUSAL_CODES)[number];
 
 /**
- * The order, first match wins:
- * 1. Declared: `platform`, else `priceCurrency` (trimmed, any case). A declared code that is not a
- *    listing currency is refused.
- * 2. A declared currency is checked against the figure: an explicit mark naming another currency
+ * Evidence ranks: an explicit mark on the figure, then a platform declaration (`platform`, then
+ * `priceCurrency`), then the page locale, then the ccTLD (settled by the orchestrator 2026-11-23,
+ * the owner may overrule). First, the refusals:
+ * 1. A figure the site marks as approximate ("approx.", "≈") is `converted`, whatever it names: a
+ *    site's "approx." figure is refused (owner's ruling of 2026-11-23).
+ * 2. A declared code (`platform`, else `priceCurrency`, trimmed, any case) that is not a listing
+ *    currency is refused.
+ * 3. A declared currency is checked against the figure: an explicit mark naming another currency
  *    is `converted`; a bare "$" on a host that names a market whose currency differs is
- *    `conflict`. Otherwise the declared currency stands.
- * 3. The figure's explicit mark.
- * 4. `locale`'s country.
- * 5. The market the host names (a .com names none).
- * 6. The country the host's own name names.
- * 7. `storeCountry`.
+ *    `conflict`.
+ * Then the first source that names a currency wins, in rank order:
+ * 4. The figure's explicit mark (`price_mark`); when a declaration agrees with it, the mark is
+ *    still the source named.
+ * 5. Declared: `platform`, else `priceCurrency`.
+ * 6. `locale`'s country.
+ * 7. The market the host names (a .com names none).
+ * 8. The country the host's own name names.
+ * 9. `storeCountry`.
  * A bare "$", or a figure with no mark, is never a currency on its own: it falls through to the
- * store's own country (steps 4-7), which is the bare-"$" rule of S§5.2.
+ * store's own country (steps 6-9), which is the bare-"$" rule of S§5.2. A Shopify Markets
+ * presentment price (the price a market prefix such as /en-ca bills, declared by that market's
+ * `/cart.js`) is the shop's own price for that market, not a converted figure (owner's ruling of
+ * 2026-11-23).
  */
 export type CurrencyResolution =
   | {

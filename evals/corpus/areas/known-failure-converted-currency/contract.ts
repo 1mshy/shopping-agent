@@ -6,6 +6,9 @@
 // CA$33.92 amazon.ca bills (reports/2026-10-14-web-discovery.md lines 135-142 and 289-303).
 // Two functions get it right together: the link is moved to the user's storefront
 // (`regional-url`), and a converted figure that is read anyway is refused (`currency-resolution`).
+// The owner's ruling of 2026-11-23 confirms the refusal: a site's conversions are refused, while a
+// Shopify Markets presentment price is the shop's own price for that market. Amazon's CAD figure on
+// amazon.com is the former.
 import type {
   CaseMeta,
   CurrencyEvidence,

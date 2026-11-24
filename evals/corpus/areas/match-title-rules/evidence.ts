@@ -6,8 +6,32 @@ import type { Evidence } from './contract.ts';
 export const PREDECESSOR =
   'hermes-shopping, local clone at ~/Documents/GitHub/hermes-shopping (home directory left out), ' +
   'branch browser-agent, commit 51db126 (51db12684598a1c662f6e4292ba273c2b528592a), read from ' +
-  'the working tree as it stood on 2026-11-18, which has uncommitted files; the owner has not ' +
-  'yet confirmed this copy is the reference';
+  'the working tree as it stood on 2026-11-18, which has uncommitted files; the owner confirmed ' +
+  'this copy as the reference on 2026-11-23';
+
+/**
+ * The owner's matcher ruling of 2026-11-23 (docs/progress.md, "Owner rulings on the Phase 1
+ * questions"), quoted in the cases it settles. It answers the corpus's question 7.
+ */
+export const SUFFIX_RULING =
+  'the owner\'s ruling of 2026-11-23: "a name suffix that changes the line (Duo vs Duo Plus) or ' +
+  'the material (PLA+ vs Silk PLA+) makes a different product (other_model or variant), never ' +
+  'exact"';
+
+/**
+ * The orchestrator's reading of that ruling (2026-11-23): "Plus counts the query's way" stays for
+ * the material-grade mark as the predecessor's review took it and does not extend to model
+ * names; matte and silk are other lines, not finishes.
+ */
+export const SUFFIX_READING =
+  'the orchestrator\'s reading of 2026-11-23: "Plus counts the query\'s way" stays for the ' +
+  'material-grade mark as the review took it and does not extend to model names; matte and silk ' +
+  'are other lines, not finishes';
+
+/** Settled by the orchestrator on 2026-11-23 (an engineering detail the owner may overrule). */
+export const URL_SETTLED =
+  'settled by the orchestrator 2026-11-23, the owner may overrule: "a model number in a URL path ' +
+  'is supporting evidence, never identity on its own"';
 
 /** An assertion of a predecessor test: `pricewatch/tests/<file>::<test>`, with the row if any. */
 export function test(file: string, name: string, row?: string): Evidence {
@@ -69,6 +93,8 @@ export const S54_JUDGE = spec(
     'attribute is not a conflict; a match needs positive evidence"',
 );
 export const S54_RULINGS = spec(
-  'S§5.4 tier 2: "the owner\'s rulings as fixed test cases (combo counts both ways, Plus counts ' +
-    'the query\'s way, a size in place of a model is not a clash)"',
+  'S§5.4 tier 2: "the owner\'s rulings as fixed test cases (combo counts both ways; Plus counts ' +
+    "the query's way for a material grade; a name suffix that changes the line or the material " +
+    'makes a different product, `other_model` or `variant`, never `exact`; a size in place of a ' +
+    'model is not a clash)"',
 );

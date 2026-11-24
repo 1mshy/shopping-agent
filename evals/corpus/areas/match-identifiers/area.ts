@@ -1,6 +1,7 @@
 // S§5.4 tier 1 as far as the predecessor had it: the identifiers a listing states (MPN or model
 // number, canonical URL path) against the model number in the query. The predecessor had no GTIN
-// rule, so there is no GTIN case (see cases/identifiers.ts).
+// rule, so there is no GTIN case (see cases/identifiers.ts). A model number in the URL path is
+// supporting evidence, never identity on its own (settled by the orchestrator 2026-11-23).
 import { defineArea } from '../../harness.ts';
 import { PREDECESSOR } from '../match-title-rules/evidence.ts';
 import { identifiers } from './cases/identifiers.ts';

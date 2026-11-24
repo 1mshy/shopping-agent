@@ -9,7 +9,10 @@ import {
   NOISY_100,
   NOW,
   observed,
+  RULING_CONFIRM,
+  RULING_INCLUSIVE,
   SECOND_READ_AT,
+  SETTLED_RUNG,
   watch,
 } from './fixtures.ts';
 
@@ -84,9 +87,10 @@ export const dropCases: readonly PriceAlertCase[] = [
       },
       { how: 'offline-run', ref: '_reasons(drop 15.0, baseline 100, price 85) → ["down 15.0% …"]' },
       SPEC_DROP,
+      RULING_INCLUSIVE,
     ],
     specDerived: true,
-    notes: `${ADDED} B − P = 1500 = 1500 × 10000 / 10000: met, inclusive as in the predecessor; 1500 > 100. Whether "by the user's threshold" is inclusive is listed as open in the report.`,
+    notes: `${ADDED} B − P = 1500 = 1500 × 10000 / 10000: met, inclusive as in the predecessor and as the owner ruled on 2026-11-23; 1500 > 100.`,
   },
   {
     id: 'drop-one-minor-unit-short-of-threshold-is-silent',
@@ -143,7 +147,89 @@ export const dropCases: readonly PriceAlertCase[] = [
     from: [SPEC_DROP],
     specDerived: true,
     notes:
-      'Added: the flat platform_json history and a json_ld read before the evaluated platform_json read. Both at 9000 meet the threshold and the floor; the paths differ, so the second read is not on the same read path. The rungs differ too (http, api), so this case does not decide whether "same read path" also means the same rung.',
+      'Added: the flat platform_json history and a json_ld read before the evaluated platform_json read. Both at 9000 meet the threshold and the floor; the paths differ, so the second read is not on the same read path. The rungs differ too (http, api); confirming-read-on-another-rung-awaits-confirmation isolates the rung.',
+  },
+  {
+    id: 'confirming-read-on-another-rung-awaits-confirmation',
+    what: 'Same price, same read method, but read on another rung: the drop is not confirmed',
+    input: {
+      now: NOW,
+      watch: watch({ ...reference, dropBasisPoints: 500 }),
+      reads: [
+        ...daily([10000, 10000, 10000, 10000, 10000, 10000, 10000], 101, 'json_ld', 'http'),
+        observed(201, FIRST_READ_AT, 9000, { readPath: 'json_ld', rung: 'http' }),
+        observed(202, SECOND_READ_AT, 9000, { readPath: 'json_ld', rung: 'browser' }),
+      ],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: { fire: false, silence: 'awaiting_confirmation' },
+    from: [SPEC_DROP, SETTLED_RUNG],
+    specDerived: true,
+    notes:
+      'Added for the detail settled by the orchestrator on 2026-11-23 ("same read path" includes the rung). Seven flat CA$100.00 json_ld reads on the http rung, a json_ld read at 9000 on http, then the evaluated json_ld read at 9000 on the browser rung. B − P = 1000 ≥ 500 × 10000 / 10000 = 500. MAD 0 whichever reads enter it (the http history is flat; a browser-only window holds 9000 alone, deviation 0), so the floor 10000 / 100 = 100 applies and 1000 > 100. Only the confirmation fails: the read before is on another rung.',
+  },
+  {
+    id: 'confirming-read-with-smaller-drop-is-silent',
+    what: 'A 16% drop followed by a 10% drop on a 15% rule sends nothing',
+    input: {
+      now: NOW,
+      watch: watch({ ...reference, dropBasisPoints: 1500 }),
+      reads: [...FLAT_100, observed(201, FIRST_READ_AT, 8400), observed(202, SECOND_READ_AT, 9000)],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: { fire: false, silence: 'below_threshold' },
+    from: [SPEC_DROP, RULING_CONFIRM],
+    specDerived: true,
+    notes:
+      "Added for the owner's ruling of 2026-11-23. The first read meets the rule (B − P = 10000 − 8400 = 1600 ≥ 1500 and > 100), the evaluated confirming read does not (10000 − 9000 = 1000 < 1500). The confirming read must itself meet the rule, so nothing fires; the silence is the evaluated read's own failure, the user's threshold.",
+  },
+  {
+    id: 'after-unconfirmed-drop-the-watch-keeps-watching',
+    what: 'After a drop the second read did not confirm, a later confirmed pair fires as the first alert',
+    input: {
+      now: '2026-11-17T09:15:00.000Z',
+      watch: watch({ ...reference, dropBasisPoints: 1500 }),
+      reads: [
+        ...FLAT_100,
+        observed(201, FIRST_READ_AT, 8400),
+        observed(202, SECOND_READ_AT, 9000),
+        observed(203, '2026-11-17T09:10:00.000Z', 8400),
+        observed(204, '2026-11-17T09:15:00.000Z', 8400),
+      ],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: {
+      fire: true,
+      rules: ['drop'],
+      observationId: 204,
+      price: cad(8400),
+      repeat: 'first',
+    },
+    from: [SPEC_DROP, RULING_CONFIRM],
+    specDerived: true,
+    notes:
+      'Added for the owner\'s ruling of 2026-11-23 ("the watch keeps watching"): the unconfirmed drop of confirming-read-with-smaller-drop-is-silent stamped nothing, so the next qualifying pair fires as `first`. B − P = 1600 ≥ 1500. MAD: with every read on the path, sorted 8400 × 3, 9000, 10000 × 7 → median 10000, deviations 0 × 7, 1000, 1600 × 3 → MAD 0; without the four new reads, MAD 0 too; so the floor 100 applies and 1600 > 100. The read before (203, 8400, same path and rung) meets the rule too.',
+  },
+  {
+    id: 'confirming-read-with-smaller-drop-still-meeting-the-rule-fires',
+    what: "A 20% drop followed by a 16% drop on a 15% rule fires at the confirming read's price",
+    input: {
+      now: NOW,
+      watch: watch({ ...reference, dropBasisPoints: 1500 }),
+      reads: [...FLAT_100, observed(201, FIRST_READ_AT, 8000), observed(202, SECOND_READ_AT, 8400)],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: {
+      fire: true,
+      rules: ['drop'],
+      observationId: 202,
+      price: cad(8400),
+      repeat: 'first',
+    },
+    from: [SPEC_DROP, RULING_CONFIRM],
+    specDerived: true,
+    notes:
+      'Added. Reading of the owner\'s ruling of 2026-11-23: the confirming read must itself meet the rule, and it does here (10000 − 8400 = 1600 ≥ 1500; > 100); the read before meets it too (10000 − 8000 = 2000). "A smaller drop sends nothing" is read as a smaller drop that no longer meets the rule (confirming-read-with-smaller-drop-is-silent). The alert names the confirming read\'s price, 8400, not the lower 8000 it never confirmed. MAD 0 under every window (flat history; with 8000 and 8400: deviations 0 × 7, 1600, 2000 → MAD 0).',
   },
   {
     id: 'drop-within-noise-of-volatile-listing-is-silent',

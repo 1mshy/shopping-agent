@@ -9,6 +9,11 @@ const SPEC_GATE = {
 } as const;
 const DELAYS = `${SCH}:72 NETWORK_PROBE_DELAYS = (0, 3, 5, 10, 20, 30), slept before each probe (101-117 network_ready)`;
 
+const SETTLED_DELAYS = {
+  how: 'ruling',
+  ref: 'Settled by the orchestrator 2026-11-23, the owner may overrule (docs/progress.md): "probe timings are delays between probes as ported (offsets 0, 3, 8, 18, 38, 68 s)"',
+} as const;
+
 const START = '2026-11-17T09:30:00.000Z';
 /** START plus whole seconds. */
 const plus = (seconds: number) => new Date(Date.parse(START) + seconds * 1000).toISOString();
@@ -63,9 +68,9 @@ export const gateCases: readonly GateCase[] = [
     what: 'After failures at 0, 3 and 8 s the next probe is 10 s after the third',
     input: gate(failed(3)),
     expected: { action: 'probe', at: plus(18) },
-    from: [{ how: 'function-reading', ref: DELAYS }, SPEC_GATE],
+    from: [{ how: 'function-reading', ref: DELAYS }, SPEC_GATE, SETTLED_DELAYS],
     notes:
-      'The delays 3, 5, 10 are slept between probes, so probes fall at 0, 3, 8, 18 s; read as offsets from the start they would fall at 0, 3, 5, 10 s. Which one S§5.8 means is open (report); this case ports the predecessor.',
+      'The delays 3, 5, 10 are slept between probes, so probes fall at 0, 3, 8, 18 s (0 + 3 = 3, 3 + 5 = 8, 8 + 10 = 18); read as offsets from the start they would fall at 0, 3, 5, 10 s. The orchestrator settled on 2026-11-23 that they are delays as ported (the owner may overrule).',
   },
   {
     id: 'a-slow-failed-probe-pushes-the-next-one',
@@ -101,7 +106,8 @@ export const gateCases: readonly GateCase[] = [
     what: 'After five failed probes the gate makes a sixth, 30 s later',
     input: gate(failed(5)),
     expected: { action: 'probe', at: plus(68) },
-    from: [{ how: 'function-reading', ref: DELAYS }, SPEC_GATE],
+    from: [{ how: 'function-reading', ref: DELAYS }, SPEC_GATE, SETTLED_DELAYS],
+    notes: 'Probes at 0, 3, 8, 18, 38 s; the sixth is 38 + 30 = 68 s.',
   },
   {
     id: 'six-failed-probes-postpone-for-sixty-seconds',

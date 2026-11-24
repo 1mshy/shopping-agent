@@ -2,7 +2,10 @@
 // only.
 //
 // "Every URL, from any source, passes guard() before any transport: http/https only; DNS resolved
-// and private, loopback, link-local, CGNAT and metadata ranges refused." This area is the pure part:
+// and private, loopback, link-local, CGNAT and metadata ranges refused." Settled by the
+// orchestrator on 2026-11-23 (the owner may overrule): every IANA special-purpose address range is
+// refused, under the one reason `private_address`; and a URL unacceptable as written (user-info,
+// no host) is refused as `url_form`, before any lookup and whatever its host. This area is the pure part:
 // given the URL and what the resolver answered for its host, pass (with the addresses a connection
 // may use) or refuse. Pinning the connection and re-checking redirects need a scripted network and
 // live in the url-guard-transport area.
@@ -42,8 +45,11 @@ export type GuardDecision =
 /** The subject. Pure: the case supplies the resolver's answer. */
 export type CheckDestination = (input: GuardInput) => GuardDecision;
 
-/** How a case's expected value was established. */
-export type Established = 'test' | 'read' | 'ran' | 'spec';
+/**
+ * How a case's expected value was established. `ruling`: the owner's rulings of 2026-11-23, or a
+ * detail the orchestrator settled that day (docs/progress.md).
+ */
+export type Established = 'test' | 'read' | 'ran' | 'spec' | 'ruling';
 
 export interface GuardCase {
   readonly id: string;

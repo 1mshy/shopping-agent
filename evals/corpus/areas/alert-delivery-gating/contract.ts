@@ -44,10 +44,13 @@ export type WatchStamp =
   | { readonly kind: 'restock_watermark'; readonly at: Timestamp };
 
 /**
- * Proposed vocabulary. The alert's delivery status as a whole: `accepted` (a channel accepted it),
- * `awaiting_delivery` (none accepted yet, at least one still pending: the outbox keeps retrying),
- * `undelivered` (no channel accepted and none is pending). The event itself is kept in every case
- * (S§2.11: every alert is written to one audit trail, delivered or not).
+ * Proposed vocabulary. The alert's delivery status as a whole, counting push channels only (every
+ * channel but `in_app`; owner's ruling of 2026-11-23) whenever the event has a push delivery:
+ * `accepted` (a push channel accepted it), `awaiting_delivery` (no push channel accepted yet, at
+ * least one still pending: the outbox keeps retrying), `undelivered` (no push channel accepted and
+ * none is pending, whatever the in-app channel did). An event with no push delivery at all (no
+ * push channel configured) is judged by its in-app delivery. The event itself is kept in every
+ * case (S§2.11: every alert is written to one audit trail, delivered or not).
  */
 export type AlertDeliveryStatus = 'accepted' | 'awaiting_delivery' | 'undelivered';
 
@@ -58,13 +61,19 @@ export interface DeliveryGatingDecision {
 
 /**
  * The subject (Phase 1, the outbox in apps/server or packages/core). The stamp is set only when at
- * least one delivery is `accepted`; its time is that delivery's `acceptedAt`. Pending or failed
- * deliveries never stamp. Whether the always-on in-app channel's acceptance stamps the cooldown on
- * its own is open (see the area report); no case here includes an in-app delivery.
+ * least one push delivery (any channel but `in_app`) is `accepted`; its time is the earliest such
+ * `acceptedAt`. Pending or failed deliveries never stamp. Acceptance by the always-on in-app
+ * channel alone does not stamp the cooldown: push keeps being retried until a push channel
+ * accepts, and the cooldown starts then (owner's ruling of 2026-11-23). The cooldown is per watch:
+ * one accepted push channel stamps it for every channel (settled by the orchestrator 2026-11-23,
+ * the owner may overrule). When the event has no push delivery at all, the accepted in-app
+ * delivery stamps, at its `acceptedAt` (settled by the orchestrator 2026-11-24, the owner may
+ * overrule).
  */
 export type GateOnDelivery = (input: DeliveryGatingInput) => DeliveryGatingDecision;
 
-export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec';
+/** `ruling`: the owner's rulings of 2026-11-23 or a detail the orchestrator settled that day. */
+export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec' | 'ruling';
 
 export interface CaseSource {
   readonly how: Provenance;

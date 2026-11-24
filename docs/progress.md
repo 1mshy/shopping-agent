@@ -17,6 +17,37 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 0: Foundations, contracts and spikes
 
+### 2026-11-24: The corpus follows the rulings of 2026-11-23 (P0-3e)
+
+**Shipped** (branch `phase0/corpus-rulings`, squash-merged). Every owner ruling and every detail the orchestrator settled on 2026-11-23 is pinned by corpus cases that cite it, except one (below). **568 → 601 cases, 601 pending, 0 implemented** (+33: reference-price +8, alert-price-rules +7, url-guard-address +5, alert-delivery-gating +4, currency-resolution +4, price-text-parsing +2, scheduler-catch-up +2, wall-classification +1). Lint, typecheck, test and build exit 0 on the merged tree. The author's mutation check (one case throwing a `TypeError`) made the test command exit 1.
+
+**Expectations that changed:**
+
+- the median reference price is recomputed as reads arrive (was `keep`); the user's confirmed price wins over it;
+- in-house walls name `ebay` and `amazon` (were null); a 401 is `login_required`;
+- a URL with user-info or no host is refused as `url_form` (was `scheme`; two were `private_address`);
+- "1.299 €" with no locale is `ambiguous_separator` (was `excess_precision`), and reads as 129900 EUR minor units on a dot-thousands locale;
+- two matcher cases that were `exact` on the URL alone are now `unknown` (a model number in a URL path is supporting evidence only);
+- SUNLU PLA, PLA Matte and Silk PLA+ for a SUNLU PLA+ query now expect `other_model` or `variant` (were `other_line`), the pair the owner's ruling names.
+
+**Vocabulary** (`packages/shared`): `url_form` in `POLICY_REFUSAL_REASONS`, `timed_out` in `JOB_RUN_STATUSES`. No migration: `job_run.status` has no CHECK. **Spec:** S§4.4, S§5.1, S§5.2, S§5.4, S§5.5, S§5.8 and S§5.11 now say what the rulings say.
+
+**Two details changed by the orchestrator at review** (2026-11-24, the owner may overrule):
+
+- *NAT64.* The author read "every IANA special-purpose range is refused" literally and refused 64:ff9b::/96. On an IPv6-only network with DNS64 every IPv4-only shop resolves into that range, so a NAT64 address is judged by the IPv4 address it embeds, as the predecessor did (`nat64-of-public-passes`; the private and loopback forms stay refused).
+- *In-app only.* The author read "in-app acceptance alone does not stamp the cooldown" as never stamping on an install with no push channel, which leaves every alert of a default install "undelivered". The ruling is about a failed push; where no push channel is configured the in-app acceptance is the delivery and stamps (`in-app-only-install-stamps-at-in-app-acceptance`).
+
+**Spike D's dataset** is built from the matcher areas, so its fingerprint moved: `e930f87b…a7e29` (158 items, 53 exact, 35 sets, as measured on 2026-11-23) → `5520a85b…2236` (158 items, 51 exact, 37 sets). The published figures are unchanged and say which dataset they were measured on; re-scoring those runs needs a checkout of `d5acab7`.
+
+**Not pinned:** "`unknown` condition never triggers a new-item alert" has no case, because no area holds new-listing alerts (they arrive with saved searches).
+
+**Open, for the owner** (none blocks Phase 1; each changes only which label a non-match gets, or is one listing family):
+
+- The corpus keeps four `exact` expectations from the predecessor's reviews that the gold set labels otherwise, because the gold products carry a must-have the corpus query does not: PolyTerra PLA+ for PolyTerra PLA (gold: `other_model`), SUNLU PLA+ 2.0 for SUNLU PLA+ (`other_model`), MX Master 3S For Mac (`variant`), SSDs with a heatsink (`variant`). The suffix ruling of 2026-11-23 points the gold set's way.
+- 37 matcher cases expect a set of relations; the author's single pick for each is in the unit report (most follow the gold set's labels).
+- The other_model / other_line boundary (Polymaker sibling lines are `other_line` in the corpus and `other_model` in the gold set).
+- The author's readings: a smaller second drop that still meets the rule fires at the second read's price; a bare 403 keeps mode `challenge`; "approx." detection is the words "approx." and "≈".
+
 ### 2026-11-24: Wire recordings of Claude Haiku 5.5 (P0-6b)
 
 **Shipped** (branch `phase0/wire-recordings`, squash-merged). `evals/wire` gains a native Anthropic Messages recording path (family `anthropic`: key as `x-api-key`, `anthropic-version: 2026-10-21`), a 19-scenario `messages-*` matrix covering the seven probe steps of S§5.7, the family `anthropic-compat` for Anthropic's OpenAI-compatibility endpoint (the existing matrix), replay matching on `x-api-key`, `anthropic-version` and `anthropic-beta`, and a counts-only review script (`review.ts`). Tests were written against the scripted server before any recording.

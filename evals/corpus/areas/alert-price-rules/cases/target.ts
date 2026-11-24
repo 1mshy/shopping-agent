@@ -1,5 +1,14 @@
 import type { PriceAlertCase } from '../contract.ts';
-import { cad, confirmedPair, FLAT_100, NOW, observed, SECOND_READ_AT, watch } from './fixtures.ts';
+import {
+  cad,
+  confirmedPair,
+  FLAT_100,
+  NOW,
+  observed,
+  RULING_INCLUSIVE,
+  SECOND_READ_AT,
+  watch,
+} from './fixtures.ts';
 
 const T = 'pricewatch/tests/test_service.py';
 
@@ -62,7 +71,10 @@ export const targetCases: readonly PriceAlertCase[] = [
         how: 'offline-run',
         ref: '_reasons(target 50, price 50.00) → ["at or below your target …"]',
       },
+      RULING_INCLUSIVE,
     ],
+    notes:
+      'The owner\'s example of 2026-11-23: "$50 or less" fires at $50.00 (5000 ≤ 5000). The predecessor was inclusive too.',
   },
   {
     id: 'target-and-drop-both-reported',

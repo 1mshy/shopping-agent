@@ -5,7 +5,7 @@ export const area = defineArea({
   id: 'regional-url',
   status: 'pending',
   sources: [
-    'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db126, read as the working tree stood on 2026-11-18 (uncommitted files present; reference copy not yet confirmed by the owner)',
+    'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db126, read as the working tree stood on 2026-11-18 (uncommitted files present; confirmed by the owner as the reference copy on 2026-11-23)',
     'pricewatch/src/pricewatch/stores/base.py (StoreAdapter.storefront, regional_url)',
     'pricewatch/src/pricewatch/stores/bigbox.py (AmazonAdapter.regional_url, ASIN_RE)',
     'pricewatch/src/pricewatch/web_discovery.py (regional_url, pick_candidates)',

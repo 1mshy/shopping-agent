@@ -29,7 +29,10 @@ function check(c: CatchUpCase): void {
   const { job, now, running } = c.input;
   if (job.everyMs <= 0 || job.deadlineMs <= 0) throw new TypeError(`${c.id}: bad durations`);
   if (running && running.startedAt > now) throw new TypeError(`${c.id}: run starts after now`);
-  if (c.expected.action !== 'join') {
+  if (c.expected.action === 'time_out') {
+    const ran = running ? Date.parse(now) - Date.parse(running.startedAt) : -1;
+    if (ran < job.deadlineMs) throw new TypeError(`${c.id}: times out a run inside its deadline`);
+  } else if (c.expected.action !== 'join') {
     const offset = Date.parse(c.expected.nextRunAt) - Date.parse(job.nextRunAt);
     if (offset < 0 || offset % job.everyMs !== 0) {
       throw new TypeError(`${c.id}: the expected next slot is off the job's grid`);

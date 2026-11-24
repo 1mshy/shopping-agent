@@ -9,7 +9,12 @@
 // gtin fields as places a model number may appear, and no model-number pattern matches a bare
 // GTIN), so no case here tests a GTIN. It had no brand + MPN equality on structured fields either:
 // its query was one string, so these cases set only `asked.name`.
-import { code, S54_JUDGE, spec, test } from '../../match-title-rules/evidence.ts';
+//
+// A model number in the URL path is supporting evidence, never identity on its own (settled by
+// the orchestrator 2026-11-23, the owner may overrule): the two cases where the predecessor
+// accepted a listing on its URL alone now expect `unknown`, and a stated model number (MPN or
+// title) wins over the URL.
+import { code, S54_JUDGE, spec, test, URL_SETTLED } from '../../match-title-rules/evidence.ts';
 import { asked, listing, type MatchCase, NOT_EXACT } from '../contract.ts';
 
 const RONA_URL =
@@ -34,9 +39,14 @@ const VARIANT_IN = code(
     'word in a slug or part number)',
 );
 const TIER1 = spec('S§5.4 tier 1: "normalised brand + MPN equality"');
-const URL_SILENT =
-  'S§5.4 names no URL rule; the predecessor reads model numbers and variant words from the ' +
-  "listing's own URL path (recipes.py:958-971, 985-991)";
+const URL_RULE =
+  `${URL_SETTLED}. The predecessor read model numbers and variant words from the listing's own ` +
+  'URL path (recipes.py:958-971, 985-991) and accepted a listing on the URL alone';
+const URL_ONLY_LABEL =
+  'the predecessor accepted it (asserted) because the model number is in the URL path; the ' +
+  'title names no model and the listing states no MPN, so the URL is the only identity ' +
+  'evidence. Under the settled rule it supports but cannot establish identity: no rejection is ' +
+  'true either, so the code tiers leave it to the judge (who is not shown the URL): unknown';
 const COMBO =
   'near_miss (asserted) names "combo"; the 2026-10-23 report calls Combo listings bundles and the ' +
   'predecessor treats the word as a variant word, so bundle or variant (see match-owner-rulings)';
@@ -109,7 +119,8 @@ export const identifiers: readonly MatchCase[] = [
     ],
     label:
       'refused (asserted) by "the matcher\'s clash rule" (module docstring: "named ... as another ' +
-      'model"): a stated model number that is only another one is another model',
+      'model"): a stated model number that is only another one is another model; the URL that ' +
+      `names the asked one is supporting evidence only (${URL_SETTLED})`,
   },
   {
     id: 'model-label-of-another-model',
@@ -175,25 +186,25 @@ export const identifiers: readonly MatchCase[] = [
         url: 'https://www.creality3dofficial.com/products/creality-k1c-3d-printer',
       }),
     },
-    expected: { relation: 'exact' },
+    expected: { relation: 'unknown' },
     from: [
       test(TC, 'test_a_platform_page_by_its_url', '(accepted)'),
       test(TC, 'test_a_measurement_is_not_a_model', '(accepted)'),
       NAMES,
     ],
-    label: "accepted (asserted): the query's model number is in the listing's own URL path",
-    specSilent: true,
-    ownerCheck: `${URL_SILENT}. Keep the URL path as identity evidence?`,
+    label: `${URL_ONLY_LABEL}; "600mm/s" is still not a model (asserted)`,
+    divergence: `${URL_RULE}; the case expected exact before the rule was settled.`,
   },
   {
     id: 'canonical-url-names-the-model',
     what: "the store's canonical URL names the model; its product name leaves it out",
     input: { asked: asked('dewalt dcd793d1'), listing: listing(RONA_NAME, { url: RONA_URL }) },
-    expected: { relation: 'exact' },
+    expected: { relation: 'unknown' },
     from: [test(TC, 'test_rona_the_model_in_its_canonical_url_alone_is_enough'), NAMES],
-    label: "accepted (asserted): the model number is in the listing's canonical URL path",
-    specSilent: true,
-    ownerCheck: `${URL_SILENT}. Keep the URL path as identity evidence?`,
+    label:
+      `${URL_ONLY_LABEL}; the same title without the URL is unknown in match-title-rules ` +
+      'title-without-the-model-number',
+    divergence: `${URL_RULE}; the case expected exact before the rule was settled.`,
   },
   {
     id: 'url-path-names-a-variant',
@@ -236,7 +247,7 @@ export const identifiers: readonly MatchCase[] = [
     from: [test(TC, 'test_another_model_in_the_engines_title_is_not_overridden_by_the_url'), NAMES],
     label:
       'refused (asserted); the docstring: "DCD798D1 in the product\'s name is another product, ' +
-      'whatever its URL says"',
+      `whatever its URL says"; the URL is supporting evidence only (${URL_SETTLED})`,
   },
   {
     id: 'url-names-the-model-only-after-for',

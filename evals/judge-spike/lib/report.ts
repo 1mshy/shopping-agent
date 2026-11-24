@@ -362,7 +362,7 @@ export const STANDING_TEXT = [
   'identity-precision gate (held-out gold set, ≥90% to ship).',
   '',
   '**The set.** 158 query/listing pairs from one owner’s shopping, ported from the predecessor’s',
-  'tests, reviews and reports; labels partly from tests and partly from reviews; 35 items have a',
+  'tests, reviews and reports; labels partly from tests and partly from reviews; 37 items have a',
   'set of relations, not one label; no held-out split; heavily weighted to hard cases. A precision',
   'here is a precision on this set. A batch holds one asked product, so most batches are shorter',
   'than their nominal size (see the batch-length table).',

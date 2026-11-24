@@ -6,7 +6,16 @@
 // MATCH_RELATIONS as: "another model or generation" -> other_model, "another line or brand" ->
 // other_line, "another capacity or size" -> variant (reports/2026-10-23-matching.md:106-113).
 import { asked, listing, type MatchCase, NOT_EXACT, REJECTED } from '../contract.ts';
-import { code, REVIEW_RULE, review, run, S54_JUDGE, S54_RULES, test } from '../evidence.ts';
+import {
+  code,
+  REVIEW_RULE,
+  review,
+  run,
+  S54_JUDGE,
+  S54_RULES,
+  SUFFIX_RULING,
+  test,
+} from '../evidence.ts';
 
 const FAMILY = 'test_another_model_of_the_family_is_not_the_product';
 
@@ -44,7 +53,8 @@ export const otherProducts: readonly MatchCase[] = [
     { oneOf: ['variant', 'other_model'] },
     'the review rejects the A1 for the A1 mini ("not mini") without naming a class, and the ' +
       'predecessor calls "mini" a qualifier that makes "a different product of the same name"; ' +
-      'whether mini is a size variant or another model the evidence does not say',
+      'whether mini is a size variant or another model the evidence does not say; the pair is ' +
+      `the one named by ${SUFFIX_RULING} for a line-changing name suffix`,
     [
       review('phase5', 'a1-mini', '3dprintingcanada', 'hotend, the A1 Combo (not mini), a plate'),
       code('pricewatch/src/pricewatch/matching.py:50-53 ("an A1 is not an A1 mini")'),
@@ -94,7 +104,7 @@ export const otherProducts: readonly MatchCase[] = [
     'Keurig K-Mini',
     'Keurig® K-Mini® Go Single Serve Coffee Maker',
     { relation: 'other_model' },
-    'the review labels it another model',
+    `the review labels it another model, consistent with ${SUFFIX_RULING}`,
     [
       review('phase5', 'keurig-k-mini', 'keurig.ca', 'K-Mini Go (another model)'),
       {
@@ -109,7 +119,8 @@ export const otherProducts: readonly MatchCase[] = [
     'Keurig K-Mini',
     'Keurig K-Mini Mate Plus Single Serve Coffee Maker - Black',
     { relation: 'other_model' },
-    'the review labels it another model',
+    `the review labels it another model, consistent with ${SUFFIX_RULING}; "Plus counts the ` +
+      'query\'s way" does not reach model names',
     [review('phase5', 'keurig-k-mini', 'staples.ca', 'K-Mini Mate Plus (another model)')],
   ),
   family(
@@ -258,7 +269,8 @@ export const otherProducts: readonly MatchCase[] = [
     ],
     label:
       'near_miss (asserted) means "a different product"; the review labels the Mate Plus another ' +
-      'model, but no label names the Mate alone, so other_model or variant',
+      'model, but no label names the Mate alone, so other_model or variant, the pair named by ' +
+      `${SUFFIX_RULING} for a line-changing name suffix`,
   },
   {
     id: 'title-without-the-model-number',

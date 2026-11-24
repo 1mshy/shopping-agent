@@ -13,6 +13,22 @@ const SPEC_ADOPT = {
   ref: 'S§5.8 Intake: "The baseline and currency are adopted only from the first real read."',
 } as const;
 
+const OWNER = (ruling: string) =>
+  ({
+    how: 'ruling',
+    ref: `Owner's ruling of 2026-11-23 (docs/progress.md, "Owner rulings on the Phase 1 questions"): "${ruling}"`,
+  }) as const;
+const RULING_USER_WINS = OWNER(
+  "Reference price: the user's confirmed price wins over the observed median until the user changes it; otherwise the median of recent observations, recomputed as reads arrive.",
+);
+const RULING_UNKNOWN = OWNER(
+  '`unknown` condition is shown with a flag, left out of the reference price, and never triggers a new-item alert.',
+);
+const SETTLED_MEDIAN = {
+  how: 'ruling',
+  ref: 'Settled by the orchestrator 2026-11-23, the owner may overrule (docs/progress.md): "an even-count median is the mean of the two middle values rounded half-up to the minor unit"',
+} as const;
+
 const money = (amountMinor: number, currency: MinorUnitCurrency = 'CAD'): Money => ({
   amountMinor,
   currency,
@@ -78,7 +94,7 @@ export const referenceCases: readonly ReferenceCase[] = [
     what: 'A cheaper renewed unit is passed over when a new first-party listing exists',
     input: forWatch([
       listing(1, 11499, { condition: 'refurbished' }),
-      listing(2, 13999, { condition: 'unknown' }),
+      listing(2, 13999, { condition: 'new' }),
     ]),
     expected: median(13999, [2]),
     from: [
@@ -88,9 +104,8 @@ export const referenceCases: readonly ReferenceCase[] = [
       },
       SPEC_REF,
     ],
-    specSilent: true,
     notes:
-      'Predecessor: amazon CAD "114.99" (Renewed, extra condition="renewed") and "139.99" (no condition flag) → 11499 and 13999 CAD. The refurb exclusion is the spec\'s; the spec is silent on whether a listing with no condition signal (`unknown`) counts as new, and the predecessor treated it as new (as_new = no condition flag), which this case ports.',
+      'Predecessor: amazon CAD "114.99" (Renewed, extra condition="renewed") and "139.99" (no condition flag) → 11499 and 13999 CAD. The refurb exclusion is the spec\'s. The predecessor treated the unflagged listing as new (as_new = no condition flag); here it is given condition `new`, because under the owner\'s ruling of 2026-11-23 an `unknown` condition is left out of the reference (unknown-condition-is-left-out-of-the-reference), and this case is about the refurb.',
   },
   {
     id: 'refurb-only-is-still-the-baseline',
@@ -110,10 +125,7 @@ export const referenceCases: readonly ReferenceCase[] = [
   {
     id: 'two-listings-median-not-the-cheapest',
     what: 'With two new listings the reference is their median, not the cheaper one',
-    input: forWatch([
-      listing(1, 12999, { condition: 'unknown' }),
-      listing(2, 13999, { condition: 'unknown' }),
-    ]),
+    input: forWatch([listing(1, 12999), listing(2, 13999)]),
     expected: median(13499, [1, 2]),
     from: [
       {
@@ -125,7 +137,41 @@ export const referenceCases: readonly ReferenceCase[] = [
     divergence:
       'The predecessor baselined on the cheapest listing (min, service.py:331 and 555-557): 12999. S§5.8 takes the median of verified exact listings and "never the first match".',
     notes:
-      'Predecessor: amazon "129.99" and bestbuy "139.99", CAD, no condition flag → 12999 and 13999. Median of two = (12999 + 13999) / 2 = 13499, an exact integer; how an odd half is rounded is open (report).',
+      'Predecessor: amazon "129.99" and bestbuy "139.99", CAD, no condition flag → 12999 and 13999. The listings are given condition `new` here: the predecessor treated an unflagged listing as new, and under the owner\'s ruling of 2026-11-23 an `unknown` one would be left out. Median of two = (12999 + 13999) / 2 = 26998 / 2 = 13499, an exact integer, so the half-up rounding (even-count-median-rounds-half-up) does not apply.',
+  },
+  {
+    id: 'even-count-median-rounds-half-up',
+    what: 'The mean of two middle prices that ends in half a cent is rounded half up',
+    input: forWatch([listing(1, 12999), listing(2, 14000)]),
+    expected: median(13500, [1, 2]),
+    from: [SPEC_REF, SETTLED_MEDIAN],
+    specDerived: true,
+    notes:
+      'Added for the detail settled by the orchestrator on 2026-11-23. Two verified exact new first-party CAD listings: (12999 + 14000) / 2 = 26999 / 2 = 13499.5 → 13500 rounded half up (truncation would give 13499).',
+  },
+  {
+    id: 'unknown-condition-is-left-out-of-the-reference',
+    what: 'A cheaper listing whose condition is unknown is left out of the median',
+    input: forWatch([listing(1, 9999, { condition: 'unknown' }), listing(2, 12999)]),
+    expected: median(12999, [2]),
+    from: [RULING_UNKNOWN, SPEC_REF],
+    specDerived: true,
+    divergence:
+      'The predecessor treated a listing with no condition flag as new (as_new, service.py:533-542; asserted by test_service.py:184 test_listings_without_a_condition_flag_are_treated_as_new) and baselined on the cheapest, so it would have taken 9999. The owner ruled on 2026-11-23 that an `unknown` condition is left out of the reference price.',
+    notes:
+      'Added: an `unknown`-condition listing at 9999 beside a new one at 12999, both verified exact, first-party, CAD. Only 12999 is eligible.',
+  },
+  {
+    id: 'only-unknown-condition-sets-no-reference',
+    what: 'A watch whose only verified listing has an unknown condition has no observed reference',
+    input: forWatch([listing(1, 13999, { condition: 'unknown' })]),
+    expected: { action: 'none', why: 'no_eligible_listing' },
+    from: [RULING_UNKNOWN],
+    specDerived: true,
+    divergence:
+      'The predecessor treated a listing with no condition flag as new and would have baselined on it (13999). The owner ruled on 2026-11-23 that an `unknown` condition is left out of the reference price.',
+    notes:
+      'Added. The listing is still watched and shown with its flag; it is only kept out of the reference. A user-confirmed price would still be the reference.',
   },
   {
     id: 'odd-count-median-not-the-first-match',
@@ -226,22 +272,104 @@ export const referenceCases: readonly ReferenceCase[] = [
     ],
   },
   {
-    id: 'existing-reference-is-kept',
-    what: 'A watch that has its reference keeps it when a lower price is read',
+    id: 'median-reference-is-recomputed-as-reads-arrive',
+    what: 'A median reference moves when a new read of its listing arrives',
     input: forWatch([listing(1, 9000)], {
       currency: 'CAD',
       reference: { price: money(10000), kind: 'median_verified' },
     }),
-    expected: { action: 'keep' },
+    expected: median(9000, [1]),
     from: [
       {
         how: 'function-reading',
         ref: `${S}:326-328 _initial_baselines (a tracker with a baseline_price is skipped)`,
       },
+      RULING_USER_WINS,
     ],
-    specSilent: true,
+    divergence:
+      'The predecessor kept a baseline once set and changed it only through reset_baseline (service.py:1588-1591), so it would have kept 10000. The owner ruled on 2026-11-23 that the median is recomputed as reads arrive.',
     notes:
-      "The predecessor changed a baseline only through reset_baseline (service.py:1588-1591). Whether S§5.8's median is recomputed as listings change is open (report).",
+      "Was `existing-reference-is-kept` (expected `keep`) before the ruling. The watch's reference was the median 10000; its one verified exact listing now reads 9000, so the median of the latest reads is 9000.",
+  },
+  {
+    id: 'unchanged-median-reference-is-kept',
+    what: 'A new read that leaves the median where it was keeps the reference',
+    input: forWatch([listing(1, 11900), listing(2, 11900)], {
+      currency: 'CAD',
+      reference: { price: money(11900), kind: 'median_verified' },
+    }),
+    expected: { action: 'keep' },
+    from: [RULING_USER_WINS],
+    specDerived: true,
+    notes:
+      'Added: two verified exact new listings both reading 11900; median (11900 + 11900) / 2 = 11900, equal to the current reference of the same kind.',
+  },
+  {
+    id: 'user-confirmed-price-wins-over-the-median',
+    what: 'When the user confirmed a price and verified listings exist, the user price is the reference',
+    input: forWatch([listing(1, 9999), listing(2, 10999)], {
+      currency: 'CAD',
+      userConfirmedPrice: money(12000),
+    }),
+    expected: {
+      action: 'set',
+      currency: 'CAD',
+      price: money(12000),
+      kind: 'user_confirmed',
+      fromListings: [],
+    },
+    from: [RULING_USER_WINS, SPEC_REF],
+    specDerived: true,
+    notes:
+      "Added for the owner's ruling of 2026-11-23. The median of the verified listings would be (9999 + 10999) / 2 = 10499; the user-confirmed CA$120.00 wins.",
+  },
+  {
+    id: 'user-confirmed-reference-is-kept-as-reads-arrive',
+    what: 'A user-confirmed reference stays while new reads arrive',
+    input: forWatch([listing(1, 9000)], {
+      currency: 'CAD',
+      reference: { price: money(12000), kind: 'user_confirmed' },
+      userConfirmedPrice: money(12000),
+    }),
+    expected: { action: 'keep' },
+    from: [RULING_USER_WINS],
+    specDerived: true,
+    notes:
+      'Added for the owner\'s ruling of 2026-11-23 ("until the user changes it"): a verified listing now reads 9000, but the user\'s CA$120.00 is unchanged, so it stays the reference.',
+  },
+  {
+    id: 'user-changed-confirmed-price-replaces-the-reference',
+    what: 'When the user changes the confirmed price, the new one is the reference',
+    input: forWatch([listing(1, 9000)], {
+      currency: 'CAD',
+      reference: { price: money(12000), kind: 'user_confirmed' },
+      userConfirmedPrice: money(11000),
+    }),
+    expected: {
+      action: 'set',
+      currency: 'CAD',
+      price: money(11000),
+      kind: 'user_confirmed',
+      fromListings: [],
+    },
+    from: [RULING_USER_WINS],
+    specDerived: true,
+    notes:
+      "Added for the owner's ruling of 2026-11-23: the user moved the price from 12000 to 11000.",
+  },
+  {
+    id: 'cleared-user-price-falls-back-to-the-median',
+    what: 'When the user clears the confirmed price, the observed median becomes the reference',
+    input: forWatch([listing(1, 9999)], {
+      currency: 'CAD',
+      reference: { price: money(12000), kind: 'user_confirmed' },
+      userConfirmedPrice: null,
+    }),
+    expected: median(9999, [1]),
+    from: [RULING_USER_WINS],
+    specDerived: true,
+    notes:
+      'Added for the owner\'s ruling of 2026-11-23 ("otherwise the median of recent observations"): with no user price left, the median of the one verified exact listing, 9999.',
   },
   {
     id: 'unverified-or-variant-listing-is-not-in-the-median',
@@ -270,6 +398,6 @@ export const referenceCases: readonly ReferenceCase[] = [
     from: [SPEC_REF],
     specDerived: true,
     notes:
-      'Added: a watch whose currency was adopted (CAD) and whose only listing is exact but not verified, and a user-confirmed CA$120.00. Chosen so neither open question applies: which of the two wins when both exist, and how a user price relates to "currency adopted only from the first real read".',
+      'Added: a watch whose currency was adopted (CAD) and whose only listing is exact but not verified, and a user-confirmed CA$120.00. Chosen so the open question does not apply: how a user price relates to "currency adopted only from the first real read". Which wins when both exist is the owner\'s ruling of 2026-11-23 (user-confirmed-price-wins-over-the-median).',
   },
 ];

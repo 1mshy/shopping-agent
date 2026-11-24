@@ -6,6 +6,14 @@
 // when both sides write one: a title that gives a size instead of the model is not a clash") and
 // reports/2026-10-23-matching.md:78-81 ("so 'Ninja Air Fryer, 4-qt' for the AF101 is not a
 // clash"); the Phase 1 hand check called such a listing "plausible but not confirmed".
+//
+// The owner's ruling of 2026-11-23 adds: a name suffix that changes the line (Duo vs Duo Plus) or
+// the material (PLA+ vs Silk PLA+) makes a different product, `other_model` or `variant`, never
+// `exact`. The orchestrator's reading the same day: "Plus counts the query's way" stays for the
+// material-grade mark as the predecessor's review took it, does not extend to model names, and
+// matte and silk are other lines (in the ruling's scope), not finishes. Where the ruling names
+// `other_model` or `variant`, a case that had `other_line` for a suffix of the asked name now
+// expects that pair.
 import {
   code,
   REVIEW_RULE,
@@ -14,6 +22,8 @@ import {
   run,
   S54_JUDGE,
   S54_RULINGS,
+  SUFFIX_READING,
+  SUFFIX_RULING,
   test,
 } from '../../match-title-rules/evidence.ts';
 import { asked, listing, type MatchCase } from '../contract.ts';
@@ -59,7 +69,7 @@ export const plusAndSize: readonly MatchCase[] = [
     id: 'plus-asked-listing-plain',
     what: 'SUNLU PLA for a SUNLU PLA+ query',
     input: { asked: asked(SUNLU), listing: listing('SUNLU PLA 3D Printer Filament 1KG') },
-    expected: { relation: 'other_line' },
+    expected: { oneOf: ['other_model', 'variant'] },
     from: [
       test('test_matching.py', OTHER, `[${SUNLU}]`),
       review('phase5', 'sunlu-pla-plus', 'sunlu', 'SUNLU PLA and Silk PLA+, not PLA+'),
@@ -68,14 +78,16 @@ export const plusAndSize: readonly MatchCase[] = [
       S54_RULINGS,
     ],
     label:
-      'rejected (asserted); the report files SUNLU PLA for SUNLU PLA+ under class 3, "other lines ' +
-      'and brands": other_line',
+      'rejected (asserted); the listing lacks the "+" that sets the material of the asked line, ' +
+      `so it follows ${SUFFIX_RULING}. The relation is that pair: the case expected other_line ` +
+      'before the ruling, from the report filing SUNLU PLA for SUNLU PLA+ under class 3, "other ' +
+      'lines and brands"',
   },
   {
     id: 'plus-asked-listing-matte',
     what: 'SUNLU PLA Matte for a SUNLU PLA+ query',
     input: { asked: asked(SUNLU), listing: listing('Sunlu 1.75mm, 1kg/spool, PLA Matte (Black)') },
-    expected: { relation: 'other_line' },
+    expected: { oneOf: ['other_model', 'variant'] },
     from: [
       test('test_matching.py', OTHER, `[${SUNLU}]`),
       review(
@@ -91,10 +103,11 @@ export const plusAndSize: readonly MatchCase[] = [
       PLUS_COMMENT,
       S54_RULINGS,
     ],
-    label: 'rejected (asserted); the review rejects it as not PLA+, a class 3 line: other_line',
-    ownerCheck:
-      'The review rule accepts "any colour or finish", yet the SUNLU review rejects matte and silk ' +
-      'as other lines. Confirm that matte PLA is another line, not a finish of SUNLU PLA+.',
+    label:
+      'rejected (asserted); the review rejects it as not PLA+. Matte is another line, not a finish ' +
+      `(${SUFFIX_READING}), and the material differs (PLA, not PLA+), so it follows ` +
+      `${SUFFIX_RULING}. The case expected other_line before the ruling (the review's class 3 ` +
+      'line); the open question whether matte is a finish is settled by that reading',
   },
   {
     id: 'plus-asked-listing-another-brand',
@@ -137,6 +150,11 @@ export const plusAndSize: readonly MatchCase[] = [
       S54_RULINGS,
     ],
     label: 'a match (asserted), and both reviews count the PLA+ 2.0 as SUNLU PLA+ itself',
+    ownerCheck:
+      `Kept exact as the reviews took it, but ${SUFFIX_RULING} may reach it: "2.0" is a name ` +
+      'suffix, SUNLU sells PLA+ and PLA+ 2.0 side by side, and the gold set (matcher-v1, prompt ' +
+      'gold-label.v1) labels "SUNLU PLA+ 2.0, Upgraded PLA+" other_model under a SUNLU PLA+ ' +
+      'product (sunlu-pla-plus-s13, -s14). Confirm exact, or say 2.0 makes another product.',
   },
   {
     id: 'plus-written-as-a-word',
@@ -167,7 +185,15 @@ export const plusAndSize: readonly MatchCase[] = [
       PLUS_REPORT,
       S54_RULINGS,
     ],
-    label: 'a match (asserted); the comment and report say the review took it',
+    label:
+      'a match (asserted); the comment and report say the review took it, and it stays exact ' +
+      `under ${SUFFIX_READING}`,
+    ownerCheck:
+      `Kept exact under the orchestrator's reading, but ${SUFFIX_RULING} reads against it: PLA+ ` +
+      'for PLA is a material suffix, the gold-set prompt gold-label.v1 writes the ruling as ' +
+      '"PLA vs PLA+ is never exact", and the gold set labels this same title other_model under ' +
+      "its PolyTerra PLA product (polyterra-pla-s17). Confirm exact (Plus counts the query's way " +
+      'for a material grade), or say it is other_model or variant.',
   },
   {
     id: 'plus-of-another-item-in-a-bundle',
@@ -213,12 +239,12 @@ export const plusAndSize: readonly MatchCase[] = [
     ],
     label:
       'the recipe check names "plus" (asserted) and its comment calls the Duo Plus another ' +
-      'product; whether a variant or another model the evidence does not say',
-    ownerCheck:
+      `product; this is the example of ${SUFFIX_RULING}, which names the pair and does not ` +
+      `choose between them; "Plus counts the query's way" does not reach model names (${SUFFIX_READING})`,
+    divergence:
       'The predecessor disagrees with itself: its matcher, applying "Plus counts the query\'s ' +
-      'way", accepts the Duo Plus for the Duo (100), while its recipe check rejects it. The ' +
-      'ruling was made on filament (PolyTerra PLA+ for PolyTerra PLA). Does it extend to model ' +
-      'names (Duo Plus, K-Mini Plus), or is it limited to material grades?',
+      'way" to model names, accepts the Duo Plus for the Duo (100), while its recipe check ' +
+      "rejects it. The case follows the owner's ruling of 2026-11-23: never exact.",
   },
   {
     id: 'size-in-place-of-the-model-litres',

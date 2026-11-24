@@ -46,7 +46,10 @@ describe('wall-classification case data', () => {
     expect(Number.isInteger(input.documentBytes) && input.documentBytes > 0).toBe(true);
     expect(c.from.length).toBeGreaterThan(0);
     expect(c.established.length).toBeGreaterThan(0);
-    if (c.divergence !== undefined) expect(c.established).toContain('spec');
+    // A divergence from the predecessor rests on the spec or on a ruling of 2026-11-23.
+    if (c.divergence !== undefined) {
+      expect(c.established.some((e) => e === 'spec' || e === 'ruling')).toBe(true);
+    }
     // No e-mail address, cookie or token in a case.
     expect(JSON.stringify(c)).not.toMatch(/[\w.+-]+@[\w-]+\.[a-z]{2,}/i);
   });

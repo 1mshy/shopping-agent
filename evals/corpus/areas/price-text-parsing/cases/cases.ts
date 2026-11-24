@@ -14,6 +14,13 @@ const price = (amountMinor: number, currency: MinorUnitCurrency): PriceTextExpec
 });
 const refused = (code: PriceTextRefusalCode): PriceTextExpected => ({ ok: false, code });
 
+const RULING_DOT = {
+  file: 'docs/progress.md',
+  at: '2026-11-23, "Owner rulings on the Phase 1 questions"',
+  how: 'owner ruling',
+  note: '"1.299 €" on a shop whose locale uses the dot as a thousands separator reads as 1,299 euros; with an unclear locale the price is refused.',
+} as const;
+
 const ranParsePrice = (text: string, result: string) =>
   ({
     file: MONEY_PY,
@@ -283,12 +290,30 @@ export const cases: readonly PriceTextCase[] = [
   },
   {
     id: 'single-dot-with-three-digit-tail',
-    what: 'A single dot is read as the decimal point, so "1.299 €" has too many cents for EUR',
+    what: '"1.299 €" with no clear locale cannot be read as thousands or decimal, so it is refused',
     input: { text: '1.299 €', currency: 'EUR' },
-    expected: refused('excess_precision'),
-    from: [ranParsePrice('1.299 €', "Decimal('1.299')")],
+    expected: refused('ambiguous_separator'),
+    from: [ranParsePrice('1.299 €', "Decimal('1.299')"), RULING_DOT],
     divergence:
-      'The predecessor returned Decimal("1.299") and would have stored a 1.30-euro price for what a German page means as 1,299 euros. With the exponent applied the reading is refused rather than rounded. Open question for the owner: whether a dot followed by exactly three digits should be read as thousands in a 2-decimal currency.',
+      'The predecessor returned Decimal("1.299") and would have stored a 1.30-euro price for what a German page means as 1,299 euros. The owner ruled on 2026-11-23 that with an unclear locale the price is refused. Before the ruling this case expected `excess_precision` (a lone dot read as the decimal point); the refusal now names the ambiguity.',
+  },
+  {
+    id: 'dot-thousands-locale-reads-1299-euros',
+    what: '"1.299 €" on a German shop is 1,299 euros',
+    input: { text: '1.299 €', currency: 'EUR', locale: 'de-DE' },
+    expected: price(129900, 'EUR'),
+    from: [ranParsePrice('1.299 €', "Decimal('1.299')"), RULING_DOT],
+    divergence:
+      'The predecessor returned Decimal("1.299") (1.30 euros once rounded). The owner ruled on 2026-11-23 that on a shop whose locale uses the dot as a thousands separator "1.299 €" reads as 1,299 euros. de-DE writes 1.299,00 €, so the dot groups thousands: 1,299 euros × 100 = 129900 cents.',
+  },
+  {
+    id: 'dot-decimal-locale-three-digit-tail-is-excess-precision',
+    what: '"1.299 €" on a shop whose locale uses the dot as decimal point has too many cents',
+    input: { text: '1.299 €', currency: 'EUR', locale: 'en-IE' },
+    expected: refused('excess_precision'),
+    from: [ranParsePrice('1.299 €', "Decimal('1.299')"), RULING_DOT],
+    divergence:
+      'The predecessor returned Decimal("1.299"). en-IE writes €1,299.00, so the dot is the decimal point and 1.299 euros has a third decimal digit EUR does not have; S§2.2 refuses it rather than rounding. Added beside the owner\'s ruling of 2026-11-23, which names the dot-thousands and the unclear locale; this is the remaining reading.',
   },
   // More than one figure
   {

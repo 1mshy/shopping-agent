@@ -10,13 +10,16 @@
 //
 // Where the predecessor's own matcher still accepted a rejected title (it scores at or over 65),
 // its rules never decided that relation, so the case also allows `unknown`: the code tiers may
-// hand it to the judge, but must not call it exact.
+// hand it to the judge, but must not call it exact. The exception is a listing an owner's ruling
+// decides (another-line-silk, the ruling of 2026-11-23): the rules must reject it.
 import {
   REVIEW_RULE,
   report,
   review,
   run,
   S54_JUDGE,
+  SUFFIX_READING,
+  SUFFIX_RULING,
   test,
 } from '../../match-title-rules/evidence.ts';
 import { asked, listing, type MatchCase } from '../contract.ts';
@@ -320,7 +323,7 @@ export const reviews: readonly MatchCase[] = [
           'Dimensional Accuracy 1.75mm +/- 0.03mm, Red, Yellow, Green, Black',
       ),
     },
-    expected: { oneOf: ['other_line', 'unknown'] },
+    expected: { oneOf: ['other_model', 'variant'] },
     from: [
       review(
         'phase5',
@@ -333,7 +336,14 @@ export const reviews: readonly MatchCase[] = [
       run('score = 100.0'),
       CLASS3_LEFT,
     ],
-    label: `the review labels Silk PLA+ another line; ${STILL_ACCEPTED}`,
+    label:
+      'the review labels Silk PLA+ another line, and this is the example of ' +
+      `${SUFFIX_RULING}; silk is a line, not a finish (${SUFFIX_READING}). The ruling names the ` +
+      'pair and does not choose between them; before it the case expected other_line or unknown',
+    divergence:
+      "The predecessor's matcher accepts it as the product (score 100), so its rules never " +
+      "decided it. The case follows the owner's ruling of 2026-11-23: a decided rejection, never " +
+      'exact.',
   },
   {
     id: 'another-brand-same-grade',

@@ -8,7 +8,8 @@ export type How =
   | 'test assertion' // a predecessor test asserts it
   | 'reading the function' // read off the predecessor's source
   | 'running the function offline' // the predecessor's pure function, run with no network
-  | 'spec'; // no predecessor behaviour: the spec states it
+  | 'spec' // no predecessor behaviour: the spec states it
+  | 'owner ruling'; // the owner's rulings of 2026-11-23, or a detail the orchestrator settled that day
 
 export interface Provenance {
   /** Predecessor path under `pricewatch/` or `reports/`, or a spec section. */
@@ -43,6 +44,11 @@ export interface PriceTextInput {
    * is no default currency (S§2.2). It fixes the minor-unit exponent.
    */
   readonly currency: MinorUnitCurrency;
+  /**
+   * The shop's locale as resolved for the page (BCP 47, "de-DE"); absent when it is unclear. It
+   * decides only a lone dot followed by exactly three digits (see the separators rule below).
+   */
+  readonly locale?: string;
 }
 
 /**
@@ -59,6 +65,7 @@ export const PRICE_TEXT_REFUSAL_CODES = [
   'no_amount', // no figure at all ("free shipping", "Free", "")
   'zero', // the figure is zero: a price is never zero
   'mark_mismatch', // the text names a currency other than `currency` ("US$" read as CAD, "$" as EUR)
+  'ambiguous_separator', // "1.299 €" with no clear locale: thousands or decimal cannot be told
   'excess_precision', // more non-zero fraction digits than the currency has: never rounded
 ] as const;
 export type PriceTextRefusalCode = (typeof PRICE_TEXT_REFUSAL_CODES)[number];
@@ -67,7 +74,12 @@ export type PriceTextRefusalCode = (typeof PRICE_TEXT_REFUSAL_CODES)[number];
  * Separators. The last of "." and "," is the decimal point when both occur ("1.234,56",
  * "1,234.56"). With commas only, one comma followed by exactly two digits is a decimal comma
  * ("12,99"); a three-digit tail or several commas are thousands ("1,299", "1,299,000"). With dots
- * only, several dots are thousands ("1.234.567") and a single dot is the decimal point. Spaces,
+ * only, several dots are thousands ("1.234.567") and a single dot is the decimal point, except a
+ * single dot followed by exactly three digits in a currency whose exponent is below 3: it is a
+ * thousands separator when `locale` uses the dot as its thousands separator ("1.299 €" on de-DE is
+ * 1,299 euros), the decimal point when `locale` uses the dot as its decimal separator, and the
+ * text is refused as `ambiguous_separator` when the locale is unclear (owner's ruling of
+ * 2026-11-23). In a 3-decimal currency a single dot is always the decimal point. Spaces,
  * no-break spaces and apostrophes inside a figure are thousands separators. The amount is then
  * scaled exactly as `moneyFromDecimal` does: zero padding beyond the exponent is accepted, a
  * non-zero excess digit is refused.

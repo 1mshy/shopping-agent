@@ -7,8 +7,8 @@ export const area = defineArea<SessionDropCase>({
   status: 'pending',
   sources: [
     'Predecessor: hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit ' +
-      '51db126, working tree as it stood on 2026-11-18 (uncommitted files present; the owner has not ' +
-      'yet confirmed this is the reference copy)',
+      '51db126, working tree as it stood on 2026-11-18 (uncommitted files present; the owner confirmed it ' +
+      'as the reference copy on 2026-11-23)',
     'pricewatch/src/pricewatch/fetch.py: _site_cookie_pattern (lines 408-415), _SharedProfile.forget ' +
       '(433-452), Fetcher._forget_context (1068-1082), Fetcher.render (1134-1144)',
     'pricewatch/tests/test_browser_mode.py (cookie scope and render tests), ' +

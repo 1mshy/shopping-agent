@@ -25,14 +25,14 @@ test('known-failure-coupon-missed: no case holds a float', () => {
   expect(floats(area.cases, 'cases')).toEqual([]);
 });
 
-test('known-failure-coupon-missed: amount off and effective add up to the sticker', () => {
+test('known-failure-coupon-missed: amount off and the price after the coupon add up to the sticker', () => {
   for (const c of area.cases) {
     if (c.expected.kind === 'none') continue;
-    const { amountOff, effective } = c.expected;
-    expect([amountOff.currency, effective.currency]).toEqual([
+    const { amountOff, afterCoupon } = c.expected;
+    expect([amountOff.currency, afterCoupon.currency]).toEqual([
       c.input.sticker.currency,
       c.input.sticker.currency,
     ]);
-    expect(amountOff.amountMinor + effective.amountMinor).toBe(c.input.sticker.amountMinor);
+    expect(amountOff.amountMinor + afterCoupon.amountMinor).toBe(c.input.sticker.amountMinor);
   }
 });

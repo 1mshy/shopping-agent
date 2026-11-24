@@ -20,10 +20,57 @@ const ENCODED =
   'the predecessor saw a name, and with the scripted answer (127.0.0.1, as glibc reads it) its ' +
   'refuse_private refuses too (ran). Its real answer depended on the system resolver.';
 
+const IANA_SETTLED =
+  'docs/progress.md 2026-11-23 "Settled by the orchestrator" (the owner may overrule): "every IANA ' +
+  'special-purpose address range is refused"';
+const URL_FORM_SETTLED =
+  'docs/progress.md 2026-11-23 "Settled by the orchestrator": "a URL unacceptable as written ' +
+  '(user-info, no host) gets its own refusal reason instead of `scheme`"';
+
 const OUTSIDE_THE_FIVE =
-  'S§5.1 and the shared vocabulary name five refused ranges (private, loopback, link-local, CGNAT, ' +
-  'metadata) and give them one reason, `private_address`. This range is none of the five; ' +
-  '`private_address` is used as the closest value.';
+  'S§5.1 named five refused ranges (private, loopback, link-local, CGNAT, metadata) under one ' +
+  'reason, `private_address`. This range is none of the five; since the detail settled on ' +
+  '2026-11-23 every IANA special-purpose range is refused under that same reason. Before, the ' +
+  'case was specSilent and `private_address` was "the closest value".';
+
+const urlForm: GuardDecision = {
+  pass: false,
+  outcome: { kind: 'refused_by_policy', rung: 'http', reason: 'url_form' },
+};
+
+/** Ranges of the IANA special-purpose registries that no ported case covers: [id, what, url, entry]. */
+const SPECIAL_PURPOSE: readonly (readonly [string, string, string, string])[] = [
+  [
+    'benchmarking-range-is-refused',
+    'A benchmarking address (198.18.0.0/15) is refused',
+    'http://198.18.0.1/',
+    'IANA IPv4 Special-Purpose Address Registry: 198.18.0.0/15 Benchmarking (RFC 2544)',
+  ],
+  [
+    'reserved-class-e-range-is-refused',
+    'A reserved address (240.0.0.0/4) is refused',
+    'http://240.0.0.1/',
+    'IANA IPv4 Special-Purpose Address Registry: 240.0.0.0/4 Reserved (RFC 1112)',
+  ],
+  [
+    'limited-broadcast-is-refused',
+    'The limited broadcast address 255.255.255.255 is refused',
+    'http://255.255.255.255/',
+    'IANA IPv4 Special-Purpose Address Registry: 255.255.255.255/32 Limited Broadcast (RFC 8190)',
+  ],
+  [
+    'ipv6-documentation-range-is-refused',
+    'An IPv6 documentation address (2001:db8::/32) is refused',
+    'http://[2001:db8::1]/',
+    'IANA IPv6 Special-Purpose Address Registry: 2001:db8::/32 Documentation (RFC 3849)',
+  ],
+  [
+    'ipv6-discard-only-range-is-refused',
+    'An IPv6 discard-only address (100::/64) is refused',
+    'http://[100::1]/',
+    'IANA IPv6 Special-Purpose Address Registry: 100::/64 Discard-Only Address Block (RFC 6666)',
+  ],
+];
 
 export const literalCases: readonly GuardCase[] = [
   {
@@ -185,10 +232,9 @@ export const literalCases: readonly GuardCase[] = [
     what: '0.0.0.0, which reaches the local host on Linux and macOS, is refused',
     input: { url: 'http://0.0.0.0:8000/', rung: 'http', answer: null },
     expected: refused(),
-    from: NETGUARD_LITERALS,
-    established: ['test', 'ran'],
-    specSilent: true,
-    gap: OUTSIDE_THE_FIVE,
+    from: `${NETGUARD_LITERALS}; ${IANA_SETTLED} (0.0.0.0/8 "This network")`,
+    established: ['test', 'ran', 'ruling'],
+    note: OUTSIDE_THE_FIVE,
   },
   {
     id: 'multicast-address-is-refused',
@@ -198,19 +244,23 @@ export const literalCases: readonly GuardCase[] = [
     from: NETGUARD_LITERALS,
     established: ['test', 'ran'],
     specSilent: true,
-    gap: OUTSIDE_THE_FIVE,
+    gap:
+      'Multicast (224.0.0.0/4) has its own IANA registry and is not an entry of the IPv4 ' +
+      'special-purpose registry, so the detail settled on 2026-11-23 ("every IANA special-purpose ' +
+      'range is refused") does not name it. The predecessor refused it; `private_address` is kept ' +
+      'as the closest value.',
   },
   {
     id: 'documentation-range-is-refused',
     what: 'A documentation-range address (198.51.100.0/24) is refused',
     input: { url: 'http://198.51.100.7/', rung: 'http', answer: null },
     expected: refused(),
-    from: 'netguard.py blocked_address lines 48-59 (anything not is_global), run offline',
-    established: ['read', 'ran'],
-    specSilent: true,
-    gap: OUTSIDE_THE_FIVE,
+    from:
+      'netguard.py blocked_address lines 48-59 (anything not is_global), run offline; ' +
+      `${IANA_SETTLED} (198.51.100.0/24 Documentation (TEST-NET-2))`,
+    established: ['read', 'ran', 'ruling'],
     note:
-      'The predecessor refuses every address that is not public global unicast: reserved, ' +
+      `${OUTSIDE_THE_FIVE} The predecessor refuses every address that is not public global unicast: reserved, ` +
       'documentation, benchmarking, broadcast and unspecified ranges as well as the five. One case ' +
       'stands for those classes. It is why no case uses a documentation address as "public".',
   },
@@ -235,12 +285,22 @@ export const literalCases: readonly GuardCase[] = [
   },
   {
     id: 'nat64-of-public-passes',
-    what: '64:ff9b::101:101 (NAT64 of 1.1.1.1) passes',
+    what: '64:ff9b::101:101 (NAT64 of 1.1.1.1) passes: it is judged as the IPv4 address it reaches',
     input: { url: 'http://[64:ff9b::101:101]/', rung: 'http', answer: null },
     expected: { pass: true, connectTo: ['64:ff9b::101:101'] },
-    from: 'pricewatch/tests/test_netguard.py::test_public_literals_are_allowed (ALLOWED_LITERALS)',
-    established: ['test', 'ran'],
-    specSilent: true,
+    from:
+      'pricewatch/tests/test_netguard.py::test_public_literals_are_allowed (ALLOWED_LITERALS); ' +
+      'docs/progress.md 2026-11-24 (the orchestrator, the owner may overrule): a NAT64 address is ' +
+      'judged by the IPv4 address it embeds',
+    established: ['test', 'ran', 'ruling'],
+    note:
+      '64:ff9b::/96 is an entry of the IANA IPv6 special-purpose registry (IPv4-IPv6 Translat., ' +
+      'RFC 6052, marked globally reachable), so the detail settled on 2026-11-23 ("every IANA ' +
+      'special-purpose address range is refused") read literally refuses it. The orchestrator ' +
+      'narrowed the detail on 2026-11-24: on an IPv6-only network with DNS64, every IPv4-only ' +
+      'shop resolves to an address in this range, and refusing the range would refuse them all. ' +
+      'The address is judged by the IPv4 address it embeds, as the predecessor did: public here, ' +
+      'private in nat64-of-private-is-refused and loopback in the case before it.',
   },
   {
     id: 'public-ipv4-literal-passes',
@@ -260,20 +320,42 @@ export const literalCases: readonly GuardCase[] = [
   },
   {
     id: 'userinfo-naming-a-store-before-a-loopback-host-is-refused',
-    what: 'In http://www.store.example@127.0.0.1/ the host is 127.0.0.1, and it is refused',
+    what: 'http://www.store.example@127.0.0.1/ carries user-info, so it is refused as written',
     input: { url: 'http://www.store.example@127.0.0.1/', rung: 'http', answer: null },
-    expected: refused(),
-    from: 'fetch.py refuse_private lines 131-153 (urlsplit hostname), run offline',
-    established: ['ran', 'spec'],
-    note: 'No predecessor test of user-info.',
+    expected: urlForm,
+    from: `fetch.py refuse_private lines 131-153 (urlsplit hostname), run offline; ${URL_FORM_SETTLED}`,
+    established: ['ran', 'spec', 'ruling'],
+    note:
+      'No predecessor test of user-info. The predecessor refused it as private (host 127.0.0.1), and ' +
+      'this case expected `private_address` until the orchestrator settled on 2026-11-23 that a URL ' +
+      'unacceptable as written gets its own reason. The form clause runs before any address is ' +
+      'judged, as for names.ts userinfo-in-a-url-is-refused, so `url_form` is the reason; the URL ' +
+      'is refused either way.',
   },
   {
     id: 'credentials-before-a-private-host-are-refused',
-    what: 'In http://user:secret@10.0.0.5:8080/ the host is 10.0.0.5, and it is refused',
+    what: 'http://user:secret@10.0.0.5:8080/ carries user-info, so it is refused as written',
     input: { url: 'http://user:secret@10.0.0.5:8080/', rung: 'http', answer: null },
-    expected: refused(),
-    from: 'fetch.py refuse_private lines 131-153, run offline',
-    established: ['ran', 'spec'],
-    note: 'No predecessor test of user-info. "secret" is a placeholder.',
+    expected: urlForm,
+    from: `fetch.py refuse_private lines 131-153, run offline; ${URL_FORM_SETTLED}`,
+    established: ['ran', 'spec', 'ruling'],
+    note:
+      'No predecessor test of user-info. "secret" is a placeholder. Expected `private_address` ' +
+      'until the detail settled on 2026-11-23; the form clause runs first, so the reason is `url_form`.',
   },
+  ...SPECIAL_PURPOSE.map(
+    ([id, what, url, registry]): GuardCase => ({
+      id,
+      what,
+      input: { url, rung: 'http', answer: null },
+      expected: refused(),
+      from: `${IANA_SETTLED}; ${registry}`,
+      established: ['ruling'],
+      note:
+        'Added for the detail settled on 2026-11-23. No predecessor test. Its blocked_address refuses ' +
+        'what is not is_global (see documentation-range-is-refused), and Python 3 ipaddress reports ' +
+        'this address not global (checked on 2026-11-24 with the local python3, not the ' +
+        "predecessor's interpreter).",
+    }),
+  ),
 ];

@@ -4,7 +4,15 @@
 // predecessor's own words call the listing a variant or a bundle, the case follows S§5.4 and says
 // so in `divergence`.
 import { asked, listing, type MatchCase } from '../contract.ts';
-import { REVIEW_RULE, review, run, S54_JUDGE, S54_RULES, test } from '../evidence.ts';
+import {
+  REVIEW_RULE,
+  review,
+  run,
+  S54_JUDGE,
+  S54_RULES,
+  SUFFIX_RULING,
+  test,
+} from '../evidence.ts';
 
 const ITSELF = 'test_the_product_itself_is_not_an_accessory';
 const RENAMED = 'test_the_product_under_another_stores_name_still_matches';
@@ -49,10 +57,22 @@ function renamed(
   };
 }
 
+/** The for-Business question ("a variant of the MX Master 3S, not it?"), settled by the ruling. */
+const FOR_BUSINESS_SETTLED =
+  `the edition suffix "for Business" makes a different product under ${SUFFIX_RULING}; ` +
+  'variant is one of the pair it names, and the gold set labels the for-Business listings ' +
+  'variant too (mx-master-3s-s11, -s13, mx-master-3s-de-s01)';
+
 const CONFIGURATION =
   'The title carries a configuration word the query does not name; the predecessor accepts it ' +
   '(asserted), and S§5.4 says a missing attribute is not a conflict. Confirm exact, or say it is ' +
   'a variant ("variants in configuration are not matches").';
+
+const HEATSINK =
+  "The owner's ruling of 2026-11-23 on name suffixes does not settle it (a heatsink is a " +
+  'configuration, not a line or a material). The gold set labels "with Heatsink" listings ' +
+  'variant, but its SN850X and 990 PRO products name "without heatsink" as a must-have ' +
+  '(sn850x-2tb-s09, 990-pro-2tb-s11), so it does not answer a query that names neither.';
 
 export const theProduct: readonly MatchCase[] = [
   itself(
@@ -81,18 +101,24 @@ export const theProduct: readonly MatchCase[] = [
     ],
     label:
       'the predecessor itself names the for-Business listing a product variant (test_amazon.py ' +
-      'test name); S§5.4 says variants in configuration are not matches',
+      `test name); S§5.4 says variants in configuration are not matches; ${FOR_BUSINESS_SETTLED}`,
     divergence:
       'The predecessor accepted it as the product (score at or over 65; test_matching.py ' +
       'test_the_product_itself_is_not_an_accessory). S§5.4: a variant is not a match.',
-    ownerCheck: 'Confirm that the for-Business edition is a variant of the MX Master 3S, not it.',
   },
   itself(
     'for-mac-edition',
     '"For Mac" after the model: a qualifier, not a product it fits',
     'Logitech MX Master 3S',
     'MX Master 3S For Mac',
-    { ownerCheck: CONFIGURATION },
+    {
+      ownerCheck:
+        `${CONFIGURATION} Kept exact as the predecessor had it, but ${SUFFIX_RULING} may reach ` +
+        'it: "For Mac" is an edition suffix like "for Business" (a variant here), and the gold ' +
+        'set labels "MX Master 3S ... for Mac" and "MX Master 3S für Mac" variant ' +
+        '(mx-master-3s-s05, mx-master-3s-de-s11, -s13; those products name the standard ' +
+        'edition as a must-have).',
+    },
   ),
   itself(
     'for-plaque-control-is-a-purpose',
@@ -106,7 +132,7 @@ export const theProduct: readonly MatchCase[] = [
     'an SSD "with Heatsink for PS5": the "for" names where it fits, not what it is',
     'WD Black SN850X 2TB',
     'WD SN850X 2TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops',
-    { ownerCheck: CONFIGURATION },
+    { ownerCheck: `${CONFIGURATION} ${HEATSINK}` },
   ),
   itself(
     'with-heatsink-compatible-with-a-console',
@@ -114,7 +140,7 @@ export const theProduct: readonly MatchCase[] = [
     'Samsung 990 Pro 2TB',
     'SAMSUNG SSD 990 PRO with Heatsink 2TB, PCIe 4.0, Sew. Read Speeds Up-to 7,450MB/s, ' +
       'Compatible with PlayStation®5 (MZ-V9P2T0CW)',
-    { ownerCheck: CONFIGURATION },
+    { ownerCheck: `${CONFIGURATION} ${HEATSINK}` },
   ),
   itself(
     'included-case-is-not-the-product',
@@ -416,10 +442,9 @@ export const theProduct: readonly MatchCase[] = [
     ],
     label:
       'the predecessor names it "a product variant" in the test name; S§5.4: variants in ' +
-      'configuration are not matches',
+      `configuration are not matches; ${FOR_BUSINESS_SETTLED}`,
     divergence:
       'The predecessor ranks it first as the product for the query. S§5.4: a variant is not a ' +
       'match.',
-    ownerCheck: 'See for-business-edition-with-part-number.',
   },
 ];

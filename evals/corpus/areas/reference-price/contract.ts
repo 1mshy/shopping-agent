@@ -75,20 +75,27 @@ export type ReferenceDecision =
   | { readonly action: 'none'; readonly why: NoReferenceReason };
 
 /**
- * The subject (Phase 1). A watch that has a reference keeps it (`keep`). Otherwise a listing is
- * eligible when it belongs to the watch's product, its relation is `exact` with verified identity,
- * and its latest read is an observation with a price in a known currency. If any eligible listing
- * is new (condition `new`, or `unknown` as the predecessor treated an unflagged listing) from a
- * first-party seller on a retail channel, only those count. Currency: the watch's, if adopted;
- * otherwise the market currency when an eligible listing bills in it, else the currency the
- * eligible listings bill in. The reference is the median of their prices (`median_verified`); with
- * an even count, the mean of the two middle prices. With no eligible listing, a user-confirmed
- * price in the watch's currency is the reference (`user_confirmed`). Open readings (even-count
- * rounding, which wins when both exist, several foreign currencies) are in the area report.
+ * The subject (Phase 1). The reference is worked out afresh on every call; the decision is `keep`
+ * when it equals the watch's current reference (same price and kind), `set` otherwise.
+ * - A user-confirmed price in the watch's currency is the reference (`user_confirmed`) and wins
+ *   over the observed median until the user changes it (owner's ruling of 2026-11-23).
+ * - Otherwise the reference is the median of the eligible listings' latest prices
+ *   (`median_verified`), recomputed as reads arrive (owner's ruling of 2026-11-23). A listing is
+ *   eligible when it belongs to the watch's product, its relation is `exact` with verified
+ *   identity, its condition is known (an `unknown` condition is shown with a flag and left out of
+ *   the reference: owner's ruling of 2026-11-23), and its latest read is an observation with a
+ *   price in a known currency. If any eligible listing is new (condition `new`) from a first-party
+ *   seller on a retail channel, only those count. Currency: the watch's, if adopted; otherwise the
+ *   market currency when an eligible listing bills in it, else the currency the eligible listings
+ *   bill in. With an even count the median is the mean of the two middle prices rounded half up to
+ *   the minor unit (settled by the orchestrator 2026-11-23, the owner may overrule).
+ * Open readings (how a user price relates to "currency adopted only from the first real read",
+ * several foreign currencies) are in the area report.
  */
 export type ChooseReferencePrice = (input: ReferenceInput) => ReferenceDecision;
 
-export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec';
+/** `ruling`: the owner's rulings of 2026-11-23 or a detail the orchestrator settled that day. */
+export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec' | 'ruling';
 
 export interface CaseSource {
   readonly how: Provenance;

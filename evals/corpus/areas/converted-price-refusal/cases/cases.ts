@@ -1,5 +1,7 @@
 // Converted-figure cases. A converted figure is refused at currency resolution (`converted`), and a
-// page that says two things about its money is refused too (`conflict`). The incidents themselves
+// page that says two things about its money is refused too (`conflict`). The owner's ruling of
+// 2026-11-23 keeps both refusals for a site's conversions (and its "approx." figures, see
+// currency-resolution) while a Shopify Markets presentment price is the shop's own price. The incidents themselves
 // (the SUNLU and heater listings on amazon.com) are in `known-failure-converted-currency`.
 import type { CurrencyCase } from '../contract.ts';
 import { evidence } from '../contract.ts';
@@ -75,7 +77,7 @@ export const cases: readonly CurrencyCase[] = [
     id: 'mark-agreeing-with-the-declared-currency',
     what: 'A figure written "$120.00 CAD" where the data declares CAD is not converted',
     input: evidence('shop.example.com', { priceCurrency: 'CAD', priceText: '$120.00 CAD' }),
-    expected: { ok: true, currency: 'CAD', source: 'price_currency' },
+    expected: { ok: true, currency: 'CAD', source: 'price_mark' },
     from: [
       {
         file: RECIPES_PY,
@@ -83,7 +85,15 @@ export const cases: readonly CurrencyCase[] = [
         how: 'reading the function',
         note: 'an explicit mark equal to the currency is accepted and counts as named',
       },
+      {
+        file: 'docs/progress.md',
+        at: '2026-11-23, "Settled by the orchestrator"',
+        how: 'owner ruling',
+        note: 'currency evidence ranks an explicit mark on the figure, then a platform declaration, then the page locale, then the ccTLD (an engineering detail the owner may overrule)',
+      },
     ],
+    notes:
+      'Before the settled ranking of 2026-11-23 this case expected source `price_currency` (the declaration ranked first). The currency, CAD, is the same either way; only the source named changed, because the mark now ranks first and agrees with the declaration.',
   },
   {
     id: 'bare-dollar-on-a-ca-page-declaring-usd',

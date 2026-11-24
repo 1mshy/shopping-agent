@@ -3,6 +3,8 @@
 import type { WallCase } from '../contract.ts';
 
 const NOTHING = { headers: {}, markup: [] } as const;
+const SETTLED =
+  'docs/progress.md 2026-11-23 "Settled by the orchestrator" (the owner may overrule):';
 
 export const statusCases: readonly WallCase[] = [
   {
@@ -19,12 +21,40 @@ export const statusCases: readonly WallCase[] = [
       documentBytes: 5000,
     },
     expected: { kind: 'wall', rung: 'http', vendor: null, mode: 'challenge' },
-    from: 'pricewatch/tests/test_fetch.py::test_blocked_by_status (403); fetch.py Page.looks_blocked line 309',
-    established: ['test', 'ran'],
+    from:
+      'pricewatch/tests/test_fetch.py::test_blocked_by_status (403); fetch.py Page.looks_blocked line 309; ' +
+      `${SETTLED} "a bare 403 with no wall marker is a block, not a named wall"`,
+    established: ['test', 'ran', 'ruling'],
     note:
-      'Predecessor: looks_blocked True. Mode by the default rule (no puzzle, no access-denied wording). ' +
-      'Vendor null: the lab classifier (scripts/browser-lab/harness/lab/classify.py classify(), run ' +
-      'offline) answers wall:other "HTTP 403". The test used host x.com; replaced by shop.example.',
+      'Predecessor: looks_blocked True. Confirmed by the detail the orchestrator settled on 2026-11-23 ' +
+      '(the owner may overrule): a block is a wall outcome whose vendor is null, never a named one. ' +
+      'Mode by the default rule (no puzzle, no access-denied wording); the settled detail does not ' +
+      'name a mode. Vendor null: the lab classifier (scripts/browser-lab/harness/lab/classify.py ' +
+      'classify(), run offline) answers wall:other "HTTP 403". The test used host x.com; replaced by ' +
+      'shop.example.',
+  },
+  {
+    id: 'bare-403-on-a-big-retailer-names-no-vendor',
+    what: 'A bare 403 from amazon.ca with no wall marker is still a block with no vendor named',
+    input: {
+      rung: 'http',
+      status: 403,
+      finalUrl: 'https://www.amazon.ca/dp/B0BKVY4WKT',
+      ...NOTHING,
+      title: '',
+      visibleText: 'x'.repeat(5000),
+      visibleChars: 5000,
+      documentBytes: 5000,
+    },
+    expected: { kind: 'wall', rung: 'http', vendor: null, mode: 'challenge' },
+    from:
+      `${SETTLED} "a bare 403 with no wall marker is a block, not a named wall" and "in-house walls ` +
+      'name their vendor"',
+    established: ['ruling'],
+    note:
+      "Added for the two details settled on 2026-11-23. The host is Amazon's, but nothing in the " +
+      'page is a wall marker, so the in-house rule (which names a vendor from wall evidence, as in ' +
+      'amazon-text-captcha-on-a-200-is-a-captcha) does not apply: the host alone names no vendor.',
   },
   {
     id: 'status-429-is-rate-limited',
@@ -88,12 +118,17 @@ export const statusCases: readonly WallCase[] = [
       documentBytes: 5000,
     },
     expected: { kind: 'login_required', rung: 'http' },
-    from: 'fetch.py Page.looks_blocked line 309 (401 is blocked); _NOT_THE_STORES_ANSWER comment, lines 184-187',
-    established: ['read', 'ran'],
+    from:
+      'fetch.py Page.looks_blocked line 309 (401 is blocked); _NOT_THE_STORES_ANSWER comment, lines 184-187; ' +
+      `${SETTLED} "a 401 is login_required"`,
+    established: ['read', 'ran', 'ruling'],
     note:
       'No predecessor test. looks_blocked returns True for 401 (ran), and the comment at line 184 ' +
       'calls 401/403 "a login or bot wall". The evidence has no wall signal, so the HTTP meaning of ' +
-      '401 decides: login_required. Open question for the owner.',
+      '401 decides: login_required, as the orchestrator settled on 2026-11-23 (the owner may overrule).',
+    divergence:
+      'The predecessor counted a 401 as blocked, the same boolean as a wall. Settled 2026-11-23: a 401 ' +
+      'is login_required.',
   },
   {
     id: 'amazon-404-with-the-automated-access-footer-is-not-found',

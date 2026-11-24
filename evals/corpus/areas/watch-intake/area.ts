@@ -3,7 +3,7 @@ import { intakeCases } from './cases/intake.ts';
 import type { IntakeCase } from './contract.ts';
 
 const PREDECESSOR =
-  'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db12684598a1c662f6e4292ba273c2b528592a (51db126), working tree with uncommitted files as read on 2026-11-18; the owner has not yet confirmed this is the reference copy';
+  'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db12684598a1c662f6e4292ba273c2b528592a (51db126), working tree with uncommitted files as read on 2026-11-18; the owner confirmed it as the reference copy on 2026-11-23';
 
 export const area = defineArea<IntakeCase>({
   id: 'watch-intake',

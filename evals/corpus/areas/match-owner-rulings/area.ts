@@ -1,5 +1,7 @@
 // The owner's matching rulings as fixed cases (S§5.4: "combo counts both ways, Plus counts the
-// query's way, a size in place of a model is not a clash"), and the hand reviews' rule and labels.
+// query's way, a size in place of a model is not a clash"), the ruling of 2026-11-23 (a name
+// suffix that changes the line or the material makes a different product, never exact), and the
+// hand reviews' rule and labels.
 // A future change must not flip one of these without the owner.
 import { defineArea } from '../../harness.ts';
 import { PREDECESSOR } from '../match-title-rules/evidence.ts';

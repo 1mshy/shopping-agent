@@ -195,7 +195,7 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
     'JOB_RUN_STATUSES',
     'JobRunStatus',
     'S§4.4 job_run',
-    ['running', 'completed', 'failed', 'skipped'],
+    ['running', 'completed', 'failed', 'skipped', 'timed_out'],
   ],
   ['BUDGET_KINDS', 'BudgetKind', 'S§5.7', ['turns', 'deadline', 'input_tokens', 'spend']],
   ['DELIVERY_STATES', 'DeliveryState', 'S§4.4 delivery', ['pending', 'accepted', 'failed']],
@@ -215,7 +215,7 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
     'POLICY_REFUSAL_REASONS',
     'PolicyRefusalReason',
     'S§5.1 guard',
-    ['scheme', 'private_address', 'body_size', 'robots', 'host_limit', 'budget'],
+    ['scheme', 'url_form', 'private_address', 'body_size', 'robots', 'host_limit', 'budget'],
   ],
   [
     'MARKETPLACE_OUTCOME_KINDS',

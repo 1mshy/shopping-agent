@@ -16,6 +16,13 @@ const money = (amountMinor: number, currency: MinorUnitCurrency): Money => ({
 });
 const NONE: CouponReading = { kind: 'none' };
 
+const SETTLED_HALF_UP = {
+  file: 'docs/progress.md',
+  at: '2026-11-23, "Settled by the orchestrator"',
+  how: 'owner ruling',
+  note: 'percentage coupons round half-up (an engineering detail the owner may overrule)',
+} as const;
+
 const ranCoupon = (text: string, price: string, result: string) =>
   ({
     file: BIGBOX_PY,
@@ -31,7 +38,7 @@ export const cases: readonly CouponCase[] = [
     id: 'sunlu-heater-clip-coupon',
     what: 'The missed incident: CA$167.73 sticker with an "Apply $117.74 coupon" clip coupon',
     input: { sticker: STICKER, text: 'Coupon: Apply $117.74 coupon Terms' },
-    expected: { kind: 'amount_off', amountOff: cad(11774), effective: cad(4999) },
+    expected: { kind: 'amount_off', amountOff: cad(11774), afterCoupon: cad(4999) },
     from: [
       fromTest(
         'test_clip_coupon_is_taken_off_the_sticker_price',
@@ -49,7 +56,7 @@ export const cases: readonly CouponCase[] = [
       ),
     ],
     divergence:
-      'The predecessor replaced the tracked price with the price after the coupon and kept the sticker in extra.sticker_price (AmazonAdapter._parse, lines 406-411). S§4.1 keeps the sticker as the sticker, the coupon as an amount off, and derives the effective price in code.',
+      'The predecessor replaced the tracked price with the price after the coupon and kept the sticker in extra.sticker_price (AmazonAdapter._parse, lines 406-411). S§4.1 keeps the sticker as the sticker, the coupon as an amount off, and derives the effective price in code. This coupon needs a clip ("Apply"), so under the owner\'s ruling of 2026-11-23 it is shown beside the price but is not taken off the alert price and does not trigger an alert on its own (alert-price-rules clip-coupon-alone-does-not-fire); 4999 is the price after the coupon, not the effective price.',
   },
   {
     id: 'percentage-coupon',
@@ -59,7 +66,7 @@ export const cases: readonly CouponCase[] = [
       kind: 'percent_off',
       basisPoints: 2000,
       amountOff: cad(3355),
-      effective: cad(13418),
+      afterCoupon: cad(13418),
     },
     from: [
       fromTest('test_percent_coupon_is_applied', 'price 134.18: "167.73 × 0.8, rounded"'),
@@ -68,8 +75,8 @@ export const cases: readonly CouponCase[] = [
         '167.73',
         "{'percent': 20.0, 'effective': Decimal('134.18')}",
       ),
+      SETTLED_HALF_UP,
     ],
-    specSilent: true,
   },
   {
     id: 'percentage-rounds-half-up',
@@ -79,7 +86,7 @@ export const cases: readonly CouponCase[] = [
       kind: 'percent_off',
       basisPoints: 1000,
       amountOff: money(100, 'USD'),
-      effective: money(905, 'USD'),
+      afterCoupon: money(905, 'USD'),
     },
     from: [
       ranCoupon(
@@ -92,8 +99,8 @@ export const cases: readonly CouponCase[] = [
         at: 'coupon_in_text, line 164 (ROUND_HALF_UP)',
         how: 'reading the function',
       },
+      SETTLED_HALF_UP,
     ],
-    specSilent: true,
   },
   {
     id: 'percentage-with-a-decimal',
@@ -103,7 +110,7 @@ export const cases: readonly CouponCase[] = [
       kind: 'percent_off',
       basisPoints: 1250,
       amountOff: cad(2097),
-      effective: cad(14676),
+      afterCoupon: cad(14676),
     },
     from: [
       ranCoupon(
@@ -111,8 +118,8 @@ export const cases: readonly CouponCase[] = [
         '167.73',
         "{'percent': 12.5, 'effective': Decimal('146.76')}",
       ),
+      SETTLED_HALF_UP,
     ],
-    specSilent: true,
   },
   {
     id: 'nearest-figure-to-the-word-coupon-wins',
@@ -121,7 +128,7 @@ export const cases: readonly CouponCase[] = [
       sticker: STICKER,
       text: 'Coupon: Apply $117.74 coupon Save 5% with Subscribe & Save Terms',
     },
-    expected: { kind: 'amount_off', amountOff: cad(11774), effective: cad(4999) },
+    expected: { kind: 'amount_off', amountOff: cad(11774), afterCoupon: cad(4999) },
     from: [
       fromTest('test_the_figure_nearest_the_word_coupon_wins', 'price 49.99'),
       ranCoupon(
@@ -204,7 +211,7 @@ export const cases: readonly CouponCase[] = [
     id: 'search-card-coupon-beside-the-sticker',
     what: 'On a search card the sticker sits near the word coupon too; the $117.74 is the coupon',
     input: { sticker: STICKER, text: '$167.73 Save $117.74 with coupon' },
-    expected: { kind: 'amount_off', amountOff: cad(11774), effective: cad(4999) },
+    expected: { kind: 'amount_off', amountOff: cad(11774), afterCoupon: cad(4999) },
     from: [
       fromTest(
         'test_search_card_coupon_is_flagged_but_the_sticker_is_kept',
@@ -221,7 +228,7 @@ export const cases: readonly CouponCase[] = [
     id: 'french-amount-after-the-figure',
     what: 'A Canadian French coupon writes the dollar sign after the amount',
     input: { sticker: STICKER, text: 'Coupon : Appliquer un coupon de 40 $ Conditions' },
-    expected: { kind: 'amount_off', amountOff: cad(4000), effective: cad(12773) },
+    expected: { kind: 'amount_off', amountOff: cad(4000), afterCoupon: cad(12773) },
     from: [
       ranCoupon(
         'Coupon : Appliquer un coupon de 40 $ Conditions',

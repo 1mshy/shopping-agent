@@ -4,6 +4,33 @@ import type { ObservedRead, PriceAlertWatch } from '../contract.ts';
 
 export const cad = (amountMinor: number): Money => ({ amountMinor, currency: 'CAD' });
 
+/** The owner's rulings of 2026-11-23 on the Phase 1 questions (docs/progress.md), as a source. */
+export const OWNER = (ruling: string) =>
+  ({
+    how: 'ruling',
+    ref: `Owner's ruling of 2026-11-23 (docs/progress.md, "Owner rulings on the Phase 1 questions"): "${ruling}"`,
+  }) as const;
+
+/** A detail settled by the orchestrator on 2026-11-23 (docs/progress.md); the owner may overrule. */
+export const SETTLED = (detail: string) =>
+  ({
+    how: 'ruling',
+    ref: `Settled by the orchestrator 2026-11-23, the owner may overrule (docs/progress.md): "${detail}"`,
+  }) as const;
+
+export const RULING_INCLUSIVE = OWNER(
+  'A user\'s threshold is inclusive ("$50 or less" fires at $50.00).',
+);
+export const RULING_CONFIRM = OWNER(
+  'The confirming read must itself meet the rule; a smaller drop on the second read sends nothing and the watch keeps watching.',
+);
+export const RULING_EFFECTIVE = OWNER(
+  'Alert price is the effective price after an automatic discount, shown beside the sticker; a coupon that needs clipping or a code does not trigger an alert on its own.',
+);
+export const SETTLED_RUNG = SETTLED(
+  'the confirming read uses the same read path including the rung',
+);
+
 /** The evaluation instant of the drop cases: right after the second (confirming) read. */
 export const NOW = '2026-11-17T09:05:00.000Z';
 export const FIRST_READ_AT = '2026-11-17T09:00:00.000Z';

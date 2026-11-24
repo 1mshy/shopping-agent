@@ -22,8 +22,10 @@ import {
 import { z } from 'zod';
 
 /**
- * What was asked: the identity part of SearchIntent (S§5.4). `name` is the text the title rules
- * read; brand, model, MPN and GTIN are the identifiers tier 1 compares. Every case ported from the
+ * What was asked: the identity part of SearchIntent (S§5.4). The gold set's product identity is
+ * to adopt the same `packages/shared` SearchIntent shape (settled by the orchestrator 2026-11-23;
+ * `evals/gold` still has its own shape, e.g. `mustHave` as a record). `name` is the text the title
+ * rules read; brand, model, MPN and GTIN are the identifiers tier 1 compares. Every case ported from the
  * predecessor sets only `name` (its query, verbatim) and leaves the identifiers null, because the
  * predecessor's query was one string: it never had structured identifiers on the asked side.
  */
@@ -44,7 +46,10 @@ export interface MatchListing {
   readonly gtin: string | null;
   /** `Listing.variant`: the selected variant's options as the store names them. */
   readonly variant: Readonly<Record<string, string>>;
-  /** `Listing.urlCanonical`. The predecessor read model numbers from the URL path (specSilent). */
+  /**
+   * `Listing.urlCanonical`. A model number in its path is supporting evidence, never identity on
+   * its own (settled by the orchestrator 2026-11-23); the predecessor accepted a listing on it.
+   */
   readonly url: string | null;
 }
 

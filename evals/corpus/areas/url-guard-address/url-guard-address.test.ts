@@ -34,6 +34,9 @@ describe('url-guard-address case data', () => {
     }
     expect(c.from.length).toBeGreaterThan(0);
     expect(c.established.length).toBeGreaterThan(0);
-    if (c.divergence !== undefined) expect(c.established).toContain('spec');
+    // A divergence from the predecessor rests on the spec or on a ruling of 2026-11-23.
+    if (c.divergence !== undefined) {
+      expect(c.established.some((e) => e === 'spec' || e === 'ruling')).toBe(true);
+    }
   });
 });

@@ -3,6 +3,7 @@
 import type { WallCase } from '../contract.ts';
 
 const LAB = 'lab classifier (scripts/browser-lab/harness/lab/classify.py classify(), run offline)';
+const IN_HOUSE = '"in-house walls name their vendor"';
 
 export const wallCases: readonly WallCase[] = [
   {
@@ -19,13 +20,19 @@ export const wallCases: readonly WallCase[] = [
       markup: [],
       documentBytes: 20,
     },
-    expected: { kind: 'wall', rung: 'http', vendor: null, mode: 'challenge' },
-    from: 'pricewatch/tests/test_fetch.py::test_blocked_by_challenge_redirect_url; fetch.py lines 318-322',
-    established: ['test', 'ran', 'spec'],
+    expected: { kind: 'wall', rung: 'http', vendor: 'ebay', mode: 'challenge' },
+    from:
+      'pricewatch/tests/test_fetch.py::test_blocked_by_challenge_redirect_url; fetch.py lines 318-322; ' +
+      `docs/progress.md 2026-11-23 "Settled by the orchestrator": ${IN_HOUSE}`,
+    established: ['test', 'ran', 'spec', 'ruling'],
     note:
-      `S§5.1 names this case. Vendor null: eBay's own wall, which the ${LAB} reports as ` +
-      'wall:other "eBay splashui challenge"; the vendor vocabulary has no name for it. The path says ' +
-      'challenge, so the mode is challenge.',
+      `S§5.1 names this case. Vendor ebay: eBay's own wall, which the ${LAB} reports as ` +
+      'wall:other "eBay splashui challenge". Until the orchestrator settled on 2026-11-23 that ' +
+      'in-house walls name their vendor (the owner may overrule), this case expected vendor null. The ' +
+      'path says challenge, so the mode is challenge.',
+    divergence:
+      'The predecessor named no vendor for its own boolean "blocked", and its lab classifier filed this ' +
+      'wall under "other". In-house walls now name their vendor (settled 2026-11-23).',
   },
   {
     id: 'walmart-blocked-redirect-is-a-perimeterx-wall',
@@ -133,15 +140,21 @@ export const wallCases: readonly WallCase[] = [
       markup: [],
       documentBytes: 47,
     },
-    expected: { kind: 'wall', rung: 'http', vendor: null, mode: 'captcha' },
+    expected: { kind: 'wall', rung: 'http', vendor: 'amazon', mode: 'captcha' },
     from:
       'pricewatch/tests/test_fetch.py::test_body_markers_still_apply_on_a_200; ' +
-      'test_amazon.py::test_search_gives_up_quietly_when_amazon_walls_the_page (same body)',
-    established: ['test', 'ran'],
+      'test_amazon.py::test_search_gives_up_quietly_when_amazon_walls_the_page (same body); ' +
+      `docs/progress.md 2026-11-23 "Settled by the orchestrator": ${IN_HOUSE}`,
+    established: ['test', 'ran', 'ruling'],
     note:
-      `Mode captcha by rule 1: the page asks a person to type characters. Vendor null: the ${LAB} ` +
-      'answers wall:other "Amazon captcha"; Amazon\'s own wall has no vendor name. The predecessor ' +
-      'would have waited on it (see challenge-wait amazon-text-captcha-is-reported-at-once).',
+      `Mode captcha by rule 1: the page asks a person to type characters. Vendor amazon: the ${LAB} ` +
+      'answers wall:other "Amazon captcha"; the final URL is on amazon.ca and the wall is Amazon\'s ' +
+      'own. Until the orchestrator settled on 2026-11-23 that in-house walls name their vendor (the ' +
+      'owner may overrule), this case expected vendor null. The predecessor would have waited on it ' +
+      '(see challenge-wait amazon-text-captcha-is-reported-at-once).',
+    divergence:
+      'The predecessor named no vendor for its own boolean "blocked", and its lab classifier filed this ' +
+      'wall under "other". In-house walls now name their vendor (settled 2026-11-23).',
   },
   {
     id: 'akamai-access-denied-is-access-denied',

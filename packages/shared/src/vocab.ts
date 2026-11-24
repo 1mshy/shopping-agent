@@ -256,8 +256,11 @@ export const RUN_TYPES = [
 export const RunType = z.enum(RUN_TYPES);
 export type RunType = z.infer<typeof RunType>;
 
-/** job_run.status; health reports skipped runs (S§5.8). */
-export const JOB_RUN_STATUSES = ['running', 'completed', 'failed', 'skipped'] as const;
+/**
+ * job_run.status; health reports skipped runs (S§5.8). A run that reaches its job's deadline ends
+ * `timed_out`, keeping its partial results (S§5.8).
+ */
+export const JOB_RUN_STATUSES = ['running', 'completed', 'failed', 'skipped', 'timed_out'] as const;
 export const JobRunStatus = z.enum(JOB_RUN_STATUSES);
 export type JobRunStatus = z.infer<typeof JobRunStatus>;
 
@@ -316,11 +319,13 @@ export type WallMode = z.infer<typeof WallMode>;
 
 /**
  * FetchOutcome `refused_by_policy` reason, one per refusing clause of the guard (S§5.1): http/https
- * only; private, loopback, link-local, CGNAT and metadata ranges (one reason, also after a
+ * only; a URL not acceptable as written (user-info, no host); every IANA special-purpose address
+ * range, private, loopback, link-local, CGNAT and metadata among them (one reason, also after a
  * redirect); body size cap; robots setting; per-host limiter; budget.
  */
 export const POLICY_REFUSAL_REASONS = [
   'scheme',
+  'url_form',
   'private_address',
   'body_size',
   'robots',

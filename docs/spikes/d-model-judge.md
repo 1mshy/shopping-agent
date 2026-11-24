@@ -2,6 +2,8 @@
 
 Plan P0 workstream 5, spike D · run 2026-11-23 · harness `evals/judge-spike/` · status: **decision proposed, owner to confirm**
 
+> **Note (2026-11-24).** Every result below was measured on the dataset as of commit `d5acab7`: 158 items, fingerprint `e930f87b1a1f73796e60025c744c028c6779a90d651516d78c8c993a954a7e29`. Since then the matcher corpus applies the owner's rulings and the orchestrator's settled details of 2026-11-23 (P0-3e), which changed five golds and nothing else: the two URL-only `exact` golds named under "Method" are now `unknown`, and three SUNLU filament items (`plus-asked-listing-plain`, `plus-asked-listing-matte`, `another-line-silk`) now expect the set `other_model`/`variant`. The current dataset is 158 items, fingerprint `5520a85bf3f93b3e01f4eb9ee201fab5810fc414dbf931b6bf10e7240eb02236` (51 `exact`, 121 single, 37 sets). The figures here are not re-scored and stay as measured; `evals/judge-spike/README.md` describes the change.
+
 ## Question
 
 S§5.4's tier 3 is a rule-guided, batched model judge for the listings that identifiers and title rules leave undecided: at most 3 calls of at most 15 listings, output `{id, relation, differingAttrs, reason}`, "invalid output means `unknown`". The plan asks spike D to run that prompt against the predecessor's hand-reviewed pairs and measure precision per error class (other line, wrong capacity), batch-size degradation, and tokens and cost per batch. The owner narrowed it on 2026-11-23 to **one hosted model, Claude Haiku 5.5** (`claude-haiku-5-5`), on the native Anthropic API; the second hosted model and the local model were dropped, so the veto-only reading for a local model is not measured.

@@ -1,5 +1,15 @@
 import type { PriceAlertCase } from '../contract.ts';
-import { cad, confirmedPair, daily, NOW, observed, SECOND_READ_AT, watch } from './fixtures.ts';
+import {
+  cad,
+  confirmedPair,
+  daily,
+  FIRST_READ_AT,
+  NOW,
+  observed,
+  RULING_EFFECTIVE,
+  SECOND_READ_AT,
+  watch,
+} from './fixtures.ts';
 
 const T = 'pricewatch/tests/test_service.py';
 const I = 'pricewatch/tests/test_watch_intake.py';
@@ -128,5 +138,74 @@ export const comparableCases: readonly PriceAlertCase[] = [
     ],
     divergence:
       'The predecessor compared a listing whose stock was unknown (in_stock None passes `in_stock is not False`), so this read would have fired the target. S§5.8 compares only in-stock observations and S§2.10 makes unknown a value of its own.',
+  },
+  {
+    id: 'automatic-discount-price-is-the-alert-price',
+    what: 'A CA$55.00 sticker with an automatic CA$7.00 discount reaches a CA$50.00 target at CA$48.00',
+    input: {
+      now: NOW,
+      watch: watch({ targetPrice: cad(5000) }),
+      reads: [observed(301, SECOND_READ_AT, 4800, { sticker: 5500 })],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: {
+      fire: true,
+      rules: ['target_reached'],
+      observationId: 301,
+      price: cad(4800),
+      repeat: 'first',
+    },
+    from: [RULING_EFFECTIVE],
+    specDerived: true,
+    notes:
+      "Added for the owner's ruling of 2026-11-23. Effective price = sticker − automatic discount = 5500 − 700 = 4800 ≤ 5000: the target is reached on the effective price, which is the alert price; the sticker (5500) alone would not reach it.",
+  },
+  {
+    id: 'clip-coupon-alone-does-not-fire',
+    what: 'A CA$55.00 sticker with a CA$10.00 clip coupon does not reach a CA$50.00 target',
+    input: {
+      now: NOW,
+      watch: watch({ targetPrice: cad(5000) }),
+      reads: [observed(301, SECOND_READ_AT, 5500, { actionCouponOff: 1000 })],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: { fire: false, silence: 'below_threshold' },
+    from: [RULING_EFFECTIVE],
+    specDerived: true,
+    notes:
+      "Added for the owner's ruling of 2026-11-23. The coupon needs a clip, so it is not taken off: the alert price is 5500 > 5000. Taking it off (5500 − 1000 = 4500) would have fired; that is what the ruling rules out. The predecessor took a clip coupon off the tracked price (known-failure-coupon-missed).",
+    divergence:
+      'After its 2026-09-06 fix (commit 9678053) the predecessor replaced the tracked price with the price after a clip coupon (AmazonAdapter._parse, lines 406-411, as known-failure-coupon-missed records), so this read would have fired its target. The owner ruled on 2026-11-23 that a coupon needing a clip or a code does not trigger an alert on its own.',
+  },
+  {
+    id: 'automatic-discount-drop-fires-on-the-effective-price',
+    what: 'A confirmed drop measured on the effective price fires though the sticker has not moved',
+    input: {
+      now: NOW,
+      watch: watch({ referencePrice: cad(10000), dropBasisPoints: 1000 }),
+      reads: [
+        ...daily([10000, 10000, 10000, 10000, 10000, 10000, 10000], 101),
+        observed(201, FIRST_READ_AT, 8800, { sticker: 10000 }),
+        observed(202, SECOND_READ_AT, 8800, { sticker: 10000 }),
+      ],
+      lastAcceptedPriceAlert: null,
+    },
+    expected: {
+      fire: true,
+      rules: ['drop'],
+      observationId: 202,
+      price: cad(8800),
+      repeat: 'first',
+    },
+    from: [
+      RULING_EFFECTIVE,
+      {
+        how: 'spec',
+        ref: 'S§5.8 Alert rules: drop "by more than 3 MAD (floor 1%) and by the user\'s threshold, confirmed by a second read on the same read path"',
+      },
+    ],
+    specDerived: true,
+    notes:
+      "Added for the owner's ruling of 2026-11-23. Sticker CA$100.00 with an automatic CA$12.00 discount on both reads: effective 10000 − 1200 = 8800. B − P = 10000 − 8800 = 1200 ≥ 1000 × 10000 / 10000 = 1000; MAD 0 (flat history; with 8800 × 2: deviations 0 × 7, 1200, 1200 → MAD 0), so 1200 > 100. Both reads on platform_json and the api rung.",
   },
 ];

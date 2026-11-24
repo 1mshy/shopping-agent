@@ -4,7 +4,9 @@
 // 2026-09-06; tests/test_amazon.py from line 327). The function reads the coupon a product page
 // shows beside its buy box into the S§4.1 observation fields: `coupon` is an amount off, and a
 // percentage coupon becomes an amount only because its base, the sticker, is known. Phase 1
-// workstream 2 (the Amazon adapter) and workstream 5 (effective price) use it.
+// workstream 2 (the Amazon adapter) and workstream 5 (effective price) use it. Since the owner's
+// ruling of 2026-11-23 a clip coupon is read and shown, but on its own it does not trigger an
+// alert: the miss this area is named for is fixed by showing the coupon, not by alerting on it.
 import type { Money } from '@agentic-dasher/shared';
 
 /** How a case's expected value was established. */
@@ -12,7 +14,9 @@ export type How =
   | 'test assertion'
   | 'reading the function'
   | 'running the function offline'
-  | 'spec';
+  | 'spec'
+  /** The owner's rulings of 2026-11-23, or a detail the orchestrator settled that day. */
+  | 'owner ruling';
 
 export interface Provenance {
   readonly file: string;
@@ -45,18 +49,24 @@ export interface CouponInput {
  * amount ("Apply $117.74 coupon", "coupon de 40 $"). A figure with subscription words beside it
  * ("Save 5% with Subscribe & Save") is not a coupon, wherever it sits. An amount not below the
  * sticker, or a percentage outside (0, 100), is a misread and ignored. A percentage's amount off
- * is the sticker less the effective price, which is the sticker × (1 − percentage) rounded half
- * up to the minor unit. `effective` is sticker − amountOff.
+ * is the sticker less the price after the coupon, which is the sticker × (1 − percentage) rounded
+ * half up to the minor unit (settled by the orchestrator 2026-11-23, the owner may overrule).
+ * `afterCoupon` is sticker − amountOff.
+ *
+ * `afterCoupon` is not the effective price. A coupon the buyer must clip or enter as a code is
+ * shown beside the price and never triggers an alert on its own; the alert price is the effective
+ * price after automatic discounts only (owner's ruling of 2026-11-23; alert-price-rules
+ * clip-coupon-alone-does-not-fire). The field was named `effective` before that ruling.
  */
 export type CouponReading =
   | { readonly kind: 'none' }
-  | { readonly kind: 'amount_off'; readonly amountOff: Money; readonly effective: Money }
+  | { readonly kind: 'amount_off'; readonly amountOff: Money; readonly afterCoupon: Money }
   | {
       readonly kind: 'percent_off';
       /** The percentage in basis points (20% is 2000). */
       readonly basisPoints: number;
       readonly amountOff: Money;
-      readonly effective: Money;
+      readonly afterCoupon: Money;
     };
 
 /** The future function. */

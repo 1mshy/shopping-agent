@@ -24,9 +24,18 @@ export interface ObservedRead {
   readonly currency: ListingCurrency;
   /**
    * The amount the watch measures, in integer minor units of `currency`; null when the read has
-   * no price. Whether this is the sticker or the effective price is open (see the area report).
+   * no price. It is the effective price after any automatic discount (the alert price, shown
+   * beside the sticker); a coupon that needs a clip or a code is never taken off it (owner's
+   * ruling of 2026-11-23).
    */
   readonly price: number | null;
+  /** The sticker, in minor units of `currency`, when an automatic discount makes it differ from `price`. */
+  readonly sticker?: number;
+  /**
+   * The amount off of a coupon the buyer must clip or enter as a code, in minor units of
+   * `currency`. Shown with the read; it never lowers `price` and never triggers an alert on its own.
+   */
+  readonly actionCouponOff?: number;
   readonly availability: Availability;
   readonly readPath: ReadMethod;
   readonly rung: Rung;
@@ -114,26 +123,38 @@ export type PriceAlertDecision =
 /**
  * The subject (Phase 1, packages/core). Rules, from S§5.8:
  * - Comparable reads: an observation with availability `in`, a price, and the watch's currency.
- * - Target: fires when the comparable price is at or below `targetPrice`; one read suffices.
+ *   The price is the effective price after automatic discounts; a clip or code coupon is not
+ *   taken off (owner's ruling of 2026-11-23).
+ * - Target: fires when the comparable price is at or below `targetPrice` (inclusive: "$50 or
+ *   less" fires at $50.00, owner's ruling of 2026-11-23); one read suffices.
  * - Drop, with B = referencePrice and P = the read's price, both in the watch's currency:
- *   (a) B − P ≥ dropBasisPoints × B / 10000 (the user's threshold, inclusive);
+ *   (a) B − P ≥ dropBasisPoints × B / 10000 (the user's threshold, inclusive: owner's ruling of
+ *       2026-11-23);
  *   (b) B − P > max(3 × MAD, B / 100) (strictly more than 3 MAD, floor 1% of B), where MAD is the
  *       median absolute deviation, around their median, of this listing's comparable observations
  *       on the same read path as the evaluated read (with an even count the median is the mean of
- *       the two middle values);
+ *       the two middle values, rounded half up to the minor unit: settled by the orchestrator
+ *       2026-11-23, the owner may overrule; no case's verdict depends on the rounding);
  *   (c) confirmation: the read immediately before the evaluated one is an observation on the same
- *       read path that also meets (a) and (b).
- *   Comparisons are exact (no rounding of B / 100 or of the median).
+ *       read path, including the same rung (settled by the orchestrator 2026-11-23, the owner may
+ *       overrule), and the evaluated read, the confirming one, itself meets (a) and (b): a smaller
+ *       drop on the second read that does not meet the rule sends nothing, and the watch keeps
+ *       watching (owner's ruling of 2026-11-23).
+ *   Comparisons are exact (no rounding of B / 100).
  * - Repeat: with an accepted alert at price L, a price below L fires at once (`further_drop`);
  *   otherwise it fires only once `now − acceptedAt ≥ cooldownSeconds` and the price differs from L.
- * Open readings (window of the MAD, whether the reads being confirmed enter it, scaled or raw MAD,
- * "confirmed" as "also meets" or "within 1%") are listed in the area report; every case gives the
- * same verdict under each reading.
+ *   The cooldown is per watch (settled by the orchestrator 2026-11-23, the owner may overrule).
+ * Open readings (window of the MAD, whether the reads being confirmed enter it, scaled or raw MAD)
+ * are listed in the area report; every case gives the same verdict under each reading.
  */
 export type EvaluatePriceAlert = (input: PriceAlertInput) => PriceAlertDecision;
 
-/** How a case's expected value was obtained. */
-export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec';
+/**
+ * How a case's expected value was obtained. `ruling`: the owner's rulings of 2026-11-23, or a
+ * detail the orchestrator settled that day (the owner may overrule), as docs/progress.md records
+ * them; they win over the spec and the predecessor.
+ */
+export type Provenance = 'test-assertion' | 'function-reading' | 'offline-run' | 'spec' | 'ruling';
 
 export interface CaseSource {
   readonly how: Provenance;

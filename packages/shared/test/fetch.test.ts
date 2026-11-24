@@ -49,6 +49,7 @@ describe('FetchOutcome (S§5.1)', () => {
     );
     for (const reason of [
       'scheme',
+      'url_form',
       'private_address',
       'body_size',
       'robots',
