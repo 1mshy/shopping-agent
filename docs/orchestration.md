@@ -110,6 +110,8 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 
 ### Phase 1 status
 
+**Interruption, 2026-11-25.** At about 00:55 the session reached its usage limit and every agent stopped until 03:20. P1-8a, P1-6c-b and P1-6c-a were resumed at 03:22 from their saved state with a cut-down scope and a hard stop before 05:00, when the unattended run ends. Nothing ran between 00:55 and 03:20.
+
 | Id | Branch | Status | Note |
 |---|---|---|---|
 | P1-0a | committed to `main` (`ffbfb12`, `33643ce`) | merged (2026-11-24) | `packages/fetch` and `packages/sources` skeletons; server and evals depend on them; the Dockerfile copies their manifests. `packages/core/src/globals.d.ts` declares the WHATWG URL API, because the package loads neither Node nor DOM types and the pure URL rules need to parse a URL. Lint, typecheck, test, build exit 0 |
