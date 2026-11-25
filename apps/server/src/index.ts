@@ -8,9 +8,10 @@ import { createApp } from './app.ts';
 import { type AppEnv, createAuthService, sessionOf } from './auth/index.ts';
 import { loadConfig } from './config.ts';
 import { createChannelService, createNotifyRoutes } from './notify/index.ts';
+import { AVAILABLE_RUNGS, createRuntime, type Runtime } from './runtime.ts';
 import { createSecretBox, KEY_FILE_NAME, loadOrCreateKey } from './secrets/index.ts';
 import { createSettingsService, userMarket } from './settings/index.ts';
-import { createWatchRoutes, createWatchService } from './watches/index.ts';
+import { createWatchRoutes, createWatchService, watchLookupJob } from './watches/index.ts';
 
 const startedAt = Date.now();
 const config = loadConfig();
@@ -47,15 +48,38 @@ const auth = createAuthService({ db, now });
 auth.sweepExpired();
 const channels = createChannelService({ db, secrets, now });
 
-const watches = createWatchService({ db, now, market: () => userMarket(settings) });
+// The background runtime (./runtime.ts): the process's one fetcher, and the scheduler with the
+// sweep, the outbox, the backup and the watch lookup. No model anywhere (S§2 invariant 4). It is
+// built here and started once the server listens. The watch service is built first and reaches
+// the runtime through this variable, because each needs the other.
+let runtime: Runtime | undefined;
 
-// Runtime (fetcher, scheduler, sweep, outbox, backup, watch lookup): NOT started here yet; the
-// orchestrator wires ./runtime.ts createRuntime after this unit. Until then POST /api/refresh
-// answers 500 (the error below), and the watch routes get no `jobs` health and no `onListingsDue`.
-// Wiring: replace `refresh` with the scheduler's trigger, pass `jobs: () => scheduler.health()`,
-// start the runtime after the server listens and stop it in shutdown().
-function refresh(): never {
-  throw new Error('the scheduler is not started in this build yet');
+const watches = createWatchService({
+  db,
+  now,
+  market: () => userMarket(settings),
+  // A new or resumed watch has listings due now: a sweep is asked for instead of waiting for the
+  // next minute. A sweep already running is joined.
+  onListingsDue: () => {
+    runtime?.refresh();
+  },
+});
+
+runtime = createRuntime({
+  db,
+  dataDir: config.dataDir,
+  secrets,
+  market: () => userMarket(settings),
+  robotsMode: () => settings.get('fetch.robots'),
+  now,
+  jobs: () => [watchLookupJob({ watches })],
+});
+const background = runtime;
+
+/** `POST /api/refresh`: idempotent, because a running sweep is joined (S§5.8). */
+function refresh(): { runId: number; joined: boolean } {
+  const { runId, joined } = background.refresh();
+  return { runId, joined };
 }
 
 const api = createApp({
@@ -65,6 +89,22 @@ const api = createApp({
   dbOk: () => db.ping(),
   rssBytes: () => process.memoryUsage.rss(),
   now,
+  rungs: AVAILABLE_RUNGS,
+  jobs: () =>
+    background.jobs().map((job) => ({
+      name: job.name,
+      running: job.running,
+      nextRunAt: job.nextRunAt,
+      lastRun:
+        job.lastRun === null
+          ? null
+          : {
+              status: job.lastRun.status,
+              startedAt: job.lastRun.startedAt,
+              endedAt: job.lastRun.endedAt,
+            },
+      skippedRuns: job.skippedRuns,
+    })),
   auth,
   settings,
   routes: {
@@ -76,6 +116,7 @@ const api = createApp({
       db,
       watches,
       refresh,
+      jobs: () => background.jobs(),
       now,
       marketCountry: () => settings.get('market.country') ?? null,
       profileId: (c) => sessionOf(c as Context<AppEnv>).profileId,
@@ -97,6 +138,8 @@ const server = serve({ fetch: app.fetch, port: config.port, hostname: config.hos
   console.info(
     `agentic-dasher ${config.version} listening on :${info.port} (ready in ${Date.now() - startedAt} ms)`,
   );
+  // After the port answers, so start-to-healthy does not wait on the boot catch-up of the jobs.
+  background.start();
 });
 
 let stopping = false;
@@ -106,10 +149,20 @@ function shutdown(signal: string) {
   console.info(`${signal} received, shutting down`);
   const force = setTimeout(() => process.exit(1), 10_000);
   force.unref();
-  server.close(() => {
-    db.close();
-    process.exit(0);
-  });
+  // The scheduler first: it aborts running jobs and ends their rows, then the database closes.
+  void background
+    .stop()
+    .catch((error: unknown) => {
+      console.error(
+        `stopping the scheduler: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    })
+    .finally(() => {
+      server.close(() => {
+        db.close();
+        process.exit(0);
+      });
+    });
 }
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 process.on('SIGINT', () => shutdown('SIGINT'));

@@ -10,7 +10,7 @@
 //   3. /api/health (open; output unchanged), the auth routes, the first-run status;
 //   4. the protected sub-apps: settings, then `deps.routes` (notify's channels, the watches). A
 //      further sub-app adds its own field to ProtectedRoutes and one `.route` line below.
-import type { CookieSecureMode, HealthResponse } from '@agentic-dasher/shared';
+import type { CookieSecureMode, HealthJob, HealthResponse, Rung } from '@agentic-dasher/shared';
 import { Hono } from 'hono';
 import { bodyLimit } from 'hono/body-limit';
 import { clientAddress } from './auth/client.ts';
@@ -52,6 +52,10 @@ export interface AppDeps {
   dbOk: () => boolean;
   rssBytes: () => number;
   now?: () => number;
+  /** The fetch rungs this build can use; none when the runtime is not built (tests). */
+  rungs?: readonly Rung[];
+  /** The scheduler's jobs, for health; absent when the runtime is not built (tests). */
+  jobs?: () => readonly HealthJob[];
   /** Owner password and sessions (auth/service.ts). */
   auth: AuthService;
   /** Settings (settings/service.ts). */
@@ -88,6 +92,8 @@ export function createApp(deps: AppDeps) {
           db,
           migrationLevel: deps.migrationLevel,
           rssBytes: deps.rssBytes(),
+          rungs: [...(deps.rungs ?? [])],
+          jobs: [...(deps.jobs?.() ?? [])],
         };
         return c.json(body, db === 'ok' ? 200 : 503);
       })

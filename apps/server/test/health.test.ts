@@ -24,6 +24,8 @@ describe('GET /api/health', () => {
       db: 'ok',
       migrationLevel: 2,
       rssBytes: 42,
+      rungs: [],
+      jobs: [],
     });
   });
 
@@ -43,8 +45,10 @@ describe('GET /api/health', () => {
     const body = (await (await h.app.request('/api/health')).json()) as object;
     expect(Object.keys(body).sort()).toEqual([
       'db',
+      'jobs',
       'migrationLevel',
       'rssBytes',
+      'rungs',
       'status',
       'uptimeS',
       'version',
