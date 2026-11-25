@@ -45,7 +45,7 @@ Last updated: 2026-11-24.
 
 | Gate (plan P0 exit criteria) | Value | Status | What closes it |
 |---|---|---|---|
-| CI green; multi-arch image within S§5.14 budgets | CI green on GitHub `main` (2026-11-23, everything pushed). Image build and budgets exit 0 locally on 2026-11-18 (88.0 MB pull, 278.8 MB unpacked, 27.7 MB idle, 211 ms start; n=1, arm64 host) | holds | — |
+| CI green; multi-arch image within S§5.14 budgets | CI green on GitHub `main` on 2026-11-24 after the last push (run 45530574650); the run on `5ecc97a` had failed on one intermittent transport-lab test (a timeout named `GenericFailure`); the adapter's rule was changed, and the failure was not reproduced before or after. Image build and budgets exit 0 locally on 2026-11-18 (88.0 MB pull, 278.8 MB unpacked, 27.7 MB idle, 211 ms start; n=1, arm64 host) | holds | — |
 | Fixture corpus exists and fails for the right reason | 601 cases in 26 areas, 601 pending, 0 implemented (2026-11-24, after the rulings of 2026-11-23 were applied); `pnpm test` exit 0 | holds (predecessor copy confirmed by the owner 2026-11-23) | — |
 | Gold set v1 labelled, 40/20 split, 10% double-labelled with agreement reported | 61 products, 1,307 snapshots, all labelled, split 41/20; 174 of 1,307 double-labelled (13.3%); agreement 164/174 = 0.943, kappa 0.919 (seven relations), exact versus not exact 174/174; strict validator OK (2026-11-23) | holds, **with model labels on both sides**: the second labeller is Claude Mythos 5.2 in the owner's place, no person has labelled the set. Accepted on 2026-11-24 under the owner's word ("implement what you think is best"). Carried to P2: the identity-precision figure is reported as "against model labels" unless a person has checked the 37 held-out `exact` labels | — |
 | Spike reports A–D written, each with a decision and any spec edit | 4 of 4 (A, B, C, D) | holds | — |
@@ -81,7 +81,7 @@ Not started. A proposed cut, for the Phase 1 orchestrator to adopt or recut. Cor
 | P1-6a | ws6 alerts | Alert rules, reference price, restock watermark, stale reads, delivery gating, as pure decisions over supplied state and clock | — | Pure. Areas alert-price-rules, alert-restock, alert-delivery-gating, reference-price, stale-read. High risk |
 | P1-5a | ws5 prices | Effective and landed derivation with missing components, deal verdict tiers, outlier rule | — | Pure. High risk (money) |
 | P1-1a | ws1 fetch | The guard: address decisions, DNS pinning, per-hop redirect checks, body cap | P1-0 | Areas url-guard-address, url-guard-transport. High risk |
-| P1-1b | ws1 fetch | `HttpTransport` on `impit`, the `api` and `http` rungs, typed `FetchOutcome`, cookie jars | P1-1a | The native addon ships per platform: check the multi-arch image build |
+| P1-1b | ws1 fetch | `HttpTransport` on `impit`, the `api` and `http` rungs, typed `FetchOutcome`, cookie jars | P1-1a | The native addon ships per platform: check the multi-arch image build. A failure at or after the deadline is a timeout whatever the client calls it (impit names its own timeout `GenericFailure`; progress log, 2026-11-24) |
 | P1-1c | ws1 fetch | Wall classifier, challenge wait, walled-session drop | P1-0 | Areas wall-classification, challenge-wait, walled-session-drop. High risk |
 | P1-1d | ws1 fetch | Per-host pacing persisted in SQLite, the `host_access` playbook, the robots setting | P1-1b | |
 | P1-2b | ws2 readers | Platform JSON readers: Shopify, WooCommerce, Magento 2 | P1-1b, P1-2a | Order confirmed by spike C |

@@ -49,6 +49,8 @@ The corpus is still **601 cases, 601 pending**. The matcher areas now hold 46 `e
 - *From Anthropic's documentation, not recorded here:* that the current Opus, Sonnet and Fable models refuse a forced `tool_choice`; that editing earlier turns invalidates later thinking blocks; the minimum cacheable prefix; the second rate card of Claude Haiku 5.5 above 100K prompt tokens. The plan asks for recordings of the first two before code relies on them.
 - *Not established:* the SDK's size in the core image; anything about OpenRouter or LiteLLM as a route for Claude.
 
+**CI.** The push of these commits is green (run 45530574650, both jobs). The run before it, on the gold-set review commit `5ecc97a` (2026-11-24), had failed, which the ledger's "CI green on GitHub `main`" did not say: one test of the transport lab, "impit adapter times out on a body that never ends", got `GenericFailure` where it expects `timeout`. Three timers race at the deadline (impit's own, the abort signal, the body reader's), and when impit's fires first its error carries no timeout word. The adapter now names any failure at or after the deadline a timeout. Seen once in CI, never locally on macOS; Phase 1's `HttpTransport` must keep this rule, or a timed-out read is not retried.
+
 **Still the owner's, none blocking Phase 1:** the other_model / other_line boundary; the 37 other set cases (39 with the two filament cases); the three boundary questions of the gold-set review; the author's readings listed in the entry below.
 
 ### 2026-11-24: The corpus follows the rulings of 2026-11-23 (P0-3e)

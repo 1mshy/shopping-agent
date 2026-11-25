@@ -52,7 +52,11 @@ export function impitTransport(opts: { ignoreTlsErrors?: boolean } = {}): HttpTr
           },
         };
       } catch (e) {
-        return { ok: false, error: errorCode(e), detail: detailOf(e) };
+        // impit's own timer can fire before ours, and its error then carries no timeout word
+        // (seen in CI on Linux as `GenericFailure`). Any failure at or after the deadline is a
+        // timeout, whichever of the three timers won.
+        const error = Date.now() >= deadline ? 'timeout' : errorCode(e);
+        return { ok: false, error, detail: detailOf(e) };
       }
     },
     async close() {},
