@@ -74,9 +74,10 @@ export const JOB_NAMES = [SWEEP_JOB_NAME, OUTBOX_JOB_NAME, BACKUP_JOB_NAME] as c
  * The process's fetcher with the HTTP rung's session drop: a walled answer clears that site's
  * cookies (S§5.1 Sessions), so the bot manager's verdict does not stick to the next request.
  *
- * Two sites are parties to a walled answer after a redirect: the one that answered (its URL is the
- * response's, and the wall's own cookies are there) and the one that was asked (whose cookie may
- * be what sent the request to the wall). Both are forgotten; no other site is touched.
+ * The site that was asked is forgotten (S§5.1: its hosts, and its parent-domain cookies held
+ * elsewhere). When the wall was answered by a host of another site after a redirect, that host's
+ * own jar is emptied too (the wall's cookies are there) and nothing else of that site: a page
+ * chooses where it redirects, and must not be able to end the sessions of a shop it names.
  */
 export function fetcherWithSessionDrop(fetcher: Fetcher, jars: CookieJars): Fetcher {
   return {
@@ -84,12 +85,14 @@ export function fetcherWithSessionDrop(fetcher: Fetcher, jars: CookieJars): Fetc
     async get(request) {
       const result = await fetcher.get(request);
       if (dropsSession(result.outcome)) {
-        const sites = new Set<string>();
-        for (const url of [request.url, result.response?.finalUrl]) {
-          const site = url === undefined ? null : sessionSite(url);
-          if (site !== null) sites.add(site);
+        const asked = sessionSite(request.url);
+        if (asked !== null) jars.forget(asked);
+        const finalUrl = result.response?.finalUrl;
+        const answered = finalUrl === undefined ? null : sessionSite(finalUrl);
+        if (finalUrl !== undefined && answered !== null && answered !== asked) {
+          const host = URL.parse(finalUrl)?.hostname;
+          if (host !== undefined && host !== '') jars.jar(host).clear();
         }
-        for (const site of sites) jars.forget(site);
       }
       return result;
     },

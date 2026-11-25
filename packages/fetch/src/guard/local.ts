@@ -57,12 +57,19 @@ export function hostNetworks(): OwnNetwork[] {
   return ownNetworksOf(all);
 }
 
+/** The NAT64 well-known prefix (RFC 6052): its last 32 bits are an IPv4 address. */
+const NAT64_WELL_KNOWN = ipaddr.IPv6.parseCIDR('64:ff9b::/96');
+
 /** True when `address` (an IP address as the guard writes it) is on one of `networks`. */
 export function onOwnNetwork(address: string, networks: readonly OwnNetwork[]): boolean {
   if (!ipaddr.isValid(address)) return false;
   let parsed = ipaddr.parse(address);
   if (parsed.kind() === 'ipv6' && (parsed as ipaddr.IPv6).isIPv4MappedAddress()) {
     parsed = (parsed as ipaddr.IPv6).toIPv4Address();
+  } else if (parsed.kind() === 'ipv6' && parsed.match(NAT64_WELL_KNOWN)) {
+    // The address table lets a public IPv4 address through this prefix (address.ts); an own
+    // IPv4 address written that way is still an own address.
+    parsed = new ipaddr.IPv4(parsed.toByteArray().slice(12));
   }
   for (const [network, bits] of networks) {
     if (network.kind() !== parsed.kind()) continue;

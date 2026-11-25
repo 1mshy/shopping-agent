@@ -111,10 +111,13 @@ export function requestHosts(c: Context, trustProxy: boolean): (string | null)[]
   } catch {
     own = null;
   }
-  const hosts = [own];
+  const hosts: (string | null)[] = [own];
   if (trustProxy) {
-    const forwarded = firstHeaderValue(c, 'x-forwarded-host');
-    if (forwarded !== undefined) hosts.push(forwarded);
+    // Every value: behind a proxy that appends, the first is the client's own.
+    for (const part of (c.req.header('x-forwarded-host') ?? '').split(',')) {
+      const value = part.trim();
+      if (value !== '') hosts.push(value);
+    }
   }
   return hosts;
 }

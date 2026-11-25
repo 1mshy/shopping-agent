@@ -163,6 +163,20 @@ describe('the Host check, second pass', () => {
     expect(proxied.status).toBe(200);
   });
 
+  it('with a trusted proxy, every forwarded host is judged, not the first alone', async () => {
+    h.dispose();
+    h = harness({ env: { AUTH_TRUST_PROXY: 'true' } });
+    // A proxy that appends: the client wrote the first value.
+    const res = await call(h.app, '/api/auth/status', {
+      headers: { 'X-Forwarded-Host': 'localhost, evil.example' },
+    });
+    expect(res.status).toBe(403);
+    const fine = await call(h.app, '/api/auth/status', {
+      headers: { 'X-Forwarded-Host': 'localhost, 192.168.1.20:8080' },
+    });
+    expect(fine.status).toBe(200);
+  });
+
   it('names the refused host, so the owner knows what to list', async () => {
     const res = await call(h.app, '/api/auth/status', { origin: 'http://nas.fritz.box:8080' });
     expect(res.status).toBe(403);

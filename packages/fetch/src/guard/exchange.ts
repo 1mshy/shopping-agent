@@ -167,7 +167,14 @@ export async function guardedExchange<R extends HopResponse>(
     // The machine itself and its link, at whatever address: a global IPv6 address of this host or
     // of a device beside it is no more a shop than 192.168.0.1 is (local.ts). Like the table, one
     // such address among the answers refuses the name.
-    const own = ownNetworks();
+    let own: readonly OwnNetwork[];
+    try {
+      own = ownNetworks();
+    } catch {
+      // The interfaces could not be read: what is own is not known, so nothing is reached. An
+      // outcome, like every other refusal; this function does not throw.
+      return stop(refusal(rung, 'private_address'));
+    }
     if (decision.connectTo.some((address) => onOwnNetwork(address, own))) {
       return stop(refusal(rung, 'private_address'));
     }

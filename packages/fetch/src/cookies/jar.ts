@@ -357,7 +357,8 @@ export class CookieJars {
 
   /** The jar of the session with `host` (a URL's host name), made on first use. */
   jar(host: string): CookieJar {
-    const key = host.toLowerCase();
+    // `shop.test.` is `shop.test`: one session, and `forget` reaches it.
+    const key = host.toLowerCase().replace(/\.+$/, '');
     let jar = this.#jars.get(key);
     if (jar === undefined) jar = new CookieJar();
     else this.#jars.delete(key);
@@ -367,14 +368,30 @@ export class CookieJars {
     return jar;
   }
 
-  /** Drops the least recently used jars, never `keep`, until both caps hold. */
+  /**
+   * Holds both caps, never dropping `keep`. Too many jars: the least recently used go. Too many
+   * cookies: the largest jars go first (the least recently used among equals), so the hosts that
+   * filled the budget pay for it, not a watched shop with a handful of cookies that a page's
+   * redirects pushed down the order.
+   */
   #trim(keep: string): void {
+    for (const host of this.#jars.keys()) {
+      if (this.#jars.size <= MAX_JARS) break;
+      if (host !== keep) this.#jars.delete(host);
+    }
     let cookies = this.cookieCount;
-    for (const [host, jar] of this.#jars) {
-      if (this.#jars.size <= MAX_JARS && cookies <= MAX_COOKIES_TOTAL) return;
-      if (host === keep) continue;
-      cookies -= jar.size;
-      this.#jars.delete(host);
+    while (cookies > MAX_COOKIES_TOTAL) {
+      let victim: string | undefined;
+      let most = 0;
+      for (const [host, jar] of this.#jars) {
+        if (host !== keep && jar.size > most) {
+          victim = host;
+          most = jar.size;
+        }
+      }
+      if (victim === undefined) return;
+      cookies -= most;
+      this.#jars.delete(victim);
     }
   }
 

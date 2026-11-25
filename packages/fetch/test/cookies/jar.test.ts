@@ -252,7 +252,28 @@ describe('CookieJars', () => {
     expect(jars.jar(`h${MAX_JARS + 49}.test`).size).toBe(1);
   });
 
-  it('keeps the cookies of all jars near MAX_COOKIES_TOTAL, dropping the least recently used jars', () => {
+  // From the review of the caps: hosts a page chose could push every watched shop's jar out.
+  it('a few hosts with full jars do not evict a shop with a small one', () => {
+    const jars = new CookieJars();
+    jars.jar('shop.test').store(['sid=1; Path=/'], 'https://shop.test/', NOW);
+    for (let i = 0; i < 40; i++) {
+      const cookies = Array.from({ length: MAX_COOKIES_PER_JAR }, (_, n) => `c${n}=1; Path=/`);
+      jars.jar(`h${i}.evil.test`).store(cookies, `https://h${i}.evil.test/`, NOW);
+    }
+    jars.jar('another.test');
+    expect(jars.jar('shop.test').header('https://shop.test/', NOW)).toBe('sid=1');
+    expect(jars.cookieCount).toBeLessThanOrEqual(MAX_COOKIES_TOTAL + MAX_COOKIES_PER_JAR);
+  });
+
+  it('a host written with a trailing dot shares its jar, and is forgotten with its site', () => {
+    const jars = new CookieJars();
+    jars.jar('shop.test.').store(['sid=1; Path=/'], 'https://shop.test./', NOW);
+    expect(jars.jar('shop.test')).toBe(jars.jar('shop.test.'));
+    jars.forget('shop.test');
+    expect(jars.jar('shop.test.').size).toBe(0);
+  });
+
+  it('keeps the cookies of all jars near MAX_COOKIES_TOTAL, dropping the largest jars first', () => {
     const jars = new CookieJars();
     const perHost = 200;
     const hosts = Math.ceil(MAX_COOKIES_TOTAL / perHost) + 10;
