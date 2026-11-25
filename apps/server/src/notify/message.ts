@@ -46,6 +46,8 @@ export interface AlertRecords {
   readonly currency: string;
   readonly effective: number | null;
   readonly sticker: number | null;
+  /** The observation's time. */
+  readonly observedAt: string;
 }
 
 function money(amount: number | null, currency: string): Money | null {
@@ -76,8 +78,29 @@ export function alertFacts(
     storeHost: records.storeHost,
     price,
     sticker,
+    observedAt: records.observedAt,
     labels: (['caution', 'unconfirmed'] as const).filter((l) => all.has(l)),
   };
+}
+
+/**
+ * Past this age at send time, a message no longer words the observation's price as current (finding
+ * 7 of the review of 2026-11-25): a push retried for days must not say "Now 90.00" for a price read
+ * days ago. The alert is still sent (S§2.11: every recorded alert is delivered); only its wording
+ * changes, and every message states when the price was read.
+ */
+export const STALE_READ_AFTER_MS = 60 * 60 * 1000;
+
+/** `2026-11-17 09:29 UTC`: the observation's time, to the minute, in UTC. */
+function readTime(observedAt: string): string {
+  return `${observedAt.slice(0, 10)} ${observedAt.slice(11, 16)} UTC`;
+}
+
+/** `5 hours`, `3 days`: whole hours below two days, whole days from there. */
+function ageText(ms: number): string {
+  const hours = Math.floor(ms / 3_600_000);
+  if (hours < 48) return hours === 1 ? '1 hour' : `${hours} hours`;
+  return `${Math.floor(ms / 86_400_000)} days`;
 }
 
 const HEADLINE = {
@@ -86,11 +109,18 @@ const HEADLINE = {
   new_listing: 'New listing',
 } as const;
 
-/** The message for an event. `records` is required for a listing alert and ignored otherwise. */
+/**
+ * The message for an event. `records` is required for a listing alert and ignored otherwise. `now`
+ * (epoch ms, the injected clock) is when the message is sent: a listing alert whose observation is
+ * older than STALE_READ_AFTER_MS then is worded as a past read, never as the current price. Without
+ * `now` (a feed listing, read beside the event's own time) the price is worded as before, with the
+ * read time beside it.
+ */
 export function buildMessage(
   event: NotificationEvent,
   records: AlertRecords | null,
   labels: readonly MessageLabel[] = [],
+  now?: number,
 ): NotifyMessage {
   const base = { eventKey: event.key, kind: event.kind, createdAt: event.createdAt };
   switch (event.kind) {
@@ -102,12 +132,36 @@ export function buildMessage(
       const facts = alertFacts(event, records, labels);
       const lines: string[] = [];
       const where = facts.storeHost;
+      const when = readTime(facts.observedAt);
+      const ageMs = now === undefined ? null : now - Date.parse(facts.observedAt);
+      const stale = ageMs !== null && ageMs > STALE_READ_AFTER_MS;
+      const past =
+        ageMs === null
+          ? ''
+          : ` when read at ${when}, ${ageText(ageMs)} before this message was sent`;
       if (facts.price === null) {
+        if (stale) {
+          lines.push(
+            event.kind === 'restock'
+              ? `In stock at ${where}${past}; no price was read, and stock may have changed since.`
+              : `At ${where}${past}; no price was read.`,
+          );
+        } else {
+          lines.push(
+            event.kind === 'restock'
+              ? `In stock at ${where}; no price was read.`
+              : `At ${where}; no price was read.`,
+          );
+          lines.push(`Read at ${when}`);
+        }
+      } else if (stale) {
+        const price = formatMoney(facts.price);
         lines.push(
           event.kind === 'restock'
-            ? `In stock at ${where}; no price was read.`
-            : `At ${where}; no price was read.`,
+            ? `In stock at ${where} for ${price}${past}; stock and price may have changed since.`
+            : `${price} at ${where}${past}; the price may have changed since.`,
         );
+        if (facts.sticker !== null) lines.push(`Sticker price ${formatMoney(facts.sticker)}`);
       } else {
         const verb = event.kind === 'restock' ? 'In stock at' : 'Now';
         lines.push(
@@ -116,6 +170,7 @@ export function buildMessage(
             : `${verb} ${formatMoney(facts.price)} at ${where}`,
         );
         if (facts.sticker !== null) lines.push(`Sticker price ${formatMoney(facts.sticker)}`);
+        lines.push(`Read at ${when}`);
       }
       for (const label of facts.labels) lines.push(LABEL_TEXT[label](where));
       const link = httpLink(facts.listingUrl);
@@ -188,6 +243,7 @@ export function loadAlertRecords(
       currency: priceObservation.currency,
       effective: priceObservation.effective,
       sticker: priceObservation.sticker,
+      observedAt: priceObservation.observedAt,
     })
     .from(priceObservation)
     .innerJoin(listing, eq(listing.id, priceObservation.listingId))

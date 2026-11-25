@@ -343,7 +343,7 @@ export async function runOutboxPass(options: OutboxPassOptions): Promise<OutboxP
         if (eventRow === undefined) throw new Error(`event ${d.eventId} is missing`);
         const event = eventFromRow(eventRow);
         const records = isListingAlert(event) ? loadAlertRecords(db, event) : null;
-        const message = buildMessage(event, records, options.labelsFor?.(event) ?? []);
+        const message = buildMessage(event, records, options.labelsFor?.(event) ?? [], now());
         let result: DeliveryResult | null = null;
         while (result === null) {
           if (signal.aborted) {

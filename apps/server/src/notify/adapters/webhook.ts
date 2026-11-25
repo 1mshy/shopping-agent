@@ -17,6 +17,7 @@
 //       "listingTitle": "…", "storeHost": "shop.example.ca",
 //       "price": { "amountMinor": 44999, "currency": "CAD" } | null,
 //       "sticker": { "amountMinor": 49999, "currency": "CAD" } | null,
+//       "observedAt": "2026-11-17T09:29:00.000Z",   // when the price was read (added in version 1)
 //       "labels": ["caution" | "unconfirmed", …]
 //     }
 //   }
@@ -53,6 +54,7 @@ export function webhookBody(message: NotifyMessage): Record<string, unknown> {
             storeHost: a.storeHost,
             price: a.price,
             sticker: a.sticker,
+            observedAt: a.observedAt,
             labels: a.labels,
           },
   };

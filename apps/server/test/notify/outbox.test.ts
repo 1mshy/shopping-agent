@@ -424,6 +424,7 @@ describe('what a message says', () => {
       message: [
         'Now 379.99 CAD at shop.example.ca',
         'Sticker price 449.99 CAD',
+        'Read at 2026-11-17 09:29 UTC',
         'https://shop.example.ca/products/wh-1000xm5',
       ].join('\n'),
       priority: 4,
@@ -453,6 +454,7 @@ describe('what a message says', () => {
       text: [
         'Now 399.99 CAD at shop.example.ca',
         'Sticker price 449.99 CAD',
+        'Read at 2026-11-17 09:29 UTC',
         'Unconfirmed: this listing may not be the exact product you watch.',
         'https://shop.example.ca/products/wh-1000xm5',
       ].join('\n'),
@@ -465,9 +467,62 @@ describe('what a message says', () => {
         storeHost: 'shop.example.ca',
         price: { amountMinor: 39999, currency: 'CAD' },
         sticker: { amountMinor: 44999, currency: 'CAD' },
+        observedAt: '2026-11-17T09:29:00.000Z',
         labels: ['unconfirmed'],
       },
     });
+  });
+
+  it('a late delivery states when the price was read and does not call it current', async () => {
+    // Finding 7 of the review of 2026-11-25: a push delivered days late said "Now 379.99".
+    const s = await server();
+    ntfy(s.url);
+    priceDrop(2);
+    clock.advance(3 * 86_400_000);
+    await pass();
+    const message: string = JSON.parse(s.received[0]?.body ?? '').message;
+    expect(message).not.toMatch(/^Now /m);
+    expect(message.split('\n')[0]).toBe(
+      '379.99 CAD at shop.example.ca when read at 2026-11-17 09:29 UTC, 3 days before this message was sent; the price may have changed since.',
+    );
+  });
+
+  it('the webhook body carries the observation time beside the price', async () => {
+    const s = await server();
+    webhook(s.url);
+    priceDrop(1);
+    clock.advance(2 * 3_600_000);
+    await pass();
+    const body = JSON.parse(s.received[0]?.body ?? '');
+    expect(body.alert.observedAt).toBe('2026-11-17T09:29:00.001Z');
+    expect(body.alert.price).toEqual({ amountMinor: 38999, currency: 'CAD' });
+    expect(body.text).toContain('when read at 2026-11-17 09:29 UTC, 2 hours before');
+  });
+
+  it('a restock delivered late says the same of the stock', async () => {
+    const s = await server();
+    ntfy(s.url);
+    recordEvent(tmp.db, {
+      profileId: PROFILE,
+      now: clock.now,
+      event: {
+        kind: 'restock',
+        key: alertEventKey({
+          kind: 'restock',
+          watchId: alert.watchId,
+          observationId: alert.observationIds[0] ?? 0,
+        }),
+        watchId: alert.watchId,
+        listingId: alert.listingId,
+        observationId: alert.observationIds[0] ?? 0,
+      },
+    });
+    clock.advance(5 * 3_600_000);
+    await pass();
+    const message: string = JSON.parse(s.received[0]?.body ?? '').message;
+    expect(message.split('\n')[0]).toBe(
+      'In stock at shop.example.ca for 399.99 CAD when read at 2026-11-17 09:29 UTC, 5 hours before this message was sent; stock and price may have changed since.',
+    );
   });
 
   it('adds the caution label from the store record on its own', async () => {

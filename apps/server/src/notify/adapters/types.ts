@@ -20,6 +20,8 @@ export interface AlertFacts {
   readonly price: Money | null;
   /** The observation's sticker price when it is above the effective price. */
   readonly sticker: Money | null;
+  /** When the observation was read: a late delivery states it, so an old price is not taken as current. */
+  readonly observedAt: Timestamp;
   readonly labels: readonly MessageLabel[];
 }
 
