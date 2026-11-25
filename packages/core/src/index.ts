@@ -13,3 +13,4 @@ export * from './prices/index.ts';
 export * from './pricetext/coupon.ts';
 export * from './pricetext/parse.ts';
 export * from './scheduler/index.ts';
+export * from './watches/index.ts';

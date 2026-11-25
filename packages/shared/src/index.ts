@@ -11,3 +11,4 @@ export * from './notification.ts';
 export * from './run.ts';
 export * from './stream.ts';
 export * from './vocab.ts';
+export * from './watch-api.ts';

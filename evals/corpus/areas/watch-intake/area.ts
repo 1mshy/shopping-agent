@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<IntakeCase>({
   id: 'watch-intake',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/service.py: _watch_input (161-179), add_watch (248-318), _missing_condition (86-93)',

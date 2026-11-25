@@ -1,11 +1,11 @@
+import { intakeWatch as coreIntakeWatch } from '@agentic-dasher/core';
 import { Money } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { IntakeCase, IntakeWatch } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function. */
-const intakeWatch: IntakeWatch = () => notImplemented('intakeWatch');
+const intakeWatch: IntakeWatch = coreIntakeWatch;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {
