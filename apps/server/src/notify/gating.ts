@@ -31,8 +31,17 @@ export interface LastAcceptedAlert {
 }
 
 /**
- * The latest event of the watch and kind that counts as delivered, or null when none does. "Latest"
- * is by the time it counts as delivered; a tie goes to the later event.
+ * The newest event of the watch and kind that counts as delivered, or null when none does, with the
+ * time it counts as delivered (its own acceptance: the cooldown starts there).
+ *
+ * "Newest" is by the event's order (its id: the order in which the decisions were recorded), not by
+ * acceptance time (finding 5 of the review of 2026-11-25). Deliveries can be accepted out of order:
+ * with A (90.00) and then B (80.00, a further drop) both on their way, a push may accept B and then
+ * A a minute later. The user has then been told 80.00, and B is what a new read must beat; ordering
+ * by acceptance would make A "the last accepted" and let 85.00 pass as a further drop. The newest
+ * accepted decision is preferred over "the lowest accepted price within the cooldown" because it is
+ * also right after the cooldown (a price that rose and was alerted again must not be compared with
+ * an older, lower one) and it keeps one alert as the basis of both the price and the cooldown.
  */
 export function lastAcceptedAlert(
   db: Database,
@@ -60,7 +69,7 @@ export function lastAcceptedAlert(
             pc.disabled_at is not null or pc.removed_at is not null
             or p.next_attempt_at = ${PARKED_AT}))))
     group by e.id
-    order by acceptedAt desc, e.id desc
+    order by e.id desc
     limit 1`);
   if (row === undefined) return null;
   return {
