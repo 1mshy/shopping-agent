@@ -316,6 +316,9 @@ importers:
       '@agentic-dasher/shared':
         specifier: workspace:*
         version: link:../shared
+      ipaddr.js:
+        specifier: 2.5.0
+        version: 2.5.0
 
   packages/shared:
     dependencies:
@@ -1228,6 +1231,10 @@ packages:
     resolution: {integrity: sha512-vXoV9PjKHEednCUu01e98TkImxy67e3BJXbTIOmIq4Hyzw3IAwYRcuPkfeTzJzwyyts4kjuA73x+pWJLc4f86A==}
     engines: {node: ^22.18.0 || >=24.0.0}
 
+  ipaddr.js@2.5.0:
+    resolution: {integrity: sha512-aq+t5NAc+cS6rZQQVWC2x98CPqGtKKTMDd4Gaodv0wShnItdKg/51djkGJ1hqH+Oy0ivDftCbSLCQob8zso01w==}
+    engines: {node: '>= 10'}
+
   json-schema-to-ts@3.1.1:
     resolution: {integrity: sha512-+DWg8jCJG2TEnpy7kOm/7/AxaYoaRbjVB4LFZLySZlWn8exGs3A4OLJR966cVvU26N7X9TWxl+Jsw7dzAqKT6g==}
     engines: {node: '>=16'}
@@ -2020,6 +2027,8 @@ snapshots:
       impit-win32-x64-msvc: 0.14.9
 
   import-without-cache@0.4.1: {}
+
+  ipaddr.js@2.5.0: {}
 
   json-schema-to-ts@3.1.1:
     dependencies:

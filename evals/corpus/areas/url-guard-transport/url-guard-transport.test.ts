@@ -1,7 +1,8 @@
 import { isIP } from 'node:net';
+import { guardedExchange } from '@agentic-dasher/fetch';
 import { FetchOutcome, RUNGS } from '@agentic-dasher/shared';
 import { describe, expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type {
   Exchange,
@@ -11,8 +12,16 @@ import type {
   TransportExpectation,
 } from './contract.ts';
 
-/** Phase 1 replaces this stub with the guarded transport of packages/fetch. */
-const guardedGet: GuardedGet = async () => notImplemented('guarded transport (guardedGet)');
+/**
+ * The guarded transport of packages/fetch (S§5.1). It also hands back the final response object;
+ * the contract's result is the delivery, the final URL and the status.
+ */
+const guardedGet: GuardedGet = async (request, net) => {
+  const result = await guardedExchange(request, net);
+  return result.delivered
+    ? { delivered: true, finalUrl: result.finalUrl, status: result.status }
+    : result;
+};
 
 function failure(code: string, message: string): Error {
   return Object.assign(new Error(message), { code });

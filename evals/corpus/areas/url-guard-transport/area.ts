@@ -4,7 +4,7 @@ import type { TransportCase } from './contract.ts';
 
 export const area = defineArea<TransportCase>({
   id: 'url-guard-transport',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     'Predecessor: hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit ' +
       '51db126, working tree as it stood on 2026-11-18 (uncommitted files present; the owner confirmed it ' +

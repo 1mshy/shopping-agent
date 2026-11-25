@@ -1,12 +1,13 @@
 import { isIP } from 'node:net';
+import { checkDestination as guardCheckDestination } from '@agentic-dasher/fetch';
 import { FetchOutcome, RUNGS } from '@agentic-dasher/shared';
 import { describe, expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { CheckDestination, GuardDecision } from './contract.ts';
 
-/** Phase 1 replaces this stub with the guard's decision function in packages/fetch. */
-const checkDestination: CheckDestination = () => notImplemented('URL guard (checkDestination)');
+/** The guard's decision function in packages/fetch (S§5.1). */
+const checkDestination: CheckDestination = guardCheckDestination;
 
 corpusTests(
   area,

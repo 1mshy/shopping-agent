@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@agentic-dasher/core": "workspace:*",
-    "@agentic-dasher/shared": "workspace:*"
+    "@agentic-dasher/shared": "workspace:*",
+    "ipaddr.js": "2.5.0"
   }
 }
