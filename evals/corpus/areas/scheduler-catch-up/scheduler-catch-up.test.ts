@@ -1,11 +1,11 @@
+import { planJobRun as planJobRunImpl } from '@agentic-dasher/core';
 import { Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { CatchUpCase, PlanJobRun } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function. */
-const planJobRun: PlanJobRun = () => notImplemented('planJobRun');
+const planJobRun: PlanJobRun = planJobRunImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {

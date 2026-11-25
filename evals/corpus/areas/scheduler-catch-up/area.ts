@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<CatchUpCase>({
   id: 'scheduler-catch-up',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/scheduler.py: _CATCH_UP (79-85), retry_sweep (120-125), sweep (128-147), check_recipes (175-205), start (365-392)',

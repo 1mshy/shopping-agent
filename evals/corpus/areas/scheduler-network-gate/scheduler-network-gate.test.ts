@@ -1,11 +1,11 @@
+import { networkGate as networkGateImpl } from '@agentic-dasher/core';
 import { Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { GateCase, NetworkGate } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function. */
-const networkGate: NetworkGate = () => notImplemented('networkGate');
+const networkGate: NetworkGate = networkGateImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {

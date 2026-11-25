@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<GateCase>({
   id: 'scheduler-network-gate',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/scheduler.py: NETWORK_PROBE_TIMEOUT, RECOVERY_DELAY_SECONDS, NETWORK_PROBE_DELAYS (56-72), network_ready (101-117), retry_sweep (120-125), sweep (128-147), check_recipes (175-205)',

@@ -19,12 +19,14 @@
     "impit": "0.14.9"
   },
   "devDependencies": {
-    "@hono/node-server": "2.1.8",
     "@agentic-dasher/core": "workspace:*",
     "@agentic-dasher/db": "workspace:*",
     "@agentic-dasher/fetch": "workspace:*",
     "@agentic-dasher/shared": "workspace:*",
     "@agentic-dasher/sources": "workspace:*",
+    "@hono/node-server": "2.1.8",
+    "croner": "11.0.0",
+    "drizzle-orm": "1.0.0-rc.5",
     "hono": "4.13.19",
     "tsdown": "0.23.7"
   }
