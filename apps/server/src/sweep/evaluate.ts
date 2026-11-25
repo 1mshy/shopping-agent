@@ -24,9 +24,11 @@
 //   listing.relation         `exact` when confirmed, else the effective verdict's relation or unknown.
 //   listing.identityVerified confirmed, and the store is not `blocked`.
 //   listing.latest           the listing's RECENT price: the median (half up) of the effective prices
-//                            of its observations in its own currency over HISTORY_WINDOW_MS, carried
-//                            on its latest such observation (id, time, availability). With none in the
-//                            window, its latest priced observation; never observed: a failed marker
+//                            of its in-stock observations in its own currency over
+//                            HISTORY_WINDOW_MS, leaving out its two newest (the read being judged and
+//                            its confirmation; with one or two reads in all, the oldest stands),
+//                            carried on its latest priced observation (id, time, availability). With
+//                            no in-stock read in the window: null. Never observed: a failed marker
 //                            when its last attempt failed, else null. Why not the bare latest price:
 //                            a watch on one listing would then have a reference equal to the price
 //                            just read and the drop rule could never fire; the owner's ruling says
@@ -339,6 +341,9 @@ function recomputeReference(
   return { watch: next, reference: outcome };
 }
 
+/** How many of a listing's newest comparable reads stay out of its recent price: the judged read and its confirmation. */
+const REFERENCE_EXCLUDES_NEWEST = 2;
+
 /** The listing's recent price for the reference (see the mapping in the header). */
 function recentPrice(db: Database, m: Member, sinceIso: string): ReferenceLatestRead | null {
   const currency = m.listing.currency;
@@ -362,13 +367,25 @@ function recentPrice(db: Database, m: Member, sinceIso: string): ReferenceLatest
       ? { kind: 'failed', at: check.lastReadAt }
       : null;
   }
+  // Only what the alert rule itself would compare (S§5.8): in stock, priced above zero, in the
+  // listing's currency. An out-of-stock page often carries a placeholder or list price.
   const window = historyOf(db, m.listing.id, {
     sinceIso,
     upTo: null,
     limit: HISTORY_MAX_READS,
-  }).filter((o) => o.currency === currency && o.effective !== null);
-  const prices =
-    window.length > 0 ? window.map((o) => o.effective as number) : [latest.effective as number];
+  }).filter(
+    (o) =>
+      o.currency === currency && o.effective !== null && o.effective > 0 && o.availability === 'in',
+  );
+  // Never in stock in the window: nothing of this listing can stand as a baseline yet.
+  if (window.length === 0) return null;
+  // The two newest reads are left out: a read being judged and the read that confirms it must not
+  // be part of their own baseline, or a new watch could never alert and the reference would
+  // follow every drop down before it is confirmed. With one or two reads in all, the oldest
+  // stands (the first read is the baseline, S§5.8 Intake).
+  const before = window.slice(0, -REFERENCE_EXCLUDES_NEWEST);
+  const basis = before.length > 0 ? before : window.slice(0, 1);
+  const prices = basis.map((o) => o.effective as number);
   return {
     kind: 'observation',
     observationId: latest.id,
