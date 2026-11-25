@@ -10,6 +10,8 @@ export interface Config {
   host: string | undefined;
   /** Host names the API answers for besides addresses and local names (auth/host.ts). */
   allowedHosts: string[];
+  /** ALLOWED_HOSTS entries that are not host names, as written. */
+  rejectedAllowedHosts: string[];
   dataDir: string;
   webRoot: string;
   version: string;
@@ -21,10 +23,12 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
   if (!Number.isInteger(port) || port < 1 || port > 65535) {
     throw new Error(`PORT must be an integer between 1 and 65535, got ${env.PORT}`);
   }
+  const allowed = parseAllowedHosts(env.ALLOWED_HOSTS);
   return {
     port,
     host: env.HOST || undefined,
-    allowedHosts: parseAllowedHosts(env.ALLOWED_HOSTS),
+    allowedHosts: allowed.names,
+    rejectedAllowedHosts: allowed.rejected,
     dataDir: resolve(env.DATA_DIR ?? 'data'),
     webRoot: env.WEB_ROOT ? resolve(env.WEB_ROOT) : DEFAULT_WEB_ROOT,
     version: env.APP_VERSION ?? '0.0.0-dev',

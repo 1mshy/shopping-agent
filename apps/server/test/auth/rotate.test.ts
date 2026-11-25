@@ -39,6 +39,20 @@ describe('changing the password', () => {
     expect((await call(h.app, '/api/settings', { cookie: fresh as string })).status).toBe(200);
   });
 
+  it('does not sign in a session that was logged out while the change was being made', async () => {
+    const token = await setUp(h);
+    const current = h.auth.authenticate(token);
+    if (current === null) throw new Error('no session');
+    // The logout lands after the guard let the change in and before the change is written.
+    h.auth.logout(current.id);
+    const result = await h.auth.changePassword(current, PASSWORD, OTHER_PASSWORD, 'c');
+    expect(result).toEqual({ kind: 'changed', endedSessions: 0, token: null });
+    expect(h.auth.authenticate(token)).toBeNull();
+    expect(
+      (await call(h.app, '/api/auth/login', { body: { password: OTHER_PASSWORD } })).status,
+    ).toBe(200);
+  });
+
   it('keeps the session as it is when the change is refused', async () => {
     const token = await setUp(h);
     const res = await call(h.app, '/api/auth/password', {

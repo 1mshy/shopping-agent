@@ -29,6 +29,8 @@ export type ChangePasswordResult =
       readonly token: string;
       readonly session: SessionInfo;
     }
+  /** The session that asked was logged out meanwhile: the password is changed, nobody is signed in. */
+  | { readonly kind: 'changed'; readonly endedSessions: number; readonly token: null }
   | { readonly kind: 'invalid'; readonly reason: PasswordRuleFailure }
   | { readonly kind: 'invalid_credentials' }
   | { readonly kind: 'throttled'; readonly retryAfterMs: number };

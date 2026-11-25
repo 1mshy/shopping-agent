@@ -15,14 +15,34 @@
 // purpose: nothing reachable over the API can widen it.
 
 /** Suffixes that are not delegated in the public DNS (RFC 6762, RFC 8375, ICANN's reservations). */
-const LOCAL_SUFFIXES = ['.localhost', '.local', '.lan', '.home', '.internal', '.home.arpa'];
+const LOCAL_SUFFIXES = [
+  '.localhost',
+  '.local',
+  '.lan',
+  '.home',
+  '.internal',
+  '.home.arpa',
+  '.localdomain',
+  '.test',
+];
 
 const HOST_CHARACTERS = /^[A-Za-z0-9._:[\]-]+$/;
 const DOTTED_QUAD = /^\d{1,3}(?:\.\d{1,3}){3}$/;
 
-/** The host name of a Host header (`name`, `name:port`, `[v6]:port`), lower-cased; null when malformed. */
-export function hostNameOf(host: string | undefined | null): string | null {
-  if (typeof host !== 'string' || host === '' || !HOST_CHARACTERS.test(host)) return null;
+/** Characters that end or split an authority: never part of a host, in a header or a list. */
+const NOT_A_HOST = /[\s/\\@?#]/;
+
+/**
+ * The host name of a Host header (`name`, `name:port`, `[v6]:port`), lower-cased; null when
+ * malformed. A header is ASCII; `unicode` is for a name a person typed into ALLOWED_HOSTS, which
+ * the parser turns into the punycode form requests carry.
+ */
+export function hostNameOf(
+  host: string | undefined | null,
+  options: { unicode?: boolean } = {},
+): string | null {
+  if (typeof host !== 'string' || host === '' || NOT_A_HOST.test(host)) return null;
+  if (!options.unicode && !HOST_CHARACTERS.test(host)) return null;
   let name: string;
   try {
     const url = new URL(`http://${host}`);
@@ -35,12 +55,30 @@ export function hostNameOf(host: string | undefined | null): string | null {
   return name === '' ? null : name;
 }
 
-/** `ALLOWED_HOSTS`: names separated by commas or spaces; a leading dot lists a whole domain. */
-export function parseAllowedHosts(text: string | undefined): string[] {
-  return (text ?? '')
-    .split(/[\s,]+/)
-    .map((entry) => entry.trim().toLowerCase().replace(/\.$/, ''))
-    .filter((entry) => entry !== '' && entry !== '.');
+export interface AllowedHosts {
+  /** Names as requests carry them: lower case, punycode, no port; a leading dot lists a domain. */
+  readonly names: string[];
+  /** Entries that are not host names, as written: said once at start-up, never matched. */
+  readonly rejected: string[];
+}
+
+/**
+ * `ALLOWED_HOSTS`: names separated by commas or spaces, read as people write them. A port is
+ * dropped (`name:8443`), a leading `.` or `*.` lists every name under a domain, and a Unicode name
+ * is stored in punycode.
+ */
+export function parseAllowedHosts(text: string | undefined): AllowedHosts {
+  const names: string[] = [];
+  const rejected: string[] = [];
+  for (const entry of (text ?? '').split(/[\s,]+/)) {
+    if (entry === '') continue;
+    const domain = entry.startsWith('*.') ? entry.slice(1) : entry;
+    const wide = domain.startsWith('.');
+    const name = hostNameOf(wide ? domain.slice(1) : domain, { unicode: true });
+    if (name === null || name.startsWith('[')) rejected.push(entry);
+    else names.push(wide ? `.${name}` : name);
+  }
+  return { names, rejected };
 }
 
 /** True when this server answers for `host` (a Host header's value). */

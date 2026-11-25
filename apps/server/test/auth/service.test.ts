@@ -237,7 +237,7 @@ describe('logout and password change', () => {
     // asserted that its token kept working.
     const changed = await auth.changePassword(current, PASSWORD, OTHER_PASSWORD, 'c');
     expect(changed).toMatchObject({ kind: 'changed', endedSessions: 2 });
-    if (changed.kind !== 'changed') throw new Error('not changed');
+    if (changed.kind !== 'changed' || changed.token === null) throw new Error('not changed');
     expect(auth.authenticate(first)).toBeNull();
     expect(auth.authenticate(changed.token)).not.toBeNull();
     expect(sessions()).toHaveLength(1);

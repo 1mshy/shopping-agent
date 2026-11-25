@@ -223,7 +223,12 @@ export function createAuthService(deps: AuthServiceDeps): AuthService {
             .run();
           // The session that made the change goes too: its token was in use while the old password
           // stood. A new one replaces it, so the owner stays signed in on this device only.
-          db.orm.delete(session).where(eq(session.id, current.id)).run();
+          const mine = db.orm.delete(session).where(eq(session.id, current.id)).run();
+          // Logged out while the change was being made (the hashing is not instant): the logout
+          // stands, and no new session undoes it.
+          if (mine.changes !== 1) {
+            return { kind: 'changed', endedSessions: ended.changes, token: null };
+          }
           return { kind: 'changed', endedSessions: ended.changes, ...openSession(now()) };
         });
       } catch (error) {

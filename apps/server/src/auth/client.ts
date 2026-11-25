@@ -99,6 +99,26 @@ export function requestHost(c: Context, trustProxy: boolean): string | null {
   }
 }
 
+/**
+ * Every host a request names, for the Host check: the request's own, and with a trusted proxy the
+ * forwarded one too. Both are judged, because a client that reaches the server directly can write
+ * X-Forwarded-Host itself: the forwarded name alone would let it vouch for its own host.
+ */
+export function requestHosts(c: Context, trustProxy: boolean): (string | null)[] {
+  let own: string | null;
+  try {
+    own = new URL(c.req.url).host;
+  } catch {
+    own = null;
+  }
+  const hosts = [own];
+  if (trustProxy) {
+    const forwarded = firstHeaderValue(c, 'x-forwarded-host');
+    if (forwarded !== undefined) hosts.push(forwarded);
+  }
+  return hosts;
+}
+
 /** The request's own origin (`http://host:port`), as the browser addressed it. */
 export function requestOrigin(c: Context, trustProxy: boolean): string | null {
   try {

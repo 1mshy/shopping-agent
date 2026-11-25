@@ -4,7 +4,7 @@
 // pointed at this server's address passed every CSRF rule and could claim an install that had no
 // password yet.
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { hostAllowed } from '../../src/auth/host.ts';
+import { hostAllowed, parseAllowedHosts } from '../../src/auth/host.ts';
 import { call, type Harness, harness, PASSWORD, setUp } from './harness.ts';
 
 describe('hostAllowed', () => {
@@ -129,6 +129,71 @@ describe('the guard refuses a host that is not its own', () => {
       headers: { 'X-Forwarded-Host': '192.168.1.20:8080' },
     });
     expect(fine.status).toBe(200);
+  });
+});
+
+// From the review of the Host check itself (2026-11-25): what it missed.
+describe('the Host check, second pass', () => {
+  let h: Harness;
+  beforeEach(() => {
+    h = harness();
+  });
+  afterEach(() => h.dispose());
+
+  it('with a trusted proxy, a client cannot vouch for its own host with X-Forwarded-Host', async () => {
+    const token = await setUp(h);
+    await call(h.app, '/api/settings/auth.trustProxy', {
+      method: 'PUT',
+      cookie: token,
+      body: { value: true },
+    });
+    // A rebinding page reaches the server directly under its own name and adds the header itself.
+    const res = await call(h.app, '/api/auth/status', {
+      origin: 'http://evil.example:8080',
+      headers: { 'X-Forwarded-Host': '192.168.1.20:8080', 'Sec-Fetch-Site': 'same-origin' },
+    });
+    expect(res.status).toBe(403);
+    // A real proxy: an upstream name the server answers for, and the public name forwarded.
+    h.dispose();
+    h = harness({ allowedHosts: ['dasher.example.org'], env: { AUTH_TRUST_PROXY: 'true' } });
+    const proxied = await call(h.app, '/api/auth/status', {
+      origin: 'http://core:8080',
+      headers: { 'X-Forwarded-Host': 'dasher.example.org' },
+    });
+    expect(proxied.status).toBe(200);
+  });
+
+  it('names the refused host, so the owner knows what to list', async () => {
+    const res = await call(h.app, '/api/auth/status', { origin: 'http://nas.fritz.box:8080' });
+    expect(res.status).toBe(403);
+    const body = (await res.json()) as { error: { message: string } };
+    expect(body.error.message).toContain('nas.fritz.box');
+    expect(body.error.message).toContain('ALLOWED_HOSTS');
+  });
+
+  it('answers for .test and .localdomain names, which the public DNS cannot carry', () => {
+    expect(hostAllowed('dasher.test:8080', [])).toBe(true);
+    expect(hostAllowed('nas.localdomain', [])).toBe(true);
+    // fritz.box is under a public top-level domain: it must be listed.
+    expect(hostAllowed('nas.fritz.box', [])).toBe(false);
+    expect(hostAllowed('nas.fritz.box', parseAllowedHosts('.fritz.box').names)).toBe(true);
+  });
+
+  it('reads ALLOWED_HOSTS entries as people write them', () => {
+    const parsed = parseAllowedHosts(
+      ' dasher.example.com:8443, *.ts.net  .Example.ORG. bücher.example , bad/name,http://x.example/ ',
+    );
+    expect(parsed.names).toEqual([
+      'dasher.example.com',
+      '.ts.net',
+      '.example.org',
+      'xn--bcher-kva.example',
+    ]);
+    expect(parsed.rejected).toEqual(['bad/name', 'http://x.example/']);
+    expect(hostAllowed('dasher.example.com:8443', parsed.names)).toBe(true);
+    expect(hostAllowed('nas.tail1.ts.net', parsed.names)).toBe(true);
+    expect(hostAllowed('xn--bcher-kva.example', parsed.names)).toBe(true);
+    expect(parseAllowedHosts(undefined)).toEqual({ names: [], rejected: [] });
   });
 });
 

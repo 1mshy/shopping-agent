@@ -16,6 +16,16 @@ import { createWatchRoutes, createWatchService, watchLookupJob } from './watches
 
 const startedAt = Date.now();
 const config = loadConfig();
+if (config.rejectedAllowedHosts.length > 0) {
+  console.warn(
+    `ALLOWED_HOSTS: ${config.rejectedAllowedHosts.length} entr${config.rejectedAllowedHosts.length === 1 ? 'y is' : 'ies are'} not a host name and ignored: ${config.rejectedAllowedHosts.map((e) => JSON.stringify(e.slice(0, 80))).join(', ')}`,
+  );
+}
+if (config.allowedHosts.length > 0) {
+  console.info(
+    `answering for the host names ${config.allowedHosts.join(', ')} besides addresses and local names`,
+  );
+}
 
 // The data directory and the database are for the user the server runs as (S§5.13).
 ownerOnlyDir(config.dataDir);

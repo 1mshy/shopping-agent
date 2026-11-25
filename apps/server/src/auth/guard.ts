@@ -31,8 +31,8 @@
 //      and `/api/health` stays reachable by a link from anywhere.
 import type { MiddlewareHandler } from 'hono';
 import { deleteCookie, getCookie } from 'hono/cookie';
-import { requestHost, requestOrigin } from './client.ts';
-import { hostAllowed } from './host.ts';
+import { requestHosts, requestOrigin } from './client.ts';
+import { hostAllowed, hostNameOf } from './host.ts';
 import { type AppEnv, apiError } from './http.ts';
 import type { AuthService, SessionInfo } from './types.ts';
 
@@ -135,11 +135,17 @@ export function createGuard(deps: GuardDeps): MiddlewareHandler<AppEnv> {
     const open = openAccess(method, c.req.path);
     const trustProxy = deps.trustProxy();
 
-    if (!hostAllowed(requestHost(c, trustProxy), deps.allowedHosts ?? [])) {
+    const refused = requestHosts(c, trustProxy).find(
+      (host) => !hostAllowed(host, deps.allowedHosts ?? []),
+    );
+    if (refused !== undefined) {
+      // The name is said back (as parsed, so only a host name's characters) so the owner knows
+      // what to list.
+      const name = hostNameOf(refused)?.slice(0, 100);
       return c.json(
         apiError(
           'forbidden',
-          'this server does not answer for that host name: open it by its address, or list the name in ALLOWED_HOSTS',
+          `this server does not answer for ${name === undefined ? 'that host name' : `the host name ${name}`}: open it by its address, or list the name in ALLOWED_HOSTS`,
         ),
         403,
       );
