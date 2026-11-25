@@ -20,6 +20,34 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: Auth and settings (P1-8a), the server starts the runtime, and the first real read
+
+All on local `main`, checked there (lint, typecheck, test, build exit 0). **Auth is a high-risk area and has had no independent review.**
+
+**P1-8a, owner auth, settings and the route assembly** (`667762d`). `apps/server/src/auth`, `src/settings`, `app.ts`, `index.ts`; shared schemas `auth.ts`, `settings.ts`. The unit's run stalled at 00:41 on the usage limit and was restarted at 03:39.
+
+- *Protected by default.* The guard runs first on every `/api/*` request, and `OPEN_ROUTES` in `auth/guard.ts` is the only place a route can be opened: `/api/health`, `/api/auth/status`, `/api/auth/setup` (409 for ever once a password exists), `/api/auth/login`, and `/api/setup` until a password exists. A test walks the assembled route table and requires every other route to answer 401 without a session. The author could not run a mutation check of the guard (the edit was refused by the session's permission classifier), so that test has not been shown to fail when the guard is weakened.
+- *Password.* argon2id, m = 19,456 KiB, t = 2, p = 1 (OWASP's first recommendation), stored as a PHC string in `owner_password`; Node's argon2id checked against the RFC 9106 test vector. One hash took 14.8 ms and one verify 13.6 ms on this machine (the author's measurement, n = 1). At least 15 characters, at most 256.
+- *Session.* A 32-byte random token in an HttpOnly, SameSite=Strict cookie; only its SHA-256 is stored. Idle window 14 days, sliding, capped at 90 days. `Secure` follows `auth.cookieSecure` (`auto`: set when the request came over HTTPS).
+- *Login throttle.* Per client address (an IPv6 /64) 5 free failures, then a lockout of 1 s doubling to 15 min; globally 20 free failures. The client address is the socket's unless `auth.trustProxy` is set.
+- *CSRF.* Every request that is not GET, HEAD or OPTIONS needs a same-origin `Origin` (or, without one, `Sec-Fetch-Site` of `same-origin` or `none`) and a JSON content type or an `X-Requested-With` header. No CORS headers are sent.
+- *Settings.* A registry of typed definitions; a value comes from the database, else the environment, else the default, and the API says which. Defined: `market.country`, `market.currency`, `market.language` (**no default**: absent until the user chooses), `fetch.robots` (default `ignore`), `auth.cookieSecure`, `auth.trustProxy`. A secret setting is stored encrypted and never returned.
+
+**The server starts the runtime** (`a7c8d68`, by the orchestrator). `index.ts` builds `createRuntime` with the `watch-lookup` job, starts it once the port listens and stops it before the database closes. `POST /api/refresh` triggers the sweep. `/api/health` now reports the fetch rungs and, per job, the last and next run and the skipped runs (S§5.8); the shared `HealthResponse` gained `rungs` and `jobs`.
+
+**First real read through the whole stack**, in a container built from `a7c8d68` on a fresh volume (n = 1 listing, 1 host, 1 request):
+
+| Step | Result |
+|---|---|
+| Password set, market set to CA / CAD / en-CA through the API | 201, then 200 three times |
+| `POST /api/watches` with a Canada Computers product link carrying a `utm_source` parameter | 201; the parameter was stripped; the lookup was `done` at once |
+| The sweep triggered by the new watch | One read 1.6 s after the watch was created: sticker and effective price CAD 874.99, in stock, condition `new`, freshness `current`; the watch adopted CAD and a reference of 874.99; next check 30 minutes later |
+| Sweep job detail | `checked: 1`, `outcomes.read: 1` |
+
+The page was read by the structured-data ladder on the `http` rung, through the guard, the pinned transport, pacing and the wall classifier. The host is one the Phase 0 transport lab read on 2026-11-18.
+
+**Found by that read, not fixed:** the listing's title is still the placeholder (its URL) after the read. The sweep adopts a title only when the stored one is empty, and the lookup stores the URL as the placeholder.
+
 ### 2026-11-25: Watch intake, the watch service and its routes (P1-6c-a)
 
 Squash-merged into local `main` as `e021a71` and checked there (lint, typecheck, test, build exit 0). **No independent review yet.**
