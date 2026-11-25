@@ -1,16 +1,15 @@
 import { HealthResponse } from '@agentic-dasher/shared';
-import { describe, expect, it } from 'vitest';
-import { createApp } from '../src/app.ts';
+import { afterEach, describe, expect, it } from 'vitest';
+import { type Harness, harness } from './auth/harness.ts';
 
+let h: Harness;
+afterEach(() => h?.dispose());
+
+// The harness assembles the whole app (version 1.2.3, started 2.5 s before its clock, level 2,
+// 42 bytes of RSS) on a temporary database. /api/health is open: no cookie, no headers.
 function app(dbOk: boolean) {
-  return createApp({
-    version: '1.2.3',
-    startedAt: 1_000,
-    migrationLevel: 1,
-    now: () => 3_500,
-    dbOk: () => dbOk,
-    rssBytes: () => 42,
-  });
+  h = harness({ dbOk: () => dbOk });
+  return h.app;
 }
 
 describe('GET /api/health', () => {
@@ -23,7 +22,7 @@ describe('GET /api/health', () => {
       version: '1.2.3',
       uptimeS: 2.5,
       db: 'ok',
-      migrationLevel: 1,
+      migrationLevel: 2,
       rssBytes: 42,
     });
   });
@@ -35,5 +34,20 @@ describe('GET /api/health', () => {
       status: 'degraded',
       db: 'error',
     });
+  });
+
+  it('answers without a session even once a password is set', async () => {
+    h = harness();
+    await h.auth.setup('correct horse battery staple');
+    expect((await h.app.request('/api/health')).status).toBe(200);
+    const body = (await (await h.app.request('/api/health')).json()) as object;
+    expect(Object.keys(body).sort()).toEqual([
+      'db',
+      'migrationLevel',
+      'rssBytes',
+      'status',
+      'uptimeS',
+      'version',
+    ]);
   });
 });

@@ -1,3 +1,4 @@
+export * from './auth.ts';
 export * from './common.ts';
 export * from './coverage.ts';
 export * from './currency.ts';
@@ -9,6 +10,7 @@ export * from './matching.ts';
 export * from './money.ts';
 export * from './notification.ts';
 export * from './run.ts';
+export * from './settings.ts';
 export * from './stream.ts';
 export * from './vocab.ts';
 export * from './watch-api.ts';
