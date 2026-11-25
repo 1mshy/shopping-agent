@@ -9,6 +9,7 @@ export * from './market/storefront.ts';
 export * from './matching/index.ts';
 export * from './money.ts';
 export * from './notify/index.ts';
+export * from './prices/index.ts';
 export * from './pricetext/coupon.ts';
 export * from './pricetext/parse.ts';
 export * from './scheduler/index.ts';

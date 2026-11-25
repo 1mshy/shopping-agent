@@ -284,17 +284,17 @@ The request needs a public agent-profile URL. The project publishes one static p
 
 ### 5.5 Prices, deal verdicts and store trust (R§3.6)
 
-**Effective and landed prices** are derived in code from the observation fields, with a list of missing components. The effective price takes off automatic discounts only; a coupon the buyer must clip or enter as a code is shown beside it and never lowers it, and a percentage coupon's amount is rounded half up to the minor unit. An unknown delivery cost cannot establish the cheapest delivered offer. The UI ranks by item price by default and shows a delivered total only where its components are known. Tax-inclusive defaults come per country, and US and Canadian prices carry a "before tax" label.
+**Effective and landed prices** are derived in code from the observation fields, with a list of missing components. The effective price takes off automatic discounts only; a coupon the buyer must clip or enter as a code, or a member price, is shown beside it and never lowers it, and a percentage coupon's amount is rounded half up to the minor unit. An unknown delivery cost cannot establish the cheapest delivered offer. The derivation lists estimated shipping as missing, lists tax as missing when it is not included and its amount is unknown (in every country), and does not list a duty estimate that was never made (§9 #10). The UI ranks by item price by default and shows a delivered total only where its components are known. Tax-inclusive defaults come per country, and US and Canadian prices carry a "before tax" label.
 
 **Deal verdict** (code only, per listing and per product, within one currency, condition and market):
 - **Lowest seen**: at or under the lowest recorded price, with ≥35 days of history.
-- **Good price**: within 5% of the lowest recorded, or ≥10% under the 90-day time-weighted median.
-- **Typical** / **High**.
+- **Good price**: within 5% of the lowest recorded, or ≥10% under the 90-day time-weighted median (each price weighted by the time it held, at most 7 days after a read; out-of-stock time does not count).
+- **Typical** / **High** (High: ≥10% over that median).
 - **Cheapest of N stores, X% under the median**: used when history is under 14 days or has fewer than three price levels.
 - Always shown: the share of the last 90 days at or below today's price.
 - A store's struck-through or "was" price is stored as a claim and never used as a baseline.
 
-**Outlier rule.** With ≥4 exact listings in one currency, condition and market, a price under 60% of their median (50% with 2-3 listings) is never ranked first. It triggers a stricter identity re-check and a trust check, and it is shown separately with the reason. It needs a second read within 1% before it can alert.
+**Outlier rule.** With ≥4 exact listings in one currency, condition and market, a price under 60% of the median of the other listings (50% with 2-3 listings) is never ranked first. It triggers a stricter identity re-check and a trust check, and it is shown separately with the reason. It needs a second read within 1% before it can alert.
 
 **Store trust,** four tiers with visible reasons: known, unverified, caution, blocked. Signals: RDAP registration date (rdap.org, ≤10 req/10 s, cached forever), Tranco top-1M, an optional CERT Polska list, an optional Google Safe Browsing key, a look-alike domain check, and on-page return policy, address, imprint and prepayment-only signals. A "caution" store never headlines a deal and never alerts without its label. The owner decides whether a dubious store stays.
 
