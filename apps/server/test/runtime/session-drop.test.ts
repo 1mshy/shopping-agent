@@ -52,14 +52,14 @@ function request(url: string) {
 const WALL = { kind: 'wall', rung: 'http', vendor: null, mode: 'challenge' } as const;
 
 describe('fetcherWithSessionDrop', () => {
-  it('clears the host that answered the wall after a redirect, and the site that was asked', async () => {
+  it('clears the site that was asked, and nothing of another site that answered the wall', async () => {
     const jars = jarsWith('shop.example.test', 'geo.blocker.test', 'other.example.org');
     const fetcher = fetcherWithSessionDrop(
       answering(WALL, 'https://geo.blocker.test/denied?ref=1'),
       jars,
     );
     await fetcher.get(request('https://shop.example.test/products/widget'));
-    expect(jars.jar('geo.blocker.test').size).toBe(0);
+    expect(jars.jar('geo.blocker.test').size).toBe(1);
     expect(jars.jar('shop.example.test').size).toBe(0);
     expect(jars.jar('other.example.org').size).toBe(1);
   });
@@ -67,7 +67,7 @@ describe('fetcherWithSessionDrop', () => {
   // From the review of this drop: a page chooses where it redirects, so a wall met on another
   // site must not empty that site's other sessions (a hostile page redirecting to a named shop's
   // URL that its bot manager refuses would otherwise log the fetcher out of that shop each sweep).
-  it('a wall on another site clears only the host that answered, not that site', async () => {
+  it("a page that redirects to a named shop cannot end that shop's session", async () => {
     const jars = jarsWith('hostile.example.test', 'www.victim-shop.test', 'victim-shop.test');
     jars
       .jar('m.victim-shop.test')
@@ -77,8 +77,8 @@ describe('fetcherWithSessionDrop', () => {
       jars,
     ).get(request('https://hostile.example.test/p'));
     expect(jars.jar('hostile.example.test').size).toBe(0);
-    expect(jars.jar('www.victim-shop.test').size).toBe(0);
-    // The shop's other hosts and its parent-domain cookies held elsewhere stay.
+    // The host the shop is watched at keeps its session; so do its other hosts.
+    expect(jars.jar('www.victim-shop.test').size).toBe(1);
     expect(jars.jar('victim-shop.test').size).toBe(1);
     expect(jars.jar('m.victim-shop.test').size).toBe(1);
   });

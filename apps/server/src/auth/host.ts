@@ -51,7 +51,8 @@ export function hostNameOf(
   } catch {
     return null;
   }
-  name = name.toLowerCase().replace(/\.$/, '');
+  // Every trailing dot: `com..` must not come out as `com.` and pass for a name with a dot in it.
+  name = name.toLowerCase().replace(/\.+$/, '');
   return name === '' ? null : name;
 }
 
@@ -98,7 +99,9 @@ export function hostAllowed(host: string | undefined | null, allowed: readonly s
   if (name === 'localhost' || !name.includes('.')) return true;
   if (LOCAL_SUFFIXES.some((suffix) => name.endsWith(suffix))) return true;
   return allowed.some((entry) => {
-    const listed = entry.toLowerCase().replace(/\.$/, '');
-    return listed.startsWith('.') ? name.endsWith(listed) : name === listed;
+    const listed = entry.toLowerCase().replace(/\.+$/, '');
+    // A domain entry lists the names under a domain, never under a bare top-level domain.
+    if (listed.startsWith('.')) return listed.indexOf('.', 1) !== -1 && name.endsWith(listed);
+    return name === listed;
   });
 }

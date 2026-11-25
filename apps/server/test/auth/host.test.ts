@@ -210,6 +210,19 @@ describe('the Host check, second pass', () => {
     expect(parseAllowedHosts(undefined)).toEqual({ names: [], rejected: [] });
   });
 
+  // From the last review: `.com..` passed as `.com.` and then matched every .com host.
+  it('doubled trailing dots do not smuggle a top-level domain into the list', () => {
+    const parsed = parseAllowedHosts('.com.. *.com.. .com%2e%2e .net...');
+    expect(parsed.names).toEqual([]);
+    expect(parsed.rejected).toHaveLength(4);
+    for (const host of ['evil.com', 'x.y.com', 'evil.net']) {
+      expect(hostAllowed(host, parsed.names), host).toBe(false);
+      expect(hostAllowed(host, ['.com.', '.com..', '.net.']), host).toBe(false);
+    }
+    // A real domain written with a trailing dot still works.
+    expect(hostAllowed('nas.fritz.box', parseAllowedHosts('.fritz.box.').names)).toBe(true);
+  });
+
   it('never reads an entry as every host, or as a whole top-level domain', () => {
     const parsed = parseAllowedHosts('* *. . .com *.net ..example.com .co.uk');
     // A whole top-level domain is not a domain of the owner's: such an entry is refused. `.co.uk`

@@ -75,9 +75,10 @@ export const JOB_NAMES = [SWEEP_JOB_NAME, OUTBOX_JOB_NAME, BACKUP_JOB_NAME] as c
  * cookies (S§5.1 Sessions), so the bot manager's verdict does not stick to the next request.
  *
  * The site that was asked is forgotten (S§5.1: its hosts, and its parent-domain cookies held
- * elsewhere). When the wall was answered by a host of another site after a redirect, that host's
- * own jar is emptied too (the wall's cookies are there) and nothing else of that site: a page
- * chooses where it redirects, and must not be able to end the sessions of a shop it names.
+ * elsewhere), which covers a redirect that stayed inside that site. A wall answered by another
+ * site after a redirect clears nothing there: a page chooses where it redirects, and must not be
+ * able to end the session of a shop it names (the fetch reviews of 2026-11-25). The price is that
+ * a third-party wall's own cookie stays until it expires or its jar is dropped.
  */
 export function fetcherWithSessionDrop(fetcher: Fetcher, jars: CookieJars): Fetcher {
   return {
@@ -87,12 +88,6 @@ export function fetcherWithSessionDrop(fetcher: Fetcher, jars: CookieJars): Fetc
       if (dropsSession(result.outcome)) {
         const asked = sessionSite(request.url);
         if (asked !== null) jars.forget(asked);
-        const finalUrl = result.response?.finalUrl;
-        const answered = finalUrl === undefined ? null : sessionSite(finalUrl);
-        if (finalUrl !== undefined && answered !== null && answered !== asked) {
-          const host = URL.parse(finalUrl)?.hostname;
-          if (host !== undefined && host !== '') jars.jar(host).clear();
-        }
       }
       return result;
     },
