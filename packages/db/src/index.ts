@@ -1,3 +1,4 @@
+export { DEFAULT_PROFILE_ID, ensureDefaultProfile } from './bootstrap.ts';
 export {
   type Migration,
   MigrationError,

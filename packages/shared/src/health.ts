@@ -6,6 +6,8 @@ export const HealthResponse = z.object({
   version: z.string(),
   uptimeS: z.number().nonnegative(),
   db: z.enum(['ok', 'error']),
+  /** The highest applied migration (S§5.14 Upgrades). */
+  migrationLevel: z.number().int().nonnegative(),
   rssBytes: z.number().int().nonnegative(),
 });
 export type HealthResponse = z.infer<typeof HealthResponse>;

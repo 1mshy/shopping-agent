@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { openDatabase } from '@agentic-dasher/db';
+import { ensureDefaultProfile, migrate, openDatabase } from '@agentic-dasher/db';
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
@@ -12,10 +12,18 @@ const config = loadConfig();
 
 mkdirSync(config.dataDir, { recursive: true });
 const db = openDatabase(join(config.dataDir, 'agentic-dasher.db'));
+// Migrations run at start-up (S§5.14). A database written by a newer build, or one whose recorded
+// migrations differ from this build's, stops the start with the runner's error.
+const migration = migrate(db);
+ensureDefaultProfile(db);
+if (migration.applied.length > 0) {
+  console.info(`applied migrations ${migration.applied.join(', ')}; level ${migration.level}`);
+}
 
 const api = createApp({
   version: config.version,
   startedAt,
+  migrationLevel: migration.level,
   dbOk: () => db.ping(),
   rssBytes: () => process.memoryUsage.rss(),
 });

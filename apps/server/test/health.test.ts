@@ -6,6 +6,7 @@ function app(dbOk: boolean) {
   return createApp({
     version: '1.2.3',
     startedAt: 1_000,
+    migrationLevel: 1,
     now: () => 3_500,
     dbOk: () => dbOk,
     rssBytes: () => 42,
@@ -17,7 +18,14 @@ describe('GET /api/health', () => {
     const res = await app(true).request('/api/health');
     expect(res.status).toBe(200);
     const body = HealthResponse.parse(await res.json());
-    expect(body).toEqual({ status: 'ok', version: '1.2.3', uptimeS: 2.5, db: 'ok', rssBytes: 42 });
+    expect(body).toEqual({
+      status: 'ok',
+      version: '1.2.3',
+      uptimeS: 2.5,
+      db: 'ok',
+      migrationLevel: 1,
+      rssBytes: 42,
+    });
   });
 
   it('returns 503 degraded when the database is down', async () => {

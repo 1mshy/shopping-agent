@@ -8,6 +8,11 @@ export interface Database {
   exec(sqlText: string): void;
   /** Cheap liveness probe used by `/api/health`. */
   ping(): boolean;
+  /**
+   * Writes a consistent copy of the live database to `file` with `VACUUM INTO` (S§5.14). Safe
+   * while the app is running. The target must not exist: SQLite refuses to overwrite a file.
+   */
+  backupTo(file: string): void;
   close(): void;
 }
 
@@ -31,6 +36,7 @@ export function openDatabase(file: string): Database {
   sqlite.pragma('recursive_triggers = ON');
 
   const ping = sqlite.prepare('select 1 as ok');
+  const vacuumInto = sqlite.prepare('VACUUM INTO ?');
 
   return {
     orm: drizzle({ client: sqlite }),
@@ -43,6 +49,9 @@ export function openDatabase(file: string): Database {
       } catch {
         return false;
       }
+    },
+    backupTo(file) {
+      vacuumInto.run(file);
     },
     close() {
       sqlite.close();
