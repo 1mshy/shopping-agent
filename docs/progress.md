@@ -33,7 +33,7 @@ Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it
 | `derivePrices` | 6 | A coupon and a member price leave the effective price alone; estimated shipping or an unknown tax flag gives no landed total; a discount above the sticker is refused |
 | `evaluatePriceAlert` (the threshold at exactly 5% and one minor unit short, a single read, amounts near 2^53, a noisy history, a failed read between two low reads) | 8 | As the rules say, with one finding |
 
-**Finding, not fixed:** `evaluatePriceAlert` accepts an in-stock read with price 0 and fires on it (reference of 1 minor unit, price 0). The price-text rules and the platform readers refuse a zero price, so a reader should never produce one, but the alert rule does not refuse it itself. A zero price should be made not comparable there.
+**Finding, fixed the same night:** `evaluatePriceAlert` accepted an in-stock read with price 0 and fired on it (reference of 1 minor unit, price 0). The price-text rules and the platform readers refuse a zero price, so a reader should never produce one, but the alert rule did not refuse it itself. A zero read is now not comparable: it neither fires nor confirms (two new tests, written first and failing). One existing unit test asserted the old behaviour ("a drop to zero fires") and was changed with a comment saying so; no corpus case holds a zero price, and the alert-price-rules area still passes.
 
 ### 2026-11-25: The wall classifier (P1-1c)
 

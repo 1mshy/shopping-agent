@@ -162,6 +162,8 @@ function checkWatch(watch: PriceAlertWatch): void {
 function comparablePrice(read: AlertListingRead | undefined, currency: string): bigint | null {
   if (read === undefined || read.kind !== 'observation') return null;
   if (read.availability !== 'in' || read.price === null || read.currency !== currency) return null;
+  // A price is above zero (the price-text rules refuse 0): a zero is a misread, not a bargain.
+  if (read.price === 0) return null;
   return BigInt(read.price);
 }
 
@@ -193,7 +195,12 @@ export function evaluatePriceAlert(input: PriceAlertInput): PriceAlertDecision {
   if (evaluated.kind === 'failed') return { fire: false, silence: 'failed_read' };
   if (evaluated.availability !== 'in') return { fire: false, silence: 'not_in_stock' };
   const currency = watch.currency;
-  if (currency === null || evaluated.currency !== currency || evaluated.price === null) {
+  if (
+    currency === null ||
+    evaluated.currency !== currency ||
+    evaluated.price === null ||
+    evaluated.price === 0
+  ) {
     return { fire: false, silence: 'currency_mismatch' };
   }
   const p = BigInt(evaluated.price);

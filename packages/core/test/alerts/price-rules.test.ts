@@ -90,8 +90,10 @@ describe('drop rule arithmetic', () => {
     expect(fired(drop(10000, 9899, 50))).toBe(true);
   });
 
-  it('a reference of one minor unit: a drop to zero fires, no drop does not', () => {
-    expect(fired(drop(1, 0, 1))).toBe(true);
+  // Changed at review (2026-11-25): a read of 0 used to fire here. A price is above zero, so a
+  // zero read is not comparable, and a reference of one minor unit has no lower price to drop to.
+  it('a reference of one minor unit: a read of zero is no price, no drop does not fire', () => {
+    expect(silence(drop(1, 0, 1))).toBe('currency_mismatch');
     expect(silence(drop(1, 1, 1))).toBe('below_threshold');
   });
 
@@ -361,5 +363,35 @@ describe('refusals', () => {
         lastAcceptedPriceAlert: { price: money(4500), acceptedAt: 'yesterday' },
       }),
     ).toThrow(RangeError);
+  });
+});
+
+describe('a zero price is no price', () => {
+  const watch: PriceAlertWatch = {
+    currency: 'CAD',
+    referencePrice: money(10_000),
+    targetPrice: money(5_000),
+    dropBasisPoints: 500,
+    cooldownSeconds: 43_200,
+  };
+  const input = (reads: readonly AlertListingRead[]): PriceAlertInput => ({
+    now: NOW,
+    watch,
+    reads,
+    lastAcceptedPriceAlert: null,
+  });
+
+  it('never fires on a read whose price is 0, though it is under the target and the drop rule', () => {
+    expect(evaluatePriceAlert(input([obs(1, 0, 0), obs(2, 5, 0)]))).toEqual({
+      fire: false,
+      silence: 'currency_mismatch',
+    });
+  });
+
+  it('does not let a zero read confirm a real drop', () => {
+    expect(evaluatePriceAlert(input([obs(1, 0, 0), obs(2, 5, 9_000)]))).toEqual({
+      fire: false,
+      silence: 'awaiting_confirmation',
+    });
   });
 });
