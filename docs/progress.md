@@ -20,6 +20,35 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: The sweep engine and the runtime (P1-6c-b, runtime)
+
+Both are on local `main`, checked there (lint, typecheck, test, build exit 0). **No independent review yet.** The session reached its usage limit at about 00:55 and nothing ran until 03:20; the sweep unit was resumed from its saved state.
+
+**P1-6c-b, the sweep engine** (`406099e`). `apps/server/src/sweep`: `checkListing`, `sweepJob` / `runSweep`, `listingState`, `watchState`. 31 tests on a real SQLite file with scripted reads; the author's two mutations (dropping the failed-read marker, skipping the outlier hold) each failed a test. One end-to-end test goes through the real `readListing` on a saved JSON-LD page. **No real store has been read through this path.**
+
+- *One event per decision.* Each watch is evaluated in its own `BEGIN IMMEDIATE` transaction, and the event is recorded under `alertEventKey(kind, watch, observation)`, so evaluating an observation again adds nothing.
+- *A crash between the observation insert and the evaluation.* `listing_check` is written last; on the next check an observation newer than `last_read_at` is evaluated first. A test crashes there, restarts and gets exactly one event.
+- *A failed read* writes no observation, raises the error count, sets the cause and logs one record with its candidates. `no_price`, `unreadable_price`, `variant_not_found`, `converted_currency` and `no_structured_data` are all stored as cause `no_price`; the exact reason is in the log record only.
+- *Who may alert.* A person's `exact` verdict; else a link the user added; else an effective cached `exact` verdict. A person's other verdict means never. A `blocked` store never alerts.
+
+Decisions the unit made, which the owner may overrule. The first two changed spec S§5.8:
+
+- **The reference is the median of each listing's recent price, where a listing's recent price is the median of its own reads over 30 days.** P1-6a had read "recent prices" as each listing's latest price; with that reading a watch on one listing has a reference equal to the price just read, and a drop could never fire. The cost of the new reading: a drop that lasts pulls the reference down with it over the following weeks.
+- **No repeat alert while the last one of that kind is still awaiting delivery**, except for a lower price. Without it a failing push channel would collect one event per read. This is a hold, not a cooldown stamp.
+- Consecutive failed reads back off to 30 min, 1 h, 2 h, 4 h, then 6 h. A closed host is deferred and is not counted as a failure of the listing.
+- A read in another currency than the listing's adopted one is stored and logged, never compared, and never changes the listing's or the watch's currency.
+- Per check: a 45 s deadline and at most 8 requests. Per sweep: 8 checks at once, 200 listings, a 10-minute deadline.
+
+Where the merged pieces did not fit, worked around locally: `chooseReferencePrice` wants a product id and a watch has none; the listing fingerprint's store form (id or host) is not settled; a `rate_limited` outcome gives the Retry-After delay but not the time it was measured from. Wanted in the schema, not done: `watch.product_id`; an evaluated-up-to marker on `listing_check`; a read-attempt log for the live check's error rates.
+
+Not verified: two processes sweeping one database; confirmation through a cached `match_verdict` row (only the user-added path is tested).
+
+**The runtime** (`f7f07a1`, by the orchestrator). `createRuntime` in `apps/server/src/runtime.ts` builds the process's one fetcher (the guard, the wall classifier as its `classify`, pacing and the playbook on SQLite, and the HTTP rung's session drop: a walled answer clears that site's cookies) and the scheduler with the sweep, outbox and backup jobs. **The server does not start it yet**; that waits for the route assembly of P1-8a.
+
+One integration test, on a fake clock and a real SQLite file with scripted reads (n = 1 scenario): the scheduler's sweep reads a watched listing nine times at the default 30-minute interval (six at 100.00, three at 90.00); exactly one `price_drop` event is recorded, naming the read that confirmed the drop; the outbox job accepts its in-app delivery. Two smaller tests: the three jobs are registered and the boot catch-up writes one backup; with no market set nothing is read, and a second refresh joins the running sweep.
+
+Seen while writing it, not changed: **every boot runs a backup** (boot schedules a catch-up of every job), so an install that restarts often rotates its seven kept copies quickly.
+
 ### 2026-11-25: The orchestrator's probes of the guard and the money code
 
 **Not an independent review.** The reviews of the high-risk units are still owed; no reviewer subagent has run, because the run was held to three agents and every slot went to building. These are the orchestrator's own probes of the merged code with inputs that are not in the corpus, run once from throwaway scripts.
