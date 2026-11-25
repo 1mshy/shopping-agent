@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<NotifyRetryCase>({
   id: 'notify-retry',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/notify/__init__.py: RETRY_DELAYS, MAX_RETRY_DELAY, _deferred_until (31-35), transient (38-41), dispatch (52-88)',

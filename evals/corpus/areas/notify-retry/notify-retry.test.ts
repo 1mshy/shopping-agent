@@ -1,11 +1,12 @@
+import { decideDeliveryRetry as decideDeliveryRetryImpl } from '@agentic-dasher/core';
 import { Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { AttemptResult, DecideDeliveryRetry, NotifyRetryCase } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function. */
-const decideDeliveryRetry: DecideDeliveryRetry = () => notImplemented('decideDeliveryRetry');
+/** The real function (packages/core/src/notify), checked against the contract's type. */
+const decideDeliveryRetry: DecideDeliveryRetry = decideDeliveryRetryImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {
