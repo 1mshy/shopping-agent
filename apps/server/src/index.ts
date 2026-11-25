@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { ensureDefaultProfile, migrate, openDatabase } from '@agentic-dasher/db';
 import { serve } from '@hono/node-server';
@@ -8,6 +8,7 @@ import { createApp } from './app.ts';
 import { type AppEnv, createAuthService, sessionOf } from './auth/index.ts';
 import { loadConfig } from './config.ts';
 import { createChannelService, createNotifyRoutes } from './notify/index.ts';
+import { ownerOnlyDir, prepareDatabaseFile } from './ops/files.ts';
 import { AVAILABLE_RUNGS, createRuntime, type Runtime } from './runtime.ts';
 import { createSecretBox, KEY_FILE_NAME, loadOrCreateKey } from './secrets/index.ts';
 import { createSettingsService, userMarket } from './settings/index.ts';
@@ -16,8 +17,15 @@ import { createWatchRoutes, createWatchService, watchLookupJob } from './watches
 const startedAt = Date.now();
 const config = loadConfig();
 
-mkdirSync(config.dataDir, { recursive: true });
-const db = openDatabase(join(config.dataDir, 'agentic-dasher.db'));
+// The data directory and the database are for the user the server runs as (S§5.13).
+ownerOnlyDir(config.dataDir);
+const databaseFile = join(config.dataDir, 'agentic-dasher.db');
+if (!prepareDatabaseFile(databaseFile)) {
+  console.warn(
+    'the database file could not be made owner-only; check who can read the data directory',
+  );
+}
+const db = openDatabase(databaseFile);
 // Migrations run at start-up (S§5.14). A database written by a newer build, or one whose recorded
 // migrations differ from this build's, stops the start with the runner's error.
 const migration = migrate(db);

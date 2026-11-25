@@ -3,10 +3,11 @@
 // The copy is written under a `.partial` name and renamed when SQLite has finished, so a file
 // with the final name is always a complete database: a crash or a full disk mid-backup leaves a
 // `.partial`, which the next run removes. Only files this module named are ever deleted.
-import { existsSync, mkdirSync, readdirSync, renameSync, rmSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, renameSync, rmSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Database } from '@agentic-dasher/db';
 import type { JobDefinition } from '../scheduler/index.ts';
+import { ownerOnlyDir, ownerOnlyFile } from './files.ts';
 
 /** `agentic-dasher-20261125T031500Z.db`: the UTC second the backup started. */
 const BACKUP_NAME = /^agentic-dasher-\d{8}T\d{6}Z\.db$/;
@@ -49,7 +50,7 @@ export function runBackup(options: BackupOptions): BackupResult {
   if (!Number.isInteger(keep) || keep < 1) {
     throw new RangeError(`keep must be a positive integer, got ${keep}`);
   }
-  mkdirSync(options.dir, { recursive: true });
+  ownerOnlyDir(options.dir);
   for (const name of readdirSync(options.dir)) {
     if (PARTIAL_NAME.test(name)) rmSync(join(options.dir, name), { force: true });
   }
@@ -60,6 +61,8 @@ export function runBackup(options: BackupOptions): BackupResult {
   if (!existsSync(target)) {
     const partial = `${target}.partial`;
     options.db.backupTo(partial);
+    // A copy of the database is as private as the database (ops/files.ts).
+    ownerOnlyFile(partial);
     renameSync(partial, target);
     written = true;
   }
