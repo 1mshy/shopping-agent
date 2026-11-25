@@ -1,5 +1,10 @@
 // One watch with its listings (GET /api/watches/:id): controls, rules, per-listing actions, history.
-import type { WatchDetail, WatchListingView, WatchView } from '@agentic-dasher/shared';
+import type {
+  SettingsResponse,
+  WatchDetail,
+  WatchListingView,
+  WatchView,
+} from '@agentic-dasher/shared';
 import { type FormEvent, useCallback, useEffect, useState } from 'react';
 import { describeFailure, request } from '../http.ts';
 import {
@@ -16,10 +21,20 @@ import { LookupLine } from './Watches.tsx';
 
 const REFETCH_AFTER_MS = 4000;
 
-function Rules({ watch, onSaved }: { watch: WatchView; onSaved: () => void }) {
+function Rules({
+  watch,
+  marketCurrency,
+  onSaved,
+}: {
+  watch: WatchView;
+  marketCurrency: string | null;
+  onSaved: () => void;
+}) {
   const target = watch.rules.targetPrice;
   // The watch's currency is adopted from its first real read; a target is typed in that currency.
-  const currency = watch.currency ?? target?.currency ?? null;
+  // Before that read, the user's market currency is the one a target is written in (the server
+  // flags a mismatch later: `targetCurrencyMismatch`). Nothing is ever converted.
+  const currency = watch.currency ?? target?.currency ?? marketCurrency;
   const exponent = currency === null ? null : exponentOf(currency);
   const [drop, setDrop] = useState(
     watch.rules.dropBasisPoints === null ? '' : basisPointsToPercent(watch.rules.dropBasisPoints),
@@ -232,6 +247,20 @@ export function WatchDetailView({ id, onBack }: { id: number; onBack: () => void
     void load();
   }, [load]);
 
+  const [marketCurrency, setMarketCurrency] = useState<string | null>(null);
+  useEffect(() => {
+    let live = true;
+    request<SettingsResponse>('GET', '/settings')
+      .then((res) => {
+        const v = res.settings.find((s) => s.key === 'market.currency')?.value;
+        if (live && typeof v === 'string') setMarketCurrency(v);
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
+
   async function run(fn: () => Promise<unknown>) {
     setError(null);
     setNotice(null);
@@ -335,6 +364,7 @@ export function WatchDetailView({ id, onBack }: { id: number; onBack: () => void
       <Rules
         key={version}
         watch={watch}
+        marketCurrency={marketCurrency}
         onSaved={() => {
           setNotice(t.rulesSaved);
           void load();

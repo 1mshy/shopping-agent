@@ -8,7 +8,10 @@ import { ExternalLink, formatTime, isHttpUrl, Message, MoneyText } from '../ui.t
 export function LookupLine({ watch }: { watch: WatchView }) {
   const lookup = watch.lookup;
   if (lookup === null) return null;
-  const nameNeedsDirectory = lookup.state === 'failed' && lookup.error === 'NO_DISCOVERY_SOURCE';
+  // The API gives the lookup error as prose, not as the NO_DISCOVERY_SOURCE code: a failed lookup
+  // of a name (kind `query`) is that case in this build, so the plain explanation goes first.
+  const nameNeedsDirectory =
+    lookup.state === 'failed' && (watch.kind === 'query' || lookup.error === 'NO_DISCOVERY_SOURCE');
   return (
     <>
       <span className={`badge ${lookup.state === 'failed' ? 'error' : ''}`}>
@@ -16,9 +19,15 @@ export function LookupLine({ watch }: { watch: WatchView }) {
       </span>
       {lookup.state === 'failed' && (
         <p className="msg warn">
-          {nameNeedsDirectory
-            ? t.noDiscoverySource
-            : `${t.lookupError}: ${lookup.error ?? t.unknown}`}
+          {nameNeedsDirectory && (
+            <>
+              {t.noDiscoverySource}
+              <br />
+            </>
+          )}
+          <span className="muted">
+            {t.lookupError}: {lookup.error ?? t.unknown}
+          </span>
         </p>
       )}
     </>

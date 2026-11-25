@@ -89,9 +89,7 @@ export const t = {
   dropLabel: 'Alert on a drop of at least (%)',
   dropInvalid: 'The drop is a percent above 0 and below 100, with at most two decimals.',
   targetLabel: (currency: string | null) =>
-    currency === null
-      ? 'Target price (available once the first price is read)'
-      : `Target price (${currency})`,
+    currency === null ? 'Target price (set your market first)' : `Target price (${currency})`,
   targetInvalid: (currency: string, digits: number) =>
     digits === 0
       ? `The target is a whole amount of ${currency}, without decimals.`
