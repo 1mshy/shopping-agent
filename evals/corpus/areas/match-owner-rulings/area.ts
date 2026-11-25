@@ -12,7 +12,7 @@ import type { MatchCase } from './contract.ts';
 
 export const area = defineArea<MatchCase>({
   id: 'match-owner-rulings',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'reports/2026-10-23-matching.md (the rulings and the failure classes)',

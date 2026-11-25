@@ -9,7 +9,7 @@ import type { MatchCase } from './contract.ts';
 
 export const area = defineArea<MatchCase>({
   id: 'known-failure-wrong-variant',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'reports/2026-10-14-web-discovery.md and .json (the Phase 1 run and its hand check)',

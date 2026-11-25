@@ -5,6 +5,7 @@ export * from './currency/locale.ts';
 export * from './currency/resolve.ts';
 export * from './market/shopify.ts';
 export * from './market/storefront.ts';
+export * from './matching/index.ts';
 export * from './money.ts';
 export * from './pricetext/coupon.ts';
 export * from './pricetext/parse.ts';

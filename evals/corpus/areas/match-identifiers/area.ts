@@ -9,7 +9,7 @@ import type { MatchCase } from './contract.ts';
 
 export const area = defineArea<MatchCase>({
   id: 'match-identifiers',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/recipes.py (_title_check, _names_the_product, _other_names, ' +

@@ -10,7 +10,7 @@ import { PREDECESSOR } from './evidence.ts';
 
 export const area = defineArea<MatchCase>({
   id: 'match-title-rules',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/matching.py (score, accessory_for, variant_words, _plus_terms, ' +
