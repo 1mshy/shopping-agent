@@ -152,6 +152,13 @@ export function DiagnosticsView() {
         <>
           <h2>{t.jobsTitle}</h2>
           <table>
+            <thead>
+              <tr>
+                <th scope="col">{t.jobColumn}</th>
+                <th scope="col">{t.lastRunColumn}</th>
+                <th scope="col">{t.nextRunColumn}</th>
+              </tr>
+            </thead>
             <tbody>
               {data.jobs.map((j) => (
                 <tr key={j.name}>
@@ -165,6 +172,13 @@ export function DiagnosticsView() {
           <h2>{t.runsTitle}</h2>
           {data.runs.length === 0 && <p className="muted">{t.noRuns}</p>}
           <table>
+            <thead>
+              <tr>
+                <th scope="col">{t.jobColumn}</th>
+                <th scope="col">{t.outcomeColumn}</th>
+                <th scope="col">{t.startedColumn}</th>
+              </tr>
+            </thead>
             <tbody>
               {data.runs.map((r) => (
                 <tr key={r.id}>

@@ -177,6 +177,11 @@ export const t = {
   // Diagnostics
   diagnosticsTitle: 'Diagnostics',
   jobsTitle: 'Jobs',
+  jobColumn: 'Job',
+  lastRunColumn: 'Last run',
+  nextRunColumn: 'Next run',
+  outcomeColumn: 'Outcome',
+  startedColumn: 'Started',
   runsTitle: 'Recent runs',
   noRuns: 'No runs yet.',
 } as const;
