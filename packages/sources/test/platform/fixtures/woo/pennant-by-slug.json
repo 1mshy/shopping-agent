@@ -1,0 +1,38 @@
+[
+  {
+    "id": 34,
+    "name": "Test Pennant &#8211; Felt",
+    "slug": "test-pennant",
+    "parent": 0,
+    "type": "simple",
+    "variation": "",
+    "permalink": "https://shop.example/product/test-pennant/",
+    "sku": "PEN-1",
+    "short_description": "<p>A pennant.</p>",
+    "on_sale": true,
+    "prices": {
+      "price": "1105",
+      "regular_price": "1250",
+      "sale_price": "1105",
+      "price_range": null,
+      "currency_code": "GBP",
+      "currency_symbol": "£",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "£",
+      "currency_suffix": ""
+    },
+    "price_html": "<del>£12.50</del> <ins>£11.05</ins>",
+    "images": [],
+    "categories": [],
+    "attributes": [],
+    "variations": [],
+    "has_options": false,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false,
+    "low_stock_remaining": null,
+    "sold_individually": false
+  }
+]

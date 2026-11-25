@@ -1,0 +1,28 @@
+{
+  "id": 15361223033085,
+  "title": "【予約】TE-V1R-AD2 あぶない刑事 第2弾 コラボモデル｜2027年1月下旬以降順次発送",
+  "handle": "te-v1r-ad2",
+  "vendor": "PreseedJapan株式会社",
+  "type": "",
+  "price": 2288000,
+  "price_min": 2288000,
+  "price_max": 2288000,
+  "available": true,
+  "compare_at_price": null,
+  "options": [{ "name": "Title", "position": 1, "values": ["Default Title"] }],
+  "variants": [
+    {
+      "id": 71370219585789,
+      "title": "Default Title",
+      "option1": "Default Title",
+      "option2": null,
+      "option3": null,
+      "sku": "TE-V1R-AD2",
+      "available": true,
+      "options": ["Default Title"],
+      "price": 2288000,
+      "compare_at_price": null,
+      "barcode": null
+    }
+  ]
+}

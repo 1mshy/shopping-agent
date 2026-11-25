@@ -1,0 +1,27 @@
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "__typename": "SimpleProduct",
+          "id": 1180,
+          "name": "Test Jacket",
+          "sku": "TJ02",
+          "url_key": "test-jacket",
+          "stock_status": "IN_STOCK",
+          "price_range": {
+            "minimum_price": {
+              "regular_price": { "value": 66.25, "currency": "USD" },
+              "final_price": { "value": 56.25, "currency": "USD" }
+            },
+            "maximum_price": {
+              "regular_price": { "value": 66.25, "currency": "USD" },
+              "final_price": { "value": 56.25, "currency": "USD" }
+            }
+          }
+        }
+      ]
+    },
+    "currency": { "base_currency_code": "USD", "default_display_currency_code": "USD" }
+  }
+}

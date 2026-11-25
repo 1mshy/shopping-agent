@@ -1,0 +1,20 @@
+{
+  "id": 42,
+  "title": "PLA Pro",
+  "handle": "pla-pro",
+  "price": 2599,
+  "available": true,
+  "options": [{ "name": "Color", "position": 1, "values": ["Black"] }],
+  "variants": [
+    {
+      "id": 1,
+      "title": "Black",
+      "option1": "Black",
+      "sku": "PLA-BK",
+      "available": true,
+      "options": ["Black"],
+      "price": 2599,
+      "compare_at_price": null
+    }
+  ]
+}

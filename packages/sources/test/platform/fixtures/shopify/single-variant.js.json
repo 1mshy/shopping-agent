@@ -1,0 +1,20 @@
+{
+  "id": 329678821,
+  "title": "Red Rain Coat",
+  "handle": "red-rain-coat",
+  "price": 12900,
+  "available": true,
+  "options": [{ "name": "Title", "position": 1, "values": ["Default Title"] }],
+  "variants": [
+    {
+      "id": 794864229,
+      "title": "Default Title",
+      "option1": "Default Title",
+      "sku": "",
+      "available": true,
+      "options": ["Default Title"],
+      "price": 12900,
+      "compare_at_price": null
+    }
+  ]
+}

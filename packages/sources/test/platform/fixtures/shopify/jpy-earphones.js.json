@@ -1,0 +1,20 @@
+{
+  "id": 8100000000001,
+  "title": "Example Wireless Earphones",
+  "handle": "example-earphones",
+  "price": 1650000,
+  "available": true,
+  "options": [{ "name": "Title", "position": 1, "values": ["Default Title"] }],
+  "variants": [
+    {
+      "id": 45100000000001,
+      "title": "Default Title",
+      "option1": "Default Title",
+      "sku": "EX-EAR-1",
+      "available": true,
+      "options": ["Default Title"],
+      "price": 1650000,
+      "compare_at_price": 1980000
+    }
+  ]
+}

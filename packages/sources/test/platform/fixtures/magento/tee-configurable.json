@@ -1,0 +1,95 @@
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "__typename": "ConfigurableProduct",
+          "id": 1500,
+          "name": "Gym Tee",
+          "sku": "GT01",
+          "url_key": "gym-tee",
+          "stock_status": "IN_STOCK",
+          "price_range": {
+            "minimum_price": {
+              "regular_price": { "value": 29, "currency": "EUR" },
+              "final_price": { "value": 24.5, "currency": "EUR" }
+            },
+            "maximum_price": {
+              "regular_price": { "value": 34, "currency": "EUR" },
+              "final_price": { "value": 34, "currency": "EUR" }
+            }
+          },
+          "configurable_options": [
+            {
+              "attribute_code": "color",
+              "label": "Color",
+              "values": [
+                { "value_index": 49, "label": "Black" },
+                { "value_index": 58, "label": "Red" }
+              ]
+            },
+            {
+              "attribute_code": "size",
+              "label": "Size",
+              "values": [{ "value_index": 167, "label": "S" }, { "value_index": 168, "label": "M" }]
+            }
+          ],
+          "variants": [
+            {
+              "attributes": [
+                { "code": "color", "label": "Black", "value_index": 49 },
+                { "code": "size", "label": "S", "value_index": 167 }
+              ],
+              "product": {
+                "id": 1501,
+                "sku": "GT01-S-Black",
+                "stock_status": "IN_STOCK",
+                "price_range": {
+                  "minimum_price": {
+                    "regular_price": { "value": 29, "currency": "EUR" },
+                    "final_price": { "value": 24.5, "currency": "EUR" }
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                { "code": "color", "label": "Black", "value_index": 49 },
+                { "code": "size", "label": "M", "value_index": 168 }
+              ],
+              "product": {
+                "id": 1502,
+                "sku": "GT01-M-Black",
+                "stock_status": "OUT_OF_STOCK",
+                "price_range": {
+                  "minimum_price": {
+                    "regular_price": { "value": 29, "currency": "EUR" },
+                    "final_price": { "value": 29, "currency": "EUR" }
+                  }
+                }
+              }
+            },
+            {
+              "attributes": [
+                { "code": "color", "label": "Red", "value_index": 58 },
+                { "code": "size", "label": "M", "value_index": 168 }
+              ],
+              "product": {
+                "id": 1503,
+                "sku": "GT01-M-Red",
+                "stock_status": "IN_STOCK",
+                "price_range": {
+                  "minimum_price": {
+                    "regular_price": { "value": 34, "currency": "EUR" },
+                    "final_price": { "value": 34, "currency": "EUR" }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "currency": { "base_currency_code": "EUR", "default_display_currency_code": "EUR" }
+  }
+}

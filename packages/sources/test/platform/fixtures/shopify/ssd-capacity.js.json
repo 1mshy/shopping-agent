@@ -1,0 +1,59 @@
+{
+  "id": 7001,
+  "title": "Example NVMe SSD",
+  "handle": "example-nvme-ssd",
+  "price": 9999,
+  "price_min": 9999,
+  "price_max": 29999,
+  "available": true,
+  "options": [
+    { "name": "Capacity", "position": 1, "values": ["1TB", "2TB", "4TB"] },
+    { "name": "Heatsink", "position": 2, "values": ["No", "Yes"] }
+  ],
+  "variants": [
+    {
+      "id": 44000000000001,
+      "title": "1TB / No",
+      "option1": "1TB",
+      "option2": "No",
+      "sku": "SSD-1T",
+      "available": true,
+      "options": ["1TB", "No"],
+      "price": 9999,
+      "compare_at_price": 11999
+    },
+    {
+      "id": 44000000000002,
+      "title": "2TB / No",
+      "option1": "2TB",
+      "option2": "No",
+      "sku": "SSD-2T",
+      "available": true,
+      "options": ["2TB", "No"],
+      "price": 15999,
+      "compare_at_price": 15999
+    },
+    {
+      "id": 44000000000003,
+      "title": "2TB / Yes",
+      "option1": "2TB",
+      "option2": "Yes",
+      "sku": "SSD-2T-HS",
+      "available": true,
+      "options": ["2TB", "Yes"],
+      "price": 17999,
+      "compare_at_price": null
+    },
+    {
+      "id": 44000000000004,
+      "title": "4TB / No",
+      "option1": "4TB",
+      "option2": "No",
+      "sku": "SSD-4T",
+      "available": false,
+      "options": ["4TB", "No"],
+      "price": 29999,
+      "compare_at_price": null
+    }
+  ]
+}

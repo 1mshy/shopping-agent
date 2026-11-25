@@ -1,0 +1,70 @@
+[
+  {
+    "id": 100,
+    "name": "Hoodie",
+    "slug": "hoodie",
+    "parent": 0,
+    "type": "variable",
+    "variation": "",
+    "permalink": "https://shop.example/product/hoodie/",
+    "sku": "HOOD",
+    "on_sale": true,
+    "prices": {
+      "price": "4200",
+      "regular_price": "4500",
+      "sale_price": "4200",
+      "price_range": { "min_amount": "4200", "max_amount": "5500" },
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "currency_minor_unit": 2,
+      "currency_decimal_separator": ".",
+      "currency_thousand_separator": ",",
+      "currency_prefix": "$",
+      "currency_suffix": ""
+    },
+    "attributes": [
+      {
+        "id": 1,
+        "name": "Color",
+        "taxonomy": "pa_color",
+        "has_variations": true,
+        "terms": [
+          { "id": 10, "name": "Blue", "slug": "blue" },
+          { "id": 11, "name": "Red", "slug": "red" }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Size",
+        "taxonomy": "pa_size",
+        "has_variations": true,
+        "terms": [
+          { "id": 20, "name": "Large", "slug": "large" },
+          { "id": 21, "name": "Small", "slug": "small" }
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "id": 101,
+        "attributes": [{ "name": "Color", "value": "blue" }, { "name": "Size", "value": "small" }]
+      },
+      {
+        "id": 102,
+        "attributes": [{ "name": "Color", "value": "blue" }, { "name": "Size", "value": "large" }]
+      },
+      {
+        "id": 103,
+        "attributes": [{ "name": "Color", "value": "red" }, { "name": "Size", "value": "small" }]
+      },
+      {
+        "id": 104,
+        "attributes": [{ "name": "Color", "value": "red" }, { "name": "Size", "value": "large" }]
+      }
+    ],
+    "has_options": true,
+    "is_purchasable": true,
+    "is_in_stock": true,
+    "is_on_backorder": false
+  }
+]
