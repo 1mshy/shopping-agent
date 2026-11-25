@@ -195,6 +195,23 @@ describe('the Host check, second pass', () => {
     expect(hostAllowed('xn--bcher-kva.example', parsed.names)).toBe(true);
     expect(parseAllowedHosts(undefined)).toEqual({ names: [], rejected: [] });
   });
+
+  it('never reads an entry as every host, or as a whole top-level domain', () => {
+    const parsed = parseAllowedHosts('* *. . .com *.net ..example.com .co.uk');
+    // A whole top-level domain is not a domain of the owner's: such an entry is refused. `.co.uk`
+    // has two labels and is taken as written (the list is the owner's; no suffix list here).
+    expect(parsed.rejected).toEqual(['*', '*.', '.', '.com', '*.net', '..example.com']);
+    expect(parsed.names).toEqual(['.co.uk']);
+    for (const host of [
+      'evil.example',
+      'evil.com',
+      'evil.net',
+      'x.example.com',
+      'localhost.evil.com',
+    ]) {
+      expect(hostAllowed(host, parsed.names), host).toBe(false);
+    }
+  });
 });
 
 describe('the guard refuses a cross-site request on any method', () => {

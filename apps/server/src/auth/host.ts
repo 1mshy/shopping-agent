@@ -64,8 +64,8 @@ export interface AllowedHosts {
 
 /**
  * `ALLOWED_HOSTS`: names separated by commas or spaces, read as people write them. A port is
- * dropped (`name:8443`), a leading `.` or `*.` lists every name under a domain, and a Unicode name
- * is stored in punycode.
+ * dropped (`name:8443`), a leading `.` or `*.` lists every name under a domain (never under a bare
+ * top-level domain), and a Unicode name is stored in punycode.
  */
 export function parseAllowedHosts(text: string | undefined): AllowedHosts {
   const names: string[] = [];
@@ -75,8 +75,16 @@ export function parseAllowedHosts(text: string | undefined): AllowedHosts {
     const domain = entry.startsWith('*.') ? entry.slice(1) : entry;
     const wide = domain.startsWith('.');
     const name = hostNameOf(wide ? domain.slice(1) : domain, { unicode: true });
-    if (name === null || name.startsWith('[')) rejected.push(entry);
-    else names.push(wide ? `.${name}` : name);
+    // Not a name: an address, a stray `*` or dot. And never a whole top-level domain (`.com`):
+    // a domain entry needs a name under one.
+    const usable =
+      name !== null &&
+      !name.startsWith('[') &&
+      !name.startsWith('.') &&
+      !name.includes('*') &&
+      (!wide || name.includes('.'));
+    if (usable) names.push(wide ? `.${name}` : name);
+    else rejected.push(entry);
   }
   return { names, rejected };
 }
