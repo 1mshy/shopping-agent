@@ -413,8 +413,11 @@ async function runCheck(
         const fresh = listingById(db, listingId) as ListingRow;
         const adopt: Partial<ListingRow> = {};
         if (fresh.currency === 'unknown' && r.currency !== 'unknown') adopt.currency = r.currency;
-        if (fresh.title.trim() === '' && read.title !== null && read.title.trim() !== '') {
-          adopt.title = read.title.trim();
+        // A pasted link is saved with its URL as a placeholder title (the lookup contacts no
+        // retailer); the first read that states a title replaces it. A title a read gave stays.
+        const placeholder = fresh.title.trim() === '' || fresh.title === fresh.urlCanonical;
+        if (placeholder && read.title !== null && read.title.trim() !== '') {
+          adopt.title = read.title.trim().slice(0, 500);
         }
         if (fresh.condition === 'unknown' && read.condition !== 'unknown') {
           adopt.condition = read.condition;

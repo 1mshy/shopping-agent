@@ -46,7 +46,7 @@ All on local `main`, checked there (lint, typecheck, test, build exit 0). **Auth
 
 The page was read by the structured-data ladder on the `http` rung, through the guard, the pinned transport, pacing and the wall classifier. The host is one the Phase 0 transport lab read on 2026-11-18.
 
-**Found by that read, not fixed:** the listing's title is still the placeholder (its URL) after the read. The sweep adopts a title only when the stored one is empty, and the lookup stores the URL as the placeholder.
+**Found by that read and fixed the same night:** the listing's title was still the placeholder (its URL) after the read. The sweep adopted a title only when the stored one was empty, and the lookup stores the URL as the placeholder. It now replaces a placeholder with the title the store states and keeps a title an earlier read gave (three tests, the first written failing). The fix has not been re-run against the real page.
 
 ### 2026-11-25: Watch intake, the watch service and its routes (P1-6c-a)
 
