@@ -188,8 +188,9 @@ describe('a read that produced a listing read', () => {
       kind: 'restock',
       observationId: back?.outcome.kind === 'read' ? back.outcome.observationId : -1,
     });
+    // The same transition is already in the audit trail, whatever its delivery state (finding 6).
     expect(again?.outcome.kind === 'read' && again.outcome.evaluations[0]?.restock?.silence).toBe(
-      'awaiting_delivery',
+      'already_told',
     );
   });
 

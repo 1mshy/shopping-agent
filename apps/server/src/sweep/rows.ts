@@ -176,17 +176,29 @@ export function latestPricedIn(
     .get();
 }
 
-/** The newest event of the watch and kind (by id), or undefined. */
+/**
+ * The newest event of the watch and kind (by id), or undefined; leaving out the events that name
+ * `exceptObservationId` when it is given.
+ */
 export function latestEventOf(
   db: Database,
   watchId: number,
   kind: 'price_drop' | 'restock',
+  exceptObservationId?: number,
 ): typeof schema.notificationEvent.$inferSelect | undefined {
   const e = schema.notificationEvent;
   return db.orm
     .select()
     .from(e)
-    .where(and(eq(e.watchId, watchId), eq(e.kind, kind)))
+    .where(
+      and(
+        eq(e.watchId, watchId),
+        eq(e.kind, kind),
+        exceptObservationId === undefined
+          ? undefined
+          : sql`(${e.observationId} is null or ${e.observationId} <> ${exceptObservationId})`,
+      ),
+    )
     .orderBy(desc(e.id))
     .limit(1)
     .get();

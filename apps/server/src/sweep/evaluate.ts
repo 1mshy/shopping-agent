@@ -64,7 +64,10 @@
 //
 // evaluateRestock (restock.ts), when watch.restock_enabled_at is set:
 //   watch.currency, targetPrice   as above; restockRuleOnSince = watch.restock_enabled_at;
-//   lastAcceptedRestockAt    notify `lastAcceptedAlert(kind restock)`.acceptedAt.
+//   lastAcceptedRestockAt    the later of notify `lastAcceptedAlert(kind restock)`.acceptedAt and
+//                            the time of the observation the watch's newest restock event names
+//                            (not counting an event of the observation being evaluated): one event
+//                            per transition, whatever the delivery state (recordedRestockAt).
 //   listings                 the confirmed listings of unblocked stores, each with its observations
 //                            over the window, oldest first, and a failed read at its end when its
 //                            last attempt failed (for the listing just read: before the evaluated
@@ -614,13 +617,14 @@ function evaluateRestockRule(
     watchId: watch.id,
     kind: 'restock',
   });
+  const recorded = recordedRestockAt(db, watch.id, evaluated.id);
   const decision = evaluateRestock({
     now: nowIso,
     watch: {
       currency: watch.currency,
       targetPrice,
       restockRuleOnSince: watch.restockEnabledAt,
-      lastAcceptedRestockAt: last?.acceptedAt ?? null,
+      lastAcceptedRestockAt: laterOf(last?.acceptedAt ?? null, recorded),
     },
     listings,
   });
@@ -636,11 +640,45 @@ function evaluateRestockRule(
 }
 
 /**
- * Records the alert's event under its stable key, unless an earlier alert of the watch and kind is
- * still on its way (awaiting delivery) and this one is not news: for a price, not below it; for a
- * restock, any. An undelivered earlier alert (its push failed for good) holds a repeat that is not a
- * lower price for the watch's cooldown, counted from that event, so a broken channel cannot turn
- * one drop into an alert per read.
+ * One restock event per out→in transition, whatever the delivery state (finding 6 of the review of
+ * 2026-11-25; S§2.11, S§2.12). The watermark the restock rule compares a transition with is the
+ * later of two times:
+ * - when a channel accepted the watch's last restock alert (lastAcceptedAlert, S§5.8): what the
+ *   user was told;
+ * - the time of the observation the watch's newest restock event names (the audit trail): the
+ *   transition that event recorded is at or before it.
+ * The second bounds the first from below while an alert is on its way, so the same transition is
+ * not recorded again on every read (pending, or failed for good), and a new transition, strictly
+ * later than the observation the newest event names, is a new decision recorded once: it is no
+ * longer held while the previous alert awaits delivery (when that alert was finally accepted, the
+ * acceptance time was already past the second transition, which was then lost for good, even from
+ * the in-app feed). Being a watermark fed to the rule rather than a check after it, it also lets a
+ * second listing that comes back while the first one is still in stock be named. Nothing is
+ * stamped: both times are read back from the outbox and the audit trail.
+ */
+function recordedRestockAt(db: Database, watchId: number, evaluatedId: number): string | null {
+  // An event that names the observation being evaluated is this evaluation's own (a resumed or
+  // repeated evaluation): it is found again under its key, so it must not hide its own decision.
+  const previous = latestEventOf(db, watchId, 'restock', evaluatedId);
+  if (previous === undefined) return null;
+  const told =
+    previous.observationId === null ? undefined : observationById(db, previous.observationId);
+  // An event whose observation is gone falls back to the event's own time (never earlier than its
+  // observation's): the conservative side, nothing is recorded twice.
+  return told?.observedAt ?? previous.createdAt;
+}
+
+/** The later of two timestamps in the database's form (UTC ISO, three fractional digits). */
+const laterOf = (a: string | null, b: string | null): string | null =>
+  a === null ? b : b === null ? a : a > b ? a : b;
+
+/**
+ * Records the alert's event under its stable key. For a price: unless an earlier price alert of the
+ * watch is still on its way (awaiting delivery) and this one is not below it. An undelivered
+ * earlier alert (its push failed for good) holds a repeat that is not a lower price for the watch's
+ * cooldown, counted from that event, so a broken channel cannot turn one drop into an alert per
+ * read. A restock is never held here: a restock decision is a new out→in transition, already
+ * deduplicated against the audit trail by its watermark (recordedRestockAt).
  */
 function recordAlert(
   ctx: EvaluationContext,
@@ -658,7 +696,8 @@ function recordAlert(
     watchId: watch.id,
     observationId: alert.observationId,
   });
-  const previous = latestEventOf(db, watch.id, alert.kind);
+  const previous =
+    alert.kind === 'price_drop' ? latestEventOf(db, watch.id, alert.kind) : undefined;
   if (previous !== undefined && previous.key !== key && previous.observationId !== null) {
     const status = deliveryStatus(gatingDeliveries(db, previous.id));
     // A push that failed for good leaves the alert `undelivered`: nothing counts as delivered, so
