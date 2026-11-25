@@ -20,6 +20,50 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: Readers and the scheduler (P1-2b, P1-2c, P1-6b)
+
+Three more units, each built by a subagent, read by the orchestrator, squash-merged into local `main` and checked there (lint, typecheck, test, build exit 0). **None has had its independent review yet.** Corpus after these merges: **601 cases, 387 implemented, 214 pending**.
+
+**P1-2c, structured-data readers and the ladder** (`dcc5d1b`). `packages/sources/src/structured` and `src/read`, against a reader contract the orchestrator wrote first (`src/read/contract.ts`, `25603dd`) so both reader units could run side by side. `readListing(request, endpointReaders, context)` returns a read with what each method saw, or a failed read with its reason, the page's fetch outcome (passed through untouched) and every candidate.
+
+- *Order.* Platform endpoint readers that apply, in order; the first read ends the ladder without fetching the page, and so does an endpoint's `variant_not_found`, `multiple_prices` or `converted_currency`. Otherwise one page fetch, read by JSON-LD, microdata and OpenGraph.
+- *Candidate rule.* Rank: JSON-LD 3, platform JSON and adapters 2, microdata and OpenGraph 1. The top rank decides; a refusal there is the result and a lower rank never overrules it; reads at the top rank that disagree on currency or amount are `multiple_prices`. Because an endpoint read ends the ladder, "JSON-LD outranks platform" is exercised only in the rule's own tests.
+- *Variant coupling.* A ProductGroup's `hasVariant` members, or else each Offer, are the units. A selector picks a unit when at least one field matches and none contradicts; without one the URL picks. Several units and none selected is `variant_not_found`: never the range, the first, the cheapest or the in-stock one.
+- *Where a failed read's candidates go* (an open item of Phase 0): a failed read writes no observation, so the caller logs its reason, detail, fetch outcome and candidates as one record per failed read. The ladder logs nothing.
+- *Fixtures.* 15 pages: 12 cut from Phase 0 lab pages of 2026-11-18 (source URL, body hash and original size in each), 3 synthetic for the known failures (multi-capacity range, multi-capacity offers, ProductGroup range). The author's three mutations (first variant, a range accepted, a lower rank overruling a refusal) each failed tests.
+- *Dependency.* `parse5` 8.0.1, behind one module, because microdata needs the tree a browser would build.
+- *Spec.* S§5.2: the candidate sentence and the variant-coupling paragraph now say the above.
+- *Not verified.* No real traffic; parse5's time on a full 6 MiB page (a 3.9 MB JSON-LD block is bounded under 5 s in a test). `UsedCondition` and `DamagedCondition` read as `unknown`; unit and member prices are always null; microdata `itemref` is not followed.
+
+**P1-2b, platform JSON readers** (`8a3ae43`). `shopifyReader`, `wooReader`, `magentoReader` and `PLATFORM_READERS` (ladder order) in `packages/sources/src/platform`.
+
+- *Shopify.* The `.js` integers are hundredths of the major unit whatever the currency: one real answer had `.js` 2288000 beside `.json` "22880" with `price_currency` JPY (n = 1 store). Three-decimal currencies are refused, since hundredths cannot carry the third decimal. The `.js` payload states no currency; it is taken, for the same session and market prefix, from the `cart_currency` cookie of the `.js` response (set on 142 of 190 `.js` answers stored by spike C), else `price_currency` of the `.json` view when its price agrees with the `.js` figure, else `/cart.js`. With none, currency `unknown`. The host's ccTLD, the store's base currency and the locale are never used for it.
+- *WooCommerce.* The Store API's `currency_minor_unit` is converted only when exact. A variation's own prices come from its own request; the parent's price and range are never used.
+- *Magento 2.* GraphQL by GET with an exact `url_key` check on the answer. A simple product whose minimum and maximum final price differ is `multiple_prices`.
+- *A 404 on a reader's first request* means "not this platform, or not this product" (`not_applicable`); any other failure carries the fetch outcome through.
+- *Manual smoke.* 11 real requests to 5 hosts of the committed lab lists, at most 3 per host, at least 3.5 s apart; no wall, 403 or 429. One product read per platform (currencies JPY, USD, CHF, and EUR on a second Shopify store). One host ignored Magento's `url_key` filter and returned two unrelated products, which the reader refused.
+- *Spec.* S§5.2: the `/cart.js` sentence now gives the Shopify currency order.
+- *Not verified.* A Shopify Markets prefix live (one default-market store only); Woo variations and Magento configurables against real answers; two reads of one Shopify host under different prefixes interleaving in one cookie session.
+- *Wanted in the reader contract, not done:* a reason for an answer that is not the platform's payload; the Magento generation in `StoreHints`; an `unconfirmed` flag on `no_read`; a stated cap of 20 candidates.
+
+**P1-6b, the scheduler** (`fa417a3`; areas scheduler-catch-up 12, scheduler-network-gate 11). Pure decisions in `packages/core/src/scheduler`; `createScheduler` in `apps/server/src/scheduler` (`register`, `start`, `trigger`, `health`, `wake`, `stop`). It is not wired into start-up yet.
+
+Scripted tests, on a fake clock and a real SQLite file. These are not the Phase 1 freeze and restart gates, which pause and restart a real container:
+
+| Scenario | What the test asserts |
+|---|---|
+| Freeze, 09:00 to 11:47, three jobs | One catch-up run per job standing for 5, 2 and 33 slots; further wakes add nothing; the 12:00 slot then runs once each |
+| Graceful restart | The stopped run ends `failed`; one boot run per job; the next slot runs once |
+| Crash | The dead run ends `failed` or `timed_out`, keeping its partial results; one boot run per job |
+| Two schedulers on one database | The second joins the first's run; a second `running` row is refused by the index; the slot runs once across both |
+| Deadline, handler never settles | The run ends `timed_out` at the deadline with its partial results; the lock is free |
+| DNS gate | Probes at 0, 3, 8, 18, 38 and 68 s, then `skipped` and a retry 60 s later; `next_run_at` unchanged |
+
+- *Differs from the migration's design note:* an open run is treated as dead only when its heartbeat (written into `detail_json` every 5 s) is 20 s old. Taken literally, "any open run found at boot is dead" would let a second instance end a live run and start another. The cost: after a crash, the job's boot catch-up waits up to 20 s.
+- *Decisions the unit made, which the owner may overrule:* a failed run retries in 60 s for every job, so a job that always fails runs every minute (a back-off is the obvious follow-up); a timed-out run leaves no retry; the deadline counts the DNS gate's wait; croner runs in UTC.
+- *Not verified.* A real container pause or laptop sleep; two real processes on one database; a handler that blocks the event loop past the lease.
+- *Schema the unit would want:* owner and heartbeat columns on `job_run` instead of keys in `detail_json`; a way to store "no next slot" for a spent one-off job.
+
 ### 2026-11-24: Migration 0002, the state Phase 1 persists (P1-0b)
 
 **Shipped** (branch `phase1/migration-0002`, squash-merged as `f22f52d`). `packages/db/migrations/0002_phase1_state.sql`, the Drizzle definitions, `packages/db/test/state.test.ts` and extensions of the existing db tests. `0001_initial.sql` is untouched. A fresh database goes 0 → 2 and a level-1 database with rows goes to 2 with every value kept (tests); the built server started on an empty data directory reports `migrationLevel: 2` (orchestrator's smoke, n=1). Lint, typecheck, test, build exit 0. The author's mutation check: removing the watch trigger and the lock index failed exactly 7 tests.
