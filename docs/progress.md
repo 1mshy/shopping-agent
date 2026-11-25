@@ -10,12 +10,46 @@ Per phase: what shipped, measured numbers with sample sizes, and deviations from
 | 2 | Licence | **decided 2026-11-17** | PolyForm Noncommercial 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`): anyone may use, modify and distribute for non-commercial purposes; no commercial use. Source-available, not OSI open source |
 | 3 | Agent-profile host | **decided 2026-11-23** | jsDelivr mirror pinned to the tag `agent-profile-v1` (`https://cdn.jsdelivr.net/gh/1mshy/shopping-agent@agent-profile-v1/lab/catalog/agent-profile.json`), chosen by the orchestrator after Shopify refused GitHub raw's `text/plain`; accepted by Shopify in the second functional check |
 | 4 | robots.txt default | **decided 2026-11-23** | `ignore`, setting exposed |
+| 5 | Native Anthropic Messages adapter | **decided 2026-11-24** | Built in Phase 2 (was Phase 7), the tested route for Claude. The owner left the choice to the orchestrator and asked for it in the Phase 2 documents |
 
 Owner asked for "open source for anyone to use, distribute and modify, but no commercial use". A non-commercial restriction cannot be OSI open source, so the project is described as source-available. PolyForm Noncommercial was chosen over CC BY-NC because it is written for software (patent grant, cure period for violations) and Creative Commons advises against using its licences for software.
 
 ---
 
 ## Phase 0: Foundations, contracts and spikes
+
+### 2026-11-24: The open Phase 0 decisions, settled
+
+The owner answered the Phase 0 report with "implement what you think is best" and asked for a native Claude API system in the Phase 2 documents. Each item below is the orchestrator's decision under that word, and the owner may overrule any of them.
+
+**1. The recordings are published as they are.** Before pushing, the orchestrator read what they expose: the `anthropic-ratelimit-*` header values (the account's limits and what was left of them) and the Models API list, 14 ids, every one a model Anthropic lists publicly. With the two leak scans of the entry below (0 pieces of the key, no personal term), nothing in them is a secret. The two details changed at review (NAT64 judged by its embedded IPv4 address; the in-app acceptance stamps the cooldown where no push channel is configured) stand.
+
+**2. The gold-set gate is accepted on model labels.** Phase 0 exits with it. What it carries forward: the Phase 2 identity-precision gate is measured on this set, so that figure is reported as "against model labels" unless a person has checked the held-out `exact` labels first (37 listings, small enough to check all). The in-app review queue of Phase 2 is where a person's labels first arrive.
+
+**3. Where the corpus and the gold set disagreed, the corpus follows the gold set.** Five cases in four listing families stopped being `exact`:
+
+| Case | Was | Now | Gold set |
+|---|---|---|---|
+| `match-owner-rulings/plus-only-in-the-listing` (PolyTerra PLA+ for PolyTerra PLA) | `exact` | `other_model` or `variant` | `other_model` |
+| `match-owner-rulings/plus-asked-listing-plus-2-0` (SUNLU PLA+ 2.0 for SUNLU PLA+) | `exact` | `other_model` or `variant` | `other_model` |
+| `match-title-rules/for-mac-edition` (MX Master 3S For Mac) | `exact` | `variant` | `variant` |
+| `match-title-rules/with-heatsink-for-a-console` (SN850X with heatsink) | `exact` | `variant` | `variant` |
+| `match-title-rules/with-heatsink-compatible-with-a-console` (990 PRO with heatsink) | `exact` | `variant` | `variant` |
+
+Reasons: `exact` means the two would share a barcode (S§5.4), and none of these pairs does; a false `exact` mixes two products' price histories and can fire an alert for the wrong one, while a false `variant` only moves a listing to another result group; and Phase 1 code is written to pass the corpus while the Phase 2 gate is measured on the gold set, so a disagreement between them would have been built in. This retires "Plus counts the query's way" for the material grade (a ruling from the predecessor's review of 2026-10-23): a Plus on either side alone is a material suffix under the owner's ruling of 2026-11-23. The two filament cases expect the pair that ruling names, as their neighbours do; the other_model / other_line boundary stays open.
+
+The corpus is still **601 cases, 601 pending**. The matcher areas now hold 46 `exact` expectations (51 before) and 39 sets (37). Each changed case keeps the predecessor's behaviour in `divergence` and lost its `ownerCheck`. Other configuration questions (Prusa kit or assembled, Saturn 12K or 16K, the two Sonicare model codes) keep theirs. Spec S§5.4 says the new rule.
+
+**Effect on spike D.** Its dataset fingerprint moved again, to `ac532875…e03961` (46 `exact`, 119 single, 39 sets). The published figures are not re-scored. They counted an `exact` on these five items as right, and the report says effort `low` more often called a For Mac or heatsink listing a variant, so `medium`'s recall lead is overstated by an unknown amount. Judge effort `medium` is therefore provisional until Phase 2 measures the judge on the gold set (noted in the report and in S§5.7).
+
+**4. Decision #5: the native Anthropic Messages adapter is built in Phase 2.** It was Phase 7 by default. Spec: S§1.3, S§3.3 (transport), S§4.4 (`llm_endpoint.wire` and prices), S§5.7 (the adapter's rules, the probe on that wire, the structured-output ladder, cost) and S§9 #5. Plan: a Phase 2 workstream of its own with its tests-first order, a Phase 2 exit gate, the probe-matrix gate, the first-run wizard, a Phase 6 note on snapshot pruning, the Phase 7 line removed, one risk-register row.
+
+- *Transport:* `@anthropic-ai/sdk` as transport only, as spike D's runner already uses it; retries off, no SDK tool runner, the run loop stays the project's own. Fallback: raw `fetch` against the same fixtures.
+- *From our recordings:* the seven probe steps, cache write then read of 3,628 tokens, thinking tokens in `output_tokens_details`, the provisional `message_start` count, the 400 on a sampling parameter, a forced `tool_choice` accepted by Claude Haiku 5.5, the empty reply to `tool_choice: none`.
+- *From Anthropic's documentation, not recorded here:* that the current Opus, Sonnet and Fable models refuse a forced `tool_choice`; that editing earlier turns invalidates later thinking blocks; the minimum cacheable prefix; the second rate card of Claude Haiku 5.5 above 100K prompt tokens. The plan asks for recordings of the first two before code relies on them.
+- *Not established:* the SDK's size in the core image; anything about OpenRouter or LiteLLM as a route for Claude.
+
+**Still the owner's, none blocking Phase 1:** the other_model / other_line boundary; the 37 other set cases (39 with the two filament cases); the three boundary questions of the gold-set review; the author's readings listed in the entry below.
 
 ### 2026-11-24: The corpus follows the rulings of 2026-11-23 (P0-3e)
 

@@ -57,11 +57,12 @@ describe('the dataset', () => {
   });
 
   // 123 single and 35 sets at d5acab7, where spike D was measured; 2026-11-24 (P0-3e): two URL-only
-  // exacts became unknown (singles still) and two other_line singles became sets.
-  it('counts 121 single labels and 37 sets, and no set holds exact', () => {
+  // exacts became unknown (singles still) and two other_line singles became sets. The same day the
+  // corpus followed the gold set on five exacts: two became sets, three became variant singles.
+  it('counts 119 single labels and 39 sets, and no set holds exact', () => {
     const sets = DATASET.filter((i) => 'oneOf' in i.gold);
-    expect(sets).toHaveLength(37);
-    expect(DATASET.length - sets.length).toBe(121);
+    expect(sets).toHaveLength(39);
+    expect(DATASET.length - sets.length).toBe(119);
     for (const i of sets) expect('oneOf' in i.gold && i.gold.oneOf.includes('exact')).toBe(false);
   });
 

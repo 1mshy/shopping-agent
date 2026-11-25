@@ -14,8 +14,14 @@
 // matte and silk are other lines (in the ruling's scope), not finishes. Where the ruling names
 // `other_model` or `variant`, a case that had `other_line` for a suffix of the asked name now
 // expects that pair.
+//
+// Decided 2026-11-24 (GOLD_SET_DECISION; the owner may overrule): the first half of that reading
+// is replaced. A material-grade Plus on the listing alone (PolyTerra PLA+ for PolyTerra PLA) and
+// a version suffix (SUNLU PLA+ 2.0 for SUNLU PLA+) fall under the suffix ruling too, as the gold
+// set labels them, so "Plus counts the query's way" no longer makes anything exact.
 import {
   code,
+  GOLD_SET_DECISION,
   REVIEW_RULE,
   report,
   review,
@@ -126,12 +132,12 @@ export const plusAndSize: readonly MatchCase[] = [
   },
   {
     id: 'plus-asked-listing-plus-2-0',
-    what: 'SUNLU PLA+ 2.0 for a SUNLU PLA+ query: the review took it',
+    what: 'SUNLU PLA+ 2.0 for a SUNLU PLA+ query: a version suffix, sold beside the PLA+',
     input: {
       asked: asked(SUNLU),
       listing: listing('SUNLU PLA+ 2.0 3D Printer Filament, 1.75mm, 1KG Black'),
     },
-    expected: { relation: 'exact' },
+    expected: { oneOf: ['other_model', 'variant'] },
     from: [
       test('test_matching.py', RENAMED, `[${SUNLU}]`),
       review(
@@ -149,12 +155,15 @@ export const plusAndSize: readonly MatchCase[] = [
       },
       S54_RULINGS,
     ],
-    label: 'a match (asserted), and both reviews count the PLA+ 2.0 as SUNLU PLA+ itself',
-    ownerCheck:
-      `Kept exact as the reviews took it, but ${SUFFIX_RULING} may reach it: "2.0" is a name ` +
-      'suffix, SUNLU sells PLA+ and PLA+ 2.0 side by side, and the gold set (matcher-v1, prompt ' +
+    label:
+      '"2.0" is a name suffix and SUNLU sells PLA+ and PLA+ 2.0 side by side, so the two do not ' +
+      `share a barcode; it follows ${SUFFIX_RULING}, and the gold set (matcher-v1, prompt ` +
       'gold-label.v1) labels "SUNLU PLA+ 2.0, Upgraded PLA+" other_model under a SUNLU PLA+ ' +
-      'product (sunlu-pla-plus-s13, -s14). Confirm exact, or say 2.0 makes another product.',
+      `product (sunlu-pla-plus-s13, -s14). Not exact by ${GOLD_SET_DECISION}; the relation is ` +
+      'the pair the ruling names',
+    divergence:
+      'The predecessor accepts it as the product (asserted), and both of its reviews count the ' +
+      'PLA+ 2.0 as SUNLU PLA+ itself. The case expected exact until 2026-11-24.',
   },
   {
     id: 'plus-written-as-a-word',
@@ -173,12 +182,12 @@ export const plusAndSize: readonly MatchCase[] = [
   },
   {
     id: 'plus-only-in-the-listing',
-    what: "PolyTerra PLA+ for a PolyTerra PLA query: the plus counts only the query's way",
+    what: 'PolyTerra PLA+ for a PolyTerra PLA query: the plus is a material suffix either way',
     input: {
       asked: asked('Polymaker PolyTerra PLA 1kg'),
       listing: listing('PolyTerra™ PLA+ Black - 1.75mm 1kg'),
     },
-    expected: { relation: 'exact' },
+    expected: { oneOf: ['other_model', 'variant'] },
     from: [
       test('test_matching.py', RENAMED, '[Polymaker PolyTerra PLA 1kg] ("the review took it")'),
       PLUS_COMMENT,
@@ -186,14 +195,13 @@ export const plusAndSize: readonly MatchCase[] = [
       S54_RULINGS,
     ],
     label:
-      'a match (asserted); the comment and report say the review took it, and it stays exact ' +
-      `under ${SUFFIX_READING}`,
-    ownerCheck:
-      `Kept exact under the orchestrator's reading, but ${SUFFIX_RULING} reads against it: PLA+ ` +
-      'for PLA is a material suffix, the gold-set prompt gold-label.v1 writes the ruling as ' +
-      '"PLA vs PLA+ is never exact", and the gold set labels this same title other_model under ' +
-      "its PolyTerra PLA product (polyterra-pla-s17). Confirm exact (Plus counts the query's way " +
-      'for a material grade), or say it is other_model or variant.',
+      `PLA+ for PLA is a material suffix, so it follows ${SUFFIX_RULING}: the gold-set prompt ` +
+      'gold-label.v1 writes the ruling as "PLA vs PLA+ is never exact", and the gold set labels ' +
+      'this same title other_model under its PolyTerra PLA product (polyterra-pla-s17). Not ' +
+      `exact by ${GOLD_SET_DECISION}; the relation is the pair the ruling names`,
+    divergence:
+      'The predecessor accepts it as the product (asserted; its comment and report say "the ' +
+      'review took it"), and "Plus counts the query\'s way" kept the case exact until 2026-11-24.',
   },
   {
     id: 'plus-of-another-item-in-a-bundle',

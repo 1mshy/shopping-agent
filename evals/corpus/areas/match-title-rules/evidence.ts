@@ -21,12 +21,30 @@ export const SUFFIX_RULING =
 /**
  * The orchestrator's reading of that ruling (2026-11-23): "Plus counts the query's way" stays for
  * the material-grade mark as the predecessor's review took it and does not extend to model
- * names; matte and silk are other lines, not finishes.
+ * names; matte and silk are other lines, not finishes. The first half was replaced on 2026-11-24
+ * (GOLD_SET_DECISION below): a material-grade Plus on either side alone is never exact. The rest
+ * stands.
  */
 export const SUFFIX_READING =
   'the orchestrator\'s reading of 2026-11-23: "Plus counts the query\'s way" stays for the ' +
   'material-grade mark as the review took it and does not extend to model names; matte and silk ' +
   'are other lines, not finishes';
+
+/**
+ * Decided on 2026-11-24 by the orchestrator, to whom the owner left the open matcher questions
+ * ("implement what you think is best"); the owner may overrule. Where the corpus and the gold set
+ * (matcher-v1) labelled the same listing differently, the corpus follows the gold set: `exact`
+ * means the two would share a barcode (S§5.4). It covers four listing families and no more: PLA+
+ * for PLA, PLA+ 2.0 for PLA+, the For Mac edition, and an SSD sold with a heatsink. It replaces
+ * SUFFIX_READING for the material-grade Plus: "Plus counts the query's way" no longer makes
+ * PolyTerra PLA+ exact for PolyTerra PLA. Other configuration questions (kit or assembled, 12K or
+ * 16K) keep their `ownerCheck`.
+ */
+export const GOLD_SET_DECISION =
+  'the decision of 2026-11-24 (docs/progress.md, "The open Phase 0 decisions, settled"): where ' +
+  'the corpus and the gold set labelled one listing differently the corpus follows the gold ' +
+  'set, so PLA+ for PLA, PLA+ 2.0 for PLA+, a For Mac edition and an SSD with a heatsink are ' +
+  'never exact';
 
 /** Settled by the orchestrator on 2026-11-23 (an engineering detail the owner may overrule). */
 export const URL_SETTLED =
@@ -93,8 +111,9 @@ export const S54_JUDGE = spec(
     'attribute is not a conflict; a match needs positive evidence"',
 );
 export const S54_RULINGS = spec(
-  'S§5.4 tier 2: "the owner\'s rulings as fixed test cases (combo counts both ways; Plus counts ' +
-    "the query's way for a material grade; a name suffix that changes the line or the material " +
-    'makes a different product, `other_model` or `variant`, never `exact`; a size in place of a ' +
-    'model is not a clash)"',
+  'S§5.4 tier 2: "the owner\'s rulings as fixed test cases (combo counts both ways; a name ' +
+    'suffix that changes the line or the material makes a different product, `other_model` or ' +
+    '`variant`, never `exact`, and a material-grade Plus or a version number on one side only ' +
+    'is such a suffix; an edition (For Mac, for Business) or a heatsink the asked name does not ' +
+    'mention makes a `variant`; a size in place of a model is not a clash)"',
 );

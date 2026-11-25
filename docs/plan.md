@@ -124,34 +124,47 @@ P4, P5 and P6 depend on P2 (and on P3 for their UI surfaces) but not on each oth
 ### Workstreams
 
 1. **LLM client** (`packages/llm`, S§5.7)
+   - The `WireAdapter` seam first: one neutral request and reply (system text, messages, tools, tool calls and results, structured-output schema, effort level, usage, typed stop outcome), so nothing above it names a provider. A migration adds `llm_endpoint.wire` and the price columns (S§4.4).
    - Chat Completions wire adapter over raw `fetch`, with an SSE parser, reasoning-field handling, `<think>` stripping, and bare-`[]` and truncation detection.
    - Usage normalisation and cost source.
    - The seven-step capability probe (S§5.7) and the `EndpointCapabilities` record editable in the UI.
    - The structured-output degrade ladder with zod and one repair retry.
    - Per-role endpoints (planner, judge, chat); circuit breaker; scheduled model health probe as a system notification.
    - Responses adapter: start here only if spike D or the probe shows the chosen default models need it. Otherwise defer to P7.
-2. **Harness core** (`packages/agent`)
+2. **Native Anthropic Messages adapter** (`packages/llm`, S§5.7; owner decision 5, decided 2026-11-24)
+   - Moved here from P7: the default hosted models are Claude, and Anthropic's OpenAI-compatibility endpoint showed no prompt cache and no reasoning token count in the P0 recordings. Built after the seam and the Chat Completions adapter exist, by a unit of its own, and reviewed as a high-risk area (harness budgets, secrets).
+   - Tests first, against the 19 recorded Messages fixtures in `evals/wire/fixtures/anthropic/` (replayed through the SDK's `fetch` option) and a scripted server: the request shape, the stream, every stop outcome, usage, and each error status.
+   - Transport: `@anthropic-ai/sdk`, pinned, imported in one module, retries off, the run's deadline and AbortSignal passed through; no SDK tool runner and no server-side tools. Its unpacked size is measured against the core image budget before merge, with raw `fetch` as the fallback.
+   - Request rules: `x-api-key` and a pinned `anthropic-version`; adaptive thinking with an explicit `output_config.effort` per role; no sampling parameter, no prefill; thinking blocks returned unchanged; transcripts append-only.
+   - Stop outcome read before content: end of turn, tool use, truncation, refusal (typed, not retried, not a circuit-breaker failure).
+   - Structured output on this wire: `output_config.format` → strict tool (forced only where the capability flag allows) → text extractor.
+   - Prompt cache: `cache_control` breakpoints on the tool list and the last system block; cache read and cache write tokens in the run record.
+   - Usage and cost: the Messages usage fields normalised to the S§4.4 record (cached tokens added back into input, thinking tokens as reasoning); cost from settings prices with the two rate cards; a price prefill for the Claude models, subject to owner decision 6.
+   - The probe on this wire: `/v1/models/{id}` for limits and the capability tree, then steps 2 to 7 as S§5.7 maps them.
+   - The Chat Completions adapter refuses an `api.anthropic.com` base URL with a pointer to this wire.
+   - New recordings, each needing the owner's go-ahead and a spend cap: a second Claude model that refuses a forced `tool_choice` (for the flag), and a multi-turn tool loop with thinking blocks replayed.
+3. **Harness core** (`packages/agent`)
    - Run loop with required budgets, forced finish, deterministic finisher, repeat and invalid-call detectors, AbortSignal, typed events.
    - RunRecord and RunStep with OTel GenAI names and 14-day payload retention.
    - Versioned prompt files.
    - Test layers: scripted fake LLM, wire fixtures from P0, stored-run replay.
-3. **Search providers and discovery** (S§5.3)
+4. **Search providers and discovery** (S§5.3)
    - Provider interface: SearXNG add-on (compose profile, pinned image, `addons/searxng/settings.yml`), external URL, Tavily and Exa keys.
    - Per-engine token buckets, 24 h query cache, engine reporting.
    - Candidate URL filter and listing key.
-4. **Shopify Global Catalog adapter**, following the outcome of spike B
+5. **Shopify Global Catalog adapter**, following the outcome of spike B
    - JSON-RPC client; the terms enforced in code (TTL cache, no persistence, attribution kept, never called from jobs); re-read at the shop before anything is shown as verified.
    - Profile URL setting. Owner decision 3.
-5. **Search pipeline** (S§5.6)
+6. **Search pipeline** (S§5.6)
    - Interpret (model call 1, skipped for exact input) → parallel fan-out under a shared deadline → HTTP reads → tiers 1-2 → batched judge (model call 2, tier 3, results written to the verdict cache) → code ranking with profile constraints → optional summary with placeholders.
    - Coverage record. Clarifying chip rule in code. Cancellation.
-6. **Search UI**
+7. **Search UI**
    - Results board fed by SSE (JSON-patch blocks, reconnect route): groups, trust labels, verdicts, coverage strip, clarifying chip.
    - "Watch this" from any result. "Dig deeper" shown but disabled until P6.
-   - LLM endpoint step in the first-run wizard: the probe must pass, or the user chooses "no model yet". The fast path then runs rules-only, with listings shown as unconfirmed.
-7. **Chat (minimal)**
+   - LLM endpoint step in the first-run wizard: a choice of "Anthropic (Claude)", which needs only a key and lists the models from `/v1/models`, or "OpenAI-compatible", which takes a base URL. The probe must pass, or the user chooses "no model yet". The fast path then runs rules-only, with listings shown as unconfirmed.
+8. **Chat (minimal)**
    - Chat run type with its seven tools (S§5.7). No fetch or browse tool. Watch changes go through the same service functions as the UI.
-8. **Evaluation**
+9. **Evaluation**
    - Live search eval runner over the gold search set (3 countries, 3 trials).
    - In-app review queue (50 listings per run, stratified by tier) feeding hand-review JSON.
 
@@ -165,7 +178,8 @@ These are measured on the **held-out** products; revise the gate values in the s
 - Fast mode p50 ≤30 s and p95 ≤60 s. Median spend ≤$0.01 and hard cap $0.03 on the chosen default judge and planner models. Tokens per search are reported.
 - The tier-3 judge's lift over the P1 rules-only baseline is reported. If it adds less than its cost, the judge stays on for the ambiguous band only and the spec is updated.
 - **Model outage drill:** endpoint unreachable. Search still returns rules-only results labelled unconfirmed; watches and alerts are unaffected; the health notification fires once.
-- **Probe matrix:** the capability probe gives correct records for OpenRouter, OpenAI, vLLM, Ollama and llama.cpp (wire fixtures plus at least two live endpoints).
+- **Probe matrix:** the capability probe gives correct records for the native Anthropic API (the recorded fixtures plus the live endpoint), and for OpenRouter, OpenAI, vLLM, Ollama and llama.cpp (wire fixtures plus at least two live endpoints). The owner deferred those five recordings on 2026-11-23; each stays `pending-owner` until its endpoint is supplied, and the gate does not hold on Anthropic alone.
+- **Native Anthropic adapter:** every recorded Messages fixture replays through the adapter with the stop outcome, usage and error it holds. On the live endpoint, over the search eval's runs: cache read tokens are above zero on a repeated multi-turn prefix; reasoning tokens are in every run record that thought; the cost computed from settings prices equals a hand calculation from the reported usage on 10 sampled calls; a truncation (forced live with a small `max_tokens`) and a refusal (from a scripted server, since a live one cannot be produced on demand) each end as their typed outcome, with no retry. No request carries a sampling parameter, a prefill or a thinking budget (asserted on the recorded requests of the eval).
 - Cancelling a run returns partial evidence, and no further model call is logged after the cancel.
 
 ---
@@ -288,6 +302,7 @@ These are measured on the **held-out** products; revise the gate values in the s
    - Re-run the access lab with the CDP attach against the predecessor's setup (R§4.4 risk 2).
 3. **Browse run type**
    - Five page tools on `ariaSnapshot({mode:'ai'})` and `getByRef`; `page_read` runs the code extractor; at most one snapshot in context; ~2,000-token extracts.
+   - On the Anthropic wire, replacing an old snapshot with a stub edits history, which invalidates the thinking blocks after it (S§5.7). Settle the method (server-side context editing, or dropping the thinking blocks from the edited turn on) and pin it with a recording before a browse run uses a Claude model.
    - 15 turns / 180 s / 150K tokens per store and one fresh context per store. The run ends on a wall or captcha. It sees the product spec only, never the profile.
 4. **Deep job orchestration**
    - Query expansion, more hosts, browser reads, and the wider judge. The cost and time cap is shown before start (default 10 min / $0.50), and the plan is streamed as the first event.
@@ -324,7 +339,7 @@ These are measured on the **held-out** products; revise the gate values in the s
    - Upgrade path tested from every previous migration; backup and restore drill.
    - Optional update check (owner decision 12).
 2. **Provider breadth**
-   - Responses adapter if not already done. Native Anthropic Messages adapter (owner decision 5). Probe-matrix CI against recorded fixtures for every supported server family.
+   - Responses adapter if not already done. Probe-matrix CI against recorded fixtures for every supported server family. (The native Anthropic Messages adapter moved to P2 on 2026-11-24, owner decision 5.)
 3. **Auth**
    - Generic OIDC (`openid-client`) and API tokens for automation.
 4. **Outward MCP server** (optional add-on, off by default)
@@ -366,5 +381,6 @@ These are measured on the **held-out** products; revise the gate values in the s
 | SearXNG engines throttle at real use | P2 live eval | Lower the per-engine budget, lean on the directory and the Catalog, and document free keyed providers. |
 | Marketplace endpoints change or wall | P5 soak, adapter health | Mark adapters experimental or broken in the UI. Never fail silently. |
 | Fast-mode targets not met on frontier models | P2 gate | Shrink the judge batch, skip the summary, and use a smaller judge model. A run stops at its deterministic result under its cap. |
+| The Messages API's rules differ by Claude model and change with new models (forced tool choice, switching thinking off, the check on edited history) | P2 probe flags, recorded fixtures per model | The adapter degrades by flag, never by model name. A model the probe cannot place runs through OpenRouter on the Chat Completions wire, labelled untested. |
 | Web Push unreachable for HTTP-only installs | P3 | Telegram, ntfy and Discord carry delivery; the feed's unread state is primary. |
 | eBay keyset unavailable to ordinary users | P5 | eBay becomes a deep link only, and the UI says so. |

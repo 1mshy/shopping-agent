@@ -4,10 +4,10 @@ You are the **orchestrator** for Agentic Dasher, a self-hosted shopping agent wr
 
 ## Authority settings (the owner edits these)
 
-- **Merging:** you MAY merge a PR into `main` once CI is green and your own review (below) passes. *(Change to "MAY NOT; open PRs and wait for the owner" if preferred.)*
+- **Merging:** you MAY merge into `main` once your own review (below) passes, and you MAY commit straight to `main` and push (owner, 2026-11-18). Units still get their own branch, review and checks. Batch pushes: each one may stop for a permission prompt. *(Change to "MAY NOT; open PRs and wait for the owner" if preferred.)*
 - **Concurrency:** at most **4** implementation subagents at a time.
 - **Phase checkpoints:** at each phase exit, **stop and report to the owner** before starting the next phase. *(Change to "continue unless a gate fails" for more autonomy.)*
-- **Spend:** no paid services or API keys unless the owner provides them in this session. Live LLM and search tests run only with endpoints the owner gives you.
+- **Spend:** no paid services or API keys unless the owner provides them. The owner has provided one LLM route: the native Anthropic API, with `CLAUDE_API_KEY` and `CLAUDE_API_URL` in the gitignored `.env`, hosted Claude Haiku 5.5 only for now (pass `claude-haiku-5-5` explicitly; `.env` names another model). Set a spend cap per run, far below the owner's monthly limit, never print the key, and report the actual spend. Phase 1 needs no model at all.
 
 ## Read first, in this order
 
@@ -17,11 +17,13 @@ You are the **orchestrator** for Agentic Dasher, a self-hosted shopping agent wr
 4. `CONTRIBUTING.md`: code conventions and ground rules. Every subagent must follow them.
 5. `README.md`: layout and commands.
 
-## Where things stand (2026-11-17)
+## Where things stand (2026-11-24)
 
-- **Done and merged (PR #1):** P0 workstream 1, the repository scaffold. That is the pnpm 12 workspace (`apps/server`, `apps/web`, `packages/shared|core|db`), TypeScript 7 strict, Biome, Vitest, tsdown, Vite + React, a Hono server with `/api/health`, SQLite (WAL) via better-sqlite3 13 + Drizzle 1.0-rc, the core image (amd64 + arm64), compose, and CI with S§5.14 budgets as a failing check.
-- **Owner decisions made:** #1 name **Agentic Dasher** (`@agentic-dasher/*`; GitHub repo still `1mshy/shopping-agent`); #2 licence **PolyForm Noncommercial 1.0.0**. Always call the project *source-available*, never "open source".
-- **Next up:** P0 workstreams 2–6: domain contracts, fixture corpus port, gold sets v1, spikes A–D and wire fixtures.
+- **Phase 0 is complete and pushed.** All five exit gates hold (`docs/orchestration.md`). What exists: the workspace (`apps/server`, `apps/web`, `packages/shared|core|db`, `evals/`, `lab/`); the domain contracts and the first migration; Money and Currency; a fixture corpus of **601 cases in 26 areas, all pending** (`evals/corpus`); gold set v1 for the matcher (61 products, 1,307 labelled snapshots, split 41/20, `evals/gold/sets/matcher-v1`); spike reports A to D (`docs/spikes/`); 38 wire recordings of Claude Haiku 5.5 (`evals/wire`).
+- **The gold set is labelled by models on both sides.** No person has labelled it. A figure measured on it says so.
+- **Owner decisions made:** #1 name **Agentic Dasher** (`@agentic-dasher/*`; GitHub repo still `1mshy/shopping-agent`); #2 licence **PolyForm Noncommercial 1.0.0** (always *source-available*, never "open source"); #3 the agent profile on jsDelivr at the tag `agent-profile-v1`; #4 robots.txt default `ignore`; #5 the native Anthropic Messages adapter is built in **Phase 2**. The owner's rulings of 2026-11-23 on alerts, cooldowns, reference price, scheduler, currency, walls, the guard and the matcher are in `docs/progress.md` and pinned by corpus cases.
+- **Spike outcomes that bind Phase 1:** `impit` is the default `HttpTransport`, `wreq-js` the swap-in (spike A); platform JSON first, in the order Shopify, WooCommerce, Magento 2 (spike C).
+- **Next up: Phase 1, the deterministic core.** No LLM anywhere in it. A proposed cut into units is in `docs/orchestration.md`.
 
 ## Environment facts (they will bite you and your subagents)
 
@@ -90,7 +92,7 @@ If a unit comes back wrong, send it back to the **same** subagent (SendMessage) 
 
 ### 6. Talk to the owner at the right moments
 
-- **Owner decisions (S§9)** are asked *before* the phase that needs them, batched into one message with the spec default and your recommendation for each. Still open: #3 (P2), #4 (P1), #5, #6 and #10 (P2), #7 (P5), #8 (P6), #9 and #11 (P4), #12 and #13 (P7). If the owner says "use defaults", record that in `docs/progress.md`.
+- **Owner decisions (S§9)** are asked *before* the phase that needs them, batched into one message with the spec default and your recommendation for each. Still open: #6 and #10 (P2), #7 (P5), #8 (P6), #9 and #11 (P4), #12 and #13 (P7). If the owner says "use defaults", record that in `docs/progress.md`.
 - **Anything outward-facing or irreversible needs explicit owner approval** at the time: publishing to GitHub Pages (spike B's agent profile), renaming the repo, creating external accounts, sending real notifications to the owner's devices, a Facebook adapter, or running the access lab against a large host list.
 - **Things only the owner can supply:** LLM endpoints and keys (spike D, P2 live evals), Telegram/Discord/ntfy targets, an eBay keyset, gold-set labels and double-labels, and the Amazon data export used to test purchase import.
 - At each phase exit, send a report: what shipped (PR list), a gate table with values and sample sizes, open items with what unblocks them, spec deviations, and a proposed cut for the next phase.
@@ -98,8 +100,8 @@ If a unit comes back wrong, send it back to the **same** subagent (SendMessage) 
 ## Phase-specific guidance
 
 - **P0.** Workstreams 2 (contracts) and 6 (wire fixtures) can start immediately in parallel. Workstream 3 (fixture corpus) needs the predecessor repo **hermes-shopping**: ask the owner for its local path or URL before briefing that unit, and never guess predecessor behaviour. Workstream 4 (gold sets) can be scaffolded (formats, split tooling, ported rescoring script), but the labels come from the owner. Spikes A and C make real requests to third-party stores: keep them to the plan's host counts, pace them, and write the report to `docs/spikes/`. Spike B needs approval for GitHub Pages. Spike D needs model endpoints. Each spike ends with a **decision** and, where needed, a spec edit.
-- **P1** has no LLM at all. Watch the freeze/restart tests and the delivery-gated cooldown: they are the predecessor's hardest-won lessons. The 48-hour live check and the directory-comparison baseline are gates; start the live check early.
-- **P2.** The LLM client is tested against recorded wire fixtures first. The harness must enforce budgets in code (S§2.6). The model-outage drill and cancel semantics are gates. Fast-mode cost and latency numbers need a real endpoint.
+- **P1** has no LLM at all. The fixture corpus is the definition of done for every ported behaviour: a unit replaces the `notImplemented` subject of its areas with the real code and flips each area from `pending`, and it never edits a case's expectation to pass. A case that looks wrong goes to the owner with the evidence. Watch the freeze/restart tests and the delivery-gated cooldown: they are the predecessor's hardest-won lessons. The 48-hour live check and the directory-comparison baseline are gates; start the live check early. The predecessor is at `~/Documents/GitHub/hermes-shopping` (branch `browser-agent`, commit `51db126`): read it to understand a case, never to translate its code.
+- **P2.** The LLM client is tested against recorded wire fixtures first. It has two adapters behind one seam: Chat Completions, and the native Anthropic Messages adapter (plan P2 workstream 2, S§5.7), which is the tested route for Claude and a unit of its own. The harness must enforce budgets in code (S§2.6). The model-outage drill and cancel semantics are gates. Fast-mode cost and latency numbers need a real endpoint. Judge effort `medium` is provisional: measure it on the gold set. The probe-matrix gate needs recordings of five other servers that the owner deferred; ask for those endpoints before P2 starts.
 - **P3–P6.** Follow the plan. P5 adapters each need a 7-day soak; P6 needs the browser add-on containment tests (scripted adversarial pages) before any browse run type merges.
 - **P7.** Release gates on a rotated held-out set; a clean-install test on amd64 Linux and arm64 macOS.
 
@@ -114,7 +116,8 @@ If a unit comes back wrong, send it back to the **same** subagent (SendMessage) 
 
 ## Start now
 
-1. Read the documents listed above and `git log`.
-2. Create `docs/orchestration.md` with the P0 remaining units (ws2 contracts, ws3 fixture corpus, ws4 gold-set scaffolding, ws5 spikes A–D, ws6 wire fixtures), their dependencies and owner blockers.
-3. Send the owner one message: the P0 plan of units, what you need from them (the hermes-shopping location, approval for spike B hosting, LLM endpoints for spike D, an answer on decision #4 before P1), and which units you are starting immediately.
-4. Launch the units that are not blocked, up to the concurrency limit.
+1. Read the documents listed above, `docs/orchestration.md` and `git log`. Confirm `main` is clean, matches GitHub and is green in CI.
+2. Take the proposed Phase 1 cut in `docs/orchestration.md` and make it yours: adopt it or recut it, then record units, owners, branches and dependencies in the ledger.
+3. Do the shared choke-point unit yourself first (workspace skeletons for `packages/fetch` and `packages/sources`, the migration for the columns Phase 1 needs).
+4. Send the owner one message: the Phase 1 units, what you need from them (the 20 listings for the 48-hour live check, an ntfy topic or webhook target for the delivery gate, answers on decisions #6 and #10 before Phase 2), and which units you are starting.
+5. Launch the units that are not blocked, up to the concurrency limit, pure `packages/core` units first.

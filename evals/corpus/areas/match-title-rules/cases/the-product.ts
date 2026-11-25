@@ -5,6 +5,7 @@
 // so in `divergence`.
 import { asked, listing, type MatchCase } from '../contract.ts';
 import {
+  GOLD_SET_DECISION,
   REVIEW_RULE,
   review,
   run,
@@ -68,11 +69,19 @@ const CONFIGURATION =
   '(asserted), and S§5.4 says a missing attribute is not a conflict. Confirm exact, or say it is ' +
   'a variant ("variants in configuration are not matches").';
 
-const HEATSINK =
-  "The owner's ruling of 2026-11-23 on name suffixes does not settle it (a heatsink is a " +
-  'configuration, not a line or a material). The gold set labels "with Heatsink" listings ' +
-  'variant, but its SN850X and 990 PRO products name "without heatsink" as a must-have ' +
-  '(sn850x-2tb-s09, 990-pro-2tb-s11), so it does not answer a query that names neither.';
+/** The heatsink question, settled on 2026-11-24: the gold set's label stands for a bare query. */
+const HEATSINK_SETTLED: Partial<MatchCase> = {
+  expected: { relation: 'variant' },
+  label:
+    'the drive is sold with and without a heatsink under two part numbers, so the two do not ' +
+    'share a barcode, and S§5.4 says variants in configuration are not matches; the gold set ' +
+    'labels "with Heatsink" listings variant (sn850x-2tb-s09, 990-pro-2tb-s11). Variant by ' +
+    `${GOLD_SET_DECISION}: a query that names no heatsink asks for the bare drive`,
+  divergence:
+    'The predecessor accepts it as the product (asserted: not an accessory, score at or over ' +
+    '65). The case expected exact until 2026-11-24; it was left open because the gold products ' +
+    'name "without heatsink" as a must-have and this query names neither.',
+};
 
 export const theProduct: readonly MatchCase[] = [
   itself(
@@ -112,12 +121,15 @@ export const theProduct: readonly MatchCase[] = [
     'Logitech MX Master 3S',
     'MX Master 3S For Mac',
     {
-      ownerCheck:
-        `${CONFIGURATION} Kept exact as the predecessor had it, but ${SUFFIX_RULING} may reach ` +
-        'it: "For Mac" is an edition suffix like "for Business" (a variant here), and the gold ' +
-        'set labels "MX Master 3S ... for Mac" and "MX Master 3S für Mac" variant ' +
-        '(mx-master-3s-s05, mx-master-3s-de-s11, -s13; those products name the standard ' +
-        'edition as a must-have).',
+      expected: { relation: 'variant' },
+      label:
+        '"For Mac" is an edition suffix like "for Business" (a variant here), with its own part ' +
+        `number; it follows ${SUFFIX_RULING}, and the gold set labels "MX Master 3S ... for ` +
+        'Mac" and "MX Master 3S für Mac" variant (mx-master-3s-s05, mx-master-3s-de-s11, -s13). ' +
+        `Variant by ${GOLD_SET_DECISION}`,
+      divergence:
+        'The predecessor accepts it as the product (asserted: not an accessory, score at or ' +
+        'over 65). The case expected exact until 2026-11-24.',
     },
   ),
   itself(
@@ -132,7 +144,7 @@ export const theProduct: readonly MatchCase[] = [
     'an SSD "with Heatsink for PS5": the "for" names where it fits, not what it is',
     'WD Black SN850X 2TB',
     'WD SN850X 2TB Internal SSD PCIe Gen 4 x4 NVMe with Heatsink for PS5 & Desktops',
-    { ownerCheck: `${CONFIGURATION} ${HEATSINK}` },
+    HEATSINK_SETTLED,
   ),
   itself(
     'with-heatsink-compatible-with-a-console',
@@ -140,7 +152,7 @@ export const theProduct: readonly MatchCase[] = [
     'Samsung 990 Pro 2TB',
     'SAMSUNG SSD 990 PRO with Heatsink 2TB, PCIe 4.0, Sew. Read Speeds Up-to 7,450MB/s, ' +
       'Compatible with PlayStation®5 (MZ-V9P2T0CW)',
-    { ownerCheck: `${CONFIGURATION} ${HEATSINK}` },
+    HEATSINK_SETTLED,
   ),
   itself(
     'included-case-is-not-the-product',

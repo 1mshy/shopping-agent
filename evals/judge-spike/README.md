@@ -4,7 +4,7 @@ Plan P0 workstream 5, spike D: "Run the rule-guided batched judge prompt (S§5.4
 
 **Status: part 2 done (2026-11-23).** The owner narrowed the spike to one hosted model, Claude Haiku 5.5 on the native Anthropic API; part 2 added that call path (`--api anthropic`, below) and ran the default plan twice, at effort `low` and `medium`, for $0.52 in all. Results, limits and the decision: `docs/spikes/d-model-judge.md`. The sections below were written for part 1 and still describe the harness; "What the owner must supply" and the open questions are answered or carried in that report.
 
-**Dataset changed after the runs (2026-11-24).** The published results (part 2, `docs/spikes/d-model-judge.md`) were measured on the dataset as of commit `d5acab7`: 158 items, fingerprint `e930f87b1a1f73796e60025c744c028c6779a90d651516d78c8c993a954a7e29` (53 `exact`, 123 single, 35 sets). Applying the owner's rulings and the orchestrator's settled details of 2026-11-23 to the matcher corpus (P0-3e) changed five golds, no asked side, listing or case: `match-identifiers/url-path-names-the-model` and `canonical-url-names-the-model` from `exact` to `unknown` (a model number in a URL path is supporting evidence, never identity on its own); `match-owner-rulings/plus-asked-listing-plain` and `plus-asked-listing-matte` from `other_line` to the set `other_model`/`variant`, and `another-line-silk` from the set `other_line`/`unknown` to `other_model`/`variant` (a name suffix that changes the line or the material makes a different product, `other_model` or `variant`, never `exact`). The dataset is now 158 items, fingerprint `5520a85bf3f93b3e01f4eb9ee201fab5810fc414dbf931b6bf10e7240eb02236`. The tables below describe the new dataset; the measured numbers in the report are unchanged and belong to the old one. `report.ts` refuses a run whose fingerprint differs, so the part 2 runs can be re-scored only on a checkout of `d5acab7`.
+**Dataset changed after the runs (2026-11-24).** The published results (part 2, `docs/spikes/d-model-judge.md`) were measured on the dataset as of commit `d5acab7`: 158 items, fingerprint `e930f87b1a1f73796e60025c744c028c6779a90d651516d78c8c993a954a7e29` (53 `exact`, 123 single, 35 sets). Applying the owner's rulings and the orchestrator's settled details of 2026-11-23 to the matcher corpus (P0-3e) changed five golds, no asked side, listing or case: `match-identifiers/url-path-names-the-model` and `canonical-url-names-the-model` from `exact` to `unknown` (a model number in a URL path is supporting evidence, never identity on its own); `match-owner-rulings/plus-asked-listing-plain` and `plus-asked-listing-matte` from `other_line` to the set `other_model`/`variant`, and `another-line-silk` from the set `other_line`/`unknown` to `other_model`/`variant` (a name suffix that changes the line or the material makes a different product, `other_model` or `variant`, never `exact`). That gave 158 items, fingerprint `5520a85bf3f93b3e01f4eb9ee201fab5810fc414dbf931b6bf10e7240eb02236` (51 `exact`, 121 single, 37 sets). A second change the same day (the open Phase 0 decisions, `docs/progress.md`) made the corpus follow the gold set on five more golds: `match-owner-rulings/plus-asked-listing-plus-2-0` and `plus-only-in-the-listing` from `exact` to the set `other_model`/`variant`, and `match-title-rules/for-mac-edition`, `with-heatsink-for-a-console` and `with-heatsink-compatible-with-a-console` from `exact` to `variant`. The dataset is now 158 items, fingerprint `ac5328759181d95433fd8d4c565c60799c4614ec9816cdadf33036b45ae03961` (46 `exact`, 119 single, 39 sets). The tables below describe the new dataset; the measured numbers in the report are unchanged and belong to the old one. `report.ts` refuses a run whose fingerprint differs, so the part 2 runs can be re-scored only on a checkout of `d5acab7`.
 
 | Path | What |
 |---|---|
@@ -45,7 +45,7 @@ What it is:
 
 - **158 query/listing pairs from one owner's shopping** (3D printers and filament, a drill, earbuds, a toothbrush, a pitcher, an SSD and a few more), ported from the predecessor's tests, hand reviews, reports and owner rulings.
 - **Labels from mixed evidence.** 129 cases cite a predecessor test, 83 a hand review; many cite both. The predecessor's two hand-review files are per store, not per listing (see `evals/review/README.md`), so they are not used here directly: only corpus cases, whose labels say how they were derived.
-- **37 items without a single label** (35 at `d5acab7`). Their gold is a set of relations that never includes `exact`: the evidence says "not the product" and no more. Any `exact` on them is a false accept; any relation in the set is a right rejection.
+- **39 items without a single label** (35 at `d5acab7`). Their gold is a set of relations that never includes `exact`: the evidence says "not the product" and no more. Any `exact` on them is a false accept; any relation in the set is a right rejection.
 - **No held-out split, and heavily weighted to hard cases**: accessories that name the product, Combo and Plus rulings, other models of the same line. It is not a sample of what a search returns.
 - **The asked side is the predecessor's query string only** (`name`; brand, model, MPN and GTIN are null), with its case as typed, so "Logitech MX Master 3S" and "logitech mx master 3s" are two asked products.
 - **A gold `unknown` is the code tiers' expected output**, "no positive evidence either way", not the truth about the listing. One of them is, per its case, the right drill under a name without the model number; two more (since 2026-11-24) are listings whose only identity evidence is a model number in the URL. Rule 4 of the prompt ("a match needs positive evidence") asks the judge for `unknown` there too, so an `exact` on it is scored as a false accept (class `no_positive_evidence`).
@@ -58,21 +58,21 @@ Composition, as `compositionMarkdown` computes it (a test keeps this table equal
 
 | Gold label | Items |
 |---|--:|
-| `exact` | 51 |
-| `variant` | 7 |
+| `exact` | 46 |
+| `variant` | 10 |
 | `bundle` | 2 |
 | `accessory_or_part` | 35 |
 | `other_model` | 17 |
 | `other_line` | 3 |
 | `unknown` | 6 |
-| a set of relations (no single label, never `exact`) | 37 |
-| **Total** | **158** (121 single, 37 sets) |
+| a set of relations (no single label, never `exact`) | 39 |
+| **Total** | **158** (119 single, 39 sets) |
 
 | Corpus area | Single label | Set | Total |
 |---|--:|--:|--:|
 | match-title-rules | 79 | 8 | 87 |
 | match-identifiers | 9 | 7 | 16 |
-| match-owner-rulings | 29 | 19 | 48 |
+| match-owner-rulings | 27 | 21 | 48 |
 | known-failure-wrong-variant | 4 | 3 | 7 |
 
 | Evidence kind cited (an item counts under each kind it cites) | Items |
@@ -90,7 +90,7 @@ Composition, as `compositionMarkdown` computes it (a test keeps this table equal
 | `other_model` | 17 |
 | `variant:capacity` | 1 |
 | `variant:configuration` | 5 |
-| `variant:unspecified` | 1 |
+| `variant:unspecified` | 4 |
 | `bundle` | 2 |
 | `accessory_or_part` | 35 |
 | `no_positive_evidence` | 6 |
@@ -301,7 +301,7 @@ Money is not estimated here: it is these token counts at the owner's prices, and
 
 ## Tests (`pnpm test`; no network beyond 127.0.0.1, no model)
 
-- `dataset.test.ts`: one item per corpus case, by identity; 121 single, 37 sets; error classes; the variant split quotes; this README's composition table.
+- `dataset.test.ts`: one item per corpus case, by identity; 119 single, 39 sets; error classes; the variant split quotes; this README's composition table.
 - `score.test.ts`: every scoring rule and the veto-only view on hand-built golds.
 - `prompt.test.ts`: the token estimate on hand-counted strings; the pinned sha256; the fixed part under 800 and this README's size table; byte stability; delimiters that a hostile title cannot close; no URL shown; no dataset product, title or brand in the prompt.
 - `batches.test.ts`: determinism from the seed; each item once per size per trial; one asked product per batch; this README's plan table.
