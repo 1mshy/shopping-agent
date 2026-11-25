@@ -136,9 +136,9 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | Restart test | One container replaced on the same volume: watch, observation, reference, session and level survived (n = 1). Pending outbox items not measured; `docker run`, not compose | open | The same with a pending delivery, through `docker compose down && up` |
 | Live check, 48 h, 20 listings, ≥10 hosts | Not started | pending-owner, then pending-time | The owner's approval of the listings |
 | Directory comparison on the 40 dev products | Not run: no store directory. Held-out split not run and not read | open | Workstream 3, then one held-out run |
-| Core image and RSS within budget | arm64, n = 1, built from `5e93b2d` with the UI, runtime started: 93.8 MB pull, 292.0 MB unpacked, 48.8 MB idle, 259 ms | holds on arm64 | CI's amd64 build after a push |
+| Core image and RSS within budget | arm64, n = 1, built from `e9d2cef` with the UI, runtime started: 93.8 MB pull, 292.0 MB unpacked, 49.3 MB idle, 219 ms | holds on arm64 | CI's amd64 build after a push |
 
-**Phase 1 status: not complete.** Not built: the store directory and in-store search (ws3), store trust (ws5b), and the UI beyond its cut-down form (ws8). Five independent reviews ran, two of them of the night's own fixes, and found 34 defects, 6 critical; 21 were fixed, fixed in part or bounded the same night, the rest are open, two of them waiting on the owner's ruling (progress log, 2026-11-25, the review tables). Most units, and the second round of fixes, have had no independent review. Nothing is pushed; nothing has run in CI. The phase report is in the progress log ("Phase 1 report at the end of the unattended run").
+**Phase 1 status: not complete.** Not built: the store directory and in-store search (ws3), store trust (ws5b), and the UI beyond its cut-down form (ws8). Seven independent reviews ran, four of them of the night's own fixes, and found 46 defects, 8 rated critical; 28 were fixed, fixed in part or bounded the same night. **Two rated critical are open:** the restock watermark can lose a second listing's restock (R-7 finding 1), and the own-network refusal does not cover a Docker install or a router's public address (R-6 finding 1). Two more wait on the owner's ruling (progress log, 2026-11-25, the review tables). Every review of a fix found the fix wanting; the last round of fixes has had no review. Nothing is pushed; nothing has run in CI. The phase report is in the progress log ("Phase 1 report at the end of the unattended run").
 
 | Id | Status | Note |
 |---|---|---|
@@ -147,13 +147,15 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | R-3 | done (2026-11-25) | Reviewer, auth, sessions, CSRF, settings: 9 findings, 1 critical (DNS rebinding; fixed with 3, `09de739`), 4 fixed (`849c72a`), 7 fixed (`35f52e8`); 2 (global throttle lockout, high) needs the owner; 5, 6, 8 and 9 open |
 | R-4 | done (2026-11-25) | Reviewer, the alert fixes: 4 findings, 1 critical (a restock recorded twice) and 1 high (a throw after a clock step), both fixed (`75eacb2`); 2 low open |
 | R-5 | done (2026-11-25) | Reviewer, the Host check, cross-site refusal and session rotation: 4 findings, none critical, all fixed (`5e93b2d`; `fritz.box` left off the list on purpose) |
+| R-6 | done (2026-11-25) | Reviewer, the fetch-path fixes: 7 findings; 2, 3, 4, 5 and 7 fixed (`e9d2cef`); 1 (critical, from reading: own networks under Docker and behind NAT) and 6 open |
+| R-7 | done (2026-11-25) | Reviewer, the second round of alert and Host fixes: 5 findings; 3 and 4 fixed (`05f7fa0`, `e9d2cef`); 1 (critical: a second listing's restock lost) and 2 (high: cooldown after a clock step) open |
 | P1-6f | merged (2026-11-25) | Subagent, `phase1/alert-fixes`: the alert review's findings 5 to 8, one commit each, cherry-picked. Reviewed by R-4 |
 | P1-3a, P1-3b, P1-3c | planned | Store directory, in-store search, country pack and adapters. Not started |
 | P1-5b | planned | Store trust. Not started |
 | P1-8b | merged in a cut-down form (2026-11-25, `34d6c74`, `14b2bc9`, `1419e59`) | Subagent, `phase1/ui`. Gate, market step, watches, watch detail, SVG history, alerts, read-only settings and diagnostics; 77.7 kB gzipped. Walked by the orchestrator in a headless browser on an empty and a seeded database. Not built: the uPlot chart, channel and password forms, editable settings, component tests. No independent review |
 | P1-G | open | The gates above |
 
-Needed from the owner during Phase 1: a ruling on the global login throttle (R-3 finding 2) and on the cross-store reference (R-2 finding 3); whether the Host rule's default list suits how the box is reached (`ALLOWED_HOSTS`); approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
+Needed from the owner during Phase 1: whether to record on a restock event what its decision saw (a small schema or payload change; R-7 finding 1); a setting for extra refused networks (R-6 finding 1); a ruling on the global login throttle (R-3 finding 2) and on the cross-store reference (R-2 finding 3); whether the Host rule's default list suits how the box is reached (`ALLOWED_HOSTS`); approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
 
 ## Later phases
 
