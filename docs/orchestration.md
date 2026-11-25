@@ -107,7 +107,9 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | P1-0b | — | planned | Migration `0002` for the columns Phase 0 deferred to Phase 1 |
 | P1-4 | `phase1/matcher` | running | Subagent. Also writes the tiers 1-2 gold-set scorer; told to use the dev split only |
 | P1-2a | `phase1/price-text` | running | Subagent |
-| P1-1a | `phase1/guard` | running | Subagent |
+| P1-1a | `phase1/guard` | merged (2026-11-24, `910a62d`); independent review still owed | Subagent. `packages/fetch/src/guard`: address decision (every IANA special-purpose range, IPv4 multicast, everything outside 2000::/3; IPv4-mapped and NAT64 judged by the embedded IPv4), URL form, one DNS answer per hop judged whole (one refused address refuses the name) and pinned, redirects followed by hand and re-checked, body cap while reading. Areas url-guard-address (57) and url-guard-transport (11) implemented. Orchestrator read `address.ts`, `destination.ts`, `exchange.ts`; lint, typecheck, test, build exit 0 on the merged tree. Settled by the unit, the owner may overrule: at most 10 redirects (one more is `network_error ERR_TOO_MANY_REDIRECTS`, since the vocabulary has no refusal reason for it); `localhost` names refused without a lookup; the body cap is the caller's required option. Not verified: the range table against a fresh copy of the IANA registries (no network in the unit) |
+| P1-1b | `phase1/transport` | running | Subagent. `impit` behind the guard's seam (pinning is the open risk), `api` and `http` rungs, status-to-outcome mapping, cookie jars, multi-arch image |
+| P1-9a | committed to `main` (`d859f14`) | merged (2026-11-24) | Orchestrator. Migrations and the default profile at start-up, migration level in health, `Database.backupTo` (`VACUUM INTO`). The scheduled backup and the restore doc wait for the scheduler |
 
 Needed from the owner during Phase 1: approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
 
