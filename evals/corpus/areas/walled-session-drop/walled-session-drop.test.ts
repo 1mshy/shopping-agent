@@ -1,12 +1,12 @@
+import { planSessionDrop as fetchPlanSessionDrop } from '@agentic-dasher/fetch';
 import { FetchOutcome } from '@agentic-dasher/shared';
 import { describe, expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { PlanSessionDrop } from './contract.ts';
 
-/** Phase 1 replaces this stub with the browser client's session-drop rule in packages/fetch. */
-const planSessionDrop: PlanSessionDrop = () =>
-  notImplemented('walled session drop (planSessionDrop)');
+/** The browser client's session-drop rule in packages/fetch (S§5.1 Sessions). */
+const planSessionDrop: PlanSessionDrop = fetchPlanSessionDrop;
 
 corpusTests(
   area,

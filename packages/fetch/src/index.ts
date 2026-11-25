@@ -8,3 +8,4 @@ export * from './page/index.ts';
 export * from './playbook/index.ts';
 export * from './robots/index.ts';
 export * from './transport/index.ts';
+export * from './walls/index.ts';

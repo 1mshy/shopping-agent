@@ -1,11 +1,15 @@
+import {
+  statusAfterWait as fetchStatusAfterWait,
+  worthWaiting as fetchWorthWaiting,
+} from '@agentic-dasher/fetch';
 import { describe, expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { StatusAfterWait, WorthWaiting } from './contract.ts';
 
-/** Phase 1 replaces these stubs with the browser rung's wait rules in packages/fetch. */
-const worthWaiting: WorthWaiting = () => notImplemented('challenge wait (worthWaiting)');
-const statusAfterWait: StatusAfterWait = () => notImplemented('challenge wait (statusAfterWait)');
+/** The browser rung's wait rules in packages/fetch (S§5.1 ladder step 3). */
+const worthWaiting: WorthWaiting = fetchWorthWaiting;
+const statusAfterWait: StatusAfterWait = fetchStatusAfterWait;
 
 corpusTests(
   area,

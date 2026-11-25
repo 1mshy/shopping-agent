@@ -1,11 +1,12 @@
+import { classifyPage as fetchClassifyPage } from '@agentic-dasher/fetch';
 import { FETCH_OUTCOME_KINDS, FetchOutcome, RUNGS } from '@agentic-dasher/shared';
 import { describe, expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { ClassifyPage, PageOutcome } from './contract.ts';
 
-/** Phase 1 replaces this stub with the wall classifier of packages/fetch. */
-const classifyPage: ClassifyPage = () => notImplemented('wall classifier (classifyPage)');
+/** The wall classifier of packages/fetch (S§5.1). */
+const classifyPage: ClassifyPage = fetchClassifyPage;
 
 corpusTests(
   area,
