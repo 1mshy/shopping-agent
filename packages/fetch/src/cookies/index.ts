@@ -6,6 +6,8 @@ export {
   domainMatch,
   MAX_COOKIE_BYTES,
   MAX_COOKIES_PER_JAR,
+  MAX_COOKIES_TOTAL,
+  MAX_JARS,
   parseCookieDate,
   pathMatch,
 } from './jar.ts';

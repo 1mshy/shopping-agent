@@ -4,6 +4,8 @@ import {
   CookieJars,
   domainMatch,
   MAX_COOKIES_PER_JAR,
+  MAX_COOKIES_TOTAL,
+  MAX_JARS,
   parseCookieDate,
   pathMatch,
 } from '../../src/cookies/index.ts';
@@ -204,5 +206,64 @@ describe('CookieJars', () => {
     jars.forget('shop.test');
     expect(jars.jar('www.shop.test').size).toBe(0);
     expect(jars.jar('shop.test').size).toBe(0);
+  });
+
+  // From the fetch review's finding 5, case 1: a wall on a hosting suffix emptied every shop on it.
+  it('forgets a hosting suffix without touching the shops under it', () => {
+    const jars = new CookieJars();
+    jars.jar('www.myshopify.com').store(['w=1; Path=/'], 'https://www.myshopify.com/', NOW);
+    jars.jar('alpha.myshopify.com').store(['a=1; Path=/'], 'https://alpha.myshopify.com/', NOW);
+    jars.jar('beta.myshopify.com').store(['b=1; Path=/'], 'https://beta.myshopify.com/', NOW);
+    // The site of `www.myshopify.com`, as the session drop names it.
+    jars.forget('myshopify.com');
+    expect(jars.jar('www.myshopify.com').size).toBe(0);
+    expect(jars.jar('alpha.myshopify.com').size).toBe(1);
+    expect(jars.jar('beta.myshopify.com').size).toBe(1);
+  });
+
+  it('leaves a cookie on a public suffix alone when a site under it is forgotten', () => {
+    const jars = new CookieJars();
+    jars.jar('a.co.uk').store(['wide=1; Domain=co.uk; Path=/'], 'https://a.co.uk/', NOW);
+    jars
+      .jar('m.b.co.uk')
+      .store(
+        ['bm=1; Domain=b.co.uk; Path=/', 'wide=1; Domain=co.uk; Path=/'],
+        'https://m.b.co.uk/',
+        NOW,
+      );
+    jars.forget('b.co.uk');
+    expect(jars.jar('a.co.uk').size).toBe(1);
+    expect(jars.jar('m.b.co.uk').size).toBe(0);
+  });
+
+  // From the fetch review's finding 3: a page chooses the hosts it redirects to, and nothing
+  // capped the jars.
+  it('keeps at most MAX_JARS jars, dropping the least recently used', () => {
+    const jars = new CookieJars();
+    for (let i = 0; i < MAX_JARS + 50; i++) {
+      jars.jar(`h${i}.test`).store(['a=1; Path=/'], `https://h${i}.test/`, NOW);
+      // The first host stays in use throughout.
+      jars.jar('h0.test');
+    }
+    expect(jars.size).toBe(MAX_JARS);
+    expect(jars.jar('h0.test').size).toBe(1);
+    // An early host that was not used again lost its jar: asking again gives an empty one.
+    expect(jars.jar('h1.test').size).toBe(0);
+    expect(jars.jar(`h${MAX_JARS + 49}.test`).size).toBe(1);
+  });
+
+  it('keeps the cookies of all jars near MAX_COOKIES_TOTAL, dropping the least recently used jars', () => {
+    const jars = new CookieJars();
+    const perHost = 200;
+    const hosts = Math.ceil(MAX_COOKIES_TOTAL / perHost) + 10;
+    for (let i = 0; i < hosts; i++) {
+      const cookies = Array.from({ length: perHost }, (_, n) => `c${n}=1; Path=/`);
+      jars.jar(`h${i}.test`).store(cookies, `https://h${i}.test/`, NOW);
+    }
+    // The newest host's jar is whole; the total is under the cap plus the one jar being written.
+    const newest = jars.jar(`h${hosts - 1}.test`);
+    expect(newest.size).toBe(perHost);
+    expect(jars.cookieCount).toBeLessThanOrEqual(MAX_COOKIES_TOTAL + MAX_COOKIES_PER_JAR);
+    expect(jars.jar('h0.test').size).toBe(0);
   });
 });

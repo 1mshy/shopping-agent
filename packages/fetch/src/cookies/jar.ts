@@ -11,6 +11,7 @@
 // reaching every shop under it. Here each host has its own jar, so a cookie never reaches another
 // host's requests, whatever its Domain says. HttpOnly and SameSite are not modelled: no script
 // reads these cookies, and the only Referer ever sent is same-site.
+import { isPublicSuffix } from '../walls/site.ts';
 
 export interface Cookie {
   readonly name: string;
@@ -313,34 +314,88 @@ function bareSite(site: string): string {
   return site.toLowerCase().replace(/^\.+|\.+$/g, '');
 }
 
-/** True when `domain` is `site`, under it, or one of its parent domains. */
+/**
+ * Jars kept at once; the least recently used goes first. A page chooses the hosts it redirects
+ * to, so without a cap it chooses how many jars exist. About 12 HTTP hosts are in flight at once
+ * (S§5.1 Pacing) and a home install watches tens of stores, so 256 leaves every live session its
+ * jar; a jar that is dropped costs that host one cold request.
+ */
+export const MAX_JARS = 256;
+/**
+ * Cookies kept across all jars: past it, the least recently used jars are dropped whole. With
+ * `MAX_COOKIE_BYTES` this bounds what cookies can hold to about 16 MB of names and values (the
+ * jar in use may add up to `MAX_COOKIES_PER_JAR` more until the next jar is asked for).
+ */
+export const MAX_COOKIES_TOTAL = 4_000;
+
+/**
+ * True when cookies set for `domain` go when `site` is forgotten: the site's own, those of a
+ * domain under it, and those of its parent domains short of a public suffix (`shop.co.uk`'s wall
+ * says nothing about a cookie on `co.uk`).
+ */
 function related(domain: string, site: string): boolean {
-  return domain === site || domain.endsWith(`.${site}`) || site.endsWith(`.${domain}`);
+  if (domain === site || domain.endsWith(`.${site}`)) return true;
+  return site.endsWith(`.${domain}`) && !isPublicSuffix(domain);
 }
 
 /** Every HTTP host session's jar, kept in memory: one jar per host. */
 export class CookieJars {
+  /** In order of use, least recent first. */
   readonly #jars = new Map<string, CookieJar>();
+
+  /** The number of jars held. */
+  get size(): number {
+    return this.#jars.size;
+  }
+
+  /** The cookies held across every jar, expired ones included until their jar is read. */
+  get cookieCount(): number {
+    let count = 0;
+    for (const jar of this.#jars.values()) count += jar.size;
+    return count;
+  }
 
   /** The jar of the session with `host` (a URL's host name), made on first use. */
   jar(host: string): CookieJar {
     const key = host.toLowerCase();
     let jar = this.#jars.get(key);
-    if (jar === undefined) {
-      jar = new CookieJar();
-      this.#jars.set(key, jar);
-    }
+    if (jar === undefined) jar = new CookieJar();
+    else this.#jars.delete(key);
+    // Last in the map: the most recently used.
+    this.#jars.set(key, jar);
+    this.#trim(key);
     return jar;
+  }
+
+  /** Drops the least recently used jars, never `keep`, until both caps hold. */
+  #trim(keep: string): void {
+    let cookies = this.cookieCount;
+    for (const [host, jar] of this.#jars) {
+      if (this.#jars.size <= MAX_JARS && cookies <= MAX_COOKIES_TOTAL) return;
+      if (host === keep) continue;
+      cookies -= jar.size;
+      this.#jars.delete(host);
+    }
   }
 
   /**
    * Forgets `site` (a host name): every jar of that host or a host under it is emptied, and every
    * other jar drops the cookies set for that site, a domain under it, or a parent domain of it
    * (the bot manager's cookie on `example.com` for a wall on `www.example.com`).
+   *
+   * A site that is a public suffix (`myshopify.com`, the site of `www.myshopify.com`) has other
+   * people's shops under it: only its own hosts (the name itself and its `www.`) are forgotten.
    */
   forget(site: string): void {
     const bare = bareSite(site);
     if (bare === '') return;
+    if (isPublicSuffix(bare)) {
+      for (const [host, jar] of this.#jars) {
+        if (host === bare || host === `www.${bare}`) jar.clear();
+        else jar.remove((cookie) => cookie.domain === bare || cookie.domain === `www.${bare}`);
+      }
+      return;
+    }
     for (const [host, jar] of this.#jars) {
       if (host === bare || host.endsWith(`.${bare}`)) jar.clear();
       else jar.remove((cookie) => related(cookie.domain, bare));
