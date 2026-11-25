@@ -4,7 +4,7 @@ The orchestrator's record of work units. It is the memory across context compact
 
 Status values: `planned | running | review | merged | blocked-owner | blocked-dep`. Gate values: `holds | open | pending-owner | pending-time`.
 
-Last updated: 2026-11-24.
+Last updated: 2026-11-25, 04:00.
 
 ## Authority settings in force
 
@@ -87,8 +87,6 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | P1-5a | `phase1/prices` | merged (2026-11-25, `3ab1e8e`); independent review still owed | Subagent. `packages/core/src/prices`: `derivePrices`, `buildObservationRecord` (checked against the shared `PriceObservation` schema before it returns), `taxLabel`, `judgeDeal`, `toStreamVerdict`, `assessOutlier`, `confirmOutlierRead`. 190 tests; the author's 18 boundary mutations each failed tests. Lint, typecheck, test, build exit 0 on the merged tree. Spec S§5.5 edited. Numbers and policies the unit chose where the spec is silent, which the owner may overrule: estimated shipping is listed as missing; tax not included with no amount is listed as missing in every country (the country default only feeds the label, so an unknown never becomes "included"; this departs from the orchestrator's brief, on purpose); no duty estimate is not listed; a member price never lowers the effective price; a price stops counting 7 days after its last read; High is 10% or more over the 90-day median; the outlier median leaves the candidate out. Not verified: the records against a real SQLite insert (the watches unit is the first writer). The stream verdict block cannot carry why a tier was not judged |
 | P1-1c | `phase1/walls` | merged (2026-11-25, `c4e61e0`); independent review still owed | Subagent. Three areas implemented (63 cases). `classifyResponse` is the `Classify` hook; not passed to the fetcher yet. Against 177 saved lab answers: 0 walls called readable, 0 readable pages called walls. Lint, typecheck, test, build exit 0 on the merged tree. Details: progress log, 2026-11-25 |
 | P1-6c-a | `phase1/watches` | merged (2026-11-25, `e021a71`); independent review running | Subagent, resumed after the usage-limit interruption. Area watch-intake implemented: **601 of 601**. `createWatchService`, `watchLookupJob`, `createWatchRoutes` (not mounted), `packages/shared/src/watch-api.ts`. 43 tests. Details and what is not built: progress log, 2026-11-25 |
-| R-1 | — | running | Independent reviewer: the fetch path (guard, pinned transport and its SOCKS proxy, fetchPage, cookies, fetcher, walls scanner). Read-only; told to find defects and reproduce them |
-| R-2 | — | running | Independent reviewer: the sweep, the alert rules, prices, the outbox and gating, the watch service and routes. Read-only |
 | P1-1a | ws1 fetch | The guard: address decisions, DNS pinning, per-hop redirect checks, body cap | P1-0 | Areas url-guard-address, url-guard-transport. High risk |
 | P1-1b | ws1 fetch | `HttpTransport` on `impit`, the `api` and `http` rungs, typed `FetchOutcome`, cookie jars | P1-1a | The native addon ships per platform: check the multi-arch image build. A failure at or after the deadline is a timeout whatever the client calls it (impit names its own timeout `GenericFailure`; progress log, 2026-11-24) |
 | P1-1c | ws1 fetch | Wall classifier, challenge wait, walled-session drop | P1-0 | Areas wall-classification, challenge-wait, walled-session-drop. High risk |
@@ -128,6 +126,28 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | P1-1b | `phase1/transport` | merged (2026-11-24, `d02b35b`); independent review still owed (with the guard's) | Subagent. `impit` has no connect-to option, so each hop is pinned through an in-process SOCKS5 proxy on loopback (a one-use ticket per hop for the vetted address; TLS end to end, server name and certificate from the URL). `fetchPage` for the `api` and `http` rungs, always through `guardedFetch`; status mapping, Retry-After, the deadline rule, a dependency-free per-host cookie jar with `forget(site)`. Body caps 6 MiB (pages) and 4 MiB (JSON). Image, measured by the unit on arm64 only, n=1: 92.8 MB pull, 288.1 MB unpacked, 29.5 MB idle, 222 ms start (the server does not load impit yet); both platforms build and each keeps its own addon. Manual smoke: 3 real requests (example.com twice, www.iana.org), all `ok`. Orchestrator read `fetch-page.ts` and the packaging diff; lint, typecheck, test, build exit 0 on the merged tree. Settled by the unit, the owner may overrule: a status with no kind in S§5.1 (400, 405, 451, an unfollowed 3xx) is `network_error HTTP_<status>`; `sec-fetch-site` is sent beside a Referer. Not verified: a successful TLS request in the test suite (impit cannot trust a test certificate; shown only by the smoke), HTTP/2, IPv6 pinning, the amd64 image's budgets. Open for the lab: impit sends caller headers before the profile's own |
 | P1-2c | `phase1/readers-structured` | running | Subagent. JSON-LD, microdata, OpenGraph readers and the ladder, against the reader contract the orchestrator wrote first (`packages/sources/src/read/contract.ts`, `25603dd`) so P1-2b can run beside it |
 | P1-9a | committed to `main` (`d859f14`) | merged (2026-11-24) | Orchestrator. Migrations and the default profile at start-up, migration level in health, `Database.backupTo` (`VACUUM INTO`). The scheduled backup and the restore doc wait for the scheduler |
+
+### Phase 1 exit gates (2026-11-25, 04:00, end of the unattended run)
+
+| Gate (plan P1 exit criteria) | Value | Status | What closes it |
+|---|---|---|---|
+| The ported fixtures all pass | 601 of 601 implemented, `pnpm test` exit 0, no case edited | holds | — |
+| Freeze test | One real `docker pause` of 3 min 35 s: one catch-up run per minute-job standing for 3 slots, the grid kept (n = 1). Duplicate in-app events and the 503-then-200 retry not measured in a container | open | A container run with a pending alert and a webhook target that answers 503 then 200 |
+| Restart test | One container replaced on the same volume: watch, observation, reference, session and level survived (n = 1). Pending outbox items not measured; `docker run`, not compose | open | The same with a pending delivery, through `docker compose down && up` |
+| Live check, 48 h, 20 listings, ≥10 hosts | Not started | pending-owner, then pending-time | The owner's approval of the listings |
+| Directory comparison on the 40 dev products | Not run: no store directory. Held-out split not run and not read | open | Workstream 3, then one held-out run |
+| Core image and RSS within budget | arm64, n = 1, runtime started: 93.8 MB pull, 291.9 MB unpacked, 48.9 MB idle, 245 ms | holds on arm64 | CI's amd64 build after a push |
+
+**Phase 1 status: not complete.** Not built: the minimal UI (ws8), the store directory and in-store search (ws3), store trust (ws5b). Two independent reviews ran and found 17 defects; 4 were fixed or bounded the same night, the rest are open (progress log, 2026-11-25, "Two independent reviews"). Most units have had no independent review. Nothing is pushed; nothing has run in CI. The phase report is in the progress log ("Phase 1 report at the end of the unattended run").
+
+| Id | Status | Note |
+|---|---|---|
+| R-1 | done (2026-11-25) | Reviewer, fetch path: 7 findings, 1 critical (fixed, `8e7aca5`) |
+| R-2 | done (2026-11-25) | Reviewer, sweep, alerts, outbox, watches: 10 findings, 3 critical (1 fixed, 1 partly, 1 bounded: `d9144f6`, `e736eb6`) |
+| P1-3a, P1-3b, P1-3c | planned | Store directory, in-store search, country pack and adapters. Not started |
+| P1-5b | planned | Store trust. Not started |
+| P1-8b | planned | The UI pages. Not started; the API they need is mounted |
+| P1-G | open | The gates above |
 
 Needed from the owner during Phase 1: approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
 

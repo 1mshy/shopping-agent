@@ -20,6 +20,45 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25, 04:00: Phase 1 report at the end of the unattended run
+
+**Phase 1 is not complete.** Of its six exit gates, two hold (the fixtures; the image budgets, on arm64 only), two were measured in part (freeze, restart), and two could not be run (the live check, the directory comparison). The run was meant to go from 22:15 to 05:00; the session hit its usage limit at about 00:55 and nothing ran until 03:20, so about two and a half of its hours were lost. No later phase was started. **Nothing has been pushed and nothing has run in CI**: about 50 local commits sit on `main` ahead of `origin/main` (`90c6d2d`); `git rev-list --count origin/main..main` gives the number.
+
+**What exists.** A server that, with no model anywhere, takes a pasted product link through its API, saves it first, reads the page through the guard and the reader ladder on a schedule, records each price, evaluates drop, target and restock rules, and delivers alerts in-app, to ntfy or to a webhook. Twenty-one units and pieces were built by subagents or the orchestrator, each read at least in part by the orchestrator, squash-merged and checked locally. On `e736eb6`: lint, typecheck, test and build exit 0; 3,860 tests in 171 files pass.
+
+**What does not exist.** The minimal UI (workstream 8: the web app is still the Phase 0 placeholder page, so the product can only be used through its API); the store directory, host fingerprint and in-store search (workstream 3), without which a watch by name cannot find listings and ends `failed` with `NO_DISCOVERY_SOURCE`; store trust signals (RDAP, Tranco, look-alike); the country-pack script and the hand-written adapters; Telegram, Discord and Web Push (Phase 3).
+
+#### Exit gates (plan, Phase 1)
+
+| Gate | Value | Status |
+|---|---|---|
+| The ported fixtures all pass | 601 of 601 cases implemented, 0 pending, `pnpm test` exit 0. No case, expectation or contract was edited | **holds** |
+| Freeze test: pause the container across several due slots; exactly one catch-up per job, no duplicate in-app events, the outbox retries a channel that 503s and then succeeds | One real pause of 3 min 35 s (`docker pause`, n = 1) across three one-minute slots: on resume each of the three minute-jobs ran exactly once, 0.1 s after the resume, each run standing for 3 slots; the next two slots ran once each on the grid; the watched listing kept its price and its next check. **Not measured in the container:** duplicate in-app events (no alert was pending) and the 503-then-200 retry (no push channel was configured). Both are covered only by scripted tests on a fake clock | **open** (measured in part) |
+| Restart test: watches, history and pending outbox items survive `docker compose down && up` | One container removed and a new one started on the same volume (n = 1): the watch, its one observation, its reference, the session cookie and migration level 2 survived; one boot run per job; no run left `failed`. **Not measured:** pending outbox items across the restart (none were pending). `docker run` was used, not `docker compose` | **open** (measured in part) |
+| Live check: 20 watched listings across ≥10 hosts read for 48 h; error rate per outcome kind; no failed read alerts | Not started: it needs the owner's approval of the listings and 48 hours. One listing on one host was read once (the first real read, above) | **pending-owner**, then **pending-time** |
+| Directory comparison on the 40 dev products: verified stores per product and identity precision (tiers 1-2) reported against the held-out set | Not run: there is no store directory. The matcher's dev-split figures exist (precision of `exact` 70/73, recall 70/77, n = 867, tuned on that split, model labels on both sides). **The held-out split has not been run or read**, on purpose: it is to be run once, on the matcher as it stands when the directory exists | **open** (blocked on workstream 3) |
+| Core image and RSS within budget | Image built from `e736eb6` on this arm64 machine, n = 1, with the runtime started: pull 93.8 MB (budget 110), unpacked 291.9 MB (320), idle container memory 48.9 MB (150), start to healthy 245 ms (3,000). The Node process's own RSS at idle, from `/api/health`, was 141.7 MB; the budget is checked on the container's figure. **Not measured:** the amd64 image (CI does that), and the 400 MB budget for RSS during a 30-50-page search, which has no check yet | **holds** on arm64; amd64 unmeasured |
+
+#### Reviews
+
+Two independent reviews ran (the fetch path; the sweep, alerts, outbox and watch service) and found 17 defects, 4 of them critical. Fixed or bounded the same night, by the orchestrator, with tests written failing first: the guard's own-network gap; out-of-stock reads in the reference; the reference including the reads being judged; the alert flood behind a permanently failed push channel. **Still open** from those reviews: redirects not paced under their own host; unbounded cookie jars; the upstream connection held after an over-cap Content-Length; the session drop clearing the wrong site; a steady cheaper store firing a "drop" against a cross-store reference; a late-accepted older alert becoming "the last accepted"; a restock lost while a push is pending; late pushes saying "now" for an old price; the crash-plus-clock-step case; the outbox lease; six smaller items.
+
+**Never reviewed independently:** the matcher, price text and currency, the platform and structured-data readers, the scheduler, prices and verdicts, auth and settings, and every fix made after the reviews. The orchestrator's own probes (about 120 inputs against the guard and the money code) are not a substitute.
+
+#### Decisions made in the owner's place
+
+Each is in the entry of the unit that made it. The ones most worth a look: the reference price reading (a listing's median over 30 days of in-stock reads, without its two newest); no repeat alert while one awaits delivery, and one per cooldown behind a failed push; delivery is at least once; tax not included with no amount never gives a landed total; *High* is 10% over the 90-day median; a price stops counting after 7 days; pacing's minimum gap of 2,125 ms; the wall back-off schedule; `empty` below 60 visible characters; a password of at least 15 characters; the scheduler's 20-second lease and the 60-second retry of every failed run; every boot writes a backup.
+
+#### For whoever continues
+
+1. Push, and let CI run: none of this has been built on Linux amd64 or by a clean install.
+2. The open review findings on alert evaluation, before anything else is built on the sweep.
+3. Independent reviews of the units that have had none, starting with auth and the matcher.
+4. Workstream 3 (the directory), then the directory comparison and the held-out matcher run.
+5. Workstream 8 (the UI). The API it needs is mounted: auth, settings, channels, watches, listings, history, refresh, the in-app feed, Diagnostics.
+6. The owner's approval of 20 listings on at least 10 hosts starts the 48-hour live check; an ntfy topic or webhook target is needed for a real delivery.
+7. Isolated worktrees start from `origin/main`: until the push, a new subagent must `git merge main` first.
+
 ### 2026-11-25: Two independent reviews, and what they found
 
 Two reviewer subagents, each given the code and the spec and asked to find and reproduce defects, read-only. They are the first independent reviews of Phase 1. **They found defects that the units' own tests and the orchestrator's reading did not, three of them critical for alerts.** Still unreviewed: the matcher, the price-text and currency code, the readers, the scheduler, prices and verdicts, auth and settings.
