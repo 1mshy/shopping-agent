@@ -13,8 +13,11 @@
   },
   "dependencies": {
     "@agentic-dasher/core": "workspace:*",
+    "@agentic-dasher/db": "workspace:*",
     "@agentic-dasher/shared": "workspace:*",
+    "drizzle-orm": "1.0.0-rc.5",
     "impit": "0.14.9",
-    "ipaddr.js": "2.5.0"
+    "ipaddr.js": "2.5.0",
+    "robots-parser": "3.0.1"
   }
 }
