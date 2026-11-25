@@ -20,6 +20,42 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: Alert rules and the outbox (P1-6a, P1-7)
+
+Two more units, each built by a subagent, read by the orchestrator, squash-merged into local `main` and checked there (lint, typecheck, test, build exit 0). **Neither has had its independent review yet.** Corpus after these merges: **601 cases, 515 implemented, 86 pending** (the pending areas are wall-classification, challenge-wait, walled-session-drop and watch-intake).
+
+**P1-6a, alert rules as pure decisions** (`5f98cc8`; areas alert-price-rules 38, alert-restock 15, alert-delivery-gating 11, reference-price 21, stale-read 10). `packages/core/src/alerts`: `evaluatePriceAlert`, `evaluateRestock`, `gateOnDelivery`, `chooseReferencePrice`, `applyRead`, `showWatchPrice`. Arithmetic is exact (BigInt, comparisons by cross-multiplication). The author's two mutations (a strict user threshold; B / 100 rounded half up) each failed tests.
+
+Readings the unit chose where the contracts left them open, which the owner may overrule:
+
+- "Same read path" is the read method plus the rung, for the confirmation and for the MAD window.
+- The MAD is raw, and its window is every comparable read the caller passes on that path, the evaluated read included. How far back the history goes is the caller's choice.
+- The reference is the median of each eligible listing's **latest** price; the spec says "recent prices".
+- A sold-out listing's last price still counts in the reference. The spec does not say.
+- A target, reference or last alert in another currency than the read's is never compared.
+
+**P1-7, the outbox and delivery v1** (`ed384b0`; area notify-retry 33). The retry decision is pure, in `packages/core/src/notify`. In `apps/server/src/notify`: `recordEvent`, `runOutboxPass` and `outboxJob`, the in-app, ntfy and webhook adapters, the gating read model (`lastAcceptedAlert`, `gatingDeliveries`, `deliveryStatus`), the channel service and its routes (not mounted yet). In `apps/server/src/secrets`: AES-256-GCM in a versioned envelope, the key from `SECRET_KEY` or a key file created with mode 0600 in the data directory.
+
+- *Delivery is at least once, not exactly once.* A pass claims due deliveries under a 10-minute lease; `accepted` is written only after a 2xx (or for in-app). A crash between a successful send and its UPDATE sends the message again when the lease expires. The webhook carries an `Idempotency-Key`; ntfy has nothing like it.
+- *Removed and disabled channels* (the open item of migration 0002): their pending deliveries are parked at a sentinel `next_attempt_at` of year 9999, never claimed and left out of gating, so an alert does not wait for ever on a channel that is gone. Re-enabling a channel does not resend the parked backlog.
+- *Gating.* On an install with no push channel the in-app acceptance counts. With a push channel, only a push acceptance counts; a push that failed for good leaves the alert `undelivered`, and the in-app acceptance does not stand in for it.
+- *Channel requests* use the platform `fetch` with a deadline and no redirects, not the shop-fetch guard: a channel target is set by the owner and is often on the LAN. Targets come only from `config_json`, which only the channel service writes.
+- *Messages* are built by code from the event's records: the observation's effective price and sticker, the store host, the listing URL. The watch's reference price is left out, because it can change before a retry.
+
+Scripted tests, on a real SQLite file and local HTTP servers. These are not the Phase 1 freeze gate, which pauses a real container:
+
+| Scenario | What the test asserts |
+|---|---|
+| 503, then 200 | Two requests, one accepted body, `attempts` 2, one wait of 2,000 ms; a second pass sends nothing |
+| 429 with Retry-After 7, then 200 | One wait of 7,000 ms, one accepted message |
+| 401 | Failed after one request, no retry an hour later |
+| The same event key twice, repeated passes | One event, one request |
+| Three passes at once, two connections | Three events sent once each |
+| Restart | A pending delivery survives close and reopen and is delivered once |
+| Crash while the server accepts | Pending with no acceptance after reopen; sent again after the lease: the same body accepted twice |
+
+Not verified: a real ntfy server (local fake only, by design); the path where the table refuses a duplicate event key under a race (read, not triggered). Wanted in the schema, not done: labels on `notification_event`; a last error on `delivery`; an explicit parked state. Quiet hours are Phase 3.
+
 ### 2026-11-25: Readers and the scheduler (P1-2b, P1-2c, P1-6b)
 
 Three more units, each built by a subagent, read by the orchestrator, squash-merged into local `main` and checked there (lint, typecheck, test, build exit 0). **None has had its independent review yet.** Corpus after these merges: **601 cases, 387 implemented, 214 pending**.
