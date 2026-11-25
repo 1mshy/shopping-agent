@@ -127,7 +127,7 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | P1-2c | `phase1/readers-structured` | running | Subagent. JSON-LD, microdata, OpenGraph readers and the ladder, against the reader contract the orchestrator wrote first (`packages/sources/src/read/contract.ts`, `25603dd`) so P1-2b can run beside it |
 | P1-9a | committed to `main` (`d859f14`) | merged (2026-11-24) | Orchestrator. Migrations and the default profile at start-up, migration level in health, `Database.backupTo` (`VACUUM INTO`). The scheduled backup and the restore doc wait for the scheduler |
 
-### Phase 1 exit gates (2026-11-25, 04:00, end of the unattended run)
+### Phase 1 exit gates (2026-11-25, 05:00, end of the unattended run)
 
 | Gate (plan P1 exit criteria) | Value | Status | What closes it |
 |---|---|---|---|
@@ -136,20 +136,22 @@ Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut b
 | Restart test | One container replaced on the same volume: watch, observation, reference, session and level survived (n = 1). Pending outbox items not measured; `docker run`, not compose | open | The same with a pending delivery, through `docker compose down && up` |
 | Live check, 48 h, 20 listings, ≥10 hosts | Not started | pending-owner, then pending-time | The owner's approval of the listings |
 | Directory comparison on the 40 dev products | Not run: no store directory. Held-out split not run and not read | open | Workstream 3, then one held-out run |
-| Core image and RSS within budget | arm64, n = 1, runtime started: 93.8 MB pull, 291.9 MB unpacked, 48.9 MB idle, 245 ms | holds on arm64 | CI's amd64 build after a push |
+| Core image and RSS within budget | arm64, n = 1, built from `849c72a` with the UI, runtime started: 93.8 MB pull, 292.0 MB unpacked, 49.8 MB idle, 242 ms | holds on arm64 | CI's amd64 build after a push |
 
-**Phase 1 status: not complete.** Not built: the minimal UI (ws8), the store directory and in-store search (ws3), store trust (ws5b). Two independent reviews ran and found 17 defects; 4 were fixed or bounded the same night, the rest are open (progress log, 2026-11-25, "Two independent reviews"). Most units have had no independent review. Nothing is pushed; nothing has run in CI. The phase report is in the progress log ("Phase 1 report at the end of the unattended run").
+**Phase 1 status: not complete.** Not built: the store directory and in-store search (ws3), store trust (ws5b), and the UI beyond its cut-down form (ws8). Three independent reviews ran and found 26 defects, 5 critical; 15 were fixed or bounded the same night, the rest are open, two of them waiting on the owner's ruling (progress log, 2026-11-25, the review tables). Most units, and every fix made after the reviews, have had no independent review. Nothing is pushed; nothing has run in CI. The phase report is in the progress log ("Phase 1 report at the end of the unattended run").
 
 | Id | Status | Note |
 |---|---|---|
-| R-1 | done (2026-11-25) | Reviewer, fetch path: 7 findings, 1 critical (fixed, `8e7aca5`) |
-| R-2 | done (2026-11-25) | Reviewer, sweep, alerts, outbox, watches: 10 findings, 3 critical (1 fixed, 1 partly, 1 bounded: `d9144f6`, `e736eb6`) |
+| R-1 | done (2026-11-25) | Reviewer, fetch path: 7 findings, 1 critical (fixed, `8e7aca5`); 3, 5 and 7 fixed later (`9d5c5c4`, `7f127ed`, `2b326ff`); 2, 4 and 6 open |
+| R-2 | done (2026-11-25) | Reviewer, sweep, alerts, outbox, watches: 10 findings, 3 critical (1 fixed, 1 partly, 1 bounded: `d9144f6`, `e736eb6`); 5, 6, 7 and 8 fixed by a subagent (`aa753be`, `034a23c`, `b10f1d5`, `67778ea`), part of 10 (`b781fd5`); 3 needs the owner; 9 open |
+| R-3 | done (2026-11-25) | Reviewer, auth, sessions, CSRF, settings: 9 findings, 1 critical (DNS rebinding; fixed with 3, `09de739`), 4 fixed (`849c72a`); 2 (global throttle lockout, high) needs the owner; 5 to 9 open |
+| P1-6f | merged (2026-11-25) | Subagent, `phase1/alert-fixes`: the alert review's findings 5 to 8, one commit each, cherry-picked. No independent review |
 | P1-3a, P1-3b, P1-3c | planned | Store directory, in-store search, country pack and adapters. Not started |
 | P1-5b | planned | Store trust. Not started |
-| P1-8b | planned | The UI pages. Not started; the API they need is mounted |
+| P1-8b | merged in a cut-down form (2026-11-25, `34d6c74`, `14b2bc9`, `1419e59`) | Subagent, `phase1/ui`. Gate, market step, watches, watch detail, SVG history, alerts, read-only settings and diagnostics; 77.7 kB gzipped. Walked by the orchestrator in a headless browser on an empty and a seeded database. Not built: the uPlot chart, channel and password forms, editable settings, component tests. No independent review |
 | P1-G | open | The gates above |
 
-Needed from the owner during Phase 1: approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
+Needed from the owner during Phase 1: a ruling on the global login throttle (R-3 finding 2) and on the cross-store reference (R-2 finding 3); whether the Host rule's default list suits how the box is reached (`ALLOWED_HOSTS`); approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
 
 ## Later phases
 

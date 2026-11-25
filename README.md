@@ -2,7 +2,7 @@
 
 A self-hosted shopping agent. It searches the shops and marketplaces it can reach for a good deal on a product, keeps watching prices, and learns what you like so it can suggest what to look for. It always ends at a link to the merchant: no carts, no checkout, no logins on your behalf.
 
-> **Status: Phase 1 in progress (deterministic core), not usable yet.** The server watches a pasted product link through its API, reads prices on a schedule and records alerts, with no model. There is no UI beyond a placeholder page, no store directory, and known open defects in alert evaluation. See [`docs/plan.md`](docs/plan.md) for the roadmap and [`docs/progress.md`](docs/progress.md) for what has shipped and what is known to be wrong.
+> **Status: Phase 1 in progress (deterministic core), early and unproven.** The server watches a pasted product link, reads prices on a schedule and records alerts, with no model, and a minimal web UI shows them. There is no store directory (watching by name does not work yet), nothing has run in CI or against real stores for longer than one read, and review findings are still open. See [`docs/plan.md`](docs/plan.md) for the roadmap and [`docs/progress.md`](docs/progress.md) for what has shipped and what is known to be wrong.
 
 ## Run it
 
