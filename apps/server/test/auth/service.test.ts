@@ -233,11 +233,14 @@ describe('logout and password change', () => {
     });
     expect(sessions()).toHaveLength(3);
 
-    expect(await auth.changePassword(current, PASSWORD, OTHER_PASSWORD, 'c')).toEqual({
-      kind: 'changed',
-      endedSessions: 2,
-    });
-    expect(auth.authenticate(first)).not.toBeNull();
+    // The session that made the change is replaced too (the auth review's finding 4); this test
+    // asserted that its token kept working.
+    const changed = await auth.changePassword(current, PASSWORD, OTHER_PASSWORD, 'c');
+    expect(changed).toMatchObject({ kind: 'changed', endedSessions: 2 });
+    if (changed.kind !== 'changed') throw new Error('not changed');
+    expect(auth.authenticate(first)).toBeNull();
+    expect(auth.authenticate(changed.token)).not.toBeNull();
+    expect(sessions()).toHaveLength(1);
     expect(auth.authenticate(second.token)).toBeNull();
     expect(auth.authenticate(third.token)).toBeNull();
     expect((await auth.login(PASSWORD, 'd')).kind).toBe('invalid_credentials');

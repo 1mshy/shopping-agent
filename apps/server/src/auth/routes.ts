@@ -130,6 +130,7 @@ export function createAuthRoutes(deps: AuthRoutesDeps) {
           // 403, not 401: the session is fine, the proof of the current password is not.
           return c.json(apiError('invalid_credentials', LOGIN_FAILED), 403);
         case 'changed':
+          signIn(c, result.token);
           return c.json({ endedSessions: result.endedSessions }, 200);
       }
     });

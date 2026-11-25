@@ -221,7 +221,10 @@ export function createAuthService(deps: AuthServiceDeps): AuthService {
             .delete(session)
             .where(and(eq(session.profileId, current.profileId), ne(session.id, current.id)))
             .run();
-          return { kind: 'changed', endedSessions: ended.changes };
+          // The session that made the change goes too: its token was in use while the old password
+          // stood. A new one replaces it, so the owner stays signed in on this device only.
+          db.orm.delete(session).where(eq(session.id, current.id)).run();
+          return { kind: 'changed', endedSessions: ended.changes, ...openSession(now()) };
         });
       } catch (error) {
         ticket.fail();

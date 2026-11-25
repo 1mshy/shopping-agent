@@ -327,7 +327,12 @@ describe('POST /api/auth/password', () => {
     });
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ endedSessions: 1 });
-    expect((await call(h.app, '/api/settings', { cookie: mine })).status).toBe(200);
+    // The session that made the change is replaced too (the auth review's finding 4): its old
+    // token ends, and the answer carries the new one. This test asserted the old token kept working.
+    const renewed = tokenOf(res);
+    expect(renewed).toBeDefined();
+    expect((await call(h.app, '/api/settings', { cookie: mine })).status).toBe(401);
+    expect((await call(h.app, '/api/settings', { cookie: renewed as string })).status).toBe(200);
     expect((await call(h.app, '/api/settings', { cookie: other })).status).toBe(401);
   });
 });

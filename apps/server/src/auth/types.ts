@@ -19,7 +19,16 @@ export type LoginResult =
   | { readonly kind: 'throttled'; readonly retryAfterMs: number };
 
 export type ChangePasswordResult =
-  | { readonly kind: 'changed'; readonly endedSessions: number }
+  /**
+   * Every session is ended, the one that made the change too; `token` is the new session that
+   * replaces it, and `endedSessions` counts the others.
+   */
+  | {
+      readonly kind: 'changed';
+      readonly endedSessions: number;
+      readonly token: string;
+      readonly session: SessionInfo;
+    }
   | { readonly kind: 'invalid'; readonly reason: PasswordRuleFailure }
   | { readonly kind: 'invalid_credentials' }
   | { readonly kind: 'throttled'; readonly retryAfterMs: number };
