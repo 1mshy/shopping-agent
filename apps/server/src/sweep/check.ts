@@ -6,7 +6,8 @@
 //    its next_check_at is cleared) and be due; its next_check_at moves CLAIM_LEASE_MS ahead, so
 //    another sweep does not read it meanwhile and a check that dies leaves it due again.
 // 2. Resume: an observation newer than listing_check.last_read_at was written by a check that died
-//    before its evaluation finished. It is evaluated now (events are keyed by observation, so the
+//    before its evaluation finished (a read's time is always strictly after last_read_at, see
+//    step 4, so "newer" holds even when the clock stepped back). It is evaluated now (events are keyed by observation, so the
 //    part that had run records nothing twice), then listing_check is brought up to it.
 // 3. Read through the ladder under a per-check deadline, the job's signal and a request budget,
 //    with the user's market (no market: the check does not run, S§2.3).
@@ -343,7 +344,13 @@ async function runCheck(
     return { listingId, outcome: { kind: 'aborted' }, resumed };
   }
 
-  const atMs = Math.max(now(), check.lastReadAt === null ? 0 : Date.parse(check.lastReadAt));
+  // The read time is strictly after the last one (a millisecond after it when the clock is behind),
+  // never equal: the resume test of step 2 is "newer than last_read_at", so an observation carrying
+  // exactly last_read_at (a clock stepped back, then a crash before its evaluation) would never be
+  // evaluated (finding 8 of the review of 2026-11-25). Strictly increasing read times keep that
+  // test exact without a schema change: an observation is unevaluated if and only if it is newer
+  // than last_read_at. It also keeps a listing's observations, failed reads and alerts in one order.
+  const atMs = Math.max(now(), check.lastReadAt === null ? 0 : Date.parse(check.lastReadAt) + 1);
   const at = iso(atMs);
   const later = (base: number) => iso(Math.max(base, closedUntil ?? 0, retryUntil ?? 0));
 
