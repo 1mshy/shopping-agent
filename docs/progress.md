@@ -20,6 +20,29 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: The wall classifier (P1-1c)
+
+Squash-merged into local `main` as `c4e61e0` and checked there (lint, typecheck, test, build exit 0). **No independent review yet.** Corpus after this merge: **601 cases, 578 implemented, 23 pending** (only watch-intake).
+
+`packages/fetch/src/walls` (areas wall-classification 32, challenge-wait 22, walled-session-drop 9): `classifyPage`, `classifyResponse` (the `Classify` hook of `fetchPage`), `worthWaiting`, `statusAfterWait`, `planSessionDrop`, `dropsSession`, `sessionSite`. It is not passed to the fetcher yet; the final wiring does that.
+
+- *No bare substrings.* A 404 or 410 is `not_found` whatever is on the page. Every rule except an explicit header or a vendor's own redirect path needs a block-shaped page (at most 2,000 visible characters and 256 KiB). Titles are matched whole. `cf-ray` and `server: cloudflare` name nothing, since they are on every proxied page.
+- *`empty`* (the spec gave no threshold): a 2xx page with fewer than 60 visible characters in a document under 5,000 bytes, the Phase 0 browser lab's numbers. A large client-rendered shell is not empty, because a reader may still find its JSON-LD. Spec S§5.1 now says this.
+- *Its own bounded HTML scanner, not parse5:* one forward pass, about 80 ms on a 6 MiB page (the author's measurement, n=1).
+
+Against the Phase 0 lab's saved answers (read-only, uncommitted lab output; the labels are the lab's own reclassification, not a person's):
+
+| Set | Result |
+|---|---|
+| Transport lab, 177 answers with saved bodies | Walls called readable: 0. Readable pages called walls: 0. 42 walls agree; 130 served pages are `ok`; 3 plain-text 451s are `network_error HTTP_451`; 2 that the lab called "forbidden" are bare-403 walls under the ruling |
+| Route lab, 1,889 response views (snippet and title only, no body) | Wall on both sides: 8. Neither: 1,856. 25 that the lab called "forbidden" are bare-403 walls |
+
+Decisions the unit made, which the owner may overrule: a 403 whose headers show a bot manager names that vendor (the "bare 403 names no vendor" ruling holds when there is no such header); a 401 with no wall evidence is not waited on; the session drop uses a rule for registrable domains, not a public suffix list (a miss clears less, never another site's session).
+
+Open for the owner: Amazon's "continue shopping" page is a button, not a puzzle, so it is `challenge` and the browser rung would wait 20 s for something that never clears; a bare 403 on platform JSON (a disabled Magento GraphQL) is a wall under the ruling.
+
+Not verified: the rules for Kasada, AWS WAF, Imperva, Sucuri, DDoS-Guard and the localised Cloudflare titles, which no saved page shows; the browser rung's evidence (Phase 6). Found in passing, in `cookies/jar.ts`: `CookieJars.forget(site)` also removes cookies set for a public-suffix parent, and the jar accepts `Domain=co.uk`; per-host jars keep the harm small.
+
 ### 2026-11-25: Prices, pacing and the backup job (P1-5a, P1-1d, P1-9b)
 
 Each was squash-merged into local `main` and checked there (lint, typecheck, test, build exit 0). **No independent review yet.** The corpus is unchanged by these: 515 of 601 implemented.
