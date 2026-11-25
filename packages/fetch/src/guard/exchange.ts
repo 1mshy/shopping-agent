@@ -24,6 +24,7 @@ import {
   type RefusedByPolicy,
   refusal,
 } from './destination.ts';
+import { hostNetworks, type OwnNetwork, onOwnNetwork } from './local.ts';
 import { parseTarget, resolveLocation, type Target } from './target.ts';
 
 /** The resolver the guard asks: every address of a host name (A and AAAA). */
@@ -58,6 +59,11 @@ export interface GuardedRequest {
 export interface GuardedOptions {
   /** Redirects followed at most; one more ends the request (default `DEFAULT_MAX_REDIRECTS`). */
   readonly maxRedirects?: number;
+  /**
+   * This machine's own networks, read for every hop (default: `hostNetworks`, the interfaces of the
+   * machine). An address on one of them is refused as `private_address`, whatever range it is in.
+   */
+  readonly ownNetworks?: () => readonly OwnNetwork[];
 }
 
 export type GuardedResult<R extends HopResponse = HopResponse> =
@@ -130,6 +136,7 @@ export async function guardedExchange<R extends HopResponse>(
     throw new RangeError(`maxRedirects must be a non-negative integer, got ${maxRedirects}`);
   }
   const { rung } = request;
+  const ownNetworks = options.ownNetworks ?? hostNetworks;
   const stop = (outcome: RefusedByPolicy | NetworkError): GuardedResult<R> => ({
     delivered: false,
     outcome,
@@ -157,6 +164,13 @@ export async function guardedExchange<R extends HopResponse>(
       decision = decide(target, null, rung);
     }
     if (!decision.pass) return stop(decision.outcome);
+    // The machine itself and its link, at whatever address: a global IPv6 address of this host or
+    // of a device beside it is no more a shop than 192.168.0.1 is (local.ts). Like the table, one
+    // such address among the answers refuses the name.
+    const own = ownNetworks();
+    if (decision.connectTo.some((address) => onOwnNetwork(address, own))) {
+      return stop(refusal(rung, 'private_address'));
+    }
 
     let response: R | undefined;
     let lastCode = 'ERR_TRANSPORT';

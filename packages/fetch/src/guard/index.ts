@@ -34,6 +34,14 @@ export {
   TOO_MANY_REDIRECTS,
 } from './exchange.ts';
 export {
+  hostNetworks,
+  type InterfaceAddress,
+  type OwnNetwork,
+  onOwnNetwork,
+  ownNetworksOf,
+  SHORTEST_LINK_PREFIX,
+} from './local.ts';
+export {
   type FormReason,
   parseTarget,
   resolveLocation,
