@@ -96,6 +96,8 @@ export function parseTarget(text: string): TargetParse {
     host = { kind: 'name', name: hostname };
   }
   const port = url.port === '' ? (scheme === 'https' ? 443 : 80) : Number(url.port);
+  // No server listens on port 0; reaching it only fails later, as a transport error.
+  if (port === 0) return fail('url_form');
   return { ok: true, target: { href: url.href, scheme, host, port } };
 }
 
