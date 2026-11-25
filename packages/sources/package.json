@@ -1,0 +1,19 @@
+{
+  "name": "@agentic-dasher/sources",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Readers, platform routes, store directory and source adapters (S§3.2, S§5.2, S§5.3).",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@agentic-dasher/core": "workspace:*",
+    "@agentic-dasher/fetch": "workspace:*",
+    "@agentic-dasher/shared": "workspace:*"
+  }
+}

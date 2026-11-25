@@ -32,10 +32,12 @@ pnpm image:build && pnpm image:budgets   # build the core image and check S§5.1
 | `packages/shared` | Zod schemas, API and event types, Money and Currency |
 | `packages/core` | Pure domain code, no I/O, no LLM |
 | `packages/db` | Drizzle schema, SQL migrations, SQLite access |
+| `packages/fetch` | Guard, HTTP transport, wall classifier, pacing, playbook |
+| `packages/sources` | Readers, platform routes, store directory |
 | `docker/` | Core `Dockerfile` and `compose.yaml` |
 | `docs/` | [Spec](docs/spec.md), [plan](docs/plan.md), [progress log](docs/progress.md) |
 
-More packages (`fetch`, `sources`, `llm`, `agent`) split out when their boundary is real (S§3.2).
+More packages (`llm`, `agent`) split out when their boundary is real (S§3.2).
 
 ## Contributing
 

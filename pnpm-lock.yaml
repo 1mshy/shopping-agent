@@ -200,9 +200,15 @@ importers:
       '@agentic-dasher/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@agentic-dasher/fetch':
+        specifier: workspace:*
+        version: link:../../packages/fetch
       '@agentic-dasher/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@agentic-dasher/sources':
+        specifier: workspace:*
+        version: link:../../packages/sources
       '@hono/node-server':
         specifier: 2.1.8
         version: 2.1.8(hono@4.13.19)
@@ -249,9 +255,15 @@ importers:
       '@agentic-dasher/core':
         specifier: workspace:*
         version: link:../packages/core
+      '@agentic-dasher/fetch':
+        specifier: workspace:*
+        version: link:../packages/fetch
       '@agentic-dasher/shared':
         specifier: workspace:*
         version: link:../packages/shared
+      '@agentic-dasher/sources':
+        specifier: workspace:*
+        version: link:../packages/sources
       '@anthropic-ai/sdk':
         specifier: 1.12.0
         version: 1.12.0(zod@4.6.7)
@@ -296,11 +308,32 @@ importers:
         specifier: 9.6.0
         version: 9.6.0
 
+  packages/fetch:
+    dependencies:
+      '@agentic-dasher/core':
+        specifier: workspace:*
+        version: link:../core
+      '@agentic-dasher/shared':
+        specifier: workspace:*
+        version: link:../shared
+
   packages/shared:
     dependencies:
       zod:
         specifier: 4.6.7
         version: 4.6.7
+
+  packages/sources:
+    dependencies:
+      '@agentic-dasher/core':
+        specifier: workspace:*
+        version: link:../core
+      '@agentic-dasher/fetch':
+        specifier: workspace:*
+        version: link:../fetch
+      '@agentic-dasher/shared':
+        specifier: workspace:*
+        version: link:../shared
 
 packages:
 

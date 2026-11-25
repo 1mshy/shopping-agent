@@ -21,7 +21,9 @@
     "@hono/node-server": "2.1.8",
     "@agentic-dasher/core": "workspace:*",
     "@agentic-dasher/db": "workspace:*",
+    "@agentic-dasher/fetch": "workspace:*",
     "@agentic-dasher/shared": "workspace:*",
+    "@agentic-dasher/sources": "workspace:*",
     "hono": "4.13.19",
     "tsdown": "0.23.7"
   }
