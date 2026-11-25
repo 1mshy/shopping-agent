@@ -20,6 +20,24 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: Watch intake, the watch service and its routes (P1-6c-a)
+
+Squash-merged into local `main` as `e021a71` and checked there (lint, typecheck, test, build exit 0). **No independent review yet.**
+
+**Gate: "the ported fixtures all pass".** `node evals/corpus/count.ts` on the merged tree: **601 cases, 601 implemented, 0 pending**, with `pnpm test` exit 0. No case, expectation or contract was edited by any Phase 1 unit; each unit was told to report a case it believed wrong rather than change it, and none reported one.
+
+`packages/core/src/watches` (the pure intake decision, area watch-intake 23), `packages/shared/src/watch-api.ts` (the API and `rules_json` schemas), `apps/server/src/watches` (`createWatchService`, `watchLookupJob`, `createWatchRoutes`). 43 server tests. **The routes are not mounted and the job is not registered yet.**
+
+- *Save first.* `create` commits the watch row, then the lookup runs. The tests read through a second SQLite connection, which sees only committed rows, and show the row exists when `discover` and `onListingsDue` are first called.
+- *A pasted link needs no network to become a watch:* the lookup writes the store (`source` `pasted`, `trust_tier` `unverified`, platform and currency `unknown`), the listing (condition and currency `unknown`, a placeholder title until the first read), the link (`tracked`, added by `user`) and the `listing_check` row due now. Two watches on one link share one listing and one check.
+- *A name* needs a discovery source, which is the store directory (not built). With none bound the lookup ends `failed` with `NO_DISCOVERY_SOURCE`. With scripted candidates, only what tiers 1-2 call `exact` is tracked; the rest are linked as candidates.
+- *Money in `rules_json`:* `{ targetPrice: Money | null, dropBasisPoints, restock }`, so a target carries its currency. Once the watch has adopted a currency, a target or reference in another is refused (409); one saved earlier that turns out to differ is flagged and never compared. Spec S§4.2 now says this.
+- *Routes:* watches (create, list, read, change, archive), per-listing exclude / track / wrong-match, listing view with the deal verdict, history, `POST /refresh` (202, joins a running sweep), the in-app feed, Diagnostics (jobs, fetch playbook).
+
+Decisions the unit made, which the owner may overrule: creating a watch is refused until the market is set; "wrong match" writes a person's verdict of `other_model`, since the vocabulary has no "not this product"; a name's dedupe key is lower-cased, not Unicode case-folded.
+
+Not built: peer prices for the cross-store verdict tier (it always reports `no_peers`); automatic re-queueing of a failed name lookup. Not verified: the routes through the typed client; real store-search candidates; the regional rewrite on real directory data. One run of the full suite failed once in `packages/fetch/test/transport/resolver.test.ts` ("gives up at the deadline") while a build was running, and passed alone three times and in the final run: a timing flake under load, not fixed.
+
 ### 2026-11-25: The sweep engine and the runtime (P1-6c-b, runtime)
 
 Both are on local `main`, checked there (lint, typecheck, test, build exit 0). **No independent review yet.** The session reached its usage limit at about 00:55 and nothing ran until 03:20; the sweep unit was resumed from its saved state.
