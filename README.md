@@ -12,7 +12,7 @@ docker compose up -d --build
 
 Then open <http://localhost:8080>. Data lives in the `data` Docker volume. Set `PORT` to publish on another port.
 
-The API answers when it is opened by an IP address, `localhost`, a single-label name (`nas`) or a local-only name (`.local`, `.lan`, `.home`, `.internal`, `.home.arpa`). To reach it by any other name (your own domain behind a reverse proxy, a tailnet name), list that name in the `ALLOWED_HOSTS` environment variable, comma-separated; a leading dot lists a whole domain. This is what stops a web page from pointing its own name at your server (DNS rebinding).
+The API answers when it is opened by an IP address, `localhost`, a single-label name (`nas`) or a local-only name (`.local`, `.lan`, `.home`, `.internal`, `.home.arpa`, `.localdomain`, `.test`). To reach it by any other name (your own domain behind a reverse proxy, a tailnet name), list that name in the `ALLOWED_HOSTS` environment variable, comma-separated (`ALLOWED_HOSTS=dasher.example.org docker compose up -d`, or in a `.env` file beside the compose file); a leading dot lists a whole domain (`.fritz.box`). This is what stops a web page from pointing its own name at your server (DNS rebinding).
 
 ## Develop
 
