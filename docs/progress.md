@@ -20,6 +20,21 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: The orchestrator's probes of the guard and the money code
+
+**Not an independent review.** The reviews of the high-risk units are still owed; no reviewer subagent has run, because the run was held to three agents and every slot went to building. These are the orchestrator's own probes of the merged code with inputs that are not in the corpus, run once from throwaway scripts.
+
+| Probed | Inputs | Result |
+|---|--:|---|
+| `checkDestination` on URL spellings (decimal, hex, octal and short IPv4, IPv4-mapped and NAT64 forms, full-width digits, the ideographic full stop, user-info tricks, a backslash, other schemes, metadata addresses, `localhost` names) | 47 | Every private, loopback, link-local, CGNAT and metadata form refused; public literals pass; NAT64 of a public address passes and of a private one is refused |
+| `checkDestination` on DNS answers (mixed public and private, mapped and NAT64 private, empty, garbage, a zone id, a short form, CGNAT, benchmarking, multicast, broadcast, unique-local) | 14 | A mixed answer refuses the name; only the two all-public answers pass |
+| `guardedExchange`: a name that resolves public on the first hop and private on the second; a redirect to the metadata address | 2 | Both refused as `private_address`; only the first hop was dialled |
+| `parsePriceText` (separators by locale, zero- and three-decimal currencies, ranges, instalments, marks of another currency, full-width and Arabic-Indic digits, amounts at and past 2^53 − 1) | 41 | No wrong amount. 2^53 − 1 minor units reads exactly and one more is refused |
+| `derivePrices` | 6 | A coupon and a member price leave the effective price alone; estimated shipping or an unknown tax flag gives no landed total; a discount above the sticker is refused |
+| `evaluatePriceAlert` (the threshold at exactly 5% and one minor unit short, a single read, amounts near 2^53, a noisy history, a failed read between two low reads) | 8 | As the rules say, with one finding |
+
+**Finding, not fixed:** `evaluatePriceAlert` accepts an in-stock read with price 0 and fires on it (reference of 1 minor unit, price 0). The price-text rules and the platform readers refuse a zero price, so a reader should never produce one, but the alert rule does not refuse it itself. A zero price should be made not comparable there.
+
 ### 2026-11-25: The wall classifier (P1-1c)
 
 Squash-merged into local `main` as `c4e61e0` and checked there (lint, typecheck, test, build exit 0). **No independent review yet.** Corpus after this merge: **601 cases, 578 implemented, 23 pending** (only watch-intake).
