@@ -15,7 +15,8 @@
   },
   "//": "This app is bundled by tsdown. `dependencies` lists only what stays external at runtime (native modules); everything else is a devDependency and is bundled into dist/.",
   "dependencies": {
-    "better-sqlite3": "13.2.0"
+    "better-sqlite3": "13.2.0",
+    "impit": "0.14.9"
   },
   "devDependencies": {
     "@hono/node-server": "2.1.8",

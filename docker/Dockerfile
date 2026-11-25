@@ -4,6 +4,8 @@
 # Everything is built on the build host's own platform: the output is plain JS, and
 # better-sqlite3 ships N-API prebuilds for every platform, so the target arch only decides
 # which prebuild is kept. A multi-arch build therefore never runs code under emulation.
+# impit ships its addon as one package per platform; pnpm-workspace.yaml installs the glibc
+# Linux package of both image architectures, and only the target's is kept.
 
 ARG NODE_IMAGE=node:26-trixie-slim
 
@@ -34,6 +36,12 @@ RUN --mount=type=cache,id=pnpm-store,target=/pnpm-store \
       arm64) arch=arm64 ;; \
       *) echo "unsupported TARGETARCH: $TARGETARCH" >&2; exit 1 ;; \
     esac \
+ && find /out/node_modules/.pnpm -mindepth 1 -maxdepth 1 -name 'impit-*' \
+      ! -name "impit-linux-$arch-gnu@*" -exec rm -rf {} + \
+ && find /out/node_modules/.pnpm -mindepth 3 -maxdepth 3 -path '*/node_modules/impit-*' \
+      -xtype l -delete \
+ && test "$(find /out/node_modules/.pnpm -mindepth 1 -maxdepth 1 -name 'impit-*' | wc -l)" = 1 \
+ && test -f "$(readlink -f /out/node_modules/impit)/../impit-linux-$arch-gnu/impit-node.linux-$arch-gnu.node" \
  && cd "$(readlink -f /out/node_modules/better-sqlite3)" \
  && rm -rf deps src binding.gyp \
  && find prebuilds -type f ! -name "linux-$arch.node" -delete \

@@ -14,6 +14,7 @@
   "dependencies": {
     "@agentic-dasher/core": "workspace:*",
     "@agentic-dasher/shared": "workspace:*",
+    "impit": "0.14.9",
     "ipaddr.js": "2.5.0"
   }
 }

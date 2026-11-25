@@ -193,6 +193,9 @@ importers:
       better-sqlite3:
         specifier: 13.2.0
         version: 13.2.0
+      impit:
+        specifier: 0.14.9
+        version: 0.14.9
     devDependencies:
       '@agentic-dasher/core':
         specifier: workspace:*
@@ -316,6 +319,9 @@ importers:
       '@agentic-dasher/shared':
         specifier: workspace:*
         version: link:../shared
+      impit:
+        specifier: 0.14.9
+        version: 0.14.9
       ipaddr.js:
         specifier: 2.5.0
         version: 2.5.0

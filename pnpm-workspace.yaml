@@ -8,3 +8,12 @@ packages:
 # package that genuinely needs one (better-sqlite3 13 ships N-API prebuilds, so it does not).
 
 saveExact: true
+
+# impit ships its native addon as one optional package per platform, and pnpm installs only the
+# ones matching these lists. The image is built on the build host's platform for both targets
+# (docker/Dockerfile), so the glibc Linux addons of both image architectures are installed next to
+# the developer's own; the Dockerfile keeps only the target's.
+supportedArchitectures:
+  os: [current, linux]
+  cpu: [current, x64, arm64]
+  libc: [current, glibc]
