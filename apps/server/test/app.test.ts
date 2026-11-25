@@ -167,7 +167,8 @@ describe('the session cookie', () => {
   });
 
   it('is Secure over HTTPS', async () => {
-    h = harness();
+    // A public name is answered only when listed (ALLOWED_HOSTS; auth/host.ts).
+    h = harness({ allowedHosts: ['dasher.example'] });
     const res = await call(h.app, '/api/auth/setup', {
       body: { password: PASSWORD },
       origin: 'https://dasher.example',

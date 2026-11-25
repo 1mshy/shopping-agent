@@ -12,6 +12,8 @@ docker compose up -d --build
 
 Then open <http://localhost:8080>. Data lives in the `data` Docker volume. Set `PORT` to publish on another port.
 
+The API answers when it is opened by an IP address, `localhost`, a single-label name (`nas`) or a local-only name (`.local`, `.lan`, `.home`, `.internal`, `.home.arpa`). To reach it by any other name (your own domain behind a reverse proxy, a tailnet name), list that name in the `ALLOWED_HOSTS` environment variable, comma-separated; a leading dot lists a whole domain. This is what stops a web page from pointing its own name at your server (DNS rebinding).
+
 ## Develop
 
 Requirements: Node.js 26 (`engines >= 24.12`; see `.nvmrc`) and pnpm 12 (`corepack` is not bundled with Node 26, so install pnpm with `npm i -g pnpm@12`).

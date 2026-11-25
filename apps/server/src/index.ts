@@ -90,6 +90,7 @@ const api = createApp({
   rssBytes: () => process.memoryUsage.rss(),
   now,
   rungs: AVAILABLE_RUNGS,
+  allowedHosts: config.allowedHosts,
   jobs: () =>
     background.jobs().map((job) => ({
       name: job.name,

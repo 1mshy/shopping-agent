@@ -83,6 +83,22 @@ export function throttleKey(address: string): string {
     .join(':')}::/64`;
 }
 
+/**
+ * The host (`name` or `name:port`) the browser addressed: the request's own, or with a trusted
+ * proxy the one the proxy forwarded. It is what `requestOrigin` builds the origin from.
+ */
+export function requestHost(c: Context, trustProxy: boolean): string | null {
+  try {
+    if (trustProxy) {
+      const forwarded = firstHeaderValue(c, 'x-forwarded-host');
+      if (forwarded !== undefined) return forwarded;
+    }
+    return new URL(c.req.url).host;
+  } catch {
+    return null;
+  }
+}
+
 /** The request's own origin (`http://host:port`), as the browser addressed it. */
 export function requestOrigin(c: Context, trustProxy: boolean): string | null {
   try {

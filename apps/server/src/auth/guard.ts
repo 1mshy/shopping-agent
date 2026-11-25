@@ -19,9 +19,20 @@
 // in the first place; these checks are the second line, and the one that also covers the open
 // routes. A page in the Phase 6 browser add-on is cross-origin to the app and is refused by rule 1
 // or 2, besides having no session cookie (S§5.13 last sentence).
+//
+// Two rules hold for every method, reads included:
+//   a. the host the request names must be one this server answers for (host.ts): an address, a
+//      local name, or a name listed in ALLOWED_HOSTS. Without it rule 1 proves nothing, because
+//      the "own origin" is read from the request (DNS rebinding);
+//   b. a request that says it comes from another site (an Origin that is not the own origin, or a
+//      Sec-Fetch-Site other than `same-origin` and `none`) is refused, so a context that browsers
+//      let past the same-origin policy (an extension page with host permission) cannot read the
+//      API with the owner's cookie. The always-open routes are exempt: they hold nothing private,
+//      and `/api/health` stays reachable by a link from anywhere.
 import type { MiddlewareHandler } from 'hono';
 import { deleteCookie, getCookie } from 'hono/cookie';
-import { requestOrigin } from './client.ts';
+import { requestHost, requestOrigin } from './client.ts';
+import { hostAllowed } from './host.ts';
 import { type AppEnv, apiError } from './http.ts';
 import type { AuthService, SessionInfo } from './types.ts';
 
@@ -90,8 +101,29 @@ export function checkCsrf(
   return { ok: true };
 }
 
+/** Rule b: true when the request's own headers say another site sent it. */
+export function saysCrossSite(
+  headers: { get(name: string): string | null },
+  ownOrigin: string | null,
+): boolean {
+  const origin = headers.get('origin');
+  if (origin !== null) {
+    let normalized: string | null = null;
+    try {
+      normalized = origin === 'null' ? null : new URL(origin).origin;
+    } catch {
+      normalized = null;
+    }
+    if (normalized === null || ownOrigin === null || normalized !== ownOrigin) return true;
+  }
+  const site = headers.get('sec-fetch-site')?.toLowerCase();
+  return site !== undefined && site !== 'same-origin' && site !== 'none';
+}
+
 export interface GuardDeps {
   readonly auth: AuthService;
+  /** Host names answered besides addresses and local names (ALLOWED_HOSTS); see host.ts. */
+  readonly allowedHosts?: readonly string[];
   /** Whether to read X-Forwarded-* (the setting auth.trustProxy), read per request. */
   readonly trustProxy: () => boolean;
 }
@@ -101,6 +133,17 @@ export function createGuard(deps: GuardDeps): MiddlewareHandler<AppEnv> {
   return async (c, next) => {
     const method = c.req.method;
     const open = openAccess(method, c.req.path);
+    const trustProxy = deps.trustProxy();
+
+    if (!hostAllowed(requestHost(c, trustProxy), deps.allowedHosts ?? [])) {
+      return c.json(
+        apiError(
+          'forbidden',
+          'this server does not answer for that host name: open it by its address, or list the name in ALLOWED_HOSTS',
+        ),
+        403,
+      );
+    }
 
     const token = getCookie(c, SESSION_COOKIE);
     let session: SessionInfo | null = null;
@@ -124,9 +167,12 @@ export function createGuard(deps: GuardDeps): MiddlewareHandler<AppEnv> {
       return c.json(apiError('unauthenticated', 'sign in first'), 401);
     }
 
+    const ownOrigin = requestOrigin(c, trustProxy);
     if (!SAFE_METHODS.has(method)) {
-      const verdict = checkCsrf(c.req.raw.headers, requestOrigin(c, deps.trustProxy()));
+      const verdict = checkCsrf(c.req.raw.headers, ownOrigin);
       if (!verdict.ok) return c.json(apiError('forbidden', verdict.reason), 403);
+    } else if (open !== 'always' && saysCrossSite(c.req.raw.headers, ownOrigin)) {
+      return c.json(apiError('forbidden', 'cross-site request'), 403);
     }
     return next();
   };

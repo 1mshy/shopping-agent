@@ -90,6 +90,8 @@ export interface HarnessOptions {
   readonly throttle?: Omit<ThrottleOptions, 'now'>;
   readonly dbOk?: () => boolean;
   readonly definitions?: SettingDefinitions;
+  /** Host names the app answers for besides addresses and local names (ALLOWED_HOSTS). */
+  readonly allowedHosts?: readonly string[];
 }
 
 export function harness(options: HarnessOptions = {}): Harness {
@@ -113,6 +115,7 @@ export function harness(options: HarnessOptions = {}): Harness {
     now: clock.now,
     dbOk: options.dbOk ?? (() => db.ping()),
     rssBytes: () => 42,
+    ...(options.allowedHosts ? { allowedHosts: options.allowedHosts } : {}),
     auth,
     settings,
     routes: {

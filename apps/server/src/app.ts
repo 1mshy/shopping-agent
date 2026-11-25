@@ -56,6 +56,8 @@ export interface AppDeps {
   rungs?: readonly Rung[];
   /** The scheduler's jobs, for health; absent when the runtime is not built (tests). */
   jobs?: () => readonly HealthJob[];
+  /** Host names answered besides addresses and local names (ALLOWED_HOSTS; auth/host.ts). */
+  allowedHosts?: readonly string[];
   /** Owner password and sessions (auth/service.ts). */
   auth: AuthService;
   /** Settings (settings/service.ts). */
@@ -80,7 +82,7 @@ export function createApp(deps: AppDeps) {
   return (
     new Hono<AppEnv>()
       .basePath('/api')
-      .use('*', createGuard({ auth, trustProxy }))
+      .use('*', createGuard({ auth, trustProxy, allowedHosts: deps.allowedHosts ?? [] }))
       .use('*', tooLarge)
       .use('/auth/*', authTooLarge)
       .get('/health', (c) => {
