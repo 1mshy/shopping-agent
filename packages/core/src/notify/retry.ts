@@ -73,21 +73,28 @@ export function isRetryable(result: AttemptResult): boolean {
 const DELAY_SECONDS = /^\s*\d+(?:\.\d+)?\s*$/;
 
 /**
+ * The longest Retry-After that is honoured: one day. A provider's limit that resets later than
+ * that is asked again after a day (and answers with its header again); a header that is absurd
+ * (10^14 seconds) can neither park a delivery for years nor name a time that is not a date.
+ */
+export const MAX_RETRY_AFTER_MS = 24 * 60 * 60 * 1000;
+
+/**
  * Retry-After as milliseconds from `now`: delay seconds, or an HTTP date (RFC 9110 §10.2.3).
  * Unparsable or in the past counts as 0, as the predecessor did. Rounded up, so a retry is never
- * earlier than the provider asked.
+ * earlier than the provider asked, and never more than `MAX_RETRY_AFTER_MS`.
  */
 export function retryAfterMs(header: string | null, now: Timestamp): number {
   if (header === null) return 0;
   const text = header.trim();
   if (text === '') return 0;
-  if (DELAY_SECONDS.test(text)) return Math.ceil(Number(text) * 1000);
+  if (DELAY_SECONDS.test(text)) return Math.min(MAX_RETRY_AFTER_MS, Math.ceil(Number(text) * 1000));
   // An HTTP date names its weekday and a GMT time; Date.parse reads the IMF-fixdate form and the
   // two obsolete forms. A bare number or other text that Date.parse would guess at is refused.
   if (!/[A-Za-z]{3}/.test(text)) return 0;
   const until = Date.parse(text);
   if (Number.isNaN(until)) return 0;
-  return Math.max(0, Math.ceil(until - Date.parse(now)));
+  return Math.min(MAX_RETRY_AFTER_MS, Math.max(0, Math.ceil(until - Date.parse(now))));
 }
 
 function iso(ms: number): Timestamp {
