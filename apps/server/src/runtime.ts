@@ -73,15 +73,23 @@ export const JOB_NAMES = [SWEEP_JOB_NAME, OUTBOX_JOB_NAME, BACKUP_JOB_NAME] as c
 /**
  * The process's fetcher with the HTTP rung's session drop: a walled answer clears that site's
  * cookies (S§5.1 Sessions), so the bot manager's verdict does not stick to the next request.
+ *
+ * Two sites are parties to a walled answer after a redirect: the one that answered (its URL is the
+ * response's, and the wall's own cookies are there) and the one that was asked (whose cookie may
+ * be what sent the request to the wall). Both are forgotten; no other site is touched.
  */
-function fetcherWithSessionDrop(fetcher: Fetcher, jars: CookieJars): Fetcher {
+export function fetcherWithSessionDrop(fetcher: Fetcher, jars: CookieJars): Fetcher {
   return {
     ...fetcher,
     async get(request) {
       const result = await fetcher.get(request);
       if (dropsSession(result.outcome)) {
-        const site = sessionSite(request.url);
-        if (site !== null) jars.forget(site);
+        const sites = new Set<string>();
+        for (const url of [request.url, result.response?.finalUrl]) {
+          const site = url === undefined ? null : sessionSite(url);
+          if (site !== null) sites.add(site);
+        }
+        for (const site of sites) jars.forget(site);
       }
       return result;
     },
