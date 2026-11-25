@@ -11,6 +11,7 @@ Last updated: 2026-11-24.
 - Merging: pushes resumed on 2026-11-18. Work may be committed straight to `main` and pushed. Units still get their own branch and the same review and checks before the orchestrator merges them. PRs #12 and #14 are closed. On 2026-11-24 the owner answered the Phase 0 report with "implement what you think is best": the orchestrator settled the report's four open decisions (progress log, 2026-11-24) and pushed. That word covered those four items; it is not a standing change to the checkpoint rule below.
 - Concurrency: at most 4 implementation subagents.
 - Phase checkpoints: stop and report to the owner at each phase exit.
+- **Unattended run, 2026-11-24 22:15 to 2026-11-25 05:00 (owner's word of 2026-11-24, evening).** The owner handed Phase 1 "and the next few phases" to the orchestrator and went to bed. For this run only: 2 to 3 subagents at a time; commit to local `main`, **no pushes** (so no CI: checks are run locally and judged by exit code); a phase exit does not stop the run, the report is written into the progress log and the next phase starts; a gap or question is settled from the documents and past rulings and recorded as the orchestrator's decision, which the owner may overrule; Docker containers may be started and stopped. Not covered, and so not done: real notifications to the owner's devices, new external accounts, anything paid beyond the Haiku 5.5 route already given.
 - Spend: no paid services or keys unless the owner provides them in the session.
 
 ## Phase 0: Foundations, contracts and spikes
@@ -71,7 +72,7 @@ Still the owner's, none blocking Phase 1: the other_model / other_line boundary;
 
 ## Phase 1: Deterministic core
 
-Not started. A proposed cut, for the Phase 1 orchestrator to adopt or recut. Corpus areas named are the ones the unit turns from pending to passing (`evals/corpus/areas/`). "Pure" units live in `packages/core`, need no I/O and can start at once.
+Started 2026-11-24 22:15 (unattended run, see the authority settings). The cut below is adopted with two changes: P1-0 is split into P1-0a (skeletons, done by the orchestrator) and P1-0b (the migration, one unit), and each unit merges by a local squash merge after the orchestrator's review and the four checks, with no PR and no CI until pushes resume. Corpus areas named are the ones the unit turns from pending to passing (`evals/corpus/areas/`). "Pure" units live in `packages/core`, need no I/O and can start at once. Unit status is in the table under "Phase 1 status".
 
 | Id | Workstream | Unit | Depends on | Note |
 |---|---|---|---|---|
@@ -97,6 +98,16 @@ Not started. A proposed cut, for the Phase 1 orchestrator to adopt or recut. Cor
 | P1-8b | ws8 UI | Watches page, listing view with uPlot history and verdict, settings for channels and robots, Diagnostics | P1-6c, P1-8a | |
 | P1-9 | ws9 ops | Backup by `VACUUM INTO` and the restore doc; build version and rungs in health | P1-6b | |
 | P1-G | gates | Freeze test, restart test, the 48-hour live-check runner, the directory comparison on the 40 dev products | P1-6c | Start the live check as soon as P1-6c reads: it is `pending-time` for 48 hours |
+
+### Phase 1 status
+
+| Id | Branch | Status | Note |
+|---|---|---|---|
+| P1-0a | committed to `main` (`ffbfb12`, `33643ce`) | merged (2026-11-24) | `packages/fetch` and `packages/sources` skeletons; server and evals depend on them; the Dockerfile copies their manifests. `packages/core/src/globals.d.ts` declares the WHATWG URL API, because the package loads neither Node nor DOM types and the pure URL rules need to parse a URL. Lint, typecheck, test, build exit 0 |
+| P1-0b | — | planned | Migration `0002` for the columns Phase 0 deferred to Phase 1 |
+| P1-4 | `phase1/matcher` | running | Subagent. Also writes the tiers 1-2 gold-set scorer; told to use the dev split only |
+| P1-2a | `phase1/price-text` | running | Subagent |
+| P1-1a | `phase1/guard` | running | Subagent |
 
 Needed from the owner during Phase 1: approval of the 20 listings on at least 10 hosts for the 48-hour live check (real requests); an ntfy topic or webhook target for the delivery gate (a real notification needs approval at the time); owner decisions #6 and #10 before Phase 2.
 
