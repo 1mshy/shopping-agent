@@ -20,6 +20,51 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: Two independent reviews, and what they found
+
+Two reviewer subagents, each given the code and the spec and asked to find and reproduce defects, read-only. They are the first independent reviews of Phase 1. **They found defects that the units' own tests and the orchestrator's reading did not, three of them critical for alerts.** Still unreviewed: the matcher, the price-text and currency code, the readers, the scheduler, prices and verdicts, auth and settings.
+
+**Do not rely on drop or restock alerts from this build.** Findings 1 to 6 of the second review below are open.
+
+#### Review 1: the fetch path (guard, pinned transport, fetchPage, cookies, fetcher, walls scanner)
+
+| # | Severity | Finding | Reproduced | State |
+|---|---|---|---|---|
+| 1 | critical | A redirect or a name could reach this machine itself and devices on its LAN at their **global IPv6 addresses** (and a server at its public IPv4 address): the guard refused the IANA special-purpose ranges and knew nothing of the host's own addresses. Every global address of this Mac's interfaces passed `checkDestination` | yes, as guard verdicts; no connection made | **fixed** (`8e7aca5`): an address on one of the machine's own networks is refused as `private_address` at every hop |
+| 2 | medium | A redirect to another host is not paced or robots-checked under that host, and its outcome is recorded in the playbook against the first host. Five URLs redirecting to one host produced five simultaneous requests to it | yes | open |
+| 3 | medium | Cookie jars grow without bound and a page chooses the hosts: no cap on the number of jars, expired cookies purged only when that jar is read again. 2,000 hosts × 300 cookies grew the heap by about 2.5 GB | in parts | open |
+| 4 | low-medium | When Content-Length is over the cap, the upstream connection and the proxy ticket stay open until the request's deadline (5 s in the script), while the host's pacing turn is already released | yes | open |
+| 5 | low | The session drop can clear the wrong site: `CookieJars.forget` has no public-suffix guard (a wall on `www.myshopify.com` emptied every `*.myshopify.com` jar); and the runtime drops by the requested URL, not the final one | first case yes | open |
+| 6 | low | The exported network dials any address it is handed; only convention keeps callers on `guardedFetch` | reading only | open |
+| 7 | low | Port 0 passes the guard and then fails as a transport error | reading only | open |
+
+Examined and found sound by the reviewer: the special-purpose address table against 20-odd spellings (hex, octal, short and full-width IPv4, mapped, NAT64, 6to4, Teredo, zone ids, `localhost` forms); the URL-form and Location checks; the pinning proxy (wrong secret, ticket reuse, two concurrent CONNECTs, another host, an expired ticket: all refused; it listens on loopback only and never resolves a name); impit always going through the proxy even with `NO_PROXY=*`, returning a 302 unfollowed and ignoring an Alt-Svc h3 header; the body cap applied to decompressed bytes (1 GiB gzip and brotli bombs refused after about 90 ms); the wall scanner on 17 hostile 6 MiB inputs (at most 327 ms). Not covered: whether any code outside `packages/fetch` reaches the network without the guard; HTTPS through the proxy against a real TLS server; `robots/parse.ts`; the full wall rule set.
+
+About the fix: the own-network list comes from `os.networkInterfaces()`, read for every hop. A link prefix shorter than /16 (IPv4) or /48 (IPv6) is ignored and only the interface's own address refused, so a tunnel that states /0 does not refuse the internet. **Inside a container the process sees the container's interfaces, not the host's**, so on a host with IPv6 enabled for Docker the host's LAN prefix is not known to it; with Docker's default IPv4-only networking the container has no IPv6 route. The reviewer's second half of the fix, binding the server to loopback unless `HOST` is set, is **not done**.
+
+#### Review 2: the sweep, the alert rules, prices, the outbox and gating, the watch service
+
+Reproductions used the sweep's own harness: a real SQLite file, `checkListing` with scripted reads 30 minutes apart, delivery rows set by SQL. H is 100.00 CAD, L is 90.00 CAD, the rule the default 5% drop.
+
+| # | Severity | Finding | Reproduced | State |
+|---|---|---|---|---|
+| 1 | critical | A push channel that has failed for good (a 401, say) turns one drop or restock into **a new alert on every read**: the failed push means the in-app acceptance never counts, so there is no cooldown, and the "awaiting delivery" hold does not apply to `undelivered`. 20 reads at H then L ten times: 9 events for one unchanged price. A restock: 5 events | yes | open; touches the owner's ruling that in-app acceptance alone does not count |
+| 2 | critical | **Out-of-stock reads feed the reference**, so a price that never changed fires a drop: H×3 in stock, six out-of-stock reads carrying 200.00, H×2 in stock → one `price_drop` event against a reference of 200.00. S§5.8 says only in-stock reads are compared | yes | open |
+| 3 | high | Two stores at steady, different prices: the cheaper fires "price drop" on its second read, because the reference is the median across listings while noise and confirmation are per listing. It follows the spec's words | yes | open; needs the owner |
+| 4 | critical | **A new watch cannot alert on a drop of any size until it has about three earlier reads**, and on any watch the reference follows a drop down once low reads outnumber high ones in the window: the read being evaluated is inside its own reference median and inside the MAD window. H then L×6: no event; H then 50.00×6: no event | yes | open |
+| 5 | high | An older alert accepted late becomes "the last accepted" (ordered by acceptance time, not decision order), so a higher price passes as a further drop inside the cooldown: alerts at 90.00, 80.00, then 85.00 | yes | open |
+| 6 | high | A restock held while a push is pending is lost for ever and never written to the feed: a second out→in while the first alert awaits delivery is held, and after acceptance the watermark is past it. Against S§2 invariant 11 | yes | open |
+| 7 | high | A push delivered late says "Now 90.00" for a price read days ago, also for a watch archived since: the message carries no observation time and the outbox has no age limit | reading only | open |
+| 8 | medium | After a crash following the observation insert, if the clock also stepped back, that observation is never evaluated (the resume test compares timestamps strictly) | yes | open |
+| 9 | low | The outbox lease is sized for one delivery, and a pass sends a channel's queue under one lease | reading only | open |
+| 10 | low | `/listings/:id` has no profile filter (harmless with one profile); a webhook URL with its token in the path is stored in `config_json` and returned; two spellings of a link (`www.`, http and https, a trailing slash) make two watches; two concurrent creates of one watch give a 500; a Retry-After of about 10^14 s throws | reading only | open |
+
+Examined and found sound by the reviewer: a failed read between two low reads confirms nothing; two currencies are never compared and no float is on the decision path; event keys make re-evaluation add nothing; parked deliveries; the lease-conditional delivery writes; secrets never in an error; archived and paused watches, blocked stores and unconfirmed listings never alert; save-first ordering.
+
+**What this says about the night's method.** Findings 2 and 4 of the second review are in the code that joins the pure rules to the rows (`sweep/evaluate.ts`), which no corpus case covers: the corpus pins each pure decision, and every one of its 601 cases passes. Finding 4 comes from a reading the sweep unit chose itself to fix a different problem (a single-listing watch whose reference equalled the latest price), and the orchestrator accepted it on the unit's report. The orchestrator's integration test passed because it started with six baseline reads.
+
+**Worktrees.** Both reviewers found their isolated worktree at the Phase 0 commit `90c6d2d`, not at local `main`: a new worktree starts from the remote's `main`, which the night's commits are ahead of. The first read the main checkout in place; the second moved its worktree to `main` and back. Neither changed the repository. The implementation units were told to `git merge main` first, which is why they were not affected.
+
 ### 2026-11-25: Auth and settings (P1-8a), the server starts the runtime, and the first real read
 
 All on local `main`, checked there (lint, typecheck, test, build exit 0). **Auth is a high-risk area and has had no independent review.**
