@@ -393,6 +393,48 @@ export const RESULT_GROUPS = ['exact', 'substitute', 'used'] as const;
 export const ResultGroup = z.enum(RESULT_GROUPS);
 export type ResultGroup = z.infer<typeof ResultGroup>;
 
+// Phase 1 state (migration 0002): columns the Phase 1 units write, validated here, not in SQL.
+
+/**
+ * job_run.reason: why a run started (S§5.8). `slot`: a slot of its cadence came due (a catch-up
+ * after a freeze stands for every missed slot); `boot`: the catch-up boot schedules; `caller`: a
+ * second caller or POST /api/refresh asked for a run; `retry`: the one-off retry the DNS gate or a
+ * failed run left (60 s later, never moving the cadence).
+ */
+export const JOB_RUN_REASONS = ['slot', 'boot', 'caller', 'retry'] as const;
+export const JobRunReason = z.enum(JOB_RUN_REASONS);
+export type JobRunReason = z.infer<typeof JobRunReason>;
+
+/**
+ * watch.lookup_state: save first (S§2.9). A watch is written before any retailer is contacted, with
+ * its lookup `queued`; slow or failed lookups stay queued and are retried. `done`: the lookup found
+ * the watch's listings; `failed`: it stopped for a reason a retry cannot change (the watch says why).
+ */
+export const WATCH_LOOKUP_STATES = ['queued', 'done', 'failed'] as const;
+export const WatchLookupState = z.enum(WATCH_LOOKUP_STATES);
+export type WatchLookupState = z.infer<typeof WatchLookupState>;
+
+/**
+ * Why a read failed (listing_check.last_error, store.last_error): a fetch outcome other than `ok`
+ * (S§5.1), or a fetched page the reader got no price from (`no_price`) or more than one distinct
+ * price (`multiple_prices`, S§5.2). A failed read writes no observation (S§2.10).
+ */
+export const READ_FAILURE_CAUSES = [
+  'not_found',
+  'wall',
+  'rate_limited',
+  'payment_required',
+  'login_required',
+  'empty',
+  'server_error',
+  'network_error',
+  'refused_by_policy',
+  'no_price',
+  'multiple_prices',
+] as const;
+export const ReadFailureCause = z.enum(READ_FAILURE_CAUSES);
+export type ReadFailureCause = z.infer<typeof ReadFailureCause>;
+
 // Open-ended by nature, so validated strings rather than lists.
 
 /** host_access.wall_vendor: the bot manager the classifier names (S§5.1, S§5.16). New ones appear. */

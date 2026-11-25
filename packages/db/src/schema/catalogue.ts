@@ -14,6 +14,7 @@ import type {
   PlaybookOutcomeKind,
   PriceComponent,
   RawCandidate,
+  ReadFailureCause,
   ReadMethod,
   Rung,
   SearchRoute,
@@ -56,6 +57,12 @@ export const store = sqliteTable(
     trustReasons: text('trust_reasons_json', { mode: 'json' }).notNull(),
     source: text('source').$type<StoreSource>().notNull(),
     fingerprintedAt: timestamp('fingerprinted_at'),
+    // Health fields (migration 0002). consecutiveErrors is null only on a store written before
+    // 0002; a new store starts at 0.
+    consecutiveErrors: integer('consecutive_errors'),
+    lastOkAt: timestamp('last_ok_at'),
+    lastErrorAt: timestamp('last_error_at'),
+    lastError: text('last_error').$type<ReadFailureCause>(),
   },
   (t) => [unique().on(t.host, t.marketPrefix)],
 );
@@ -199,6 +206,39 @@ export const fxRate = sqliteTable(
     index('fx_rate_pair_idx').on(t.base, t.quote, t.asOf),
   ],
 );
+
+/**
+ * When a listing is read next and how its recent reads went (S§5.8, migration 0002). Catalogue
+ * data: a listing is read once for every watch that follows it. `nextCheckAt` is null while no
+ * active watch tracks the listing; `firstErrorAt` and `lastError` describe the current run of
+ * failed reads (a failed read writes no observation, S§2.10) and move with
+ * `listing.consecutiveErrors`.
+ */
+export const listingCheck = sqliteTable(
+  'listing_check',
+  {
+    listingId: integer('listing_id')
+      .primaryKey()
+      .references(() => listing.id, { onDelete: 'cascade' }),
+    nextCheckAt: timestamp('next_check_at'),
+    lastReadAt: timestamp('last_read_at'),
+    firstErrorAt: timestamp('first_error_at'),
+    lastError: text('last_error').$type<ReadFailureCause>(),
+  },
+  (t) => [
+    index('listing_check_due_idx').on(t.nextCheckAt).where(sql`${t.nextCheckAt} is not null`),
+  ],
+);
+
+/**
+ * RDAP registration dates by registrable domain, cached forever (S§5.5, migration 0002). A null
+ * `registeredAt` records that RDAP gave no registration date; a transient failure writes no row.
+ */
+export const domainRegistration = sqliteTable('domain_registration', {
+  domain: text('domain').primaryKey(),
+  registeredAt: timestamp('registered_at'),
+  fetchedAt: timestamp('fetched_at').notNull(),
+});
 
 /** A lead from a community deal feed (S§5.3): the price stays text until a live read confirms it. */
 export const dealFeedItem = sqliteTable('deal_feed_item', {

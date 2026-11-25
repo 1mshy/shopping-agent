@@ -138,6 +138,10 @@ export const rows = {
     trustReasons: ['tranco_top_1m'],
     source: 'read',
     fingerprintedAt: T0,
+    consecutiveErrors: 0,
+    lastOkAt: T1,
+    lastErrorAt: null,
+    lastError: null,
   } satisfies typeof schema.store.$inferInsert,
   listing: {
     id: 1,
@@ -208,6 +212,15 @@ export const rows = {
     referenceKind: 'median_verified',
     cooldownS: 43200,
     createdAt: T0,
+    pausedAt: null,
+    archivedAt: null,
+    dedupeKey: 'url:https://shop.example.ca/products/wh-1000xm5',
+    restockEnabledAt: null,
+    lookupState: 'done',
+    lookupQueuedAt: T0,
+    lookupDueAt: null,
+    lookupAttempts: 1,
+    lookupError: null,
   } satisfies typeof schema.watch.$inferInsert,
   feedCard: {
     id: 1,
@@ -220,6 +233,10 @@ export const rows = {
     type: 'in_app',
     config: {},
     secretEnc: null,
+    name: 'In the app',
+    createdAt: T0,
+    disabledAt: null,
+    removedAt: null,
   } satisfies typeof schema.channel.$inferInsert,
   run: {
     id: 77,
@@ -328,6 +345,56 @@ export const rows = {
     nextAttemptAt: T1,
     acceptedAt: null,
   } satisfies typeof schema.delivery.$inferInsert,
+  // Migration 0002.
+  hostPacing: {
+    host: 'shop.example.ca',
+    nextStartAt: '2026-11-17T09:30:02.875Z',
+  } satisfies typeof schema.hostPacing.$inferInsert,
+  domainRegistration: {
+    domain: 'example.ca',
+    registeredAt: '2004-03-11T00:00:00.000Z',
+    fetchedAt: T0,
+  } satisfies typeof schema.domainRegistration.$inferInsert,
+  listingCheck: {
+    listingId: 1,
+    nextCheckAt: '2026-11-17T10:00:00.250Z',
+    lastReadAt: T1,
+    firstErrorAt: null,
+    lastError: null,
+  } satisfies typeof schema.listingCheck.$inferInsert,
+  job: {
+    id: 1,
+    name: 'sweep',
+    cron: '*/30 * * * *',
+    nextRunAt: '2026-11-17T10:00:00.000Z',
+    deadlineMs: 600000,
+    networkGate: true,
+    retryAt: null,
+  } satisfies typeof schema.job.$inferInsert,
+  jobRun: {
+    id: 1,
+    jobId: 1,
+    status: 'completed',
+    startedAt: T0,
+    endedAt: '2026-11-17T09:00:41.120Z',
+    reason: 'slot',
+    coalescedSlots: 1,
+    detail: { listingsRead: 20, failedReads: { wall: 1 } },
+  } satisfies typeof schema.jobRun.$inferInsert,
+  ownerPassword: {
+    profileId: 1,
+    passwordHash:
+      '$argon2id$v=19$m=65536,t=3,p=4$c2FsdHNhbHRzYWx0c2FsdA$qL3xv0pPCXxYyHnT3i7Ff8wQ4mX0vX3ZB1zZ0kq9b8s',
+    setAt: T0,
+  } satisfies typeof schema.ownerPassword.$inferInsert,
+  session: {
+    id: 1,
+    profileId: 1,
+    tokenHash: 'a3f1c2d4e5b6978877665544332211ffeeddccbbaa99887766554433221100aa',
+    createdAt: T0,
+    expiresAt: '2026-12-17T09:00:00.000Z',
+    lastSeenAt: T1,
+  } satisfies typeof schema.session.$inferInsert,
 };
 
 /** Profiles 1 and 2 and one row of every parent the contract tests point at. */

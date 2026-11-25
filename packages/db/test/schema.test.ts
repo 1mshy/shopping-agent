@@ -31,6 +31,9 @@ const OWNERSHIP: Record<string, 'user' | 'catalogue' | 'operational' | 'root' | 
   notification_event: 'user',
   delivery: 'user',
   channel: 'user',
+  // The owner's password and login sessions (S§5.13, migration 0002).
+  owner_password: 'user',
+  session: 'user',
   // Catalogue: what the engine read about stores, products and prices, shared by every profile.
   store: 'catalogue',
   host_access: 'catalogue',
@@ -40,11 +43,17 @@ const OWNERSHIP: Record<string, 'user' | 'catalogue' | 'operational' | 'root' | 
   match_verdict: 'catalogue',
   fx_rate: 'catalogue',
   deal_feed_item: 'catalogue',
+  // Migration 0002: when each listing is read next and how its reads went (S§5.8), and RDAP
+  // registration dates by domain (S§5.5).
+  listing_check: 'catalogue',
+  domain_registration: 'catalogue',
   // Operational: install-wide scheduling and configuration (S§5.8, S§5.13).
   job: 'operational',
   job_run: 'operational',
   llm_endpoint: 'operational',
   setting: 'operational',
+  // Per-host pacing, persisted across restarts (S§5.1, migration 0002).
+  host_pacing: 'operational',
   // The profile itself, and the migration runner's own bookkeeping.
   profile: 'root',
   schema_migration: 'runner',
@@ -307,12 +316,19 @@ const NAMED_CHECKS = [
   'delivery_accepted_at',
   'delivery_next_attempt',
   'delivery_outcome',
+  'domain_registration_domain_lower',
+  'domain_registration_order',
   'fx_rate_pair',
   'host_access_host_lower',
+  'host_pacing_host_lower',
+  'job_run_ended_when_finished',
   'job_run_order',
+  'job_run_reason',
   'job_schedule',
+  'listing_check_errors',
   'match_verdict_model_fields',
   'notification_event_rests_on',
+  'owner_password_phc',
   'price_observation_effective',
   'price_observation_landed',
   'price_observation_not_a_failed_read',
@@ -332,8 +348,12 @@ const NAMED_CHECKS = [
   'run_step_output_includes_reasoning',
   'run_step_tool_call',
   'run_turns_within_cap',
+  'session_order',
+  'session_token_hash',
   'setting_one_value',
+  'store_health',
   'store_host_lower',
+  'watch_lookup',
   'watch_reference_currency',
   'watch_reference_pair',
 ];
@@ -350,10 +370,15 @@ const TRIGGERS = [
   'price_observation_append_only',
   'price_observation_kept_forever',
   'price_observation_no_replace',
+  'watch_intake_complete',
 ];
 
-/** Every CHECK in the migrated schema, column and table level (the ledger's included). */
-const CHECK_COUNT = 138;
+/**
+ * Every CHECK in the migrated schema, column and table level (the ledger's included): 138 from
+ * 0001, 37 from 0002 (11 named, 26 unnamed). A column added by ALTER TABLE carries its CHECKs into
+ * its table's CREATE statement, so they are counted with it.
+ */
+const CHECK_COUNT = 175;
 
 describe('what only the SQL holds', () => {
   let db: Database;
@@ -407,11 +432,46 @@ describe('what only the SQL holds', () => {
   it('indexes the child column of every foreign key except profile_id', () => {
     for (const table of tableNames(db)) {
       const leading = new Set(indexesOf(db, table).map((i) => i.columns[0]));
+      // An INTEGER PRIMARY KEY is the rowid, the key of the table's own B-tree: lookups by it need
+      // no separate index, and PRAGMA index_list does not list one (listing_check.listing_id).
+      for (const c of columnsOf(db, table)) {
+        if (c.pk === 1 && c.type === 'INTEGER') leading.add(c.name);
+      }
       for (const fk of foreignKeysOf(db, table)) {
         const first = fk.from[0];
         if (first === 'profile_id') continue;
         expect(leading.has(first), `${table}.${first} -> ${fk.table}`).toBe(true);
       }
+    }
+  });
+
+  it('adds only nullable columns to the tables of 0001, so 0002 needs no table rebuild', () => {
+    // Columns that 0002 adds with ALTER TABLE … ADD COLUMN: a NOT NULL column there needs a
+    // default, and no column has one (migrations/README.md).
+    const added: Record<string, string[]> = {
+      store: ['consecutive_errors', 'last_ok_at', 'last_error_at', 'last_error'],
+      watch: [
+        'paused_at',
+        'archived_at',
+        'dedupe_key',
+        'restock_enabled_at',
+        'lookup_state',
+        'lookup_queued_at',
+        'lookup_due_at',
+        'lookup_attempts',
+        'lookup_error',
+      ],
+      job: ['retry_at'],
+      job_run: ['reason', 'coalesced_slots', 'detail_json'],
+      channel: ['name', 'created_at', 'disabled_at', 'removed_at'],
+    };
+    for (const [table, columns] of Object.entries(added)) {
+      const all = columnsOf(db, table);
+      expect(
+        all.slice(-columns.length).map((c) => c.name),
+        table,
+      ).toEqual(columns);
+      for (const c of all.slice(-columns.length)) expect(c.notnull, `${table}.${c.name}`).toBe(0);
     }
   });
 });

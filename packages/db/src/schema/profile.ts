@@ -1,4 +1,5 @@
-// Drizzle definitions mirror migrations/0001_initial.sql column for column (test/schema.test.ts
+// Drizzle definitions mirror the migrated database (migrations/*.sql) column for column; a column
+// a later migration adds with ALTER TABLE comes last, in its order (test/schema.test.ts
 // checks it). TypeScript keys follow the contract casing (packages/shared common.ts): the camelCase
 // of the column, `*_json` without its suffix. CHECK constraints and triggers live in the SQL only.
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';

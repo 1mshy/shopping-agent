@@ -162,6 +162,113 @@ describe('migrate', () => {
   });
 });
 
+// Rows a level-1 database could hold, written with the SQL of 0001 (the Drizzle definitions
+// describe level 2). One row of each table 0002 changes, and the rows they point at.
+const LEVEL_1_ROWS = `
+INSERT INTO profile (id) VALUES (1);
+INSERT INTO store (id, host, market_prefix, platform, base_currency, is_shop, trust_tier,
+  trust_reasons_json, source)
+  VALUES (1, 'shop.example.ca', '', 'shopify', 'CAD', 'yes', 'known', '[]', 'read');
+INSERT INTO listing (id, store_id, channel, url_canonical, seller_kind, condition, currency, title,
+  variant_json, trackable, first_seen_at, last_seen_at, consecutive_errors)
+  VALUES (1, 1, 'retail', 'https://shop.example.ca/products/a', 'first_party', 'new', 'CAD', 'A',
+  '{}', 1, '2026-11-17T09:00:00.000Z', '2026-11-17T09:00:00.000Z', 0);
+INSERT INTO price_observation (id, listing_id, observed_at, currency, sticker, shipping_status,
+  missing_components_json, availability, read_path, rung, raw_candidates_json)
+  VALUES (1, 1, '2026-11-17T09:00:00.000Z', 'CAD', 44999, 'unknown', '["shipping","tax"]', 'in',
+  'json_ld', 'http', '[{"method":"json_ld","confidence":0.9,"value":"449.99"}]');
+INSERT INTO watch (id, profile_id, kind, input, market, rules_json, cooldown_s, created_at)
+  VALUES (1, 1, 'product', 'https://shop.example.ca/products/a', 'CA', '{}', 43200,
+  '2026-11-17T08:59:00.000Z');
+INSERT INTO watch_listing (id, profile_id, watch_id, listing_id, role, added_by)
+  VALUES (1, 1, 1, 1, 'tracked', 'user');
+INSERT INTO channel (id, profile_id, type, config_json) VALUES (1, 1, 'in_app', '{}');
+INSERT INTO notification_event (id, profile_id, key, kind, created_at, watch_id, listing_id,
+  observation_id)
+  VALUES (1, 1, 'price_drop:1:1', 'price_drop', '2026-11-17T09:00:01.000Z', 1, 1, 1);
+INSERT INTO delivery (id, profile_id, event_id, channel_id, state, attempts, outcome, accepted_at)
+  VALUES (1, 1, 1, 1, 'accepted', 1, 'accepted', '2026-11-17T09:00:02.000Z');
+INSERT INTO job (id, name, cron, next_run_at, deadline_ms, network_gate)
+  VALUES (1, 'sweep', '*/30 * * * *', '2026-11-17T09:30:00.000Z', 600000, 1);
+INSERT INTO job_run (id, job_id, status, started_at, ended_at)
+  VALUES (1, 1, 'completed', '2026-11-17T09:00:00.000Z', '2026-11-17T09:00:40.000Z'),
+  (2, 1, 'running', '2026-11-17T09:30:00.000Z', NULL);
+`;
+
+describe('migration 0002', () => {
+  const level1 = () => {
+    const db = openDatabase(':memory:');
+    migrate(db, MIGRATIONS.slice(0, 1));
+    expect(migrationLevel(db)).toBe(1);
+    db.exec(LEVEL_1_ROWS);
+    return db;
+  };
+  const snapshot = (db: Database, table: string, columns: string) =>
+    db.orm.all(sql.raw(`SELECT ${columns} FROM ${table} ORDER BY 1`));
+
+  it('takes a fresh database from level 0 to level 2', () => {
+    const db = openDatabase(':memory:');
+    expect(migrate(db)).toEqual({ level: 2, applied: [1, 2] });
+    expect(MIGRATIONS.map((m) => m.name)).toEqual(['0001_initial', '0002_phase1_state']);
+  });
+
+  it('upgrades a level-1 database with rows in it to level 2, keeping every row', () => {
+    const db = level1();
+    const tables = ['store', 'listing', 'watch', 'channel', 'delivery', 'job', 'job_run'];
+    const before = tables.map((t) => snapshot(db, t, '*'));
+
+    expect(migrate(db)).toEqual({ level: 2, applied: [2] });
+
+    // The rows of 0001 keep every value they had; the columns 0002 adds read as not recorded.
+    for (const [i, table] of tables.entries()) {
+      const width = Object.keys((before[i] as Record<string, unknown>[])[0] ?? {}).length;
+      const after = snapshot(db, table, '*') as Record<string, unknown>[];
+      expect(after.map((r) => Object.fromEntries(Object.entries(r).slice(0, width)))).toEqual(
+        before[i],
+      );
+      for (const r of after) {
+        for (const value of Object.values(r).slice(width)) expect(value, table).toBeNull();
+      }
+    }
+    expect(tableNames(db)).toEqual(
+      expect.arrayContaining([
+        'domain_registration',
+        'host_pacing',
+        'listing_check',
+        'owner_password',
+        'session',
+      ]),
+    );
+    expect(db.orm.all(sql`pragma foreign_key_check`)).toEqual([]);
+
+    // The watch written before 0002 has no dedupe key, so it holds none; a new watch states its
+    // key and lookup, and the rules of 0002 hold from here on.
+    db.exec(`INSERT INTO watch (id, profile_id, kind, input, market, rules_json, cooldown_s,
+      created_at, dedupe_key, lookup_state, lookup_queued_at, lookup_due_at, lookup_attempts)
+      VALUES (2, 1, 'product', 'https://shop.example.ca/products/a', 'CA', '{}', 43200,
+      '2026-11-18T08:00:00.000Z', 'url:https://shop.example.ca/products/a', 'queued',
+      '2026-11-18T08:00:00.000Z', '2026-11-18T08:00:00.000Z', 0)`);
+    expect(
+      refusal(() =>
+        db.exec(
+          "INSERT INTO job_run (job_id, status, started_at) VALUES (1, 'running', '2026-11-17T10:00:00.000Z')",
+        ),
+      ),
+    ).toMatch(/UNIQUE constraint failed: job_run.job_id/);
+  });
+
+  it('refuses a level-1 job run whose status and end disagree, and stays at level 1', () => {
+    const db = level1();
+    db.exec(
+      "INSERT INTO job_run (id, job_id, status, started_at) VALUES (3, 1, 'completed', '2026-11-17T09:00:00.000Z')",
+    );
+    // ALTER TABLE tests the added CHECK against every row; SQLite names no constraint then.
+    expect(() => migrate(db)).toThrow(/CHECK constraint failed/);
+    expect(migrationLevel(db)).toBe(1);
+    expect(tableNames(db)).not.toContain('session');
+  });
+});
+
 describe('MIGRATIONS', () => {
   // The SQL files are the versioned source (S§4); src/migrations.ts embeds them so the bundled
   // server needs no file beside it. Regenerate with `pnpm --filter @agentic-dasher/db migrations:embed`.

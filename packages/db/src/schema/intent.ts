@@ -8,8 +8,18 @@ import type {
   WatchKind,
   WatchListingAddedBy,
   WatchListingRole,
+  WatchLookupState,
 } from '@agentic-dasher/shared';
-import { foreignKey, index, integer, sqliteTable, text, unique } from 'drizzle-orm/sqlite-core';
+import { sql } from 'drizzle-orm';
+import {
+  foreignKey,
+  index,
+  integer,
+  sqliteTable,
+  text,
+  unique,
+  uniqueIndex,
+} from 'drizzle-orm/sqlite-core';
 import { listing } from './catalogue.ts';
 import { run } from './operations.ts';
 import { id, profileId, timestamp } from './profile.ts';
@@ -31,8 +41,28 @@ export const watch = sqliteTable(
     referenceKind: text('reference_kind').$type<ReferenceKind>(),
     cooldownS: integer('cooldown_s').notNull(),
     createdAt: timestamp('created_at').notNull(),
+    // Migration 0002. Status is derived: archived when archivedAt is set, else paused when
+    // pausedAt is set, else active.
+    pausedAt: timestamp('paused_at'),
+    archivedAt: timestamp('archived_at'),
+    /** `url:` + normalised link, or `query:` + case-folded name; unique among unarchived watches. */
+    dedupeKey: text('dedupe_key'),
+    /** When the restock rule was last switched on; null while it is off. */
+    restockEnabledAt: timestamp('restock_enabled_at'),
+    /** Save first (S§2.9): the durable lookup, and the watch's daily re-discovery. */
+    lookupState: text('lookup_state').$type<WatchLookupState>(),
+    lookupQueuedAt: timestamp('lookup_queued_at'),
+    lookupDueAt: timestamp('lookup_due_at'),
+    lookupAttempts: integer('lookup_attempts'),
+    lookupError: text('lookup_error'),
   },
-  (t) => [unique().on(t.id, t.profileId)],
+  (t) => [
+    unique().on(t.id, t.profileId),
+    uniqueIndex('watch_dedupe_key_idx')
+      .on(t.profileId, t.dedupeKey)
+      .where(sql`${t.archivedAt} is null`),
+    index('watch_lookup_due_idx').on(t.lookupDueAt).where(sql`${t.lookupDueAt} is not null`),
+  ],
 );
 
 export const watchListing = sqliteTable(

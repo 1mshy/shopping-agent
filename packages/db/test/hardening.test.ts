@@ -124,6 +124,7 @@ describe('JSON5 and other non-RFC JSON (item 2)', () => {
       .values({
         ...rows.watch,
         id: 2,
+        dedupeKey: 'query:second watch',
         spec: null,
         currency: null,
         referencePrice: null,

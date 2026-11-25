@@ -355,7 +355,7 @@ describe('round trip against the contracts in @agentic-dasher/shared', () => {
 });
 
 describe('save first (S§2.9) and unknown is a value (S§2.10)', () => {
-  it('saves a watch with only what the user typed and the market', () => {
+  it('saves a watch with only what the user typed and the market, its lookup queued', () => {
     db.orm
       .insert(schema.watch)
       .values({
@@ -371,11 +371,16 @@ describe('save first (S§2.9) and unknown is a value (S§2.10)', () => {
         referenceKind: null,
         cooldownS: 43200,
         createdAt: T0,
+        dedupeKey: 'query:noise cancelling headphones',
+        lookupState: 'queued',
+        lookupQueuedAt: T0,
+        lookupDueAt: T0,
+        lookupAttempts: 0,
       })
       .run();
-    expect(
-      db.orm.select().from(schema.watch).where(eq(schema.watch.id, 2)).get()?.currency,
-    ).toBeNull();
+    const saved = db.orm.select().from(schema.watch).where(eq(schema.watch.id, 2)).get();
+    expect(saved?.currency).toBeNull();
+    expect(saved?.lookupState).toBe('queued');
   });
 
   it('saves a queued search before any run, coverage or result exists', () => {
@@ -475,7 +480,7 @@ describe('rules SQL enforces', () => {
   const watch = (w: Partial<typeof schema.watch.$inferInsert>) => () =>
     db.orm
       .insert(schema.watch)
-      .values({ ...rows.watch, id: 2, ...w })
+      .values({ ...rows.watch, id: 2, dedupeKey: 'query:second watch', ...w })
       .run();
 
   const refusals: [string, () => unknown, RegExp][] = [
@@ -698,7 +703,7 @@ describe('rules SQL enforces', () => {
       'a watch without a profile',
       () =>
         db.orm.run(
-          sql`insert into watch (kind, input, market, rules_json, cooldown_s, created_at) values ('query', 'x', 'CA', '{}', 0, ${T0})`,
+          sql`insert into watch (kind, input, market, rules_json, cooldown_s, created_at, dedupe_key, lookup_state, lookup_queued_at, lookup_due_at, lookup_attempts) values ('query', 'x', 'CA', '{}', 0, ${T0}, 'query:x', 'queued', ${T0}, ${T0}, 0)`,
         ),
       /NOT NULL constraint failed: watch.profile_id/,
     ],
@@ -767,7 +772,7 @@ describe('ON DELETE', () => {
 
     db.orm
       .insert(schema.watch)
-      .values({ ...rows.watch, id: 2 })
+      .values({ ...rows.watch, id: 2, dedupeKey: 'query:second watch' })
       .run();
     db.orm
       .insert(schema.watchListing)

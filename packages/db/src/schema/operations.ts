@@ -5,6 +5,7 @@ import type {
   CostSource,
   DeliveryOutcome,
   DeliveryState,
+  JobRunReason,
   JobRunStatus,
   LlmEndpointRole,
   MinorUnitCurrency,
@@ -22,6 +23,7 @@ import {
   sqliteTable,
   text,
   unique,
+  uniqueIndex,
 } from 'drizzle-orm/sqlite-core';
 import { listing, priceObservation } from './catalogue.ts';
 import { watch } from './intent.ts';
@@ -38,10 +40,16 @@ export const job = sqliteTable(
     deadlineMs: integer('deadline_ms').notNull(),
     /** Waits on the DNS gate before running (S§5.8). */
     networkGate: integer('network_gate', { mode: 'boolean' }).notNull(),
+    /** The one pending one-off retry (DNS gate, failed run); never moves the cadence (0002). */
+    retryAt: timestamp('retry_at'),
   },
   (t) => [index('job_next_run_idx').on(t.nextRunAt)],
 );
 
+/**
+ * A job's run. Open (endedAt null) exactly while running; the open row is the job's overlap lock,
+ * at most one per job (job_run_open_idx, migration 0002).
+ */
 export const jobRun = sqliteTable(
   'job_run',
   {
@@ -52,8 +60,17 @@ export const jobRun = sqliteTable(
     status: text('status').$type<JobRunStatus>().notNull(),
     startedAt: timestamp('started_at').notNull(),
     endedAt: timestamp('ended_at'),
+    // Migration 0002: null only on a run written before it.
+    reason: text('reason').$type<JobRunReason>(),
+    /** How many slots of the cadence this run stands for (S§5.8 catch-up). */
+    coalescedSlots: integer('coalesced_slots'),
+    /** What Diagnostics shows: an error, counts, what the partial results hold. */
+    detail: text('detail_json', { mode: 'json' }).$type<Record<string, unknown>>(),
   },
-  (t) => [index('job_run_job_started_idx').on(t.jobId, t.startedAt)],
+  (t) => [
+    index('job_run_job_started_idx').on(t.jobId, t.startedAt),
+    uniqueIndex('job_run_open_idx').on(t.jobId).where(sql`${t.endedAt} is null`),
+  ],
 );
 
 /** Token usage columns; null is "not reported", never zero (S§4.4). */
@@ -166,7 +183,9 @@ export const notificationEvent = sqliteTable(
       columns: [t.runId, t.profileId],
       foreignColumns: [run.id, run.profileId],
     }).onDelete('restrict'),
-    index('notification_event_watch_idx').on(t.watchId),
+    // A watch's alerts of one kind, newest first: the last accepted alert is read from here and
+    // the deliveries (S§2.11). Replaced 0001's index on watch_id alone (migration 0002).
+    index('notification_event_watch_kind_idx').on(t.watchId, t.kind, t.createdAt),
     index('notification_event_listing_idx').on(t.listingId),
     index('notification_event_observation_idx').on(t.observationId),
     index('notification_event_feed_card_idx').on(t.feedCardId),
@@ -183,6 +202,12 @@ export const channel = sqliteTable(
     type: text('type').$type<ChannelType>().notNull(),
     config: text('config_json', { mode: 'json' }).notNull(),
     secretEnc: blob('secret_enc', { mode: 'buffer' }),
+    // Migration 0002. name and createdAt are null only on a channel written before it. A channel
+    // with deliveries is never deleted: it is removed (removedAt), and switched off by disabledAt.
+    name: text('name'),
+    createdAt: timestamp('created_at'),
+    disabledAt: timestamp('disabled_at'),
+    removedAt: timestamp('removed_at'),
   },
   (t) => [unique().on(t.id, t.profileId)],
 );
@@ -227,6 +252,15 @@ export const llmEndpoint = sqliteTable('llm_endpoint', {
   modelId: text('model_id').notNull(),
   role: text('role').$type<LlmEndpointRole>().notNull(),
   capabilities: text('capabilities_json', { mode: 'json' }),
+});
+
+/**
+ * Per-host pacing (S§5.1, migration 0002): the earliest instant the next request to the host may
+ * start, shared by every rung and kept across restarts.
+ */
+export const hostPacing = sqliteTable('host_pacing', {
+  host: text('host').primaryKey(),
+  nextStartAt: timestamp('next_start_at').notNull(),
 });
 
 /** A DB-held value: JSON, or encrypted when it is a secret; exactly one of the two. */

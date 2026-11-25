@@ -244,6 +244,37 @@ const SPEC: [list: string, schema: string, where: string, values: string[]][] = 
     ['lowest_seen', 'good_price', 'typical', 'high', 'cheapest_of_n'],
   ],
   ['RESULT_GROUPS', 'ResultGroup', 'S§5.4, S§5.12', ['exact', 'substitute', 'used']],
+  // Phase 1 state (migration 0002).
+  [
+    'JOB_RUN_REASONS',
+    'JobRunReason',
+    'S§5.8 Scheduler, S§4.4 job_run.reason',
+    ['slot', 'boot', 'caller', 'retry'],
+  ],
+  [
+    'WATCH_LOOKUP_STATES',
+    'WatchLookupState',
+    'S§2.9, S§4.2 watch.lookup_state',
+    ['queued', 'done', 'failed'],
+  ],
+  [
+    'READ_FAILURE_CAUSES',
+    'ReadFailureCause',
+    'S§5.1 typed outcome, S§5.2 multiple_prices, S§4.1 listing_check.last_error',
+    [
+      'not_found',
+      'wall',
+      'rate_limited',
+      'payment_required',
+      'login_required',
+      'empty',
+      'server_error',
+      'network_error',
+      'refused_by_policy',
+      'no_price',
+      'multiple_prices',
+    ],
+  ],
 ];
 
 const exports = shared as unknown as Record<string, unknown>;
@@ -262,6 +293,14 @@ describe('shared vocabularies', () => {
     for (const kind of shared.PLAYBOOK_OUTCOME_KINDS) {
       expect(shared.FETCH_OUTCOME_KINDS).toContain(kind);
     }
+  });
+
+  it('makes every fetch outcome but ok a read failure cause, plus the two reader outcomes (S§5.1, S§5.2)', () => {
+    expect(shared.READ_FAILURE_CAUSES).toEqual([
+      ...shared.FETCH_OUTCOME_KINDS.filter((kind) => kind !== 'ok'),
+      'no_price',
+      'multiple_prices',
+    ]);
   });
 });
 
