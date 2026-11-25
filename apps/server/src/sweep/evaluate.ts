@@ -111,6 +111,7 @@ import {
   historyOf,
   immediate,
   latestEventOf,
+  latestObservation,
   latestPricedIn,
   type Member,
   type ObservationRow,
@@ -214,11 +215,22 @@ function evaluateWatch(
   ) {
     return { watchId, skipped: true, reference: 'keep', price: null, restock: null, flags: [] };
   }
-  const nowMs = Math.max(ctx.now(), Date.parse(evaluated.observedAt));
+  const tracked = trackedMembers(db, watchId);
+  // The evaluation's "now" is never before a read it looks at. Read times only increase per
+  // listing, so after the clock steps back another listing's newest read can lie ahead of this
+  // clock; the rules refuse a read after now, and an evaluation that throws loses its alert.
+  const nowMs = Math.max(
+    ctx.now(),
+    Date.parse(evaluated.observedAt),
+    ...tracked.map((m) => {
+      const newest = latestObservation(db, m.listing.id);
+      return newest === undefined ? 0 : Date.parse(newest.observedAt);
+    }),
+  );
   const nowIso = iso(nowMs);
   const sinceIso = iso(nowMs - HISTORY_WINDOW_MS);
 
-  const members: Judged[] = trackedMembers(db, watchId).map((m) => {
+  const members: Judged[] = tracked.map((m) => {
     const identity = identityOf(db, {
       watch: watch0,
       link: m.link,
@@ -645,8 +657,11 @@ function evaluateRestockRule(
  * later of two times:
  * - when a channel accepted the watch's last restock alert (lastAcceptedAlert, S§5.8): what the
  *   user was told;
- * - the time of the observation the watch's newest restock event names (the audit trail): the
- *   transition that event recorded is at or before it.
+ * - the time the watch's newest restock event was decided (the audit trail): the later of the
+ *   observation it names and the event's own time. The two differ when one decision covers two
+ *   listings: the event names the cheapest listing that is back, whose read can be older than
+ *   the read that was being evaluated, and the transition of that second listing must not be
+ *   recorded again on its next read.
  * The second bounds the first from below while an alert is on its way, so the same transition is
  * not recorded again on every read (pending, or failed for good), and a new transition, strictly
  * later than the observation the newest event names, is a new decision recorded once: it is no
@@ -663,9 +678,9 @@ function recordedRestockAt(db: Database, watchId: number, evaluatedId: number): 
   if (previous === undefined) return null;
   const told =
     previous.observationId === null ? undefined : observationById(db, previous.observationId);
-  // An event whose observation is gone falls back to the event's own time (never earlier than its
-  // observation's): the conservative side, nothing is recorded twice.
-  return told?.observedAt ?? previous.createdAt;
+  // The decision's time: never before the event was written, nor before the observation it names
+  // (which is later than the event's clock time when that clock had stepped back).
+  return laterOf(told?.observedAt ?? null, previous.createdAt);
 }
 
 /** The later of two timestamps in the database's form (UTC ISO, three fractional digits). */
