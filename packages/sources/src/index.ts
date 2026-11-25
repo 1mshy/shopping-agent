@@ -3,3 +3,22 @@
 // re-exported here.
 export * from './platform/index.ts';
 export type * from './read/contract.ts';
+export {
+  type Decision,
+  decide,
+  type FailReason,
+  type MethodRecord,
+  RANK,
+} from './read/decide.ts';
+export { type ListingReadResult, readListing } from './read/ladder.ts';
+export {
+  CONFIDENCE,
+  type DocumentReading,
+  jsonLdReader,
+  LIMITS,
+  microdataReader,
+  openGraphReader,
+  readJsonLd,
+  readMicrodata,
+  readOpenGraph,
+} from './structured/index.ts';
