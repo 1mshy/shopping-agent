@@ -145,7 +145,8 @@ export type HeldReason =
   | 'store_blocked'
   | 'outlier_unconfirmed'
   | 'outlier_not_judged'
-  | 'awaiting_delivery';
+  | 'awaiting_delivery'
+  | 'undelivered_recently';
 
 export interface RuleResult {
   /** An event stands for this decision: recorded now, or found under its key. */
@@ -637,7 +638,9 @@ function evaluateRestockRule(
 /**
  * Records the alert's event under its stable key, unless an earlier alert of the watch and kind is
  * still on its way (awaiting delivery) and this one is not news: for a price, not below it; for a
- * restock, any. An undelivered earlier alert does not hold: nothing was told.
+ * restock, any. An undelivered earlier alert (its push failed for good) holds a repeat that is not a
+ * lower price for the watch's cooldown, counted from that event, so a broken channel cannot turn
+ * one drop into an alert per read.
  */
 function recordAlert(
   ctx: EvaluationContext,
@@ -658,7 +661,14 @@ function recordAlert(
   const previous = latestEventOf(db, watch.id, alert.kind);
   if (previous !== undefined && previous.key !== key && previous.observationId !== null) {
     const status = deliveryStatus(gatingDeliveries(db, previous.id));
-    if (status === 'awaiting_delivery') {
+    // A push that failed for good leaves the alert `undelivered`: nothing counts as delivered, so
+    // no cooldown can be read back, and without a bound every read would record the same alert
+    // again. The bound comes from the audit trail, not from a delivery: within the watch's
+    // cooldown of the previous event, only a lower price is news. Nothing is stamped (S§2.11).
+    const recent =
+      status === 'undelivered' &&
+      ctx.now() - Date.parse(previous.createdAt) < watch.cooldownS * 1000;
+    if (status === 'awaiting_delivery' || recent) {
       const before = observationById(db, previous.observationId);
       const lower =
         alert.kind === 'price_drop' &&
@@ -667,7 +677,12 @@ function recordAlert(
         before.currency === alert.price.currency &&
         alert.price.amountMinor < before.effective;
       if (!lower) {
-        return { fired: false, silence: 'awaiting_delivery', eventId: null, created: false };
+        return {
+          fired: false,
+          silence: recent ? 'undelivered_recently' : 'awaiting_delivery',
+          eventId: null,
+          created: false,
+        };
       }
     }
   }
