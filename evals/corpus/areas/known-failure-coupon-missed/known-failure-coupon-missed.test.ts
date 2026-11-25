@@ -1,10 +1,10 @@
+import { readCoupon as readCouponImpl } from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { CouponReading, ReadCoupon } from './contract.ts';
 
-// Phase 1 replaces this stub with the real function and marks the area implemented.
-const readCoupon: ReadCoupon = () => notImplemented('readCoupon');
+const readCoupon: ReadCoupon = readCouponImpl;
 
 corpusTests(
   area,

@@ -1,10 +1,11 @@
+import { parsePriceText as parsePriceTextImpl } from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { ParsePriceText, PriceTextResult } from './contract.ts';
 
-// The subject is the price text reader (area price-text-parsing). Phase 1 replaces this stub.
-const parsePriceText: ParsePriceText = () => notImplemented('parsePriceText');
+// The subject is the price text reader (area price-text-parsing).
+const parsePriceText: ParsePriceText = parsePriceTextImpl;
 
 corpusTests(
   area,

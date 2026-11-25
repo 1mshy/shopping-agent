@@ -1,10 +1,10 @@
+import { parsePriceText as parsePriceTextImpl } from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { ParsePriceText, PriceTextResult } from './contract.ts';
 
-// Phase 1 replaces this stub with the real function and marks the area implemented.
-const parsePriceText: ParsePriceText = () => notImplemented('parsePriceText');
+const parsePriceText: ParsePriceText = parsePriceTextImpl;
 
 corpusTests(
   area,

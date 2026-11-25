@@ -1,10 +1,11 @@
+import { resolveCurrency as resolveCurrencyImpl } from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import { asExpected, type CurrencyResolution, type ResolveCurrency } from './contract.ts';
 
-// Phase 1 replaces this stub with the real function and marks the area implemented.
-const resolveCurrency: ResolveCurrency = () => notImplemented('resolveCurrency');
+// The subject is currency resolution (area currency-resolution).
+const resolveCurrency: ResolveCurrency = resolveCurrencyImpl;
 
 corpusTests(
   area,

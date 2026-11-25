@@ -1,11 +1,14 @@
+import {
+  regionalListingUrl as regionalListingUrlImpl,
+  searchStorefront as searchStorefrontImpl,
+} from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { ListingUrlResult, RegionalListingUrl, SearchStorefront } from './contract.ts';
 
-// Phase 1 replaces these stubs with the real functions and marks the area implemented.
-const searchStorefront: SearchStorefront = () => notImplemented('searchStorefront');
-const regionalListingUrl: RegionalListingUrl = () => notImplemented('regionalListingUrl');
+const searchStorefront: SearchStorefront = searchStorefrontImpl;
+const regionalListingUrl: RegionalListingUrl = regionalListingUrlImpl;
 
 corpusTests(
   area,

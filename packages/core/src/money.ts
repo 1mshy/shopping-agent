@@ -27,6 +27,8 @@ export const MONEY_REFUSAL_CODES = [
   'out_of_range', // The amount in minor units would leave the safe-integer range.
   'not_safe_integer', // An amount that is not a safe integer.
   'currency_mismatch', // Two amounts in different currencies; they are never converted.
+  'invalid_percentage', // Basis points that are not an integer from 0 to 10,000.
+  'negative_amount', // A price below zero where only a price makes sense.
 ] as const;
 export type MoneyRefusalCode = (typeof MONEY_REFUSAL_CODES)[number];
 
@@ -214,4 +216,31 @@ export function subtractMoney(a: UncheckedMoney, b: UncheckedMoney): MoneyResult
   if (!pair.ok) return pair;
   const [x, y] = pair.value;
   return fromBigInt(BigInt(x.amountMinor) - BigInt(y.amountMinor), x.currency);
+}
+
+/**
+ * The price left after a percentage comes off: price × (10,000 − basisPoints) / 10,000, rounded
+ * half up to the minor unit (S§5.5: a percentage coupon's amount is rounded half up; settled by
+ * the orchestrator 2026-11-23). 20% is 2000 basis points. Exact BigInt arithmetic; the price must
+ * not be negative, and the basis points are an integer from 0 to 10,000.
+ */
+export function priceAfterPercentOff(
+  price: UncheckedMoney,
+  basisPoints: number,
+): MoneyResult<Money> {
+  const checked = read(price);
+  if (!checked.ok) return checked;
+  if (typeof basisPoints !== 'number' || !Number.isInteger(basisPoints)) {
+    return refuse('invalid_percentage', `basis points must be an integer: ${show(basisPoints)}`);
+  }
+  if (basisPoints < 0 || basisPoints > 10_000) {
+    return refuse(
+      'invalid_percentage',
+      `basis points must be from 0 to 10000: ${show(basisPoints)}`,
+    );
+  }
+  const { amountMinor, currency } = checked.value;
+  if (amountMinor < 0) return refuse('negative_amount', `a price below zero: ${amountMinor}`);
+  const scaled = BigInt(amountMinor) * BigInt(10_000 - basisPoints);
+  return fromBigInt((scaled + 5_000n) / 10_000n, currency);
 }

@@ -3,7 +3,7 @@ import { cases } from './cases/cases.ts';
 
 export const area = defineArea({
   id: 'known-failure-coupon-missed',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     'hermes-shopping at ~/Documents/GitHub/hermes-shopping, branch browser-agent, commit 51db126, read as the working tree stood on 2026-11-18 (uncommitted files present; confirmed by the owner as the reference copy on 2026-11-23)',
     'pricewatch/src/pricewatch/stores/bigbox.py (coupon_in_text, find_coupon, _region_text, AmazonAdapter._parse; incident comment lines 60-63)',

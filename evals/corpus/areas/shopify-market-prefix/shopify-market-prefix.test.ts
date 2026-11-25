@@ -1,11 +1,14 @@
+import {
+  marketResultUrl as marketResultUrlImpl,
+  pickMarketPrefix as pickMarketPrefixImpl,
+} from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { MarketPrefixResult, MarketResultUrl, PickMarketPrefix } from './contract.ts';
 
-// Phase 1 replaces these stubs with the real functions and marks the area implemented.
-const pickMarketPrefix: PickMarketPrefix = () => notImplemented('pickMarketPrefix');
-const marketResultUrl: MarketResultUrl = () => notImplemented('marketResultUrl');
+const pickMarketPrefix: PickMarketPrefix = pickMarketPrefixImpl;
+const marketResultUrl: MarketResultUrl = marketResultUrlImpl;
 
 corpusTests(
   area,

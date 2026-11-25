@@ -1,5 +1,9 @@
+import {
+  regionalListingUrl as regionalListingUrlImpl,
+  resolveCurrency as resolveCurrencyImpl,
+} from '@agentic-dasher/core';
 import { expect, test } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import type { ListingUrlResult } from '../regional-url/contract.ts';
 import { area } from './area.ts';
 import {
@@ -10,9 +14,9 @@ import {
 } from './contract.ts';
 
 // The subjects are regionalListingUrl (area regional-url) and resolveCurrency (area
-// currency-resolution). Phase 1 replaces these stubs.
-const regionalListingUrl: RegionalListingUrl = () => notImplemented('regionalListingUrl');
-const resolveCurrency: ResolveCurrency = () => notImplemented('resolveCurrency');
+// currency-resolution).
+const regionalListingUrl: RegionalListingUrl = regionalListingUrlImpl;
+const resolveCurrency: ResolveCurrency = resolveCurrencyImpl;
 
 corpusTests(
   area,
