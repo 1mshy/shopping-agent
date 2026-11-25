@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<ReferenceCase>({
   id: 'reference-price',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/service.py: _initial_baselines (321-332), _discover_product (377-405), _attach_web_listings (426-444), track_query (532-575), set_tracker reset_baseline (1588-1591)',

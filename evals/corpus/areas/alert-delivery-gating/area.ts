@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<DeliveryGatingCase>({
   id: 'alert-delivery-gating',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/service.py: _evaluate_trackers (1289-1347)',

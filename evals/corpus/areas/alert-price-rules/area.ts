@@ -10,7 +10,7 @@ const PREDECESSOR =
 
 export const area = defineArea<PriceAlertCase>({
   id: 'alert-price-rules',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/service.py: _reasons (1172), _should_notify (1191), _best_offer (1143), _evaluate_trackers (1258)',

@@ -1,12 +1,15 @@
+import {
+  applyRead as applyReadImpl,
+  showWatchPrice as showWatchPriceImpl,
+} from '@agentic-dasher/core';
 import { Money, Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { ApplyRead, ListingReadState, ShowWatchPrice, StaleReadCase } from './contract.ts';
 
-/** Phase 1 replaces these stubs with the real functions from packages/core. */
-const applyRead: ApplyRead = () => notImplemented('applyRead');
-const showWatchPrice: ShowWatchPrice = () => notImplemented('showWatchPrice');
+const applyRead: ApplyRead = applyReadImpl;
+const showWatchPrice: ShowWatchPrice = showWatchPriceImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {

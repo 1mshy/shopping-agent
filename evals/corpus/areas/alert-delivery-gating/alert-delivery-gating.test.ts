@@ -1,11 +1,11 @@
+import { gateOnDelivery as gateOnDeliveryImpl } from '@agentic-dasher/core';
 import { Money, Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { DeliveryGatingCase, GateOnDelivery } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function. */
-const gateOnDelivery: GateOnDelivery = () => notImplemented('gateOnDelivery');
+const gateOnDelivery: GateOnDelivery = gateOnDeliveryImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {

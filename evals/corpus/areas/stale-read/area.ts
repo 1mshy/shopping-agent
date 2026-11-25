@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<StaleReadCase>({
   id: 'stale-read',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/service.py: _upsert_offer (711-757), _best_offer (1143), list_tracked (1367-1420), price_history (1423-1478)',

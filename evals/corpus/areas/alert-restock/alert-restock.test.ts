@@ -1,11 +1,11 @@
+import { evaluateRestock as evaluateRestockImpl } from '@agentic-dasher/core';
 import { Money, Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { EvaluateRestock, ListingRead, RestockCase } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function from packages/core. */
-const evaluateRestock: EvaluateRestock = () => notImplemented('evaluateRestock');
+const evaluateRestock: EvaluateRestock = evaluateRestockImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {

@@ -1,11 +1,11 @@
+import { chooseReferencePrice as chooseReferencePriceImpl } from '@agentic-dasher/core';
 import { Money, Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { ChooseReferencePrice, ReferenceCase } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function from packages/core. */
-const chooseReferencePrice: ChooseReferencePrice = () => notImplemented('chooseReferencePrice');
+const chooseReferencePrice: ChooseReferencePrice = chooseReferencePriceImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {

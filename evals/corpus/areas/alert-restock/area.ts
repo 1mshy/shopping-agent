@@ -7,7 +7,7 @@ const PREDECESSOR =
 
 export const area = defineArea<RestockCase>({
   id: 'alert-restock',
-  status: 'pending',
+  status: 'implemented',
   sources: [
     PREDECESSOR,
     'pricewatch/src/pricewatch/service.py: _upsert_offer (711, stock transitions 729-738), _restocked_offer (1206), _evaluate_trackers (1276-1283), set_tracker (1582-1586)',

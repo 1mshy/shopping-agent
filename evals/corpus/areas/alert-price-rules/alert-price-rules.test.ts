@@ -1,11 +1,11 @@
+import { evaluatePriceAlert as evaluatePriceAlertImpl } from '@agentic-dasher/core';
 import { Money, Timestamp } from '@agentic-dasher/shared';
 import { expect } from 'vitest';
-import { corpusTests, notImplemented } from '../../harness.ts';
+import { corpusTests } from '../../harness.ts';
 import { area } from './area.ts';
 import type { EvaluatePriceAlert, ListingRead, PriceAlertCase } from './contract.ts';
 
-/** Phase 1 replaces this stub with the real function from packages/core. */
-const evaluatePriceAlert: EvaluatePriceAlert = () => notImplemented('evaluatePriceAlert');
+const evaluatePriceAlert: EvaluatePriceAlert = evaluatePriceAlertImpl;
 
 /** Throws on malformed case data, so a bad case fails instead of counting as pending. */
 function wellFormed(value: unknown, path: string): void {
