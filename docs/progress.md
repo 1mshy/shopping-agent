@@ -20,6 +20,40 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
+### 2026-11-25: Prices, pacing and the backup job (P1-5a, P1-1d, P1-9b)
+
+Each was squash-merged into local `main` and checked there (lint, typecheck, test, build exit 0). **No independent review yet.** The corpus is unchanged by these: 515 of 601 implemented.
+
+**P1-5a, prices and verdicts** (`3ab1e8e`). `packages/core/src/prices`: `derivePrices`, `buildObservationRecord` (the record is checked against the shared `PriceObservation` schema before it is returned), `taxLabel`, `judgeDeal`, `toStreamVerdict`, `assessOutlier`, `confirmOutlierRead`. 190 tests; the author's 18 boundary mutations each failed tests. Spec S§5.5 was edited to say the following, all of them numbers or policies the unit chose where the spec was silent, which the owner may overrule:
+
+- Estimated shipping is listed as missing, so only known shipping gives a landed total.
+- Tax not included with no amount is listed as missing **in every country**. The orchestrator's brief had allowed a landed total in a tax-inclusive country; the unit departed from it on purpose, because an unknown must never become "included". The country default feeds only the label (`before_tax` for US and CA).
+- No duty estimate is not listed (owner decision #10 makes none).
+- A member price never lowers the effective price.
+- Time-weighted median: each price weighted by the time it held inside the 90-day window; a price stops counting 7 days after its last read; out-of-stock time counts for nothing.
+- *High* is 10% or more over that median, the mirror of *Good*.
+- The outlier median leaves the candidate out; the listing count includes it.
+- The share of 90 days is rounded up and "X% under" rounded down, so neither overstates a deal.
+
+Not verified: the records against a real SQLite insert. The stream's verdict block cannot say why a tier was not judged.
+
+**P1-1d, pacing, playbook, robots and the composed fetcher** (`5e979ae`). `createFetcher` and `bindReaderGet` in `packages/fetch`: robots → playbook gate → pacing → budget → `fetchPage` (which holds the guard) → playbook update.
+
+| Scenario (fake clock, no real traffic) | What the test asserts |
+|---|---|
+| 50 concurrent requests to one host, 700 ms each | Starts in arrival order, at most 1 in flight, every gap between 2,125 and 3,250 ms |
+| 14 hosts at once, 1 s each | 12 start at once, the other two 1,000 ms later |
+| Failed DNS lookup; guard refusal | The host's slot is not used up |
+| Restart on the same SQLite file | The first request waits exactly until the stored time |
+
+- *Pacing.* The gap is 2.5 s × a jitter of 0.85 to 1.3, read literally: at least 2,125 ms (the Phase 0 lab floored it at 2.5 s). A 429 without Retry-After closes the host for 60 s; no pause exceeds 1 h, and a stored time further ahead (a clock that jumped) is cut to that.
+- *Playbook.* Only `ok`, `wall` and `empty` change it. Back-off after consecutive negative verdicts on one rung: 5 min, 15 min, 1 h, 3 h, then 6 h. A rung still backing off is refused as `host_limit` without a request.
+- *robots.txt.* `ignore` never fetches it. Under `respect`: 4xx is allow-all, 429 and 5xx disallow-all for 15 minutes, an HTML page or a challenge gives no verdict. A network error on robots.txt ends the request with that error and is not cached; RFC 9309 would record "disallow all", which after a laptop wakes offline would refuse every host as `robots` for a while.
+- *Spec.* S§5.1: the back-off schedule, what a "start" is, the robots mapping.
+- *Open.* One `host_access` row per host and page kind means the last outcome wins across rungs, which Phase 6 will have to change. A redirect to another host is paced under the first host only. "One in flight" holds per process.
+
+**P1-9b, backups** (`642d679`, by the orchestrator). `runBackup` and `backupJob` in `apps/server/src/ops`: `VACUUM INTO` under a `.partial` name, renamed when complete, seven copies kept; `docs/restore.md`. Not wired into start-up yet. **The restore steps in the document have not been run against a container.**
+
 ### 2026-11-25: Alert rules and the outbox (P1-6a, P1-7)
 
 Two more units, each built by a subagent, read by the orchestrator, squash-merged into local `main` and checked there (lint, typecheck, test, build exit 0). **Neither has had its independent review yet.** Corpus after these merges: **601 cases, 515 implemented, 86 pending** (the pending areas are wall-classification, challenge-wait, walled-session-drop and watch-intake).
