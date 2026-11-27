@@ -2,7 +2,7 @@
 // Only the store search and the read are scripted.
 import { listingFingerprint } from '@agentic-dasher/core';
 import { schema } from '@agentic-dasher/db';
-import type { WatchView } from '@agentic-dasher/shared';
+import type { SearchIntent, WatchView } from '@agentic-dasher/shared';
 import { eq } from 'drizzle-orm';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { checkListing } from '../../src/sweep/index.ts';
@@ -60,6 +60,32 @@ function listingOf(watchId: number) {
   const listing = service.get(PROFILE, watchId).listings[0];
   if (!listing) throw new Error('expected one discovery result');
   return listing;
+}
+
+function interpret(watchId: number, fields: Partial<SearchIntent>) {
+  tmp.db.orm
+    .update(schema.watch)
+    .set({
+      spec: {
+        name,
+        kind: 'exact',
+        brand: 'Acme',
+        model: null,
+        mpn: null,
+        gtin: null,
+        packQuantity: null,
+        mustHave: [],
+        substitutes: [],
+        conditions: ['new'],
+        fulfilment: ['delivery'],
+        currency: 'CAD',
+        location: { country: 'CA', postalCode: null },
+        budget: null,
+        ...fields,
+      },
+    })
+    .where(eq(schema.watch.id, watchId))
+    .run();
 }
 
 async function relookup(watchId: number) {
@@ -128,28 +154,7 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
   it('rediscovery and evaluation use the identity fields from an interpreted watch', async () => {
     const watchId = await create();
     // Optional stored interpretation on an existing watch adds a must-have to the typed name.
-    tmp.db.orm
-      .update(schema.watch)
-      .set({
-        spec: {
-          name,
-          kind: 'exact',
-          brand: 'Acme',
-          model: null,
-          mpn: null,
-          gtin: null,
-          packQuantity: null,
-          mustHave: [{ attribute: 'colour', value: 'White' }],
-          substitutes: [],
-          conditions: ['new'],
-          fulfilment: ['delivery'],
-          currency: 'CAD',
-          location: { country: 'CA', postalCode: null },
-          budget: null,
-        },
-      })
-      .where(eq(schema.watch.id, watchId))
-      .run();
+    interpret(watchId, { mustHave: [{ attribute: 'colour', value: 'White' }] });
     candidate = { ...result, variant: { Colour: 'Black' } };
     await relookup(watchId);
     expect(listingOf(watchId).role).toBe('candidate');
@@ -188,6 +193,39 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
     expect(listingOf(again).role).toBe('tracked');
     await sweep(listingId);
     expect(eventsOf(tmp.db)).toMatchObject([{ watchId: again }]);
+  });
+
+  it.each([
+    ['5012345678900', 0],
+    [null, 1],
+  ] as const)(
+    'a direct read with GTIN %s and no title respects the identifier evidence',
+    async (gtin, events) => {
+      candidate = { ...result, gtin: '4006381333931' };
+      const watchId = await create();
+      interpret(watchId, { gtin: candidate.gtin });
+      await relookup(watchId);
+      const listing = listingOf(watchId);
+      expect(listing.role).toBe('tracked');
+      await sweep(listing.listingId, {
+        title: null,
+        identifiers: { brand: null, mpn: null, gtin, sku: null, externalId: null },
+      });
+      expect(eventsOf(tmp.db)).toHaveLength(events);
+    },
+  );
+
+  it('a white selection at the same URL cannot confirm a watch on a shared black selector', async () => {
+    candidate = { ...result, variant: { Colour: 'Black' } };
+    const black = await create();
+    candidate = { ...result, variant: { Colour: 'White' } };
+    const white = await create('white Acme ZX100');
+    interpret(white, { mustHave: [{ attribute: 'colour', value: 'White' }] });
+    await relookup(white);
+    const listing = listingOf(black);
+    expect(listingOf(white)).toMatchObject({ listingId: listing.listingId, role: 'candidate' });
+    await sweep(listing.listingId);
+    expect(eventsOf(tmp.db)).toMatchObject([{ watchId: black }]);
   });
 
   it('contradictory identifiers on the first direct read hold the target alert', async () => {
