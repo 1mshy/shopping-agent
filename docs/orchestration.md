@@ -12,18 +12,28 @@ Local main, origin/main and GitHub main agree at `d8e5c80`. The starting tree wa
 
 | Unit | Owner | Branch | Status | Dependency / next check |
 |---|---|---|---|---|
-| R-7 second listing regression | restock | codex/p1-restock-regression | review | Independently reviewed 1ee3d6e, rollback/reopen confirmed. [PR 16](https://github.com/1mshy/shopping-agent/pull/16) in CI. Separate long-gap regression queued |
+| R-7 second listing regression | restock | codex/p1-restock-regression | merged | [PR 16](https://github.com/1mshy/shopping-agent/pull/16) merged at 2fc3ca2. Separate long-gap regression queued |
 | P1-3a successful read intake | directory | codex/p1-directory-intake | merged | [PR 15](https://github.com/1mshy/shopping-agent/pull/15) merged as 774acc0 after both checks passed. Next directory unit is fingerprinting |
-| R-6 Docker network policy | directory | codex/p1-docker-networks | running | Six offline red regressions on cc90a94. Independent review returned two config consistency findings to the author |
+| R-6 Docker network policy | directory | codex/p1-docker-networks | merged | [PR 17](https://github.com/1mshy/shopping-agent/pull/17) merged at 7c3f0e6. Two independent review findings fixed and rechecked |
 | P1-G freeze and restart | orchestrator | pending | holds | Three coalesced slots per minute-job, no duplicate events, 503 then 200. Pending delivery resumed across Compose down/up on d8e5c80 |
 | P1-G live | orchestrator | pending | running | Approved sample below. All 20 enrolled. Window 2026-11-27 17:49:56.185 through 2026-11-29 17:49:56.185 UTC |
 | P1-G directory | orchestrator | pending | blocked-dep | Freeze directory and matcher, reserve held-out split |
-| P1-4 brand matching | restock | codex/p1-matcher-brand | running | Synthetic identifier match incorrectly confirmed Ace and Palace |
+| P1-4 brand matching | restock | codex/p1-matcher-brand | review | 069d4a6 independently accepted after explicit-brand regressions. Four pinned checks passed (3,938 tests) |
 | P1-4 remaining review | orchestrator | pending | planned | Selected options, null watch spec, missing-title refusal, SKU override keys, stale code verdicts |
-| P1-3 fingerprint | directory | codex/p1-fingerprint | running | Guard review corrections first, then six wire exchanges including redirects/robots |
-| P1-3 country pack | orchestrator | codex/p1-country-pack | running | Offline WDC 2023 Product statistics |
-| P1-8 robots setting | orchestrator | codex/p1-robots-setting | running | Built-app success, refusal and persistence |
+| P1-3 fingerprint | directory | codex/p1-fingerprint | merged | [PR 24](https://github.com/1mshy/shopping-agent/pull/24) at 13a7200. Store classification/cache is in progress |
+| P1-3 country pack | orchestrator | codex/p1-country-pack | merged | [PR 19](https://github.com/1mshy/shopping-agent/pull/19). Integrated 0f55b01. Canadian pack contains 22,028 candidate hosts. Resolver deadline flake in initial suite, rerun green; corrective unit queued |
+| P1-8 robots setting | orchestrator | codex/p1-robots-setting | merged | [PR 18](https://github.com/1mshy/shopping-agent/pull/18) at 84d1c61. Verified save, real API refusal and persistence in built Chrome UI |
 | R-7 extended restock history | orchestrator | pending | planned | Known out before a 31-day gap counted as first sighting |
+| P1-3 Shopify search | orchestrator | codex/p1-shopify-search | merged | [PR 20](https://github.com/1mshy/shopping-agent/pull/20), 8f47081. Next route is Woo Store API. |
+| P1-6 per-listing drop baseline | restock | codex/p1-alert-reference | running | ef629fc independently accepted after mixed-reader regression. Four pinned checks passed (3,939 tests) |
+| P1-1 resolver deadline | orchestrator | codex/p1-resolver-deadline | merged | [PR 22](https://github.com/1mshy/shopping-agent/pull/22), 2af077a. Next integration is password settings |
+| P1-8 password form | orchestrator | codex/p1-ui-password | merged | [PR 23](https://github.com/1mshy/shopping-agent/pull/23) at c46373a, built app and old/new credentials verified |
+| P1-3 Woo search | orchestrator | codex/p1-woo-search | running | Store API and same-store candidate check |
+| P1-4 name-watch identity | restock | codex/p1-name-watch-identity | planned | 67a4084 captures 7 regressions; implementation in progress |
+
+### Directory gate preregistration
+
+The v1 manifest assigns 41 active products to development. For the planned 40-product directory comparison, sort the development product IDs by the hexadecimal SHA-256 of each UTF-8 ID, ascending, and take the first 40. The excluded development ID is `wh-1000xm5`. Selection used the split manifest alone. Freeze the implementation and market-specific sample before accessing held-out results. Count distinct directly verified stores per product, including products with zero, and report exact predictions and correctly predicted exact identities separately for each split.
 
 ### Approved 48-hour sample
 
