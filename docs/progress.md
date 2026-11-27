@@ -18,6 +18,10 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 1: Deterministic core
 
+### 2026-11-27 · Owner requested the sampler continue in the background
+
+At 20:02:31 UTC Docker reported the dedicated container healthy. It retained 20 distinct enrolled listings, 21 observations and zero alert events. Automatic cutoff is November 29 at 17:49:56.185 UTC. Both implementation agents stopped. Integrated code is `8312d3f`; the open PRs, review findings and remaining measurements are listed in the orchestration handoff. Phase 1 is still open.
+
 ### 2026-11-27 · Integration and measurements
 
 - Reconciled the local and remote main revision at `d8e5c80`. [GitHub CI passed](https://github.com/1mshy/shopping-agent/actions/runs/45646853792). The November 25 handoff below describes that earlier run.

@@ -33,8 +33,28 @@ Local main, origin/main and GitHub main agree at `d8e5c80`. The starting tree wa
 | selected-attribute matching | orchestrator | PR 31 | merged | a926a13, two green GitHub jobs. Next is normal runtime integration and remaining Phase 1 units |
 | store-declared search templates | orchestrator | PR 32 | merged | 0b5bf8c, two green GitHub jobs. Next is normal runtime integration and remaining Phase 1 units |
 | notification channel settings | orchestrator | PR 33 | merged | 1809a08, two green GitHub jobs. Next is normal runtime integration and remaining Phase 1 units |
+| Best Buy Canada search | orchestrator | PR 36 | merged | f4f704e, two green CI jobs. Follow-up in the Phase 1 queue below |
+| Look-alike store trust | orchestrator | PR 37 | merged | 951cd07, two green CI jobs. Follow-up in the Phase 1 queue below |
+| uPlot price history | orchestrator | PR 38 | merged | 687530a, two green CI jobs. Follow-up in the Phase 1 queue below |
+| Bounded global login pacing | orchestrator | PR 39 | merged | fed5cab, two green CI jobs. Follow-up in the Phase 1 queue below |
+| Country pack import | orchestrator | PR 40 | merged | 546ad58, two green CI jobs. Follow-up in the Phase 1 queue below |
+| Store-declared fallback in name watches | orchestrator | PR 41 | merged | 6608c64, two green CI jobs. Follow-up in the Phase 1 queue below |
+| RDAP store registration | orchestrator | PR 42 | merged | aabc321, two green CI jobs. Follow-up in the Phase 1 queue below |
+| Regional Amazon storefront | orchestrator | PR 43 | merged | ee45d00, two green CI jobs. Follow-up in the Phase 1 queue below |
+| Watch listing trust reasons | orchestrator | PR 44 | merged | 8312d3f, two green CI jobs. Follow-up in the Phase 1 queue below |
 
-Current integrated main is `832f8b1`. PRs 30 through 35 integrated ordinary name lookup, selected variants, SearchAction/OpenSearch, channel settings, identity across lookup/reads, and the indexed lifetime restock transition. Remaining units are the Best Buy Canada and Amazon adapters, trying declared fallback routes in the normal runtime, read-only per-store UCP, offline pack import, visible trust signals (look-alike, registration, Tranco and page), Diagnostics, remaining review reconciliation, and the final measurements. The uPlot and Best Buy branches have passed local tests. The high-risk name-watch and restock fixes both passed independent re-review. Global login pacing is in review.
+### Owner-requested background handoff, 2026-11-27
+
+Implementation and both reviewer agents stopped at the owner's request. Latest integrated code is `8312d3f` (PR 44). Open, checked locally and awaiting integration: [PR 45, fetch diagnostics](https://github.com/1mshy/shopping-agent/pull/45) and [PR 46, per-store UCP](https://github.com/1mshy/shopping-agent/pull/46). UCP still needs first-priority routing in name lookup. The chart, auth pacing, offline pack import, fallback routing, RDAP, regional search and watch-page trust reasons are integrated.
+
+The independent Docker project `dasher-p1-live-20261127` stays up, with data in `dasher-p1-live-20261127_live`. The compose file, fixture inputs, gate logs and verification scripts are in `/private/tmp/dasher-p1-gates`. At 20:02:31 UTC it was healthy with all 20 distinct watches/listings, 21 price observations and zero events. The Core child shuts down on its own at 2026-11-29 17:49:56.185 UTC. A one-time, duration-limited macOS idle-sleep assertion was registered with launchd to last through that cutoff. Keep Docker Desktop running. After the run, retain the container log, inspect the persisted volume read-only, tabulate read outcomes and join every emitted event to its successful observation before declaring gate 4.
+
+Resumption queue:
+
+1. Integrate the two open PRs after checking their CI. Confirm UCP first, then platform, then the declared templates in the built application.
+2. Preserve four uncommitted fixes in `/private/tmp/dasher-p1-onpage`, branch `codex/p1-onpage-trust`, on `00054bb`. Two review regressions failed before correction and 34 focused cases passed. Independent re-review, full pinned checks and integration remain. `/private/tmp/dasher-p1-tranco` is clean, with the official PY22J data in /private/tmp. The local Tranco lookup and atomic offline import remain.
+3. Price review reproduced approximate shipping turning into known landed cost, missing Shopify comparison price, wrong-market follow-up and a historical foreign currency suppressing today's listing verdict. Repros are in `/private/tmp/dasher-review-prices.mts` and `/private/tmp/dasher-review-listing-verdict.mts`. `/private/tmp/dasher-p1-shipping-review` is clean. Cross-store peer verdicts still need wiring. Reconcile remaining scheduler, price, reader, and UI review items against current main.
+4. The directory measurement worktree `/private/tmp/dasher-p1-coverage` is clean. Implement the bounded comparison from the preregistration below, then freeze the directory and matcher before scoring the held-out side once. Held-out data has not been scored. Reconfirm 601 fixtures and both architecture/image and search RSS budgets on final main. Freeze and restart evidence already exists for the starting image; see progress.
 
 ### Directory gate preregistration
 
