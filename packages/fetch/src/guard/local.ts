@@ -32,7 +32,16 @@ export function parseDeniedNetworks(setting: string | undefined): OwnNetwork[] {
         `FETCH_DENY_CIDRS entry ${index + 1} must be an IPv4 or IPv6 address or CIDR`,
       );
     }
-    return [ipaddr.parse(address), bits];
+    const parsed = ipaddr.parse(address);
+    if (parsed instanceof ipaddr.IPv6 && parsed.isIPv4MappedAddress()) {
+      if (bits < 96) {
+        throw new Error(
+          `FETCH_DENY_CIDRS entry ${index + 1} extends outside the IPv4-mapped prefix`,
+        );
+      }
+      return [parsed.toIPv4Address(), bits - 96];
+    }
+    return [parsed, bits];
   });
 }
 

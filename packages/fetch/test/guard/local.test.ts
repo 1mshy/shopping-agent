@@ -151,6 +151,36 @@ describe('guardedExchange and the machine’s own networks', () => {
     });
   });
 
+  it('normalises mapped operator addresses and mapped prefixes to the native IPv4 range', () => {
+    const single = parseDeniedNetworks('::ffff:192.0.2.5');
+    expect(onOwnNetwork('192.0.2.5', single)).toBe(true);
+    expect(onOwnNetwork('192.0.2.6', single)).toBe(false);
+    const prefix = parseDeniedNetworks('::ffff:192.0.2.0/120');
+    for (const address of ['192.0.2.254', '::ffff:192.0.2.254', '64:ff9b::192.0.2.254']) {
+      expect(onOwnNetwork(address, prefix)).toBe(true);
+    }
+    expect(onOwnNetwork('192.0.3.0', prefix)).toBe(false);
+    expect(() => parseDeniedNetworks('::ffff:192.0.2.0/95')).toThrow(/FETCH_DENY_CIDRS/);
+  });
+
+  it('returns the operator policy refusal for a literal next hop even at the redirect limit', async () => {
+    const first = 'https://store.example/product';
+    const scripted = net(
+      { 'store.example': ['93.184.216.34'] },
+      {
+        [first]: { status: 302, location: 'https://45.81.1.10/product' },
+      },
+    );
+    expect(
+      await guardedExchange({ url: first, rung: 'http' }, scripted, {
+        maxRedirects: 0,
+        ownNetworks,
+        deniedNetworks: parseDeniedNetworks('45.81.0.0/20'),
+      }),
+    ).toEqual(refused);
+    expect(scripted.dialled).toEqual([`93.184.216.34 ${first}`]);
+  });
+
   it('still reaches a public address', async () => {
     const n = net({ 'shop.example': ['93.184.216.34', '2606:2800:220:1:248:1893:25c8:1946'] }, {});
     const result = await guardedExchange({ url: 'https://shop.example/p', rung: 'http' }, n, {

@@ -208,7 +208,7 @@ export async function guardedExchange<R extends HopResponse>(
     const next = resolveLocation(location, target);
     if (!next.ok) return stop(refusal(rung, next.reason));
     if (!needsLookup(next.target)) {
-      const known = decide(next.target, null, rung);
+      const known = decide(next.target, null, rung, options.deniedNetworks);
       if (!known.pass) return stop(known.outcome);
     }
     if (redirects >= maxRedirects) return stop(networkError(rung, TOO_MANY_REDIRECTS));
