@@ -1,5 +1,5 @@
 import type { FetchOutcome } from '@agentic-dasher/shared';
-import { asArray, asString, getPath, parseJson } from '../platform/json.ts';
+import { asArray, asString, getPath, type JsonValue, parseJson } from '../platform/json.ts';
 import type { Market, ReaderContext } from '../read/contract.ts';
 
 /** Unverified search results carry identity evidence. Prices are obtained by the reader ladder. */
@@ -27,6 +27,26 @@ export type StoreSearchResult =
   | { kind: 'unsupported' | 'invalid_response' }
   | { kind: 'fetch_failed'; outcome: FetchOutcome };
 
+async function readSearchJson(
+  endpoint: URL,
+  context: ReaderContext,
+  unsupportedStatus?: number,
+): Promise<{ kind: 'json'; data: JsonValue } | Exclude<StoreSearchResult, { kind: 'results' }>> {
+  const { outcome, response } = await context.get({ url: endpoint.href, rung: 'api' });
+  if (
+    (unsupportedStatus !== undefined && response?.status === unsupportedStatus) ||
+    outcome.kind === 'not_found'
+  )
+    return { kind: 'unsupported' };
+  if (outcome.kind !== 'ok') return { kind: 'fetch_failed', outcome };
+  if (response === null) return { kind: 'invalid_response' };
+  const final = URL.parse(response.finalUrl);
+  if (final?.origin !== endpoint.origin || final.pathname !== endpoint.pathname)
+    return { kind: 'invalid_response' };
+  const parsed = parseJson(response.text);
+  return parsed.ok ? { kind: 'json', data: parsed.value } : { kind: 'invalid_response' };
+}
+
 /** Shopify Ajax Predictive Search, scoped to the shop's buyer locale. */
 export async function searchShopify(
   input: StoreSearch,
@@ -40,16 +60,9 @@ export async function searchShopify(
     'resources[type]': 'product',
     'resources[limit]': '10',
   }).toString();
-  const { outcome, response } = await context.get({ url: endpoint.href, rung: 'api' });
-  if (response?.status === 417 || outcome.kind === 'not_found') return { kind: 'unsupported' };
-  if (outcome.kind !== 'ok' || response === null) return { kind: 'fetch_failed', outcome };
-  const final = URL.parse(response.finalUrl);
-  if (final?.origin !== origin || final.pathname !== endpoint.pathname)
-    return { kind: 'invalid_response' };
-  const parsed = parseJson(response.text);
-  const products = parsed.ok
-    ? asArray(getPath(parsed.value, 'resources', 'results', 'products'))
-    : null;
+  const result = await readSearchJson(endpoint, context, 417);
+  if (result.kind !== 'json') return result;
+  const products = asArray(getPath(result.data, 'resources', 'results', 'products'));
   if (products === null) return { kind: 'invalid_response' };
   const candidates: DirectoryCandidate[] = [];
   for (const product of products.slice(0, 10)) {
@@ -68,6 +81,49 @@ export async function searchShopify(
       mpn: null,
       gtin: null,
       sku: null,
+      variant: {},
+    });
+  }
+  return { kind: 'results', candidates };
+}
+
+/** The WooCommerce Store API exposes published product permalinks without an API key. */
+export async function searchWoo(
+  input: StoreSearch,
+  context: ReaderContext,
+): Promise<StoreSearchResult> {
+  const origin = new URL(input.origin).origin;
+  const endpoint = new URL(`${input.marketPrefix}/wp-json/wc/store/v1/products`, origin);
+  if (endpoint.origin !== origin) return { kind: 'invalid_response' };
+  endpoint.search = new URLSearchParams({ search: input.query, per_page: '10' }).toString();
+  const result = await readSearchJson(endpoint, context);
+  if (result.kind !== 'json') return result;
+  const rows = asArray(result.data);
+  if (rows === null) return { kind: 'invalid_response' };
+  const candidates: DirectoryCandidate[] = [];
+  for (const row of rows.slice(0, 10)) {
+    const title = asString(getPath(row, 'name'))?.trim();
+    const raw = asString(getPath(row, 'permalink'));
+    const url = raw && URL.parse(raw, origin);
+    if (
+      !title ||
+      !url ||
+      url.origin !== origin ||
+      url.username ||
+      url.password ||
+      !url.pathname.startsWith(`${input.marketPrefix}/`)
+    )
+      continue;
+    const brands = asArray(getPath(row, 'brands'));
+    candidates.push({
+      url: url.href,
+      storeHost: url.hostname,
+      marketPrefix: input.marketPrefix,
+      title,
+      brand: brands?.length === 1 ? asString(getPath(brands[0], 'name')) : null,
+      sku: asString(getPath(row, 'sku')),
+      gtin: asString(getPath(row, 'global_unique_id')),
+      mpn: null,
       variant: {},
     });
   }
