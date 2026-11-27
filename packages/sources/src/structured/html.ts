@@ -40,6 +40,7 @@ export interface MetaTag {
 }
 
 export interface LinkTag {
+  readonly type: string | null;
   readonly rel: string;
   readonly hreflang: string | null;
   readonly href: string;
@@ -60,6 +61,8 @@ export interface MicroItem {
 }
 
 export interface PageFacts {
+  readonly magentoInit: boolean;
+  readonly shopifyPredictiveSearch: boolean | null;
   readonly htmlLang: string | null;
   readonly title: string | null;
   readonly jsonLd: readonly string[];
@@ -89,6 +92,8 @@ export function pageFacts(page: PageResponse): PageFacts {
 }
 
 const EMPTY: PageFacts = {
+  magentoInit: false,
+  shopifyPredictiveSearch: null,
   htmlLang: null,
   title: null,
   jsonLd: [],
@@ -176,6 +181,8 @@ function readFacts(text: string): PageFacts {
   const doc = parse(text);
   let htmlLang: string | null = null;
   let title: string | null = null;
+  let magentoInit = false;
+  let shopifyPredictiveSearch: boolean | null = null;
   const jsonLd: string[] = [];
   let jsonLdChars = 0;
   let jsonLdDropped = 0;
@@ -204,6 +211,22 @@ function readFacts(text: string): PageFacts {
     if (tag === 'html' && htmlLang === null) htmlLang = attr(node, 'lang');
     if (tag === 'title' && title === null) title = textOf(node, 500);
     if (tag === 'script') {
+      const type = attr(node, 'type')?.trim().toLowerCase();
+      if (type === 'text/x-magento-init') magentoInit = true;
+      if (type === 'application/json' && attr(node, 'id') === 'shopify-features') {
+        try {
+          const data: unknown = JSON.parse(textOf(node, 16_384));
+          if (
+            data &&
+            typeof data === 'object' &&
+            'predictiveSearch' in data &&
+            typeof data.predictiveSearch === 'boolean'
+          )
+            shopifyPredictiveSearch = data.predictiveSearch;
+        } catch {
+          // Malformed or oversized feature records provide no flag.
+        }
+      }
       if (isLdJson(node)) {
         const body = textOf(node, HTML_LIMITS.jsonLdChars);
         if (
@@ -227,7 +250,12 @@ function readFacts(text: string): PageFacts {
       const rel = attr(node, 'rel');
       const href = attr(node, 'href');
       if (rel !== null && href !== null) {
-        links.push({ rel: rel.trim().toLowerCase(), hreflang: attr(node, 'hreflang'), href });
+        links.push({
+          type: attr(node, 'type'),
+          rel: rel.trim().toLowerCase(),
+          hreflang: attr(node, 'hreflang'),
+          href,
+        });
       }
     }
 
@@ -269,6 +297,8 @@ function readFacts(text: string): PageFacts {
   }
 
   return {
+    magentoInit,
+    shopifyPredictiveSearch,
     htmlLang,
     title: title === null ? null : title.trim() || null,
     jsonLd,
