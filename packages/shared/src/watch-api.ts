@@ -137,6 +137,7 @@ export interface WatchListingView {
   readonly title: string;
   readonly storeHost: string;
   readonly trustTier: TrustTier;
+  readonly trustReasons: readonly string[];
   readonly condition: Condition;
   /** Shown with a flag; left out of the reference and of new-item alerts (S§5.8). */
   readonly conditionUnknown: boolean;
