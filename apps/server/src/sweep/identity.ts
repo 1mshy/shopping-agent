@@ -16,6 +16,8 @@ import {
   MATCHER_VERSION,
   type MatchAsked,
   type MatchDecision,
+  mpnConflict,
+  normaliseGtin,
   specFingerprint,
 } from '@agentic-dasher/core';
 import { type Database, schema, writeVerdict } from '@agentic-dasher/db';
@@ -185,14 +187,20 @@ export function recordReadIdentity(
     brand: read.identifiers.brand,
     gtin: read.identifiers.gtin,
     mpn: read.identifiers.mpn,
-    variant: read.variant,
+    variant: Object.keys(read.variant).length ? read.variant : listing.variant,
     url: listing.urlCanonical,
   };
   for (const watch of watches) {
     const asked = askedOf(watch);
     const decision = decideMatch({ asked, listing: page });
-    // A read with no usable identity evidence adds nothing to an existing cached decision.
-    if (decision.rule !== 'unconfirmed') {
+    // With no title a different valid barcode or part number is still evidence against identity.
+    // An empty read, on the other hand, adds nothing to a cached decision.
+    const askedGtin = normaliseGtin(asked.gtin);
+    const pageGtin = normaliseGtin(page.gtin);
+    const conflictingId =
+      (askedGtin !== null && pageGtin !== null && askedGtin !== pageGtin) ||
+      mpnConflict(asked.mpn, [], page.mpn);
+    if (decision.rule !== 'unconfirmed' || conflictingId) {
       saveCodeDecision(db, specFingerprint(asked), keys, decision, at);
     }
   }

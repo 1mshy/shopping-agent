@@ -7,6 +7,7 @@
 // also the `watch-lookup` job) then writes what a link needs (store, listing, watch_listing,
 // listing_check due now) or, for a name, asks the injected `discover` for candidates.
 import {
+  canonicalText,
   checkWatchRules,
   decideMatch,
   type IntakeRefusal,
@@ -666,25 +667,36 @@ export function createWatchService(deps: WatchServiceDeps) {
       .where(and(eq(watchListing.listingId, listingId), ne(watchListing.watchId, w.id)))
       .limit(1)
       .get();
-    const current = {
-      ...saved.listing,
-      title: shared ? saved.listing.title : title || saved.listing.title,
-      variant: shared ? saved.listing.variant : variant,
-      sku:
-        shared && saved.listing.sku !== null
-          ? saved.listing.sku
-          : (text(c.sku, 256) ?? saved.listing.sku),
-    };
+    const current = shared
+      ? saved.listing
+      : {
+          ...saved.listing,
+          title: title || saved.listing.title,
+          variant,
+          sku: text(c.sku, 256) ?? saved.listing.sku,
+        };
     const keys = verdictKeys(current, saved.store, saved.listing.sku);
     const verdict = cachedVerdict(db, specFp, keys, CODE_ONLY_VERSIONS);
-    o.update(listing)
-      .set({ title: current.title, variant: current.variant, sku: current.sku })
-      .where(eq(listing.id, listingId))
-      .run();
+    if (!shared) {
+      o.update(listing)
+        .set({ title: current.title, variant: current.variant, sku: current.sku })
+        .where(eq(listing.id, listingId))
+        .run();
+    }
+    const selector = new Map(
+      Object.entries(current.variant).map(([k, v]) => [canonicalText(k), canonicalText(v)]),
+    );
+    const sameSelection = Object.entries(variant).every(
+      ([k, v]) => selector.get(canonicalText(k)) === canonicalText(v),
+    );
     let relation = verdict?.relation;
     if (verdict?.decidedBy === 'person') {
       if (verdict.listingFp !== keys.primary)
         writeVerdict(db, { ...verdict, listingFp: keys.primary });
+    } else if (!sameSelection) {
+      // This URL is already scheduled with different options. Another variant's evidence
+      // cannot establish or invalidate the identity of the one the reader will actually request.
+      relation = 'unknown';
     } else {
       // Brand, MPN and GTIN can change while the cache fingerprint stays the same. Re-evaluate
       // the cheap code tiers and replace any old code decision, including a formerly stronger tier.
@@ -695,7 +707,7 @@ export function createWatchService(deps: WatchServiceDeps) {
           brand: text(c.brand, 200),
           mpn: text(c.mpn, 64),
           gtin: text(c.gtin, 32),
-          variant,
+          variant: current.variant,
           url: canonical,
         },
       });
