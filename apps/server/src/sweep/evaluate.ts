@@ -471,6 +471,7 @@ function readsOf(
 function dropBaseline(
   watch: WatchRow,
   listing: Member['listing'],
+  evaluated: ObservationRow,
   reads: readonly AlertListingRead[],
 ): Money | null {
   const currency = watch.currency;
@@ -481,6 +482,8 @@ function dropBaseline(
   if (listing.condition === 'unknown') return null;
   const prices = reads.flatMap((r) =>
     r.kind === 'observation' &&
+    r.readPath === evaluated.readPath &&
+    r.rung === evaluated.rung &&
     r.currency === currency &&
     r.availability === 'in' &&
     r.price !== null &&
@@ -528,7 +531,7 @@ function evaluatePrice(
     now: nowIso,
     watch: {
       currency: watch.currency,
-      referencePrice: dropBaseline(watch, self.listing, reads),
+      referencePrice: dropBaseline(watch, self.listing, evaluated, reads),
       targetPrice: rules.targetPrice,
       dropBasisPoints: rules.dropBasisPoints,
       cooldownSeconds: watch.cooldownS,

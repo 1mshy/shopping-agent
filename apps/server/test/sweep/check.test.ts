@@ -157,8 +157,9 @@ describe('a read that produced a listing read', () => {
     const { listingId, url } = setup();
     await reads(listingId, url, BASE, BASE, BASE, BASE, LOW);
     const [r] = await reads(listingId, url, { price: 9_500, path: 'json_ld' });
+    // This first JSON-LD read establishes that path's baseline.
     expect(r?.outcome.kind === 'read' && r.outcome.evaluations[0]?.price?.silence).toBe(
-      'awaiting_confirmation',
+      'below_threshold',
     );
     expect(eventsOf(tmp.db)).toHaveLength(0);
   });

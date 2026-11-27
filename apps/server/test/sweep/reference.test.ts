@@ -69,7 +69,7 @@ describe('the reference does not include the reads being judged', () => {
 
   it.each([
     ['platform_json', 'api'],
-    ['json_ld', 'browser'],
+    ['json_ld', 'api'],
     ['microdata', 'http'],
   ] as const)(
     'a steady JSON-LD HTTP price never drops against earlier %s/%s prices',
@@ -90,7 +90,7 @@ describe('the reference does not include the reads being judged', () => {
       await reads(listingId, url, http, http);
       expect(watchRow(tmp.db, watchId)?.referencePrice).toBe(14_000);
       expect(eventsOf(tmp.db)).toEqual([]);
-      await reads(listingId, url, { ...http, price: 10_000 }, { ...http, price: 10_000 });
+      await reads(listingId, url, http, { ...http, price: 10_000 }, { ...http, price: 10_000 });
       expect(eventsOf(tmp.db)).toMatchObject([
         { listingId, observationId: observationsOf(tmp.db, listingId).at(-1)?.id },
       ]);
