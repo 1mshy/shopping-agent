@@ -9,10 +9,9 @@ import { useEffect, useState } from 'react';
 import { describeFailure, request } from '../http.ts';
 import { t } from '../strings.ts';
 import { formatTime, Message } from '../ui.tsx';
-
 import { ChangePassword } from './ChangePassword.tsx';
-
 import { type Channel, ChannelForm, ChannelRow } from './Channels.tsx';
+import { FetchDiagnostics } from './FetchDiagnostics.tsx';
 
 function settingText(s: SettingView | undefined): string {
   if (s === undefined || !s.isSet || s.value === null) return t.unknown;
@@ -213,6 +212,7 @@ export function DiagnosticsView() {
           </table>
         </>
       )}
+      <FetchDiagnostics />
     </section>
   );
 }
