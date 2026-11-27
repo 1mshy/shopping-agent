@@ -458,6 +458,22 @@ describe('the must-have check after the label', () => {
     },
   );
 
+  it.each<{ variant: Record<string, string>; title: string; relation: MatchRelation }>([
+    { variant: { Storage: '256GB', RAM: '16GB' }, title: 'Acme ZX100 128 GB', relation: 'exact' },
+    { variant: { RAM: '16 GB' }, title: 'Acme ZX100', relation: 'exact' },
+    { variant: { option1: '128 GB' }, title: 'Acme ZX100 128 GB / 256 GB', relation: 'variant' },
+  ])(
+    'compares the selected capacity in $variant with the requested storage',
+    ({ variant, title, relation }) => {
+      expect(
+        matchListing({
+          asked: ask('Acme ZX100', { mustHave: [must('capacity', '256GB')] }),
+          listing: item(title, { variant }),
+        }).relation,
+      ).toBe(relation);
+    },
+  );
+
   it('names the attribute that differs', () => {
     const asked = ask('Acme Glide 3', { mustHave: [must('colour', 'Black')] });
     const listing = item('Acme Glide 3 Mouse', { variant: { Color: 'White' } });

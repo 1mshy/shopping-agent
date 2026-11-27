@@ -63,6 +63,35 @@ const TOOL_ONLY_RE =
   /\b(?:tool only|bare(?: tool)?|ohne akkus?|no batter(?:y|ies)|without batter(?:y|ies)|exkl\.? akkus?|excl\.? batter(?:y|ies))\b/;
 const WITH_BATTERY_RE =
   /\b(?:\d+(?:\.\d+)? ?ah|batter(?:y|ies)|akkus?|ladegerät|charger|kit|set)\b/;
+// Stores label the same option differently. Storage and RAM both use GB, so they must
+// remain distinct even when the title lists the whole product range.
+function optionKey(name: string): string {
+  const key = attributeKey(name);
+  switch (key) {
+    case 'keyboard_layout':
+      return 'layout';
+    case 'storage':
+    case 'storage_capacity':
+      return 'capacity';
+    case 'color':
+    case 'farbe':
+      return 'colour';
+    default:
+      return key;
+  }
+}
+
+const KEYBOARD_LAYOUTS = new Set(['qwerty', 'azerty', 'qwertz', 'dvorak', 'colemak']);
+function layoutsConflict(want: readonly Token[], have: readonly Token[]): boolean {
+  const wanted = want.filter((t) => KEYBOARD_LAYOUTS.has(t.key));
+  const stated = have.filter((t) => KEYBOARD_LAYOUTS.has(t.key));
+  return (
+    wanted.length > 0 &&
+    stated.length > 0 &&
+    !wanted.some((w) => stated.some((h) => h.key === w.key))
+  );
+}
+
 const CONNECTORS = ['usbc', 'lightning', 'microusb'] as const;
 
 function connectorOf(text: string): string | null {
@@ -80,29 +109,64 @@ export function checkMustHave(
   ownTokens: readonly Token[],
   ownText: string,
   variantTokens: readonly Token[],
+  selected: Readonly<Record<string, string>> = {},
 ): MustHaveVerdict {
   const conflicts: string[] = [];
   const incomparable: string[] = [];
   const listingColours =
     coloursOf(variantTokens).base.size > 0 ? coloursOf(variantTokens) : coloursOf(ownTokens);
-  const listingTokens = [...ownTokens, ...variantTokens];
+  const options = Object.entries(selected);
+  const unnamedTokens =
+    options.length === 0
+      ? variantTokens
+      : tokenise(
+          prepare(
+            options
+              .filter(([name]) => /^option[ _-]*[0-9]+$/i.test(name))
+              .map(([, v]) => v)
+              .join(' '),
+          ),
+        );
   for (const item of items) {
     const key = attributeKey(item.attribute);
     const valueText = prepare(item.value);
     const value = tokenise(valueText);
-    if (coloursConflict(coloursOf(value), listingColours)) {
+    const attribute = optionKey(key);
+    const explicitlySelected = options
+      .filter(([name]) => optionKey(name) === attribute)
+      .map(([, v]) => v)
+      .join(' ');
+    const selectedText = prepare(explicitlySelected);
+    const selectedTokens = tokenise(selectedText);
+    const layoutTokens = selectedText
+      ? selectedTokens
+      : unnamedTokens.some((t) => KEYBOARD_LAYOUTS.has(t.key))
+        ? unnamedTokens
+        : ownTokens;
+    if (attribute === 'layout' && layoutsConflict(value, layoutTokens)) {
       conflicts.push(key);
       continue;
     }
-    const m = compareMeasures(value, listingTokens);
+    if (
+      coloursConflict(coloursOf(value), selectedText ? coloursOf(selectedTokens) : listingColours)
+    ) {
+      conflicts.push(key);
+      continue;
+    }
+    const selectedMeasure = compareMeasures(value, selectedText ? selectedTokens : unnamedTokens);
+    const m =
+      !selectedText && selectedMeasure.kind === 'none'
+        ? compareMeasures(value, ownTokens)
+        : selectedMeasure;
     if (m.kind === 'conflict') {
       conflicts.push(key);
       continue;
     }
     if (m.kind === 'incomparable') incomparable.push(key);
     const wantToolOnly = TOOL_ONLY_RE.test(valueText);
-    const listingToolOnly = TOOL_ONLY_RE.test(ownText);
-    const listingBattery = WITH_BATTERY_RE.test(ownText.replace(TOOL_ONLY_RE, ' '));
+    const optionText = selectedText || ownText;
+    const listingToolOnly = TOOL_ONLY_RE.test(optionText);
+    const listingBattery = WITH_BATTERY_RE.test(optionText.replace(TOOL_ONLY_RE, ' '));
     if (wantToolOnly && !listingToolOnly && listingBattery) {
       conflicts.push(key);
       continue;
@@ -112,7 +176,7 @@ export function checkMustHave(
       continue;
     }
     const want = connectorOf(valueText);
-    const have = connectorOf(ownText);
+    const have = connectorOf(optionText);
     if (want !== null && have !== null && want !== have) conflicts.push(key);
   }
   if (conflicts.length > 0) return { kind: 'conflict', attrs: [...new Set(conflicts)] };
