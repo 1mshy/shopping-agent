@@ -333,6 +333,7 @@ export function createWatchService(deps: WatchServiceDeps) {
         consecutiveErrors: listing.consecutiveErrors,
         storeHost: store.host,
         trustTier: store.trustTier,
+        trustReasons: store.trustReasons,
         nextCheckAt: listingCheck.nextCheckAt,
         lastReadAt: listingCheck.lastReadAt,
         lastError: listingCheck.lastError,
@@ -387,6 +388,9 @@ export function createWatchService(deps: WatchServiceDeps) {
       title: l.title,
       storeHost: l.storeHost,
       trustTier: l.trustTier as TrustTier,
+      trustReasons: Array.isArray(l.trustReasons)
+        ? l.trustReasons.filter((reason): reason is string => typeof reason === 'string')
+        : [],
       condition: l.condition as Condition,
       conditionUnknown: l.condition === 'unknown',
       price:

@@ -113,6 +113,7 @@ export const t = {
   errors: 'Consecutive errors',
   lastError: 'Last error',
   trust: 'trust',
+  trustReasons: 'Store trust reasons',
   role: 'Role',
   exclude: 'Exclude',
   track: 'Track',

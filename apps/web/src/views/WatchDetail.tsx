@@ -181,6 +181,13 @@ function ListingCard({
         </span>
         {listing.conditionUnknown && <span className="badge warn">{t.conditionUnknownFlag}</span>}
       </div>
+      {(listing.trustReasons?.length ?? 0) > 0 && (
+        <ul aria-label={t.trustReasons}>
+          {listing.trustReasons.map((reason) => (
+            <li key={reason}>{reason}</li>
+          ))}
+        </ul>
+      )}
       <p>
         <PriceLine listing={listing} />
       </p>
