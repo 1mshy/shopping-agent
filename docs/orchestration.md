@@ -18,22 +18,22 @@ Local main, origin/main and GitHub main agree at `d8e5c80`. The starting tree wa
 | P1-G freeze and restart | orchestrator | pending | holds | Three coalesced slots per minute-job, no duplicate events, 503 then 200. Pending delivery resumed across Compose down/up on d8e5c80 |
 | P1-G live | orchestrator | pending | running | Approved sample below. All 20 enrolled. Window 2026-11-27 17:49:56.185 through 2026-11-29 17:49:56.185 UTC |
 | P1-G directory | orchestrator | pending | blocked-dep | Freeze directory and matcher, reserve held-out split |
-| P1-4 brand matching | restock | codex/p1-matcher-brand | review | 069d4a6 independently accepted after explicit-brand regressions. Four pinned checks passed (3,938 tests) |
+| P1-4 brand matching | restock | codex/p1-matcher-brand | merged | [PR 26](https://github.com/1mshy/shopping-agent/pull/26), 1345bed. Selected attribute precedence is next |
 | P1-4 remaining review | orchestrator | pending | planned | Selected options, null watch spec, missing-title refusal, SKU override keys, stale code verdicts |
-| P1-3 fingerprint | directory | codex/p1-fingerprint | merged | [PR 24](https://github.com/1mshy/shopping-agent/pull/24) at 13a7200. Store classification/cache is in progress |
+| P1-3 fingerprint | directory | codex/p1-fingerprint | merged | [PR 24](https://github.com/1mshy/shopping-agent/pull/24) at 13a7200. [PR 29](https://github.com/1mshy/shopping-agent/pull/29) merged at 4e97f4e after independent re-review. Three wall-clock timeouts on the initial full run; all 3,990 passed on serial rerun. Next unit is name lookup |
 | P1-3 country pack | orchestrator | codex/p1-country-pack | merged | [PR 19](https://github.com/1mshy/shopping-agent/pull/19). Integrated 0f55b01. Canadian pack contains 22,028 candidate hosts. Resolver deadline flake in initial suite, rerun green; corrective unit queued |
 | P1-8 robots setting | orchestrator | codex/p1-robots-setting | merged | [PR 18](https://github.com/1mshy/shopping-agent/pull/18) at 84d1c61. Verified save, real API refusal and persistence in built Chrome UI |
-| R-7 extended restock history | orchestrator | pending | planned | Known out before a 31-day gap counted as first sighting |
+| R-7 extended restock history | orchestrator | pending | planned | Known out before a 31-day gap and 500 prior observations reproduced on 634c734. Lookup fix f08476c passed focused review. Indexed availability migration 0005 reserved |
 | P1-3 Shopify search | orchestrator | codex/p1-shopify-search | merged | [PR 20](https://github.com/1mshy/shopping-agent/pull/20), 8f47081. Next route is Woo Store API. |
-| P1-6 per-listing drop baseline | restock | codex/p1-alert-reference | running | ef629fc independently accepted after mixed-reader regression. Four pinned checks passed (3,939 tests) |
+| P1-6 per-listing drop baseline | restock | codex/p1-alert-reference | merged | [PR 27](https://github.com/1mshy/shopping-agent/pull/27), e9a0c7c. Per-listing, same-currency and same-reader comparisons. Four pinned checks passed (3,939 tests) |
 | P1-1 resolver deadline | orchestrator | codex/p1-resolver-deadline | merged | [PR 22](https://github.com/1mshy/shopping-agent/pull/22), 2af077a. Next integration is password settings |
 | P1-8 password form | orchestrator | codex/p1-ui-password | merged | [PR 23](https://github.com/1mshy/shopping-agent/pull/23) at c46373a, built app and old/new credentials verified |
-| P1-3 Woo search | orchestrator | codex/p1-woo-search | running | Store API and same-store candidate check |
-| P1-4 name-watch identity | restock | codex/p1-name-watch-identity | planned | 67a4084 captures 7 regressions; implementation in progress |
+| P1-3 Woo search | orchestrator | codex/p1-woo-search | merged | [PR 25](https://github.com/1mshy/shopping-agent/pull/25) at b6b7b0d. [PR 28](https://github.com/1mshy/shopping-agent/pull/28) added Magento 2 GET and store rewrites at 43dc503. Name lookup wiring in progress |
+| P1-4 name-watch identity | restock | codex/p1-name-watch-identity | planned | 67a4084 captures 7 regressions, reproduced. Review of e172ad6 found two failures involving direct read contradictions and a shared listing title. Corrections in progress |
 
 ### Directory gate preregistration
 
-The v1 manifest assigns 41 active products to development. For the planned 40-product directory comparison, sort the development product IDs by the hexadecimal SHA-256 of each UTF-8 ID, ascending, and take the first 40. The excluded development ID is `wh-1000xm5`. Selection used the split manifest alone. Freeze the implementation and market-specific sample before accessing held-out results. Count distinct directly verified stores per product, including products with zero, and report exact predictions and correctly predicted exact identities separately for each split.
+The v1 manifest assigns 41 active products to development. For the planned 40-product directory comparison, sort the development product IDs by the hexadecimal SHA-256 of each UTF-8 ID, ascending, and take the first 40. The excluded development ID is `wh-1000xm5`. Selection used the split manifest alone. The owner approved the original 20 hosts plus bestbuy.com, homedepot.com, alternate.de and notebooksbilliger.de for this comparison. For each of the 40 development and 20 held-out names, use at most four market-appropriate stores and at most two product pages per store. Respect robots, pacing and backoff. Freeze the implementation and market-specific sample before accessing held-out results. Count distinct directly verified stores per product, including products with zero, and report exact predictions and correctly predicted exact identities separately for each split.
 
 ### Approved 48-hour sample
 

@@ -34,6 +34,10 @@ Independent review of restock coverage confirmed atomic rollback and exactly one
 
 [PR 23](https://github.com/1mshy/shopping-agent/pull/23) integrated password settings. [PR 24](https://github.com/1mshy/shopping-agent/pull/24) integrated the host fingerprint. At 19:12:40 UTC the live database held 20 distinct listing URLs, 20 watches, 14 observations and zero alert events.
 
+[PR 25](https://github.com/1mshy/shopping-agent/pull/25) added WooCommerce search, [PR 26](https://github.com/1mshy/shopping-agent/pull/26) corrected brand matching, [PR 27](https://github.com/1mshy/shopping-agent/pull/27) corrected listing-specific drop baselines and [PR 28](https://github.com/1mshy/shopping-agent/pull/28) added Magento 2 search. [PR 29](https://github.com/1mshy/shopping-agent/pull/29) integrated market-scoped store triage and migration 0004 at 4e97f4e. Three elapsed-time tests failed in the initial integrated tree run; all 3,990 passed in a 6.04-second serial rerun without changed timeouts.
+
+In built Chrome, entering a previously unseen product name found an exact listing and displayed CAD 39.99 from the direct product page. The search payload advertised CAD 1.00. The second name encountered a 429, kept the watch queued for retry and added zero listings. This used the production composition with its HTTP network replaced by local fixtures in a disposable build.
+
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
 ### 2026-11-25, 05:00: Phase 1 report at the end of the unattended run
