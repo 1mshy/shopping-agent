@@ -19,6 +19,7 @@ import {
   MIN,
   observationsOf,
   PROFILE,
+  readOf,
   Script,
   type Scripted,
   TempDb,
@@ -65,6 +66,36 @@ describe('the reference does not include the reads being judged', () => {
       observationId: observationsOf(tmp.db, listingId)[2]?.id,
     });
   });
+
+  it.each([
+    ['platform_json', 'api'],
+    ['json_ld', 'browser'],
+    ['microdata', 'http'],
+  ] as const)(
+    'a steady JSON-LD HTTP price never drops against earlier %s/%s prices',
+    async (method, rung) => {
+      const { listingId, watchId, url } = watched();
+      const read = readOf({ method, rung, sticker: 14_000 });
+      const deps = depsOf(tmp, clock, async () => ({
+        kind: 'read',
+        read,
+        candidates: read.candidates,
+        methods: [],
+      }));
+      for (let n = 0; n < 3; n++) {
+        clock.advance(30 * MIN);
+        await checkListing(deps, listingId, { force: true });
+      }
+      const http: Scripted = { price: 11_000, path: 'json_ld' };
+      await reads(listingId, url, http, http);
+      expect(watchRow(tmp.db, watchId)?.referencePrice).toBe(14_000);
+      expect(eventsOf(tmp.db)).toEqual([]);
+      await reads(listingId, url, { ...http, price: 10_000 }, { ...http, price: 10_000 });
+      expect(eventsOf(tmp.db)).toMatchObject([
+        { listingId, observationId: observationsOf(tmp.db, listingId).at(-1)?.id },
+      ]);
+    },
+  );
 
   it('a halving of the price on a new watch alerts too', async () => {
     const { listingId, url } = watched();
