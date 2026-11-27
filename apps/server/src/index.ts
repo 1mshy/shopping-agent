@@ -7,9 +7,10 @@ import { type Context, Hono } from 'hono';
 import { createApp } from './app.ts';
 import { type AppEnv, createAuthService, sessionOf } from './auth/index.ts';
 import { loadConfig } from './config.ts';
+import { createDirectoryDiscovery } from './directory/discover.ts';
 import { createChannelService, createNotifyRoutes } from './notify/index.ts';
 import { ownerOnlyDir, prepareDatabaseFile } from './ops/files.ts';
-import { AVAILABLE_RUNGS, createRuntime, type Runtime } from './runtime.ts';
+import { AVAILABLE_RUNGS, createRuntime } from './runtime.ts';
 import { createSecretBox, KEY_FILE_NAME, loadOrCreateKey } from './secrets/index.ts';
 import { createSettingsService, userMarket } from './settings/index.ts';
 import { createWatchRoutes, createWatchService, watchLookupJob } from './watches/index.ts';
@@ -66,24 +67,7 @@ const auth = createAuthService({ db, now });
 auth.sweepExpired();
 const channels = createChannelService({ db, secrets, now });
 
-// The background runtime (./runtime.ts): the process's one fetcher, and the scheduler with the
-// sweep, the outbox, the backup and the watch lookup. No model anywhere (S§2 invariant 4). It is
-// built here and started once the server listens. The watch service is built first and reaches
-// the runtime through this variable, because each needs the other.
-let runtime: Runtime | undefined;
-
-const watches = createWatchService({
-  db,
-  now,
-  market: () => userMarket(settings),
-  // A new or resumed watch has listings due now: a sweep is asked for instead of waiting for the
-  // next minute. A sweep already running is joined.
-  onListingsDue: () => {
-    runtime?.refresh();
-  },
-});
-
-runtime = createRuntime({
+const background = createRuntime({
   deniedNetworks: config.deniedNetworks,
   db,
   dataDir: config.dataDir,
@@ -91,9 +75,17 @@ runtime = createRuntime({
   market: () => userMarket(settings),
   robotsMode: () => settings.get('fetch.robots'),
   now,
-  jobs: () => [watchLookupJob({ watches })],
 });
-const background = runtime;
+const watches = createWatchService({
+  db,
+  now,
+  market: () => userMarket(settings),
+  discover: createDirectoryDiscovery({ db, now, fetcher: background.fetcher }),
+  onListingsDue: () => {
+    background.refresh();
+  },
+});
+background.scheduler.register(watchLookupJob({ watches }));
 
 /** `POST /api/refresh`: idempotent, because a running sweep is joined (S§5.8). */
 function refresh(): { runId: number; joined: boolean } {
