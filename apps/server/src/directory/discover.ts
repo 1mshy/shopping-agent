@@ -7,6 +7,7 @@ import {
   type StoreFingerprint,
   type StoreSearch,
   type StoreSearchResult,
+  searchBestBuyCanada,
   searchMagento,
   searchShopify,
   searchWoo,
@@ -20,6 +21,8 @@ async function searchPlatform(
   evidence: StoreFingerprint,
   context: ReaderContext,
 ): Promise<{ route: SearchRoute; result: StoreSearchResult } | null> {
+  if (input.origin === 'https://www.bestbuy.ca' && input.market.country === 'CA')
+    return { route: 'adapter', result: await searchBestBuyCanada(input, context) };
   switch (evidence.platform) {
     case 'shopify':
       if (evidence.predictiveSearch === false) return null;

@@ -27,7 +27,7 @@ export type StoreSearchResult =
   | { kind: 'unsupported' | 'invalid_response' }
   | { kind: 'fetch_failed'; outcome: FetchOutcome };
 
-async function readSearchJson(
+export async function readSearchJson(
   endpoint: URL,
   context: ReaderContext,
   unsupportedStatus?: number,

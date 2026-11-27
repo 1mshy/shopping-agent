@@ -2,13 +2,21 @@
 // routes and hand-written adapters. Each part lives in its own directory under `src/` and is
 // re-exported here.
 
+export { searchBestBuyCanada } from './directory/bestbuy.ts';
 export {
   FINGERPRINT_MAX_REQUESTS,
   type FingerprintInput,
   fingerprintStore,
   type StoreFingerprint,
 } from './directory/fingerprint.ts';
-export * from './directory/search.ts';
+export {
+  type DirectoryCandidate,
+  type StoreSearch,
+  type StoreSearchResult,
+  searchMagento,
+  searchShopify,
+  searchWoo,
+} from './directory/search.ts';
 export { searchDeclaredTemplate } from './directory/template.ts';
 export * from './platform/index.ts';
 export type * from './read/contract.ts';
