@@ -341,9 +341,9 @@ describe('migration 0005', () => {
       const count = db.orm.get(sql`select count(*) as n from price_observation`);
       migrate(db);
       for (const query of [
-        sql`select * from price_observation where listing_id = 1 and availability = 'out'
+        sql`select * from price_observation indexed by price_observation_stock_time_idx where listing_id = 1 and availability = 'out'
           and (observed_at,id) < ('2026-12-01',2) order by observed_at desc,id desc limit 1`,
-        sql`select * from price_observation where listing_id = 1 and availability = 'in'
+        sql`select * from price_observation indexed by price_observation_stock_time_idx where listing_id = 1 and availability = 'in'
           and (observed_at,id) > ('2026-11-01',1) and (observed_at,id) < ('2026-12-01',2)
           order by observed_at,id limit 1`,
       ]) {

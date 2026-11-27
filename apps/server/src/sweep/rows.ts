@@ -150,22 +150,36 @@ export function stockTransitionBefore(
   latest: { id: number; observedAt: string },
 ): ObservationRow[] {
   const o = schema.priceObservation;
+  // Both ranges must seek within the selected availability, including when it occurs rarely.
+  const indexed = sql`${o} indexed by price_observation_stock_time_idx`;
   const before = sql`(${o.observedAt}, ${o.id}) < (${latest.observedAt}, ${latest.id})`;
   const out = db.orm
     .select()
     .from(o)
-    .where(and(eq(o.listingId, listingId), eq(o.availability, 'out'), before))
-    .orderBy(desc(o.observedAt), desc(o.id))
-    .limit(1)
+    .where(
+      eq(
+        o.id,
+        sql`(
+    select id from ${indexed} where listing_id = ${listingId} and availability = 'out' and ${before}
+    order by observed_at desc, id desc limit 1
+  )`,
+      ),
+    )
     .get();
   if (!out) return [];
   const after = sql`(${o.observedAt}, ${o.id}) > (${out.observedAt}, ${out.id})`;
   const firstIn = db.orm
     .select()
     .from(o)
-    .where(and(eq(o.listingId, listingId), eq(o.availability, 'in'), after, before))
-    .orderBy(asc(o.observedAt), asc(o.id))
-    .limit(1)
+    .where(
+      eq(
+        o.id,
+        sql`(
+    select id from ${indexed} where listing_id = ${listingId} and availability = 'in' and ${after} and ${before}
+    order by observed_at, id limit 1
+  )`,
+      ),
+    )
     .get();
   return firstIn ? [out, firstIn] : [out];
 }
