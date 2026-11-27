@@ -92,6 +92,8 @@ export interface FetcherRequest {
   readonly maxBodyBytes?: number;
   /** The run's request budget, shared by its requests (`createRequestBudget`). */
   readonly budget?: RequestBudget;
+  /** Optional hard limit on transport exchanges, including robots, redirects and address retries. */
+  readonly wireBudget?: RequestBudget;
 }
 
 export interface FetcherResult extends PageResult {
@@ -128,15 +130,15 @@ const NO_NETWORK: HttpNetwork = {
   },
 };
 
-/** The network, telling `onFirstExchange` when the guard first asks it to reach an address. */
-function watched(network: HttpNetwork, onFirstExchange: () => void): HttpNetwork {
+/** Invoke beforeExchange before each call to the transport, including redirects and address retries. */
+function watched(network: HttpNetwork, beforeExchange: () => void): HttpNetwork {
   return {
     open(context) {
       const net = network.open(context);
       return {
         lookup: (host) => net.lookup(host),
         exchange: (address, port, url) => {
-          onFirstExchange();
+          beforeExchange();
           return net.exchange(address, port, url);
         },
       };
@@ -193,6 +195,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
     host: string,
     request: PageRequest,
     budget: RequestBudget | undefined,
+    wireBudget: RequestBudget | undefined,
   ): Promise<Paced> {
     const { rung } = request;
     const admission = await pacer.acquire(host, request);
@@ -220,7 +223,13 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
         };
       }
       let reached = false;
+      let exhausted = false;
       const network = watched(deps.network, () => {
+        if (wireBudget !== undefined && !wireBudget.take()) {
+          exhausted = true;
+          // End the guarded exchange without trying an alternative address or opening a socket.
+          throw new Error('transport exchange budget exhausted');
+        }
         if (reached) return;
         reached = true;
         slot.started();
@@ -231,6 +240,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
       } finally {
         if (!reached) budget?.refund();
       }
+      if (exhausted) result = { outcome: refusal(rung, 'budget'), response: null };
       if (result.outcome.kind === 'rate_limited') {
         slot.pause(result.outcome.retryAfterMs ?? RATE_LIMITED_DEFAULT_PAUSE_MS);
       }
@@ -242,7 +252,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
 
   return {
     async get(request) {
-      const { rung, deadline, signal, budget } = request;
+      const { rung, deadline, signal, budget, wireBudget } = request;
       if (rung !== 'api' && rung !== 'http')
         throw new RangeError(`not an HTTP rung: ${String(rung)}`);
       const pageKind = PageKind.parse(request.pageKind);
@@ -256,7 +266,8 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
 
       if (signal.aborted) return done({ kind: 'network_error', rung, code: ABORT_CODE });
       if (now() >= deadline) return done({ kind: 'network_error', rung, code: TIMEOUT_CODE });
-      if (budget !== undefined && budget.remaining <= 0) return done(refusal(rung, 'budget'));
+      if ((budget !== undefined && budget.remaining <= 0) || wireBudget?.remaining === 0)
+        return done(refusal(rung, 'budget'));
 
       const parsed = parseTarget(request.url);
       if (!parsed.ok) {
@@ -283,7 +294,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
           signal,
         });
         const { answer, cached } = await robotsCache.answer(robotsUrl, async () => {
-          return (await paced(host, robotsRequest, budget)).result;
+          return (await paced(host, robotsRequest, budget, wireBudget)).result;
         });
         robots = {
           mode,
@@ -303,6 +314,9 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
         }
       }
 
+      // A robots fetch can spend the final exchange. Avoid waiting for a host that cannot be contacted.
+      if (wireBudget?.remaining === 0) return done(refusal(rung, 'budget'), { robots });
+
       // 2. The playbook's gate.
       const until = closedUntil(deps.playbook.read(host, pageKind), rung, now());
       if (until !== null) {
@@ -310,7 +324,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
       }
 
       // 3-5. Pacing, budget, fetchPage.
-      const result = await paced(host, pageRequest, budget);
+      const result = await paced(host, pageRequest, budget, wireBudget);
 
       // 6. The playbook.
       if (result.reached && changesPlaybook(result.result.outcome)) {
