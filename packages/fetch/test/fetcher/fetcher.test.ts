@@ -507,6 +507,39 @@ describe('the budget', () => {
     expect(budget.used).toBe(2);
   });
 
+  it('caps exchanges across robots and redirects while preserving the separate logical budget', async () => {
+    const s = setup({
+      mode: 'report',
+      replies: {
+        'https://shop.test/robots.txt': robotsTxt(''),
+        'https://shop.test/a': { status: 302, headers: [['location', '/b']] },
+        'https://shop.test/b': { status: 302, headers: [['location', '/c']] },
+        'https://shop.test/c': ok(),
+      },
+    });
+    const wireBudget = createRequestBudget(3);
+    const budget = createRequestBudget(2);
+    const result = await s.get('https://shop.test/a', { budget, wireBudget });
+    expect(result.outcome).toEqual({ kind: 'refused_by_policy', rung: 'http', reason: 'budget' });
+    expect(s.net.exchanges.map((e) => e.url)).toEqual([
+      'https://shop.test/robots.txt',
+      'https://shop.test/a',
+      'https://shop.test/b',
+    ]);
+    expect(wireBudget.used).toBe(3);
+    expect(budget.used).toBe(2);
+    expect((await s.get('https://shop.test/c')).outcome.kind).toBe('ok');
+  });
+
+  it('does not charge the exchange limit on a failed lookup', async () => {
+    const s = setup({ failLookups: 1, replies: { 'https://shop.test/a': ok() } });
+    const wireBudget = createRequestBudget(1);
+    expect((await s.get('https://shop.test/a', { wireBudget })).outcome.kind).toBe('network_error');
+    expect(wireBudget.used).toBe(0);
+    expect((await s.get('https://shop.test/a', { wireBudget })).outcome.kind).toBe('ok');
+    expect(wireBudget.used).toBe(1);
+  });
+
   it('counts robots.txt as a request', async () => {
     const s = setup({
       mode: 'report',
