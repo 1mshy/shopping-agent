@@ -1,17 +1,10 @@
 // Password-guessing throttle (S§5.13), in memory, on an injected clock. Login and the password
 // change pass through it; setup does not (it succeeds once and then answers 409 forever).
 //
-// The rule, per key: the first `free` failures cost nothing; each failure after that locks the key
-// for base × 2^(n − free − 1), doubling up to `max`. While a key is locked every attempt is refused
-// with its Retry-After, without hashing anything and without counting as a failure, so the owner is
-// never locked out for longer than one window. A key forgets its failures after `forget` without
-// one. Two keys apply to every attempt: the client's address (LOGIN_THROTTLE_PER_CLIENT, reset by a
-// success from that address) and one global key (LOGIN_THROTTLE_GLOBAL, never reset by a success,
-// so many addresses together cannot guess faster than one lockout window allows).
-//
-// An attempt counts as a failure from the moment it starts (a success refunds it), so a burst of
-// concurrent requests cannot all slip in before the first failure is recorded; and at most
-// `maxInFlight` verifications run at once (each holds argon2's memory).
+// Per-client failures start an exponential lockout, cleared by success. Across clients, the
+// first 20 failures are free. Under global pressure each verification waits a fixed second
+// in one of two in-flight slots before accessing password state. Other failures cannot extend
+// an admitted verification's wait. Completed failures expire after a day without a failure.
 
 export interface ThrottleRule {
   /** Failures that cost nothing. */
@@ -32,11 +25,11 @@ export const LOGIN_THROTTLE_PER_CLIENT: ThrottleRule = {
   forgetMs: 24 * 3_600_000,
 };
 
-/** Every address together. */
+/** Global pressure adds a fixed wait to each admitted verification. */
 export const LOGIN_THROTTLE_GLOBAL: ThrottleRule = {
   free: 20,
   baseMs: 1_000,
-  maxMs: 15 * 60_000,
+  maxMs: 1_000,
   forgetMs: 24 * 3_600_000,
 };
 
@@ -57,6 +50,8 @@ export type Admission =
   | { readonly admitted: false; readonly retryAfterMs: number };
 
 export interface Ticket {
+  /** Resolves when this admitted verification may read and check password state. */
+  readonly ready: Promise<void>;
   /** The password was right: refunds the attempt and clears the client's failures. */
   succeed(): void;
   /** The password was wrong (the attempt already counts; this only ends it). */
@@ -73,6 +68,7 @@ export interface ThrottleOptions {
   readonly perClient?: ThrottleRule;
   readonly global?: ThrottleRule;
   readonly maxInFlight?: number;
+  readonly sleep?: (ms: number) => Promise<void>;
 }
 
 function lockFor(rule: ThrottleRule, failures: number): number {
@@ -86,7 +82,10 @@ export function createLoginThrottle(options: ThrottleOptions): LoginThrottle {
   const globalRule = options.global ?? LOGIN_THROTTLE_GLOBAL;
   const maxInFlight = options.maxInFlight ?? MAX_IN_FLIGHT;
   const clients = new Map<string, Entry>();
-  const global: Entry = { failures: 0, lastFailureAt: 0, lockedUntil: 0 };
+  const sleep =
+    options.sleep ?? ((ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms)));
+  let globalFailures = 0;
+  let globalLastFailureAt: number | null = null;
   let inFlight = 0;
 
   function fresh(entry: Entry, rule: ThrottleRule, now: number): void {
@@ -133,16 +132,18 @@ export function createLoginThrottle(options: ThrottleOptions): LoginThrottle {
       const now = options.now();
       const entry = clientEntry(client, now);
       fresh(entry, perClient, now);
-      fresh(global, globalRule, now);
-      const wait = Math.max(entry.lockedUntil - now, global.lockedUntil - now, 0);
+      const wait = entry.lockedUntil - now;
       if (wait > 0) return { admitted: false, retryAfterMs: wait };
       if (inFlight >= maxInFlight) return { admitted: false, retryAfterMs: 1_000 };
 
+      if (globalLastFailureAt !== null && now - globalLastFailureAt >= globalRule.forgetMs) {
+        globalFailures = 0;
+        globalLastFailureAt = null;
+      }
+      // Reserve unfinished attempts against the free allowance before admitting a concurrent one.
+      const paced = globalFailures + inFlight >= globalRule.free;
       inFlight += 1;
       record(entry, perClient, now);
-      const globalLockBefore = global.lockedUntil;
-      record(global, globalRule, now);
-      const globalLockMine = global.lockedUntil;
       let done = false;
       const end = () => {
         if (done) return false;
@@ -153,15 +154,15 @@ export function createLoginThrottle(options: ThrottleOptions): LoginThrottle {
       return {
         admitted: true,
         ticket: {
+          ready: paced ? sleep(Math.min(globalRule.baseMs, globalRule.maxMs)) : Promise.resolve(),
           succeed() {
             if (!end()) return;
             clients.delete(client);
-            // Only this attempt is refunded: a lockout that other failures set stays.
-            global.failures = Math.max(0, global.failures - 1);
-            if (global.lockedUntil === globalLockMine) global.lockedUntil = globalLockBefore;
           },
           fail() {
-            end();
+            if (!end()) return;
+            globalFailures = Math.min(globalRule.free, globalFailures + 1);
+            globalLastFailureAt = options.now();
           },
         },
       };
