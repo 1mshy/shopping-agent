@@ -9,6 +9,7 @@ export {
   type StoreFingerprint,
 } from './directory/fingerprint.ts';
 export * from './directory/search.ts';
+export { searchDeclaredTemplate } from './directory/template.ts';
 export * from './platform/index.ts';
 export type * from './read/contract.ts';
 export {
