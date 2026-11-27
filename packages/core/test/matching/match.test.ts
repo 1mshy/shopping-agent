@@ -417,6 +417,75 @@ describe('the must-have check after the label', () => {
     ],
   ]);
 
+  it.each<{ attr: string; value: string; title: string; variant: Record<string, string> }>([
+    {
+      attr: 'layout',
+      value: 'QWERTY',
+      title: 'Acme ZX100 QWERTY / AZERTY',
+      variant: { 'Keyboard Layout': 'AZERTY' },
+    },
+    {
+      attr: 'capacity',
+      value: '256 GB',
+      title: 'Acme ZX100 128 GB / 256 GB',
+      variant: { Storage: '128 GB' },
+    },
+  ])(
+    'reports a conflicting selected $attr even when the title names the desired option',
+    ({ attr, value, title, variant }) => {
+      expect(
+        matchListing({
+          asked: ask('Acme ZX100', { mustHave: [must(attr, value)] }),
+          listing: item(title, { variant }),
+        }),
+      ).toEqual({ relation: 'variant', differingAttrs: [attr] });
+    },
+  );
+
+  it.each<{ variant: Record<string, string>; title: string }>([
+    { variant: {}, title: 'Acme ZX100' },
+    { variant: { 'Keyboard Layout': 'US English (QWERTY)' }, title: 'Acme ZX100 AZERTY / QWERTY' },
+    { variant: { Colour: 'Blue' }, title: 'Acme ZX100' },
+  ])(
+    'retains an exact model when its selected layout agrees or is absent',
+    ({ variant, title }) => {
+      expect(
+        matchListing({
+          asked: ask('Acme ZX100', { mustHave: [must('layout', 'QWERTY')] }),
+          listing: item(title, { variant }),
+        }),
+      ).toEqual({ relation: 'exact', differingAttrs: [] });
+    },
+  );
+
+  it.each<{ variant: Record<string, string>; title: string; relation: MatchRelation }>([
+    { variant: { Storage: '256GB', RAM: '16GB' }, title: 'Acme ZX100 128 GB', relation: 'exact' },
+    { variant: { RAM: '16 GB' }, title: 'Acme ZX100', relation: 'exact' },
+    { variant: { RAM: '16 GB' }, title: 'Acme ZX100 16 GB RAM', relation: 'exact' },
+    { variant: { Storage: 'Standard' }, title: 'Acme ZX100 128 GB', relation: 'variant' },
+    { variant: { RAM: '16 GB' }, title: 'Acme ZX100 RAM 16 GB / SSD 128 GB', relation: 'variant' },
+    { variant: { option1: '128 GB' }, title: 'Acme ZX100 128 GB / 256 GB', relation: 'variant' },
+  ])(
+    'compares the selected capacity in $variant with the requested storage',
+    ({ variant, title, relation }) => {
+      expect(
+        matchListing({
+          asked: ask('Acme ZX100', { mustHave: [must('capacity', '256GB')] }),
+          listing: item(title, { variant }),
+        }).relation,
+      ).toBe(relation);
+    },
+  );
+
+  it('falls back to a stated layout when the chosen option gives only a language', () => {
+    expect(
+      matchListing({
+        asked: ask('Acme ZX100', { mustHave: [must('layout', 'QWERTY')] }),
+        listing: item('Acme ZX100 AZERTY', { variant: { Layout: 'French' } }),
+      }),
+    ).toEqual({ relation: 'variant', differingAttrs: ['layout'] });
+  });
+
   it('names the attribute that differs', () => {
     const asked = ask('Acme Glide 3', { mustHave: [must('colour', 'Black')] });
     const listing = item('Acme Glide 3 Mouse', { variant: { Color: 'White' } });

@@ -20,7 +20,7 @@ const REJECTIONS: ReadonlySet<MatchRelation> = new Set([
  * Bumped whenever a rule, a word class or the precedence changes, so that cached verdicts made
  * by an older matcher are not reused (S§5.4 verdict cache key).
  */
-export const MATCHER_VERSION = 'matcher-t12.3';
+export const MATCHER_VERSION = 'matcher-t12.4';
 
 const decision = (
   relation: MatchRelation,
@@ -67,7 +67,7 @@ export function decideMatch(input: MatchInput): MatchDecision {
   if (!exact) return decision(title.relation, title.differingAttrs, 'rules', title.rule);
 
   const decidedBy = byIdentifier ? 'identifier' : 'rules';
-  const check = checkMustHave(asked.mustHave, l.own, l.prepared, l.variantTokens);
+  const check = checkMustHave(asked.mustHave, l.own, l.prepared, l.variantTokens, listing.variant);
   if (check.kind === 'conflict') return decision('variant', check.attrs, decidedBy, 'must_have');
   if (check.kind === 'incomparable') {
     return decision('unknown', [], decidedBy, 'must_have_incomparable');
