@@ -38,10 +38,16 @@ import {
   type WatchStatus,
   type WatchView,
 } from '@agentic-dasher/shared';
-import { and, asc, desc, eq, inArray, isNull, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, isNull, ne, sql } from 'drizzle-orm';
 import { marketPrefixOf } from '../directory/storefront.ts';
 import { deliveryStatus, gatingDeliveries, lastAcceptedAlert } from '../notify/gating.ts';
-import { askedOf, CODE_ONLY_VERSIONS, cachedVerdict, verdictKeys } from '../sweep/identity.ts';
+import {
+  askedOf,
+  CODE_ONLY_VERSIONS,
+  cachedVerdict,
+  saveCodeDecision,
+  verdictKeys,
+} from '../sweep/identity.ts';
 
 export { askedOf as askedFor } from '../sweep/identity.ts';
 
@@ -652,16 +658,27 @@ export function createWatchService(deps: WatchServiceDeps) {
       typeof v === 'string' && v.trim() !== '' && v.length <= max ? v.trim() : null;
     const saved = upsertListing(url, canonical, prefix, title || canonical, variant, nowIso);
     const listingId = saved.listing.id;
+    // One shared row can serve several watches. A different result's display title or options
+    // must not change the catalogue identity and check request already used by another watch.
+    const shared = o
+      .select({ id: watchListing.id })
+      .from(watchListing)
+      .where(and(eq(watchListing.listingId, listingId), ne(watchListing.watchId, w.id)))
+      .limit(1)
+      .get();
     const current = {
       ...saved.listing,
-      title: title || saved.listing.title,
-      variant,
-      sku: text(c.sku, 256) ?? saved.listing.sku,
+      title: shared ? saved.listing.title : title || saved.listing.title,
+      variant: shared ? saved.listing.variant : variant,
+      sku:
+        shared && saved.listing.sku !== null
+          ? saved.listing.sku
+          : (text(c.sku, 256) ?? saved.listing.sku),
     };
     const keys = verdictKeys(current, saved.store, saved.listing.sku);
     const verdict = cachedVerdict(db, specFp, keys, CODE_ONLY_VERSIONS);
     o.update(listing)
-      .set({ title: current.title, variant, sku: current.sku })
+      .set({ title: current.title, variant: current.variant, sku: current.sku })
       .where(eq(listing.id, listingId))
       .run();
     let relation = verdict?.relation;
@@ -682,28 +699,7 @@ export function createWatchService(deps: WatchServiceDeps) {
           url: canonical,
         },
       });
-      const v = schema.matchVerdict;
-      o.delete(v)
-        .where(
-          and(
-            eq(v.specFp, specFp),
-            inArray(v.listingFp, [...keys.equivalent, keys.untitled]),
-            eq(v.matcherVersion, MATCHER_VERSION),
-            inArray(v.decidedBy, ['identifier', 'rules']),
-          ),
-        )
-        .run();
-      writeVerdict(db, {
-        specFp,
-        listingFp: keys.primary,
-        relation: decision.relation,
-        differingAttrs: [...decision.differingAttrs],
-        decidedBy: decision.decidedBy,
-        matcherVersion: MATCHER_VERSION,
-        promptVersion: null,
-        modelId: null,
-        decidedAt: nowIso,
-      });
+      saveCodeDecision(db, specFp, keys, decision, nowIso);
       relation = decision.relation;
     }
     const role: WatchListingRole = relation === 'exact' ? 'tracked' : 'candidate';

@@ -212,12 +212,53 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
     });
   });
 
+  it('an interrupted check resumes with the direct identity evidence that accompanied its price', async () => {
+    candidate = { ...result, title: '' };
+    const watchId = await create();
+    const { listingId } = listingOf(watchId);
+    const different = readOf({
+      title: 'NotBrand X999',
+      identifiers: {
+        sku: 'other-sku',
+        brand: 'NotBrand',
+        mpn: 'X999',
+        gtin: null,
+        externalId: null,
+      },
+    });
+    const crashing = depsOf(
+      tmp,
+      clock,
+      async () => ({
+        kind: 'read',
+        read: different,
+        methods: [],
+        candidates: different.candidates,
+      }),
+      [],
+      {
+        hooks: {
+          afterObservationWritten: () => {
+            throw new Error('interrupted');
+          },
+        },
+      },
+    );
+    await expect(checkListing(crashing, listingId, { force: true })).rejects.toThrow('interrupted');
+    tmp.db.close();
+    tmp.db = TempDb.open(tmp.file);
+    const resumed = await sweep(listingId);
+    expect(resumed.resumed).toMatchObject([{ watchId, price: { silence: 'unconfirmed_listing' } }]);
+    expect(eventsOf(tmp.db)).toMatchObject([{ watchId, observationId: 2 }]);
+  });
+
   it('another watch finding a different display title leaves the first watch able to alert', async () => {
     const watchId = await create();
     const listing = listingOf(watchId);
     candidate = { ...result, title: 'ZX100 updated product display' };
     const cookware = await create('Acme cookware');
     expect(listingOf(cookware).listingId).toBe(listing.listingId);
+    expect(listingOf(watchId).title).toBe(listing.title);
     await sweep(listing.listingId);
     expect(eventsOf(tmp.db)).toMatchObject([{ listingId: listing.listingId, watchId }]);
   });

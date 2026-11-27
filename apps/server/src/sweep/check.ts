@@ -49,7 +49,7 @@ import {
   marketPrefixOf,
 } from '../directory/storefront.ts';
 import { evaluateObservation, type WatchEvaluation } from './evaluate.ts';
-import { CODE_ONLY_VERSIONS, type VerdictVersions } from './identity.ts';
+import { CODE_ONLY_VERSIONS, recordReadIdentity, type VerdictVersions } from './identity.ts';
 import { errorSummary, type SweepLogger, stderrLogger } from './log.ts';
 import {
   CHECK_DEADLINE_MS,
@@ -460,6 +460,7 @@ async function runCheck(
           .set({ lastSeenAt: at, consecutiveErrors: 0, ...adopt })
           .where(eq(l.id, listingId))
           .run();
+        recordReadIdentity(db, { ...fresh, ...adopt }, store, read, at);
         const s = schema.store;
         const storePatch: Partial<StoreRow> = { consecutiveErrors: 0, lastOkAt: at };
         // The listing already owns the unique host + market-prefix row created at intake.

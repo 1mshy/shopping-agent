@@ -9,15 +9,18 @@
 // Anything else is unconfirmed and never alerts. No model is called: the cache is only read.
 import {
   type CurrentVersions,
+  decideMatch,
   effectiveVerdict,
   type ListingIdentity,
   listingFingerprint,
   MATCHER_VERSION,
   type MatchAsked,
+  type MatchDecision,
   specFingerprint,
 } from '@agentic-dasher/core';
-import { type Database, schema } from '@agentic-dasher/db';
+import { type Database, schema, writeVerdict } from '@agentic-dasher/db';
 import { type DecidedBy, type MatchRelation, MatchVerdict } from '@agentic-dasher/shared';
+import type { ListingRead } from '@agentic-dasher/sources';
 import { and, desc, eq, inArray } from 'drizzle-orm';
 import type { ListingRow, StoreRow, WatchListingRow, WatchRow } from './rows.ts';
 
@@ -115,6 +118,84 @@ export function cachedVerdict(
     verdicts.push(MatchVerdict.parse(row));
   }
   return effectiveVerdict(verdicts, versions);
+}
+
+/** Replace the code decision even when changed evidence moves it between rules and identifier.
+ * The caller's transaction also commits the discovery link or the corresponding observation. */
+export function saveCodeDecision(
+  db: Database,
+  specFp: string,
+  keys: ReturnType<typeof verdictKeys>,
+  decision: MatchDecision,
+  at: string,
+): void {
+  const v = schema.matchVerdict;
+  db.orm
+    .delete(v)
+    .where(
+      and(
+        eq(v.specFp, specFp),
+        inArray(v.listingFp, [...keys.equivalent, keys.untitled]),
+        eq(v.matcherVersion, MATCHER_VERSION),
+        inArray(v.decidedBy, ['identifier', 'rules']),
+      ),
+    )
+    .run();
+  writeVerdict(db, {
+    specFp,
+    listingFp: keys.primary,
+    relation: decision.relation,
+    differingAttrs: [...decision.differingAttrs],
+    decidedBy: decision.decidedBy,
+    matcherVersion: MATCHER_VERSION,
+    promptVersion: null,
+    modelId: null,
+    decidedAt: at,
+  });
+}
+
+/** A direct read can contradict a search result. Record the decision alongside the observation
+ * so both immediate and resumed evaluations use the evidence on the page that supplied the price. */
+export function recordReadIdentity(
+  db: Database,
+  listing: ListingRow,
+  store: StoreRow,
+  read: ListingRead,
+  at: string,
+): void {
+  const w = schema.watch;
+  const link = schema.watchListing;
+  const watches = db.orm
+    .select({ input: w.input, spec: w.spec })
+    .from(w)
+    .innerJoin(link, eq(w.id, link.watchId))
+    .where(
+      and(
+        eq(link.listingId, listing.id),
+        eq(w.kind, 'query'),
+        eq(link.role, 'tracked'),
+        eq(link.addedBy, 'discovery'),
+      ),
+    )
+    .all();
+  if (!watches.length) return;
+  const keys = verdictKeys(listing, store);
+  const page = {
+    title: read.title === listing.urlCanonical ? '' : (read.title ?? ''),
+    brand: read.identifiers.brand,
+    gtin: read.identifiers.gtin,
+    mpn: read.identifiers.mpn,
+    variant: read.variant,
+    url: listing.urlCanonical,
+  };
+  for (const watch of watches) {
+    const asked = askedOf(watch);
+    const decision = decideMatch({ asked, listing: page });
+    // A read with no usable identity evidence adds nothing to an existing cached decision.
+    if (decision.rule !== 'unconfirmed') {
+      saveCodeDecision(db, specFingerprint(asked), keys, decision, at);
+    }
+  }
 }
 
 /** Whether the listing may alert for the watch (see the header). */
