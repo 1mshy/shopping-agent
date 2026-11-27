@@ -14,6 +14,8 @@ Then open <http://localhost:8080>. Data lives in the `data` Docker volume. Set `
 
 The API answers when it is opened by an IP address, `localhost`, a single-label name (`nas`) or a local-only name (`.local`, `.lan`, `.home`, `.internal`, `.home.arpa`, `.localdomain`, `.test`). To reach it by any other name (your own domain behind a reverse proxy, a tailnet name), list that name in the `ALLOWED_HOSTS` environment variable, comma-separated (`ALLOWED_HOSTS=dasher.example.org docker compose up -d`, or in a `.env` file beside the compose file); a leading dot lists a whole domain (`.fritz.box`). This is what stops a web page from pointing its own name at your server (DNS rebinding).
 
+Docker exposes the container’s interfaces to the fetch guard. Set `FETCH_DENY_CIDRS` to your router’s current WAN address and any local public prefixes, including your delegated IPv6 prefix. Use a comma-separated list of IP addresses or CIDRs in the environment or Compose `.env`. For example, `FETCH_DENY_CIDRS=192.0.2.40,2001:db8:1234::/48` uses documentation addresses. Replace them with your own values. Invalid entries stop startup. Recreate the container when the addresses change. These refusals apply alongside the built-in ranges and interface checks on each request and redirect.
+
 ## Develop
 
 Requirements: Node.js 26 (`engines >= 24.12`; see `.nvmrc`) and pnpm 12 (`corepack` is not bundled with Node 26, so install pnpm with `npm i -g pnpm@12`).

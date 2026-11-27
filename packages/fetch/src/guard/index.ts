@@ -39,6 +39,7 @@ export {
   type OwnNetwork,
   onOwnNetwork,
   ownNetworksOf,
+  parseDeniedNetworks,
   SHORTEST_LINK_PREFIX,
 } from './local.ts';
 export {

@@ -3,6 +3,7 @@
 // once and hands the answer here, so the addresses judged are the addresses dialled.
 import type { FetchOutcome, Rung } from '@agentic-dasher/shared';
 import { judgeAddress } from './address.ts';
+import { type OwnNetwork, onOwnNetwork } from './local.ts';
 import { parseTarget, type Target } from './target.ts';
 
 /** What the resolver answered for one host name. */
@@ -59,14 +60,25 @@ function order(addresses: readonly string[]): string[] {
  * every address it answered may be reached: one refused address refuses the name outright, since
  * a mixed answer is how a rebinding name looks.
  */
-export function decide(target: Target, answer: DnsAnswer | null, rung: Rung): GuardDecision {
+export function decide(
+  target: Target,
+  answer: DnsAnswer | null,
+  rung: Rung,
+  deniedNetworks: readonly OwnNetwork[] = [],
+): GuardDecision {
   const refused = (): GuardDecision => ({
     pass: false,
     outcome: refusal(rung, 'private_address'),
   });
+  const permittedAddress = (text: string): string | null => {
+    const verdict = judgeAddress(text);
+    if (!verdict.allowed || (deniedNetworks.length > 0 && onOwnNetwork(text, deniedNetworks)))
+      return null;
+    return verdict.address;
+  };
   if (target.host.kind === 'address') {
-    const verdict = judgeAddress(target.host.address);
-    return verdict.allowed ? { pass: true, connectTo: [verdict.address] } : refused();
+    const address = permittedAddress(target.host.address);
+    return address === null ? refused() : { pass: true, connectTo: [address] };
   }
   if (isLoopbackName(target.host.name)) return refused();
   // No answer for a name: the address cannot be placed, so it cannot pass.
@@ -81,9 +93,9 @@ export function decide(target: Target, answer: DnsAnswer | null, rung: Rung): Gu
   }
   const connectTo: string[] = [];
   for (const address of answer.addresses) {
-    const verdict = judgeAddress(address);
-    if (!verdict.allowed) return refused();
-    connectTo.push(verdict.address);
+    const permitted = permittedAddress(address);
+    if (permitted === null) return refused();
+    connectTo.push(permitted);
   }
   return { pass: true, connectTo: order(connectTo) };
 }

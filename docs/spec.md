@@ -213,6 +213,8 @@ SQLite, one file on one named volume. Integer minor units for money, except mode
 
 **Guard first.** Every URL, from any source, passes `guard()` before any transport: http/https only; a URL not acceptable as written (user-info, no host) refused; DNS resolved and every IANA special-purpose address range refused (private, loopback, link-local, CGNAT and metadata among them), except that a NAT64 address (64:ff9b::/96) is judged by the IPv4 address it embeds, because on an IPv6-only network every IPv4-only shop resolves to one; connection pinned to the validated IP; every redirect re-checked; body size cap; robots setting; per-host limiter; budget. The browser's egress goes through a filtering proxy in the core with the same rules, so pages cannot reach the LAN or the app's own API.
 
+Under Docker, the operator supplies local public address ranges through `FETCH_DENY_CIDRS`, including a router WAN address and delegated IPv6 prefixes. These are checked in addition to the process interfaces on every fetch hop. Invalid configuration stops startup.
+
 **Ladder.**
 1. `api`: known platform or public endpoints (Shopify `/products/<handle>.js`, WooCommerce Store API, Magento GraphQL, Best Buy CA JSON, marketplace endpoints).
 2. `http`: impersonating client. User-Agent and client hints come from the TLS profile and are never set by hand. Optional same-site Referer. The client's JA4 and HTTP/2 fingerprint are compared in the lab with a real capture of the Chrome version its profile claims at every client upgrade, and a mismatch is recorded (spike A found one for `impit` `chrome151`).

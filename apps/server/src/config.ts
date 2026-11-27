@@ -1,5 +1,6 @@
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { type OwnNetwork, parseDeniedNetworks } from '@agentic-dasher/fetch';
 import { parseAllowedHosts } from './auth/host.ts';
 
 // Same relative path from src/config.ts and from the bundled dist/index.mjs.
@@ -10,6 +11,7 @@ export interface Config {
   host: string | undefined;
   /** Host names the API answers for besides addresses and local names (auth/host.ts). */
   allowedHosts: string[];
+  deniedNetworks: readonly OwnNetwork[];
   /** ALLOWED_HOSTS entries that are not host names, as written. */
   rejectedAllowedHosts: string[];
   dataDir: string;
@@ -28,6 +30,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     port,
     host: env.HOST || undefined,
     allowedHosts: allowed.names,
+    deniedNetworks: parseDeniedNetworks(env.FETCH_DENY_CIDRS),
     rejectedAllowedHosts: allowed.rejected,
     dataDir: resolve(env.DATA_DIR ?? 'data'),
     webRoot: env.WEB_ROOT ? resolve(env.WEB_ROOT) : DEFAULT_WEB_ROOT,

@@ -64,6 +64,8 @@ export interface GuardedOptions {
    * machine). An address on one of them is refused as `private_address`, whatever range it is in.
    */
   readonly ownNetworks?: () => readonly OwnNetwork[];
+  /** Additional networks selected by the operator at startup; apply them to each hop. */
+  readonly deniedNetworks?: readonly OwnNetwork[];
 }
 
 export type GuardedResult<R extends HopResponse = HopResponse> =
@@ -159,9 +161,9 @@ export async function guardedExchange<R extends HopResponse>(
       } catch (error) {
         return stop(networkError(rung, codeOf(error, 'EAI_FAIL')));
       }
-      decision = decide(target, answer, rung);
+      decision = decide(target, answer, rung, options.deniedNetworks);
     } else {
-      decision = decide(target, null, rung);
+      decision = decide(target, null, rung, options.deniedNetworks);
     }
     if (!decision.pass) return stop(decision.outcome);
     // The machine itself and its link, at whatever address: a global IPv6 address of this host or
@@ -206,7 +208,7 @@ export async function guardedExchange<R extends HopResponse>(
     const next = resolveLocation(location, target);
     if (!next.ok) return stop(refusal(rung, next.reason));
     if (!needsLookup(next.target)) {
-      const known = decide(next.target, null, rung);
+      const known = decide(next.target, null, rung, options.deniedNetworks);
       if (!known.pass) return stop(known.outcome);
     }
     if (redirects >= maxRedirects) return stop(networkError(rung, TOO_MANY_REDIRECTS));

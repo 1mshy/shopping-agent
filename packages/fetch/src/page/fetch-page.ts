@@ -3,7 +3,12 @@
 // and no option that skips it.
 import { FetchOutcome, type Rung } from '@agentic-dasher/shared';
 import type { CookieJars } from '../cookies/index.ts';
-import { DEFAULT_MAX_REDIRECTS, type GuardedNet, guardedFetch } from '../guard/index.ts';
+import {
+  DEFAULT_MAX_REDIRECTS,
+  type GuardedNet,
+  guardedFetch,
+  type OwnNetwork,
+} from '../guard/index.ts';
 import {
   ABORT_CODE,
   type HeaderList,
@@ -70,6 +75,7 @@ export interface PageFetcherDeps {
   /** The clock (epoch milliseconds) for the deadline, Retry-After and cookie expiry. */
   readonly now?: () => number;
   readonly maxRedirects?: number;
+  readonly deniedNetworks?: readonly OwnNetwork[];
 }
 
 function hostOf(url: string): string {
@@ -163,6 +169,7 @@ export async function fetchPage(request: PageRequest, deps: PageFetcherDeps): Pr
 
   const result = await guardedFetch({ url: request.url, rung }, session, {
     maxBodyBytes,
+    ...(deps.deniedNetworks ? { deniedNetworks: deps.deniedNetworks } : {}),
     maxRedirects: deps.maxRedirects ?? DEFAULT_MAX_REDIRECTS,
   });
   if (!result.delivered) {

@@ -8,6 +8,7 @@ import {
   type InterfaceAddress,
   onOwnNetwork,
   ownNetworksOf,
+  parseDeniedNetworks,
 } from '../../src/guard/index.ts';
 
 const HOME: InterfaceAddress[] = [
@@ -120,6 +121,64 @@ describe('guardedExchange and the machine’s own networks', () => {
     });
     expect(result).toEqual(refused);
     expect(n.dialled).toEqual(['93.184.216.34 https://shop.example/p']);
+  });
+
+  it('adds configured prefixes to interface checks for both initial and subsequent hops', async () => {
+    const options = { ownNetworks, deniedNetworks: parseDeniedNetworks('45.81.0.0/20') };
+    const first = 'https://store.example/product';
+    const next = 'https://catalog.example/item';
+    for (const address of ['45.81.15.255', '203.0.114.25']) {
+      const blocked = net({ 'store.example': [address] }, {});
+      expect(await guardedExchange({ url: first, rung: 'http' }, blocked, options)).toEqual(
+        refused,
+      );
+      expect(blocked.dialled).toEqual([]);
+      const redirect = net(
+        { 'store.example': ['93.184.216.34'], 'catalog.example': [address] },
+        {
+          [first]: { status: 302, location: next },
+        },
+      );
+      expect(await guardedExchange({ url: first, rung: 'http' }, redirect, options)).toEqual(
+        refused,
+      );
+      expect(redirect.dialled).toEqual([`93.184.216.34 ${first}`]);
+    }
+    const allowed = net({ 'store.example': ['45.81.16.0'] }, {});
+    expect(await guardedExchange({ url: first, rung: 'http' }, allowed, options)).toMatchObject({
+      delivered: true,
+      status: 200,
+    });
+  });
+
+  it('normalises mapped operator addresses and mapped prefixes to the native IPv4 range', () => {
+    const single = parseDeniedNetworks('::ffff:192.0.2.5');
+    expect(onOwnNetwork('192.0.2.5', single)).toBe(true);
+    expect(onOwnNetwork('192.0.2.6', single)).toBe(false);
+    const prefix = parseDeniedNetworks('::ffff:192.0.2.0/120');
+    for (const address of ['192.0.2.254', '::ffff:192.0.2.254', '64:ff9b::192.0.2.254']) {
+      expect(onOwnNetwork(address, prefix)).toBe(true);
+    }
+    expect(onOwnNetwork('192.0.3.0', prefix)).toBe(false);
+    expect(() => parseDeniedNetworks('::ffff:192.0.2.0/95')).toThrow(/FETCH_DENY_CIDRS/);
+  });
+
+  it('returns the operator policy refusal for a literal next hop even at the redirect limit', async () => {
+    const first = 'https://store.example/product';
+    const scripted = net(
+      { 'store.example': ['93.184.216.34'] },
+      {
+        [first]: { status: 302, location: 'https://45.81.1.10/product' },
+      },
+    );
+    expect(
+      await guardedExchange({ url: first, rung: 'http' }, scripted, {
+        maxRedirects: 0,
+        ownNetworks,
+        deniedNetworks: parseDeniedNetworks('45.81.0.0/20'),
+      }),
+    ).toEqual(refused);
+    expect(scripted.dialled).toEqual([`93.184.216.34 ${first}`]);
   });
 
   it('still reaches a public address', async () => {

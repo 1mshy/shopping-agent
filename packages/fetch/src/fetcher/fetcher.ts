@@ -21,7 +21,7 @@ import {
   type PolicyRefusalReason,
 } from '@agentic-dasher/shared';
 import type { CookieJars } from '../cookies/index.ts';
-import { parseTarget } from '../guard/index.ts';
+import { type OwnNetwork, parseTarget } from '../guard/index.ts';
 import {
   createPacer,
   hostKey,
@@ -59,6 +59,7 @@ export interface FetcherDeps {
   /** The wall classifier (fetchPage's hook). */
   readonly classify?: Classify;
   readonly maxRedirects?: number;
+  readonly deniedNetworks?: readonly OwnNetwork[];
   /** `host_pacing`: `sqlitePacingStore(db)`, or `memoryPacingStore()`. */
   readonly pacing: PacingStore;
   /** `host_access`: `sqlitePlaybookStore(db)`, or `memoryPlaybookStore()`. */
@@ -183,6 +184,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
     jars: deps.jars,
     now,
     ...(deps.classify !== undefined ? { classify: deps.classify } : {}),
+    ...(deps.deniedNetworks ? { deniedNetworks: deps.deniedNetworks } : {}),
     ...(deps.maxRedirects !== undefined ? { maxRedirects: deps.maxRedirects } : {}),
   });
 
