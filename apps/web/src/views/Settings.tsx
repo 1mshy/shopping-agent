@@ -1,5 +1,10 @@
 // Settings (read-mostly in this cut) and Diagnostics.
-import type { SettingsResponse, SettingView } from '@agentic-dasher/shared';
+import {
+  ROBOTS_MODES,
+  type SettingResponse,
+  type SettingsResponse,
+  type SettingView,
+} from '@agentic-dasher/shared';
 import { useEffect, useState } from 'react';
 import { describeFailure, request } from '../http.ts';
 import { t } from '../strings.ts';
@@ -16,6 +21,50 @@ interface Channel {
 function settingText(s: SettingView | undefined): string {
   if (s === undefined || !s.isSet || s.value === null) return t.unknown;
   return typeof s.value === 'string' ? s.value : JSON.stringify(s.value);
+}
+
+function RobotsSetting({ setting }: { setting: SettingView }) {
+  const [current, setCurrent] = useState(setting);
+  const [value, setValue] = useState(settingText(setting));
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  async function save() {
+    setBusy(true);
+    setError(null);
+    try {
+      const result = await request<SettingResponse>('PUT', '/settings/fetch.robots', { value });
+      setCurrent(result.setting);
+      setValue(settingText(result.setting));
+    } catch (cause) {
+      setError(describeFailure(cause));
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <div>
+      <label htmlFor="robots-mode">{t.robotsMode}</label>
+      <select
+        id="robots-mode"
+        value={value}
+        disabled={busy}
+        onChange={(e) => setValue(e.target.value)}
+      >
+        {ROBOTS_MODES.map((mode) => (
+          <option key={mode} value={mode}>
+            {mode}
+          </option>
+        ))}
+      </select>
+      <button type="button" disabled={busy || value === current.value} onClick={save}>
+        {t.save}
+      </button>
+      <p className="muted" role="status">
+        {t.settingSource(settingText(current), current.source ?? t.unknown)}
+      </p>
+      <Message kind="error" text={error} />
+    </div>
+  );
 }
 
 function ChannelRow({ channel }: { channel: Channel }) {
@@ -76,6 +125,7 @@ export function SettingsView({ onChangeMarket }: { onChangeMarket: () => void })
   }, []);
 
   const get = (key: string) => settings?.find((s) => s.key === key);
+  const robots = get('fetch.robots');
   return (
     <section>
       <h1>{t.settingsTitle}</h1>
@@ -89,11 +139,8 @@ export function SettingsView({ onChangeMarket }: { onChangeMarket: () => void })
               {settingText(get('market.country'))} · {settingText(get('market.currency'))} ·{' '}
               {settingText(get('market.language'))}
             </dd>
-            <dt>{t.robotsMode}</dt>
-            <dd>
-              {settingText(get('fetch.robots') ?? settings.find((s) => s.key.includes('robots')))}
-            </dd>
           </dl>
+          {robots && <RobotsSetting setting={robots} />}
           <div className="actions">
             <button type="button" onClick={onChangeMarket}>
               {t.localeChange}

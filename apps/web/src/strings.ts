@@ -166,6 +166,7 @@ export const t = {
   // Settings
   settingsTitle: 'Settings',
   robotsMode: 'robots.txt handling',
+  settingSource: (value: string, source: string) => `Current setting: ${value} (${source}).`,
   market: 'Market',
   channelsTitle: 'Notification channels',
   noChannels: 'No channels.',
