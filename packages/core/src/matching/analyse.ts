@@ -308,7 +308,20 @@ export function brandInTokens(brand: readonly string[], forms: ReadonlySet<strin
   return forms.has(brand.join(''));
 }
 
-/** Whether the listing confirms the asked brand: in its own words or in its brand field. */
+/** Use a stated brand before inferring it from the title. */
 export function brandConfirmed(a: AskedView, l: ListingView): boolean {
-  return brandInTokens(a.brand, l.ownForms) || brandFieldMatches(a.brandText, l.brandField);
+  if (l.brandField !== null && compactKey(l.brandField).length >= 2) {
+    if (brandFieldMatches(a.brandText, l.brandField)) return true;
+    if (!a.brandKnown) {
+      // With a name-only watch, the inferred first word can be just part of a brand ("Bambu Lab").
+      let prefix = '';
+      for (const token of a.tokens) {
+        if (token.kind !== 'word') break;
+        prefix += token.key;
+        if (brandFieldMatches(prefix, l.brandField)) return true;
+      }
+    }
+    return false;
+  }
+  return brandInTokens(a.brand, l.ownForms);
 }

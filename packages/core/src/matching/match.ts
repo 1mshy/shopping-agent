@@ -20,7 +20,7 @@ const REJECTIONS: ReadonlySet<MatchRelation> = new Set([
  * Bumped whenever a rule, a word class or the precedence changes, so that cached verdicts made
  * by an older matcher are not reused (S§5.4 verdict cache key).
  */
-export const MATCHER_VERSION = 'matcher-t12.2';
+export const MATCHER_VERSION = 'matcher-t12.3';
 
 const decision = (
   relation: MatchRelation,
