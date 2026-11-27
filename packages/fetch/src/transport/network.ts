@@ -32,7 +32,10 @@ async function boundedLookup(
   const remaining = context.deadline - now();
   if (remaining <= 0) throw codedError(TIMEOUT_CODE, 'the deadline has passed');
   const stop = new AbortController();
-  const timer = setTimeout(() => stop.abort(), remaining);
+  const timer = setTimeout(
+    () => stop.abort(codedError(TIMEOUT_CODE, 'the deadline has passed')),
+    remaining,
+  );
   const onAbort = () => stop.abort();
   context.signal.addEventListener('abort', onAbort, { once: true });
   try {
