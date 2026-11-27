@@ -93,6 +93,16 @@ describe('the network’s lookup', () => {
     expect(await failure(net.lookup('shop.test'))).toBe(ABORT_CODE);
   });
 
+  it('classifies an elapsed deadline timer even if the wall clock stepped back', async () => {
+    const network = createHttpNetwork({ resolver: hanging, engine, now: () => 1000 });
+    const net = network.open({
+      deadline: 1005,
+      signal: new AbortController().signal,
+      headersFor: () => [],
+    });
+    expect(await failure(net.lookup('shop.test'))).toBe(TIMEOUT_CODE);
+  });
+
   it('passes the resolver’s own failure through', async () => {
     const network = createHttpNetwork({
       resolver: dnsResolver(queries(coded('ENOTFOUND'), coded('ENOTFOUND'))),
