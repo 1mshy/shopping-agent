@@ -5,7 +5,9 @@
 // placeholder or list price.
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { checkListing } from '../../src/sweep/index.ts';
+import { createWatchService } from '../../src/watches/index.ts';
 import {
+  CA,
   Clock,
   depsOf,
   eventsOf,
@@ -16,6 +18,7 @@ import {
   listingRow,
   MIN,
   observationsOf,
+  PROFILE,
   Script,
   type Scripted,
   TempDb,
@@ -105,5 +108,64 @@ describe('only in-stock reads count towards the reference', () => {
     const placeholder: Scripted = { price: 100, availability: 'out' };
     await reads(listingId, url, H, H, H, ...Array.from({ length: 6 }, () => placeholder), L, L);
     expect(eventsOf(tmp.db).map((e) => e.kind)).toEqual(['price_drop']);
+  });
+});
+
+describe('the comparison across stores and the baseline for each listing', () => {
+  function stores() {
+    const low = watched();
+    const highId = insertListing(tmp.db, clock, { storeId: insertStore(tmp.db) });
+    follow(tmp.db, low.watchId, highId);
+    const highUrl = listingRow(tmp.db, highId)?.urlCanonical as string;
+    return {
+      watchId: low.watchId,
+      highId,
+      low: (...prices: number[]) =>
+        reads(low.listingId, low.url, ...prices.map((price) => ({ price }))),
+      high: (...prices: number[]) => reads(highId, highUrl, ...prices.map((price) => ({ price }))),
+    };
+  }
+
+  it('shows the cross-store median without alerting for the consistently cheaper store', async () => {
+    const s = stores();
+    await s.high(14_000, 14_000);
+    await s.low(10_000, 10_000);
+    expect(watchRow(tmp.db, s.watchId)).toMatchObject({
+      referencePrice: 12_000,
+      referenceKind: 'median_verified',
+    });
+    expect(eventsOf(tmp.db)).toHaveLength(0);
+  });
+
+  it('alerts on a confirmed drop even when the listing is still above the cross-store median', async () => {
+    const s = stores();
+    await s.low(10_000);
+    await s.high(14_000, 14_000, 14_000, 13_000);
+    expect(eventsOf(tmp.db)).toHaveLength(0);
+    await s.high(13_000);
+    expect(watchRow(tmp.db, s.watchId)?.referencePrice).toBe(12_000);
+    expect(eventsOf(tmp.db)).toMatchObject([
+      {
+        kind: 'price_drop',
+        listingId: s.highId,
+        observationId: observationsOf(tmp.db, s.highId).at(-1)?.id,
+      },
+    ]);
+  });
+
+  it('evaluates the explicit reference a person confirmed through the watch service', async () => {
+    const s = stores();
+    await s.low(10_000);
+    await s.high(14_000);
+    const watches = createWatchService({ db: tmp.db, now: clock.now, market: () => CA });
+    watches.update(PROFILE, s.watchId, {
+      referencePrice: { amountMinor: 16_000, currency: 'CAD' },
+    });
+    await s.high(14_000);
+    expect(eventsOf(tmp.db)).toMatchObject([{ kind: 'price_drop', listingId: s.highId }]);
+    expect(watchRow(tmp.db, s.watchId)).toMatchObject({
+      referencePrice: 16_000,
+      referenceKind: 'user_confirmed',
+    });
   });
 });
