@@ -60,12 +60,27 @@ it('requires a locally known reference, leaves ordinary differences and other su
   }
 });
 
-it('recognises an exact known www alias before assigning a look-alike signal', async () => {
+it.each(['www.n0rthshop.ca', 'www.n0rthshop.ca.'])(
+  'recognises an exact known alias %s before assigning a look-alike signal',
+  async (host) => {
+    const save = intake();
+    insertStore(tmp.db, { host, trustTier: 'known' });
+    insertStore(tmp.db, { host: 'northshop.ca', trustTier: 'known' });
+    expect((await save('n0rthshop.ca', 'item')).status).toBe(201);
+    expect(
+      tmp.db.orm.select().from(schema.store).where(eq(schema.store.host, 'n0rthshop.ca')).get(),
+    ).toMatchObject({ trustTier: 'unverified', trustReasons: [] });
+  },
+);
+
+it('retains the spelling of a fully qualified known host in its reason', async () => {
   const save = intake();
-  insertStore(tmp.db, { host: 'www.n0rthshop.ca', trustTier: 'known' });
-  insertStore(tmp.db, { host: 'northshop.ca', trustTier: 'known' });
+  insertStore(tmp.db, { host: 'www.northshop.ca.', trustTier: 'known' });
   expect((await save('n0rthshop.ca', 'item')).status).toBe(201);
   expect(
     tmp.db.orm.select().from(schema.store).where(eq(schema.store.host, 'n0rthshop.ca')).get(),
-  ).toMatchObject({ trustTier: 'unverified', trustReasons: [] });
+  ).toMatchObject({
+    trustTier: 'caution',
+    trustReasons: ['Hostname resembles known storefront www.northshop.ca.'],
+  });
 });

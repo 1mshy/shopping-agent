@@ -17,14 +17,16 @@ export function initialStoreTrust(
       .toLowerCase()
       .replace(/\.$/, '')
       .replace(/^www\./, '');
+    const ownHosts = [bare, `www.${bare}`, `${bare}.`, `www.${bare}.`];
+    const spellings = [...ownHosts, ...refs.flatMap((ref) => [ref, `${ref}.`])];
     const known = db.orm
       .selectDistinct({ host: s.host })
       .from(s)
-      .where(and(inArray(s.host, [bare, `www.${bare}`, ...refs]), eq(s.trustTier, 'known')))
+      .where(and(inArray(s.host, spellings), eq(s.trustTier, 'known')))
       .orderBy(asc(s.host))
       .all();
     const first = known[0];
-    if (first && !known.some((row) => row.host === bare || row.host === `www.${bare}`))
+    if (first && !known.some((row) => ownHosts.includes(row.host)))
       return { tier: 'caution', reasons: [`Hostname resembles known storefront ${first.host}`] };
   }
   return { tier: 'unverified', reasons: [] };
