@@ -20,6 +20,22 @@ describe('brand normalisation', () => {
     expect(brandFieldMatches('Zentro', 'Acme')).toBe(false);
     expect(brandFieldMatches('Zentro', null)).toBe(false);
   });
+
+  it.each([
+    ['Anker', 'beta-anker-de'],
+    ['Dreame', 'Dreame Germany'],
+    ['Keurig', 'KEURIG K'],
+    ['Bambu Lab', 'BambuLabs'],
+    ['Zentro Labs', 'Zentro-Labs™'],
+    ['Zentro Labs', 'Zentro-Labs™ - US'],
+  ])('recognises %s in the store field %s', (brand, field) => {
+    expect(brandFieldMatches(brand, field)).toBe(true);
+  });
+
+  it('retains other words that distinguish two brands', () => {
+    expect(brandFieldMatches('Ace', 'Golden Ace')).toBe(false);
+    expect(brandFieldMatches('Golden Ace', 'Ace')).toBe(false);
+  });
 });
 
 describe('MPN normalisation', () => {

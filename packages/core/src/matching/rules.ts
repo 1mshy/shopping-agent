@@ -568,12 +568,7 @@ function leadingWord(l: ListingView): Token | null {
 /** Another brand: the listing opens with a name the asked side does not have, and never names the asked brand. */
 function otherBrand(a: AskedView, l: ListingView, brandOk: boolean): boolean {
   if (brandOk || a.brand.length === 0) return false;
-  if (l.brandField !== null && compactKey(l.brandField).length >= 2) {
-    // A store field naming a word the asked side has ("WD" for "WD_BLACK SN850X") is no other brand.
-    const field = tokenise(prepare(l.brandField)).flatMap(tokenForms);
-    const title = new Set(tokenise(l.prepared).flatMap(tokenForms));
-    if (!field.some((w) => a.words.has(w)) && !brandInTokens(a.brand, title)) return true;
-  }
+  if (l.brandField !== null && compactKey(l.brandField).length >= 2) return true;
   const lead = leadingWord(l);
   return lead !== null && !a.words.has(lead.key) && !l.ownForms.has(a.brand.join(''));
 }

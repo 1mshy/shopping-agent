@@ -12,21 +12,33 @@ import {
 } from './codes.ts';
 import { normaliseGtin } from './gtin.ts';
 
+/** Strip trademark signs before NFKC would turn them into letters ("™" becomes "TM"). */
+const brandText = (raw: string): string => raw.replace(/[®™©℠]/gu, '').normalize('NFKC');
+
 /** Normalised brand: NFKC, lower case, letters and digits only. */
 export function normaliseBrand(raw: string | null | undefined): string {
-  return typeof raw === 'string' ? compactKey(raw) : '';
+  return typeof raw === 'string' ? compactKey(brandText(raw)) : '';
 }
 
-/**
- * True when a store's brand field names the asked brand. Store fields carry decorations
- * ("Laifen - US", "beta-anker-de", "Dreame Germany", "KEURIG K"), so one containing the other
- * counts, for brands of at least three characters.
- */
+/** Known names used in brand fields, independent of the product's title or part number. */
+function brandKey(raw: string): string {
+  const key = normaliseBrand(raw);
+  if (key === 'bambulabs') return 'bambulab';
+  if (key === 'keurigk') return 'keurig';
+  return key;
+}
+
+/** Compare complete names, allowing store tags such as "Laifen - US" and "beta-anker-de". */
 export function brandFieldMatches(askedBrand: string, listingBrand: string | null): boolean {
-  const a = normaliseBrand(askedBrand);
-  const l = normaliseBrand(listingBrand);
-  if (a.length < 3 || l.length < 3) return a !== '' && a === l;
-  return l.includes(a) || a.includes(l);
+  if (listingBrand === null) return false;
+  const asked = brandKey(askedBrand);
+  if (asked === '') return false;
+  if (asked === brandKey(listingBrand)) return true;
+  const undecorated = brandText(listingBrand)
+    .trim()
+    .replace(/^beta[\s_-]+/iu, '')
+    .replace(/[\s_-]+(?:us|usa|ca|de|uk|canada|germany)$/iu, '');
+  return asked === brandKey(undecorated);
 }
 
 export interface Tier1Input {
