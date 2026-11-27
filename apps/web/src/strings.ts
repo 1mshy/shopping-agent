@@ -202,6 +202,14 @@ export const t = {
   disabled: 'off',
 
   // Diagnostics
+  fetchDiagnostics: 'Store fetches',
+  availableRungs: 'Available rungs',
+  noFetches: 'No store requests recorded yet.',
+  storeHost: 'Store host',
+  pageKind: 'Page type',
+  rung: 'Rung',
+  attempts: 'Attempts',
+  backoffUntil: 'Backoff until',
   diagnosticsTitle: 'Diagnostics',
   jobsTitle: 'Jobs',
   jobColumn: 'Job',
