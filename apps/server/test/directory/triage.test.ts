@@ -9,7 +9,19 @@ import {
 import { afterEach, beforeEach, expect, it } from 'vitest';
 import { type PageReply, scriptedNetwork } from '../../../../packages/fetch/test/page/net.ts';
 import { createStoreDirectory } from '../../src/directory/triage.ts';
-import { CA, Clock, insertStore, MIN, TempDb } from '../sweep/harness.ts';
+import { checkListing } from '../../src/sweep/index.ts';
+import {
+  CA,
+  Clock,
+  depsOf,
+  follow,
+  insertListing,
+  insertStore,
+  insertWatch,
+  MIN,
+  readOf,
+  TempDb,
+} from '../sweep/harness.ts';
 
 let tmp: TempDb;
 beforeEach(() => {
@@ -66,7 +78,7 @@ function setup() {
     signal: new AbortController().signal,
   });
   const row = () => tmp.db.orm.select().from(schema.store).get();
-  return { clock, storeId, replies, net, directory, request, row };
+  return { clock, storeId, replies, net, directory, request, row, fetcher };
 }
 
 it('reads a storefront once and keeps its typed market evidence through a database restart and other markets', async () => {
@@ -197,4 +209,87 @@ it('honours a block set during a probe and rejects a mismatched origin before a 
   const count = h.net.hops.length;
   expect(await h.directory().fingerprint(h.request())).toEqual({ kind: 'blocked' });
   expect(h.net.hops).toHaveLength(count);
+});
+
+it.each([null, 10000])(
+  'keeps direct-price proof separate from health after a sweep with sticker %s',
+  async (sticker) => {
+    const h = setup();
+    h.replies[home] = body('<div itemscope itemtype="https://schema.org/Product">Kettle</div>');
+    expect(await h.directory().fingerprint(h.request())).toMatchObject({ isShop: 'yes' });
+    const url = `${home}p/kettle`;
+    const listingId = insertListing(tmp.db, h.clock, { storeId: h.storeId, url });
+    follow(tmp.db, insertWatch(tmp.db, h.clock), listingId);
+    h.replies[url] = body('Kettle availability');
+    const sweep = await checkListing(
+      depsOf(
+        tmp,
+        h.clock,
+        async (req, _readers, ctx) => {
+          const page = await ctx.get({ url: req.url, rung: 'http' });
+          expect(page.outcome.kind).toBe('ok');
+          const read = readOf({
+            sticker,
+            availability: sticker === null ? 'out' : 'in',
+            method: 'json_ld',
+            rung: 'http',
+          });
+          return { kind: 'read', read, methods: [], candidates: read.candidates };
+        },
+        [],
+        { fetcher: h.fetcher },
+      ),
+      listingId,
+      { force: true },
+    );
+    expect(sweep.outcome.kind).toBe('read');
+    expect(h.row()?.lastOkAt).not.toBeNull();
+    h.clock.advance(31 * 24 * 60 * MIN);
+    h.replies[home] = body('');
+    expect(await h.directory().fingerprint(h.request())).toMatchObject({
+      kind: 'fresh',
+      isShop: sticker === null ? 'no' : 'yes',
+      evidence: { platform: 'unknown', productMarkup: false, productSitemap: false },
+    });
+  },
+);
+
+it('replaces a platform learned from an expired fingerprint when the storefront moves', async () => {
+  const h = setup();
+  h.replies[home] = body('<meta name="generator" content="Shopify">');
+  expect(await h.directory().fingerprint(h.request())).toMatchObject({
+    evidence: { platform: 'shopify' },
+  });
+  expect(h.row()?.platform).toBe('shopify');
+  h.clock.advance(31 * 24 * 60 * MIN);
+  h.replies[home] = body('<meta name="generator" content="WooCommerce">');
+  h.replies[`${home}wp-json/wc/store/v1/products?per_page=1`] = { status: 404 };
+  expect(await h.directory().fingerprint(h.request())).toMatchObject({
+    evidence: { platform: 'woo' },
+  });
+  expect(h.row()?.platform).toBe('woo');
+});
+
+it('only reuses direct platform evidence at its recorded origin', async () => {
+  const h = setup();
+  tmp.db.orm
+    .update(schema.store)
+    .set({
+      platform: 'shopify',
+      platformEvidence: `direct_read ${origin}`,
+      lastOkAt: h.clock.iso(),
+    })
+    .run();
+  const foreign = 'http://shop.example';
+  for (const [url, reply] of Object.entries(h.replies))
+    h.replies[url.replace(origin, foreign)] = reply;
+  expect(await h.directory().fingerprint({ ...h.request(), origin: foreign })).toMatchObject({
+    isShop: 'no',
+    evidence: { platform: 'unknown', platformEvidence: null },
+  });
+  expect(await h.directory().fingerprint(h.request())).toMatchObject({
+    isShop: 'yes',
+    evidence: { platform: 'shopify', platformEvidence: 'prior_read' },
+  });
+  expect(h.row()).toMatchObject({ platform: 'shopify', platformEvidence: `direct_read ${origin}` });
 });

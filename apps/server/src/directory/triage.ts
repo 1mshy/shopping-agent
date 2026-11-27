@@ -16,6 +16,7 @@ import {
 } from '@agentic-dasher/sources';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
+import { directPlatformEvidence, fingerprintPlatformEvidence } from './storefront.ts';
 
 const longExpiry = 30 * 24 * 60 * 60_000;
 const retryAfter = 15 * 60_000;
@@ -97,8 +98,7 @@ function knownShop(row: Store): boolean {
   const cache = row.fingerprint;
   return (
     row.isShop === 'yes' &&
-    (row.lastOkAt !== null ||
-      cache === null ||
+    (cache === null ||
       (typeof cache === 'object' && 'confirmedShop' in cache && cache.confirmedShop === true))
   );
 }
@@ -157,7 +157,9 @@ export function createStoreDirectory({
         origin: origin.origin,
         marketPrefix: row.marketPrefix,
         market,
-        ...(row.lastOkAt !== null ? { platform: row.platform } : {}),
+        ...(row.platformEvidence === directPlatformEvidence(origin.origin)
+          ? { platform: row.platform }
+          : {}),
       },
       fetcher,
       request,
@@ -184,7 +186,9 @@ export function createStoreDirectory({
               confirmedShop: confirmed,
               [key]: { version: 1, at, classification, evidence },
             },
-            ...(current.platform === 'unknown' && evidence.platform !== 'unknown'
+            ...((current.platform === 'unknown' ||
+              fingerprintPlatformEvidence(current.platformEvidence)) &&
+            evidence.platform !== 'unknown'
               ? { platform: evidence.platform, platformEvidence: evidence.platformEvidence }
               : {}),
           })
