@@ -12,13 +12,7 @@ import { formatTime, Message } from '../ui.tsx';
 
 import { ChangePassword } from './ChangePassword.tsx';
 
-/** The channel view of apps/server notify/channels.ts (ChannelView), the fields shown here. */
-interface Channel {
-  readonly id: number;
-  readonly type: string;
-  readonly name: string;
-  readonly enabled: boolean;
-}
+import { type Channel, ChannelForm, ChannelRow } from './Channels.tsx';
 
 function settingText(s: SettingView | undefined): string {
   if (s === undefined || !s.isSet || s.value === null) return t.unknown;
@@ -69,41 +63,6 @@ function RobotsSetting({ setting }: { setting: SettingView }) {
   );
 }
 
-function ChannelRow({ channel }: { channel: Channel }) {
-  const [result, setResult] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-
-  async function test() {
-    setError(null);
-    setResult(null);
-    setBusy(true);
-    try {
-      const res = await request<{ outcome: unknown }>('POST', `/channels/${channel.id}/test`, {});
-      const o = res.outcome as { kind?: unknown } | null;
-      setResult(t.testResult(typeof o?.kind === 'string' ? o.kind : JSON.stringify(res.outcome)));
-    } catch (err) {
-      setError(describeFailure(err));
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  return (
-    <li className="card">
-      <strong>{channel.name}</strong> <span className="badge">{channel.type}</span>
-      <span className="badge">{channel.enabled ? t.enabled : t.disabled}</span>
-      <div className="actions">
-        <button type="button" disabled={busy} onClick={test}>
-          {t.test}
-        </button>
-      </div>
-      <Message kind="ok" text={result} />
-      <Message kind="error" text={error} />
-    </li>
-  );
-}
-
 export function SettingsView({ onChangeMarket }: { onChangeMarket: () => void }) {
   const [settings, setSettings] = useState<readonly SettingView[] | null>(null);
   const [channels, setChannels] = useState<readonly Channel[] | null>(null);
@@ -126,6 +85,15 @@ export function SettingsView({ onChangeMarket }: { onChangeMarket: () => void })
     };
   }, []);
 
+  function changed(channel: Channel) {
+    setChannels((rows) => {
+      const current = rows ?? [];
+      if (channel.removedAt) return current.filter((row) => row.id !== channel.id);
+      return current.some((row) => row.id === channel.id)
+        ? current.map((row) => (row.id === channel.id ? channel : row))
+        : [...current, channel];
+    });
+  }
   const get = (key: string) => settings?.find((s) => s.key === key);
   const robots = get('fetch.robots');
   return (
@@ -152,10 +120,11 @@ export function SettingsView({ onChangeMarket }: { onChangeMarket: () => void })
       )}
       <ChangePassword />
       <h2>{t.channelsTitle}</h2>
+      {channels !== null && <ChannelForm changed={changed} />}
       {channels !== null && channels.length === 0 && <p className="muted">{t.noChannels}</p>}
       <ul className="plain">
         {channels?.map((c) => (
-          <ChannelRow key={c.id} channel={c} />
+          <ChannelRow key={c.id} channel={c} changed={changed} />
         ))}
       </ul>
     </section>
