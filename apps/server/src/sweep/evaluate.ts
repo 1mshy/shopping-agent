@@ -42,7 +42,7 @@
 // is not blocked:
 //   now                      the clock (never before the evaluated observation).
 //   watch.currency           watch.currency after adoption.
-//   watch.referencePrice     the reference just stored, in watch.currency.
+//   watch.referencePrice     the owner-confirmed price, or the recent in-stock prices of this listing.
 //   watch.targetPrice        rules_json.targetPrice (policy.ts readWatchRules).
 //   watch.dropBasisPoints    rules_json.dropBasisPoints, or dropPct × 100, default 500 (5%).
 //   watch.cooldownSeconds    watch.cooldown_s.
@@ -355,8 +355,12 @@ function recomputeReference(
   return { watch: next, reference: outcome };
 }
 
-/** How many of a listing's newest comparable reads stay out of its recent price: the judged read and its confirmation. */
-const REFERENCE_EXCLUDES_NEWEST = 2;
+/** Prices oldest first. Exclude the read under evaluation and its confirmation. With only one
+ * or two observations the first price establishes the baseline (S§5.8). */
+function recentMedian(prices: readonly number[]): number | null {
+  if (prices.length === 0) return null;
+  return priceMedian(prices.slice(0, Math.max(1, prices.length - 2)));
+}
 
 /** The listing's recent price for the reference (see the mapping in the header). */
 function recentPrice(db: Database, m: Member, sinceIso: string): ReferenceLatestRead | null {
@@ -387,25 +391,21 @@ function recentPrice(db: Database, m: Member, sinceIso: string): ReferenceLatest
     sinceIso,
     upTo: null,
     limit: HISTORY_MAX_READS,
-  }).filter(
-    (o) =>
-      o.currency === currency && o.effective !== null && o.effective > 0 && o.availability === 'in',
+  });
+  const price = recentMedian(
+    window.flatMap((o) =>
+      o.currency === currency && o.effective !== null && o.effective > 0 && o.availability === 'in'
+        ? [o.effective]
+        : [],
+    ),
   );
-  // Never in stock in the window: nothing of this listing can stand as a baseline yet.
-  if (window.length === 0) return null;
-  // The two newest reads are left out: a read being judged and the read that confirms it must not
-  // be part of their own baseline, or a new watch could never alert and the reference would
-  // follow every drop down before it is confirmed. With one or two reads in all, the oldest
-  // stands (the first read is the baseline, S§5.8 Intake).
-  const before = window.slice(0, -REFERENCE_EXCLUDES_NEWEST);
-  const basis = before.length > 0 ? before : window.slice(0, 1);
-  const prices = basis.map((o) => o.effective as number);
+  if (price === null) return null;
   return {
     kind: 'observation',
     observationId: latest.id,
     observedAt: latest.observedAt,
     currency: latest.currency,
-    price: priceMedian(prices),
+    price,
     availability: latest.availability,
   };
 }
@@ -467,6 +467,31 @@ function readsOf(
   return reads;
 }
 
+/** The default baseline uses the recent history of the listing under evaluation (S§5.8). */
+function dropBaseline(
+  watch: WatchRow,
+  listing: Member['listing'],
+  reads: readonly AlertListingRead[],
+): Money | null {
+  const currency = watch.currency;
+  if (currency === null) return null;
+  if (watch.referenceKind === 'user_confirmed' && watch.referencePrice !== null) {
+    return { amountMinor: watch.referencePrice, currency };
+  }
+  if (listing.condition === 'unknown') return null;
+  const prices = reads.flatMap((r) =>
+    r.kind === 'observation' &&
+    r.currency === currency &&
+    r.availability === 'in' &&
+    r.price !== null &&
+    r.price > 0
+      ? [r.price]
+      : [],
+  );
+  const amountMinor = recentMedian(prices);
+  return amountMinor === null ? null : { amountMinor, currency };
+}
+
 function evaluatePrice(
   ctx: EvaluationContext,
   watch: WatchRow,
@@ -503,10 +528,7 @@ function evaluatePrice(
     now: nowIso,
     watch: {
       currency: watch.currency,
-      referencePrice:
-        watch.referencePrice !== null && watch.currency !== null
-          ? { amountMinor: watch.referencePrice, currency: watch.currency }
-          : null,
+      referencePrice: dropBaseline(watch, self.listing, reads),
       targetPrice: rules.targetPrice,
       dropBasisPoints: rules.dropBasisPoints,
       cooldownSeconds: watch.cooldownS,
