@@ -66,11 +66,10 @@
 //   watch.currency, targetPrice   as above; restockRuleOnSince = watch.restock_enabled_at;
 //   coverage                 the highest transition observation id covered for each listing,
 //                            including the bounded legacy watermark at upgrade.
-//   listings                 the confirmed listings of unblocked stores, each with its observations
-//                            over the window, oldest first, and a failed read at its end when its
-//                            last attempt failed (for the listing just read: before the evaluated
-//                            observation, as above). The event names the listing and observation the
-//                            decision names.
+//   listings                 the latest read of each confirmed listing of an unblocked store,
+//                            including a failed latest attempt. For a priced in-stock listing,
+//                            its previous out and first following in establish its transition,
+//                            including observations older than the price-history window.
 import {
   type AlertListingRead,
   type AlertObservedRead,
@@ -114,6 +113,7 @@ import {
   type Member,
   type ObservationRow,
   observationById,
+  stockTransitionBefore,
   trackedMembers,
   type WatchRow,
   watchById,
@@ -433,6 +433,7 @@ function readsOf(
   listingId: number,
   options: {
     readonly sinceIso: string;
+    readonly limit?: number;
     readonly upTo: ObservationRow | null;
     /** A failed attempt to place right before `upTo` (or at the end without one). */
     readonly failedAt: string | null;
@@ -442,7 +443,7 @@ function readsOf(
   const history = historyOf(db, listingId, {
     sinceIso: options.sinceIso,
     upTo: options.upTo,
-    limit: HISTORY_MAX_READS,
+    limit: options.limit ?? HISTORY_MAX_READS,
   });
   const reads: AlertListingRead[] = history.map(observedRead);
   const at = options.failedAt;
@@ -644,15 +645,33 @@ function evaluateRestockRule(
           ? check.lastReadAt
           : null;
       const through = covered.get(m.listing.id);
+      const latest = readsOf(db, m.listing.id, {
+        sinceIso,
+        limit: 1,
+        upTo: isSelf ? evaluated : null,
+        failedAt,
+        nowIso,
+      }).at(-1);
+      const reads: AlertListingRead[] = [];
+      if (latest) {
+        if (
+          latest.kind === 'observation' &&
+          latest.availability === 'in' &&
+          latest.price !== null &&
+          latest.currency === watch.currency
+        ) {
+          const prior = stockTransitionBefore(db, m.listing.id, {
+            id: latest.observationId,
+            observedAt: latest.observedAt,
+          });
+          reads.push(...prior.map(observedRead));
+        }
+        reads.push(latest);
+      }
       return {
         listingId: m.listing.id,
         ...(through === undefined ? {} : { coveredThroughObservationId: through }),
-        reads: readsOf(db, m.listing.id, {
-          sinceIso,
-          upTo: isSelf ? evaluated : null,
-          failedAt,
-          nowIso,
-        }),
+        reads,
       };
     });
   const { decision, transitions } = evaluateRestockWithCoverage({

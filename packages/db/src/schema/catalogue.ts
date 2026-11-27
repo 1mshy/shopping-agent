@@ -162,6 +162,7 @@ export const priceObservation = sqliteTable(
     // The parent key of notification_event's (observation_id, listing_id).
     unique().on(t.id, t.listingId),
     index('price_observation_listing_time_idx').on(t.listingId, t.observedAt),
+    index('price_observation_stock_time_idx').on(t.listingId, t.availability, t.observedAt),
   ],
 );
 

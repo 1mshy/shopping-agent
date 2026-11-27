@@ -319,12 +319,40 @@ describe('migration 0004', () => {
       migrate(db, MIGRATIONS.slice(0, 3));
       const stores = () => db.orm.all(sql`select id,host,is_shop,trust_tier,source from store`);
       const before = stores();
-      expect(migrate(db)).toEqual({ level: 4, applied: [4] });
+      expect(migrate(db, MIGRATIONS.slice(0, 4))).toEqual({ level: 4, applied: [4] });
       expect(stores()).toEqual(before);
       expect(db.orm.get(sql`select fingerprint_json from store`)).toEqual({
         fingerprint_json: null,
       });
       expect(() => db.exec("update store set fingerprint_json = '[]'")).toThrow();
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('migration 0005', () => {
+  it('seeks by listing, availability and time for both stock transition observations', () => {
+    const db = openDatabase(':memory:');
+    try {
+      migrate(db, MIGRATIONS.slice(0, 1));
+      db.exec(LEVEL_1_ROWS);
+      migrate(db, MIGRATIONS.slice(0, 4));
+      const count = db.orm.get(sql`select count(*) as n from price_observation`);
+      migrate(db);
+      for (const query of [
+        sql`select * from price_observation indexed by price_observation_stock_time_idx where listing_id = 1 and availability = 'out'
+          and (observed_at,id) < ('2026-12-01',2) order by observed_at desc,id desc limit 1`,
+        sql`select * from price_observation indexed by price_observation_stock_time_idx where listing_id = 1 and availability = 'in'
+          and (observed_at,id) > ('2026-11-01',1) and (observed_at,id) < ('2026-12-01',2)
+          order by observed_at,id limit 1`,
+      ]) {
+        const plan = db.orm.all<{ detail: string }>(sql`explain query plan ${query}`);
+        expect(plan.map((p) => p.detail).join(' ')).toMatch(
+          /SEARCH .*listing_id=\? AND availability=\? AND observed_at/,
+        );
+      }
+      expect(db.orm.get(sql`select count(*) as n from price_observation`)).toEqual(count);
     } finally {
       db.close();
     }

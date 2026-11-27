@@ -924,4 +924,12 @@ ALTER TABLE store ADD COLUMN fingerprint_json TEXT
   CHECK (fingerprint_json IS NULL OR (json_valid(fingerprint_json) AND json_type(fingerprint_json) = 'object'));
 `,
   },
+  {
+    version: 5,
+    name: '0005_stock_transition_index',
+    sql: `-- Seek the latest out and first following in without scanning other availability states.
+CREATE INDEX price_observation_stock_time_idx
+  ON price_observation (listing_id, availability, observed_at);
+`,
+  },
 ];

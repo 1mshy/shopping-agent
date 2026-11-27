@@ -142,6 +142,48 @@ export function historyOf(
     .reverse();
 }
 
+/** The last out and first following in before this priced in-stock observation. Those two
+ * observations are enough to recover the transition irrespective of the size of the history. */
+export function stockTransitionBefore(
+  db: Database,
+  listingId: number,
+  latest: { id: number; observedAt: string },
+): ObservationRow[] {
+  const o = schema.priceObservation;
+  // Both ranges must seek within the selected availability, including when it occurs rarely.
+  const indexed = sql`${o} indexed by price_observation_stock_time_idx`;
+  const before = sql`(${o.observedAt}, ${o.id}) < (${latest.observedAt}, ${latest.id})`;
+  const out = db.orm
+    .select()
+    .from(o)
+    .where(
+      eq(
+        o.id,
+        sql`(
+    select id from ${indexed} where listing_id = ${listingId} and availability = 'out' and ${before}
+    order by observed_at desc, id desc limit 1
+  )`,
+      ),
+    )
+    .get();
+  if (!out) return [];
+  const after = sql`(${o.observedAt}, ${o.id}) > (${out.observedAt}, ${out.id})`;
+  const firstIn = db.orm
+    .select()
+    .from(o)
+    .where(
+      eq(
+        o.id,
+        sql`(
+    select id from ${indexed} where listing_id = ${listingId} and availability = 'in' and ${after} and ${before}
+    order by observed_at, id limit 1
+  )`,
+      ),
+    )
+    .get();
+  return firstIn ? [out, firstIn] : [out];
+}
+
 /** The listing's latest observation (by time, then id), or undefined. */
 export function latestObservation(db: Database, listingId: number): ObservationRow | undefined {
   const o = schema.priceObservation;
