@@ -266,20 +266,12 @@ ul.plain {
   margin: 0;
 }
 
-svg.spark {
+.price-chart {
   width: 100%;
-  height: 120px;
-  display: block;
+  min-width: 0;
 }
-
-svg.spark polyline {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2;
-}
-
-svg.spark circle {
-  fill: var(--accent);
+.price-chart .u-legend {
+  color: inherit;
 }
 
 table {
