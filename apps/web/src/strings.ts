@@ -121,6 +121,8 @@ export const t = {
   hideHistory: 'Hide history',
 
   // History
+  historyValues: 'Price observations',
+  observedAt: 'Observed at',
   historyEmpty: 'No prices recorded yet.',
   historyOnePoint: 'One price recorded so far.',
   latestPrice: 'Latest price',

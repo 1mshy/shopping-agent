@@ -1,8 +1,5 @@
-// A listing's price history as a small inline SVG line (no chart library; the spec's uPlot chart
-// is a later unit), with the latest price and the deal verdict from GET /api/listings/:id.
-// Only points in one currency are drawn: amounts in different currencies are never on one scale.
 import type { ListingHistory } from '@agentic-dasher/shared';
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { describeFailure, request } from '../http.ts';
 import { t } from '../strings.ts';
 import { formatTime, Message, type MoneyLike, MoneyText } from '../ui.tsx';
@@ -31,29 +28,7 @@ function refusalText(refusal: unknown): string {
   return t.unknown;
 }
 
-const W = 300;
-const H = 100;
-const PAD = 6;
-
-function Spark({ values }: { values: readonly number[] }) {
-  // Pixel positions only: the amounts themselves are never shown from this arithmetic.
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-  const span = max - min || 1;
-  const step = values.length > 1 ? (W - 2 * PAD) / (values.length - 1) : 0;
-  const pts = values.map((v, i) => {
-    const x = PAD + i * step;
-    const y = max === min ? H / 2 : PAD + (H - 2 * PAD) * (1 - (v - min) / span);
-    return [x, y] as const;
-  });
-  const last = pts.at(-1);
-  return (
-    <svg className="spark" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
-      <polyline points={pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ')} />
-      {last && <circle cx={last[0]} cy={last[1]} r={3} />}
-    </svg>
-  );
-}
+const PriceChart = lazy(() => import('./PriceChart.tsx'));
 
 export function HistoryPanel({ listingId }: { listingId: number }) {
   const [history, setHistory] = useState<ListingHistory | null>(null);
@@ -85,14 +60,18 @@ export function HistoryPanel({ listingId }: { listingId: number }) {
   const currency = latest?.currency ?? null;
   const line = priced.filter((p) => p.currency === currency);
   const otherCurrency = priced.length - line.length;
-  const values = line.map((p) => p.effective as number);
+  const chartPoints = history.points.filter((p) => p.currency === currency);
   const verdict = detail?.verdict ?? null;
 
   return (
     <div>
-      {values.length === 0 && <p className="muted">{t.historyEmpty}</p>}
-      {values.length === 1 && <p className="muted">{t.historyOnePoint}</p>}
-      {values.length > 1 && <Spark values={values} />}
+      {line.length === 0 && <p className="muted">{t.historyEmpty}</p>}
+      {line.length === 1 && <p className="muted">{t.historyOnePoint}</p>}
+      {line.length > 1 && currency && (
+        <Suspense fallback={<p>{t.loading}</p>}>
+          <PriceChart points={chartPoints} currency={currency} />
+        </Suspense>
+      )}
       {otherCurrency > 0 && <p className="muted">{t.otherCurrencyPoints(otherCurrency)}</p>}
       <dl className="facts">
         <dt>{t.latestPrice}</dt>
