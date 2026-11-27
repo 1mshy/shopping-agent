@@ -23,6 +23,7 @@ import {
   jobRun,
   llmEndpoint,
   notificationEvent,
+  restockCoverage,
   run,
   runStep,
   setting,
@@ -69,4 +70,5 @@ export const TABLES = [
   listingCheck,
   ownerPassword,
   session,
+  restockCoverage,
 ] as const;

@@ -193,6 +193,31 @@ export const notificationEvent = sqliteTable(
   ],
 );
 
+/** Per-listing evidence recorded with a restock decision. */
+export const restockCoverage = sqliteTable(
+  'restock_coverage',
+  {
+    id: id(),
+    profileId: profileId(),
+    eventId: integer('event_id').notNull(),
+    listingId: integer('listing_id').notNull(),
+    throughObservationId: integer('through_observation_id').notNull(),
+    source: text('source').$type<'decision' | 'legacy'>().notNull(),
+  },
+  (t) => [
+    foreignKey({
+      columns: [t.eventId, t.profileId],
+      foreignColumns: [notificationEvent.id, notificationEvent.profileId],
+    }).onDelete('restrict'),
+    foreignKey({
+      columns: [t.throughObservationId, t.listingId],
+      foreignColumns: [priceObservation.id, priceObservation.listingId],
+    }).onDelete('restrict'),
+    unique().on(t.eventId, t.listingId),
+    index('restock_coverage_observation_idx').on(t.throughObservationId),
+  ],
+);
+
 /** Configuration as JSON; secrets (channel tokens) encrypted at rest (S§5.13). */
 export const channel = sqliteTable(
   'channel',

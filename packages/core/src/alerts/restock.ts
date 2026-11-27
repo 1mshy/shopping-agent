@@ -19,6 +19,8 @@ import type { AlertListingRead } from './price-rules.ts';
 
 export interface RestockListing {
   readonly listingId: Id;
+  /** Newest transition already covered for this listing on this watch, in insertion order. */
+  readonly coveredThroughObservationId?: Id;
   /** Every read of the listing, oldest first. */
   readonly reads: readonly AlertListingRead[];
 }
@@ -64,8 +66,12 @@ export type RestockDecision =
     }
   | { readonly fire: false; readonly silence: RestockSilence };
 
-type Returned = {
+export interface RestockTransition {
   readonly listingId: Id;
+  readonly transitionObservationId: Id;
+}
+
+type Returned = RestockTransition & {
   readonly observationId: Id;
   readonly price: number;
   readonly transitionAt: Timestamp;
@@ -80,6 +86,15 @@ type Returned = {
  * reads out of order or after `now`, a malformed timestamp, a negative or unsafe amount.
  */
 export function evaluateRestock(input: RestockInput): RestockDecision {
+  return evaluateRestockWithCoverage(input).decision;
+}
+
+/** Evaluate once, reporting every eligible transition covered by the single cheapest-listing alert. */
+export function evaluateRestockWithCoverage(input: RestockInput): {
+  readonly decision: RestockDecision;
+  readonly transitions: readonly RestockTransition[];
+} {
+  const transitions: RestockTransition[] = [];
   const { watch, listings } = input;
   const now = timestampMs(input.now, 'now');
   const ruleOn =
@@ -93,7 +108,7 @@ export function evaluateRestock(input: RestockInput): RestockDecision {
   if (watch.targetPrice !== null) assertPriceMoney(watch.targetPrice, 'watch.targetPrice');
   for (const listing of listings) checkReads(listing, now);
 
-  if (ruleOn === null) return { fire: false, silence: 'rule_off' };
+  if (ruleOn === null) return { decision: { fire: false, silence: 'rule_off' }, transitions };
   const watermark = accepted === null ? ruleOn : Math.max(ruleOn, accepted);
 
   let firstSilence: RestockSilence | null = null;
@@ -102,22 +117,30 @@ export function evaluateRestock(input: RestockInput): RestockDecision {
     const outcome = judge(listing, watch.currency, watermark);
     if (typeof outcome === 'string') {
       firstSilence ??= outcome;
-    } else if (best === null || outcome.price < best.price) {
-      best = outcome;
+    } else {
+      transitions.push({
+        listingId: outcome.listingId,
+        transitionObservationId: outcome.transitionObservationId,
+      });
+      if (best === null || outcome.price < best.price) best = outcome;
     }
   }
-  if (best === null) return { fire: false, silence: firstSilence ?? 'not_in_stock' };
+  if (best === null)
+    return { decision: { fire: false, silence: firstSilence ?? 'not_in_stock' }, transitions };
 
   const currency = watch.currency as MinorUnitCurrency;
   const target = watch.targetPrice;
   return {
-    fire: true,
-    listingId: best.listingId,
-    observationId: best.observationId,
-    price: { amountMinor: best.price, currency },
-    transitionAt: best.transitionAt,
-    targetReached:
-      target !== null && target.currency === currency && best.price <= target.amountMinor,
+    transitions,
+    decision: {
+      fire: true,
+      listingId: best.listingId,
+      observationId: best.observationId,
+      price: { amountMinor: best.price, currency },
+      transitionAt: best.transitionAt,
+      targetReached:
+        target !== null && target.currency === currency && best.price <= target.amountMinor,
+    },
   };
 }
 
@@ -147,18 +170,24 @@ function judge(
   if (latest.price === null) return 'not_comparable';
 
   let known: 'in' | 'out' | null = null;
-  let transitionAt: Timestamp | null = null;
+  let transition: Extract<AlertListingRead, { kind: 'observation' }> | null = null;
   for (const read of listing.reads) {
     if (read.kind === 'failed' || read.availability === 'unknown') continue;
-    if (read.availability === 'in' && known === 'out') transitionAt = read.observedAt;
+    if (read.availability === 'in' && known === 'out') transition = read;
     known = read.availability;
   }
-  if (transitionAt === null) return 'first_sighting';
-  if (Date.parse(transitionAt) <= watermark) return 'already_told';
+  if (transition === null) return 'first_sighting';
+  if (
+    Date.parse(transition.observedAt) <= watermark ||
+    (listing.coveredThroughObservationId !== undefined &&
+      transition.observationId <= listing.coveredThroughObservationId)
+  )
+    return 'already_told';
   return {
     listingId: listing.listingId,
     observationId: latest.observationId,
     price: latest.price,
-    transitionAt,
+    transitionAt: transition.observedAt,
+    transitionObservationId: transition.observationId,
   };
 }

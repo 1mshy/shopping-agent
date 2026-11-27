@@ -64,10 +64,8 @@
 //
 // evaluateRestock (restock.ts), when watch.restock_enabled_at is set:
 //   watch.currency, targetPrice   as above; restockRuleOnSince = watch.restock_enabled_at;
-//   lastAcceptedRestockAt    the later of notify `lastAcceptedAlert(kind restock)`.acceptedAt and
-//                            the time of the observation the watch's newest restock event names
-//                            (not counting an event of the observation being evaluated): one event
-//                            per transition, whatever the delivery state (recordedRestockAt).
+//   coverage                 the highest transition observation id covered for each listing,
+//                            including the bounded legacy watermark at upgrade.
 //   listings                 the confirmed listings of unblocked stores, each with its observations
 //                            over the window, oldest first, and a failed read at its end when its
 //                            last attempt failed (for the listing just read: before the evaluated
@@ -82,7 +80,7 @@ import {
   confirmOutlierRead,
   type ExactListingPrice,
   evaluatePriceAlert,
-  evaluateRestock,
+  evaluateRestockWithCoverage,
   priceMedian,
   type ReferenceLatestRead,
   type ReferenceListing,
@@ -95,7 +93,7 @@ import {
   type Money,
 } from '@agentic-dasher/shared';
 import type { Market } from '@agentic-dasher/sources';
-import { eq } from 'drizzle-orm';
+import { eq, sql } from 'drizzle-orm';
 import {
   alertEventKey,
   deliveryStatus,
@@ -604,6 +602,12 @@ function evaluateRestockRule(
   sinceIso: string,
 ): RuleResult {
   const { db } = ctx;
+  const bounds = db.orm.all<{ listingId: number; throughId: number }>(sql`
+    select c.listing_id as listingId, max(c.through_observation_id) as throughId
+    from notification_event e join restock_coverage c on c.event_id = e.id
+    where e.watch_id = ${watch.id} and e.kind = 'restock'
+    group by c.listing_id`);
+  const covered = new Map(bounds.map((b) => [b.listingId, b.throughId]));
   const listings: RestockListing[] = members
     .filter((m) => m.mayAlert)
     .map((m) => {
@@ -614,8 +618,10 @@ function evaluateRestockRule(
         : check?.lastError != null
           ? check.lastReadAt
           : null;
+      const through = covered.get(m.listing.id);
       return {
         listingId: m.listing.id,
+        ...(through === undefined ? {} : { coveredThroughObservationId: through }),
         reads: readsOf(db, m.listing.id, {
           sinceIso,
           upTo: isSelf ? evaluated : null,
@@ -624,68 +630,43 @@ function evaluateRestockRule(
         }),
       };
     });
-  const last = lastAcceptedAlert(db, {
-    profileId: watch.profileId,
-    watchId: watch.id,
-    kind: 'restock',
-  });
-  const recorded = recordedRestockAt(db, watch.id, evaluated.id);
-  const decision = evaluateRestock({
+  const { decision, transitions } = evaluateRestockWithCoverage({
     now: nowIso,
     watch: {
       currency: watch.currency,
       targetPrice,
       restockRuleOnSince: watch.restockEnabledAt,
-      lastAcceptedRestockAt: laterOf(last?.acceptedAt ?? null, recorded),
+      lastAcceptedRestockAt: null,
     },
     listings,
   });
   if (!decision.fire) {
     return { fired: false, silence: decision.silence, eventId: null, created: false };
   }
-  return recordAlert(ctx, watch, {
+  const result = recordAlert(ctx, watch, {
     kind: 'restock',
     listingId: decision.listingId,
     observationId: decision.observationId,
     price: decision.price,
   });
+  if (result.created && result.eventId !== null) {
+    const eventId = result.eventId;
+    // The enclosing write transaction commits the event, all covered transitions and deliveries together.
+    for (const transition of transitions) {
+      db.orm
+        .insert(schema.restockCoverage)
+        .values({
+          profileId: watch.profileId,
+          eventId,
+          listingId: transition.listingId,
+          throughObservationId: transition.transitionObservationId,
+          source: 'decision',
+        })
+        .run();
+    }
+  }
+  return result;
 }
-
-/**
- * One restock event per out→in transition, whatever the delivery state (finding 6 of the review of
- * 2026-11-25; S§2.11, S§2.12). The watermark the restock rule compares a transition with is the
- * later of two times:
- * - when a channel accepted the watch's last restock alert (lastAcceptedAlert, S§5.8): what the
- *   user was told;
- * - the time the watch's newest restock event was decided (the audit trail): the later of the
- *   observation it names and the event's own time. The two differ when one decision covers two
- *   listings: the event names the cheapest listing that is back, whose read can be older than
- *   the read that was being evaluated, and the transition of that second listing must not be
- *   recorded again on its next read.
- * The second bounds the first from below while an alert is on its way, so the same transition is
- * not recorded again on every read (pending, or failed for good), and a new transition, strictly
- * later than the observation the newest event names, is a new decision recorded once: it is no
- * longer held while the previous alert awaits delivery (when that alert was finally accepted, the
- * acceptance time was already past the second transition, which was then lost for good, even from
- * the in-app feed). Being a watermark fed to the rule rather than a check after it, it also lets a
- * second listing that comes back while the first one is still in stock be named. Nothing is
- * stamped: both times are read back from the outbox and the audit trail.
- */
-function recordedRestockAt(db: Database, watchId: number, evaluatedId: number): string | null {
-  // An event that names the observation being evaluated is this evaluation's own (a resumed or
-  // repeated evaluation): it is found again under its key, so it must not hide its own decision.
-  const previous = latestEventOf(db, watchId, 'restock', evaluatedId);
-  if (previous === undefined) return null;
-  const told =
-    previous.observationId === null ? undefined : observationById(db, previous.observationId);
-  // The decision's time: never before the event was written, nor before the observation it names
-  // (which is later than the event's clock time when that clock had stepped back).
-  return laterOf(told?.observedAt ?? null, previous.createdAt);
-}
-
-/** The later of two timestamps in the database's form (UTC ISO, three fractional digits). */
-const laterOf = (a: string | null, b: string | null): string | null =>
-  a === null ? b : b === null ? a : a > b ? a : b;
 
 /**
  * Records the alert's event under its stable key. For a price: unless an earlier price alert of the
@@ -693,7 +674,7 @@ const laterOf = (a: string | null, b: string | null): string | null =>
  * earlier alert (its push failed for good) holds a repeat that is not a lower price for the watch's
  * cooldown, counted from that event, so a broken channel cannot turn one drop into an alert per
  * read. A restock is never held here: a restock decision is a new out→in transition, already
- * deduplicated against the audit trail by its watermark (recordedRestockAt).
+ * deduplicated against the transition observations in the audit trail.
  */
 function recordAlert(
   ctx: EvaluationContext,
