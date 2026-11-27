@@ -80,6 +80,10 @@ export interface FetcherDeps {
 }
 
 export interface FetcherRequest {
+  /** Make each redirect a separate guarded, paced request (including its robots policy). */
+  readonly redirect?: 'manual';
+  /** Anonymous public metadata lookups do not send or retain cookies. */
+  readonly credentials?: 'omit';
   readonly url: string;
   readonly rung: HttpRung;
   /** The playbook's page kind: `api` for a platform endpoint, `product` or `search` for a page. */
@@ -147,6 +151,8 @@ function watched(network: HttpNetwork, beforeExchange: () => void): HttpNetwork 
 }
 
 function pageRequestOf(request: {
+  readonly redirect?: 'manual';
+  readonly credentials?: 'omit';
   readonly url: string;
   readonly rung: HttpRung;
   readonly deadline: number;
@@ -155,6 +161,8 @@ function pageRequestOf(request: {
   readonly maxBodyBytes?: number | undefined;
 }): PageRequest {
   const base = {
+    ...(request.redirect ? { redirect: request.redirect } : {}),
+    ...(request.credentials ? { credentials: request.credentials } : {}),
     url: request.url,
     deadline: request.deadline,
     signal: request.signal,
@@ -290,6 +298,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
         const robotsRequest = pageRequestOf({
           url: robotsUrl,
           rung: ROBOTS_RUNG,
+          ...(request.credentials ? { credentials: request.credentials } : {}),
           deadline,
           signal,
         });

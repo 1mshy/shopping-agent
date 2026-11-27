@@ -359,6 +359,29 @@ describe('migration 0005', () => {
   });
 });
 
+describe('migration 0006', () => {
+  it('keeps existing domain facts and allows exactly ten timing slots', () => {
+    const db = openDatabase(':memory:');
+    try {
+      migrate(db, MIGRATIONS.slice(0, 5));
+      db.exec(
+        "insert into domain_registration values ('example.ca',NULL,'2026-11-01T00:00:00.000Z')",
+      );
+      expect(migrate(db)).toEqual({ level: 6, applied: [6] });
+      expect(db.orm.get(sql`select domain from domain_registration`)).toEqual({
+        domain: 'example.ca',
+      });
+      for (let slot = 0; slot < 10; slot++)
+        db.orm.run(sql`insert into rdap_request_start values (${slot},'2026-11-01T00:00:00.000Z')`);
+      expect(() =>
+        db.exec("insert into rdap_request_start values (10,'2026-11-01T00:00:00.000Z')"),
+      ).toThrow();
+    } finally {
+      db.close();
+    }
+  });
+});
+
 describe('MIGRATIONS', () => {
   // The SQL files are the versioned source (S§4); src/migrations.ts embeds them so the bundled
   // server needs no file beside it. Regenerate with `pnpm --filter @agentic-dasher/db migrations:embed`.

@@ -294,3 +294,9 @@ export const setting = sqliteTable('setting', {
   value: text('value_json', { mode: 'json' }),
   valueEnc: blob('value_enc', { mode: 'buffer' }),
 });
+
+/** A shared sliding window for RDAP wire starts, including retries and robots exchanges. */
+export const rdapRequestStart = sqliteTable('rdap_request_start', {
+  slot: integer('slot').primaryKey(),
+  startedAt: timestamp('started_at').notNull(),
+});

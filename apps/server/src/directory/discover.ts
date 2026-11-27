@@ -14,6 +14,7 @@ import {
 } from '@agentic-dasher/sources';
 import { and, asc, desc, eq, isNull, ne, or } from 'drizzle-orm';
 import type { Discover } from '../watches/service.ts';
+import { createRdapTrust } from './rdap.ts';
 import { createStoreDirectory } from './triage.ts';
 
 async function searchPlatform(
@@ -50,6 +51,7 @@ export function createDirectoryDiscovery(deps: {
 }): Discover {
   const { db, fetcher, now } = deps;
   const directory = createStoreDirectory(deps);
+  const registration = createRdapTrust(deps);
   const s = schema.store;
   return async ({ name, market, signal }) => {
     const rows = db.orm
@@ -92,6 +94,7 @@ export function createDirectoryDiscovery(deps: {
       );
       if (!search || search.result.kind === 'unsupported') return skipped;
       if (search.result.kind !== 'results') return { state: 'failed', candidates: [] };
+      await registration.enrich(row.id, { deadline, signal });
       const active = db.orm
         .update(s)
         .set({ searchRoute: search.route })

@@ -23,6 +23,7 @@ import {
   jobRun,
   llmEndpoint,
   notificationEvent,
+  rdapRequestStart,
   restockCoverage,
   run,
   runStep,
@@ -71,4 +72,5 @@ export const TABLES = [
   ownerPassword,
   session,
   restockCoverage,
+  rdapRequestStart,
 ] as const;
