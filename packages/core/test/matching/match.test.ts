@@ -417,6 +417,47 @@ describe('the must-have check after the label', () => {
     ],
   ]);
 
+  it.each<{ attr: string; value: string; title: string; variant: Record<string, string> }>([
+    {
+      attr: 'layout',
+      value: 'QWERTY',
+      title: 'Acme ZX100 QWERTY / AZERTY',
+      variant: { 'Keyboard Layout': 'AZERTY' },
+    },
+    {
+      attr: 'capacity',
+      value: '256 GB',
+      title: 'Acme ZX100 128 GB / 256 GB',
+      variant: { Storage: '128 GB' },
+    },
+  ])(
+    'reports a conflicting selected $attr even when the title names the desired option',
+    ({ attr, value, title, variant }) => {
+      expect(
+        matchListing({
+          asked: ask('Acme ZX100', { mustHave: [must(attr, value)] }),
+          listing: item(title, { variant }),
+        }),
+      ).toEqual({ relation: 'variant', differingAttrs: [attr] });
+    },
+  );
+
+  it.each<{ variant: Record<string, string>; title: string }>([
+    { variant: {}, title: 'Acme ZX100' },
+    { variant: { 'Keyboard Layout': 'US English (QWERTY)' }, title: 'Acme ZX100 AZERTY / QWERTY' },
+    { variant: { Colour: 'Blue' }, title: 'Acme ZX100' },
+  ])(
+    'retains an exact model when its selected layout agrees or is absent',
+    ({ variant, title }) => {
+      expect(
+        matchListing({
+          asked: ask('Acme ZX100', { mustHave: [must('layout', 'QWERTY')] }),
+          listing: item(title, { variant }),
+        }),
+      ).toEqual({ relation: 'exact', differingAttrs: [] });
+    },
+  );
+
   it('names the attribute that differs', () => {
     const asked = ask('Acme Glide 3', { mustHave: [must('colour', 'Black')] });
     const listing = item('Acme Glide 3 Mouse', { variant: { Color: 'White' } });
