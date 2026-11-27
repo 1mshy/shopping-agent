@@ -163,6 +163,12 @@ export const t = {
   } as Record<string, string>,
   inAppNone: 'no in-app delivery',
 
+  changePassword: 'Change password',
+  currentPassword: 'Current password',
+  newPassword: 'New password (at least 15 characters)',
+  repeatNewPassword: 'Repeat new password',
+  passwordChanged: 'Password changed. Other sessions have ended.',
+
   // Settings
   settingsTitle: 'Settings',
   robotsMode: 'robots.txt handling',

@@ -10,6 +10,8 @@ import { describeFailure, request } from '../http.ts';
 import { t } from '../strings.ts';
 import { formatTime, Message } from '../ui.tsx';
 
+import { ChangePassword } from './ChangePassword.tsx';
+
 /** The channel view of apps/server notify/channels.ts (ChannelView), the fields shown here. */
 interface Channel {
   readonly id: number;
@@ -148,6 +150,7 @@ export function SettingsView({ onChangeMarket }: { onChangeMarket: () => void })
           </div>
         </div>
       )}
+      <ChangePassword />
       <h2>{t.channelsTitle}</h2>
       {channels !== null && channels.length === 0 && <p className="muted">{t.noChannels}</p>}
       <ul className="plain">
