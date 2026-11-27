@@ -13,6 +13,7 @@ import {
   listingRow,
   MIN,
   observationsOf,
+  readOf,
   Script,
   type Scripted,
   TempDb,
@@ -86,13 +87,25 @@ it('recovers the first priced return after 31 days out and records the transitio
 
 it('finds the original transition over 500 in-stock reads before the first comparable price', async () => {
   await check({ price: 500, availability: 'out' });
-  await check({ price: null, availability: 'in' });
-  const { id: transitionId, ...unpriced } = latest();
+  clock.advance(MIN);
+  const usd = readOf({ sticker: 500, currency: 'USD', availability: 'in' });
+  await checkListing(
+    depsOf(tmp, clock, async () => ({
+      kind: 'read',
+      read: usd,
+      methods: [],
+      candidates: usd.candidates,
+    })),
+    listingId,
+    { force: true },
+  );
+  const { id: transitionId, ...inUsd } = latest();
+  expect(inUsd).toMatchObject({ availability: 'in', currency: 'USD' });
   tmp.db.orm.transaction((tx) => {
     for (let count = 0; count < 500; count++) {
       clock.advance(MIN);
       tx.insert(schema.priceObservation)
-        .values({ ...unpriced, observedAt: clock.iso() })
+        .values({ ...inUsd, observedAt: clock.iso() })
         .run();
     }
   });
