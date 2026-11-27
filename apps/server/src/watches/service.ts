@@ -41,6 +41,7 @@ import {
 } from '@agentic-dasher/shared';
 import { and, asc, desc, eq, isNull, ne, sql } from 'drizzle-orm';
 import { marketPrefixOf } from '../directory/storefront.ts';
+import { initialStoreTrust } from '../directory/trust.ts';
 import { deliveryStatus, gatingDeliveries, lastAcceptedAlert } from '../notify/gating.ts';
 import {
   askedOf,
@@ -447,13 +448,14 @@ export function createWatchService(deps: WatchServiceDeps) {
     nowIso: string,
   ) {
     const host = url.hostname.toLowerCase();
+    const trust = initialStoreTrust(db, host);
     o.run(sql`
       insert into store (host, market_prefix, platform, platform_evidence, country, base_currency,
         markets_json, ships_to_json, search_route, read_route, identifiers_offered, is_shop,
         trust_tier, trust_reasons_json, source, fingerprinted_at, consecutive_errors, last_ok_at,
         last_error_at, last_error)
       values (${host}, ${marketPrefix}, 'unknown', null, null, 'unknown', null, null, null, null,
-        null, 'unknown', 'unverified', '[]', 'pasted', null, 0, null, null, null)
+        null, 'unknown', ${trust.tier}, ${JSON.stringify(trust.reasons)}, 'pasted', null, 0, null, null, null)
       on conflict (host, market_prefix) do nothing`);
     const storeRow = o
       .select()
