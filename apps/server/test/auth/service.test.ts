@@ -293,6 +293,8 @@ describe('global verification pacing', () => {
           : auth.changePassword(session, PASSWORD, OTHER_PASSWORD, 'owner');
       const second = throttle.admit('independent');
       const full = throttle.admit('at-capacity');
+      // Allow immediately-resolved work to run while the controlled pacing timers remain pending.
+      await new Promise<void>((resolve) => setImmediate(resolve));
       const readsAtAdmission = dbReads.mock.calls.length;
       const durations = waits.map((w) => w.ms);
       clock.advance(1000);
