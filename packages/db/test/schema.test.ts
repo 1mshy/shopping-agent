@@ -55,6 +55,7 @@ const OWNERSHIP: Record<string, 'user' | 'catalogue' | 'operational' | 'root' | 
   setting: 'operational',
   // Per-host pacing, persisted across restarts (S§5.1, migration 0002).
   host_pacing: 'operational',
+  rdap_request_start: 'operational',
   // The profile itself, and the migration runner's own bookkeeping.
   profile: 'root',
   schema_migration: 'runner',
@@ -382,7 +383,7 @@ const TRIGGERS = [
  * 0001, 37 from 0002 (11 named, 26 unnamed). A column added by ALTER TABLE carries its CHECKs into
  * its table's CREATE statement, so they are counted with it.
  */
-const CHECK_COUNT = 177; // 0004 adds the optional store fingerprint document.
+const CHECK_COUNT = 179; // 0006 adds the RDAP slot range and start timestamp.
 
 describe('what only the SQL holds', () => {
   let db: Database;

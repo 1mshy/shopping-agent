@@ -57,6 +57,8 @@ export interface GuardedRequest {
 }
 
 export interface GuardedOptions {
+  /** Return redirects to a caller that will issue each next GET through the fetcher itself. */
+  readonly redirect?: 'manual';
   /** Redirects followed at most; one more ends the request (default `DEFAULT_MAX_REDIRECTS`). */
   readonly maxRedirects?: number;
   /**
@@ -198,7 +200,12 @@ export async function guardedExchange<R extends HopResponse>(
     }
 
     const location = response.location;
-    if (!FOLLOWED.has(response.status) || typeof location !== 'string' || location === '') {
+    if (
+      options.redirect === 'manual' ||
+      !FOLLOWED.has(response.status) ||
+      typeof location !== 'string' ||
+      location === ''
+    ) {
       return { delivered: true, finalUrl: target.href, status: response.status, response };
     }
     // From here on the redirect's own body is never read.

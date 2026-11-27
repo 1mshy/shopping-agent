@@ -224,6 +224,9 @@ importers:
       hono:
         specifier: 4.13.19
         version: 4.13.19
+      tldts:
+        specifier: 7.6.1
+        version: 7.6.1
       tsdown:
         specifier: 0.23.7
         version: 0.23.7(typescript@7.0.2)
@@ -1460,6 +1463,13 @@ packages:
   tinyps@0.5.2:
     resolution: {integrity: sha512-sYhvdbpuo2rGE7u/jPUMiZz4H2LCaOodUtRD9ot4DLNFQbr884g9zozoJnxLI+1r4hXqWkmdHUl8Yig2Rllxxw==}
 
+  tldts-core@7.6.1:
+    resolution: {integrity: sha512-FzTCzmZVba1BJVZQJTGVfaRUV5dxPNV4nQZZuFrSitnsXS3k81XyDBhOUzB9/41cyVKdt2TW3YfIv9KKCBMMXg==}
+
+  tldts@7.6.1:
+    resolution: {integrity: sha512-+q5zzJwjNwBPQV30jnqIaQMeZ/nQfc790uMq1vDj3kCGKNfokh+HYfwtd1d80OdSPNVS+mHV8vMd+yDtlK/+mQ==}
+    hasBin: true
+
   ts-algebra@2.0.0:
     resolution: {integrity: sha512-FPAhNPFMrkwz76P7cdjdmiShwMynZYN6SgOujD1urY4oNm80Ou9oMdmbR45LotcKOXoy7wSmHkRFE6Mxbrhefw==}
 
@@ -2247,6 +2257,12 @@ snapshots:
       picomatch: 4.0.7
 
   tinyps@0.5.2: {}
+
+  tldts-core@7.6.1: {}
+
+  tldts@7.6.1:
+    dependencies:
+      tldts-core: 7.6.1
 
   ts-algebra@2.0.0: {}
 

@@ -44,7 +44,19 @@ it('searches an eligible shop through the guarded directory and preserves a wall
   };
   for (const path of ['/.well-known/ucp', '/sitemap.xml', '/llms.txt'])
     replies[origin + path] = { status: 404 };
-  const net = scriptedNetwork({ dns: { 'watch.example.ca': ['93.184.216.34'] }, replies });
+  replies['https://rdap.org/robots.txt'] = { status: 404 };
+  replies['https://rdap.org/domain/example.ca'] = reply(
+    JSON.stringify({
+      objectClassName: 'domain',
+      ldhName: 'example.ca',
+      events: [{ eventAction: 'registration', eventDate: '2015-07-10T00:00:00Z' }],
+    }),
+    'application/rdap+json',
+  );
+  const net = scriptedNetwork({
+    dns: { 'watch.example.ca': ['93.184.216.34'], 'rdap.org': ['93.184.216.35'] },
+    replies,
+  });
   const fetcher = createFetcher({
     network: net.network,
     classify: classifyResponse,
@@ -65,6 +77,9 @@ it('searches an eligible shop through the guarded directory and preserves a wall
   expect(found[0]).not.toHaveProperty('price');
   expect(tmp.db.orm.select().from(schema.store).all()[0]?.searchRoute).toBe('shopify_suggest');
   expect(net.lookups).not.toContain('blocked.example.ca');
+  expect(tmp.db.orm.select().from(schema.store).all()[0]?.trustReasons).toContain(
+    'RDAP lists example.ca as registered on 2015-07-10 (UTC)',
+  );
   replies[search(name, 10)] = { status: 429 };
   await expect(discover(request)).rejects.toThrow('Directory stores could not be read');
 });

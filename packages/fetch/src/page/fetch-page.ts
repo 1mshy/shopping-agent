@@ -44,6 +44,8 @@ export const JSON_MAX_BODY_BYTES = 4 * 1024 * 1024;
 export type HttpRung = Extract<Rung, 'api' | 'http'>;
 
 interface RequestBase {
+  readonly redirect?: 'manual';
+  readonly credentials?: 'omit';
   readonly url: string;
   /** Epoch milliseconds on the fetcher's clock; the whole request (every hop, the body) ends by then. */
   readonly deadline: number;
@@ -144,7 +146,8 @@ export async function fetchPage(request: PageRequest, deps: PageFetcherDeps): Pr
       const sent = refererFor(referer, url);
       if (sent !== null) list.push(['referer', sent.referer], ['sec-fetch-site', sent.fetchSite]);
     }
-    const cookie = deps.jars.jar(hostOf(url)).header(url, now());
+    const cookie =
+      request.credentials === 'omit' ? null : deps.jars.jar(hostOf(url)).header(url, now());
     if (cookie !== null) list.push(['cookie', cookie]);
     return list;
   };
@@ -156,7 +159,7 @@ export async function fetchPage(request: PageRequest, deps: PageFetcherDeps): Pr
     async exchange(address, port, url) {
       const response = await net.exchange(address, port, url);
       const setCookies = response.headers.filter(([name]) => name === 'set-cookie');
-      if (setCookies.length > 0) {
+      if (request.credentials !== 'omit' && setCookies.length > 0) {
         deps.jars.jar(hostOf(url)).store(
           setCookies.map(([, value]) => value),
           url,
@@ -169,6 +172,7 @@ export async function fetchPage(request: PageRequest, deps: PageFetcherDeps): Pr
 
   const result = await guardedFetch({ url: request.url, rung }, session, {
     maxBodyBytes,
+    ...(request.redirect ? { redirect: request.redirect } : {}),
     ...(deps.deniedNetworks ? { deniedNetworks: deps.deniedNetworks } : {}),
     maxRedirects: deps.maxRedirects ?? DEFAULT_MAX_REDIRECTS,
   });
