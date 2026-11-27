@@ -208,8 +208,11 @@ describe('migration 0002', () => {
 
   it('takes a fresh database from level 0 to level 2', () => {
     const db = openDatabase(':memory:');
-    expect(migrate(db)).toEqual({ level: 2, applied: [1, 2] });
-    expect(MIGRATIONS.map((m) => m.name)).toEqual(['0001_initial', '0002_phase1_state']);
+    expect(migrate(db, MIGRATIONS.slice(0, 2))).toEqual({ level: 2, applied: [1, 2] });
+    expect(MIGRATIONS.slice(0, 2).map((m) => m.name)).toEqual([
+      '0001_initial',
+      '0002_phase1_state',
+    ]);
   });
 
   it('upgrades a level-1 database with rows in it to level 2, keeping every row', () => {
@@ -217,7 +220,7 @@ describe('migration 0002', () => {
     const tables = ['store', 'listing', 'watch', 'channel', 'delivery', 'job', 'job_run'];
     const before = tables.map((t) => snapshot(db, t, '*'));
 
-    expect(migrate(db)).toEqual({ level: 2, applied: [2] });
+    expect(migrate(db, MIGRATIONS.slice(0, 2))).toEqual({ level: 2, applied: [2] });
 
     // The rows of 0001 keep every value they had; the columns 0002 adds read as not recorded.
     for (const [i, table] of tables.entries()) {
@@ -266,6 +269,44 @@ describe('migration 0002', () => {
     expect(() => migrate(db)).toThrow(/CHECK constraint failed/);
     expect(migrationLevel(db)).toBe(1);
     expect(tableNames(db)).not.toContain('session');
+  });
+});
+
+describe('migration 0003', () => {
+  it('bounds legacy restock decisions to existing observations at their cutoff', () => {
+    const db = openDatabase(':memory:');
+    try {
+      migrate(db, MIGRATIONS.slice(0, 1));
+      db.exec(LEVEL_1_ROWS);
+      migrate(db, MIGRATIONS.slice(0, 2));
+      db.exec(`INSERT INTO notification_event (profile_id, key, kind, created_at, watch_id, listing_id, observation_id)
+        VALUES (1, 'old-restock', 'restock', '2026-11-17T09:01:00.000Z', 1, 1, 1)`);
+      const append = (at: string) =>
+        db.orm.run(sql`
+        insert into price_observation (listing_id, observed_at, currency, sticker, shipping_status,
+          missing_components_json, availability, read_path, rung, raw_candidates_json)
+        select listing_id, ${at}, currency, sticker, shipping_status,
+          missing_components_json, availability, read_path, rung, raw_candidates_json
+        from price_observation where id = 1`);
+      append('2026-11-17T09:00:30.000Z');
+      append('2026-11-17T09:02:00.000Z');
+      expect(migrate(db)).toEqual({ level: 3, applied: [3] });
+      append('2026-11-17T09:01:00.000Z');
+      const covered = db.orm.all(
+        sql`select event_id, listing_id, through_observation_id, source from restock_coverage`,
+      );
+      expect(covered).toEqual([
+        { event_id: 2, listing_id: 1, through_observation_id: 2, source: 'legacy' },
+      ]);
+      expect(migrate(db).applied).toEqual([]);
+      expect(() => db.exec('DELETE FROM restock_coverage')).toThrow(/immutable/);
+      expect(() => db.exec("UPDATE restock_coverage SET source = 'decision'")).toThrow(/immutable/);
+      expect(() =>
+        db.exec('INSERT OR REPLACE INTO restock_coverage SELECT * FROM restock_coverage'),
+      ).toThrow(/never replaced/);
+    } finally {
+      db.close();
+    }
   });
 });
 

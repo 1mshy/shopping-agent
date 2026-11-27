@@ -29,6 +29,7 @@ const OWNERSHIP: Record<string, 'user' | 'catalogue' | 'operational' | 'root' | 
   run: 'user',
   run_step: 'user',
   notification_event: 'user',
+  restock_coverage: 'user',
   delivery: 'user',
   channel: 'user',
   // The owner's password and login sessions (S§5.13, migration 0002).
@@ -370,6 +371,9 @@ const TRIGGERS = [
   'price_observation_append_only',
   'price_observation_kept_forever',
   'price_observation_no_replace',
+  'restock_coverage_append_only',
+  'restock_coverage_kept',
+  'restock_coverage_no_replace',
   'watch_intake_complete',
 ];
 
@@ -378,7 +382,7 @@ const TRIGGERS = [
  * 0001, 37 from 0002 (11 named, 26 unnamed). A column added by ALTER TABLE carries its CHECKs into
  * its table's CREATE statement, so they are counted with it.
  */
-const CHECK_COUNT = 175;
+const CHECK_COUNT = 176; // 0003 adds the restock coverage source.
 
 describe('what only the SQL holds', () => {
   let db: Database;

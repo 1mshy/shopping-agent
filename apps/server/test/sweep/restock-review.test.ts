@@ -5,6 +5,7 @@
 //    second listing that came back later);
 // 2. after the clock steps back, another listing's reads lie after "now" and the pure rule threw.
 import { schema } from '@agentic-dasher/db';
+import { eq } from 'drizzle-orm';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { checkListing } from '../../src/sweep/index.ts';
 import {
@@ -112,6 +113,34 @@ describe('restock, two listings of one watch', () => {
     },
   );
 
+  it('a later insert with an earlier read time still fires after the first push was accepted', async () => {
+    const { x, y } = twoListings();
+    await read(x, outAt(9_000));
+    await read(y, outAt(10_000));
+    await read(x, inAt(9_000));
+    const [first] = restocks();
+    if (!first) throw new Error('first restock missing');
+    tmp.db.orm
+      .update(schema.delivery)
+      .set({
+        state: 'accepted',
+        attempts: 1,
+        outcome: 'accepted',
+        nextAttemptAt: null,
+        acceptedAt: clock.iso(),
+      })
+      .where(eq(schema.delivery.eventId, first.id))
+      .run();
+
+    await read(y, inAt(10_000), { elapsedMs: -MIN });
+    const second = observationsOf(tmp.db, y.id).at(-1);
+    expect(second?.observedAt).toBe(clock.iso());
+    expect(clock.iso() < first.createdAt).toBe(true);
+    expect(restocks().map((e) => e.observationId)).toEqual([first.observationId, second?.id]);
+    await read(y, inAt(10_000));
+    expect(restocks()).toHaveLength(2);
+  });
+
   it('one decision that covers both listings is not recorded again for the second', async () => {
     const { x, y } = twoListings();
     await read(x, inAt(9_000));
@@ -125,6 +154,32 @@ describe('restock, two listings of one watch', () => {
     await read(y, inAt(10_000));
     expect(restocks()).toHaveLength(1);
     expect(restocks()[0]?.listingId).toBe(x.id);
+    const c = schema.restockCoverage;
+    expect(
+      tmp.db.orm
+        .select({
+          eventId: c.eventId,
+          listingId: c.listingId,
+          through: c.throughObservationId,
+          source: c.source,
+        })
+        .from(c)
+        .orderBy(c.listingId)
+        .all(),
+    ).toEqual([
+      {
+        eventId: restocks()[0]?.id,
+        listingId: x.id,
+        through: observationsOf(tmp.db, x.id).at(-1)?.id,
+        source: 'decision',
+      },
+      {
+        eventId: restocks()[0]?.id,
+        listingId: y.id,
+        through: observationsOf(tmp.db, y.id).at(-1)?.id,
+        source: 'decision',
+      },
+    ]);
     // Y is read again, still in stock: the same moment, no second event.
     await read(y, inAt(10_000));
     await read(x, inAt(9_000));
