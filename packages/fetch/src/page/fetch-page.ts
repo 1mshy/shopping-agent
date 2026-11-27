@@ -1,4 +1,4 @@
-// The `api` and `http` rungs (S§5.1 Ladder): one guarded GET with a body cap, and its typed
+// The `api` and `http` rungs (S§5.1 Ladder): one guarded request with a body cap, and its typed
 // outcome. Every request goes through `guardedFetch`: there is no other way to the network here
 // and no option that skips it.
 import { FetchOutcome, type Rung } from '@agentic-dasher/shared';
@@ -9,6 +9,12 @@ import {
   guardedFetch,
   type OwnNetwork,
 } from '../guard/index.ts';
+import {
+  isStoreCatalogEndpoint,
+  STORE_CATALOG_MAX_BYTES,
+  type StoreCatalogSearch,
+  validStoreCatalogSearch,
+} from '../store-catalog.ts';
 import {
   ABORT_CODE,
   type HeaderList,
@@ -56,7 +62,7 @@ interface RequestBase {
 
 export type PageRequest =
   /** A platform or public endpoint, asked for JSON. */
-  | (RequestBase & { readonly rung: 'api' })
+  | (RequestBase & { readonly rung: 'api'; readonly catalogSearch?: StoreCatalogSearch })
   /** A page, with an optional Referer, sent only where it is same-site (see `refererFor`). */
   | (RequestBase & { readonly rung: 'http'; readonly referer?: string });
 
@@ -128,38 +134,57 @@ function withRung(verdict: ClassifierVerdict, rung: HttpRung): FetchOutcome {
   return parsed.data;
 }
 
-/** One GET on the `api` or `http` rung, through the guard; see the module comment. */
+/** One request on the `api` or `http` rung, through the guard; see the module comment. */
 export async function fetchPage(request: PageRequest, deps: PageFetcherDeps): Promise<PageResult> {
   const { rung, deadline, signal } = request;
   if (rung !== 'api' && rung !== 'http') throw new RangeError(`not an HTTP rung: ${String(rung)}`);
   if (!Number.isFinite(deadline))
     throw new RangeError(`deadline must be a number, got ${deadline}`);
   const now = deps.now ?? Date.now;
-  const maxBodyBytes =
+  const catalogSearch = request.rung === 'api' ? request.catalogSearch : undefined;
+  if (
+    catalogSearch &&
+    (!isStoreCatalogEndpoint(request.url) || !validStoreCatalogSearch(catalogSearch))
+  )
+    throw new RangeError('Invalid storefront catalog search');
+  const anonymous = !!catalogSearch || request.credentials === 'omit';
+  const requestedCap =
     request.maxBodyBytes ?? (rung === 'api' ? JSON_MAX_BODY_BYTES : PAGE_MAX_BODY_BYTES);
+  const maxBodyBytes = catalogSearch
+    ? Math.min(requestedCap, STORE_CATALOG_MAX_BYTES)
+    : requestedCap;
   const referer = request.rung === 'http' ? request.referer : undefined;
 
   const headersFor = (url: string): HeaderList => {
     const list: [string, string][] = [];
-    if (rung === 'api') list.push(['accept', API_ACCEPT]);
+    if (catalogSearch)
+      list.push(
+        ['accept', 'application/json, text/event-stream'],
+        ['content-type', 'application/json'],
+      );
+    else if (rung === 'api') list.push(['accept', API_ACCEPT]);
     if (referer !== undefined) {
       const sent = refererFor(referer, url);
       if (sent !== null) list.push(['referer', sent.referer], ['sec-fetch-site', sent.fetchSite]);
     }
-    const cookie =
-      request.credentials === 'omit' ? null : deps.jars.jar(hostOf(url)).header(url, now());
+    const cookie = anonymous ? null : deps.jars.jar(hostOf(url)).header(url, now());
     if (cookie !== null) list.push(['cookie', cookie]);
     return list;
   };
 
-  const net = deps.network.open({ deadline, signal, headersFor });
+  const net = deps.network.open({
+    deadline,
+    signal,
+    headersFor,
+    ...(catalogSearch ? { catalogSearch } : {}),
+  });
   // Every hop's Set-Cookie goes into its host's jar, redirects included.
   const session: GuardedNet<TransportResponse> = {
     lookup: (host) => net.lookup(host),
     async exchange(address, port, url) {
       const response = await net.exchange(address, port, url);
       const setCookies = response.headers.filter(([name]) => name === 'set-cookie');
-      if (request.credentials !== 'omit' && setCookies.length > 0) {
+      if (!anonymous && setCookies.length > 0) {
         deps.jars.jar(hostOf(url)).store(
           setCookies.map(([, value]) => value),
           url,
@@ -172,7 +197,7 @@ export async function fetchPage(request: PageRequest, deps: PageFetcherDeps): Pr
 
   const result = await guardedFetch({ url: request.url, rung }, session, {
     maxBodyBytes,
-    ...(request.redirect ? { redirect: request.redirect } : {}),
+    ...(catalogSearch || request.redirect ? { redirect: 'manual' } : {}),
     ...(deps.deniedNetworks ? { deniedNetworks: deps.deniedNetworks } : {}),
     maxRedirects: deps.maxRedirects ?? DEFAULT_MAX_REDIRECTS,
   });

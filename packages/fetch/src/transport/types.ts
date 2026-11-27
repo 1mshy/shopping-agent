@@ -1,7 +1,9 @@
 // The HTTP transport's own seam, free of any client library's types, so that `impit` can be
 // swapped for `wreq-js` (S§3.3) by writing one more `HttpEngine`. The guard's seam
 // (`PinnedTransport`, guard/exchange.ts) is implemented once, in pinned.ts, on top of it.
+
 import type { BodyResponse, GuardedNet } from '../guard/index.ts';
+import type { StoreCatalogSearch } from '../store-catalog.ts';
 
 /** Header name and value pairs, names lower-cased, in order; a repeated header stays apart. */
 export type HeaderList = readonly (readonly [string, string])[];
@@ -30,6 +32,7 @@ export function assertCallerHeaders(headers: HeaderList): void {
 
 /** One request to the engine, already pinned: the engine must use `proxyUrl` for it. */
 export interface EngineRequest {
+  readonly catalogSearch?: StoreCatalogSearch;
   readonly url: string;
   /** The pinning proxy (`socks5h://ticket:secret@127.0.0.1:port`); see socks-proxy.ts. */
   readonly proxyUrl: string;
@@ -52,7 +55,7 @@ export interface EngineResponse {
 }
 
 /**
- * An HTTP client that impersonates a browser profile. It must send exactly one GET through
+ * An HTTP client that impersonates a browser profile. It must send exactly one request through
  * `proxyUrl`, never follow a redirect, never use HTTP/3, never resolve the URL's host itself, and
  * reject with an Error whose `code` (one of the codes above, or its own upper-case code) names the
  * failure.
@@ -68,6 +71,7 @@ export interface TransportResponse extends BodyResponse {
 
 /** What one guarded request needs from the transport for each of its hops. */
 export interface ExchangeContext {
+  readonly catalogSearch?: StoreCatalogSearch;
   /** Epoch milliseconds, on the clock the network was made with. */
   readonly deadline: number;
   readonly signal: AbortSignal;

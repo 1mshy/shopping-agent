@@ -7,6 +7,7 @@
 // it costs well under a millisecond, and no pooled connection can outlive the hop it was pinned
 // for.
 import { Impit } from 'impit';
+import { storeCatalogBody } from '../store-catalog.ts';
 import { ABORT_CODE, type EngineResponse, type HttpEngine, TIMEOUT_CODE } from './types.ts';
 
 export const IMPIT_PROFILE = 'chrome151';
@@ -76,7 +77,9 @@ export function impitEngine(): HttpEngine {
       let response: Awaited<ReturnType<Impit['fetch']>>;
       try {
         response = await client.fetch(request.url, {
-          method: 'GET',
+          ...(request.catalogSearch
+            ? { method: 'POST', body: storeCatalogBody(request.url, request.catalogSearch) }
+            : { method: 'GET' }),
           redirect: 'manual',
           headers: request.headers.map(([name, value]): [string, string] => [name, value]),
           signal: request.signal,
