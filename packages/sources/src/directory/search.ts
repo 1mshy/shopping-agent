@@ -129,3 +129,57 @@ export async function searchWoo(
   }
   return { kind: 'results', candidates };
 }
+
+/** Magento Open Source 2 uses a public GraphQL GET. Rewrites provide the store's actual URL suffix. */
+export async function searchMagento(
+  input: StoreSearch & { magentoGeneration: 1 | 2 | null },
+  context: ReaderContext,
+): Promise<StoreSearchResult> {
+  if (input.magentoGeneration !== 2) return { kind: 'unsupported' };
+  const origin = new URL(input.origin).origin;
+  const base = new URL(`${input.marketPrefix}/`, origin);
+  if (base.origin !== origin) return { kind: 'invalid_response' };
+  const endpoint = new URL('graphql', base);
+  endpoint.search = new URLSearchParams({
+    query:
+      'query DirectoryProducts($term: String!) { products(search: $term, pageSize: 10) { items { name sku url_rewrites { url } } } }',
+    variables: JSON.stringify({ term: input.query }),
+  }).toString();
+  const result = await readSearchJson(endpoint, context);
+  if (result.kind !== 'json') return result;
+  if (asArray(getPath(result.data, 'errors'))?.length) return { kind: 'invalid_response' };
+  const rows = asArray(getPath(result.data, 'data', 'products', 'items'));
+  if (rows === null) return { kind: 'invalid_response' };
+  const candidates: DirectoryCandidate[] = [];
+  for (const row of rows.slice(0, 10)) {
+    const title = asString(getPath(row, 'name'))?.trim();
+    const rewrites = asArray(getPath(row, 'url_rewrites')) ?? [];
+    if (!title) continue;
+    for (const rewrite of rewrites) {
+      const path = asString(getPath(rewrite, 'url'))?.trim();
+      const url = path && URL.parse(path, base);
+      if (
+        !url ||
+        url.origin !== origin ||
+        url.username ||
+        url.password ||
+        !url.pathname.startsWith(base.pathname) ||
+        url.pathname === base.pathname
+      )
+        continue;
+      candidates.push({
+        url: url.href,
+        storeHost: url.hostname,
+        marketPrefix: input.marketPrefix,
+        title,
+        sku: asString(getPath(row, 'sku')),
+        brand: null,
+        mpn: null,
+        gtin: null,
+        variant: {},
+      });
+      break;
+    }
+  }
+  return { kind: 'results', candidates };
+}
