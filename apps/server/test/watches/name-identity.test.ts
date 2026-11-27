@@ -45,11 +45,11 @@ beforeEach(() => {
 });
 afterEach(() => tmp.dispose());
 
-async function create() {
+async function create(input = name) {
   const response = await app.request('/watches', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ input: name, targetPrice: { amountMinor: 12_000, currency: 'CAD' } }),
+    body: JSON.stringify({ input, targetPrice: { amountMinor: 12_000, currency: 'CAD' } }),
   });
   expect(response.status).toBe(201);
   const { watch } = (await response.json()) as { watch: WatchView };
@@ -71,12 +71,13 @@ async function relookup(watchId: number) {
   await service.runLookup(watchId);
 }
 
-async function sweep(listingId: number) {
+async function sweep(listingId: number, evidence: Parameters<typeof readOf>[0] = {}) {
   const read = readOf({
     title: 'ZX100',
     identifiers: { sku: 'retailer-230', brand: 'Acme', mpn: 'ZX100', gtin: null, externalId: null },
+    ...evidence,
   });
-  await checkListing(
+  return checkListing(
     depsOf(tmp, clock, async () => ({
       kind: 'read',
       read,
@@ -187,6 +188,38 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
     expect(listingOf(again).role).toBe('tracked');
     await sweep(listingId);
     expect(eventsOf(tmp.db)).toMatchObject([{ watchId: again }]);
+  });
+
+  it('contradictory identifiers on the first direct read hold the target alert', async () => {
+    candidate = { ...result, title: '' };
+    const watchId = await create();
+    const listing = listingOf(watchId);
+    expect(listing.role).toBe('tracked');
+    const checked = await sweep(listing.listingId, {
+      title: 'NotBrand X999 replacement',
+      identifiers: {
+        sku: 'other-sku',
+        brand: 'NotBrand',
+        mpn: 'X999',
+        gtin: null,
+        externalId: null,
+      },
+    });
+    expect(eventsOf(tmp.db)).toEqual([]);
+    expect(checked.outcome).toMatchObject({
+      kind: 'read',
+      evaluations: [{ watchId, flags: ['unconfirmed'], price: { silence: 'unconfirmed_listing' } }],
+    });
+  });
+
+  it('another watch finding a different display title leaves the first watch able to alert', async () => {
+    const watchId = await create();
+    const listing = listingOf(watchId);
+    candidate = { ...result, title: 'ZX100 updated product display' };
+    const cookware = await create('Acme cookware');
+    expect(listingOf(cookware).listingId).toBe(listing.listingId);
+    await sweep(listing.listingId);
+    expect(eventsOf(tmp.db)).toMatchObject([{ listingId: listing.listingId, watchId }]);
   });
 
   it('an identifier-only exact hit stays confirmed when its first read supplies a title', async () => {
