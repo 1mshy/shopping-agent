@@ -8,6 +8,7 @@ import {
   type StoreSearch,
   type StoreSearchResult,
   searchBestBuyCanada,
+  searchDeclaredTemplate,
   searchMagento,
   searchShopify,
   searchWoo,
@@ -40,6 +41,27 @@ async function searchPlatform(
     default:
       return null;
   }
+}
+
+/** Execute only the store's declared routes. A wall, timeout or rate limit ends this store's lookup. */
+export async function searchStoreRoutes(
+  input: StoreSearch,
+  evidence: StoreFingerprint,
+  context: ReaderContext,
+) {
+  const platform = await searchPlatform(input, evidence, context);
+  if (platform && platform.result.kind !== 'unsupported') return platform;
+  const seen = new Set<string>();
+  for (const [route, template] of [
+    ['search_action', evidence.searchAction],
+    ['opensearch', evidence.openSearchTemplate],
+  ] as const) {
+    if (!template || seen.has(template)) continue;
+    seen.add(template);
+    const result = await searchDeclaredTemplate(input, template, context);
+    if (result.kind !== 'unsupported') return { route, result };
+  }
+  return platform;
 }
 
 /** Search eligible directory rows. Scheduled product reads supply the prices shown on a watch. */
@@ -85,7 +107,7 @@ export function createDirectoryDiscovery(deps: {
           budget: createRequestBudget(3),
         }),
       };
-      const search = await searchPlatform(
+      const search = await searchStoreRoutes(
         { origin: `https://${row.host}`, marketPrefix: row.marketPrefix, market, query: name },
         fp.evidence,
         context,

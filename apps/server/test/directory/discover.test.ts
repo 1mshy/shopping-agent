@@ -68,3 +68,43 @@ it('searches an eligible shop through the guarded directory and preserves a wall
   replies[search(name, 10)] = { status: 429 };
   await expect(discover(request)).rejects.toThrow('Directory stores could not be read');
 });
+
+it('uses a declared fallback after unsupported Shopify search, and stops on a wall', async () => {
+  const { searchStoreRoutes } = await import('../../src/directory/discover.ts');
+  const { fakeContext } = await import('../../../../packages/sources/test/platform/fake.ts');
+  const origin = 'https://shop.example';
+  const input = { origin, marketPrefix: '', query: 'kettle', market: CA };
+  const evidence = {
+    market: CA,
+    platform: 'shopify' as const,
+    platformEvidence: 'home_markup' as const,
+    magentoGeneration: null,
+    predictiveSearch: true,
+    productMarkup: true,
+    productSitemap: null,
+    llmsTxt: null,
+    ucpCatalogEndpoint: null,
+    searchAction: origin + '/find?name={searchTerms}',
+    openSearchTemplate: null,
+    wireRequests: 1,
+    probes: [],
+  };
+  const endpoint =
+    origin + '/search/suggest.json?q=kettle&resources%5Btype%5D=product&resources%5Blimit%5D=10';
+  const html = origin + '/find?name=kettle';
+  const replies = {
+    [endpoint]: { status: 417 },
+    [html]: { contentType: 'text/html', body: '<a href="/product/kettle">Kettle</a>' },
+  };
+  const { context, sent } = fakeContext(replies);
+  expect(await searchStoreRoutes(input, evidence, context)).toMatchObject({
+    route: 'search_action',
+    result: { kind: 'results', candidates: [{ title: 'Kettle' }] },
+  });
+  expect(sent.map((r) => r.url)).toEqual([endpoint, html]);
+  const wall = fakeContext({ ...replies, [endpoint]: { status: 429 } });
+  expect(await searchStoreRoutes(input, evidence, wall.context)).toMatchObject({
+    result: { kind: 'fetch_failed', outcome: { kind: 'rate_limited' } },
+  });
+  expect(wall.sent).toHaveLength(1);
+});
