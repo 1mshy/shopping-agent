@@ -461,6 +461,9 @@ describe('the must-have check after the label', () => {
   it.each<{ variant: Record<string, string>; title: string; relation: MatchRelation }>([
     { variant: { Storage: '256GB', RAM: '16GB' }, title: 'Acme ZX100 128 GB', relation: 'exact' },
     { variant: { RAM: '16 GB' }, title: 'Acme ZX100', relation: 'exact' },
+    { variant: { RAM: '16 GB' }, title: 'Acme ZX100 16 GB RAM', relation: 'exact' },
+    { variant: { Storage: 'Standard' }, title: 'Acme ZX100 128 GB', relation: 'variant' },
+    { variant: { RAM: '16 GB' }, title: 'Acme ZX100 RAM 16 GB / SSD 128 GB', relation: 'variant' },
     { variant: { option1: '128 GB' }, title: 'Acme ZX100 128 GB / 256 GB', relation: 'variant' },
   ])(
     'compares the selected capacity in $variant with the requested storage',
@@ -473,6 +476,15 @@ describe('the must-have check after the label', () => {
       ).toBe(relation);
     },
   );
+
+  it('falls back to a stated layout when the chosen option gives only a language', () => {
+    expect(
+      matchListing({
+        asked: ask('Acme ZX100', { mustHave: [must('layout', 'QWERTY')] }),
+        listing: item('Acme ZX100 AZERTY', { variant: { Layout: 'French' } }),
+      }),
+    ).toEqual({ relation: 'variant', differingAttrs: ['layout'] });
+  });
 
   it('names the attribute that differs', () => {
     const asked = ask('Acme Glide 3', { mustHave: [must('colour', 'Black')] });

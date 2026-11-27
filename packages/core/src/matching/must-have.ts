@@ -81,6 +81,20 @@ function optionKey(name: string): string {
   }
 }
 
+// Both RAM and storage are sold in GB. A local label locates its own quantity in
+// titles such as "8GB RAM / 128GB SSD", including stores that put the label first.
+function titleMeasures(attribute: string, tokens: readonly Token[]): readonly Token[] {
+  const memory = attribute === 'ram' || attribute === 'memory';
+  if (!memory && attribute !== 'capacity') return tokens;
+  const labels = memory ? ['ssd', 'hdd', 'storage'] : ['ram', 'ddr', 'ddr4', 'ddr5'];
+  return tokens.filter((t, i) => {
+    if (t.measure?.dim !== 'storage') return true;
+    if (labels.includes(tokens[i + 1]?.key ?? '')) return false;
+    const prefix = tokens[i - 1]?.key ?? '';
+    return !labels.includes(prefix) || tokens[i - 2]?.measure?.dim === 'storage';
+  });
+}
+
 const KEYBOARD_LAYOUTS = new Set(['qwerty', 'azerty', 'qwertz', 'dvorak', 'colemak']);
 function layoutsConflict(want: readonly Token[], have: readonly Token[]): boolean {
   const wanted = want.filter((t) => KEYBOARD_LAYOUTS.has(t.key));
@@ -138,25 +152,29 @@ export function checkMustHave(
       .join(' ');
     const selectedText = prepare(explicitlySelected);
     const selectedTokens = tokenise(selectedText);
-    const layoutTokens = selectedText
-      ? selectedTokens
-      : unnamedTokens.some((t) => KEYBOARD_LAYOUTS.has(t.key))
-        ? unnamedTokens
-        : ownTokens;
-    if (attribute === 'layout' && layoutsConflict(value, layoutTokens)) {
-      conflicts.push(key);
-      continue;
+    const isLayout = (t: Token) => KEYBOARD_LAYOUTS.has(t.key);
+    if (attribute === 'layout') {
+      const layoutTokens =
+        [selectedTokens, unnamedTokens, ownTokens].find((tokens) => tokens.some(isLayout)) ?? [];
+      if (layoutsConflict(value, layoutTokens)) {
+        conflicts.push(key);
+        continue;
+      }
     }
+    const selectedColours = coloursOf(selectedTokens);
     if (
-      coloursConflict(coloursOf(value), selectedText ? coloursOf(selectedTokens) : listingColours)
+      coloursConflict(
+        coloursOf(value),
+        selectedColours.base.size ? selectedColours : listingColours,
+      )
     ) {
       conflicts.push(key);
       continue;
     }
     const selectedMeasure = compareMeasures(value, selectedText ? selectedTokens : unnamedTokens);
     const m =
-      !selectedText && selectedMeasure.kind === 'none'
-        ? compareMeasures(value, ownTokens)
+      selectedMeasure.kind === 'none'
+        ? compareMeasures(value, titleMeasures(attribute, ownTokens))
         : selectedMeasure;
     if (m.kind === 'conflict') {
       conflicts.push(key);
@@ -164,7 +182,10 @@ export function checkMustHave(
     }
     if (m.kind === 'incomparable') incomparable.push(key);
     const wantToolOnly = TOOL_ONLY_RE.test(valueText);
-    const optionText = selectedText || ownText;
+    const optionText =
+      TOOL_ONLY_RE.test(selectedText) || WITH_BATTERY_RE.test(selectedText)
+        ? selectedText
+        : ownText;
     const listingToolOnly = TOOL_ONLY_RE.test(optionText);
     const listingBattery = WITH_BATTERY_RE.test(optionText.replace(TOOL_ONLY_RE, ' '));
     if (wantToolOnly && !listingToolOnly && listingBattery) {
@@ -176,7 +197,7 @@ export function checkMustHave(
       continue;
     }
     const want = connectorOf(valueText);
-    const have = connectorOf(optionText);
+    const have = connectorOf(selectedText) ?? connectorOf(ownText);
     if (want !== null && have !== null && want !== have) conflicts.push(key);
   }
   if (conflicts.length > 0) return { kind: 'conflict', attrs: [...new Set(conflicts)] };
