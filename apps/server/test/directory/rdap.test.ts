@@ -238,3 +238,17 @@ it('stops a redirect chain within four exchanges', async () => {
   expect(s.net.hops.length).toBeLessThanOrEqual(4);
   expect(s.cache()).toEqual([]);
 });
+
+it('stops on a redirect the classifier identifies as a wall', async () => {
+  const s = setup();
+  s.replies[bUrl] = {
+    status: 302,
+    headers: [
+      ['cf-mitigated', 'challenge'],
+      ['location', rUrl],
+    ],
+  };
+  await s.service().enrich(s.storeId, s.request());
+  expect(s.net.hops.map((h) => h.url)).toEqual([bUrl]);
+  expect(s.cache()).toEqual([]);
+});

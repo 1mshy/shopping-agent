@@ -94,7 +94,11 @@ async function lookup(
       wireBudget,
     });
     if (!response) return null;
-    if ([301, 302, 303, 307, 308].includes(response.status)) {
+    if (
+      outcome.kind === 'network_error' &&
+      outcome.code === `HTTP_${response.status}` &&
+      [301, 302, 303, 307, 308].includes(response.status)
+    ) {
       const location = response.headers.location;
       const next = location ? URL.parse(location, url) : null;
       if (next?.protocol !== 'https:' || next.username || next.password) return null;
