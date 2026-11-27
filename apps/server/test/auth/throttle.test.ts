@@ -77,11 +77,11 @@ describe('the login throttle, per client', () => {
 });
 
 describe('the login throttle, globally', () => {
-  it('locks every client after 20 failures across addresses', () => {
+  it('admits an independent client under global pressure without renewing a global lockout', () => {
     const clock = new Clock();
     const throttle = createLoginThrottle({ now: clock.now });
     for (let i = 0; i < LOGIN_THROTTLE_GLOBAL.free + 1; i++) failOnce(throttle, `client-${i}`);
-    expect(throttle.admit('a-fresh-address')).toEqual({ admitted: false, retryAfterMs: 1_000 });
+    expect(throttle.admit('a-fresh-address').admitted).toBe(true);
   });
 
   it('refunds a successful attempt, so the owner signing in does not feed the lockout', () => {

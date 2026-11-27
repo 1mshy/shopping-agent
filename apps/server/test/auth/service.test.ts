@@ -2,11 +2,12 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { DEFAULT_PROFILE_ID, schema } from '@agentic-dasher/db';
 import { eq } from 'drizzle-orm';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   type AuthService,
   createAuthService,
   createLoginThrottle,
+  LOGIN_THROTTLE_GLOBAL,
   parsePhc,
   SESSION_IDLE_MS,
   SESSION_MAX_MS,
@@ -261,6 +262,51 @@ describe('logout and password change', () => {
       retryAfterMs: 1_000,
     });
   });
+});
+
+describe('global verification pacing', () => {
+  it.each(['login', 'change'] as const)(
+    'holds %s before verification for a single fixed delay',
+    async (operation) => {
+      temp = new TempDb();
+      const clock = new Clock();
+      const waits: { ms: number; release: () => void }[] = [];
+      const options = {
+        now: clock.now,
+        sleep: (ms: number) => new Promise<void>((release) => waits.push({ ms, release })),
+      };
+      const throttle = createLoginThrottle(options);
+      const auth = createAuthService({ db: temp.db, now: clock.now, argon2: CHEAP, throttle });
+      const token = await signedUp(auth);
+      const session = auth.authenticate(token);
+      if (!session) throw new Error('expected a signed-in owner');
+      // Synthetic failure accounting. Only the known setup credential enters verification.
+      for (let i = 0; i < LOGIN_THROTTLE_GLOBAL.free; i++) {
+        const a = throttle.admit(`sample-${i}`);
+        if (!a.admitted) throw new Error('expected a free admission');
+        a.ticket.fail();
+      }
+      const dbReads = vi.spyOn(temp.db.orm, 'select');
+      const pending =
+        operation === 'login'
+          ? auth.login(PASSWORD, 'owner')
+          : auth.changePassword(session, PASSWORD, OTHER_PASSWORD, 'owner');
+      const second = throttle.admit('independent');
+      const full = throttle.admit('at-capacity');
+      const readsAtAdmission = dbReads.mock.calls.length;
+      const durations = waits.map((w) => w.ms);
+      clock.advance(1000);
+      for (const w of waits) w.release();
+      if (second.admitted) second.ticket.fail();
+      const result = await pending;
+      dbReads.mockRestore();
+      expect(durations).toEqual([1000, 1000]);
+      expect(readsAtAdmission).toBe(0);
+      expect(second.admitted).toBe(true);
+      expect(full).toEqual({ admitted: false, retryAfterMs: 1000 });
+      expect(result.kind).toBe(operation === 'login' ? 'ok' : 'changed');
+    },
+  );
 });
 
 describe('what the database holds', () => {
