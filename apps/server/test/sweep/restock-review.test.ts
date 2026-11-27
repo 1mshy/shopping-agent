@@ -63,10 +63,14 @@ function twoListings() {
   return { x: make(), y: make() };
 }
 
-async function read(listing: { id: number; url: string }, step: Scripted, crash = false) {
-  clock.advance(30 * MIN);
+async function read(
+  listing: { id: number; url: string },
+  step: Scripted,
+  options: { crash?: boolean; elapsedMs?: number } = {},
+) {
+  clock.advance(options.elapsedMs ?? 30 * MIN);
   script.push(listing.url, step);
-  if (!crash) {
+  if (!options.crash) {
     return checkListing(depsOf(tmp, clock, script.read), listing.id, { force: true });
   }
   const crashing = depsOf(tmp, clock, script.read, [], {
@@ -84,6 +88,30 @@ const inAt = (price: number): Scripted => ({ price });
 const outAt = (price: number): Scripted => ({ price, availability: 'out' });
 
 describe('restock, two listings of one watch', () => {
+  it.each([
+    { firstPrice: 9_000, secondPrice: 10_000 },
+    { firstPrice: 10_000, secondPrice: 9_000 },
+  ])(
+    'records a later decision in the same millisecond ($firstPrice first)',
+    async ({ firstPrice, secondPrice }) => {
+      const { x, y } = twoListings();
+      await read(x, outAt(firstPrice));
+      await read(y, outAt(secondPrice));
+      await read(x, inAt(firstPrice));
+      const first = observationsOf(tmp.db, x.id).at(-1);
+      expect(restocks().map((e) => e.observationId)).toEqual([first?.id]);
+
+      await read(y, inAt(secondPrice), { elapsedMs: 0 });
+      const second = observationsOf(tmp.db, y.id).at(-1);
+      expect(second?.observedAt).toBe(first?.observedAt);
+      expect(restocks().map((e) => e.observationId)).toEqual([first?.id, second?.id]);
+
+      await read(x, inAt(firstPrice));
+      await read(y, inAt(secondPrice));
+      expect(restocks().map((e) => e.observationId)).toEqual([first?.id, second?.id]);
+    },
+  );
+
   it('one decision that covers both listings is not recorded again for the second', async () => {
     const { x, y } = twoListings();
     await read(x, inAt(9_000));
@@ -91,7 +119,7 @@ describe('restock, two listings of one watch', () => {
     await read(x, outAt(9_000));
     await read(y, outAt(10_000));
     // X comes back, and the process dies before its evaluation.
-    await read(x, inAt(9_000), true);
+    await read(x, inAt(9_000), { crash: true });
     expect(restocks()).toHaveLength(0);
     // Y comes back: one event, naming the cheaper listing that is back, X.
     await read(y, inAt(10_000));
