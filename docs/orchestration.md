@@ -4,12 +4,56 @@ The orchestrator's record of work units. It is the memory across context compact
 
 Status values: `planned | running | review | merged | blocked-owner | blocked-dep`. Gate values: `holds | open | pending-owner | pending-time`.
 
-Last updated: 2026-11-25, 04:00.
+Last updated 2026-11-27.
+
+## Current Phase 1 run
+
+Local main, origin/main and GitHub main agree at `d8e5c80`. The starting tree was clean. [CI passed](https://github.com/1mshy/shopping-agent/actions/runs/45646853792). The dated ledger below records prior work. This run stops at the Phase 1 boundary and has a two-agent limit including reviewers.
+
+| Unit | Owner | Branch | Status | Dependency / next check |
+|---|---|---|---|---|
+| R-7 second listing regression | restock | codex/p1-restock-regression | review | Independently reviewed 1ee3d6e, rollback/reopen confirmed. [PR 16](https://github.com/1mshy/shopping-agent/pull/16) in CI. Separate long-gap regression queued |
+| P1-3a successful read intake | directory | codex/p1-directory-intake | merged | [PR 15](https://github.com/1mshy/shopping-agent/pull/15) merged as 774acc0 after both checks passed. Next directory unit is fingerprinting |
+| R-6 Docker network policy | directory | codex/p1-docker-networks | running | Six offline red regressions on cc90a94. Independent review returned two config consistency findings to the author |
+| P1-G freeze and restart | orchestrator | pending | holds | Three coalesced slots per minute-job, no duplicate events, 503 then 200. Pending delivery resumed across Compose down/up on d8e5c80 |
+| P1-G live | orchestrator | pending | running | Approved sample below. All 20 enrolled. Window 2026-11-27 17:49:56.185 through 2026-11-29 17:49:56.185 UTC |
+| P1-G directory | orchestrator | pending | blocked-dep | Freeze directory and matcher, reserve held-out split |
+| P1-4 brand matching | restock | codex/p1-matcher-brand | running | Synthetic identifier match incorrectly confirmed Ace and Palace |
+| P1-4 remaining review | orchestrator | pending | planned | Selected options, null watch spec, missing-title refusal, SKU override keys, stale code verdicts |
+| P1-3 fingerprint | directory | codex/p1-fingerprint | running | Guard review corrections first, then six wire exchanges including redirects/robots |
+| P1-3 country pack | orchestrator | codex/p1-country-pack | running | Offline WDC 2023 Product statistics |
+| P1-8 robots setting | orchestrator | codex/p1-robots-setting | running | Built-app success, refusal and persistence |
+| R-7 extended restock history | orchestrator | pending | planned | Known out before a 31-day gap counted as first sighting |
+
+### Approved 48-hour sample
+
+These 20 listing URLs come from the repository's transport lab manifest. Each is on a different host. Use the normal half-hour cadence and host backoff. Record walls, refusals and failures as outcomes. No substitutions without approval.
+
+1. https://www.bestbuy.ca/en-ca/product/logitech-mx-master-3s-bluetooth-darkfield-high-precision-sensor-mouse-black/19467786
+2. https://www.homedepot.ca/product/dewalt-20v-max-atomic-lithium-ion-compact-1-2-inch-hammer-drill-kit-with-1-2-0ah-battery-charger-and-bag/1001770010
+3. https://www.staples.ca/products/3135031-en-logitech-mx-master-3s-bluetooth-edition-performance-wireless-mouse-black
+4. https://www.rona.ca/en/product/dewalt-20-v-max-brushless-compact-drill-driver-kit-with-battery-charger-dcd793d1-00277649
+5. https://www.homehardware.ca/en/20v-max-12-cordless-hammer-drill-kit-with-battery-charger/p/1239025
+6. https://www.londondrugs.com/products/logitech-mk540-advanced-wireless-keyboard-and-mouse-set-carbon-920-008671/p/L0015914
+7. https://www.visions.ca/sony-top-end-headphones-in-black-openbox
+8. https://www.canadiantire.ca/en/pdp/dewalt-dcd793d1-20v-max-compact-brushless-cordless-1-2-in-drill-driver-0548723p.html
+9. https://www.cdw.ca/product/wd-black-sn770m-wdbdnh0020bbk-wrsn-ssd-2-tb-pcie-4.0-x4-nvme/8475121
+10. https://www.anker.com/ca/products/a1695-anker-power-bank-25000mah-165w?variant=8323451584662
+11. https://www.canac.ca/canac/en/2/p/18-v-1-2-in-cordless-drill-driver/66003260
+12. https://www.bmr.ca/en/dewalt-brushless-cordless-drill-driver-atomic-20v-max-1-2-001-9647.html
+13. https://www.bureauengros.com/products/3135031-fr-logitech-souris-sans-fil-hautes-performances-mx-master-3s-edition-bluetooth-noire
+14. https://www.canadacomputers.com/en/desktop-laptop-internal-ssds/233286/samsung-990-pro-2tb-m-2-nvme-pcie-4-0-solid-state-drive-mz-v9p2t0b-am.html
+15. https://www.sail.ca/en-ca/products/the-north-face-wawona-6-tent-6-person-1493003?variant=56879252373664
+16. https://www.leevalley.com/en-ca/shop/tools/hand-tools/planes/block/47881-veritas-low-angle-block-plane
+17. https://www.newegg.ca/SAMSUNG-2TB-990-PRO-NVMe-2-0/p/N82E16820147861
+18. https://ca.store.bambulab.com/products/a1-mini
+19. https://www.canakit.com/raspberry-pi-5-8gb.html
+20. https://www.pishop.ca/product/raspberry-pi-5-8gb/
 
 ## Authority settings in force
 
 - Merging: pushes resumed on 2026-11-18. Work may be committed straight to `main` and pushed. Units still get their own branch and the same review and checks before the orchestrator merges them. PRs #12 and #14 are closed. On 2026-11-24 the owner answered the Phase 0 report with "implement what you think is best": the orchestrator settled the report's four open decisions (progress log, 2026-11-24) and pushed. That word covered those four items; it is not a standing change to the checkpoint rule below.
-- Concurrency: at most 4 implementation subagents.
+- Concurrency for the current run is two active agents total, including reviewers.
 - Phase checkpoints: stop and report to the owner at each phase exit.
 - **Unattended run, 2026-11-24 22:15 to 2026-11-25 05:00 (owner's word of 2026-11-24, evening).** The owner handed Phase 1 "and the next few phases" to the orchestrator and went to bed. For this run only: 2 to 3 subagents at a time; commit to local `main`, **no pushes** (so no CI: checks are run locally and judged by exit code); a phase exit does not stop the run, the report is written into the progress log and the next phase starts; a gap or question is settled from the documents and past rulings and recorded as the orchestrator's decision, which the owner may overrule; Docker containers may be started and stopped. Not covered, and so not done: real notifications to the owner's devices, new external accounts, anything paid beyond the Haiku 5.5 route already given.
 - Spend: no paid services or keys unless the owner provides them in the session.

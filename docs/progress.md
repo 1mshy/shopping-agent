@@ -18,6 +18,16 @@ Owner asked for "open source for anyone to use, distribute and modify, but no co
 
 ## Phase 1: Deterministic core
 
+### 2026-11-27 · Integration and measurements
+
+- Reconciled the local and remote main revision at `d8e5c80`. [GitHub CI passed](https://github.com/1mshy/shopping-agent/actions/runs/45646853792). The November 25 handoff below describes that earlier run.
+- The owner approved per-listing transition observation coverage on each restock event, extra Docker-denied CIDRs supplied by the operator with no third-party WAN lookup, per-client login lockouts and bounded global guessing without renewable global lockout, per-listing drop history unless the owner confirms a reference, a cross-store median for comparison, and the existing allowed-host defaults.
+- The owner approved the exact 20 listings on 20 hosts recorded in the ledger. An isolated core running `d8e5c80` enrolled all 20 through the watch API with robots set to respect, a Canadian English market, the standard 30-minute cadence and normal backoff. The 48-hour window started at 17:49:56.185 UTC. The container has a cutoff at the same time on November 29. The result is pending.
+- Reproduced the second-listing restock loss through the real sweep in both price orders, with distinct observation IDs at the same millisecond. Expected events for observations 3 and 4, got only 3. Two failures, two existing regressions passed.
+- Freeze gate on Linux arm64, image built from `d8e5c80`, n = 1 real pause. Watch lookup, outbox and sweep each ran once at 17:54:42.770 UTC, representing three missed minute slots apiece. Backup had no due slot. One seeded price-drop event and two pending deliveries became one accepted in-app delivery (one attempt) and one accepted webhook delivery (two attempts). The receiver recorded HTTP 503 then 200, 2.011 seconds apart with the same idempotency key. Zero duplicate in-app events.
+- Restart gate on the same image, separate Compose project, n = 1 down/up on a named volume. One watch, both history IDs, event ID 1 and the two pending delivery IDs survived. The retry timestamp remained 17:53:15.327 UTC, and both generations' boot jobs were present. The recreated core delivered in-app once and retried the local webhook after 503, receiving 200 after 2.010 seconds. No duplicate events. Both Docker measurements used deterministic seeded inputs with production schedulers/outbox and real clocks.
+- Directory intake merged in [PR 15](https://github.com/1mshy/shopping-agent/pull/15) at `774acc0` after both CI jobs passed. The first directory branch recognised a directly priced storefront once across two reads. A failed read and two successful price reads redirected to a different storefront left classification unknown. Independent pinned lint, typecheck, test and build exited 0 on `dcca4e3` (3,926 tests in 184 files).
+
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
 ### 2026-11-25, 05:00: Phase 1 report at the end of the unattended run
