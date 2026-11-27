@@ -6,11 +6,35 @@
 // from, so it could answer with a redirect to that address, or point a name at a neighbour.
 // These are refused here: every address of a network interface of this machine, and every
 // address on the same link as one (the interface's prefix).
+import { isIP } from 'node:net';
 import { networkInterfaces } from 'node:os';
 import ipaddr from 'ipaddr.js';
 
 /** One network of this machine: an address and how many leading bits name the network. */
 export type OwnNetwork = readonly [address: ipaddr.IPv4 | ipaddr.IPv6, bits: number];
+
+/** Operator-supplied networks extend the guard on hosts whose interfaces Docker cannot see. */
+export function parseDeniedNetworks(setting: string | undefined): OwnNetwork[] {
+  if (!setting?.trim()) return [];
+  return setting.split(',').map((entry, index) => {
+    const [address = '', prefix, ...extra] = entry.trim().split('/');
+    const family = isIP(address);
+    const width = family === 4 ? 32 : 128;
+    const bits = prefix === undefined ? width : Number(prefix);
+    if (
+      family === 0 ||
+      address.includes('%') ||
+      extra.length > 0 ||
+      (prefix !== undefined && !/^(?:0|[1-9][0-9]{0,2})$/.test(prefix)) ||
+      bits > width
+    ) {
+      throw new Error(
+        `FETCH_DENY_CIDRS entry ${index + 1} must be an IPv4 or IPv6 address or CIDR`,
+      );
+    }
+    return [ipaddr.parse(address), bits];
+  });
+}
 
 /** What `os.networkInterfaces()` gives for one address; only these fields are read. */
 export interface InterfaceAddress {
@@ -63,17 +87,16 @@ const NAT64_WELL_KNOWN = ipaddr.IPv6.parseCIDR('64:ff9b::/96');
 /** True when `address` (an IP address as the guard writes it) is on one of `networks`. */
 export function onOwnNetwork(address: string, networks: readonly OwnNetwork[]): boolean {
   if (!ipaddr.isValid(address)) return false;
-  let parsed = ipaddr.parse(address);
+  const parsed = ipaddr.parse(address);
+  const contains = (ip: ipaddr.IPv4 | ipaddr.IPv6): boolean =>
+    networks.some(([network, bits]) => ip.kind() === network.kind() && ip.match(network, bits));
+  if (contains(parsed)) return true;
   if (parsed.kind() === 'ipv6' && (parsed as ipaddr.IPv6).isIPv4MappedAddress()) {
-    parsed = (parsed as ipaddr.IPv6).toIPv4Address();
+    return contains((parsed as ipaddr.IPv6).toIPv4Address());
   } else if (parsed.kind() === 'ipv6' && parsed.match(NAT64_WELL_KNOWN)) {
     // The address table lets a public IPv4 address through this prefix (address.ts); an own
     // IPv4 address written that way is still an own address.
-    parsed = new ipaddr.IPv4(parsed.toByteArray().slice(12));
-  }
-  for (const [network, bits] of networks) {
-    if (network.kind() !== parsed.kind()) continue;
-    if (parsed.match(network, bits)) return true;
+    return contains(new ipaddr.IPv4(parsed.toByteArray().slice(12)));
   }
   return false;
 }

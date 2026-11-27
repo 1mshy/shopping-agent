@@ -8,6 +8,7 @@ import {
   type InterfaceAddress,
   onOwnNetwork,
   ownNetworksOf,
+  parseDeniedNetworks,
 } from '../../src/guard/index.ts';
 
 const HOME: InterfaceAddress[] = [
@@ -120,6 +121,34 @@ describe('guardedExchange and the machine’s own networks', () => {
     });
     expect(result).toEqual(refused);
     expect(n.dialled).toEqual(['93.184.216.34 https://shop.example/p']);
+  });
+
+  it('adds configured prefixes to interface checks for both initial and subsequent hops', async () => {
+    const options = { ownNetworks, deniedNetworks: parseDeniedNetworks('45.81.0.0/20') };
+    const first = 'https://store.example/product';
+    const next = 'https://catalog.example/item';
+    for (const address of ['45.81.15.255', '203.0.114.25']) {
+      const blocked = net({ 'store.example': [address] }, {});
+      expect(await guardedExchange({ url: first, rung: 'http' }, blocked, options)).toEqual(
+        refused,
+      );
+      expect(blocked.dialled).toEqual([]);
+      const redirect = net(
+        { 'store.example': ['93.184.216.34'], 'catalog.example': [address] },
+        {
+          [first]: { status: 302, location: next },
+        },
+      );
+      expect(await guardedExchange({ url: first, rung: 'http' }, redirect, options)).toEqual(
+        refused,
+      );
+      expect(redirect.dialled).toEqual([`93.184.216.34 ${first}`]);
+    }
+    const allowed = net({ 'store.example': ['45.81.16.0'] }, {});
+    expect(await guardedExchange({ url: first, rung: 'http' }, allowed, options)).toMatchObject({
+      delivered: true,
+      status: 200,
+    });
   });
 
   it('still reaches a public address', async () => {

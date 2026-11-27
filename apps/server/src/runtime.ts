@@ -11,6 +11,7 @@ import {
   dropsSession,
   type Fetcher,
   type HttpNetwork,
+  type OwnNetwork,
   type RobotsMode,
   sessionSite,
   sqlitePacingStore,
@@ -47,6 +48,7 @@ export interface RuntimeOptions {
   readonly now?: () => number;
   /** For tests: a scripted network instead of the real one. */
   readonly network?: HttpNetwork;
+  readonly deniedNetworks?: readonly OwnNetwork[];
   /** For tests: the scheduler's timers and probe. */
   readonly scheduler?: Partial<Pick<SchedulerOptions, 'timers' | 'probe'>>;
   /** Further jobs (the watch lookup); registered beside the built-in ones. */
@@ -108,6 +110,7 @@ export function createRuntime(options: RuntimeOptions): Runtime {
       network: options.network ?? createHttpNetwork({ now }),
       jars,
       classify: classifyResponse,
+      ...(options.deniedNetworks ? { deniedNetworks: options.deniedNetworks } : {}),
       pacing: sqlitePacingStore(options.db),
       playbook: sqlitePlaybookStore(options.db),
       robotsMode: options.robotsMode,

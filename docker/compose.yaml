@@ -15,6 +15,7 @@ services:
     environment:
       # Host names the API answers for besides IP addresses and local names (README, "Run it").
       ALLOWED_HOSTS: ${ALLOWED_HOSTS:-}
+      FETCH_DENY_CIDRS: ${FETCH_DENY_CIDRS:-}
     volumes:
       - data:/data
 

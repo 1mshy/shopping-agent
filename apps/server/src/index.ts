@@ -84,6 +84,7 @@ const watches = createWatchService({
 });
 
 runtime = createRuntime({
+  deniedNetworks: config.deniedNetworks,
   db,
   dataDir: config.dataDir,
   secrets,
