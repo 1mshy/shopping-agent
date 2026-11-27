@@ -2,11 +2,13 @@ import { type Database, schema } from '@agentic-dasher/db';
 import { bindReaderGet, createRequestBudget, type Fetcher } from '@agentic-dasher/fetch';
 import type { SearchRoute } from '@agentic-dasher/shared';
 import {
+  amazonStorefront,
   type DirectoryCandidate,
   type ReaderContext,
   type StoreFingerprint,
   type StoreSearch,
   type StoreSearchResult,
+  searchAmazon,
   searchBestBuyCanada,
   searchDeclaredTemplate,
   searchMagento,
@@ -23,6 +25,8 @@ async function searchPlatform(
   evidence: StoreFingerprint,
   context: ReaderContext,
 ): Promise<{ route: SearchRoute; result: StoreSearchResult } | null> {
+  if (input.origin === amazonStorefront(input.market.country))
+    return { route: 'adapter', result: await searchAmazon(input, context) };
   if (input.origin === 'https://www.bestbuy.ca' && input.market.country === 'CA')
     return { route: 'adapter', result: await searchBestBuyCanada(input, context) };
   switch (evidence.platform) {

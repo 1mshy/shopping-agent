@@ -90,14 +90,23 @@ export async function searchDeclaredTemplate(
     checked.replace(/\{[a-zA-Z_][a-zA-Z0-9_]*\}/, () => encodeURIComponent(input.query)),
   );
   if (!endpoint || endpoint.origin !== base.origin) return { kind: 'unsupported' };
+  return readProductLinks(input, endpoint, context);
+}
+
+export async function readProductLinks(
+  input: StoreSearch,
+  endpoint: URL,
+  context: ReaderContext,
+  accepts = PRODUCT_PATH,
+): Promise<StoreSearchResult> {
   const { outcome, response } = await context.get({ url: endpoint.href, rung: 'http' });
   if (outcome.kind === 'not_found') return { kind: 'unsupported' };
   if (outcome.kind !== 'ok') return { kind: 'fetch_failed', outcome };
   if (
     !response ||
-    URL.parse(response.finalUrl)?.origin !== base.origin ||
+    URL.parse(response.finalUrl)?.origin !== endpoint.origin ||
     !/^(?:text\/html|application\/xhtml\+xml)(?:;|$)/i.test(response.contentType ?? '')
   )
     return { kind: 'invalid_response' };
-  return { kind: 'results', candidates: productLinks(response, input) };
+  return { kind: 'results', candidates: productLinks(response, input, accepts) };
 }
