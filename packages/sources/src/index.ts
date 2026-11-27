@@ -2,6 +2,7 @@
 // routes and hand-written adapters. Each part lives in its own directory under `src/` and is
 // re-exported here.
 
+export { amazonStorefront, searchAmazon } from './directory/amazon.ts';
 export { searchBestBuyCanada } from './directory/bestbuy.ts';
 export {
   FINGERPRINT_MAX_REQUESTS,
