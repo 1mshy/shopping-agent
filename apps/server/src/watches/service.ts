@@ -40,6 +40,7 @@ import {
   type WatchView,
 } from '@agentic-dasher/shared';
 import { and, asc, desc, eq, isNull, sql } from 'drizzle-orm';
+import { marketPrefixOf } from '../directory/storefront.ts';
 import { deliveryStatus, gatingDeliveries, lastAcceptedAlert } from '../notify/gating.ts';
 
 export const WATCH_ERROR_CODES = [
@@ -167,14 +168,6 @@ function rulesOf(w: WatchRow): WatchRules {
   if (parsed.success) return parsed.data;
   // A row written by something else; shown with no rule rather than guessed.
   return { targetPrice: null, dropBasisPoints: null, restock: w.restockEnabledAt !== null };
-}
-
-// A Shopify Markets locale segment at the start of a path, when more path follows it.
-const MARKET_PREFIX = /^\/([a-z]{2}(?:-[a-z]{2})?)\/[^/?#]/i;
-
-function marketPrefixOf(pathname: string): string {
-  const m = MARKET_PREFIX.exec(pathname);
-  return m?.[1] === undefined ? '' : `/${m[1].toLowerCase()}`;
 }
 
 /** S§5.3's candidate filter caps. */

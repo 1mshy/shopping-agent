@@ -43,6 +43,7 @@ import {
   wooReader,
 } from '@agentic-dasher/sources';
 import { and, eq } from 'drizzle-orm';
+import { marketPrefixOf } from '../directory/storefront.ts';
 import { evaluateObservation, type WatchEvaluation } from './evaluate.ts';
 import { CODE_ONLY_VERSIONS, type VerdictVersions } from './identity.ts';
 import { errorSummary, type SweepLogger, stderrLogger } from './log.ts';
@@ -289,9 +290,18 @@ async function runCheck(
     signal,
     budget: createRequestBudget(deps.checkRequestBudget ?? CHECK_REQUEST_BUDGET),
   });
+  // Treat a price as directory evidence only when its rung read from the listing's storefront.
+  const directResponses = new Map<'api' | 'http', boolean>();
   const context: ReaderContext = {
     get: async (request) => {
       const result: FetcherResult = await bound(request);
+      if (result.outcome.kind === 'ok' && result.response !== null) {
+        const received = URL.parse(result.response.finalUrl);
+        const direct =
+          received?.hostname === claim.store.host &&
+          marketPrefixOf(received.pathname) === claim.store.marketPrefix;
+        directResponses.set(request.rung, (directResponses.get(request.rung) ?? true) && direct);
+      }
       if (result.closedUntil !== null) closedUntil = Math.max(closedUntil ?? 0, result.closedUntil);
       if (result.outcome.kind === 'rate_limited' && result.outcome.retryAfterMs !== null) {
         retryUntil = Math.max(retryUntil ?? 0, now() + result.outcome.retryAfterMs);
@@ -442,6 +452,9 @@ async function runCheck(
           .run();
         const s = schema.store;
         const storePatch: Partial<StoreRow> = { consecutiveErrors: 0, lastOkAt: at };
+        // The listing already owns the unique host + market-prefix row created at intake.
+        // Keep its origin and trust; a stock-only observation does not establish a priced shop.
+        if (r.sticker !== null && directResponses.get(read.rung)) storePatch.isShop = 'yes';
         if (store.readRoute !== read.method) storePatch.readRoute = read.method;
         if (learnt !== null && store.platform === 'unknown') storePatch.platform = learnt;
         db.orm.update(s).set(storePatch).where(eq(s.id, store.id)).run();
