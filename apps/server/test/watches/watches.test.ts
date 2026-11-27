@@ -178,6 +178,7 @@ describe('POST /watches by link (save first, S§2.9)', () => {
         trustReasons: [],
         source: 'pasted',
         fingerprintedAt: null,
+        fingerprint: null,
         consecutiveErrors: 0,
         lastOkAt: null,
         lastErrorAt: null,

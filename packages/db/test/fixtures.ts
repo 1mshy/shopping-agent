@@ -138,6 +138,7 @@ export const rows = {
     trustReasons: ['tranco_top_1m'],
     source: 'read',
     fingerprintedAt: T0,
+    fingerprint: null,
     consecutiveErrors: 0,
     lastOkAt: T1,
     lastErrorAt: null,
