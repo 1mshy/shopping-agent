@@ -152,6 +152,7 @@ export function createAuthService(deps: AuthServiceDeps): AuthService {
       if (!admission.admitted) return { kind: 'throttled', retryAfterMs: admission.retryAfterMs };
       const { ticket } = admission;
       try {
+        await ticket.ready;
         const stored = storedHash();
         if (stored === null || !hashable(password)) {
           ticket.fail();
@@ -195,6 +196,7 @@ export function createAuthService(deps: AuthServiceDeps): AuthService {
       if (!admission.admitted) return { kind: 'throttled', retryAfterMs: admission.retryAfterMs };
       const { ticket } = admission;
       try {
+        await ticket.ready;
         const stored = storedHash();
         if (stored === null || !hashable(currentPassword)) {
           ticket.fail();

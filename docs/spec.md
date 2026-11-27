@@ -508,7 +508,7 @@ The **feed is the durable record**. Every alert, recommendation, agent message a
 
 - Settings live in the DB with environment defaults; the UI shows each value's source. Config is never rendered to files at boot.
 - Secrets (API keys, channel tokens) are encrypted at rest with a key from the volume or the environment, redacted in logs, and never put in prompts.
-- Auth: one owner password (`crypto.argon2`) set in the wizard, with session cookies. Trusted-header auth is optional. Generic OIDC (`openid-client`) comes later.
+- Auth: one owner password (`crypto.argon2`) set in the wizard, with session cookies. Sign-in and password-change verification use per-client exponential lockouts. After 20 failures across clients, each admitted verification waits one second in one of two available slots. Other failures cannot extend that wait. Trusted-header auth is optional. Generic OIDC (`openid-client`) comes later.
 - Every API route except `/api/health` and static assets needs a session or an API token. A page in the browser add-on cannot send that token.
 - The API answers only for a host name that cannot be someone else's: an IP address, `localhost`, a single-label name, a local-only suffix (`.local`, `.lan`, `.home`, `.internal`, `.home.arpa`, `.localdomain`, `.test`), or a name listed in the `ALLOWED_HOSTS` environment variable. Any other Host is refused, which is what stops DNS rebinding; behind a trusted proxy the request's own host and the forwarded one must both pass. A request that says it comes from another site is refused on every method, the always-open routes excepted. Changing the password ends every session and opens a new one for the device that made the change.
 

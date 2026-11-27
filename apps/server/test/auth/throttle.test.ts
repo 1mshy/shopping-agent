@@ -84,13 +84,46 @@ describe('the login throttle, globally', () => {
     expect(throttle.admit('a-fresh-address').admitted).toBe(true);
   });
 
-  it('refunds a successful attempt, so the owner signing in does not feed the lockout', () => {
+  it('counts pending work at the free limit, charges each failure once and forgets idle pressure', async () => {
+    const clock = new Clock();
+    const delays: number[] = [];
+    const throttle = createLoginThrottle({
+      now: clock.now,
+      global: { ...LOGIN_THROTTLE_GLOBAL, free: 2 },
+      sleep: async (ms) => {
+        delays.push(ms);
+      },
+    });
+    const failed = admitted(throttle.admit('failed'));
+    failed.fail();
+    failed.fail();
+    const lastFree = admitted(throttle.admit('finishing'));
+    const paced = admitted(throttle.admit('pending'));
+    await paced.ready;
+    expect(delays).toEqual([1000]);
+    lastFree.succeed();
+    paced.fail();
+    const owner = admitted(throttle.admit('owner'));
+    await owner.ready;
+    owner.succeed();
+    const stillPaced = admitted(throttle.admit('other'));
+    await stillPaced.ready;
+    stillPaced.succeed();
+    expect(delays).toEqual([1000, 1000, 1000]);
+    clock.advance(LOGIN_THROTTLE_GLOBAL.forgetMs);
+    const fresh = admitted(throttle.admit('fresh'));
+    await fresh.ready;
+    fresh.succeed();
+    expect(delays).toHaveLength(3);
+  });
+
+  it('refunds a successful attempt without refusing the next owner sign-in', () => {
     const clock = new Clock();
     const throttle = createLoginThrottle({ now: clock.now });
     for (let i = 0; i < LOGIN_THROTTLE_GLOBAL.free; i++)
       admitted(throttle.admit(`c${i}`)).succeed();
     for (let i = 0; i < LOGIN_THROTTLE_GLOBAL.free; i++) failOnce(throttle, `d${i}`);
-    // 20 failures: still free. The 21st attempt succeeds: no lockout from it.
+    // The shared delay still admits the owner and does not create a global lockout.
     admitted(throttle.admit('owner')).succeed();
     expect(throttle.admit('owner').admitted).toBe(true);
   });
