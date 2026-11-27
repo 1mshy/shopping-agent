@@ -49,6 +49,11 @@ import {
   robotsUrlOf,
   robotsVerdict,
 } from '../robots/index.ts';
+import {
+  isStoreCatalogEndpoint,
+  type StoreCatalogSearch,
+  validStoreCatalogSearch,
+} from '../store-catalog.ts';
 import { ABORT_CODE, type HttpNetwork, TIMEOUT_CODE } from '../transport/index.ts';
 import type { RequestBudget } from './budget.ts';
 
@@ -80,6 +85,7 @@ export interface FetcherDeps {
 }
 
 export interface FetcherRequest {
+  readonly catalogSearch?: StoreCatalogSearch;
   /** Make each redirect a separate guarded, paced request (including its robots policy). */
   readonly redirect?: 'manual';
   /** Anonymous public metadata lookups do not send or retain cookies. */
@@ -151,6 +157,7 @@ function watched(network: HttpNetwork, beforeExchange: () => void): HttpNetwork 
 }
 
 function pageRequestOf(request: {
+  readonly catalogSearch?: StoreCatalogSearch;
   readonly redirect?: 'manual';
   readonly credentials?: 'omit';
   readonly url: string;
@@ -169,7 +176,11 @@ function pageRequestOf(request: {
     ...(request.maxBodyBytes !== undefined ? { maxBodyBytes: request.maxBodyBytes } : {}),
   };
   return request.rung === 'api'
-    ? { ...base, rung: 'api' }
+    ? {
+        ...base,
+        rung: 'api',
+        ...(request.catalogSearch ? { catalogSearch: request.catalogSearch } : {}),
+      }
     : {
         ...base,
         rung: 'http',
@@ -266,6 +277,13 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
       const pageKind = PageKind.parse(request.pageKind);
       if (!Number.isFinite(deadline))
         throw new RangeError(`deadline must be a number: ${deadline}`);
+      if (
+        request.catalogSearch &&
+        (rung !== 'api' ||
+          !isStoreCatalogEndpoint(request.url) ||
+          !validStoreCatalogSearch(request.catalogSearch))
+      )
+        throw new RangeError('Invalid storefront catalog search');
       const pageRequest = pageRequestOf(request);
       const done = (
         outcome: FetchOutcome,
@@ -298,7 +316,7 @@ export function createFetcher(deps: FetcherDeps): Fetcher {
         const robotsRequest = pageRequestOf({
           url: robotsUrl,
           rung: ROBOTS_RUNG,
-          ...(request.credentials ? { credentials: request.credentials } : {}),
+          ...(request.catalogSearch || request.credentials ? { credentials: 'omit' as const } : {}),
           deadline,
           signal,
         });
@@ -361,6 +379,7 @@ function refusal(rung: HttpRung, reason: PolicyRefusalReason): FetchOutcome {
 
 /** What `ReaderContext.get` asks (packages/sources/src/read/contract.ts). */
 export interface ReaderGetRequest {
+  readonly catalogSearch?: StoreCatalogSearch;
   readonly url: string;
   readonly rung: HttpRung;
   readonly referer?: string;
@@ -391,6 +410,7 @@ export function bindReaderGet(
       deadline: binding.deadline,
       signal: binding.signal,
       ...(request.referer !== undefined ? { referer: request.referer } : {}),
+      ...(request.catalogSearch ? { catalogSearch: request.catalogSearch } : {}),
       ...(binding.budget !== undefined ? { budget: binding.budget } : {}),
     });
 }

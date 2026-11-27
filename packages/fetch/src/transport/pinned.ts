@@ -147,6 +147,7 @@ async function exchange(
   const pending = engine.fetch({
     url: target.href,
     proxyUrl: ticket.proxyUrl,
+    ...(context.catalogSearch ? { catalogSearch: context.catalogSearch } : {}),
     headers,
     signal: hop.signal,
     timeoutMs: remaining,

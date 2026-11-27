@@ -6,7 +6,7 @@
 // currency the store bills in, with every figure it saw kept as text (S§2.1, S§2.2, S§4.1). It
 // never derives `effective` or `landed` (packages/core does), never converts a currency, never
 // picks a default currency and never guesses between two prices: with no clear answer it says so.
-import type { PageResponse, PageResult } from '@agentic-dasher/fetch';
+import type { PageResponse, PageResult, ReaderGetRequest } from '@agentic-dasher/fetch';
 import type {
   Availability,
   Condition,
@@ -65,14 +65,11 @@ export interface ReadRequest {
 /** What a reader may use besides its input. Bound to one read by the caller. */
 export interface ReaderContext {
   /**
-   * One guarded, paced GET under the read's deadline: the only way a reader reaches the network.
+   * One guarded, paced request under the read's deadline. The optional storefront catalog
+   * operation is a fixed search; other requests are GETs.
    * `api` for a platform or public JSON endpoint, `http` for a page.
    */
-  get(request: {
-    readonly url: string;
-    readonly rung: Extract<Rung, 'api' | 'http'>;
-    readonly referer?: string;
-  }): Promise<PageResult>;
+  get(request: ReaderGetRequest): Promise<PageResult>;
   /** Epoch milliseconds. */
   now(): number;
 }

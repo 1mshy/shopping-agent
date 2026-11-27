@@ -3,11 +3,11 @@ import { searchUcp } from '../../src/index.ts';
 import { fakeContext, MARKET_CA } from '../platform/fake.ts';
 
 const origin = 'https://merchant.example';
-const endpoint = origin + '/api/ucp/mcp';
+const endpoint = `${origin}/api/ucp/mcp`;
 const input = { origin, endpoint, marketPrefix: '/en-ca', query: 'whole bean', market: MARKET_CA };
 const product = {
   title: 'Coffee Beans',
-  url: origin + '/products/beans',
+  url: `${origin}/products/beans`,
   variants: [
     {
       id: 'gid://shopify/ProductVariant/123',
@@ -25,7 +25,7 @@ const rpc = (products: unknown[]) => ({
 const reply = (body: string, contentType = 'application/json') =>
   fakeContext({ [endpoint]: { body, contentType } }).context;
 const candidate = {
-  url: origin + '/en-ca/products/beans?variant=123',
+  url: `${origin}/en-ca/products/beans?variant=123`,
   storeHost: 'merchant.example',
   marketPrefix: '/en-ca',
   title: 'Coffee Beans',
@@ -65,8 +65,8 @@ it('drops foreign currency, foreign origin, different locale, and checkout-only 
   const products = [
     { ...product, variants: [{ ...product.variants[0], price: { amount: 12, currency: 'USD' } }] },
     { ...product, url: 'https://other.example/products/beans' },
-    { ...product, url: origin + '/en-us/products/beans' },
-    { ...product, url: origin + '/checkout' },
+    { ...product, url: `${origin}/en-us/products/beans` },
+    { ...product, url: `${origin}/checkout` },
   ];
   expect(await searchUcp(input, reply(JSON.stringify(rpc(products))))).toEqual({
     kind: 'results',
@@ -75,9 +75,9 @@ it('drops foreign currency, foreign origin, different locale, and checkout-only 
 });
 
 it.each([
-  origin + '/other',
+  `${origin}/other`,
   'https://other.example/api/ucp/mcp',
-  origin + '/api/ucp/mcp?session=1',
+  `${origin}/api/ucp/mcp?session=1`,
   'https://catalog.shopify.com/api/ucp/mcp',
 ])('declines unsupported binding %s without a request', async (endpoint) => {
   const f = fakeContext({});
@@ -126,4 +126,31 @@ it.each([
   expect(await searchUcp(input, reply(JSON.stringify(envelope)))).toEqual({
     kind: 'invalid_response',
   });
+});
+
+it('preserves official product attribution and rejects conflicting variant selectors', async () => {
+  const variants = [
+    {
+      ...product.variants[0],
+      url: `${origin}/products/beans?variant=123&_gsid=abc&utm_source=shopify`,
+    },
+    { ...product.variants[0], url: `${origin}/products/beans?variant=999` },
+    { ...product.variants[0], url: `${origin}/products/beans?variant=123&variant=999` },
+  ];
+  const url = `${origin}/en-ca/products/beans?variant=123&_gsid=abc&utm_source=shopify`;
+  expect(await searchUcp(input, reply(JSON.stringify(rpc([{ ...product, variants }]))))).toEqual({
+    kind: 'results',
+    candidates: [{ ...candidate, url }],
+  });
+});
+
+it('bounds returned candidates and reads only the first catalog page', async () => {
+  const variants = Array.from({ length: 30 }, (_, i) => ({
+    ...product.variants[0],
+    id: `gid://shopify/ProductVariant/${123 + i}`,
+  }));
+  const f = fakeContext({ [endpoint]: { body: JSON.stringify(rpc([{ ...product, variants }])) } });
+  const result = await searchUcp(input, f.context);
+  expect(result.kind === 'results' && result.candidates.length).toBe(10);
+  expect(f.sent).toHaveLength(1);
 });

@@ -18,6 +18,7 @@ export {
   searchWoo,
 } from './directory/search.ts';
 export { searchDeclaredTemplate } from './directory/template.ts';
+export { searchUcp } from './directory/ucp.ts';
 export * from './platform/index.ts';
 export type * from './read/contract.ts';
 export {
