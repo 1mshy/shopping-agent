@@ -299,6 +299,17 @@ describe('tier 1 with the title rules', () => {
     expect(d).toMatchObject({ relation: 'exact', decidedBy: 'identifier' });
   });
 
+  it.each([
+    ['Ace', 'Palace'],
+    ['Palace', 'Ace'],
+  ])('a shared MPN does not identify %s as %s', (brand, otherBrand) => {
+    const d = decideMatch({
+      asked: ask(`${brand} ZX100`, { brand, mpn: 'ZX100' }),
+      listing: item(`${otherBrand} ZX100`, { brand: otherBrand, mpn: 'ZX100' }),
+    });
+    expect(d).toMatchObject({ relation: 'other_line', rule: 'other_brand' });
+  });
+
   it('an equal GTIN against a title that says part: neither decides', () => {
     const listing = item('Replacement Jar for Acme ZX4400', { gtin: '4006381333931' });
     expect(matchListing({ asked, listing }).relation).toBe('unknown');
