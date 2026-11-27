@@ -122,7 +122,11 @@ export async function fingerprintStore(
     r?.outcome.kind === 'ok' ? r.response : null;
   const homeResult = await probe('home', home, 'http');
   const page = okPage(homeResult);
-  const facts = page ? homeEvidence(page, new URL(page.finalUrl)) : null;
+  const html =
+    page &&
+    (/^(?:text\/html|application\/xhtml\+xml)(?:\s*;|$)/i.test(page.contentType ?? '') ||
+      (!page.contentType && /^\s*<(?:!doctype html|html)\b/i.test(page.text)));
+  const facts = html ? homeEvidence(page, new URL(page.finalUrl)) : null;
   let platform = facts?.platform ?? 'unknown';
   let platformEvidence: StoreFingerprint['platformEvidence'] =
     platform === 'unknown' ? null : 'home_markup';

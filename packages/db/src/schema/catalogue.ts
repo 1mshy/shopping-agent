@@ -63,6 +63,7 @@ export const store = sqliteTable(
     lastOkAt: timestamp('last_ok_at'),
     lastErrorAt: timestamp('last_error_at'),
     lastError: text('last_error').$type<ReadFailureCause>(),
+    fingerprint: text('fingerprint_json', { mode: 'json' }),
   },
   (t) => [unique().on(t.host, t.marketPrefix)],
 );

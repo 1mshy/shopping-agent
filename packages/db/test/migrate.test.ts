@@ -290,7 +290,7 @@ describe('migration 0003', () => {
         from price_observation where id = 1`);
       append('2026-11-17T09:00:30.000Z');
       append('2026-11-17T09:02:00.000Z');
-      expect(migrate(db)).toEqual({ level: 3, applied: [3] });
+      expect(migrate(db, MIGRATIONS.slice(0, 3))).toEqual({ level: 3, applied: [3] });
       append('2026-11-17T09:01:00.000Z');
       const covered = db.orm.all(
         sql`select event_id, listing_id, through_observation_id, source from restock_coverage`,
@@ -298,12 +298,33 @@ describe('migration 0003', () => {
       expect(covered).toEqual([
         { event_id: 2, listing_id: 1, through_observation_id: 2, source: 'legacy' },
       ]);
-      expect(migrate(db).applied).toEqual([]);
+      expect(migrate(db, MIGRATIONS.slice(0, 3)).applied).toEqual([]);
       expect(() => db.exec('DELETE FROM restock_coverage')).toThrow(/immutable/);
       expect(() => db.exec("UPDATE restock_coverage SET source = 'decision'")).toThrow(/immutable/);
       expect(() =>
         db.exec('INSERT OR REPLACE INTO restock_coverage SELECT * FROM restock_coverage'),
       ).toThrow(/never replaced/);
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('migration 0004', () => {
+  it('preserves a level-three storefront and leaves its fingerprint uncached', () => {
+    const db = openDatabase(':memory:');
+    try {
+      migrate(db, MIGRATIONS.slice(0, 1));
+      db.exec(LEVEL_1_ROWS);
+      migrate(db, MIGRATIONS.slice(0, 3));
+      const stores = () => db.orm.all(sql`select id,host,is_shop,trust_tier,source from store`);
+      const before = stores();
+      expect(migrate(db)).toEqual({ level: 4, applied: [4] });
+      expect(stores()).toEqual(before);
+      expect(db.orm.get(sql`select fingerprint_json from store`)).toEqual({
+        fingerprint_json: null,
+      });
+      expect(() => db.exec("update store set fingerprint_json = '[]'")).toThrow();
     } finally {
       db.close();
     }

@@ -382,7 +382,7 @@ const TRIGGERS = [
  * 0001, 37 from 0002 (11 named, 26 unnamed). A column added by ALTER TABLE carries its CHECKs into
  * its table's CREATE statement, so they are counted with it.
  */
-const CHECK_COUNT = 176; // 0003 adds the restock coverage source.
+const CHECK_COUNT = 177; // 0004 adds the optional store fingerprint document.
 
 describe('what only the SQL holds', () => {
   let db: Database;
@@ -449,11 +449,17 @@ describe('what only the SQL holds', () => {
     }
   });
 
-  it('adds only nullable columns to the tables of 0001, so 0002 needs no table rebuild', () => {
-    // Columns that 0002 adds with ALTER TABLE … ADD COLUMN: a NOT NULL column there needs a
+  it('adds only nullable columns to the tables of 0001, so additions need no table rebuild', () => {
+    // Columns that 0002 and 0004 add with ALTER TABLE … ADD COLUMN: a NOT NULL column there needs a
     // default, and no column has one (migrations/README.md).
     const added: Record<string, string[]> = {
-      store: ['consecutive_errors', 'last_ok_at', 'last_error_at', 'last_error'],
+      store: [
+        'consecutive_errors',
+        'last_ok_at',
+        'last_error_at',
+        'last_error',
+        'fingerprint_json',
+      ],
       watch: [
         'paused_at',
         'archived_at',

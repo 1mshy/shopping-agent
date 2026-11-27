@@ -154,9 +154,9 @@ export function openSearchTemplate(page: PageResponse, base: URL): string | null
   return null;
 }
 
-export function productSitemap(page: PageResponse, base: URL): boolean {
+export function productSitemap(page: PageResponse, base: URL): boolean | null {
   const xml = xmlBody(page, 'sitemapindex') ?? xmlBody(page, 'urlset');
-  if (!xml) return false;
+  if (!xml) return null;
   for (const loc of xml.matchAll(/<loc>\s*([^<>]+?)\s*<\/loc>/g)) {
     const path = storeUrl((loc[1] ?? '').replace(/&amp;/g, '&'), base)?.pathname;
     if (
