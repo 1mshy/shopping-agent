@@ -30,6 +30,11 @@ Local main, origin/main and GitHub main agree at `d8e5c80`. The starting tree wa
 | P1-8 password form | orchestrator | codex/p1-ui-password | merged | [PR 23](https://github.com/1mshy/shopping-agent/pull/23) at c46373a, built app and old/new credentials verified |
 | P1-3 Woo search | orchestrator | codex/p1-woo-search | merged | [PR 25](https://github.com/1mshy/shopping-agent/pull/25) at b6b7b0d. [PR 28](https://github.com/1mshy/shopping-agent/pull/28) added Magento 2 GET and store rewrites at 43dc503. Name lookup wiring in progress |
 | P1-4 name-watch identity | restock | codex/p1-name-watch-identity | planned | 67a4084 captures 7 regressions, reproduced. Review of e172ad6 found two failures involving direct read contradictions and a shared listing title. Corrections in progress |
+| selected-attribute matching | orchestrator | PR 31 | merged | a926a13, two green GitHub jobs. Next is normal runtime integration and remaining Phase 1 units |
+| store-declared search templates | orchestrator | PR 32 | merged | 0b5bf8c, two green GitHub jobs. Next is normal runtime integration and remaining Phase 1 units |
+| notification channel settings | orchestrator | PR 33 | merged | 1809a08, two green GitHub jobs. Next is normal runtime integration and remaining Phase 1 units |
+
+Current integrated main is `832f8b1`. PRs 30 through 35 integrated ordinary name lookup, selected variants, SearchAction/OpenSearch, channel settings, identity across lookup/reads, and the indexed lifetime restock transition. Remaining units are the Best Buy Canada and Amazon adapters, trying declared fallback routes in the normal runtime, read-only per-store UCP, offline pack import, visible trust signals (look-alike, registration, Tranco and page), Diagnostics, remaining review reconciliation, and the final measurements. The uPlot and Best Buy branches have passed local tests. The high-risk name-watch and restock fixes both passed independent re-review. Global login pacing is in review.
 
 ### Directory gate preregistration
 

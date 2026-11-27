@@ -38,6 +38,8 @@ Independent review of restock coverage confirmed atomic rollback and exactly one
 
 In built Chrome, entering a previously unseen product name found an exact listing and displayed CAD 39.99 from the direct product page. The search payload advertised CAD 1.00. The second name encountered a 429, kept the watch queued for retry and added zero listings. This used the production composition with its HTTP network replaced by local fixtures in a disposable build.
 
+At 19:43:14 UTC the live container held 20 watches on 20 distinct listings, 21 observations and zero alert events. [PR 34](https://github.com/1mshy/shopping-agent/pull/34) integrated identity fixes at b2f427e following three rounds of regressions and independent review. [PR 35](https://github.com/1mshy/shopping-agent/pull/35) integrated long-gap restock transitions and migration 0005 at 832f8b1. At 100, 1,000 and 10,000 observations, both indexed seeks used the same number of SQLite VM instructions. [PR 33](https://github.com/1mshy/shopping-agent/pull/33) integrated channel management. Built Chrome exercised create, edit, secret preservation, disable, enable, remove, ntfy setup and local webhook 503/200 feedback.
+
 Phase 1 started on 2026-11-24 at 22:15 as an unattended run: the owner handed it to the orchestrator for the night with 2 to 3 subagents, local commits and no pushes. **Nothing in this section has run in CI.** Every "exit 0" below is lint, typecheck, test and build run locally on the merged tree and judged by exit code. Unit status is in `docs/orchestration.md`.
 
 ### 2026-11-25, 05:00: Phase 1 report at the end of the unattended run
