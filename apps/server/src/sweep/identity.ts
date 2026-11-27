@@ -16,8 +16,9 @@ import {
   type MatchAsked,
   specFingerprint,
 } from '@agentic-dasher/core';
-import { type Database, readVerdicts } from '@agentic-dasher/db';
-import type { DecidedBy, MatchRelation, MatchVerdict, SearchIntent } from '@agentic-dasher/shared';
+import { type Database, schema } from '@agentic-dasher/db';
+import { type DecidedBy, type MatchRelation, MatchVerdict } from '@agentic-dasher/shared';
+import { and, desc, eq, inArray } from 'drizzle-orm';
 import type { ListingRow, StoreRow, WatchListingRow, WatchRow } from './rows.ts';
 
 /** The versions a cached verdict must have been made under to count (S§5.4). */
@@ -40,12 +41,11 @@ export interface ListingIdentityVerdict {
   readonly markedWrong: boolean;
 }
 
-/**
- * The listing's identity as the verdict cache keys it (S§4.1 listing_fp: store, SKU or clean URL,
- * title hash, variant). The store is written as its id. Exported so the unit that writes verdicts
- * keys them the same way.
- */
-export function listingIdentityOf(listing: ListingRow, store: StoreRow): ListingIdentity {
+type StoredListing = Pick<ListingRow, 'sku' | 'urlCanonical' | 'title' | 'variant'>;
+type StoredStore = Pick<StoreRow, 'id' | 'host' | 'marketPrefix'>;
+
+/** The identity fields as stored for the listing. */
+export function listingIdentityOf(listing: StoredListing, store: StoredStore): ListingIdentity {
   return {
     store: String(store.id),
     sku: listing.sku,
@@ -55,37 +55,66 @@ export function listingIdentityOf(listing: ListingRow, store: StoreRow): Listing
   };
 }
 
-/**
- * The listing fingerprints a cached verdict may sit under: the store as its id (the form above),
- * and as its host, or host and market prefix (the other reading of "the store" in
- * packages/core `ListingIdentity`), until the unit that writes verdicts settles on one.
- */
-function fingerprintsOf(listing: ListingRow, store: StoreRow): string[] {
+/** The URL of the stored listing stays the same when a later read supplies its SKU. Also read
+ * verdicts written under older store/SKU keys until a lookup or owner action updates them. */
+export function verdictKeys(listing: StoredListing, store: StoredStore, previousSku = listing.sku) {
   const identity = listingIdentityOf(listing, store);
-  const stores = new Set([
-    String(store.id),
+  const stable = { ...identity, sku: null };
+  const primary = listingFingerprint(stable);
+  const untitled = listingFingerprint({ ...stable, title: listing.urlCanonical });
+  const equivalent = new Set([primary]);
+  for (const storeKey of new Set([
+    identity.store,
     store.host,
     `${store.host}${store.marketPrefix}`,
-    store.marketPrefix === ''
-      ? store.host
-      : `${store.host}/${store.marketPrefix.replace(/^\/+/, '')}`,
-  ]);
-  return [...new Set([...stores].map((s) => listingFingerprint({ ...identity, store: s })))];
+    store.marketPrefix ? `${store.host}/${store.marketPrefix.replace(/^\/+/, '')}` : store.host,
+  ])) {
+    for (const sku of new Set([null, listing.sku, previousSku])) {
+      equivalent.add(listingFingerprint({ ...identity, store: storeKey, sku }));
+    }
+  }
+  return { primary, untitled, equivalent: [...equivalent] };
 }
 
-/** The identity part of the watch's stored intent, or null when it was never interpreted. */
-export function askedOf(watch: WatchRow): MatchAsked | null {
-  const spec = watch.spec as SearchIntent | null;
-  if (spec === null || typeof spec !== 'object' || typeof spec.name !== 'string') return null;
+/** An interpreted intent supplies its identity fields. Ordinary name watches use the input. */
+export function askedOf(watch: {
+  readonly input: string;
+  readonly spec?: WatchRow['spec'];
+}): MatchAsked {
+  const spec = watch.spec;
   return {
-    name: spec.name,
-    brand: spec.brand ?? null,
-    model: spec.model ?? null,
-    mpn: spec.mpn ?? null,
-    gtin: spec.gtin ?? null,
-    mustHave: Array.isArray(spec.mustHave) ? spec.mustHave : [],
-    packQuantity: spec.packQuantity ?? null,
+    name: spec?.name ?? watch.input,
+    brand: spec?.brand ?? null,
+    model: spec?.model ?? null,
+    mpn: spec?.mpn ?? null,
+    gtin: spec?.gtin ?? null,
+    mustHave: Array.isArray(spec?.mustHave) ? spec.mustHave : [],
+    packQuantity: spec?.packQuantity ?? null,
   };
+}
+
+export function cachedVerdict(
+  db: Database,
+  specFp: string,
+  keys: ReturnType<typeof verdictKeys>,
+  versions: VerdictVersions,
+): MatchVerdict | null {
+  const v = schema.matchVerdict;
+  const rows = db.orm
+    .select()
+    .from(v)
+    .where(and(eq(v.specFp, specFp), inArray(v.listingFp, [...keys.equivalent, keys.untitled])))
+    .orderBy(desc(v.decidedAt), desc(v.id))
+    .all();
+  const verdicts: MatchVerdict[] = [];
+  for (const { id: _id, ...row } of rows) {
+    // The first read can fill a missing title. Only an identifier or an owner could establish
+    // identity without that title. Older lookup code sometimes used the URL itself as a title.
+    const placeholder = keys.primary === keys.untitled || row.listingFp === keys.untitled;
+    if (placeholder && row.decidedBy !== 'person' && row.decidedBy !== 'identifier') continue;
+    verdicts.push(MatchVerdict.parse(row));
+  }
+  return effectiveVerdict(verdicts, versions);
 }
 
 /** Whether the listing may alert for the watch (see the header). */
@@ -99,16 +128,12 @@ export function identityOf(
     readonly versions: VerdictVersions;
   },
 ): ListingIdentityVerdict {
-  const asked = askedOf(input.watch);
-  let verdict: MatchVerdict | null = null;
-  if (asked !== null) {
-    const specFp = specFingerprint(asked);
-    const all: MatchVerdict[] = [];
-    for (const fp of fingerprintsOf(input.listing, input.store)) {
-      all.push(...readVerdicts(db, specFp, fp));
-    }
-    verdict = effectiveVerdict(all, input.versions);
-  }
+  const verdict = cachedVerdict(
+    db,
+    specFingerprint(askedOf(input.watch)),
+    verdictKeys(input.listing, input.store),
+    input.versions,
+  );
   if (verdict !== null && verdict.decidedBy === 'person') {
     const exact = verdict.relation === 'exact';
     return { confirmed: exact, relation: verdict.relation, by: 'person', markedWrong: !exact };

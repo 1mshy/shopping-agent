@@ -1,8 +1,9 @@
 // The ordinary name-watch route, discovery, and the next sweep share a real SQLite database.
 // Only the store search and the read are scripted.
+import { listingFingerprint } from '@agentic-dasher/core';
 import { schema } from '@agentic-dasher/db';
 import type { WatchView } from '@agentic-dasher/shared';
-import { eq, sql } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { checkListing } from '../../src/sweep/index.ts';
 import { type Candidate, createWatchRoutes, createWatchService } from '../../src/watches/index.ts';
@@ -115,7 +116,7 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
       );
       expect(marked.status).toBe(200);
       service.archive(PROFILE, watchId);
-      candidate = { ...result, sku, brand: null, mpn: null, title: result.title };
+      candidate = { ...result, sku, brand: null, mpn: null };
       expect(listingOf(await create())).toMatchObject({
         listingId: listing.listingId,
         role: 'candidate',
@@ -126,13 +127,28 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
   it('rediscovery and evaluation use the identity fields from an interpreted watch', async () => {
     const watchId = await create();
     // Optional stored interpretation on an existing watch adds a must-have to the typed name.
-    tmp.db.orm.run(
-      sql`update watch set spec_json = ${JSON.stringify({
-        name,
-        brand: 'Acme',
-        mustHave: [{ attribute: 'colour', value: 'White' }],
-      })} where id = ${watchId}`,
-    );
+    tmp.db.orm
+      .update(schema.watch)
+      .set({
+        spec: {
+          name,
+          kind: 'exact',
+          brand: 'Acme',
+          model: null,
+          mpn: null,
+          gtin: null,
+          packQuantity: null,
+          mustHave: [{ attribute: 'colour', value: 'White' }],
+          substitutes: [],
+          conditions: ['new'],
+          fulfilment: ['delivery'],
+          currency: 'CAD',
+          location: { country: 'CA', postalCode: null },
+          budget: null,
+        },
+      })
+      .where(eq(schema.watch.id, watchId))
+      .run();
     candidate = { ...result, variant: { Colour: 'Black' } };
     await relookup(watchId);
     expect(listingOf(watchId).role).toBe('candidate');
@@ -144,10 +160,54 @@ describe('name-watch identity between discovery, the owner, and the sweep', () =
     expect(eventsOf(tmp.db)).toMatchObject([{ watchId }]);
   });
 
-  it('a matching URL with no title or identifiers stays unconfirmed', async () => {
-    candidate = { ...result, title: ' ', brand: null, mpn: null, sku: null };
-    expect(listingOf(await create()).role).toBe('candidate');
+  it('a person can restore a previously wrong match even when the identifiers change', async () => {
+    const watchId = await create();
+    const listingId = listingOf(watchId).listingId;
+    service.setListingRole(PROFILE, watchId, listingId, 'wrong_match');
+    // Simulate an existing installation with a person override keyed on the store and SKU.
+    const legacy = listingFingerprint({
+      store: result.storeHost,
+      title: result.title,
+      sku: result.sku,
+      url: result.url,
+      variant: {},
+    });
+    tmp.db.orm
+      .update(schema.matchVerdict)
+      .set({ listingFp: legacy })
+      .where(eq(schema.matchVerdict.decidedBy, 'person'))
+      .run();
+    service.archive(PROFILE, watchId);
+    candidate = { ...result, sku: 'new-sku' };
+    const again = await create();
+    expect(listingOf(again).role).toBe('candidate');
+    service.setListingRole(PROFILE, again, listingId, 'track');
+    candidate = { ...candidate, brand: 'Different', mpn: null };
+    await relookup(again);
+    expect(listingOf(again).role).toBe('tracked');
+    await sweep(listingId);
+    expect(eventsOf(tmp.db)).toMatchObject([{ watchId: again }]);
   });
+
+  it('an identifier-only exact hit stays confirmed when its first read supplies a title', async () => {
+    candidate = { ...result, title: '' };
+    const watchId = await create();
+    const listing = listingOf(watchId);
+    expect(listing.role).toBe('tracked');
+    await sweep(listing.listingId);
+    expect(eventsOf(tmp.db)).toMatchObject([{ watchId }]);
+    candidate = { ...result, brand: 'Other', mpn: 'QX200' };
+    await relookup(watchId);
+    expect(listingOf(watchId).role).toBe('candidate');
+  });
+
+  it.each([' ', result.url])(
+    'a matching URL with placeholder title %s and no identifiers stays unconfirmed',
+    async (title) => {
+      candidate = { ...result, title, brand: null, mpn: null, sku: null };
+      expect(listingOf(await create()).role).toBe('candidate');
+    },
+  );
 
   it('changed identifier evidence updates the discovery-owned role in both directions', async () => {
     const watchId = await create();

@@ -12,14 +12,13 @@ import {
   type IntakeRefusal,
   intakeWatch,
   type ListingUrlInput,
-  listingFingerprint,
   MATCHER_VERSION,
   type MatchAsked,
   normaliseWatchInput,
   regionalListingUrl,
   specFingerprint,
 } from '@agentic-dasher/core';
-import { type Database, readEffectiveVerdict, schema, writeVerdict } from '@agentic-dasher/db';
+import { type Database, schema, writeVerdict } from '@agentic-dasher/db';
 import {
   type Availability,
   type Condition,
@@ -39,9 +38,12 @@ import {
   type WatchStatus,
   type WatchView,
 } from '@agentic-dasher/shared';
-import { and, asc, desc, eq, isNull, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, inArray, isNull, sql } from 'drizzle-orm';
 import { marketPrefixOf } from '../directory/storefront.ts';
 import { deliveryStatus, gatingDeliveries, lastAcceptedAlert } from '../notify/gating.ts';
+import { askedOf, CODE_ONLY_VERSIONS, cachedVerdict, verdictKeys } from '../sweep/identity.ts';
+
+export { askedOf as askedFor } from '../sweep/identity.ts';
 
 export const WATCH_ERROR_CODES = [
   'invalid',
@@ -189,23 +191,6 @@ function cleanVariant(variant: unknown): Record<string, string> {
     }
   }
   return out;
-}
-
-/**
- * The asked spec of a watch, by the deterministic path (S§5.4: "a clear product name takes a
- * deterministic path with no planning call"): the name as typed, no identifier, no must-have. A
- * product watch's spec is its link, so a person's verdict on it is keyed per watch input.
- */
-export function askedFor(w: { readonly input: string }): MatchAsked {
-  return {
-    name: w.input,
-    brand: null,
-    model: null,
-    mpn: null,
-    gtin: null,
-    mustHave: [],
-    packQuantity: null,
-  };
 }
 
 function variantOf(url: URL): Record<string, string> {
@@ -445,7 +430,7 @@ export function createWatchService(deps: WatchServiceDeps) {
     }
   }
 
-  /** Writes a store, listing and their scheduling row for one URL; returns the listing id. */
+  /** Find or insert the store and listing by their durable keys. */
   function upsertListing(
     url: URL,
     canonicalUrl: string,
@@ -453,7 +438,7 @@ export function createWatchService(deps: WatchServiceDeps) {
     title: string,
     variant: Record<string, string>,
     nowIso: string,
-  ): number {
+  ) {
     const host = url.hostname.toLowerCase();
     o.run(sql`
       insert into store (host, market_prefix, platform, platform_evidence, country, base_currency,
@@ -464,7 +449,7 @@ export function createWatchService(deps: WatchServiceDeps) {
         null, 'unknown', 'unverified', '[]', 'pasted', null, 0, null, null, null)
       on conflict (host, market_prefix) do nothing`);
     const storeRow = o
-      .select({ id: store.id })
+      .select()
       .from(store)
       .where(and(eq(store.host, host), eq(store.marketPrefix, marketPrefix)))
       .get();
@@ -479,12 +464,12 @@ export function createWatchService(deps: WatchServiceDeps) {
         ${nowIso}, null, 0)
       on conflict (store_id, url_canonical) do nothing`);
     const l = o
-      .select({ id: listing.id })
+      .select()
       .from(listing)
       .where(and(eq(listing.storeId, storeRow.id), eq(listing.urlCanonical, canonical)))
       .get();
     if (l === undefined) throw new Error(`listing ${canonical} was not written`);
-    return l.id;
+    return { listing: l, store: storeRow };
   }
 
   function link(
@@ -497,7 +482,8 @@ export function createWatchService(deps: WatchServiceDeps) {
     o.run(sql`
       insert into watch_listing (profile_id, watch_id, listing_id, role, added_by)
       values (${profileId}, ${watchId}, ${listingId}, ${role}, ${addedBy})
-      on conflict (watch_id, listing_id) do nothing`);
+      on conflict (watch_id, listing_id) do update set role = excluded.role
+      where watch_listing.added_by = 'discovery'`);
   }
 
   function lookupDone(watchId: number, attempts: number): void {
@@ -547,7 +533,7 @@ export function createWatchService(deps: WatchServiceDeps) {
       return false;
     }
     db.orm.transaction(() => {
-      const listingId = upsertListing(
+      const saved = upsertListing(
         url,
         w.input,
         marketPrefixOf(url.pathname),
@@ -555,8 +541,8 @@ export function createWatchService(deps: WatchServiceDeps) {
         variantOf(url),
         nowIso,
       );
-      link(w.profileId, w.id, listingId, 'tracked', 'user');
-      rescheduleListing(listingId, nowIso);
+      link(w.profileId, w.id, saved.listing.id, 'tracked', 'user');
+      rescheduleListing(saved.listing.id, nowIso);
       lookupDone(w.id, attempts);
     });
     return true;
@@ -605,7 +591,7 @@ export function createWatchService(deps: WatchServiceDeps) {
       return false;
     }
     const nowIso = iso(deps.now());
-    const asked = askedFor(w);
+    const asked = askedOf(still);
     const specFp = specFingerprint(asked);
     let tracked = 0;
     db.orm.transaction(() => {
@@ -645,8 +631,8 @@ export function createWatchService(deps: WatchServiceDeps) {
 
   /**
    * Links one candidate: tiers 1-2 of the matcher (or a person's cached verdict, which wins) decide;
-   * only `exact` is tracked, everything else is a candidate the UI shows as unconfirmed. A listing
-   * the watch already has (excluded by a person, say) keeps its role.
+   * only `exact` is tracked, everything else is a candidate the UI shows as unconfirmed. A person's choice
+   * of role survives rediscovery.
    */
   function linkCandidate(
     w: WatchRow,
@@ -660,29 +646,35 @@ export function createWatchService(deps: WatchServiceDeps) {
       typeof c.marketPrefix === 'string' && /^(?:\/[a-z]{2}(?:-[a-z]{2})?)?$/.test(c.marketPrefix)
         ? c.marketPrefix
         : '';
-    const title =
-      typeof c.title === 'string' && c.title.trim() !== ''
-        ? c.title.trim().slice(0, 500)
-        : canonical;
+    const title = typeof c.title === 'string' ? c.title.trim().slice(0, 500) : '';
     const variant = cleanVariant(c.variant);
     const text = (v: unknown, max: number): string | null =>
       typeof v === 'string' && v.trim() !== '' && v.length <= max ? v.trim() : null;
-    const listingId = upsertListing(url, canonical, prefix, title, variant, nowIso);
-    const sku = text(c.sku, 256);
-    const listingFp = listingFingerprint({
-      store: `${url.hostname.toLowerCase()}${prefix}`,
-      sku,
-      url: canonical,
-      title,
+    const saved = upsertListing(url, canonical, prefix, title || canonical, variant, nowIso);
+    const listingId = saved.listing.id;
+    const current = {
+      ...saved.listing,
+      title: title || saved.listing.title,
       variant,
-    });
-    const versions = { matcherVersion: MATCHER_VERSION, promptVersion: null, modelId: null };
-    let relation = readEffectiveVerdict(db, specFp, listingFp, versions)?.relation;
-    if (relation === undefined) {
+      sku: text(c.sku, 256) ?? saved.listing.sku,
+    };
+    const keys = verdictKeys(current, saved.store, saved.listing.sku);
+    const verdict = cachedVerdict(db, specFp, keys, CODE_ONLY_VERSIONS);
+    o.update(listing)
+      .set({ title: current.title, variant, sku: current.sku })
+      .where(eq(listing.id, listingId))
+      .run();
+    let relation = verdict?.relation;
+    if (verdict?.decidedBy === 'person') {
+      if (verdict.listingFp !== keys.primary)
+        writeVerdict(db, { ...verdict, listingFp: keys.primary });
+    } else {
+      // Brand, MPN and GTIN can change while the cache fingerprint stays the same. Re-evaluate
+      // the cheap code tiers and replace any old code decision, including a formerly stronger tier.
       const decision = decideMatch({
         asked,
         listing: {
-          title,
+          title: title === canonical ? '' : title,
           brand: text(c.brand, 200),
           mpn: text(c.mpn, 64),
           gtin: text(c.gtin, 32),
@@ -690,9 +682,20 @@ export function createWatchService(deps: WatchServiceDeps) {
           url: canonical,
         },
       });
+      const v = schema.matchVerdict;
+      o.delete(v)
+        .where(
+          and(
+            eq(v.specFp, specFp),
+            inArray(v.listingFp, [...keys.equivalent, keys.untitled]),
+            eq(v.matcherVersion, MATCHER_VERSION),
+            inArray(v.decidedBy, ['identifier', 'rules']),
+          ),
+        )
+        .run();
       writeVerdict(db, {
         specFp,
-        listingFp,
+        listingFp: keys.primary,
         relation: decision.relation,
         differingAttrs: [...decision.differingAttrs],
         decidedBy: decision.decidedBy,
@@ -710,7 +713,7 @@ export function createWatchService(deps: WatchServiceDeps) {
       .from(watchListing)
       .where(and(eq(watchListing.watchId, w.id), eq(watchListing.listingId, listingId)))
       .get();
-    if (actual?.role === 'tracked') rescheduleListing(listingId, nowIso);
+    rescheduleListing(listingId, nowIso);
     return actual?.role ?? role;
   }
 
@@ -884,15 +887,11 @@ export function createWatchService(deps: WatchServiceDeps) {
           )
           .where(eq(watchListing.id, linkRow.id))
           .run();
-        if (action === 'wrong_match') {
+        if (action !== 'exclude') {
           const l = o
             .select({
-              host: store.host,
-              prefix: store.marketPrefix,
-              sku: listing.sku,
-              url: listing.urlCanonical,
-              title: listing.title,
-              variant: listing.variant,
+              listing,
+              store,
             })
             .from(listing)
             .innerJoin(store, eq(store.id, listing.storeId))
@@ -900,15 +899,9 @@ export function createWatchService(deps: WatchServiceDeps) {
             .get();
           if (l !== undefined) {
             writeVerdict(db, {
-              specFp: specFingerprint(askedFor(w)),
-              listingFp: listingFingerprint({
-                store: `${l.host}${l.prefix}`,
-                sku: l.sku,
-                url: l.url,
-                title: l.title,
-                variant: l.variant,
-              }),
-              relation: 'other_model',
+              specFp: specFingerprint(askedOf(w)),
+              listingFp: verdictKeys(l.listing, l.store).primary,
+              relation: action === 'track' ? 'exact' : 'other_model',
               differingAttrs: [],
               decidedBy: 'person',
               matcherVersion: MATCHER_VERSION,
@@ -917,6 +910,8 @@ export function createWatchService(deps: WatchServiceDeps) {
               decidedAt: nowIso,
             });
           }
+        }
+        if (action === 'wrong_match') {
           tx.insert(schema.event)
             .values({ profileId, kind: 'wrong_match', createdAt: nowIso })
             .run();
